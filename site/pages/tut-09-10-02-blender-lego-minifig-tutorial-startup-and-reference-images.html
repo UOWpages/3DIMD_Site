@@ -1,0 +1,190 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      3DIMD | Setup Reference Images in Blender:
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
+  </head>
+  <body class="content-page">
+    <main class="content-area content-page-area" id="main-content">
+      <h1 class="page-title">
+        Setup Reference Images in Blender:
+      </h1>
+      <p>
+        This short tutorial shows how to add front and side reference images in Blender, position them, and group them into a separate collection so you don't select them by accident.
+      </p>
+      <details class="accordion accordion--nested video-accordion">
+        <summary>
+          Video 1
+        </summary>
+        <div class="accordion-body">
+          <article class="embed-card">
+            <h3>Video 1</h3>
+            <iframe class="panopto-embed" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=e3281474-65f5-4b86-9d58-b39800e3937b" title="Setup Reference Images in Blender: video 1" loading="lazy" allowfullscreen>
+            </iframe>
+            <p>
+              <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e3281474-65f5-4b86-9d58-b39800e3937b" target="_blank" rel="noopener noreferrer">
+                Open source link
+              </a>
+            </p>
+          </article>
+        </div>
+      </details>
+      <figure class="image-figure gyazo-inline">
+        <a href="https://gyazo.com/ad4c6114ccd38f0b07eee613244f47b6" target="_blank" rel="noopener noreferrer">
+          <img src="https://i.gyazo.com/ad4c6114ccd38f0b07eee613244f47b6.png" alt="Gyazo preview" loading="lazy" />
+        </a>
+        <figcaption class="image-caption">
+          Gyazo preview (click image to expand).
+        </figcaption>
+      </figure>
+      <h3>User Interface:</h3>
+        <ul>
+          <li>Top Menu - Layout (for Now)</li>
+          <li>Scene Collection Menu</li>
+          <li>ViewPanes</li>
+          <li>
+            XYZ gimbal,
+            <ul>
+              <li>
+                Top menu -
+                <ul>
+                  <li>Show Gizmo</li>
+                  <li>Show Overlays</li>
+                  <li>Toggle X Ray</li>
+                  <li>Viewport Shading</li>
+                  <li>Object/Edit Mode</li>
+                  <li>Tab, 1,2,3</li>
+                  <li>
+                    New windows -
+                    <ul>
+                      <li>Go to top right</li>
+                      <li>Hover to get +</li>
+                      <li>Drag down for new window or Window/New Window in top menu</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            SideBar
+            <ul>
+              <li>N to toggle open and closed, or arrow beside Scene Collection Menu to open</li>
+            </ul>
+          </li>
+          <li>Item, Tool, View</li>
+          <li>Editor Type Panel</li>
+          <li>Typical Menus are Object, Modifiers at the moment</li>
+          <li>
+            Navigation and Interaction
+            <ul>
+              <li>Shift MMB to drag/pan</li>
+              <li>MMB to rotate</li>
+              <li>Z + wheel to select wireframe or rendering options</li>
+              <li>Shift + A to add objects</li>
+            </ul>
+          </li>
+          <li>
+            Save frequently
+            <ul>
+              <li>Press Ctrl+S regularly to save your progress.</li>
+              <li>Have a number at the end of your file name to increment.</li>
+              <li>Press the "+" and save button to increment save.<!-- 0. File &amp; scene setup --></li>
+              <li>New scene: File =&gt; New =&gt; General (or Ctrl+N)</li>
+              <li>Delete extras (optional – can use existing cube): select object =&gt; X =&gt; Enter</li>
+              <li>Work in Layout Workspace with 2 x Xray views and full coordinate reference while checking in Modeling for finished view</li>
+              <li>Drag another 3D View window out in Layout to be side by side</li>
+              <li>Select X axis Gimbal in Left window and Y axis Gimbal in right<!-- 1. Add a front --></li>
+            </ul>
+          </li>
+        </ul>
+      <h3>Reference Images</h3>
+        <ul>
+          <ul>
+            <li>In the 3D View (Object Mode, Layout Tab), =&gt;</li>
+            <li>Drag a new window in from the top right corner.</li>
+          </ul>
+        </ul>
+      <h3>Reference Image Side – Orthographic X view in Layout</h3>
+        <ul>
+          <ul>
+            <li>Make this the right hand window – click X in Gimbal top right for Orthographic X</li>
+            <li>In Orthographic X axis View, =&gt;</li>
+            <li>Press Shift-A to get Menu and Select: Add =&gt; Image =&gt; Reference.</li>
+            <li>In the file browser select your front/side reference image =&gt; Enter</li>
+            <li>The image will appear facing the front view.</li>
+            <li>MMB mouse drag out to perspective view</li>
+            <li>With reference object/image selected:</li>
+            <li>Press G =&gt; X =&gt; type in -5 =&gt; Enter (or mouse drag after G and X are pressed) to move reference out of center for modeling.</li>
+            <li>Press N to open Sidebar =&gt; Item =&gt; Transform if you want to type exact location values</li>
+            <li>Name this in Outliner Scene Window as Reference Side</li>
+          </ul>
+        </ul>
+      <h3>(the jpg is the child of the object)</h3>
+        <ul>
+          <ul>
+            <li>Click x gimbal to get out of perspective view</li>
+            <li>Press G =&gt; Y to drag the reference object so the Z axis is in line with the centre line of the side view of the head. (will be –0.75m Y)</li>
+          </ul>
+        </ul>
+      <h3>Reference Image Front – Orthographic Y view in Layout</h3>
+        <ul>
+          <ul>
+            <li>Do steps from adding Image Reference Side above in the Orthographic Y axis window but with G =&gt; Y</li>
+            <li>Name this in Outliner Scene Window as Reference Front</li>
+            <li>Use G =&gt; X to drag the reference object so the Z axis is in line with the centre line of the front view of the head.</li>
+          </ul>
+        </ul>
+      <h3>Group reference images into a new collection</h3>
+        <ul>
+          <ul>
+            <li>Select both reference images (select one, then Shift+click the other).</li>
+            <li>Press M =&gt; New Collection to move them into a new collection.</li>
+            <li>Name the collection &quot;References&quot; (or &quot;Reference&quot;).</li>
+          </ul>
+        </ul>
+      <h3>Prevent accidental selection of reference images</h3>
+      <ul>
+        <ul>
+          <li>In the Outliner, disable selection for the Reference Images, =&gt;</li>
+          <li>Click the selectable-toggle / arrow icon.</li>
+          <li>This way your cube/model is selectable and not your reference images.</li>
+          <li>If you can't see the selection-toggle icons in the Outliner, =&gt;</li>
+          <li>Open the Outliner filter menu and enable the icons</li>
+        </ul>
+      </ul>
+      <p>(Filter =&gt; Show Restriction Toggles).</p>
+      <h3>Make the cube transparent (so you can see the reference)</h3>
+      <ul>
+        <ul>
+          <li>Press Z to toggle viewport shading so the cube becomes transparent/see-through</li>
+          <li>Use Wireframe/Solid and X-Ray/Viewport Shading in top viewport menu</li>
+        </ul>
+      </ul>
+      <h3>Notes and tips:</h3>
+      <ul>
+        <li>Common shortcuts used:</li>
+        <ul>
+          <h3>G = Grab/Move</h3>
+          <h3>R = Rotate, X/Y/Z to constrain transform axis</h3>
+          <h3>Shift+D = Duplicate</h3>
+          <p>M = Move to collection.</p>
+          <h3>Z toggles a viewport shading pie on your Blender setup, =&gt;</h3>
+                  <p>choose Wireframe or X-Ray mode so the cube is easier to see.</p>
+        </ul>
+        <li>Use the Outliner to manage visibility and selectability for a cleaner workflow.</li>
+        <li>These steps assume default Blender keymap and typical Outliner settings.</li>
+      </ul>
+    </main>
+    <script src="../assets/js/site.js?v=20260805f">
+    </script>
+  </body>
+</html>

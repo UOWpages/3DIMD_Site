@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3DIMD | Unity Intro – Interaction Scripting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+    <link href="../assets/css/site.css?v=20260805n" rel="stylesheet" />
+  </head>
+  <body class="content-page">
+    <main class="content-area content-page-area" id="main-content">
+   <h1 class="page-title">
+    Unity Intro – Interaction Scripting
+   </h1>
+   <details class="accordion">
+    <summary>
+     Core Principles
+    </summary>
+    <div class="accordion-body media-stack">
+     <h3>Unity Week 1,2,3 Slides and Lectures</h3>
+     <h3>Tutorial 02 03 Intro</h3>
+     <details class="accordion accordion--nested video-accordion">
+      <summary>
+       Video: Tutorial 02 03 Intro
+      </summary>
+      <div class="accordion-body">
+       <article class="embed-card">
+        <iframe allowfullscreen="" class="panopto-embed" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=15201202-93ae-4edb-9ed5-b09701028c29" title="Unity Intro – Interaction Scripting intro video">
+        </iframe>
+        <p>
+         <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=15201202-93ae-4edb-9ed5-b09701028c29" rel="noopener noreferrer" target="_blank">
+          Open source link
+         </a>
+        </p>
+       </article>
+      </div>
+     </details>
+     <p>
+      Teaches: Input, Static, Collision, Rigid Body, Physics, Vector3, Speed, Time Delta Time, Screen Space vs. World Space
+     </p>
+     <ol>
+      <li>
+       Set up
+       <ol>
+        <li>
+         Use Week 01 Project
+         <ol>
+          <li>Review Input</li>
+          <li>Create Wall of Legos</li>
+          <li>
+           Lego 01 – Character Controller
+           <ol>
+            <li>Key input and direct control of Transform and Rotate</li>
+            <li>Concepts: Speed and TimeDeltaTime</li>
+           </ol>
+          </li>
+          <li>
+           Lego 02 – Physics Controller
+           <ol>
+            <li>Key input control of force addition to a rigid body (physics)</li>
+            <li>Concepts: Vector3, Rigid Body</li>
+           </ol>
+          </li>
+          <li>
+           Lego 03 – Mouse Click and Drag
+           <ol>
+            <li>Concepts: Vector3, Screen vs. World Space</li>
+           </ol>
+          </li>
+         </ol>
+        </li>
+       </ol>
+      </li>
+     </ol>
+    </div>
+   </details>
+   <details class="accordion">
+    <summary>
+     Physics Wall
+    </summary>
+    <div class="accordion-body media-stack">
+     <!-- <h3>Physics Wall Video</h3> -->
+     <details class="accordion accordion--nested video-accordion">
+      <summary>
+       Video: Physics Wall
+      </summary>
+      <div class="accordion-body">
+       <article class="embed-card">
+        <iframe allowfullscreen="" class="panopto-embed" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=420232ad-3d16-408e-a44a-b097010ceda2" title="Unity Intro – Interaction Scripting physics wall video">
+        </iframe>
+        <p>
+         <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=420232ad-3d16-408e-a44a-b097010ceda2" rel="noopener noreferrer" target="_blank">
+          Open source link
+         </a>
+        </p>
+       </article>
+      </div>
+     </details>
+     <ol>
+      <li>
+       Wall
+       <ol>
+        <li>Import the Lego Brick.dae from Blackboard</li>
+        <li>In Hierarchy, select single brick and duplicate it</li>
+        <li>Change name to Wall Brick 01</li>
+        <li>
+         Position with snapping (hold CTRL)
+         <a href="https://learn.unity.com/tutorial/unity-tips#5c7f8528edbc2a002053b473" rel="noopener noreferrer" target="_blank">
+          https://learn.unity.com/tutorial/unity-tips#5c7f8528edbc2a002053b473
+         </a>
+        </li>
+        <li>Move 1 axis at a time</li>
+       </ol>
+      </li>
+      <li>
+       Physics for Wall
+       <ol>
+        <li>Duplicate a brick, move away – rename as Lego Brick Physics</li>
+        <li>Position slightly above Gallery Floor Plane</li>
+        <li>Add Rigid Body (Physics) component</li>
+        <li>Add Box Collider – Check size</li>
+        <li>Gallery Floor Plane – Make sure Mesh Collider is active</li>
+        <li>Do same for all wall bricks – see results</li>
+        <li>Fix by adjusting Box collider (0,4.8,0) (15.92,9.56,15.92)</li>
+        <li>This is all duplicated work – do script to instantiate wall for stretch target</li>
+       </ol>
+      </li>
+      <li>
+       Make rows
+       <ol>
+        <li>Make row of bricks: 1 is at X=0, 2 is at X=-16, 3 is at X=-32</li>
+        <li>Create empty game object -zero out</li>
+        <li>
+         Parent row to empty GO
+         <ol>
+          <li>Pivot is now center of all geometry</li>
+         </ol>
+        </li>
+        <li>
+         Duplicate this, move and unparent bricks
+         <ol>
+          <li>Brick height is 9.56 exactly – position above this at 9.57 to test</li>
+          <li>Names are preserved, can change if desired</li>
+         </ol>
+        </li>
+       </ol>
+      </li>
+      <li>
+       Task – Control: Character Controller, Rigid Body Physics Controller, Mouse Input
+       <ol>
+        <li>Character control brick</li>
+       </ol>
+      </li>
+     </ol>
+    </div>
+   </details>
+   <details class="accordion">
+    <summary>
+     Character Controller
+    </summary>
+    <div class="accordion-body media-stack">
+     <!-- <h3>Character Controller Video</h3> -->
+     <details class="accordion accordion--nested video-accordion">
+      <summary>
+       Video: Character Controller
+      </summary>
+      <div class="accordion-body">
+       <article class="embed-card">
+        <iframe allowfullscreen="" class="panopto-embed" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=26581b52-3f7f-4d60-bebb-b09900a7c4de" title="Unity Intro – Interaction Scripting character controller video">
+        </iframe>
+        <p>
+         <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=26581b52-3f7f-4d60-bebb-b09900a7c4de" rel="noopener noreferrer" target="_blank">
+          Open source link
+         </a>
+        </p>
+       </article>
+      </div>
+     </details>
+     <ol>
+      <li>
+       Use Physics Brick as with Wall (Rigid Body with Gravity, Box Collider)
+       <ol>
+        <li>
+         Duplicate, Click, Drag, Rename
+         <ol>
+          <li>Use Script with Pseudo Code to research and write code: CharController.cs</li>
+          <li>Change gallery controls to 1 and 2 from left and right arrows</li>
+          <li>Test turning RB, Gravity, and Box Collider off</li>
+         </ol>
+        </li>
+        <li>Rigid Body Physics Controller Brick</li>
+       </ol>
+      </li>
+     </ol>
+     <details class="accordion accordion--nested">
+      <summary>
+       Pseudo Code: Character Controller (Attached to Brick for CC)
+      </summary>
+      <div class="accordion-body">
+       <h3>Pseudo Code:</h3>
+       <h3>using System.Collections;</h3>
+       <h3>using System.Collections.Generic;</h3>
+       <h3>using UnityEngine;</h3>
+       <h3>public class CharController : MonoBehaviour</h3>
+       <h3>{</h3>
+       <p>
+        //PSEUDO CODE: Declare float variables for speed, maxSpeed, acceleration, deceleration, rotation.
+       </p>
+       <h3>void Start()</h3>
+       <h3>{</h3>
+       <h3>}</h3>
+       <h3>// Update is called once per frame.</h3>
+       <h3>void Update()</h3>
+       <h3>{</h3>
+       <h3>// PSEUDO CODE: Check for space key input. If not max speed, accelerate, else decelerate.</h3>
+       <h3>// PSEUDO CODE: Use the speed and transform to move the object forward.</h3>
+       <h3>// FUNCTION: Simplest transform with ACC, DEC, Speed (space bar), and TDT.</h3>
+       <h3>// PSEUDO CODE: Check for left and right key inputs. Turn if left or right keys are pressed.</h3>
+       <h3>}</h3>
+       <h3>}</h3>
+      </div>
+     </details>
+    </div>
+   </details>
+   <details class="accordion">
+    <summary>
+     Physics Controller
+    </summary>
+    <div class="accordion-body media-stack">
+     <!-- <h3>Physics Controller Video</h3> -->
+     <details class="accordion accordion--nested video-accordion">
+      <summary>
+       Video: Physics Controller
+      </summary>
+      <div class="accordion-body">
+       <article class="embed-card">
+        <iframe allowfullscreen="" class="panopto-embed" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=7d1da7ff-bfc3-468f-b09c-b09900efe5bd" title="Unity Intro – Interaction Scripting physics controller video">
+        </iframe>
+        <p>
+         <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=7d1da7ff-bfc3-468f-b09c-b09900efe5bd" rel="noopener noreferrer" target="_blank">
+          Open source link
+         </a>
+        </p>
+       </article>
+      </div>
+     </details>
+     <ol>
+      <li>
+       Use Physics brick (Rigid Body with Gravity, Box Collider)
+       <ol>
+        <li>
+         Duplicate, Click, Drag, Rename
+         <ol>
+          <li>Use Script with Pseudo Code to research and write code: PhysicsController.cs</li>
+          <li>
+           Physics control brick adjustments
+           <ol>
+            <li>We have gravity, but reduce mass</li>
+            <li>Introducing speed multiplier with higher mass will make more like CC and break wall</li>
+            <li>Test turning RB, Gravity, and Box Collider off</li>
+           </ol>
+          </li>
+         </ol>
+        </li>
+        <li>Mouse Input</li>
+       </ol>
+      </li>
+     </ol>
+     <details class="accordion accordion--nested">
+      <summary>
+       Pseudo Code: Rigid Body Physics Controller (Attached to Brick for RBPC)
+      </summary>
+      <div class="accordion-body">
+       <h3>Pseudo Code:</h3>
+       <h3>using System;</h3>
+       <h3>using System.Collections;</h3>
+       <h3>using System.Collections.Generic;</h3>
+       <h3>using UnityEngine;</h3>
+       <h3>public class PhysicsController : MonoBehaviour</h3>
+       <h3>{</h3>
+       <h3>//PSEUDO CODE: Declare private variable of type RigidBody, public float speed;</h3>
+       <h3>// Start is called before the first frame update</h3>
+       <h3>void Start()</h3>
+       <h3>{</h3>
+       <h3>// Initialize RigidBody variable by getting from current gameobject;</h3>
+       <h3>}</h3>
+       <p>
+        // Fixed Update is called once per frame - use fixed Update for physics
+       </p>
+       <h3>void FixedUpdate()</h3>
+       <h3>{</h3>
+       <p>
+        // Check for "a", "d", "w", and "d" key input, for each, add force vector3s going left, right, forward, and back
+       </p>
+       <h3>{</h3>
+       <h3>}</h3>
+       <h3>{</h3>
+       <h3>}</h3>
+       <h3>{</h3>
+       <h3>}</h3>
+       <h3>{</h3>
+       <h3>//Stretch Task - add multiple to increase force</h3>
+       <h3>}</h3>
+       <h3>}</h3>
+       <h3>//Stretch Tasks</h3>
+       <p>
+        // Unity Rollaball (Combines forces in Vector
+        <a href="https://learn.unity.com/project/roll-a-ball-tutorial" rel="noopener noreferrer" target="_blank">
+         https://learn.unity.com/project/roll-a-ball-tutorial
+        </a>
+        )
+       </p>
+       <p>
+        // Intermediate controllers
+        <a href="https://medium.com/ironequal/unity-character-controller-vs-rigidbody-a1e243591483" rel="noopener noreferrer" target="_blank">
+         https://medium.com/ironequal/unity-character-controller-vs-rigidbody-a1e243591483
+        </a>
+       </p>
+      </div>
+     </details>
+    </div>
+   </details>
+   <details class="accordion">
+    <summary>
+     Mouse Input Controller
+    </summary>
+    <div class="accordion-body media-stack">
+     <!-- <h3>Mouse Input controller video</h3> -->
+     <details class="accordion accordion--nested video-accordion">
+      <summary>
+       Video: Mouse Input Controller
+      </summary>
+      <div class="accordion-body">
+       <article class="embed-card">
+        <iframe allowfullscreen="" class="panopto-embed" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=16e96856-9aa1-441b-9af3-b09900ff520d" title="Unity Intro – Interaction Scripting mouse input controller video">
+        </iframe>
+        <p>
+         <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=16e96856-9aa1-441b-9af3-b09900ff520d" rel="noopener noreferrer" target="_blank">
+          Open source link
+         </a>
+        </p>
+       </article>
+      </div>
+     </details>
+     <ol>
+      <li> Use Physics brick (Rigid Body with Gravity, Box Collider)</li>
+      <li> Duplicate, Click, Drag, Rename</li>
+      <li>Use Script with Pseudo Code to research and write code: MouseInput.cs</li>
+      <li>Try the intermediate scripting in video</li>
+     </ol>
+     <details class="accordion accordion--nested">
+      <summary>
+       Pseudo Code: Mouse Input Controller (Attached to Brick for MIC)
+      </summary>
+      <div class="accordion-body">
+       <h3>Pseudo Code:</h3>
+       <h3>using System.Collections;</h3>
+       <h3>using System.Collections.Generic;</h3>
+       <h3>using UnityEngine;</h3>
+       <h3>public class MouseInput : MonoBehaviour</h3>
+       <h3>{</h3>
+       <h3>//PSEUDO CODE: Declare public variable of type float for speed;</h3>
+       <h3>void Update()</h3>
+       <h3>{</h3>
+       <h3>}</h3>
+       <h3>void OnMouseDrag()</h3>
+       <h3>{</h3>
+       <h3>//TRY:</h3>
+       <p>
+        // Declare and Initialize the X and Y mouse axes and multiply by speed.
+       </p>
+       <h3>// The value is in the range -1 to 1</h3>
+       <h3>//Mouse Y will become Z translation</h3>
+       <p>
+        // Make translation variable move at 10 meters per second instead of 10 meters per frame with TimeDeltaTime...
+       </p>
+       <h3>// use transform to translate with values above</h3>
+       <h3>//Try Stretch Task in tutorial sheet</h3>
+       <h3>}</h3>
+       <h3>}</h3>
+       <p>
+        //From:
+        <a href="https://docs.unity3d.com/ScriptReference/Input.GetAxis.html" rel="noopener noreferrer" target="_blank">
+         https://docs.unity3d.com/ScriptReference/Input.GetAxis.html
+        </a>
+       </p>
+      </div>
+     </details>
+    </div>
+   </details>
+    <details class="accordion">
+     <summary>
+      Stretch Tasks
+     </summary>
+     <div class="accordion-body media-stack">
+      <ol>
+      <li>
+       Do rotations with Quaternions
+       <ol>
+        <li>rotY += Time.deltaTime * 10;</li>
+        <li>transform.rotation = Quaternion.Euler(0, rotY, 0);</li>
+       </ol>
+      </li>
+      <li>
+       Test Static Wall
+       <ol>
+        <li>
+        Group bricks in wall
+        <ol>
+         <li>Tick Static – see effects</li>
+         <li>
+          Untick RB
+          <ol>
+          <li>Collider + RB = Dynamic</li>
+          <li>Collider no RB = Static</li>
+          </ol>
+         </li>
+         <li>See how you could use this in an app</li>
+        </ol>
+        </li>
+        <li>
+        Wall with instantiated array
+        <details class="accordion accordion--nested video-accordion">
+         <summary>
+          Video: Wall with instantiated array
+         </summary>
+         <div class="accordion-body">
+          <article class="embed-card">
+          <iframe allowfullscreen="" class="video-embed" loading="lazy" src="https://www.youtube.com/embed/rdvyelwSnLM" title="Unity Intro – Interaction Scripting wall with instantiated array video">
+          </iframe>
+          <p>
+           <a href="https://www.youtube.com/watch?v=rdvyelwSnLM" rel="noopener noreferrer" target="_blank">
+            Open source link
+           </a>
+          </p>
+          </article>
+         </div>
+        </details>
+        </li>
+        <li>Review RB and Collision table in (Lecture 02 Unity Scripting Video, Powerpoint)</li>
+        <li>Triggers (Animation week 3)</li>
+        <li>
+        RB Physics Controllers more:
+        <ol>
+         <li>
+          Simple
+          <a href="https://learn.unity.com/project/roll-a-ball" rel="noopener noreferrer" target="_blank">
+          https://learn.unity.com/project/roll-a-ball
+          </a>
+         </li>
+         <li>
+          Intermediate
+          <a href="https://medium.com/ironequal/unity-character-controller-vs-rigidbody-a1e243591483" rel="noopener noreferrer" target="_blank">
+          https://medium.com/ironequal/unity-character-controller-vs-rigidbody-a1e243591483
+          </a>
+         </li>
+        </ol>
+        </li>
+        <li>
+        Character Controllers more:
+        <ol>
+         <li>
+          CC Move and SimpleMove (climbs)
+          <a href="https://medium.com/ironequal/unity-character-controller-vs-rigidbody-a1e243591483" rel="noopener noreferrer" target="_blank">
+          https://medium.com/ironequal/unity-character-controller-vs-rigidbody-a1e243591483
+          </a>
+         </li>
+         <li>
+          CC Move (speed, TDT)
+          <a href="https://answers.unity.com/questions/340033/help-with-a-simple-jump-script.html" rel="noopener noreferrer" target="_blank">
+          https://answers.unity.com/questions/340033/help-with-a-simple-jump-script.html
+          </a>
+         </li>
+         <li>
+          CC move (speed, TDT)
+          <a href="https://docs.unity3d.com/ScriptReference/CharacterController.Move.html" rel="noopener noreferrer" target="_blank">
+          https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
+          </a>
+         </li>
+        </ol>
+        </li>
+       </ol>
+      </li>
+      </ol>
+     </div>
+    </details>
+   <details class="accordion accordion--nested">
+    <summary>
+     Reference links
+    </summary>
+    <div class="accordion-body">
+     <p>
+      <a href="https://learn.unity.com/tutorial/unity-tips" rel="noopener noreferrer" target="_blank">
+       https://learn.unity.com/tutorial/unity-tips
+      </a>
+     </p>
+     <p>
+      <a href="https://universityofwestminster-my.sharepoint.com/:u:/g/personal/fergusj_westminster_ac_uk/EX4HYGrc6RpCgK9FB3fX2RkBuqBSvs01msUUM0jxc0QgIA?e=6egdJW" rel="noopener noreferrer" target="_blank">
+       https://universityofwestminster-my.sharepoint.com/:u:/g/personal/fergusj_westminster_ac_uk/EX4HYGrc6RpCgK9FB3fX2RkBuqBSvs01msUUM0jxc0QgIA?e=6egdJW
+      </a>
+     </p>
+     <p>
+      <a href="https://universityofwestminster-my.sharepoint.com/:u:/g/personal/fergusj_westminster_ac_uk/ES9aOImRwz9DoGnx9AFCFoUBYm2D0hIq0Wmr7VUiiNh6Vg?e=cO6u8W" rel="noopener noreferrer" target="_blank">
+       https://universityofwestminster-my.sharepoint.com/:u:/g/personal/fergusj_westminster_ac_uk/ES9aOImRwz9DoGnx9AFCFoUBYm2D0hIq0Wmr7VUiiNh6Vg?e=cO6u8W
+      </a>
+     </p>
+     <p>
+      <a href="https://universityofwestminster-my.sharepoint.com/:u:/g/personal/fergusj_westminster_ac_uk/EUH9C3LfNixLnXcNFpmOdtsB38DeljUakO90GUp9MqYI5g?e=236Oj6" rel="noopener noreferrer" target="_blank">
+       https://universityofwestminster-my.sharepoint.com/:u:/g/personal/fergusj_westminster_ac_uk/EUH9C3LfNixLnXcNFpmOdtsB38DeljUakO90GUp9MqYI5g?e=236Oj6
+      </a>
+     </p>
+     <p>
+      <a href="https://universityofwestminster-my.sharepoint.com/:p:/g/personal/fergusj_westminster_ac_uk/ET47DqUqQkNBne0KVzOWI_IBmMeIC-BeK9x7VlItZ7B7JQ?e=BUCrae" rel="noopener noreferrer" target="_blank">
+       https://universityofwestminster-my.sharepoint.com/:p:/g/personal/fergusj_westminster_ac_uk/ET47DqUqQkNBne0KVzOWI_IBmMeIC-BeK9x7VlItZ7B7JQ?e=BUCrae
+      </a>
+     </p>
+     <p>
+      <a href="https://learn.unity.com/project/roll-a-ball" rel="noopener noreferrer" target="_blank">
+       https://learn.unity.com/project/roll-a-ball
+      </a>
+     </p>
+     <p>
+      <a href="https://medium.com/ironequal/unity-character-controller-vs-rigidbody-a1e243591483" rel="noopener noreferrer" target="_blank">
+       https://medium.com/ironequal/unity-character-controller-vs-rigidbody-a1e243591483
+      </a>
+     </p>
+     <p>
+      <a href="https://answers.unity.com/questions/340033/help-with-a-simple-jump-script.html" rel="noopener noreferrer" target="_blank">
+       https://answers.unity.com/questions/340033/help-with-a-simple-jump-script.html
+      </a>
+     </p>
+     <p>
+      <a href="https://docs.unity3d.com/ScriptReference/CharacterController.Move.html" rel="noopener noreferrer" target="_blank">
+       https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
+      </a>
+     </p>
+     <p>
+      <a href="https://learn.unity.com/project/roll-a-ball-tutorial" rel="noopener noreferrer" target="_blank">
+       https://learn.unity.com/project/roll-a-ball-tutorial
+      </a>
+     </p>
+     <p>
+      <a href="https://docs.unity3d.com/ScriptReference/Input.GetAxis.html" rel="noopener noreferrer" target="_blank">
+       https://docs.unity3d.com/ScriptReference/Input.GetAxis.html
+      </a>
+     </p>
+    </div>
+   </details>
+  </main>
+  <script src="../assets/js/site.js?v=20260805f">
+  </script>
+ </body>
+</html>

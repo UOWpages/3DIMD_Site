@@ -1,0 +1,487 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Week 07 Tutorial – Unity Animation and UI Buttons Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
+</head>
+<body class="content-page">
+  <main class="content-area content-page-area" id="main-content">
+    <h1 class="page-title">Week 07 Tutorial – Unity Animation and UI Buttons Overview</h1>
+    <details class="accordion">
+      <summary>Core Principles</summary>
+      <div class="accordion-body media-stack">
+        <p>Core Principles – Unity Scripting from extra Lectures 01 and 02</p>
+        <ol>
+          <li>Unity Animation from Lecture 04 and Tutorial 03</li>
+          <li>Unity UI from Lecture 05</li>
+        </ol>
+      </div>
+    </details>
+    <details class="accordion">
+      <summary>7.1 Text Readouts (Unity UI Panels with Live Text)</summary>
+      <div class="accordion-body media-stack">
+        <ol>
+          <li>Create 3 cubes – arrange in a row</li>
+          <li>Right click in the Hierarchy and Create a UI Panel, with Canvas set to Screen Space Overlay</li>
+          <li>Right click the UI panel, and create 3 UI LEGACY Text objects in the panel</li>
+          <li>Adjust Rect Transform Scale and Position on Panel object to match the below:
+            <figure class="image-figure gyazo-inline">
+              <a href="https://gyazo.com/52f5a1fc541cab0cc0be3af5d90a8fbd" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/52f5a1fc541cab0cc0be3af5d90a8fbd.png" alt="Gyazo preview" loading="lazy" /></a>
+              <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+            </figure>
+            <p><a href="https://gyazo.com/52f5a1fc541cab0cc0be3af5d90a8fbd" target="_blank" rel="noopener noreferrer">https://gyazo.com/52f5a1fc541cab0cc0be3af5d90a8fbd</a></p>
+            <figure class="image-figure gyazo-inline">
+              <a href="https://gyazo.com/644b9899d831dde34edd968261f14f84" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/644b9899d831dde34edd968261f14f84.png" alt="Gyazo preview" loading="lazy" /></a>
+              <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+            </figure>
+            <p><a href="https://gyazo.com/644b9899d831dde34edd968261f14f84" target="_blank" rel="noopener noreferrer">https://gyazo.com/644b9899d831dde34edd968261f14f84</a></p>
+          </li>
+          <li>Adjust Rect Transform Scale and Position on Text objects to match the below:
+            <figure class="image-figure gyazo-inline">
+              <a href="https://gyazo.com/1110c51828ed31e3d7b33070d701aa3d" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/1110c51828ed31e3d7b33070d701aa3d.png" alt="Gyazo preview" loading="lazy" /></a>
+              <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+            </figure>
+            <p><a href="https://gyazo.com/1110c51828ed31e3d7b33070d701aa3d" target="_blank" rel="noopener noreferrer">https://gyazo.com/1110c51828ed31e3d7b33070d701aa3d</a></p>
+            <figure class="image-figure gyazo-inline">
+              <a href="https://gyazo.com/3381b2ad2515e30620b61c1d8aee7cd5" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/3381b2ad2515e30620b61c1d8aee7cd5.png" alt="Gyazo preview" loading="lazy" /></a>
+              <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+            </figure>
+            <p><a href="https://gyazo.com/3381b2ad2515e30620b61c1d8aee7cd5" target="_blank" rel="noopener noreferrer">https://gyazo.com/3381b2ad2515e30620b61c1d8aee7cd5</a></p>
+          </li>
+          <li>Make a script for each cube as follows:
+            <figure class="image-figure gyazo-inline">
+              <a href="https://gyazo.com/43d1d860f366d4cd4b8434b2bae32cb0" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/43d1d860f366d4cd4b8434b2bae32cb0.png" alt="Gyazo preview" loading="lazy" /></a>
+              <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+            </figure>
+            <p><a href="https://gyazo.com/43d1d860f366d4cd4b8434b2bae32cb0" target="_blank" rel="noopener noreferrer">https://gyazo.com/43d1d860f366d4cd4b8434b2bae32cb0</a></p>
+          </li>
+          <li>Change the rotate vector so that each rotates on a different axis (x,y,z)</li>
+          <li>The public text string collects the live information on the position and rotation of the object it is on and puts it in the string format “showing R for rotation, and the data entries 3-5, with Float depth of 2 decimal places (F2). Position display is shown, but commented out – you can change this for cubes that have position below.</li>
+          <li>Try the Lecture code for input of rotation by key as well:</li>
+        </ol>
+        <div class="pseudo-panel pseudo-panel--compact">
+          <div class="pseudo-panel__chrome">
+            <div class="pseudo-panel__dots">
+              <span class="pseudo-panel__dot"></span>
+              <span class="pseudo-panel__dot"></span>
+              <span class="pseudo-panel__dot"></span>
+            </div>
+            <div class="pseudo-panel__title">pseudo-code</div>
+          </div>
+          <div class="pseudo-panel__body">
+            <div class="pseudo-panel__line pseudo-panel__line--statement">if(Input.GetKey(KeyCode.A)){</div>
+            <div class="pseudo-panel__line">this.cube1.transform.Rotate(new Vector3(0,1,0), 1);</div>
+            <div class="pseudo-panel__line pseudo-panel__line--brace">}</div>
+          </div>
+        </div>
+        <h3>Extras</h3>
+          <!-- <li> -->
+            <details class="accordion accordion--nested">
+              <summary>7.1a (Extra) – Using keyboard input to spawn the cubes, with a boolean to check if they are already created. This also has translate control by key. Script can go on Main Camera.</summary>
+              <div class="accordion-body media-stack">
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/2f4d8c43bdc54de592012d6504d80c63" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/2f4d8c43bdc54de592012d6504d80c63.png" alt="Gyazo preview" loading="lazy" /></a>
+                  <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                </figure>
+                <p><a href="https://gyazo.com/2f4d8c43bdc54de592012d6504d80c63" target="_blank" rel="noopener noreferrer">https://gyazo.com/2f4d8c43bdc54de592012d6504d80c63</a></p>
+              </div>
+            </details>
+          <!-- </li>
+          <li> -->
+            <details class="accordion accordion--nested">
+              <summary>7.1b (Extra) – Add an EventTrigger translate control by UI button HOLD (EventData Handling) and have this displayed in a panel.</summary>
+              <div class="accordion-body media-stack">
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/bd9457bb1b0decd425204230dac7daa1" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/bd9457bb1b0decd425204230dac7daa1.png" alt="Gyazo preview" loading="lazy" /></a>
+                  <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                </figure>
+                <p><a href="https://gyazo.com/bd9457bb1b0decd425204230dac7daa1" target="_blank" rel="noopener noreferrer">https://gyazo.com/bd9457bb1b0decd425204230dac7daa1</a></p>
+                <h3>You can also do this in Button:</h3>
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/1b788b36628a3f5bdc2e6a469118015e" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/1b788b36628a3f5bdc2e6a469118015e.png" alt="Gyazo preview" loading="lazy" /></a>
+                  <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                </figure>
+                <p><a href="https://gyazo.com/1b788b36628a3f5bdc2e6a469118015e" target="_blank" rel="noopener noreferrer">https://gyazo.com/1b788b36628a3f5bdc2e6a469118015e</a></p>
+                <h3>With a script on the cube:</h3>
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/bdd022dcc9def3b024d7a7984b355e49" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/bdd022dcc9def3b024d7a7984b355e49.png" alt="Gyazo preview" loading="lazy" /></a>
+                  <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                </figure>
+                <p><a href="https://gyazo.com/bdd022dcc9def3b024d7a7984b355e49" target="_blank" rel="noopener noreferrer">https://gyazo.com/bdd022dcc9def3b024d7a7984b355e49</a></p>
+              </div>
+            </details>
+          <!-- </li>
+          <li> -->
+            <details class="accordion accordion--nested">
+              <summary>7.1c (Extra) – Try UI button HOLD control on an instantiated Cube by combining the last two scripts together.</summary>
+              <div class="accordion-body media-stack">
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/67bc6c7b39b9f53647d08eb84655bc6e" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/67bc6c7b39b9f53647d08eb84655bc6e.png" alt="Gyazo preview" loading="lazy" /></a>
+                  <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                </figure>
+                <p><a href="https://gyazo.com/67bc6c7b39b9f53647d08eb84655bc6e" target="_blank" rel="noopener noreferrer">https://gyazo.com/67bc6c7b39b9f53647d08eb84655bc6e</a></p>
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/5781a375788711eed3be628d9202af40" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/5781a375788711eed3be628d9202af40.png" alt="Gyazo preview" loading="lazy" /></a>
+                  <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                </figure>
+                <p><a href="https://gyazo.com/5781a375788711eed3be628d9202af40" target="_blank" rel="noopener noreferrer">https://gyazo.com/5781a375788711eed3be628d9202af40</a></p>
+                <h3>(in Update)</h3>
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/6bb895144a8ef36f2cc66712cac3bf64" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/6bb895144a8ef36f2cc66712cac3bf64.png" alt="Gyazo preview" loading="lazy" /></a>
+                  <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                </figure>
+                <p><a href="https://gyazo.com/6bb895144a8ef36f2cc66712cac3bf64" target="_blank" rel="noopener noreferrer">https://gyazo.com/6bb895144a8ef36f2cc66712cac3bf64</a></p>
+                <h3>(After Update)</h3>
+              </div>
+            </details>
+          <!-- </li>
+          <li> -->
+            <details class="accordion accordion--nested">
+              <summary>7.1d (Extra) – Instantiate a prefab.</summary>
+              <div class="accordion-body media-stack">
+                <p><a href="https://docs.unity3d.com/ScriptReference/Object.Instantiate.html" target="_blank" rel="noopener noreferrer">https://docs.unity3d.com/ScriptReference/Object.Instantiate.html</a></p>
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/88fa8d7082e026e2018331152ac1ce85" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/88fa8d7082e026e2018331152ac1ce85.png" alt="Gyazo preview" loading="lazy" /></a>
+                  <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                </figure>
+                <p><a href="https://gyazo.com/88fa8d7082e026e2018331152ac1ce85" target="_blank" rel="noopener noreferrer">https://gyazo.com/88fa8d7082e026e2018331152ac1ce85</a></p>
+              </div>
+            </details>
+          <!-- </li> -->
+      </div>
+    </details>
+    <details class="accordion">
+      <summary>7.2 (extra) Text Readout Score</summary>
+      <div class="accordion-body media-stack">
+        <ol>
+          <li>Make UI/Text – call it “Score Counter”</li>
+          <li>Add Component/Script</li>
+          <li>Create Text “uiText” and “score” variables</li>
+        </ol>
+        <div class="pseudo-panel pseudo-panel--compact">
+          <div class="pseudo-panel__chrome">
+            <div class="pseudo-panel__dots">
+              <span class="pseudo-panel__dot"></span>
+              <span class="pseudo-panel__dot"></span>
+              <span class="pseudo-panel__dot"></span>
+            </div>
+            <div class="pseudo-panel__title">pseudo-code</div>
+          </div>
+          <div class="pseudo-panel__body">
+            <div class="pseudo-panel__line">private Text uiText;</div>
+            <div class="pseudo-panel__line">private long score = 0;</div>
+          </div>
+        </div>
+        <ol>
+          <li>In Start – uiText = GetComponent&lt;Text&gt;();</li>
+        </ol>
+        <div class="pseudo-panel pseudo-panel--compact">
+          <div class="pseudo-panel__chrome">
+            <div class="pseudo-panel__dots">
+              <span class="pseudo-panel__dot"></span>
+              <span class="pseudo-panel__dot"></span>
+              <span class="pseudo-panel__dot"></span>
+            </div>
+            <div class="pseudo-panel__title">pseudo-code</div>
+          </div>
+          <div class="pseudo-panel__body">
+            <div class="pseudo-panel__line pseudo-panel__line--statement">void Start () {</div>
+            <div class="pseudo-panel__line">uiText = this.GetComponent&lt;Text&gt;();</div>
+            <div class="pseudo-panel__line">updateScoreCounter();</div>
+            <div class="pseudo-panel__line pseudo-panel__line--brace">}</div>
+          </div>
+        </div>
+        <ol>
+          <li>Add Points (run script when key is pressed - remember how to do this?)
+            <ol>
+              <li>public void addPoints(int points){</li>
+              <li>score += points;</li>
+              <li>updateScoreCounter();</li>
+              <li>}</li>
+              <li>Method outside of update:</li>
+            </ol>
+          </li>
+        </ol>
+        <div class="pseudo-panel pseudo-panel--compact">
+          <div class="pseudo-panel__chrome">
+            <div class="pseudo-panel__dots">
+              <span class="pseudo-panel__dot"></span>
+              <span class="pseudo-panel__dot"></span>
+              <span class="pseudo-panel__dot"></span>
+            </div>
+            <div class="pseudo-panel__title">pseudo-code</div>
+          </div>
+          <div class="pseudo-panel__body">
+            <div class="pseudo-panel__line pseudo-panel__line--statement">private void updateScoreCounter(){</div>
+            <div class="pseudo-panel__line">uiText.text = &quot;&lt;color=blue&gt;Score&lt;/color&gt;: &quot; + score;</div>
+            <div class="pseudo-panel__line pseudo-panel__line--brace">}</div>
+          </div>
+        </div>
+      </div>
+    </details>
+    <details class="accordion">
+      <summary>7.3 (Extra) Animate UI Button – Legacy, Basic</summary>
+      <div class="accordion-body media-stack">
+        <ol>
+          <li>Create UI Button with a right click in the Hierarchy – UI/Legacy/Button</li>
+          <li>Leave Canvas on the Screen Space Overlay mode and select the button
+            <figure class="image-figure gyazo-inline">
+              <a href="https://gyazo.com/3d5183b60c46d898345f76d664f9e3f1" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/3d5183b60c46d898345f76d664f9e3f1.png" alt="Gyazo preview" loading="lazy" /></a>
+              <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+            </figure>
+            <p><a href="https://gyazo.com/3d5183b60c46d898345f76d664f9e3f1" target="_blank" rel="noopener noreferrer">https://gyazo.com/3d5183b60c46d898345f76d664f9e3f1</a></p>
+          </li>
+          <li>Change transition to Animation
+            <figure class="image-figure gyazo-inline">
+              <a href="https://gyazo.com/70687da2be7f9d27cd8ea533f79c637f" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/70687da2be7f9d27cd8ea533f79c637f.png" alt="Gyazo preview" loading="lazy" /></a>
+              <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+            </figure>
+            <p><a href="https://gyazo.com/70687da2be7f9d27cd8ea533f79c637f" target="_blank" rel="noopener noreferrer">https://gyazo.com/70687da2be7f9d27cd8ea533f79c637f</a></p>
+          </li>
+          <li>Create and add an Animator Controller
+            <figure class="image-figure gyazo-inline">
+              <a href="https://gyazo.com/4ef2c7db38ffbc862fe79e157afec400" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/4ef2c7db38ffbc862fe79e157afec400.png" alt="Gyazo preview" loading="lazy" /></a>
+              <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+            </figure>
+            <p><a href="https://gyazo.com/4ef2c7db38ffbc862fe79e157afec400" target="_blank" rel="noopener noreferrer">https://gyazo.com/4ef2c7db38ffbc862fe79e157afec400</a></p>
+          </li>
+          <li>Create other Animations
+            <ol>
+              <li>Animation drop down window: where clip name is, select, and drop down to create new clip</li>
+              <li>Create Highlighted, Pressed, Selected
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/6f209177ab6cd42f11f966e624250916" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/6f209177ab6cd42f11f966e624250916.png" alt="Gyazo preview" loading="lazy" /></a>
+                  <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                </figure>
+                <p><a href="https://gyazo.com/6f209177ab6cd42f11f966e624250916" target="_blank" rel="noopener noreferrer">https://gyazo.com/6f209177ab6cd42f11f966e624250916</a></p>
+              </li>
+              <li>Make Transitions to Animations in Animator
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/73af099baf3054e84473f7a9dc2d4c55" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/73af099baf3054e84473f7a9dc2d4c55.png" alt="Gyazo preview" loading="lazy" /></a>
+                  <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                </figure>
+                <p><a href="https://gyazo.com/73af099baf3054e84473f7a9dc2d4c55" target="_blank" rel="noopener noreferrer">https://gyazo.com/73af099baf3054e84473f7a9dc2d4c55</a></p>
+              </li>
+              <li>Make trigger parameters in Animator Parameters tab</li>
+              <li>Select each transition, make conditions for each transition, and select the appropriate button trigger name for each
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/fc307e44e8f394e6ff89ca72ae55d14e" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/fc307e44e8f394e6ff89ca72ae55d14e.png" alt="Gyazo preview" loading="lazy" /></a>
+                  <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                </figure>
+                <p><a href="https://gyazo.com/fc307e44e8f394e6ff89ca72ae55d14e" target="_blank" rel="noopener noreferrer">https://gyazo.com/fc307e44e8f394e6ff89ca72ae55d14e</a></p>
+              </li>
+            </ol>
+          </li>
+          <li>Animation
+            <ol>
+              <li>Select Button object in Hierarchy</li>
+              <li>Select desired animation in Animation window</li>
+              <li>Click add property</li>
+              <li>Select Rect Transform: Position, Rotation or Scale as needed</li>
+            </ol>
+          </li>
+          <li>Color
+            <ol>
+              <li>Select Button object in Hierarchy</li>
+              <li>Select desired animation in Animation window</li>
+              <li>Select frame desired in timeline (scrub to it)</li>
+              <li>Press red record button in Animation window</li>
+              <li>Select and change any parameter desired (color)</li>
+              <li>Untick record button, scrub to test</li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+    </details>
+    <details class="accordion">
+      <summary>7. 4 (Extra) Animate UI Button with Text Mesh Pro – TMP</summary>
+      <div class="accordion-body media-stack">
+        <details class="accordion accordion--nested video-accordion">
+          <summary>Video: 7.4 Animate UI Button with Text Mesh Pro</summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <iframe class="video-embed" src="https://www.youtube.com/embed/afgt9EnHba0" title="Week 07 Tutorial – Unity Animation and UI Buttons Overview video 1" loading="lazy" allowfullscreen></iframe>
+              <p><a href="https://www.youtube.com/watch?v=afgt9EnHba0" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+            </article>
+          </div>
+        </details>
+        <ol>
+          <li>Create button by right clicking in hierarchy panel and selecting UI/Button - TextMeshPro</li>
+          <li>Note how the button is on a Canvas and has an additional Text element nested</li>
+          <li>You can select Legacy or Text Mesh Pro (TMP)
+            <figure class="image-figure gyazo-inline">
+              <a href="https://gyazo.com/fe5775b76a0636b07cbc32ccc96c8f5f" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/fe5775b76a0636b07cbc32ccc96c8f5f.png" alt="Gyazo preview" loading="lazy" /></a>
+              <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+            </figure>
+            <p class="indent-level-2"><a href="https://gyazo.com/fe5775b76a0636b07cbc32ccc96c8f5f" target="_blank" rel="noopener noreferrer">https://gyazo.com/fe5775b76a0636b07cbc32ccc96c8f5f</a></p>
+          </li>
+        </ol>
+        <p class="indent-level-4">This shows a legacy button, and a new Text Mesh Pro Button….</p>
+        <figure class="image-figure gyazo-inline">
+          <a href="https://gyazo.com/f6646630734f66bbebdc6cbd3bd02df4" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/f6646630734f66bbebdc6cbd3bd02df4.png" alt="Gyazo preview" loading="lazy" /></a>
+          <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+        </figure>
+        <p class="indent-level-2"><a href="https://gyazo.com/f6646630734f66bbebdc6cbd3bd02df4" target="_blank" rel="noopener noreferrer">https://gyazo.com/f6646630734f66bbebdc6cbd3bd02df4</a></p>
+        <p class="indent-level-4">You can drag the button down in Rect Transform if you make a few on the canvas to test. Try two at least.</p>
+        <ol>
+          <li>If you select TMP for the first time, A prompt will come up asking you to install TMP essentials:
+            <figure class="image-figure gyazo-inline">
+              <a href="https://gyazo.com/fc37ec28d15c5c68b901189dc7a31773" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/fc37ec28d15c5c68b901189dc7a31773.png" alt="Gyazo preview" loading="lazy" /></a>
+              <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+            </figure>
+            <p class="indent-level-2"><a href="https://gyazo.com/fc37ec28d15c5c68b901189dc7a31773" target="_blank" rel="noopener noreferrer">https://gyazo.com/fc37ec28d15c5c68b901189dc7a31773</a></p>
+          </li>
+        </ol>
+        <p class="indent-level-2">Import Examples and Extras as well….</p>
+        <figure class="image-figure gyazo-inline">
+          <a href="https://gyazo.com/2eb3b15798ede689dd8babe811a1eea9" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/2eb3b15798ede689dd8babe811a1eea9.png" alt="Gyazo preview" loading="lazy" /></a>
+          <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+        </figure>
+        <p class="indent-level-2"><a href="https://gyazo.com/2eb3b15798ede689dd8babe811a1eea9" target="_blank" rel="noopener noreferrer">https://gyazo.com/2eb3b15798ede689dd8babe811a1eea9</a></p>
+        <ol>
+          <li>Drag in fonts on BB</li>
+          <li>Select and Render font to textmeshpro
+            <ol>
+              <li>Go to top Menu – Window/TextMeshPro/FontAssetCreator</li>
+              <li>Drag font to use into Source Font File box, and select Generate Font Atlas button</li>
+              <li>PRESS SAVE TO SAVE OUT THE FONT – Ideally create a font folder.
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/bfd25238350ba91e23e068b6de24af1f" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/bfd25238350ba91e23e068b6de24af1f.png" alt="Gyazo preview" loading="lazy" /></a>
+                  <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                </figure>
+                <p class="indent-level-4"><a href="https://gyazo.com/bfd25238350ba91e23e068b6de24af1f" target="_blank" rel="noopener noreferrer">https://gyazo.com/bfd25238350ba91e23e068b6de24af1f</a></p>
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/120a7600cc4b5f2570447cd08abb87a2" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/120a7600cc4b5f2570447cd08abb87a2.png" alt="Gyazo preview" loading="lazy" /></a>
+                  <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                </figure>
+                <p class="indent-level-4"><a href="https://gyazo.com/120a7600cc4b5f2570447cd08abb87a2" target="_blank" rel="noopener noreferrer">https://gyazo.com/120a7600cc4b5f2570447cd08abb87a2</a></p>
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/55d20d6eb77680d593ee2a30d35a167e" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/55d20d6eb77680d593ee2a30d35a167e.png" alt="Gyazo preview" loading="lazy" /></a>
+                  <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                </figure>
+                <p class="indent-level-2"><a href="https://gyazo.com/55d20d6eb77680d593ee2a30d35a167e" target="_blank" rel="noopener noreferrer">https://gyazo.com/55d20d6eb77680d593ee2a30d35a167e</a></p>
+              </li>
+            </ol>
+          </li>
+          <li>Drag font into Button Font Asset Box
+            <ol>
+              <li>Adjust font size and color as desired
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/a9cdfa734d5716d41ab450cef9d1cea7" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/a9cdfa734d5716d41ab450cef9d1cea7.png" alt="Gyazo preview" loading="lazy" /></a>
+                  <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                </figure>
+                <p class="indent-level-2"><a href="https://gyazo.com/a9cdfa734d5716d41ab450cef9d1cea7" target="_blank" rel="noopener noreferrer">https://gyazo.com/a9cdfa734d5716d41ab450cef9d1cea7</a></p>
+              </li>
+            </ol>
+          </li>
+          <li>Adjust UI button
+            <ol>
+              <li>Size</li>
+              <li>Position</li>
+              <li>color</li>
+              <li>Select Sprite image?</li>
+              <li>Slice</li>
+              <li>Borders? Texture border
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/772316ad6dc9ccfeae2b2b3fbcd161fb" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/772316ad6dc9ccfeae2b2b3fbcd161fb.png" alt="Gyazo preview" loading="lazy" /></a>
+                  <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                </figure>
+                <p class="indent-level-4"><a href="https://gyazo.com/772316ad6dc9ccfeae2b2b3fbcd161fb" target="_blank" rel="noopener noreferrer">https://gyazo.com/772316ad6dc9ccfeae2b2b3fbcd161fb</a></p>
+              </li>
+            </ol>
+          </li>
+          <li>Transition – Animation
+            <ol>
+              <li>Switch from Color Tint Transitions to Animation
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/dc491b9db7829eb8c04280427c293f8d" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/dc491b9db7829eb8c04280427c293f8d.png" alt="Gyazo preview" loading="lazy" /></a>
+                  <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                </figure>
+                <p class="indent-level-4"><a href="https://gyazo.com/dc491b9db7829eb8c04280427c293f8d" target="_blank" rel="noopener noreferrer">https://gyazo.com/dc491b9db7829eb8c04280427c293f8d</a></p>
+              </li>
+              <li>Autogenerate Animation (press this button below animation list)</li>
+              <li>Save As Animation Controller</li>
+              <li>Open Animator, Animation windows
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/0e80677075e9291ed53d6f289361f086" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/0e80677075e9291ed53d6f289361f086.png" alt="Gyazo preview" loading="lazy" /></a>
+                  <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                </figure>
+                <p class="indent-level-4"><a href="https://gyazo.com/0e80677075e9291ed53d6f289361f086" target="_blank" rel="noopener noreferrer">https://gyazo.com/0e80677075e9291ed53d6f289361f086</a></p>
+              </li>
+              <li>Select animation and in inspector turn off loop time in inspector window – test best option...
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/ca54bf000f83adf329f6a4a1118b1535" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/ca54bf000f83adf329f6a4a1118b1535.png" alt="Gyazo preview" loading="lazy" /></a>
+                  <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                </figure>
+                <p class="indent-level-2"><a href="https://gyazo.com/ca54bf000f83adf329f6a4a1118b1535" target="_blank" rel="noopener noreferrer">https://gyazo.com/ca54bf000f83adf329f6a4a1118b1535</a></p>
+              </li>
+              <li>To adjust animations, select button or text in hierarchy
+                <ol>
+                  <li>Open Animation Window</li>
+                  <li>Select animation from drop down in animaton</li>
+                  <li>Add properties to Animate with Add Property button, scroll down and expand menus to select, and click on +</li>
+                  <li>Try animating RectTransform/Scale for the Highlighted Animation
+                    <figure class="image-figure gyazo-inline">
+                      <a href="https://gyazo.com/6e966c775324c9220c7e7c598922ead6" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/6e966c775324c9220c7e7c598922ead6.png" alt="Gyazo preview" loading="lazy" /></a>
+                      <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                    </figure>
+                    <p class="indent-level-2"><a href="https://gyazo.com/6e966c775324c9220c7e7c598922ead6" target="_blank" rel="noopener noreferrer">https://gyazo.com/6e966c775324c9220c7e7c598922ead6</a></p>
+                  </li>
+                  <li>Drag timeline to between keys, and adjust parameters to save a new key</li>
+                  <li>You can also press the red record button and just scale with the tools in the scene window at the timeline you want</li>
+                  <li>Try 1.05 for X,Y,Z scaling</li>
+                  <li>Select and drag keys for exact positioning</li>
+                  <li>viiii. Test with Image Color change for Highlighted Animation, and a slight rotation back and forth for the pressed animation to give a shake when it gets pressed.</li>
+                  <li>Animate the text as well.</li>
+                  <li>You can add a button sprite image, and even animate the button sprite or change it out for each animation. Try adding a sprite with transparency for a frame.
+                    <figure class="image-figure gyazo-inline">
+                      <a href="https://gyazo.com/f1a9477587a6d9df893b021cbae9e05b" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/f1a9477587a6d9df893b021cbae9e05b.png" alt="Gyazo preview" loading="lazy" /></a>
+                      <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                    </figure>
+                    <p class="indent-level-2"><a href="https://gyazo.com/f1a9477587a6d9df893b021cbae9e05b" target="_blank" rel="noopener noreferrer">https://gyazo.com/f1a9477587a6d9df893b021cbae9e05b</a></p>
+                    <figure class="image-figure gyazo-inline">
+                      <a href="https://gyazo.com/31efbb8a5f1266954113046e605ac578" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/31efbb8a5f1266954113046e605ac578.png" alt="Gyazo preview" loading="lazy" /></a>
+                      <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+                    </figure>
+                    <p class="indent-level-2"><a href="https://gyazo.com/31efbb8a5f1266954113046e605ac578" target="_blank" rel="noopener noreferrer">https://gyazo.com/31efbb8a5f1266954113046e605ac578</a></p>
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+    </details>
+<details class="accordion accordion--nested">
+<summary>Reference links</summary>
+<div class="accordion-body">
+<h2>Reference links</h2>
+<p><a href="https://docs.unity3d.com/ScriptReference/Object.Instantiate.html" target="_blank" rel="noopener noreferrer">https://docs.unity3d.com/ScriptReference/Object.Instantiate.html</a></p>
+</div>
+</details>
+</main>
+  <script src="../assets/js/site.js?v=20260805f"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

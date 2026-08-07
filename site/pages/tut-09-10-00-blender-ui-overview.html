@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Blender UI Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
+</head>
+<body class="content-page">
+  <main class="content-area content-page-area" id="main-content">
+    <h1 class="page-title">Blender UI Overview</h1>
+<h3>Video:</h3>
+<p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=bb7214a8-c310-43ad-9f19-b39800ca8cc3" target="_blank" rel="noopener noreferrer">https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=bb7214a8-c310-43ad-9f19-b39800ca8cc3</a></p>
+<h3>Layout / Main editors</h3>
+<ul>
+<li>3D Viewport: Primary workspace for modeling (navigation, select, transform, sculpting preview). Most modeling actions happen here.
+</li>
+<li>Outliner: Scene hierarchy — shows objects and collections; use it to hide/lock/select objects and organize your scene.
+</li>
+<li>Properties Editor: Contextual panels (Editor Type) for Object, Modifier, Mesh Data, Material, Object Constraints, Render settings, etc. Modifiers (Mirror, Subsurf, Boolean, Bevel) live here.
+</li>
+<li>Sidebar (N): View / Tool / Item panels with transform values, tool options, and viewport display toggles.
+</li>
+<li>Toolbar (left of 3D View): Quick access to tools (Move, Rotate, Scale, Transform, Extrude, Knife, Loop Cut). Can be hidden (T).
+</li>
+<li>Top Info Bar / Header: Contains Add menu, current mode, snapping, pivot, overlays, shading, and global settings.
+</li>
+<li>Workspaces – I tend to work in Layout with Xray and all coordinate views, and switch to Modelling for shaded and final view.
+</li>
+<li>UV/Image Editor, Shader Editor, and other editors are available when working on UVs/materials — often used after base modeling.
+</li>
+</ul>
+<h3>Windows</h3>
+<ul>
+<li>Go to top corner of a window to get a “+” sign
+</li>
+<li>This can be dragged down to form a new window.
+</li>
+<li>Dragging this across an existing window give the option to split it.
+</li>
+<li>It can also be dragged into an existing window to join them.
+</li>
+</ul>
+<h3>Modes and selection</h3>
+<ul>
+<li>Object Mode: Move/scale/rotate whole objects, add modifiers, manage collections.
+</li>
+<li>Edit Mode: Polygon/edge/vertex-level modeling. Toggle with Tab.
+</li>
+<li>Selection types: Vertex/Edge/Face (1 / 2 / 3 keys or icons). Use Alt+Click to select an edge loop, Ctrl+Alt+Click to select ring loops (keymap dependent).
+</li>
+<li>Lasso/Box/Circle select: Ctrl/Cmd + drag tools or B (box), C (circle), Lasso from the tool shelf.
+</li>
+</ul>
+<h3>Transforms &amp; navigation</h3>
+<ul>
+<li>Navigation: Middle mouse drag to orbit, Shift+MMB to pan, scroll to zoom (or Numpad keys for orthographic views).
+</li>
+<li>Move/Rotate/Scale: G / R / S. Constrain axes with X / Y / Z (e.g., G ? Z). Type numerical values after the shortcut.
+</li>
+<li>Precision: Hold Shift for fine control. Use axis constraints and orientation (Global, Local, Normal, View).
+</li>
+<li>Apply transforms: Object Mode ? Ctrl+A ? Apply Location/Rotation/Scale (important before some modeling ops).
+</li>
+</ul>
+<h3>Common Edit Mode tools &amp; operations</h3>
+<ul>
+<li>Extrude: E (faces/verts/edges)
+</li>
+<li>Inset faces: I
+</li>
+<li>Bevel: Ctrl+B (edges), use mouse wheel to add segments
+</li>
+<li>Loop cut: Ctrl+R (LMB click to place, right-click to center)
+</li>
+<li>Merge vertices: M (or Alt+M in some keymaps)
+</li>
+<li>Fill / Make face: F
+</li>
+<li>Delete: X (choose vertices/edges/faces)
+</li>
+<li>Separate: P ? Selection (make new object)
+</li>
+<li>Knife: K for manual cuts
+</li>
+<li>Rip / Rip fill: V (depending on keymap)
+</li>
+<li>Edge slide / vertex slide: G then G (or use dedicated tools)
+</li>
+<li>Snap: Shift+Tab toggles snapping (Vertex, Edge, Face, Increment). Use Ctrl while transforming for temporary snap.
+</li>
+<li>Proportional Editing: O to toggle; mouse wheel changes falloff radius for soft transforms.
+</li>
+</ul>
+<h3>Modifiers &amp; non-destructive workflow</h3>
+<ul>
+<li>Mirror: Symmetry across axis; enable Clipping to merge at center.
+</li>
+<li>Subdivision Surface: Smooths geometry (add as modifier; use supporting loops to keep edges sharp).
+</li>
+<li>Boolean: For cutting/combining complex shapes (prefer robust workflows: signed booleans, clean topology after operation).
+</li>
+<li>Bevel, Solidify, Array: Common modeling helpers.
+</li>
+<li>Order matters: modifier stack is applied top?bottom; move modifiers to get desired results.
+</li>
+<li>Use separate objects (P) or collections for components you want to edit independently.
+</li>
+</ul>
+<h3>Viewport display &amp; shading</h3>
+<ul>
+<li>Shading modes: Wireframe (Z?Wireframe), Solid, Material Preview, Rendered.
+</li>
+<li>Overlays: Toggle visibility of gizmos, face orientation, normals, origins, grid, etc.
+</li>
+<li>Shade Smooth / Shade Flat: Right-click ? Shade Smooth for a smoothed normal look; add supporting loops for sharpness.
+</li>
+<li>X-Ray / X-Ray toggle: Makes selecting through geometry easier (Z menu or X-Ray slider).
+</li>
+<li>Show Gizmo, Show Overlays, Toggle Xray and ViewPort Shading is ideal for modeling
+</li>
+<li>Z plus wheel menu for Wireframe, Solid toggling
+</li>
+</ul>
+<h3>Outliner &amp; scene organization</h3>
+<ul>
+<li>Collections: Group objects for visibility, selection, rendering control.
+</li>
+<li>Lock selectability / visibility / renderability per object or collection to avoid accidental edits.
+</li>
+</ul>
+<h3>Useful shortcuts (quick reference)</h3>
+<ul>
+<li>Tab: Toggle Object/Edit Mode
+</li>
+<li>Shift-A: Add Object Primitives
+</li>
+<li>G / R / S: Move / Rotate / Scale
+</li>
+<li>Ctrl+R: Loop Cut
+</li>
+<li>Ctrl+B: Bevel
+</li>
+<li>E: Extrude
+</li>
+<li>I: Inset
+</li>
+<li>F: Fill face
+</li>
+<li>X (or Delete): Remove elements
+</li>
+<li>Shift+D: Duplicate (right-click to keep in place)
+</li>
+<li>M: Move to Collection (or Merge depending on keymap)
+</li>
+<li>O: Toggle Proportional Editing
+</li>
+<li>Shift+Tab: Toggle Snapping
+</li>
+<li>Ctrl+A: Apply transforms
+</li>
+<li>1/2/3: Vertex/Edge/Face select
+</li>
+</ul>
+<h3>Modeling tips &amp; best practices</h3>
+<ul>
+<li>Move in one axis at a time
+</li>
+<li>Check whether in Object or Edit mode when adding objects.
+</li>
+<li>Work non-destructively: use modifiers before applying them so you can iterate.
+</li>
+<li>Apply transforms (Ctrl+A) before using modifiers, boolean ops, or bevels to avoid skewed results.
+</li>
+<li>Keep quad-based topology where possible; avoid n-gons in deforming areas.
+</li>
+<li>Use supporting edge loops to control sharpness when using Subdivision Surface.
+</li>
+<li>Clean up after booleans: merge vertices, remove doubles (Merge by Distance), and retopologize if needed.
+</li>
+<li>Organize into collections and name objects clearly.
+</li>
+<li>Save versions frequently and use incremental saves (file_v01.blend, etc.).
+</li>
+</ul>
+<h3>Customizing &amp; productivity</h3>
+<ul>
+<li>Pie menus (add-on) and custom keymaps can speed modeling.
+</li>
+<li>Tool settings in the toolbar and the topbar let you fine-tune tools without memorizing all shortcuts.
+</li>
+<li>Learn context menus (right-click) — they expose commonly used operations quickly.
+</li>
+<li>Enable addons like LoopTools, F2, and Mesh: Extra Tools for faster workflows.
+</li>
+</ul>
+
+<details class="accordion">
+<summary>Video Resources (1)</summary>
+<div class="accordion-body media-stack">
+<details class="accordion accordion--nested video-accordion">
+<summary>Video 1</summary>
+<div class="accordion-body">
+<article class="embed-card">
+<h3 class="embed-title">Video 1</h3>
+<iframe class="panopto-embed" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=bb7214a8-c310-43ad-9f19-b39800ca8cc3" title="Blender UI Overview video 1" loading="lazy" allowfullscreen></iframe>
+<p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=bb7214a8-c310-43ad-9f19-b39800ca8cc3" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+</article>
+</div>
+</details>
+</main>
+  <script src="../assets/js/site.js?v=20260805f"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3DIMD | Video Placeholder Example</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
+  </head>
+  <body class="content-page">
+    <main class="content-area content-page-area" id="main-content">
+      <h1 class="page-title">Video Placeholder Example</h1>
+      <p>
+        This page demonstrates the generated test-card placeholder look used for
+        video embeds.
+      </p>
+
+      <details class="accordion accordion--nested" open>
+        <summary>Static placeholder (always visible)</summary>
+        <div class="accordion-body">
+          <article class="embed-card">
+            <p>
+              This block is manually wrapped in <strong>video-frame-wrap</strong>,
+              so it shows the generated placeholder state continuously.
+            </p>
+            <div class="video-frame-wrap">
+              <iframe
+                class="panopto-embed"
+                src="about:blank"
+                title="Placeholder demo"
+                loading="lazy"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </article>
+        </div>
+      </details>
+
+      <details class="accordion accordion--nested" open>
+        <summary>Live embed (placeholder fades after load)</summary>
+        <div class="accordion-body">
+          <article class="embed-card">
+            <p>
+              This iframe is not pre-wrapped. Shared script wraps it and removes
+              the placeholder once load fires.
+            </p>
+            <iframe
+              class="panopto-embed"
+              src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=2fddb702-a85f-4673-801c-b0a700e930e2"
+              title="Live embed demo"
+              loading="lazy"
+              allowfullscreen
+            ></iframe>
+          </article>
+        </div>
+      </details>
+    </main>
+    <script src="../assets/js/site.js?v=20260805f"></script>
+  </body>
+</html>

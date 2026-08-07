@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Blender Lego Minifig Tutorial - Torso and Head</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
+</head>
+<body class="content-page">
+  <main class="content-area content-page-area" id="main-content">
+    <h1 class="page-title">Blender Lego Minifig Tutorial - Torso and Head</h1>
+    <p>This document provides a Blender workflow to model a Lego style torso, including numeric dimensions (Blender units) and exact keys to press or values to type</p>
+    <h3>Workspaces</h3>
+    <p>Work with a Y forward front view and an X forward side view in Layout Workspace, and a perspective view in Modeling Workspace:</p>
+    <figure class="image-figure gyazo-inline">
+      <a href="https://gyazo.com/3c915c6b8167f5cb51e74ddf6d8b67f5" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/3c915c6b8167f5cb51e74ddf6d8b67f5.png" alt="Gyazo preview" loading="lazy" /></a>
+      <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+    </figure>
+    <figure class="image-figure gyazo-inline">
+      <a href="https://gyazo.com/cbdb40fce538ba97854c1fb8ecc7c569" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/cbdb40fce538ba97854c1fb8ecc7c569.png" alt="Gyazo preview" loading="lazy" /></a>
+      <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+    </figure>
+    <h3>Save frequently</h3>
+    <ul>
+      <li>Press Ctrl+S regularly to save your progress.</li>
+      <li>Have a number at the end of your file name to increment.</li>
+      <li>Press the &quot;+&quot; and save button to increment save.</li>
+    </ul>
+    <details class="accordion accordion--nested video-accordion">
+      <summary>Video 1</summary>
+      <div class="accordion-body">
+        <article class="embed-card">
+          <h3 class="embed-title">Video 1</h3>
+          <iframe class="panopto-embed" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=e9b80acb-298e-47d6-a598-b398010a7e1f" title="Blender Lego Minifig Tutorial - Torso and Head video 1" loading="lazy" allowfullscreen></iframe>
+          <p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e9b80acb-298e-47d6-a598-b398010a7e1f" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+        </article>
+      </div>
+    </details>
+    <details class="accordion">
+      <summary>Step 1 - Create base torso with exact dimensions</summary>
+      <div class="accordion-body media-stack">
+        <ol>
+          <li>Select the default Cube (usually present). If not present: Shift + A =&gt; Mesh =&gt; Cube.</li>
+          <li>Object Mode =&gt; press N =&gt; Item panel =&gt;</li>
+        </ol>
+        <h3>Dimensions: (Type each value and press Enter)</h3>
+        <ul>
+          <li>X: 1.3m</li>
+          <li>Y: 0.7m</li>
+          <li>Z: 1.6m</li>
+        </ul>
+        <h3>Scale: (when dimensions above are entered)</h3>
+        <ul>
+          <li>0.65</li>
+          <li>0.35</li>
+          <li>0.8</li>
+        </ul>
+        <ol>
+          <li>With cube still selected: Ctrl + A =&gt; Apply =&gt; Scale (ensures scale is normalised)</li>
+          <li>Tab =&gt; Enter Edit Mode</li>
+          <li>Press 1 for Vertex</li>
+          <li>Click LMB, hold and drag a box around the bottom vertices to select</li>
+          <li>With these selected, click the Move tool in the left toolbar of either window</li>
+          <li>Select and drag the Z axis up so the bottom is in line with the reference.</li>
+          <li>This does not affect scale, normalization or object pivot.</li>
+        </ol>
+        <details class="accordion accordion--nested video-accordion">
+          <summary>Video 2</summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <h3 class="embed-title">Video 2</h3>
+              <iframe class="panopto-embed" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=61a4394b-87bd-442b-8bb4-b398010d5757" title="Blender Lego Minifig Tutorial - Torso and Head video 2" loading="lazy" allowfullscreen></iframe>
+              <p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=61a4394b-87bd-442b-8bb4-b398010d5757" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+            </article>
+          </div>
+        </details>
+      </div>
+    </details>
+    <details class="accordion">
+      <summary>Step 2 — Make Body with Mirror and Bevel</summary>
+      <div class="accordion-body media-stack">
+        <ol>
+          <li>Edit Mode &gt; Edge select (2)</li>
+          <li>Use Ctrl+R to add loop cuts where you need more geometry down center of body.</li>
+          <li>LMB Click to create the cut down Z axis (center) , then right-click to leave it centered.</li>
+          <li>Edit Mode &gt; Vertex Select (1) and LMB box select verts on left side of cube, delete</li>
+          <li>Object Mode &gt; In the Properties (right panel) =&gt; Modifiers (wrench icon) =&gt; Add Modifier =&gt; Mirror (defaults to X). Enable additional axes if needed.</li>
+          <li>Turn on Clipping so mirrored halves stay welded at the centerline.</li>
+          <li>Edit Mode &gt; Vertex Select (1) LMB box select and drag in Top vertices to make shoulders</li>
+          <li>Shift Select Edges and press Ctrl+B to bevel. Move the mouse to set width and use the mouse wheel to set the number of segments for roundness.</li>
+          <li>For softer shading, add a Subdivision Surface (Ctrl+2) and right-click =&gt; Shade Smooth. (in object mode)</li>
+        </ol>
+        <details class="accordion accordion--nested video-accordion">
+          <summary>Video 3</summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <h3 class="embed-title">Video 3</h3>
+              <iframe class="panopto-embed" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=7034ca5a-d8c4-4fbe-8768-b398012da8c0" title="Blender Lego Minifig Tutorial - Torso and Head video 3" loading="lazy" allowfullscreen></iframe>
+              <p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=7034ca5a-d8c4-4fbe-8768-b398012da8c0" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+            </article>
+          </div>
+        </details>
+      </div>
+    </details>
+    <details class="accordion">
+      <summary>Step 3 – Export and Test in Unity</summary>
+      <div class="accordion-body media-stack">
+        <ol>
+          <li>Create new Unity Project (URP)</li>
+          <li>Blender – Export fbx</li>
+          <li>To Embed textures:</li>
+        </ol>
+        <p>For Path Mode at top, choose Copy from drop down menu.</p>
+        <h3>Select icon on right (Embed Textures)</h3>
+        <ol>
+          <li>Object Types – Mesh only</li>
+          <li>To fix axis in Transform:</li>
+        </ol>
+        <h3>Scale: 1.00</h3>
+        <h3>Apply Scalings: All Local</h3>
+        <h3>Forward: -Z Forward</h3>
+        <h3>Up: Y Up</h3>
+        <h3>Apply Unit Ticked</h3>
+        <h3>Use Space Transform Ticked</h3>
+        <h3>Apply Transform Ticked</h3>
+        <ol>
+          <li>Geometry</li>
+        </ol>
+        <h3>Apply Modifiers Ticked</h3>
+        <ol>
+          <li>Keep all other defaults</li>
+          <li>Import to Unity Project
+            <figure class="image-figure gyazo-inline">
+              <a href="https://gyazo.com/5de02eb9a3aea321fc1854f0dcd6f86f" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/5de02eb9a3aea321fc1854f0dcd6f86f.png" alt="Gyazo preview" loading="lazy" /></a>
+              <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+            </figure>
+          </li>
+        </ol>
+        <details class="accordion accordion--nested video-accordion">
+          <summary>Video 4</summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <h3 class="embed-title">Video 4</h3>
+              <iframe class="panopto-embed" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=a36ddd23-bf1e-41c9-a289-b3980138debe" title="Blender Lego Minifig Tutorial - Torso and Head video 4" loading="lazy" allowfullscreen></iframe>
+              <p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=a36ddd23-bf1e-41c9-a289-b3980138debe" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+            </article>
+          </div>
+        </details>
+      </div>
+    </details>
+    <details class="accordion">
+      <summary>Step 4 — Make Head Model and peg</summary>
+      <div class="accordion-body media-stack">
+        <ol>
+          <li>Be in Object mode so head is seperate</li>
+          <li>In front reference view Add a Cylinder (Shift-A to Add =&gt; Mesh =&gt; Cylinder)</li>
+          <li>Without selecting anything else, =&gt;</li>
+          <li>Click the add cylinder tab at bottom to adjust to 16 segments</li>
+          <li>Use same parameter interface to move and scale</li>
+        </ol>
+        <h3>Radius: 0.425 m</h3>
+        <h3>Depth 0.75 m</h3>
+        <h3>Location Z: 1.25m</h3>
+        <ol>
+          <li>Get parameter back if needed with F9 right after - F9 is last operation - otherwise....reprimitive</li>
+          <li>If not changed in parameters, Move the cylinder up (G =&gt; Z) to sit on the torso. Scale with S and adjust vertical scale with S =&gt; Z.</li>
+          <li>Enter Edit Mode on the head and press 3 to inset (I), extrude (E), or delete faces (X =&gt; Faces) to form the neck peg or detail:</li>
+          <li>select top and bottom vertices by shift clicking in order to select top and bottom faces</li>
+          <li>Press I to Inset faces to rough size</li>
+          <li>Press S to scale faces for fine tuning</li>
+          <li>Scale selected in X and Y (default) to fit top and bottom reference</li>
+        </ol>
+        <details class="accordion accordion--nested video-accordion">
+          <summary>Video 5</summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <h3 class="embed-title">Video 5</h3>
+              <iframe class="panopto-embed" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=217dde59-e996-45f7-b983-b398013c70a9" title="Blender Lego Minifig Tutorial - Torso and Head video 5" loading="lazy" allowfullscreen></iframe>
+              <p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=217dde59-e996-45f7-b983-b398013c70a9" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+            </article>
+          </div>
+        </details>
+      </div>
+    </details>
+    <details class="accordion">
+      <summary>Step 5 - Neck and Detail Shaping</summary>
+      <div class="accordion-body media-stack">
+        <ol>
+          <li>Select the bottom neck face</li>
+          <li>extrude neck face down into body(S and Z to limit in axis).</li>
+          <li>Select top face, extrude and scale in Z to peg height (E, Z)</li>
+          <li>Inset top peg face / extrude down for the peg detail.</li>
+          <li>Use Alt+Click to select edge loops and CTRL+B to bevel for smoother transitions.</li>
+          <li>Peg top and bottom can be selected at same time in edge (2) alt click and ctrl b to bevel. scroll wheel, refine with scale</li>
+          <li>smooth as before in object mode - add a Subdivision Surface (Ctrl+2) and right-click =&gt; Shade Smooth. (in object mode)</li>
+          <li>Subdivision can be seen in the settings Editor Type menu</li>
+          <li>insert another face with I and scale it down with S in the peg hole bottom if needed to help subdivision.</li>
+        </ol>
+      </div>
+    </details>
+    <details class="accordion">
+      <summary>Step 6 – Create Waist and hips</summary>
+      <div class="accordion-body media-stack">
+        <ol>
+          <li>Either create a cube and scale it to fit reference (and Normalise scaling later), or...</li>
+          <li>Create a cube and use edit mode to move vertices to reference (preserves normal scaling of 1, 1, 1)</li>
+          <li>Normalise Location, Rotation, Scaling - Crt- A with object selected, select Apply and Location, Rotation and Scale as needed</li>
+        </ol>
+      </div>
+    </details>
+    <details class="accordion">
+      <summary>Tips and Workflows:</summary>
+      <div class="accordion-body media-stack">
+        <h3>Sharpen/drop supporting loops for Subdivision</h3>
+        <ol>
+          <li>Edge select (2)</li>
+          <li>Alt + Click edge near corner to select loop</li>
+          <li>Ctrl + R =&gt; add loop near that edge for support: Left-click =&gt; drag closer to the corner =&gt; Left-click to confirm</li>
+          <li>Repeat on top/bottom to keep silhouette crisp. Typical distances: 0.02–0.05 Blender units from the main edge.</li>
+        </ol>
+        <h3>Add Subdivision Surface and smoothing</h3>
+        <ol>
+          <li>Tab =&gt; change to Object Mode</li>
+          <li>Ctrl + 2 =&gt; Applies a Subdivision Surface modifier set to level 2 in viewport</li>
+          <li>Right-click on the object =&gt; Shade Smooth</li>
+          <li>Properties =&gt; Object Data (triangle icon) =&gt; Normals =&gt; enable Auto Smooth if needed (angle 30&#176;–60&#176;)</li>
+        </ol>
+        <h3>Final cleanup &amp; apply transforms - Normalising</h3>
+        <p>To normalize an object&#39;s scale in Blender, select the object in Object Mode and press Ctrl + A, then choose Scale from the menu. This applies the current scale to the object, resetting the scale factor to \(1,1,1\) without changing the object&#39;s visual size or appearance. This is important for correct texture mapping and modifier behavior. To normalize scale and rotation of parented objects, select all objects, use Alt+P &gt; Clear and Keep Transformation, then use Ctrl+A &gt; Rotation &amp; Scale.</p>
+        <ol>
+          <li>If bevels or other tools behave oddly after scaling in Object Mode, apply transforms: Object Mode =&gt; Ctrl+A =&gt; Apply Scale/Rotation.</li>
+          <li>Re-apply loop cuts and bevels after applying transforms if needed.</li>
+          <li>If you used Mirror and are satisfied, in Modifiers tab click Apply on Mirror (optional) and Subdivision (only if you need to export).</li>
+        </ol>
+      </div>
+    </details>
+    <details class="accordion">
+      <summary>Notes &amp; Shortcuts:</summary>
+      <div class="accordion-body media-stack">
+        <ul>
+          <li>Tab: toggle Edit/Object mode</li>
+          <li>G, R, S: move, rotate, scale</li>
+          <li>1/2/3 keys: vertex/edge/face selection modes</li>
+          <li>Ctrl+R: loop cut; click then right-click to keep centered</li>
+          <li>Ctrl+B: bevel edges; mouse wheel to increase segments</li>
+          <li>Ctrl+2: quick Subdivision Surface level</li>
+          <li>X =&gt; Faces: delete faces</li>
+          <li>I: inset; E: extrude; P =&gt; Selection: separate</li>
+          <li>Ctrl+A: apply transforms (important after object-mode scaling)</li>
+        </ul>
+      </div>
+    </details>
+    
+  </main>
+  <script src="../assets/js/site.js?v=20260805f"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

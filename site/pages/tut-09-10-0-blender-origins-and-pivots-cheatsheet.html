@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Blender - Origins &amp; Pivot Points</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
+</head>
+<body class="content-page">
+  <main class="content-area content-page-area" id="main-content">
+    <h1 class="page-title">Blender - Origins &amp; Pivot Points</h1>
+<h3>OnePage CheatSheet</h3>
+<h3>Quick concepts</h3>
+<ul>
+<li>Origin = object property (orange dot):
+</li>
+</ul>
+<p>reference for location/rotation/scale and centerofmass for physics &amp; some modifiers.</p>
+<ul>
+<li>Pivot point = transform center used when rotating/scaling selections;
+</li>
+</ul>
+<p>one pivot option can be the object origin.</p>
+<ul>
+<li>Object Mode moves object + origin
+</li>
+<li>Edit Mode moves geometry only (origin stays).
+</li>
+</ul>
+<h3>Where to find things</h3>
+<ul>
+<li>Object &gt; Set Origin ? Origin to Geometry / Origin to 3D Cursor / Geometry to Origin
+</li>
+<li>3D Viewport header ? Transform Pivot Point menu (icon near snapping/overlay controls)
+</li>
+<li>Overlays ? Show Origins (toggle visibility)
+</li>
+<li>Shift+S ? Snap menu (Cursor to Selected / Selection to Cursor / Cursor to World Origin)
+</li>
+</ul>
+<h3>Common Pivot Modes (short)</h3>
+<ul>
+<li>Median Point — average/median of selection (Objects: median of origins. Edit mode: median of selected components).
+</li>
+<li>Individual Origins — each object/component transforms around its own origin.
+</li>
+<li>3D Cursor — pivot placed at 3D Cursor position.
+</li>
+<li>Bounding Box Center — center of bounding box enclosing selection (worldaxis aligned).
+</li>
+<li>Active Element — pivot at the active (lastselected) object/component.
+</li>
+</ul>
+<h3>Essential Keystrokes</h3>
+<ul>
+<li>Tab — toggle Object / Edit Mode
+</li>
+<li>G / R / S — Grab / Rotate / Scale
+</li>
+<li>Ctrl+A — Apply (Location / Rotation / Scale) (Reset, Normalise)
+</li>
+<li>Alt+G — Clear Location
+</li>
+<li>Alt+R — Clear Rotation
+</li>
+<li>Alt+S — Clear Scale
+</li>
+<li>Shift+S ? Cursor to Selected / Selection to Cursor / Cursor to World Origin
+</li>
+<li>Shift + RightClick (or Shift + LeftClick if leftclick select) — place 3D Cursor interactively
+</li>
+<li>Object &gt; Set Origin &gt; ... — use menu to move origin or geometry
+</li>
+</ul>
+<h3>Quick fixes &amp; reminders</h3>
+<ul>
+<li>Origin moved unexpectedly (mesh moved in Edit Mode): Object &gt; Set Origin &gt; Origin to Geometry to recenter origin to mesh.
+</li>
+<li>Physics weirdness (tipping / offcenter mass): origin ˜ center of mass ? set origin to geometry.
+</li>
+<li>Mirror modifier seems off: mirror uses object origin as mirror center ? move origin or switch mirror object/axis.
+</li>
+<li>Want group to rotate as one: choose Median Point or Bounding Box Center. Want each to scale separately: Individual Origins.
+</li>
+<li>Apply transforms before exporting or using some modifiers: Select object ? Ctrl+A ? Apply Rotation &amp; Scale (and Location if appropriate).
+</li>
+</ul>
+<h3>Best practices</h3>
+<ul>
+<li>Decide an origin convention for your project (center for prop physics, base for hinged parts, handle for animatable pieces) and stick to it.
+</li>
+<li>Use Shift+S and 3D Cursor for precise origin placement.
+</li>
+<li>Toggle Overlays ? Origins when debugging transforms, physics, or modifiers.
+</li>
+<li>Apply transforms (Ctrl+A) when you want current pose to be the “zero” state (especially before parenting, exporting, or physics setup).
+</li>
+</ul>
+<h3>Oneline reminders</h3>
+<ul>
+<li>To set origin to a precise vertex/point: Edit Mode ? select vertex ? Shift+S ? Cursor to Selected ? Tab to Object ? Object &gt; Set Origin &gt; Origin to 3D Cursor.
+</li>
+<li>To make many objects scale individually: Select objects ? Pivot = Individual Origins ? S.
+</li>
+</ul>
+
+
+  </main>
+  <script src="../assets/js/site.js?v=20260805f"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

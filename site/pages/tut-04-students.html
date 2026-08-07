@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3DIMD | Unity Animation and Animation Import Overview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+    <link href="../assets/css/site.css?v=20260805n" rel="stylesheet" />
+  </head>
+  <body class="content-page">
+    <main class="content-area content-page-area" id="main-content">
+   <h1 class="page-title">
+    Unity Animation and Animation Import Overview
+   </h1>
+  <details class="accordion">
+   <summary>
+    Core Principles
+   </summary>
+   <div class="accordion-body media-stack">
+    <p>
+    Core Principles (view for week 3) – Please review Panopto Videos on Unity
+    </p>
+    <p>
+    Teaches: Narrative and Triggered Animation, Unity Animation and Animator systems, Animator Controller and States, Access by Public GO, Find and GetComponent
+    </p>
+   </div>
+  </details>
+   <details class="accordion">
+    <summary>
+     Task 4.1 - Unity Animation of Lego Brick
+    </summary>
+    <div class="accordion-body media-stack">
+    <details class="accordion accordion--nested video-accordion">
+     <summary>
+      Video: Animation Part 1
+     </summary>
+     <div class="accordion-body">
+      <article class="embed-card">
+       <iframe allowfullscreen="" class="panopto-embed" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=b85a64ab-4ec0-4c89-91e5-b09f00f8efcf" title="Unity Animation and Animation Import Overview animation part 1 video">
+       </iframe>
+       <p>
+        <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b85a64ab-4ec0-4c89-91e5-b09f00f8efcf" rel="noopener noreferrer" target="_blank">
+      Open source link
+        </a>
+       </p>
+      </article>
+     </div>
+    </details>
+    <details class="accordion accordion--nested video-accordion">
+     <summary>
+      Video: Animation Part 2
+     </summary>
+     <div class="accordion-body">
+      <article class="embed-card">
+       <iframe allowfullscreen="" class="panopto-embed" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=9ae7dc0f-3b77-4ec5-bea4-b09f00fc7c60" title="Unity Animation and Animation Import Overview animation part 2 video">
+       </iframe>
+       <p>
+        <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=9ae7dc0f-3b77-4ec5-bea4-b09f00fc7c60" rel="noopener noreferrer" target="_blank">
+      Open source link
+        </a>
+       </p>
+      </article>
+     </div>
+    </details>
+    <details class="accordion accordion--nested video-accordion">
+     <summary>
+      Video: Animation Part 3
+     </summary>
+     <div class="accordion-body">
+      <article class="embed-card">
+       <iframe allowfullscreen="" class="panopto-embed" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=2c665062-1729-42fe-b11c-b09f010216c1" title="Unity Animation and Animation Import Overview animation part 3 video">
+       </iframe>
+       <p>
+        <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2c665062-1729-42fe-b11c-b09f010216c1" rel="noopener noreferrer" target="_blank">
+      Open source link
+        </a>
+       </p>
+      </article>
+     </div>
+    </details>
+     <ol>
+      <li>
+       Import Lego Brick and add narrative animation
+       <ol>
+        <li>Create Plane, place at 0,0,0, and scale to 10,1,5</li>
+        <li>Import a single lego brick and duplicate it twice, rename to brick 01, 02, 03</li>
+        <li>Duplicate and replace materials to be R,G,B</li>
+        <li>
+         Position with snapping (hold CTRL)
+         <a href="https://learn.unity.com/tutorial/unity-tips#5c7f8528edbc2a002053b473" rel="noopener noreferrer" target="_blank">
+          https://learn.unity.com/tutorial/unity-tips#5c7f8528edbc2a002053b473
+         </a>
+        </li>
+        <li>Select Brick we will animate in X</li>
+        <li>Open Window, Animation</li>
+        <li>Create Animator/Animation, name as AnimX.anim</li>
+        <li>Add Property: Transform/Position</li>
+        <li>Turn on record button</li>
+        <li>See the start key</li>
+        <li>Drag transport to 0:30,</li>
+        <li>With Translate gimbal selected ("w" key), drag brick in X axis, See the new key made by recording. Turn off recording mode</li>
+        <li>Start keyframe of position.x at 0:00 - copy</li>
+        <li>Drag transport to 1:00, paste position.x key here</li>
+        <li>Drag transport bar back and forth to check animation.</li>
+        <li>Open Assets Folder and Inspector to see Animator Controller</li>
+        <li>Open Animator Window to see State machine and Animation</li>
+        <li>Press play button to view narrative animation created in Unity!</li>
+        <li>Repeat for other bricks in Y and Z axes, try without recording.</li>
+       </ol>
+      </li>
+      <li>
+       Program input key to trigger Unity Animations
+       <ol>
+        <li>Create New Script for Lego Brick 01 - call Animator Trigger</li>
+        <li>With Lego Brick 01 selected:</li>
+        <li>Create New Animation in Animation Window - name Rest</li>
+        <li>This should be at the start position and not move</li>
+        <li>Drag the Rest animation into the Animator window for Lego Brick 01</li>
+        <li>Right click "Rest" Animation to make it the default state (There needs to be one at all times)</li>
+        <li>Delete transition to AnimX, connect to Any State</li>
+        <li>Make transition to Exit State</li>
+        <li>Use key input code to trigger and play AnimX</li>
+        <li>Add a Box collider and select trigger box</li>
+        <li>Use mousedown code to trigger and play AnimX</li>
+        <li>Repeat for other bricks</li>
+       </ol>
+      </li>
+     </ol>
+     <h3>Code:</h3>
+     <p>
+      (I've left the scripts in, as they are simple, and the rest may be tricky to set up correctly. Please do type them in though, for muscle memory and comprehension, then try some stretch targets)
+     </p>
+     <details class="accordion accordion--nested">
+      <summary>
+       Task 4.1 - Trigger Animations in Animator: AnimatorTrigger
+      </summary>
+      <div class="accordion-body media-stack">
+       <h3>Pseudo Code:</h3>
+       <h3>using System.Collections;</h3>
+       <h3>using System.Collections.Generic;</h3>
+       <h3>using UnityEngine;</h3>
+       <h3>public class AnimatorTrigger : MonoBehaviour</h3>
+       <h3>{</h3>
+       <h3>// Start is called before the first frame update</h3>
+       <h3>void Start()</h3>
+       <h3>{</h3>
+       <h3>}</h3>
+       <h3>// Update is called once per frame</h3>
+       <h3>void Update()</h3>
+       <h3>{</h3>
+       <h3>if (Input.GetKeyDown("1"))</h3>
+       <h3>{</h3>
+       <h3>this.GetComponent&lt;Animator&gt;().Play("AnimX");</h3>
+       <h3>}</h3>
+       <h3>}</h3>
+       <h3>void OnMouseDown()</h3>
+       <h3>{</h3>
+       <h3>this.GetComponent&lt;Animator&gt;().Play("AnimX");</h3>
+       <h3>}</h3>
+       <h3>}</h3>
+      </div>
+     </details>
+    </div>
+   </details>
+   <details class="accordion">
+    <summary>
+     Task 4.2 - 3DS Max Animation Import - Lego Brick Array
+    </summary>
+    <div class="accordion-body media-stack">
+     <details class="accordion accordion--nested video-accordion">
+      <summary>
+       Video: Animation Import Part 1
+      </summary>
+      <div class="accordion-body">
+       <article class="embed-card">
+        <iframe allowfullscreen="" class="panopto-embed" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=22ba15c1-b106-4f12-a65f-b09f010dc569" title="Unity Animation and Animation Import Overview animation import part 1 video">
+        </iframe>
+        <p>
+         <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=22ba15c1-b106-4f12-a65f-b09f010dc569" rel="noopener noreferrer" target="_blank">
+          Open source link
+         </a>
+        </p>
+       </article>
+      </div>
+     </details>
+     <details class="accordion accordion--nested video-accordion">
+      <summary>
+       Video: Animation Import Part 2
+      </summary>
+      <div class="accordion-body">
+       <article class="embed-card">
+        <iframe allowfullscreen="" class="panopto-embed" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=414f0745-5f1d-47a3-8c8b-b09f01167c1f" title="Unity Animation and Animation Import Overview animation import part 2 video">
+        </iframe>
+        <p>
+         <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=414f0745-5f1d-47a3-8c8b-b09f01167c1f" rel="noopener noreferrer" target="_blank">
+          Open source link
+         </a>
+        </p>
+       </article>
+      </div>
+     </details>
+     <ol>
+      <li>Import brick with multiple animations - array</li>
+      <li>
+       Divide into resting, explode, explode rest, and implode animations
+       <ol>
+        <li>Rest - 0,0</li>
+        <li>Explode - 0-20</li>
+        <li>Explode Rest -20-21 (needed to work correctly)</li>
+        <li>Implode = 21-40</li>
+       </ol>
+      </li>
+      <li>Setup animator controller and explode, implode off of entry</li>
+      <li>Create bricks to trigger explode and implode</li>
+      <li>Put script on explode brick to access the explode by public GO variable</li>
+      <li>Put script on implode brick to access the implode by FindObject.GetComponent.Script</li>
+      <li>This relies on Animator States to control the exploded, imploded states</li>
+     </ol>
+     <p>
+      Alternate scripted version: Have Boolean to check for exploded, imploded state , Trigger by Mouse Click on Array (all is internal on brick array script)
+     </p>
+     <p>
+      Make sure you use an explode animation of 20-21 (1 frame) for this to work properly
+     </p>
+     <figure class="image-figure">
+      <img alt="Unity Animation and Animation Import Overview image 1" loading="lazy" src="../assets/media/tut-04-students/image1.jpeg"/>
+      <figcaption class="image-caption">
+       Animator Animation States and Links
+      </figcaption>
+     </figure>
+     <h3>Code:</h3>
+     <p>
+      (I've left the scripts in, as they are simple, and the rest may be tricky to set up correctly. Please do type them in though, or muscle memory and comprehension, then try some stretch targets)
+     </p>
+     <details class="accordion accordion--nested">
+      <summary>
+       Task 4.2 -Brick Array anims controlled by other bricks: BrickTriggerExplode
+      </summary>
+      <div class="accordion-body media-stack">
+       <h3>Pseudo Code:</h3>
+       <h3>BrickTriggerExplode</h3>
+       <h3>using System.Collections;</h3>
+       <h3>using System.Collections.Generic;</h3>
+       <h3>using UnityEngine;</h3>
+       <h3>public class BrickTriggerExplode : MonoBehaviour</h3>
+       <h3>{</h3>
+       <h3>public GameObject brickArray;</h3>
+       <h3>// Use this for initialization</h3>
+       <h3>void Start()</h3>
+       <h3>{</h3>
+       <h3>}</h3>
+       <h3>// Update is called once per frame</h3>
+       <h3>void Update()</h3>
+       <h3>{</h3>
+       <h3>}</h3>
+       <h3>public void OnMouseDown()</h3>
+       <h3>{</h3>
+       <h3>brickArray.GetComponent&lt;Animator&gt;().Play("Explode");</h3>
+       <h3>}</h3>
+       <h3>}</h3>
+       <h3>BrickTriggerImplode</h3>
+       <h3>using System.Collections;</h3>
+       <h3>using System.Collections.Generic;</h3>
+       <h3>using UnityEngine;</h3>
+       <h3>public class BrickTriggerImplode : MonoBehaviour</h3>
+       <h3>{</h3>
+       <h3>private GameObject brickArrayT;</h3>
+       <h3>// Use this for initialization</h3>
+       <h3>void Start()</h3>
+       <h3>{</h3>
+       <h3>brickArrayT = GameObject.FindGameObjectWithTag("BrickArrayTag");</h3>
+       <h3>}</h3>
+       <h3>// Update is called once per frame</h3>
+       <h3>void Update()</h3>
+       <h3>{</h3>
+       <h3>}</h3>
+       <h3>public void OnMouseDown()</h3>
+       <h3>{</h3>
+       <h3>brickArrayT.GetComponent&lt;Animator&gt;().Play("Implode");</h3>
+       <h3>}</h3>
+       <h3>}</h3>
+      </div>
+     </details>
+    </div>
+   </details>
+  </main>
+  <script src="../assets/js/site.js?v=20260805f">
+  </script>
+ </body>
+</html>

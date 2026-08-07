@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Unity Animation and UI Buttons Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
+</head>
+<body class="content-page">
+  <main class="content-area content-page-area" id="main-content">
+    <h1 class="page-title">Unity Animation and UI Buttons Overview</h1>
+    <details class="accordion">
+      <summary>Core Principles</summary>
+      <div class="accordion-body media-stack">
+        <p>Unity Scripting from extra Lectures 01 and 02</p>
+        <ol>
+          <li>Unity Animation from Lecture 05 and Tutorial 04</li>
+          <li>Unity UI from Lecture 05</li>
+        </ol>
+      </div>
+    </details>
+    <details class="accordion accordion--nested">
+      <summary>Task 5.1 - Lego Brick Array with Unity UI Slider</summary>
+      <div class="accordion-body media-stack">
+        <details class="accordion accordion--nested video-accordion">
+          <summary>5.1 Part 1 Video</summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <iframe class="panopto-embed" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=2fddb702-a85f-4673-801c-b0a700e930e2" title="Unity Animation and UI Buttons Overview 5.1 part 1" loading="lazy" allowfullscreen></iframe>
+              <p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2fddb702-a85f-4673-801c-b0a700e930e2" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+            </article>
+          </div>
+        </details>
+        <details class="accordion accordion--nested video-accordion">
+          <summary>5.1 Part 2 Video</summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <iframe class="panopto-embed" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=88798935-5f6d-4381-8eee-b0a700eeed66" title="Unity Animation and UI Buttons Overview 5.1 part 2" loading="lazy" allowfullscreen></iframe>
+              <p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=88798935-5f6d-4381-8eee-b0a700eeed66" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+            </article>
+          </div>
+        </details>
+        <ol>
+          <li>Download Fbx Export Lego Brick Array Exploded</li>
+          <li>Drag into Unity</li>
+          <li>Create new Animator Controller and drag into Objects AC box</li>
+          <li>Add/Edit Animations in Inspector
+            <ol>
+              <li>Rest – Start:0, End:1, Loop</li>
+              <li>Explode – Start:0, End:20, Not Looped</li>
+              <li>Implode – Start:20, End:40, Not Looped</li>
+              <li>Rest Explode – Start:20, End:21, Looped</li>
+            </ol>
+          </li>
+          <li>Drag into scene Hierarchy and zero out</li>
+          <li>Drag animations into Animator window</li>
+          <li>Default state is Rest</li>
+          <li>Drag transitions to the other states</li>
+          <li>Adjust camera to frame – adjust one axis at a time and use View Gimbal top right to navigate</li>
+          <li>Create UI Slider:
+            <ol>
+              <li>Right click in hierarchy and select UI/Slider. This creates a canvas to place it on.</li>
+              <li>Position by dragging values in Rect Transform on Canvas/Slider:</li>
+              <li>Slider Exploder (200,-200,0)</li>
+            </ol>
+          <li>Add New script ExploderSlider.cs to Brick Array Game Object and type in as below:
+          </li>
+            <figure class="image-figure">
+              <img src="../assets/media/tut-05/image1.png" alt="Unity Animation and UI Buttons Overview image 1" loading="lazy" />
+              <figcaption class="image-caption">Reference image 1 from the tutorial source.</figcaption>
+            </figure>
+          <li>Drag Slider Game Object into the box exposed in Inspector by this script</li>
+          <li>Test</li>
+          <li>Start with last scene</li>
+          <li>Add new UI Slider on Same Canvas
+              <ol>
+                <li>Name as rotator</li>
+                <li>Position as needed by dragging values in Rect Transform on Canvas/Slider: Slider Rotator (-200,-200,0)</li>
+                <li>try Rect Transform box presets with Shift and Alt to position Automatically</li>
+              </ol>
+          </li>
+          <li>Slider script:
+              <ol>
+                <li>In Max Value – type in 360</li>
+              </ol>
+              <figure class="image-figure gyazo-inline">
+                <a href="https://gyazo.com/ad79db9c27aa9ef697f173bb60b560aa" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/ad79db9c27aa9ef697f173bb60b560aa.png" alt="Gyazo preview" loading="lazy" /></a>
+                 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+              </figure>
+               <p class="indent-level-4"><a href="https://gyazo.com/ad79db9c27aa9ef697f173bb60b560aa" target="_blank" rel="noopener noreferrer">https://gyazo.com/ad79db9c27aa9ef697f173bb60b560aa</a></p>
+          </li>
+          <li>Add New script RotatorSlider.cs to Brick Array Game Object and type in as below:
+              <figure class="image-figure">
+                <img src="../assets/media/tut-05/image2.png" alt="Unity Animation and UI Buttons Overview image 2" loading="lazy" />
+                <figcaption class="image-caption">Reference image 2 from the tutorial source.</figcaption>
+              </figure>
+          </li>
+          <li>Drag Slider Game Object into the box exposed in Inspector by this script</li>
+          <li>Test</li>
+          <li>Try the extra script included below for extra interactivity</li>
+        </ol>
+      </div>
+    </details>
+    <details class="accordion accordion--nested">
+      <summary>Task 5.2 - Lego Widget Minifig Animation with Unity UI Buttons</summary>
+      <div class="accordion-body media-stack">
+        <details class="accordion accordion--nested video-accordion">
+          <summary>5.2 Video</summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <iframe class="panopto-embed" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=ec71b024-f952-4e2c-9c03-b0a700f65952" title="Unity Animation and UI Buttons Overview 5.2 video" loading="lazy" allowfullscreen></iframe>
+              <p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=ec71b024-f952-4e2c-9c03-b0a700f65952" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+            </article>
+          </div>
+        </details>
+        <ol>
+          <li>Use Lego character built from Mecabricks animated in Max
+            <ol>
+              <li>Widget02StandWalk</li>
+              <li>Stand, walk, and flip animations</li>
+            </ol>
+          </li>
+          <li>Import to Unity, make Animator Controller</li>
+          <li>Edit Animation timeline in Inspector to create stand, walk, flip
+            <ol>
+              <li>Stand – 0,0 - looping</li>
+              <li>Flip – 0,20 - looping</li>
+              <li>Walk – 20, 60 - looping</li>
+            </ol>
+          </li>
+          <li>Put animations in Animator window with Stand as Layer Default State, and Flip and Walk with transitions from Entry State</li>
+          <li>Create Unity UI Button
+            <ol>
+              <li>Screen space overlay</li>
+              <li>In button anchors box, click to enter</li>
+              <li>Hold down alt and select centre or top to snap button position</li>
+              <li>Drag button to desired position with rect transform</li>
+            </ol>
+          </li>
+          <li>Add an on-click event for button
+            <ol>
+              <li>Drag Lego minifig into exposed box</li>
+              <li>Select Animator play string name option</li>
+              <li>Type in name of animation from animator</li>
+            </ol>
+          </li>
+          <li>Test
+            <ol>
+              <li>Try turning loops on and off</li>
+              <li>Try combinations of buttons and scripting by using below script on the Lego Figure</li>
+            </ol>
+          </li>
+        </ol>
+        <h3>AnimPlay.cs</h3>
+        <figure class="image-figure">
+          <img src="../assets/media/tut-05/image4.png" alt="AnimPlay.cs reference screenshot" loading="lazy" />
+          <figcaption class="image-caption">Reference image 4 from the tutorial source.</figcaption>
+        </figure>
+      </div>
+    </details>
+    <details class="accordion accordion--nested">
+      <summary>Task 5.3 - Try the same with the Lego Minifig fbx in Blackboard for CW1</summary>
+      <div class="accordion-body media-stack">
+        <p>Try the same with the Lego Minifig fbx in Blackboard for CW1</p>
+      </div>
+    </details>
+  </main>
+  <script src="../assets/js/site.js?v=20260805f"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

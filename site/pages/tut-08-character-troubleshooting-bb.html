@@ -1,0 +1,294 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      3DIMD | Unity – 3 types of character controllers:
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
+  </head>
+  <body class="content-page">
+    <main class="content-area content-page-area" id="main-content">
+      <h1 class="page-title">
+        Unity – 3 types of character controllers:
+      </h1>
+      <details class="accordion">
+        <summary>
+          Core Principles
+        </summary>
+        <div class="accordion-body media-stack">
+          <p>
+            As basic top level advice, it looks like you are making a Dynamic RigidBody controller (as opposed to Kinematic Rigidbody or non-RigidBody)
+          </p>
+          <p>
+            This is an overview of the three: How to Move Characters In Unity 3D | Character Controllers Explained
+          </p>
+          <ol>
+            <li>Static</li>
+            <li>
+              Non-Kinematic (Dynamic) Rigidbody Controller (Unity Scene)
+              <ol>
+                <li>
+                  <span class="docx-hl docx-hl-cyan">Affected by Physics, gravity</span>
+                  <ol>
+                    <li>
+                      <span class="docx-hl docx-hl-cyan">Larger Mass can limit effects</span>
+                    </li>
+                  </ol>
+                </li>
+                <li><span class="docx-hl docx-hl-cyan">Has Velocity, Acceleration</span></li>
+                <li><span class="docx-hl docx-hl-cyan">All trigger and physics collisions work and can affect other physics objects</span></li>
+                <li><span class="docx-hl docx-hl-green">FixedUpdate, lateUpdate</span></li>
+                <li>
+                  <span class="docx-hl docx-hl-green">AddForce (ForceMode)</span>
+                  <ol>
+                    <li>
+                      <span class="docx-hl docx-hl-green">Mass Dependent:</span>
+                      <ol>
+                        <li>
+                          <span class="docx-hl docx-hl-green">RigidBody.Addforce(ForceMode.Force)</span>
+                        </li>
+                        <li><span class="docx-hl docx-hl-green">RigidBody.AddTorque(ForceMode.Torque)</span></li>
+                      </ol>
+                    </li>
+                    <li>
+                      <span class="docx-hl docx-hl-green">Non-Mass Dependent</span>
+                      <ol>
+                        <li>
+                          <span class="docx-hl docx-hl-green">RigidBody.Addforce(ForceMode.Acceleration)</span>
+                        </li>
+                        <li><span class="docx-hl docx-hl-green">RigidBody.Addforce(ForceMode.VelocityChange)</span></li>
+                      </ol>
+                    </li>
+                  </ol>
+                </li>
+                <li><span class="docx-hl docx-hl-green">RigidBody.MovePosition - forces, collisions along the path</span></li>
+                <li><span class="docx-hl docx-hl-yellow">RigidBody.Position - Teleport, collisions only at end of physics step</span></li>
+                <li><span class="docx-hl docx-hl-red">Transform.Position, Translation, Rotation– unwanted teleportation, non-physics</span></li>
+                <li><span class="docx-hl docx-hl-green">TimeDeltaTime ok</span></li>
+              </ol>
+            </li>
+            <li>
+              Kinematic Rigidbody Controller (Unity Scene)
+              <ol>
+                <li>
+                  <span class="docx-hl docx-hl-cyan">Not affected by physics, gravity - use own code if needed</span>
+                </li>
+                <li><span class="docx-hl docx-hl-cyan">No Velocity (non physics)</span></li>
+                <li><span class="docx-hl docx-hl-cyan">Trigger Collisons work</span></li>
+                <li>
+                  <span class="docx-hl docx-hl-cyan">Physics Collisions natively work only with non kinematic (Dynamic) Rigid Bodies</span>
+                  <ol>
+                    <li>
+                      <span class="docx-hl docx-hl-cyan">You could increase the mass of the NKD rigidbody high so it won’t be pushed</span>
+                    </li>
+                  </ol>
+                </li>
+                <li><span class="docx-hl docx-hl-green">Update</span></li>
+                <li><span class="docx-hl docx-hl-green">RigidBody.MovePosition, MoveRotation– unaffected by forces, collisions</span></li>
+                <li><span class="docx-hl docx-hl-yellow">RigidBody.Position - Teleport, collisions only at end of physics step</span></li>
+                <li><span class="docx-hl docx-hl-red">Transform.Position, Translation, Rotation– unwanted teleportation, non-physics</span></li>
+                <li><span class="docx-hl docx-hl-green">TimeDeltaTime ok</span></li>
+              </ol>
+            </li>
+            <li>
+              Kinematic Non-RigidBody Controller - Unity built in controller
+              <ol>
+                <li>
+                  Not affected by physics, gravity
+                </li>
+                <li>
+                  No Rigidbody - custom control code and wrapper for selected physics
+                  <ol>
+                    <li>
+                      Gravity - CharacterController.SimpleMove
+                    </li>
+                  </ol>
+                </li>
+                <li>
+                  Collisions work -
+                  <ol>
+                    <li>
+                      wall, object and uneven ground
+                    </li>
+                    <li>does not affect other physics objects</li>
+                    <li>Other physics objects can affect</li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+            <li>
+              <span class="docx-hl docx-hl-yellow">Non-RigidBody Controller - Custom</span>
+              <ol>
+                <li>
+                  <span class="docx-hl docx-hl-yellow">Kinematic</span>
+                </li>
+                <li><span class="docx-hl docx-hl-yellow">Direct Input - mouse control</span></li>
+              </ol>
+            </li>
+          </ol>
+          <p>
+            It looks like your gravity may be working, but you also need to parent the character or transform when moving between platforms:
+          </p>
+          <p>
+            This is the basic principle in visual coding: Simple Moving Platform Setup Rigidbody/Character Controller - Unity Bolt Tutorial | Visual Scripting
+          </p>
+          <details class="accordion accordion--nested video-accordion">
+            <summary>
+              Video: Moving platform setup
+            </summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <h3>Video 2</h3>
+                <iframe class="video-embed" src="https://www.youtube.com/embed/2MkNoaWJWf4" title="Unity – 3 types of character controllers: video 2" loading="lazy">
+                </iframe>
+                <p>
+                  <a href="https://www.youtube.com/watch?v=2MkNoaWJWf4" target="_blank" rel="noopener noreferrer">
+                    Open source link
+                  </a>
+                </p>
+              </article>
+            </div>
+          </details>
+          <p>
+            Basic idea is: parent the character transform to a new platform when the platform collider triggered;
+          </p>
+          <ol>
+            <li>How to Create 3D Moving Platforms (Unity Tutorial)</li>
+            <li>
+              <a href="https://discussions.unity.com/t/charactercontroller-on-a-moving-platform/684563/7" target="_blank" rel="noopener noreferrer">
+                https://discussions.unity.com/t/charactercontroller-on-a-moving-platform/684563/7
+              </a>
+            </li>
+            <li>
+              <a href="https://discussions.unity.com/t/how-to-get-a-character-to-move-with-a-moving-platform/1720" target="_blank" rel="noopener noreferrer">
+                https://discussions.unity.com/t/how-to-get-a-character-to-move-with-a-moving-platform/1720
+              </a>
+            </li>
+          </ol>
+          <p>
+            That's the idea I think you may need, happy to look at your project if you have trouble implementing it.
+          </p>
+          <h2>
+            Normalized Tables
+          </h2>
+          <h3>Table 1</h3>
+          <table class="table-normalized">
+            <thead>
+              <tr>
+                <th scope="col">
+                  Feature
+                </th>
+                <th scope="col">
+                  Kinematic Transform
+                </th>
+                <th scope="col">
+                  Non-Kinematic (Dynamic) Transform
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Movement Control
+                </td>
+                <td>
+                  Application-controlled; motion is manually calculated and applied.
+                </td>
+                <td>
+                  Physics-engine controlled; motion is the result of forces and collisions.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Forces
+                  Gravity
+                </td>
+                <td>
+                  Ignored by default; must be manually implemented if desired.
+                </td>
+                <td>
+                  Actively responded to, including gravity.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Collisions
+                </td>
+                <td>
+                  Must be manually handled by the user; does not automatically calculate movement adjustments.
+                </td>
+                <td>
+                  Automatically detected and responded to by the physics engine.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Use Cases
+                </td>
+                <td>
+                  Moving characters driven by animation, player-controlled objects, or objects that need predictable, non-physics-based movement.
+                </td>
+                <td>
+                  Objects that should be affected by the world, like falling blocks, rolling balls, or any object influenced by physics.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <details class="accordion accordion--nested video-accordion">
+            <summary>
+              Video: Character controllers overview
+            </summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <h3>Video 1</h3>
+                <iframe class="video-embed" src="https://www.youtube.com/embed/e94KggaEAr4" title="Unity – 3 types of character controllers: video 1" loading="lazy">
+                </iframe>
+                <p>
+                  <a href="https://www.youtube.com/watch?v=e94KggaEAr4" target="_blank" rel="noopener noreferrer">
+                    Open source link
+                  </a>
+                </p>
+              </article>
+            </div>
+          </details>
+          <details class="accordion accordion--nested video-accordion">
+            <summary>
+              Video: Character controller comparison
+            </summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <h3>Video 3</h3>
+                <iframe class="video-embed" src="https://www.youtube.com/embed/ly9mK0TGJJo" title="Unity – 3 types of character controllers: video 3" loading="lazy">
+                </iframe>
+                <p>
+                  <a href="https://www.youtube.com/watch?v=ly9mK0TGJJo" target="_blank" rel="noopener noreferrer">
+                    Open source link
+                  </a>
+                </p>
+              </article>
+            </div>
+          </details>
+          <h2>
+            Reference links
+          </h2>
+          <p>
+            <a href="https://discussions.unity.com/t/charactercontroller-on-a-moving-platform/684563/7" target="_blank" rel="noopener noreferrer">
+              https://discussions.unity.com/t/charactercontroller-on-a-moving-platform/684563/7
+            </a>
+          </p>
+          <p>
+            <a href="https://discussions.unity.com/t/how-to-get-a-character-to-move-with-a-moving-platform/1720" target="_blank" rel="noopener noreferrer">
+              https://discussions.unity.com/t/how-to-get-a-character-to-move-with-a-moving-platform/1720
+            </a>
+          </p>
+    </main>
+    <script src="../assets/js/site.js?v=20260805f">
+    </script>
+  </body>
+</html>

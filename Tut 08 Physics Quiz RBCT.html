@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Unity3D Physics Quiz: Rigidbody, Collider & Trigger Matrix (Basic)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .meta {
+            text-align: center;
+            margin-bottom: 12px;
+            color: #555;
+        }
+        .quiz-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        .question {
+            margin-bottom: 18px;
+            padding: 14px;
+            border: 1px solid #e9e9e9;
+            border-radius: 6px;
+            background: #fbfbfb;
+        }
+        .options {
+            margin-top: 10px;
+        }
+        .option {
+            margin: 8px 0;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.15s;
+            user-select: none;
+        }
+        .option:hover { background: #e6e6e6; }
+        .option.selected { background: #4CAF50; color: white; }
+        .feedback { margin-top: 10px; padding: 10px; border-radius: 4px; display: none; }
+        .correct { background: #dff0d8; color: #2e7d32; }
+        .incorrect { background: #fbe9e9; color: #c62828; }
+        .controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 12px;
+        }
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        button:hover { background: #2c82b7; }
+        button.secondary { background: #7f8c8d; }
+        button.secondary:hover { background: #6e7d82; }
+        #results {
+            margin-top: 18px;
+            padding: 14px;
+            border-radius: 6px;
+            background: #e8f4fc;
+            display: none;
+        }
+        .small {
+            font-size: 13px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Unity3D Physics Quiz: Rigidbody, Collider & Trigger Matrix (Basic)</h1>
+    <div class="meta small">10 random beginner questions (from a 100-question pool). Use Refresh to get a new set without reloading.</div>
+
+    <div class="quiz-container">
+        <div id="quiz"></div>
+
+        <div class="controls">
+            <button id="submit">Submit Quiz</button>
+            <button id="refresh" class="secondary">Refresh Questions</button>
+            <div style="flex:1"></div>
+            <div class="small">Tip: Refresh to practice different questions.</div>
+        </div>
+
+        <div id="results"></div>
+    </div>
+
+    <script>
+        // Basic pool of 100 simple questions about Rigidbody, Colliders, Triggers and basic physics in Unity.
+        const allQuestions = [
+{ question: "What does adding a Rigidbody to a GameObject do?", options: ["Makes it render faster", "Enables physics simulation for that object", "Adds audio support", "Changes its texture"], answer: 1 },
+{ question: "Which checkbox makes a Collider act as a sensor (no physical collision response)?", options: ["Is Trigger", "Is Visible", "Use Gravity", "Is Static"], answer: 0 },
+{ question: "Which Unity callback runs when a non-trigger physical collision starts (3D)?", options: ["OnTriggerEnter", "OnMouseDown", "OnCollisionEnter", "Start"], answer: 2 },
+{ question: "Which callback runs when an object enters a trigger collider (3D)?", options: ["OnTriggerEnter", "OnCollisionEnter", "Update", "Awake"], answer: 0 },
+{ question: "What must be true for OnCollisionEnter to be called between two colliders?", options: ["At least one object has a Rigidbody", "Both must be triggers", "Both must be UI elements", "Both must be invisible"], answer: 0 },
+{ question: "If two objects only have Colliders and no Rigidbodies, what happens?", options: ["They will generate physics responses automatically", "They will not generate dynamic collision callbacks (treated as static)", "They will act as triggers", "They will be removed"], answer: 1 },
+{ question: "Which Rigidbody setting makes the object entirely controlled by your script?", options: ["isKinematic = true", "useGravity = true", "interpolation = Interpolate", "mass = 0"], answer: 0 },
+{ question: "Where should you apply physics forces and MovePosition for consistent results?", options: ["In Update", "In FixedUpdate", "In OnGUI", "In Start"], answer: 1 },
+{ question: "What does Rigidbody.useGravity control?", options: ["Whether Unity's gravity affects the Rigidbody", "Whether the object renders shadows", "Whether it is visible in the editor", "Its collision layer"], answer: 0 },
+{ question: "Which simple collider is good for a box-shaped object?", options: ["Capsule Collider", "Sphere Collider", "Box Collider", "Mesh Collider"], answer: 2 },
+{ question: "Which collider type is best for a round ball?", options: ["Box Collider", "Sphere Collider", "Capsule Collider", "Mesh Collider"], answer: 1 },
+{ question: "Which collider is often used for humanoid characters?", options: ["SphereCollider", "BoxCollider", "CapsuleCollider", "TerrainCollider"], answer: 2 },
+{ question: "If you want a collider to only detect overlaps and not push objects, you should:", options: ["Disable the collider", "Set Is Trigger = true", "Remove Rigidbody", "Set mass to 0"], answer: 1 },
+{ question: "Which of these will cause an object to be affected by physics forces?", options: ["Rigidbody with isKinematic = true", "Rigidbody with isKinematic = false", "A plain Collider without Rigidbody", "A trigger collider"], answer: 1 },
+{ question: "Which property controls how heavy a Rigidbody is?", options: ["Drag", "Mass", "Interpolation", "Is Trigger"], answer: 1 },
+{ question: "Which property slows linear motion over time?", options: ["Angular Drag", "Mass", "Drag", "Use Gravity"], answer: 2 },
+{ question: "Which function would you use to move a kinematic Rigidbody while keeping physics happy?", options: ["transform.position = ...", "Rigidbody.MovePosition(...)", "Destroy(gameObject)", "Translate in OnGUI"], answer: 1 },
+{ question: "Which function gives you contact points and normals for a collision?", options: ["OnTriggerEnter(Collider other)", "OnCollisionEnter(Collision collision)", "Update()", "OnMouseOver()"], answer: 1 },
+{ question: "If a collider has Is Trigger enabled, which callback is called when another object overlaps it?", options: ["OnCollisionEnter", "OnTriggerEnter", "FixedUpdate", "LateUpdate"], answer: 1 },
+{ question: "Which component do you need to receive OnCollisionEnter events reliably?", options: ["A Renderer", "A Rigidbody on at least one object", "A Camera", "An Animator"], answer: 1 },
+{ question: "What will setting Rigidbody.isKinematic = true do?", options: ["Make the object respond to AddForce", "Stop physics from moving it; script controls motion", "Make it invisible", "Remove collisions"], answer: 1 },
+{ question: "If you want a simple ground plane with collision, which collider is appropriate?", options: ["Sphere Collider", "Box Collider", "Capsule Collider", "Audio Source"], answer: 1 },
+{ question: "Which collision mode is the default and least expensive?", options: ["Continuous", "Discrete", "ContinuousDynamic", "ContinuousSpeculative"], answer: 1 },
+{ question: "Which collision mode helps prevent fast objects from passing through thin colliders?", options: ["Discrete", "Continuous", "None", "KinematicOnly"], answer: 1 },
+{ question: "What does Rigidbody.MoveRotation do?", options: ["Instantly sets rotation ignoring physics", "Rotates a Rigidbody in a physics-safe way during FixedUpdate", "Deletes the Rigidbody", "Changes collider shape"], answer: 1 },
+{ question: "What is a Physics layer used for in Unity?", options: ["Texture mapping", "Deciding which objects can collide with each other", "Lighting control", "Audio grouping"], answer: 1 },
+{ question: "How do you disable collisions between two specific layers?", options: ["Use the Physics collision matrix in Project Settings", "Remove renderers", "Set mass to zero", "Disable cameras"], answer: 0 },
+{ question: "What does Rigidbody.interpolation = Interpolate help with?", options: ["Smoothing visuals between FixedUpdate physics ticks", "Disabling collisions", "Making object lighter", "Changing physics gravity"], answer: 0 },
+{ question: "Which API will give you all colliders inside a sphere area?", options: ["Physics.Raycast", "Physics.OverlapSphere", "Rigidbody.AddForce", "Transform.Translate"], answer: 1 },
+{ question: "If you want a callback when an object exits a trigger, which method is called?", options: ["OnTriggerExit", "OnCollisionExit", "OnDisable", "Start"], answer: 0 },
+{ question: "If two objects have Colliders and one has a Rigidbody set to kinematic, what happens on contact?", options: ["Physics will move the kinematic object", "The dynamic Rigidbody will react; kinematic is controlled by script", "Both disappear", "They act as triggers"], answer: 1 },
+{ question: "Which of these will produce trigger events even if the other object has no Rigidbody?", options: ["A trigger collider and a collider without Rigidbody (No - needs at least one Rigidbody)", "Only if both are triggers", "Only if both have Rigidbodies", "Trigger events require at least one Rigidbody in the pair"], answer: 3 },
+{ question: "Which of these should you prefer for many simple colliders to keep CPU cost low?", options: ["MeshColliders everywhere", "Primitive colliders (box/sphere/capsule)", "Use triggers only", "Use no colliders"], answer: 1 },
+{ question: "If your object teleports and you want it to step smoothly, which should you use?", options: ["Set transform.position every frame", "Use Rigidbody.MovePosition in FixedUpdate", "Remove Rigidbody", "Use OnGUI"], answer: 1 },
+{ question: "Which callback runs every physics step while objects stay in contact (3D)?", options: ["OnCollisionStay", "OnTriggerStayOnly", "Start", "Update"], answer: 0 },
+{ question: "Which callback runs every frame while an object stays inside a trigger (3D)?", options: ["OnTriggerStay", "OnCollisionStay", "FixedUpdate only", "OnEnable"], answer: 0 },
+{ question: "If you want the object to ignore gravity, which property should you change?", options: ["Rigidbody.useGravity = false", "Collider.isTrigger = true", "Renderer.enabled = false", "Transform.scale = 0"], answer: 0 },
+{ question: "What happens to a Collider if you check 'Is Trigger'?", options: ["It no longer produces physical forces but still detects overlaps", "It disappears visually", "It breaks rendering", "It doubles in size"], answer: 0 },
+{ question: "Which method would you use to add an instant push (impulse) to a dynamic Rigidbody?", options: ["Rigidbody.AddForce(force, ForceMode.Impulse)", "Rigidbody.MovePosition", "transform.Translate", "OnTriggerEnter"], answer: 0 },
+{ question: "Which function is best to read player input each frame for responsiveness?", options: ["Update()", "FixedUpdate()", "OnCollisionEnter()", "Awake()"], answer: 0 },
+{ question: "Which function is best to apply physics motion for consistent results?", options: ["FixedUpdate()", "Update()", "OnGUI()", "LateUpdate()"], answer: 0 },
+{ question: "If two objects are both kinematic (isKinematic = true) and overlap, what happens by default?", options: ["Unity resolves physical forces", "They may overlap and you need to handle separation manually", "They turn into triggers", "They swap layers"], answer: 1 },
+{ question: "Which collider type should you avoid for moving characters because it can be expensive?", options: ["CapsuleCollider", "MeshCollider (non-convex)", "BoxCollider", "SphereCollider"], answer: 1 },
+{ question: "To get OnCollisionEnter on a non-kinematic body colliding with a kinematic body, which object should have the Rigidbody?", options: ["Neither", "The non-kinematic (dynamic) one", "Both must be kinematic", "Only the kinematic one"], answer: 1 },
+{ question: "What does a Physics Material influence on a collider?", options: ["Friction and bounciness", "Texture color", "Mass", "Rendering order"], answer: 0 },
+{ question: "Which API lets you temporarily ignore collisions between two colliders?", options: ["Physics.IgnoreCollision(c1, c2, true)", "Destroy(c1)", "DisableRenderer(c2)", "Set active false"], answer: 0 },
+{ question: "Which axis is usually used as 'up' for a CapsuleCollider on a character?", options: ["Y", "X", "Z", "W"], answer: 0 },
+{ question: "What is the simplest way to detect if an object is on the ground?", options: ["Use a short downward Raycast or Overlap", "Check its name", "Look for a Renderer", "Use OnGUI"], answer: 0 },
+{ question: "Which of the following will NOT cause physical repulsion (push) between objects?", options: ["Two colliders set as triggers", "Two dynamic Rigidbodies colliding", "A dynamic hitting a static collider", "A dynamic hitting a kinematic moved by physics"], answer: 0 },
+{ question: "Which setting should you check if fast-moving objects sometimes pass through thin colliders?", options: ["Collision detection mode (use Continuous)", "Is Trigger only", "Transform scale", "Tag name"], answer: 0 },
+{ question: "Which of these is a safe way to move a dynamic Rigidbody if you want physics to respond normally?", options: ["Rigidbody.AddForce", "transform.position = ... every frame", "Disable the collider", "Set mass to 0"], answer: 0 },
+{ question: "What must you do to a Rigidbody to prevent Unity physics from moving it automatically but still have collisions detect it as kinematic?", options: ["Set isKinematic = true", "Destroy the Rigidbody", "Disable the collider", "Set mass to 10000"], answer: 0 },
+{ question: "Which call will report all colliders overlapping a capsule area at a location?", options: ["Physics.OverlapCapsule", "Physics.Raycast", "Renderer.bounds", "Transform.GetChild"], answer: 0 },
+{ question: "If you want collision checks to ignore trigger colliders, which option do you pass to queries?", options: ["QueryTriggerInteraction.Ignore", "QueryTriggerInteraction.Collide", "QueryTriggerInteraction.UseGlobal", "QueryTriggerInteraction.Always"], answer: 0 },
+{ question: "Which Unity component is NOT required to detect a trigger event?", options: ["A Collider set as trigger", "A script with OnTriggerEnter", "A Rigidbody on at least one object", "A Renderer"], answer: 3 },
+{ question: "If you need contact point info inside OnCollisionEnter, which object gives you that?", options: ["The Collision parameter passed into OnCollisionEnter", "The Collider component alone", "The Renderer", "The Transform only"], answer: 0 },
+{ question: "How do you make two layers never collide (project-wide)?", options: ["Turn off their checkbox in Project Settings → Physics collision matrix", "Rename layers to the same name", "Remove colliders", "Make them triggers"], answer: 0 },
+{ question: "Which of these is a good practice to reduce physics CPU usage?", options: ["Use primitive colliders and layer masks to limit checks", "Use many MeshColliders", "Enable continuous detection for everything", "Use triggers for all objects"], answer: 0 },
+{ question: "What happens to a Collider if you disable its GameObject?", options: ["It no longer participates in physics", "It becomes stronger", "It becomes invisible only but still collides", "It changes layer"], answer: 0 },
+{ question: "Which of these is the correct signature for a 3D trigger entry method?", options: ["void OnTriggerEnter(Collider other)", "void OnTriggerEnter(Collision other)", "void OnTriggerEnter2D(Collider2D other)", "void OnCollisionEnter(Collider other)"], answer: 0 },
+{ question: "Which of these is the correct signature for a 3D collision entry method?", options: ["void OnCollisionEnter(Collision collision)", "void OnCollisionEnter(Collider other)", "void OnTriggerEnter(Collision c)", "void OnMouseDown()"], answer: 0 },
+{ question: "Which property affects how a Rigidbody resists rotation changes?", options: ["Angular Drag", "Drag", "Mass", "Use Gravity"], answer: 0 },
+{ question: "If you want to rotate a kinematic Rigidbody smoothly, which method is preferred?", options: ["Rigidbody.MoveRotation", "transform.eulerAngles = ... each frame", "Destroy and recreate object", "OnGUI rotation"], answer: 0 },
+{ question: "Which of the following is a quick test for whether two objects' layers are allowed to collide?", options: ["Check the Physics collision matrix for their layer pair", "Check the Render Settings", "Open the Animator", "Check Lighting settings"], answer: 0 },
+{ question: "Which setting makes a MeshCollider usable for moving objects interacting with dynamic bodies?", options: ["Set Convex = true", "Set Convex = false", "Make it a trigger", "Remove the MeshFilter"], answer: 0 },
+{ question: "Which approach is best to avoid jitter when following a physics-driven object with a camera?", options: ["Enable Rigidbody.interpolation and update camera in LateUpdate", "Parent camera directly to object and don't interpolate", "Move camera in Awake", "Use OnGUI to move camera"], answer: 0 },
+{ question: "What does Physics.IgnoreLayerCollision(layerA, layerB, true) do?", options: ["Prevents collisions between those two layers", "Deletes the layers", "Changes gravity for layers", "Disables rendering"], answer: 0 },
+{ question: "Which of these will give you visible debugging for raycasts in the editor?", options: ["Debug.DrawLine or Debug.DrawRay", "Physics.OverlapSphere", "Destroy(gameObject)", "OnCollisionEnter"], answer: 0 },
+{ question: "Which of these is true about triggers and physical forces?", options: ["Triggers do not apply physical forces, they only notify via callbacks", "Triggers push objects away automatically", "Triggers change object mass", "Triggers change renderer color"], answer: 0 },
+{ question: "If an object has a Rigidbody but no Collider, what happens in physics?", options: ["It cannot collide because it has no collider", "It collides normally", "It becomes a trigger automatically", "It can't be rendered"], answer: 0 },
+{ question: "What is the simplest way to make an object fall under gravity?", options: ["Add a Rigidbody and enable useGravity", "Set transform.y -= Time.deltaTime", "Make it a trigger", "Disable collider"], answer: 0 },
+{ question: "Which of the following do you need for OnCollisionEnter2D (2D physics)?", options: ["Collider2D and at least one Rigidbody2D", "Collider and Rigidbody (3D)", "Only Renderer", "Only Transform"], answer: 0 },
+{ question: "Which of these is a reason to use isKinematic on a Rigidbody?", options: ["You will control the object entirely by script", "You want it to react to forces", "You want it to be affected by gravity only", "You want it to be invisible"], answer: 0 },
+{ question: "Which of these methods reports all hits along a ray?", options: ["Physics.RaycastAll", "Physics.OverlapSphere", "Physics.IgnoreCollision", "Physics.Simulate"], answer: 0 },
+{ question: "If you want to detect step/ledge collisions, which query is useful?", options: ["CapsuleCast or Raycast with layer masks", "OnGUI", "Application.Quit", "Start"], answer: 0 },
+{ question: "Which of the following will NOT call OnCollisionEnter?", options: ["Two colliders both without Rigidbodies (static-static)", "A dynamic Rigidbody hitting a static collider", "A dynamic Rigidbody hitting a kinematic moved by physics", "Two dynamic Rigidbodies colliding"], answer: 0 },
+{ question: "Which of these influences whether two objects collide at all in a scene?", options: ["Their physics layers and the collision matrix settings", "Their shader", "Their mesh color", "Their audio clip"], answer: 0 },
+{ question: "To get consistent physics behaviour across builds, what should you consider checking?", options: ["Fixed Timestep and collision detection settings", "Quality settings for textures", "Audio volume", "Script execution order only"], answer: 0 },
+{ question: "Which of these is true about Rigidbody.mass for kinematic bodies?", options: ["Mass is ignored for kinematic movement but used when interacting with dynamic bodies", "Mass controls movement speed for kinematic objects", "Mass disables collisions", "Mass changes renderer color"], answer: 0 },
+{ question: "Which API would you use to move a Rigidbody and let the physics engine handle collisions properly when kinematic?", options: ["Rigidbody.MovePosition", "transform.Translate", "transform.position = ...", "Destroy"], answer: 0 },
+{ question: "Which option should you set on a Rigidbody to reduce visual stutter when moving with physics?", options: ["interpolation = Interpolate", "isKinematic = false", "useGravity = false", "mass = 0"], answer: 0 },
+{ question: "If a fast bullet sometimes goes through an enemy collider, which should you try first?", options: ["Set collisionDetectionMode to Continuous or ContinuousSpeculative for the bullet", "Make bullet a trigger", "Disable the enemy collider", "Change material color"], answer: 0 },
+{ question: "Which of the following returns true if a ray hits something?", options: ["Physics.Raycast(...)", "Physics.OverlapSphere(...)", "Physics.IgnoreCollision(...)", "Physics.GetIgnoreLayerCollision(...)"], answer: 0 },
+{ question: "Which of the following is a reason to use layer masks in physics queries?", options: ["To limit checks to relevant objects and improve performance", "To change texture", "To disable scripts", "To adjust audio"], answer: 0 },
+{ question: "If you want two objects to trigger OnTriggerEnter when overlapping, what must be true?", options: ["One collider must be marked Is Trigger and at least one object in the pair must have a Rigidbody", "Both must be invisible", "Neither must have Rigidbody", "Both must be on the same layer"], answer: 0 },
+{ question: "Which of the following is true about MeshCollider.convex = true?", options: ["It allows the MeshCollider to be used on moving objects and collide with dynamic bodies", "It makes the mesh invisible", "It disables triggers", "It increases the mesh's texture size"], answer: 0 },
+{ question: "Which of these is recommended when making lots of collidable environment pieces?", options: ["Use primitive colliders or compound primitives rather than many non-convex MeshColliders", "Use MeshColliders for every piece", "Disable colliders", "Use UI elements instead"], answer: 0 },
+{ question: "What does Rigidbody.AddForce do for a dynamic Rigidbody?", options: ["Applies acceleration/force so physics moves the object", "Changes its renderer", "Sets it to be a trigger", "Deletes it"], answer: 0 },
+{ question: "If you call Rigidbody.Sleep() (legacy), what happens?", options: ["The Rigidbody stops being simulated until woken by a collision or explicit wake", "It is destroyed", "It becomes a trigger", "It changes color"], answer: 0 },
+{ question: "Which of the following is a simple way to test collisions in code without moving objects?", options: ["Physics.OverlapBox/OverlapSphere/OverlapCapsule", "transform.Translate", "Destroy(gameObject)", "OnGUI"], answer: 0 },
+{ question: "Which function should you generally avoid using frequently on a Rigidbody for continuous motion?", options: ["Directly setting Rigidbody.position every frame", "Rigidbody.MovePosition in FixedUpdate", "Rigidbody.AddForce in FixedUpdate", "Rigidbody.MoveRotation in FixedUpdate"], answer: 0 },
+{ question: "Which of these will still detect an overlap even if the overlapping object has no Rigidbody?", options: ["OnTriggerEnter on the trigger side when the other object has a Collider and one of the pair has a Rigidbody", "OnCollisionEnter always", "OnCollisionStay always", "OnTriggerExit only"], answer: 0 },
+{ question: "Which of these is NOT a collision query method?", options: ["Physics.Simulate", "Physics.Raycast", "Physics.OverlapSphere", "Physics.CapsuleCast"], answer: 0 },
+{ question: "Which physics callback is best for detecting the start of a contact between two colliders physically?", options: ["OnCollisionEnter", "OnTriggerEnter", "Update", "Start"], answer: 0 },
+{ question: "What does setting a collider's material friction to low do?", options: ["Make objects slide more easily across it", "Change its color", "Stop collisions", "Make object heavier"], answer: 0 },
+{ question: "Which of the following best describes a compound collider?", options: ["Multiple primitive colliders combined (often using child objects) to approximate a complex shape", "A single large MeshCollider", "A trigger that contains other triggers", "A collider that changes at runtime"], answer: 0 },
+{ question: "Which of these is an easy-first-step if OnCollisionEnter never fires in your scene?", options: ["Ensure at least one object in the collision pair has a Rigidbody and collision layers allow the pair", "Change texture", "Set application target frame rate to 60", "Disable all scripts"], answer: 0 },
+{ question: "Which of the following is a correct use of QueryTriggerInteraction to include triggers in a physics query?", options: ["Physics.Raycast(..., QueryTriggerInteraction.Collide)", "Physics.Raycast(..., QueryTriggerInteraction.Ignore)", "Physics.Raycast(..., QueryTriggerInteraction.None)", "QueryTriggerInteraction isn't valid"], answer: 0 },
+{ question: "Which Unity window lets you toggle which layers collide with each other?", options: ["Project Settings → Physics (Collision Matrix)", "Lighting window", "Animation window", "Audio Mixer"], answer: 0 },
+{ question: "Which of these methods is most appropriate for detecting if a space is free before moving an object there?", options: ["Physics.OverlapBox/OverlapCapsule to test for overlaps", "Transform.GetChild", "Debug.Log", "Instantiate"], answer: 0 }
+        ];
+
+        // Utility to escape HTML in option text
+        function escapeHtml(text) {
+            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+            return String(text).replace(/[&<>"']/g, m => map[m]);
+        }
+
+        // Random selection: choose count unique random questions from the pool
+        function pickRandomQuestions(pool, count) {
+            const arr = pool.slice();
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr.slice(0, count);
+        }
+
+        // selectedQuestions is mutable so Refresh can replace it
+        let selectedQuestions = pickRandomQuestions(allQuestions, 10);
+        let userAnswers = Array(selectedQuestions.length).fill(null);
+
+        function buildQuiz() {
+            const quizContainer = document.getElementById('quiz');
+            quizContainer.innerHTML = '';
+
+            selectedQuestions.forEach((q, idx) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <h3>${idx + 1}. ${q.question}</h3>
+                    <div class="options">
+                        ${q.options.map((option, i) => `
+                            <div class="option" data-q="${idx}" data-o="${i}">${escapeHtml(option)}</div>
+                        `).join('')}
+                    </div>
+                    <div class="feedback" id="feedback-${idx}"></div>
+                `;
+                quizContainer.appendChild(questionDiv);
+            });
+
+            // attach listeners to options
+            document.querySelectorAll('.option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const qIndex = parseInt(this.getAttribute('data-q'), 10);
+                    const oIndex = parseInt(this.getAttribute('data-o'), 10);
+                    userAnswers[qIndex] = oIndex;
+
+                    document.querySelectorAll(`.option[data-q="${qIndex}"]`).forEach(el => el.classList.remove('selected'));
+                    this.classList.add('selected');
+
+                    const fb = document.getElementById(`feedback-${qIndex}`);
+                    if (fb) fb.style.display = 'none';
+                    document.getElementById('results').style.display = 'none';
+                });
+            });
+        }
+
+        function submitQuiz() {
+            let score = 0;
+            selectedQuestions.forEach((q, idx) => {
+                const feedbackEl = document.getElementById(`feedback-${idx}`);
+                const user = userAnswers[idx];
+                if (user === q.answer) {
+                    score++;
+                    feedbackEl.className = 'feedback correct';
+                    feedbackEl.textContent = "Correct!";
+                } else {
+                    feedbackEl.className = 'feedback incorrect';
+                    const correctText = q.options[q.answer];
+                    const chosenText = (user === null) ? "(no answer)" : q.options[user];
+                    feedbackEl.textContent = `Incorrect. Your answer: ${chosenText}. Correct answer: ${correctText}.`;
+                }
+                feedbackEl.style.display = 'block';
+            });
+
+            const resultsEl = document.getElementById('results');
+            resultsEl.innerHTML = `
+                <h3>Quiz Results</h3>
+                <p>You scored ${score} out of ${selectedQuestions.length}.</p>
+                <p class="small">Use Refresh to try another random set of questions.</p>
+            `;
+            resultsEl.style.display = 'block';
+            resultsEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Refresh: pick a new set of questions and rebuild the UI
+        function refreshQuestions() {
+            selectedQuestions = pickRandomQuestions(allQuestions, 10);
+            userAnswers = Array(selectedQuestions.length).fill(null);
+            // hide results and feedback
+            document.getElementById('results').style.display = 'none';
+            buildQuiz();
+            // scroll to top of quiz
+            document.getElementById('quiz').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        document.getElementById('submit').addEventListener('click', submitQuiz);
+        document.getElementById('refresh').addEventListener('click', refreshQuestions);
+
+        // Build the first quiz on load
+        buildQuiz();
+    </script>
+</body>
+</html>

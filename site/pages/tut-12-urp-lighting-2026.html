@@ -1,0 +1,473 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | URP Lighting with Caf&#233; Model</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
+</head>
+<body class="content-page">
+  <main class="content-area content-page-area" id="main-content">
+    <h1 class="page-title">URP Lighting with Caf&#233; Model</h1>
+<p>Synopsis and additions to the following video tutorials for the Caf&#233; model (or other Assets):</p>
+<p><a href="https://www.youtube.com/watch?v=7YzWexOAggc" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=7YzWexOAggc</a></p>
+<p><a href="https://www.youtube.com/watch?v=vmwdKK-GZDc" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=vmwdKK-GZDc</a></p>
+<ol>
+<li>Create new Unity Project ï¿½ Universal 3D (URP)example template
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/a845d1532b58fea1236a7a273763a7f8" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/a845d1532b58fea1236a7a273763a7f8.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/a845d1532b58fea1236a7a273763a7f8" target="_blank" rel="noopener noreferrer">https://gyazo.com/a845d1532b58fea1236a7a273763a7f8</a></p>
+</li>
+<li>Or To convert existing Built-In(Standard) 3D project to URP:
+<ol>
+<li><a href="https://youtu.be/KpTK-OraZ-g" target="_blank" rel="noopener noreferrer">https://youtu.be/KpTK-OraZ-g</a>
+</li>
+<li>In Existing project, Import Universal RP package from Unity Registry in Package Manager
+</li>
+<li>Right Click in Project window ï¿½ Greate Rendering/URP Asset with Universal Renderer
+</li>
+<li>Edit/Project Settings/Graphics/Select the URP (Universal Render Pipeline Asset you created above
+</li>
+<li>Convert materials: Window/Rendering/Render Pipeline Converter/
+<ol>
+<li>Select Built in to URP
+</li>
+<li>Tick Rendering Settings
+</li>
+<li>Tick Material Upgrade
+</li>
+<li>Press Initialise Converters
+</li>
+<li>Click Convert assets
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/392021fb49a5699f4d460dff371965ab" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/392021fb49a5699f4d460dff371965ab.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/392021fb49a5699f4d460dff371965ab" target="_blank" rel="noopener noreferrer">https://gyazo.com/392021fb49a5699f4d460dff371965ab</a></p>
+</li>
+</ol>
+</li>
+<li>Trouble shoot individual materials with change from Standard to URP in Inspector
+</li>
+<li>In a URP Project with some Pink (Standard) Materials, convert a range of standard materials to URP by Can convert material from standard to URP by selection in hierarchy and selecting: Top Menu/Edit/Rendering/Materials/Convert Selected Built in Materials to URP
+</li>
+</ol>
+</li>
+<li>Create new Scene: Standard URP (Has Global Volume)
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/16081b90e34d96d6a0cabf2d55c1e533" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/16081b90e34d96d6a0cabf2d55c1e533.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/16081b90e34d96d6a0cabf2d55c1e533" target="_blank" rel="noopener noreferrer">https://gyazo.com/16081b90e34d96d6a0cabf2d55c1e533</a></p>
+</li>
+<li>Import Caf&#233; model ï¿½ extract Textures and Materials to created folders
+</li>
+<li>Drag Caf&#233; model into new scene
+</li>
+<li>Open and Check Lighting tab (Top Menu/Window/Rendering/Lighting) - Create New Lighting Setting from Button ï¿½Newï¿½ at the top of the lighting window
+</li>
+<li>Enable Baked Global Illumination under Mixed Lighting, and baked Indirect in the Lighting Mode drop down box
+</li>
+<li>Enable Auto Generate at bottom of page ï¿½ this eliminates the black shadows by using ambient light from the skybox
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/cddb73d6d436fbd4b4333432d55587ea" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/cddb73d6d436fbd4b4333432d55587ea.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/cddb73d6d436fbd4b4333432d55587ea" target="_blank" rel="noopener noreferrer">https://gyazo.com/cddb73d6d436fbd4b4333432d55587ea</a></p>
+</li>
+<li>Go to Edit/Project Settings/Player/Other Settings ï¿½ change color space to Linear
+</li>
+<li class="indent-level-2">In Edit/Project Settings/Quality/Rendering/RenderPipelineAsset - check - should be URP-HighFidelity (Universal Render Pipeline Asset)
+</li>
+<li>In the Inspector/Directional Light ï¿½ rotate to 30,-150,0 or to taste
+</li>
+<li>In Lighting Window ï¿½ Environment Tab, test effects of using color rather than Skybox
+</li>
+<li>Baking Indirect Light:
+<ol>
+<li>Lighting/Scene ï¿½ Untick Auto-Generate at bottom
+</li>
+<li>Lighting mode: Dropdown box to to Baked Indirect
+</li>
+<li>Lightmapper: Dropdown box to Progressive GPU
+</li>
+<li class="indent-level-4">Lightmap Compression: Dropdown box to None
+</li>
+<li>In Hierarchy, Inspector, make Caf&#233; Static (and children)
+</li>
+<li>In Hierarchy, Inspector, Directional Light ï¿½
+<ol>
+<li>Mode: Dropdown box to Mixed
+</li>
+<li>Shadows/Realtime Shadows/Bias: dropdown box to Custom, zero out
+</li>
+</ol>
+</li>
+<li>In Lighting Window ï¿½ clear baked data (recalculate Environment), then ï¿½Generate Lightingï¿½
+</li>
+<li>This is Baked indirect lighting with real time shadows.
+</li>
+</ol>
+</li>
+<li>Add Fog
+<ol>
+<li>Lighting Window/Environment/ Tick Fog
+</li>
+<li>Select Linear in Mode drop down box
+</li>
+<li>Set start to 5, end to 150
+</li>
+<li>Pick color
+</li>
+</ol>
+</li>
+<li>Post Processing Setup - Camera
+<ol>
+<li class="indent-level-4">No Post Processing layers or setup needed with URP
+</li>
+</ol>
+</li>
+<li>Post Processing Setup ï¿½ Global Volume
+<ol>
+<li>No Post Processing Volume setup needed with URP
+<ol>
+<li>Just make sure Global Volume in Hierarchy is active and its component Volume/Mode is Global
+</li>
+<li>Can adjust Weight of overall effect
+</li>
+<li>Check it has profile
+</li>
+<li>If you donï¿½t have a Global Volume, add it from top Menu/Game Object/Volume/Global Volume
+</li>
+<li>Create new Volume Profile in Inspectore window for Global Volume
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/75a4c1851dfc5814e20ab17184c3114a" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/75a4c1851dfc5814e20ab17184c3114a.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/75a4c1851dfc5814e20ab17184c3114a" target="_blank" rel="noopener noreferrer">https://gyazo.com/75a4c1851dfc5814e20ab17184c3114a</a></p>
+</li>
+</ol>
+</li>
+<li>Just Add Overrides for Options
+<ol>
+<li>Defaults are Tonemapping, Bloom
+</li>
+<li>Tick to activate needed settings and adjust
+</li>
+<li>Suggested Overrides:
+<ol>
+<li>Ambient Occlusion
+</li>
+<li>Depth of Field
+</li>
+<li>Motion Blur
+</li>
+<li>Vignette
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>For Glow/Emission ï¿½
+<ol>
+<li>Check HDR in Main Camera (may be in First Person Character) is set to ï¿½Use Settings from Render Pipeline Assetï¿½
+<ol>
+<li>Create a Dark Skybox
+<ol>
+<li>Create Material
+</li>
+<li>In shader dropdown select Skybox/Procedural
+</li>
+<li>Adjust down Sun Tint, Atmosphere Tint
+</li>
+<li>Take HDR exposure down to .3
+</li>
+<li>Drag into Lighting/Environment/SkyboxMaterial box to replace old Skybox Material
+</li>
+<li>Adjust Directional light Color down in Hierarchy to taste
+</li>
+<li>Select Caf&#233; Railings and adjust material to less than 100% White
+</li>
+</ol>
+</li>
+<li>Add Bloom to Volume
+<ol>
+<li>Try adjustments above 1 for intensity, and about .8 for threshold
+</li>
+<li>You will have to adjust the Skybox and some materials to not be pure white, so they do not bloom
+</li>
+<li>You can now add objects with Emission materials for glow.
+</li>
+</ol>
+</li>
+<li>Glow - Create Cube with Emission Material
+<ol>
+<li>Create Material
+</li>
+<li>Tick Emission
+</li>
+<li>Below Emmission select Color Picker box nest to Emmission map tickbox, Pick HDR color to be bright
+</li>
+<li>In same color picker select intensity to be 1 or above
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/7227f3ff142b59f2bdb258c4894d9650" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/7227f3ff142b59f2bdb258c4894d9650.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p class="indent-level-2"><a href="https://gyazo.com/7227f3ff142b59f2bdb258c4894d9650" target="_blank" rel="noopener noreferrer">https://gyazo.com/7227f3ff142b59f2bdb258c4894d9650</a></p>
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/130512b57e52f937ed39a92fa3e49f2f" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/130512b57e52f937ed39a92fa3e49f2f.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/130512b57e52f937ed39a92fa3e49f2f" target="_blank" rel="noopener noreferrer">https://gyazo.com/130512b57e52f937ed39a92fa3e49f2f</a></p>
+</li>
+</ol>
+</li>
+<li>At this point you will want to rethink your Directional Light(s) and Rebake!
+</li>
+<li>Try it with the actual Light objects....
+</li>
+</ol>
+</li>
+<li>References for Bloom
+<ol>
+<li><a href="https://www.youtube.com/watch?v=bU1sBNfbdM4" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=bU1sBNfbdM4</a>
+</li>
+<li><a href="https://youtu.be/WiDVoj5VQ4c" target="_blank" rel="noopener noreferrer">https://youtu.be/WiDVoj5VQ4c</a>
+</li>
+<li><a href="https://www.youtube.com/watch?v=czE2oLyrNLM" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=czE2oLyrNLM</a>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3>Troubleshooting (Settings to check):</h3>
+<ol>
+<li>Top Menu/Edit/Project Settings/Quality/Current Active Quality Level = High Fidelity
+</li>
+<li>Top Menu/Edit/Project Settings/Quality/Rendering/Render Pipeline Asset = URP ï¿½HighFidelity(Universal Render Pipeline Asset)
+</li>
+<li>Window/Rendering/Lighting/Scene/Lighting Settings/Lighting Settings Asset = ï¿½LightingSettingYouMadeï¿½(press New)
+</li>
+<li>Window/Rendering/Lighting/Scene/Mixed Lighting/Realtime Global Ilumination = off
+</li>
+<li>Window/Rendering/Lighting/Scene/ Mixed Lighting /Baked Global Ilumination = on
+</li>
+<li>Window/Rendering/Lighting/Scene/Lightmapping Settings/Lightmapper = Progressive GPU
+</li>
+<li>Window/Rendering/Lighting/Scene/Lightmapping Settings/AutoGenerate = off (press Generate Lighting as needed)
+</li>
+<li>Hierarchy/Post Process Volume/Global Volume/Profile (ï¿½SampleProfile or ProfileYouMadeï¿½(press New)
+</li>
+<li>Hierarchy/Global Volume/Overrides as desired...
+</li>
+<li>Hierarchy/Global Volume/Mode/Global
+</li>
+<li>Hierarchy/Global Volume/Profile/Make new one ï¿½ click ï¿½Newï¿½ Button
+</li>
+<li class="indent-level-2">Check URP Renderer: Top Menu/Edit/Project Settings/Graphics/ Scriptable Render Pipeline Settings:
+<ol>
+<li>URP-HighFidelity (Universal Render Pipeline Asset)
+</li>
+</ol>
+</li>
+<li>Check URP Renderer: Top Menu/Edit/Project Settings/Graphics/URP Global Settings:
+<ol>
+<li>UniversalRenderPipelineGlobalSettings (Universal Render Pipeline Global Settings)
+</li>
+</ol>
+</li>
+<li>Settings - How to Fix Pink Materials in Unity 2023 | Render Pipeline Basics
+</li>
+</ol>
+<h3>Stretch Targets:</h3>
+<ol>
+<li>Import camera from week 11 or Starter Assets for FPC/3PC
+</li>
+<li>Try different skyboxes ï¿½ 1 color, panoramic
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/dc98d7c204568ff2b0c7df53ae614f19" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/dc98d7c204568ff2b0c7df53ae614f19.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/dc98d7c204568ff2b0c7df53ae614f19" target="_blank" rel="noopener noreferrer">https://gyazo.com/dc98d7c204568ff2b0c7df53ae614f19</a></p>
+</li>
+<li>Make Light Probes for moving lights
+</li>
+<li>URP Converting and Pink Material troubleshooting:
+<ol>
+<li>Create new Unity Project ï¿½ URP example template
+</li>
+<li>To convert Standard to URP:
+<ol>
+<li><a href="https://youtu.be/KpTK-OraZ-g" target="_blank" rel="noopener noreferrer">https://youtu.be/KpTK-OraZ-g</a>
+</li>
+<li>In Existing project, Import Universal RP package from Unity Registry in Package Manager
+</li>
+<li>Right Click in Project window ï¿½ Greate Rendering/URP Asset with Universal Renderer
+</li>
+<li>Edit/Project Settings/Graphics/Select the URP (Universal Render Pipeline Asset you created above
+</li>
+<li>Convert materials: Window/Rendering/Render Pipeline Converter/
+<ol>
+<li>Select Built in to URP
+</li>
+<li>Tick Rendering Settings
+</li>
+<li>Tick Material Upgrade
+</li>
+<li>Press Initialise Converters
+</li>
+<li>Click Convert assets
+</li>
+</ol>
+</li>
+<li>Trouble shoot individual materials with change from Standard to URP in Inspector
+<ol>
+<li>Materials: Edit/Rendering/Materials/Convert to URP
+</li>
+<li>Materials: Adjust materials by hand in inspector to Shader: URP/Complex Lit
+</li>
+<li>How to Fix Pink Materials in Unity 2023 | Render Pipeline Basics
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3>Stretch Targets - Camera (3PC or FPC from Starter Assets):</h3>
+<ol>
+<li>Add Standard Assets
+<ol>
+<li><a href="https://jimmyvegas.itch.io/standard-assets" target="_blank" rel="noopener noreferrer">https://jimmyvegas.itch.io/standard-assets</a>
+</li>
+</ol>
+</li>
+<li>Add FPC Prefab to Hierarchy
+<ol>
+<li>Window/Package Manager
+</li>
+<li>Select top left drop down for My Assets
+</li>
+<li>Add downloaded Starter Assets - First Person Character Controller
+</li>
+<li>Disable old Main Camera
+</li>
+<li>Rotate and move Player Capsule to face the Cafe
+</li>
+<li>Test by playing.
+</li>
+</ol>
+</li>
+</ol>
+
+<details class="accordion">
+<summary>Video Resources (7)</summary>
+<div class="accordion-body media-stack">
+<details class="accordion accordion--nested video-accordion">
+<summary>Video 1</summary>
+<div class="accordion-body">
+<article class="embed-card">
+<h3 class="embed-title">Video 1</h3>
+<iframe class="video-embed" src="https://www.youtube.com/embed/7YzWexOAggc" title="URP Lighting with Caf&#233; Model video 1" loading="lazy" allowfullscreen></iframe>
+<p><a href="https://www.youtube.com/watch?v=7YzWexOAggc" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+</article>
+</div>
+</details>
+<details class="accordion accordion--nested video-accordion">
+<summary>Video 2</summary>
+<div class="accordion-body">
+<article class="embed-card">
+<h3 class="embed-title">Video 2</h3>
+<iframe class="video-embed" src="https://www.youtube.com/embed/vmwdKK-GZDc" title="URP Lighting with Caf&#233; Model video 2" loading="lazy" allowfullscreen></iframe>
+<p><a href="https://www.youtube.com/watch?v=vmwdKK-GZDc" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+</article>
+</div>
+</details>
+<details class="accordion accordion--nested video-accordion">
+<summary>Video 3</summary>
+<div class="accordion-body">
+<article class="embed-card">
+<h3 class="embed-title">Video 3</h3>
+<iframe class="video-embed" src="https://www.youtube.com/embed/KpTK-OraZ-g" title="URP Lighting with Caf&#233; Model video 3" loading="lazy" allowfullscreen></iframe>
+<p><a href="https://youtu.be/KpTK-OraZ-g" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+</article>
+</div>
+</details>
+<details class="accordion accordion--nested video-accordion">
+<summary>Video 4</summary>
+<div class="accordion-body">
+<article class="embed-card">
+<h3 class="embed-title">Video 4</h3>
+<iframe class="video-embed" src="https://www.youtube.com/embed/bU1sBNfbdM4" title="URP Lighting with Caf&#233; Model video 4" loading="lazy" allowfullscreen></iframe>
+<p><a href="https://www.youtube.com/watch?v=bU1sBNfbdM4" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+</article>
+</div>
+</details>
+<details class="accordion accordion--nested video-accordion">
+<summary>Video 5</summary>
+<div class="accordion-body">
+<article class="embed-card">
+<h3 class="embed-title">Video 5</h3>
+<iframe class="video-embed" src="https://www.youtube.com/embed/WiDVoj5VQ4c" title="URP Lighting with Caf&#233; Model video 5" loading="lazy" allowfullscreen></iframe>
+<p><a href="https://youtu.be/WiDVoj5VQ4c" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+</article>
+</div>
+</details>
+<details class="accordion accordion--nested video-accordion">
+<summary>Video 6</summary>
+<div class="accordion-body">
+<article class="embed-card">
+<h3 class="embed-title">Video 6</h3>
+<iframe class="video-embed" src="https://www.youtube.com/embed/czE2oLyrNLM" title="URP Lighting with Caf&#233; Model video 6" loading="lazy" allowfullscreen></iframe>
+<p><a href="https://www.youtube.com/watch?v=czE2oLyrNLM" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+</article>
+</div>
+</details>
+<details class="accordion accordion--nested video-accordion">
+<summary>Video 7</summary>
+<div class="accordion-body">
+<article class="embed-card">
+<h3 class="embed-title">Video 7</h3>
+<iframe class="video-embed" src="https://www.youtube.com/embed/JjHwpP6elnc" title="URP Lighting with Caf&#233; Model video 7" loading="lazy" allowfullscreen></iframe>
+<p><a href="https://www.youtube.com/watch?v=JjHwpP6elnc" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+</article>
+</div>
+</details>
+</div>
+</details>
+<details class="accordion accordion--nested">
+<summary>Reference media and links</summary>
+<div class="accordion-body media-stack">
+<figure class="image-figure">
+<img src="../assets/media/tut-12-urp-lighting-2026/image1.jpg" alt="URP Lighting with CafÃ© Model image 1" loading="lazy" />
+<figcaption class="image-caption">Extracted image 1 from source document.</figcaption>
+</figure>
+<figure class="image-figure">
+<img src="../assets/media/tut-12-urp-lighting-2026/image2.emf" alt="URP Lighting with CafÃ© Model image 2" loading="lazy" />
+<figcaption class="image-caption">Extracted image 2 from source document.</figcaption>
+</figure>
+<p><a href="https://jimmyvegas.itch.io/standard-assets" target="_blank" rel="noopener noreferrer">https://jimmyvegas.itch.io/standard-assets</a></p>
+</main>
+  <script src="../assets/js/site.js?v=20260805f"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,405 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Unity Intro – Interaction Scripting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260805n" />
+</head>
+<body class="content-page">
+  <main class="content-area content-page-area" id="main-content">
+    <h1 class="page-title">Unity Intro – Interaction Scripting</h1>
+<details class="accordion">
+<summary>Core Principles</summary>
+<div class="accordion-body media-stack">
+<p>Core Principles (view for week 3) – (Lecture 02 Unity Scripting Video)</p>
+<details class="accordion accordion--nested video-accordion">
+<summary>Video: Tutorial 02 03 Intro</summary>
+<div class="accordion-body">
+<article class="embed-card">
+<iframe class="panopto-embed" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=15201202-93ae-4edb-9ed5-b09701028c29" title="Unity Intro – Interaction Scripting intro video" loading="lazy" allowfullscreen></iframe>
+<p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=15201202-93ae-4edb-9ed5-b09701028c29" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+</article>
+</div>
+</details>
+<p>Teaches: Input, Static, Collision, Rigid Body, Physics, Vector3, Speed, Time Delta Time, Screen Space vs. World Space</p>
+<ol>
+<li>Set up
+<ol>
+<li>Use Week 01 Project
+<ol>
+<li>Review Input</li>
+<li>Create Wall of Legos</li>
+<li>Lego 01 – Character Controller
+<ol>
+<li>Key input and direct control of Transform and Rotate</li>
+<li>Concepts: Speed and TimeDeltaTime</li>
+</ol>
+</li>
+<li>Lego 02 – Physics Controller
+<ol>
+<li>Key input control of force addition to a rigid body (physics)</li>
+<li>Concepts: Vector3, Rigid Body</li>
+</ol>
+</li>
+<li>Lego 03 – Mouse Click and Drag
+<ol>
+<li>Concepts: Vector3, Screen vs. World Space</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Task – Physics Wall</li>
+</ol>
+<h3>Physics Wall Video</h3>
+<details class="accordion accordion--nested video-accordion">
+<summary>Video: Physics Wall</summary>
+<div class="accordion-body">
+<article class="embed-card">
+<iframe class="panopto-embed" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=420232ad-3d16-408e-a44a-b097010ceda2" title="Unity Intro – Interaction Scripting physics wall video" loading="lazy" allowfullscreen></iframe>
+<p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=420232ad-3d16-408e-a44a-b097010ceda2" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+</article>
+</div>
+</details>
+<ol>
+<li>Wall
+<ol>
+<li>In Hierarchy, select single brick and duplicate it
+<ol>
+<li>Change name to Wall Brick 01</li>
+<li>Position with snapping (hold CTRL) <a href="https://learn.unity.com/tutorial/unity-tips#5c7f8528edbc2a002053b473" target="_blank" rel="noopener noreferrer">https://learn.unity.com/tutorial/unity-tips#5c7f8528edbc2a002053b473</a></li>
+<li>Move 1 axis at a time</li>
+</ol>
+</li>
+<li>Physics for Wall
+<ol>
+<li>Duplicate a brick, move away – rename and Lego Brick Physics</li>
+<li>Position slightly above Gallery Floor Plane</li>
+<li>Add Rigid Body (Physics) component</li>
+<li>Add Box Collider – Check size</li>
+<li>Gallery Floor Plane – Make sure Mesh Collider is active</li>
+<li>Do same for all wall bricks – see results</li>
+<li>Fix by adjusting Box collider (0,4.8,0) (15.92,9.56,15.92)</li>
+<li>This is all duplicated work – do script to instantiate wall for stretch target</li>
+</ol>
+</li>
+<li>Make rows
+<ol>
+<li>Make row of bricks</li>
+<li>Create empty game object -zero out</li>
+<li>Parent row to empty GO
+<ol>
+<li>Pivot is now center of all geometry</li>
+</ol>
+</li>
+<li>Duplicate this, move and unparent bricks
+<ol>
+<li>Brick height is 9.56 exactly</li>
+<li>Names are preserved, can change if desired</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Task – Control: Character Controller, Rigid Body Physics Controller, Mouse Input
+<ol>
+<li>Character control brick</li>
+</ol>
+</li>
+</ol>
+<h3>Character Controller Video</h3>
+<details class="accordion accordion--nested video-accordion">
+<summary>Video: Character Controller</summary>
+<div class="accordion-body">
+<article class="embed-card">
+<iframe class="panopto-embed" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=26581b52-3f7f-4d60-bebb-b09900a7c4de" title="Unity Intro – Interaction Scripting character controller video" loading="lazy" allowfullscreen></iframe>
+<p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=26581b52-3f7f-4d60-bebb-b09900a7c4de" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+</article>
+</div>
+</details>
+<ol>
+<li>Use Physics Brick as with Wall (Rigid Body with Gravity, Box Collider)
+<ol>
+<li>Duplicate, Click, Drag, Rename
+<ol>
+<li>Use Script with Pseudo Code to research and write code</li>
+<li>Change gallery controls to 1 and 2 from left and right arrows</li>
+<li>Test turning RB, Gravity, and Box Collider off</li>
+</ol>
+</li>
+<li>Rigid Body Physics Controller Brick</li>
+</ol>
+</li>
+</ol>
+</div>
+</details>
+
+<details class="accordion">
+<summary>Physics Controller Video</summary>
+<div class="accordion-body media-stack">
+<h3>Physics Controller Video</h3>
+<details class="accordion accordion--nested video-accordion">
+<summary>Video: Physics Controller</summary>
+<div class="accordion-body">
+<article class="embed-card">
+<iframe class="panopto-embed" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=7d1da7ff-bfc3-468f-b09c-b09900efe5bd" title="Unity Intro – Interaction Scripting physics controller video" loading="lazy" allowfullscreen></iframe>
+<p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=7d1da7ff-bfc3-468f-b09c-b09900efe5bd" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+</article>
+</div>
+</details>
+<ol>
+<li>Use Physics brick (Rigid Body with Gravity, Box Collider)
+<ol>
+<li>Duplicate, Click, Drag, Rename
+<ol>
+<li>Use Script with Pseudo Code to research and write code</li>
+<li>Physics control brick adjustments
+<ol>
+<li>We have gravity, but reduce mass</li>
+<li>Introducing speed multiplier with higher mass will make more like CC and break wall</li>
+<li>Test turning RB, Gravity, and Box Collider off</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Mouse Input</li>
+</ol>
+</li>
+</ol>
+</div>
+</details>
+
+<details class="accordion">
+<summary>Mouse Input controller video</summary>
+<div class="accordion-body media-stack">
+<h3>Mouse Input controller video</h3>
+<details class="accordion accordion--nested video-accordion">
+<summary>Video: Mouse Input Controller</summary>
+<div class="accordion-body">
+<article class="embed-card">
+<iframe class="panopto-embed" src="https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=16e96856-9aa1-441b-9af3-b09900ff520d" title="Unity Intro – Interaction Scripting mouse input controller video" loading="lazy" allowfullscreen></iframe>
+<p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=16e96856-9aa1-441b-9af3-b09900ff520d" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+</article>
+</div>
+</details>
+<h3>(Tutorial 2 Mouse Input Controller Video)</h3>
+<ol>
+<li>Use Physics brick (Rigid Body with Gravity, Box Collider)
+<ol>
+<li>Duplicate, Click, Drag, Rename
+<ol>
+<li>Use Script with Pseudo Code to research and write code</li>
+<li>Try the intermediate scripting in video</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Stretch Tasks
+<ol>
+<li>Do rotations with Quaternions
+<ol>
+<li>rotY += Time.deltaTime * 10;</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3>transform.rotation = Quaternion.Euler(0, rotY, 0);</h3>
+<ol>
+<li>Test Static Wall
+<ol>
+<li>Group bricks in wall
+<ol>
+<li>Tick Static – see effects</li>
+<li>Untick RB
+<ol>
+<li>Collider + RB = Dynamic</li>
+<li>Collider no RB = Static</li>
+</ol>
+</li>
+<li>See how you could use this in an app</li>
+</ol>
+</li>
+<li>Wall with instantiated array <a href="https://www.youtube.com/watch?v=rdvyelwSnLM" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=rdvyelwSnLM</a></li>
+<li>Review RB and Collision table in (Lecture 02 Unity Scripting Video)</li>
+<li>RB Physics Controllers more:
+<ol>
+<li>Simple <a href="https://learn.unity.com/project/roll-a-ball-tutorial" target="_blank" rel="noopener noreferrer">https://learn.unity.com/project/roll-a-ball-tutorial</a></li>
+<li>Intermediate <a href="https://medium.com/ironequal/unity-character-controller-vs-rigidbody-a1e243591483" target="_blank" rel="noopener noreferrer">https://medium.com/ironequal/unity-character-controller-vs-rigidbody-a1e243591483</a></li>
+</ol>
+</li>
+<li>Character Controllers more:
+<ol>
+<li>CC Move and SimpleMove (climbs)<a href="https://medium.com/ironequal/unity-character-controller-vs-rigidbody-a1e243591483" target="_blank" rel="noopener noreferrer">https://medium.com/ironequal/unity-character-controller-vs-rigidbody-a1e243591483</a></li>
+<li>CC Move (speed, TDT)<a href="https://answers.unity.com/questions/340033/help-with-a-simple-jump-script.html" target="_blank" rel="noopener noreferrer">https://answers.unity.com/questions/340033/help-with-a-simple-jump-script.html</a></li>
+<li>CC move (speed, TDT) <a href="https://docs.unity3d.com/ScriptReference/CharacterController.Move.html" target="_blank" rel="noopener noreferrer">https://docs.unity3d.com/ScriptReference/CharacterController.Move.html</a></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</details>
+
+<details class="accordion">
+<summary>Pseudo Code</summary>
+<div class="accordion-body">
+<h3>Pseudo Code:</h3>
+<h3>Character Controller (Attached to Brick for CC)</h3>
+<h3>using System.Collections;</h3>
+<h3>using System.Collections.Generic;</h3>
+<h3>using UnityEngine;</h3>
+<h3>public class CharController : MonoBehaviour</h3>
+<h3>}</h3>
+<h3>}</h3>
+<h3>public float maxSpeed = 100.0f;</h3>
+<h3>public float acc = 5.0f;</h3>
+<h3>public float dec = 5.0f;</h3>
+<h3>public float rotation = 0.0f;</h3>
+<h3>// Update is called once per frame</h3>
+<h3>void Update()</h3>
+<h3>{</h3>
+<p>//Check for space key input. If not max speed, accelerate, else decelerate</p>
+<h3>if (Input.GetKey(&quot;space&quot;))</h3>
+<h3>{</h3>
+<h3>//acc</h3>
+<h3>if (speed &lt; maxSpeed)</h3>
+<h3>speed += acc;</h3>
+<h3>}</h3>
+<h3>else</h3>
+<h3>{</h3>
+<h3>//dec</h3>
+<h3>if (speed &gt; 0)</h3>
+<h3>speed -= dec;</h3>
+<h3>}</h3>
+<h3>//Use the speed and transform to move the object forward</h3>
+<h3>//Simplist transform with ACC, DEC, Speed (Space bar), and TDT</h3>
+<h3>transform.position += transform.forward * Time.deltaTime * speed;</h3>
+<p>//Check for Left and Right Key inputs. Turn if left or right keys are pressed</p>
+<h3>if (Input.GetKey(KeyCode.LeftArrow))</h3>
+<h3>{</h3>
+<h3>transform.Rotate(0, 2.0f, 0);</h3>
+<h3>}</h3>
+<h3>if (Input.GetKey(KeyCode.RightArrow))</h3>
+<h3>{</h3>
+<h3>transform.Rotate(0, -2.0f, 0);</h3>
+<h3>}</h3>
+<h3>}</h3>
+<h3>}</h3>
+<h3>Rigid Body Physics Controller (Attached to Brick for RBPC)</h3>
+<h3>using System;</h3>
+<h3>using System.Collections;</h3>
+<h3>using System.Collections.Generic;</h3>
+<h3>using UnityEngine;</h3>
+<h3>public class PhysicsController : MonoBehaviour</h3>
+<h3>{</h3>
+<h3>//Declare private variable of type RigidBody, public float speed;</h3>
+<h3>private Rigidbody rb;</h3>
+<h3>public float speed;</h3>
+<h3>// Start is called before the first frame update</h3>
+<h3>// Initialize RigidBody variable by getting from current gameobject;</h3>
+<h3>rb = GetComponent&lt;Rigidbody&gt;();</h3>
+<h3>}</h3>
+<p>// Fixed Update is called once per frame - use fixed Update for physics</p>
+<h3>void FixedUpdate()</h3>
+<h3>{</h3>
+<p>// Check for &quot;a&quot;, &quot;d&quot;, &quot;w&quot;, and &quot;d&quot; key input, for each, add force vector3s going left, right, forward, and back</p>
+<h3>if (Input.GetKey(&quot;a&quot;))</h3>
+<h3>{</h3>
+<h3>rb.AddForce(Vector3.left);</h3>
+<h3>}</h3>
+<h3>if (Input.GetKey(&quot;d&quot;))</h3>
+<h3>{</h3>
+<h3>rb.AddForce(Vector3.right);</h3>
+<h3>}</h3>
+<h3>if (Input.GetKey(&quot;w&quot;))</h3>
+<h3>{</h3>
+<h3>rb.AddForce(Vector3.forward);</h3>
+<h3>}</h3>
+<h3>if (Input.GetKey(&quot;s&quot;))</h3>
+<h3>{</h3>
+<h3>rb.AddForce(Vector3.back);</h3>
+<h3>//Stretch Task - add multiple to increase force</h3>
+<h3>}</h3>
+<h3>}</h3>
+<h3>}</h3>
+<h3>//Stretch Tasks</h3>
+<p>// Unity Rollaball (Combines forces in Vector <a href="https://learn.unity.com/project/roll-a-ball-tutorial" target="_blank" rel="noopener noreferrer">https://learn.unity.com/project/roll-a-ball-tutorial</a>)</p>
+<p>// Intermediate controllers <a href="https://medium.com/ironequal/unity-character-controller-vs-rigidbody-a1e243591483" target="_blank" rel="noopener noreferrer">https://medium.com/ironequal/unity-character-controller-vs-rigidbody-a1e243591483</a></p>
+<h3>Mouse Input Controller (Attached to Brick for MIC)</h3>
+<h3>using System.Collections;</h3>
+<h3>using System.Collections.Generic;</h3>
+<h3>using UnityEngine;</h3>
+<h3>public class MouseInput : MonoBehaviour</h3>
+<h3>{</h3>
+<h3>//PSEUDO CODE: Declare public variable of type float for speed;</h3>
+<h3>public float speed = 50.0f;</h3>
+<h3>void Update()</h3>
+<h3>{</h3>
+<h3>}</h3>
+<h3>void OnMouseDrag()</h3>
+<h3>{</h3>
+<h3>////TRY:</h3>
+<p>//// Declare and Initialize the X and Y mouse axes and multiply by speed.</p>
+<h3>//// The value is in the range -1 to 1</h3>
+<h3>//// Mouse Y will become Z translation</h3>
+<h3>//float transX = Input.GetAxis(&quot;Mouse X&quot;) * speed;</h3>
+<h3>//float transZ = Input.GetAxis(&quot;Mouse Y&quot;) * speed;</h3>
+<p>//// Make it move 10 meters per second instead of 10 meters per frame...</p>
+<h3>//transX *= Time.deltaTime;</h3>
+<h3>//transZ *= Time.deltaTime;</h3>
+<p class="indent-level-4">//// use transform to translate with values above.</p>
+<h3>////Move translation along the object&#39;s x and z-axis</h3>
+<h3>//transform.Translate(transX, 0, transZ);</h3>
+<h3>//USE:</h3>
+<p>//Mouse in is screen space, not world space!</p>
+<p>//Get new Z Distance from Camera to Object in the Screen to select object</p>
+<h3>float distance_to_screen =</h3>
+<h3>Camera.main.WorldToScreenPoint(gameObject.transform.position).z;</h3>
+<p>//Get new Vector3 for Mouse Input X,Y (Unused), Z(Camera-Object ScreenSpace dist var)</p>
+<p class="indent-level-4">Vector3 pos_move = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance_to_screen));</p>
+<p>//Object transform is Vector3 of Mouse Input X and Screen Move Z, Y is Static</p>
+<p>transform.position = new Vector3(pos_move.x, transform.position.y, pos_move.z);</p>
+<p>//From: <a href="https://answers.unity.com/questions/12322/drag-gameobject-with-mouse.html" target="_blank" rel="noopener noreferrer">https://answers.unity.com/questions/12322/drag-gameobject-with-mouse.html</a></p>
+<p class="indent-level-2">//From: <a href="https://docs.unity3d.com/ScriptReference/Input.GetAxis.html" target="_blank" rel="noopener noreferrer">https://docs.unity3d.com/ScriptReference/Input.GetAxis.html</a></p>
+<p>//Better Version <a href="https://www.patreon.com/posts/unity-3d-drag-22917454" target="_blank" rel="noopener noreferrer">https://www.patreon.com/posts/unity-3d-drag-22917454</a></p>
+<h3>}</h3>
+<h3>}</h3>
+</div>
+</details>
+
+<details class="accordion accordion--nested">
+<summary>Reference links</summary>
+<div class="accordion-body">
+<p><a href="https://learn.unity.com/tutorial/unity-tips" target="_blank" rel="noopener noreferrer">https://learn.unity.com/tutorial/unity-tips</a></p>
+<p><a href="https://learn.unity.com/project/roll-a-ball-tutorial" target="_blank" rel="noopener noreferrer">https://learn.unity.com/project/roll-a-ball-tutorial</a></p>
+<p><a href="https://medium.com/ironequal/unity-character-controller-vs-rigidbody-a1e243591483" target="_blank" rel="noopener noreferrer">https://medium.com/ironequal/unity-character-controller-vs-rigidbody-a1e243591483</a></p>
+<p><a href="https://answers.unity.com/questions/340033/help-with-a-simple-jump-script.html" target="_blank" rel="noopener noreferrer">https://answers.unity.com/questions/340033/help-with-a-simple-jump-script.html</a></p>
+<p><a href="https://docs.unity3d.com/ScriptReference/CharacterController.Move.html" target="_blank" rel="noopener noreferrer">https://docs.unity3d.com/ScriptReference/CharacterController.Move.html</a></p>
+<p><a href="https://answers.unity.com/questions/12322/drag-gameobject-with-mouse.html" target="_blank" rel="noopener noreferrer">https://answers.unity.com/questions/12322/drag-gameobject-with-mouse.html</a></p>
+<p><a href="https://docs.unity3d.com/ScriptReference/Input.GetAxis.html" target="_blank" rel="noopener noreferrer">https://docs.unity3d.com/ScriptReference/Input.GetAxis.html</a></p>
+<p><a href="https://www.patreon.com/posts/unity-3d-drag-22917454" target="_blank" rel="noopener noreferrer">https://www.patreon.com/posts/unity-3d-drag-22917454</a></p>
+</main>
+  <script src="../assets/js/site.js?v=20260805f"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

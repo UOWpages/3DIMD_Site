@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Blender Lego Minifig Tutorial – Hips and Legs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
+</head>
+<body class="content-page">
+  <main class="content-area content-page-area" id="main-content">
+    <h1 class="page-title">Blender Lego Minifig Tutorial – Hips and Legs</h1>
+<p>This tutorial continues modeling the figure (mid-stage): duplicating geometry, adding circular details, mirroring, creating legs, using loop cuts, bevels, and subdivision for smoothing.</p>
+<h3>Save frequently</h3>
+<ul>
+<li>Press Ctrl+S regularly to save your progress.
+</li>
+<li>Have a number at the end of your file name to increment.
+</li>
+<li>Press the &quot;+&quot; and save button to increment save.
+</li>
+</ul>
+<h3>Workspaces</h3>
+<p>Work as before with a Y forward front view and an X forward side view in Layout Workspace, and a perspective view in Modeling Workspace:</p>
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/3c915c6b8167f5cb51e74ddf6d8b67f5" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/3c915c6b8167f5cb51e74ddf6d8b67f5.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/3c915c6b8167f5cb51e74ddf6d8b67f5" target="_blank" rel="noopener noreferrer">https://gyazo.com/3c915c6b8167f5cb51e74ddf6d8b67f5</a></p>
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/cbdb40fce538ba97854c1fb8ecc7c569" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/cbdb40fce538ba97854c1fb8ecc7c569.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/cbdb40fce538ba97854c1fb8ecc7c569" target="_blank" rel="noopener noreferrer">https://gyazo.com/cbdb40fce538ba97854c1fb8ecc7c569</a></p>
+<h3>Video:</h3>
+<h3>Step 1 - Create Waist Models:</h3>
+<ol>
+<li>Create two waist elements from cubes as you did for the torso
+</li>
+</ol>
+<ul>
+<li>In object mode, create the first cube under the torso with Shift+A - Move downward: press G =&gt; Z and move along the Z axis to reference location.
+</li>
+<li>Adjust with vertex moving in Edit Mode/Press 1 to preserve normal scaling
+</li>
+</ul>
+<h3>Duplicate</h3>
+<ul>
+<li>Duplicate and position that cube for the base of the legs (Shift+D)
+</li>
+<li>Right-click to keep the duplicate in place.
+</li>
+<li>Move the duplicate down to reference center: press G =&gt; Z, move along the Z axis.
+</li>
+</ul>
+<h3>Bevel, Smooth</h3>
+<ul>
+<li>bevel both as needed (Ctrl+B)
+</li>
+<li>Smooth as needed (Ctrl +2, RMB=&gt;Smooth Shade)
+</li>
+<li>Can also be created like torso by cutting in half, mirroring for precise symmetry.
+</li>
+</ul>
+<ol>
+<li>Add a circular detail
+</li>
+</ol>
+<ul>
+<li>Add a Mesh Circle (Add =&gt; Mesh =&gt; Circle).
+</li>
+<li>Select Add Circle box at bottom of window for parameters
+</li>
+<li>Set the vertex count to 16 for lighter geometry.
+</li>
+<li>Rotate the circle 90&#176; (R =&gt; X, Z =&gt;90) in views or type (90,0,90) into parameters.
+</li>
+<li>Move (G) and Scale it (S) to the reference. (.3 if typing in parameterrs)
+</li>
+<li>Rotate (R) in X (Side) view to have verts at leg line
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/9e371d6bcc3611edc1fb46a238ef201e" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/9e371d6bcc3611edc1fb46a238ef201e.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/9e371d6bcc3611edc1fb46a238ef201e" target="_blank" rel="noopener noreferrer">https://gyazo.com/9e371d6bcc3611edc1fb46a238ef201e</a></p>
+</li>
+</ul>
+<h3>Extrude</h3>
+<ul>
+<li>In Front View (Y Axis) and Edit/Vertex Mode (1) =&gt;
+</li>
+<li>Press Tab, A, E, X to extrude from center to reference edge
+</li>
+</ul>
+<h3>Mirror</h3>
+<ul>
+<li>apply transforms (Ctrl+A =&gt; Apply Rotation &amp; Scale) to avoid issues.
+</li>
+<li>In Object mode, add a Mirror modifier
+</li>
+<li>If halves overlap, enable Clipping to keep the center welded.
+</li>
+</ul>
+<h3>Apply transforms and center geometry</h3>
+<ul>
+<li>In Object Mode,
+</li>
+<li>apply transforms (Ctrl+A =&gt; Apply Rotation &amp; Scale) to avoid issues.
+</li>
+</ul>
+<h3>Extrude and Merge for caps</h3>
+<ul>
+<li>MMB into perspective Mode
+</li>
+<li>Tab for Edit Mode
+</li>
+<li>Alt-LMB on outer edge to select
+</li>
+<li>Press E to extrude and S to scale once, LMB to accept
+</li>
+<li>Press E to extrude and S to scale Again, nearly closing the circle, LMB to accept
+</li>
+<li>With ring of vertices still selected, Press M and select Merge/At Center
+</li>
+</ul>
+<h3>Subdivide and Smooth</h3>
+<ul>
+<li>In Object Mode
+</li>
+<li>Add Subdivision Surface (Ctrl+2 shortcut or modifier) to smooth the mesh.
+</li>
+<li>Add additional loop cuts near hard edges to preserve form after subdivision.
+</li>
+<li>Right-click =&gt; Shade Smooth to improve shading.
+</li>
+</ul>
+<h3>Bevel Edges</h3>
+<ul>
+<li>Bevel edges for rounded shapes
+</li>
+<li>Select edges or loops and press Ctrl+B to bevel.
+</li>
+<li>Move the mouse to set bevel width and use mouse wheel to set segments.
+</li>
+</ul>
+<ol>
+<li>Create legs
+</li>
+</ol>
+<ul>
+<li>Tab for Edit Mode, 1, Select the circle cap vertices
+</li>
+<li>Shift D to duplicate faces, right click to accept in place
+</li>
+<li>Press P ? Selection to separate as a new object.
+</li>
+<li>go out of Edit into Object Mode
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/4b99666564c351bf37e900fb7f0befd7" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/4b99666564c351bf37e900fb7f0befd7.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/4b99666564c351bf37e900fb7f0befd7" target="_blank" rel="noopener noreferrer">https://gyazo.com/4b99666564c351bf37e900fb7f0befd7</a></p>
+</li>
+<li>Select the new Circle Object
+</li>
+<li>Go into Edit Mode and Extrude in X out to reference front view (Y)
+</li>
+<li>Remove Subdivision modifier from Object
+</li>
+<li>Rename as Legs
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/fb46ce14ae9405c826474716b22a0243" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/fb46ce14ae9405c826474716b22a0243.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/fb46ce14ae9405c826474716b22a0243" target="_blank" rel="noopener noreferrer">https://gyazo.com/fb46ce14ae9405c826474716b22a0243</a></p>
+</li>
+<li>In Edit Mode, shape leg geometry by extruding (E), scaling (S), and moving (G):
+</li>
+<li>Select Vertices in Edit mode that are covering leg reference as below
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/a05e22389759c5e80e8985df1e05a2eb" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/a05e22389759c5e80e8985df1e05a2eb.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/a05e22389759c5e80e8985df1e05a2eb" target="_blank" rel="noopener noreferrer">https://gyazo.com/a05e22389759c5e80e8985df1e05a2eb</a></p>
+</li>
+<li>Select Vertices in Edit mode that are covering leg reference as below
+</li>
+<li>Extrude down until they meet the top of the foot
+</li>
+<li>Right click to accept Extrude and Press S to scale
+</li>
+<li>Press Z, then 0 to flatten the vertex line.
+</li>
+<li>Move this to top of foot line in reference
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/eb6ede73e6c1682f4c7363789e2529c3" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/eb6ede73e6c1682f4c7363789e2529c3.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/eb6ede73e6c1682f4c7363789e2529c3" target="_blank" rel="noopener noreferrer">https://gyazo.com/eb6ede73e6c1682f4c7363789e2529c3</a></p>
+</li>
+<li>Extrude down until they meet the floor
+</li>
+<li>deselect all, then select vertices or face for the front of the foot
+</li>
+<li>Press E to extrude in Y to reference.
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/f0e928af04c1b586778101e9cff81b95" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/f0e928af04c1b586778101e9cff81b95.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/f0e928af04c1b586778101e9cff81b95" target="_blank" rel="noopener noreferrer">https://gyazo.com/f0e928af04c1b586778101e9cff81b95</a></p>
+</li>
+<li>In Edit mode select Outside vertices in Front (Y) View
+</li>
+<li>Rotate these for the leg angle in the reference.
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/f7e67535397371e28bcc72db71099ce9" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/f7e67535397371e28bcc72db71099ce9.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/f7e67535397371e28bcc72db71099ce9" target="_blank" rel="noopener noreferrer">https://gyazo.com/f7e67535397371e28bcc72db71099ce9</a></p>
+</li>
+</ul>
+<ol>
+<li>Bevel, Subdivide and smooth
+</li>
+</ol>
+<ul>
+<li>Edit Mode, 2 for edges
+</li>
+<li>Alt+LMB and Shift+Alt+LMB to select outer edges of leg
+</li>
+<li>Ctrl+B to bevel
+</li>
+<li>Add Subdivision Surface (Ctrl+2 shortcut or modifier) to smooth the mesh.
+</li>
+<li>Add additional loop cuts near hard edges to preserve form after subdivision.
+</li>
+<li>Right-click =&gt; Shade Smooth to improve shading.
+</li>
+<li>Adjust leg to taste
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/00bea1d5f7f9ec98ad2e0dc8ac29390c" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/00bea1d5f7f9ec98ad2e0dc8ac29390c.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/00bea1d5f7f9ec98ad2e0dc8ac29390c" target="_blank" rel="noopener noreferrer">https://gyazo.com/00bea1d5f7f9ec98ad2e0dc8ac29390c</a></p>
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/70823bd29452bfe0a40aac2a917b6e9a" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/70823bd29452bfe0a40aac2a917b6e9a.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/70823bd29452bfe0a40aac2a917b6e9a" target="_blank" rel="noopener noreferrer">https://gyazo.com/70823bd29452bfe0a40aac2a917b6e9a</a></p>
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/7e0f17c5a45f48f7cac2e3ff8ec54270" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/7e0f17c5a45f48f7cac2e3ff8ec54270.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/7e0f17c5a45f48f7cac2e3ff8ec54270" target="_blank" rel="noopener noreferrer">https://gyazo.com/7e0f17c5a45f48f7cac2e3ff8ec54270</a></p>
+</li>
+</ul>
+<ol>
+<li>Separate right leg from Mirror Modifier
+</li>
+</ol>
+<ul>
+<li>In Object Mode
+</li>
+<li>Select object and go to Modifier tab
+</li>
+<li>In Dropdown click Apply
+</li>
+</ul>
+<p>_ it is now actual geometry but still part of the same object</p>
+<ul>
+<li>In Edit Mode, 1 (Vertices)
+</li>
+<li>Select the new mirrored leg - hove mouse over and click L
+</li>
+<li>Press P and choose selection
+</li>
+<li>In Object Mode they will be separated and you can name them
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/24e268dd45cd8bac2e50e2d7fe877d31" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/24e268dd45cd8bac2e50e2d7fe877d31.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/24e268dd45cd8bac2e50e2d7fe877d31" target="_blank" rel="noopener noreferrer">https://gyazo.com/24e268dd45cd8bac2e50e2d7fe877d31</a></p>
+</li>
+</ul>
+<h3>Notes &amp; Shortcuts:</h3>
+<ul>
+<li>Shift+D: duplicate; right-click to cancel movement but keep duplicate at same location
+</li>
+<li>Tab: toggle Edit/Object modes
+</li>
+<li>G, R, S: move, rotate, scale
+</li>
+<li>Ctrl+R: loop cut; click then right-click to center
+</li>
+<li>Ctrl+B: bevel edges; mouse wheel to change segment count
+</li>
+<li>P =&gt; Selection: separate selection into new object
+</li>
+<li>Ctrl+A: apply transforms (Scale/Rotation)
+</li>
+<li>Ctrl+2 / Ctrl+3: quick Subdivision Surface presets
+</li>
+<li>Alt+Click on edge: select loop; Alt+Shift+Click: add loop to selection
+</li>
+</ul>
+<h3>Clean topology and collapse unnecessary geometry</h3>
+<ul>
+<li>Use tools like Dissolve, Merge, or Delete (X) to remove unwanted faces or vertices.
+</li>
+<li>Use Alt+Click to select entire edge loops and operate on them efficiently.
+</li>
+<li>Use loop cuts (Ctrl+R) to add edge loops and right-click after clicking to place the cut centered.
+</li>
+<li>If you need to remove part of it, delete or dissolve faces/edges (X =&gt; Faces/Edges).
+</li>
+</ul>
+
+
+  </main>
+  <script src="../assets/js/site.js?v=20260805f"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Blender Lego Minifig Tutorial – Arms and Hands</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
+</head>
+<body class="content-page">
+  <main class="content-area content-page-area" id="main-content">
+    <h1 class="page-title">Blender Lego Minifig Tutorial – Arms and Hands</h1>
+<p>This tutorial continues modeling a LEGO-style arm starting at the wrist using circles and a Mirror modifier. It uses Blender default keymap (Tab, G, R, S, E, I, Ctrl+R, Ctrl+B, Ctrl+2, etc.). The workflow is non-destructive: use Mirror and Subdivision Surface modifiers while editing the half-mesh. Goal: create a symmetrical arm (forearm =&gt; elbow =&gt; upper arm) that connects to a torso, beginning modeling at the wrist with a circle primitive.</p>
+<h3>Save frequently</h3>
+<ul>
+<li>Press Ctrl+S regularly to save your progress.
+</li>
+<li>Have a number at the end of your file name to increment.
+</li>
+<li>Press the &quot;+&quot; and save button to increment save.
+</li>
+</ul>
+<h3>Workspaces</h3>
+<p>Work as before with a Y forward front view and an X forward side view in Layout Workspace, and a perspective view in Modeling Workspace:</p>
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/3c915c6b8167f5cb51e74ddf6d8b67f5" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/3c915c6b8167f5cb51e74ddf6d8b67f5.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/3c915c6b8167f5cb51e74ddf6d8b67f5" target="_blank" rel="noopener noreferrer">https://gyazo.com/3c915c6b8167f5cb51e74ddf6d8b67f5</a></p>
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/cbdb40fce538ba97854c1fb8ecc7c569" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/cbdb40fce538ba97854c1fb8ecc7c569.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/cbdb40fce538ba97854c1fb8ecc7c569" target="_blank" rel="noopener noreferrer">https://gyazo.com/cbdb40fce538ba97854c1fb8ecc7c569</a></p>
+<h3>Quick shortcuts used</h3>
+<ul>
+<li>Shift+A: Add menu
+</li>
+<li>Tab: toggle Edit/Object mode
+</li>
+<li>G / R / S: Move / Rotate / Scale
+</li>
+<li>X: delete
+</li>
+<li>E: Extrude
+</li>
+<li>I: Inset
+</li>
+<li>F: Fill face
+</li>
+<li>Ctrl+R: Loop Cut
+</li>
+<li>Ctrl+B: Bevel
+</li>
+<li>Ctrl+2: quick Subdivision Surface
+</li>
+<li>P: Separate =&gt; Selection
+</li>
+<li>Alt+Click: select edge loop
+</li>
+<li>Ctrl+A: Apply transforms
+</li>
+<li>Right-click =&gt; Shade Smooth
+</li>
+</ul>
+<h3>Step 1 – Create mirrored Arm models:</h3>
+<ol>
+<li>Add the wrist circle (base of the arm)
+<ol>
+<li>Shift + A =&gt; Mesh =&gt; Circle.
+</li>
+<li>In the lower-left Add Circle panel (or F9), set Vertices to 16 (good balance between roundness and low poly).
+</li>
+<li>Set Radius to 0.18m
+</li>
+<li>Set Location to –0.82m,-0.1m, -0.2m
+</li>
+<li>Set Rotation to 16.3, 6.6, 10.8
+</li>
+<li>Apply all Transforms
+</li>
+<li>Apply mirror mode
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/9a723f91c669d04f1b2c11ac24c92460" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/9a723f91c669d04f1b2c11ac24c92460.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/9a723f91c669d04f1b2c11ac24c92460" target="_blank" rel="noopener noreferrer">https://gyazo.com/9a723f91c669d04f1b2c11ac24c92460</a></p>
+</li>
+</ol>
+</li>
+<li>Turn the circle into a short cylinder (wrist thickness)
+<ol>
+<li>Tab =&gt; Enter Edit Mode.
+</li>
+<li>With all vertices selected (A), press F to Fill the circle (creates a face).
+</li>
+<li>With the top rim of the newly created wrist cylinder selected (edge loop or face), press E to extrude along the arm axis to near the elbow.
+</li>
+<li>Extrude (E) to create elbow region and upper arm segments. Use smaller extrudes rotation and and scaling to form joints.
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/768ee7ed80b20e382626bfc876e74084" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/768ee7ed80b20e382626bfc876e74084.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/768ee7ed80b20e382626bfc876e74084" target="_blank" rel="noopener noreferrer">https://gyazo.com/768ee7ed80b20e382626bfc876e74084</a></p>
+</li>
+</ol>
+</li>
+<li>Work on half the arm (edit only one side)
+<ol>
+<li>Tab =&gt; Edit Mode (you will only edit one side because of Mirror).
+</li>
+<li>Use edge/face/vertex select modes (1/2/3) to shape the half-arm:
+<ol>
+<li>Add loop cuts where you want definition: Ctrl+R =&gt; click =&gt; right-click to keep centered.
+</li>
+<li>S =&gt; Z =&gt; 0 can flatten faces if you need a planar surface (useful on inner surfaces).
+</li>
+</ol>
+</li>
+<li>To create a visible elbow, extrude a short segment then scale inward, then extrude again to continue the upper arm.
+</li>
+<li>Add some bend before the elbow by adding a Loop with Shift+R
+</li>
+<li>Rotate Loop and move into place
+</li>
+<li>Do final vertex adjustments with Proportional adjustment to smooth differences – Press O and scale vertice effect with mouse wheel before moving.
+</li>
+<li>Try a local rotation of the shoulder loop to avoid line twisting along upper arm. Local selection is in the top view menu. Don’t forget to change it back to global after the adjustment. You will Alt+LMB to select the shoulder loop and R+Z to rotate in local.
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/cd289cb947e0cf3877e2d5d7e9d65a9b" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/cd289cb947e0cf3877e2d5d7e9d65a9b.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/cd289cb947e0cf3877e2d5d7e9d65a9b" target="_blank" rel="noopener noreferrer">https://gyazo.com/cd289cb947e0cf3877e2d5d7e9d65a9b</a></p>
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/0b951c02e03f04f82db4e5f9dc6c7349" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/0b951c02e03f04f82db4e5f9dc6c7349.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/0b951c02e03f04f82db4e5f9dc6c7349" target="_blank" rel="noopener noreferrer">https://gyazo.com/0b951c02e03f04f82db4e5f9dc6c7349</a></p>
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/820097cc3a8e9e16fb2fcc64954354f1" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/820097cc3a8e9e16fb2fcc64954354f1.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/820097cc3a8e9e16fb2fcc64954354f1" target="_blank" rel="noopener noreferrer">https://gyazo.com/820097cc3a8e9e16fb2fcc64954354f1</a></p>
+</li>
+</ol>
+</li>
+<li>Bevel Shoulder
+<ol>
+<li>Double check that the shoulder loop is perpendicular to the upper arm, rotate in X to fine tune
+</li>
+<li>Ctrl-B and Mouse wheel to bevel to reference in both sides.
+</li>
+<li>This may cause some overlap at the top. This can be deleted and filled later. The important part is the shape.
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/1a6a748c489f5eefc7892d72c15152a2" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/1a6a748c489f5eefc7892d72c15152a2.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/1a6a748c489f5eefc7892d72c15152a2" target="_blank" rel="noopener noreferrer">https://gyazo.com/1a6a748c489f5eefc7892d72c15152a2</a></p>
+</li>
+</ol>
+</li>
+<li>Add topology control: bevels and supporting loops
+<ol>
+<li>Select an edge loop near each joint or shoulder area (Alt+Click on an edge).
+</li>
+<li>Ctrl+B to bevel; drag to set bevel width; roll the mouse wheel to increase segments (1–3 segments).
+</li>
+<li>Use Ctrl+R to add supporting loops close to hard edges to control how Subdivision Surface smooths the silhouette (typical offset 0.02–0.05 Blender units).
+</li>
+<li>If you have a messy end loop, select with Alt+LMB and Press M=&gt;at center to merge the vertices
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/deea05ee80f23e425074e9216ecec75c" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/deea05ee80f23e425074e9216ecec75c.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/deea05ee80f23e425074e9216ecec75c" target="_blank" rel="noopener noreferrer">https://gyazo.com/deea05ee80f23e425074e9216ecec75c</a></p>
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/c7194e73e4fd726f02c450742168d68c" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/c7194e73e4fd726f02c450742168d68c.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/c7194e73e4fd726f02c450742168d68c" target="_blank" rel="noopener noreferrer">https://gyazo.com/c7194e73e4fd726f02c450742168d68c</a></p>
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/b4d5c822b838785ed2443808b719f8f9" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/b4d5c822b838785ed2443808b719f8f9.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/b4d5c822b838785ed2443808b719f8f9" target="_blank" rel="noopener noreferrer">https://gyazo.com/b4d5c822b838785ed2443808b719f8f9</a></p>
+</li>
+</ol>
+</li>
+</ol>
+<p class="indent-level-2">e. Use proportional editor to Move Rotate and scale down a hard edge for the Arm against the body.</p>
+<p class="indent-level-2">f. Enable Proportional Editing: Press the O key or click the Proportional Editing icon (a circle) in the 3D Viewport header.</p>
+<p class="indent-level-2">g. Select and Transform: Go into Edit Mode, select the vertices, edges, or f aces you want to move, and transform tools like Grab, Rotate, Scale</p>
+<p class="indent-level-2">h. Adjust the influence: Use the scroll wheel to increase or decrease the size of the circle, determining how far the proportional effect extends.</p>
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/bee841c0ae59ab2041ea045b9ff553d3" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/bee841c0ae59ab2041ea045b9ff553d3.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/bee841c0ae59ab2041ea045b9ff553d3" target="_blank" rel="noopener noreferrer">https://gyazo.com/bee841c0ae59ab2041ea045b9ff553d3</a></p>
+<ol>
+<li>Add details (hand peg, wrist connector)
+<ol>
+<li>If the arm needs a peg to connect to a hand or wrist joint:
+<ol>
+<li>Select the wrist end face, I (Inset) =&gt; type 0.08 =&gt; Enter to inset a small circle.
+</li>
+<li>Extrude this back into the arm, do a very close inset.
+</li>
+<li>E =&gt; extrude a short peg
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/e5a896e17b78729163b840c6f88f8285" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/e5a896e17b78729163b840c6f88f8285.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/e5a896e17b78729163b840c6f88f8285" target="_blank" rel="noopener noreferrer">https://gyazo.com/e5a896e17b78729163b840c6f88f8285</a></p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Model a simple hand
+<ol>
+<li>Add circle with 16 vertices, 0,22 radius, Location -0.875,0, -0.525 abd with a 90 degree X rotation typed into the box when created with Ctrl+A
+</li>
+</ol>
+</li>
+<li>Separate parts if needed
+<ol>
+<li>To make the forearm or hand a separate object (for animation or clarity):
+<ol>
+<li>Select the faces for that piece, press P =&gt; Selection to separate into a new object.
+</li>
+<li>Tab =&gt; Object Mode, select that new object and add its own Mirror/Subsurf modifiers if needed.
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Smooth and subdivide
+<ol>
+<li>Tab =&gt; Object Mode.
+</li>
+<li>Ctrl + 2 to add Subdivision Surface (viewport level 2) and smooth the shape.
+</li>
+<li>Right-click =&gt; Shade Smooth.
+</li>
+<li>If surfaces become too soft, return to Edit Mode and add supporting loop cuts or adjust bevel widths.
+</li>
+</ol>
+</li>
+<li>Cleanup and final transforms
+<ol>
+<li>Object Mode =&gt; Ctrl + A =&gt; Apply Rotation &amp; Scale to avoid issues with subsequent modifiers.
+</li>
+<li>Check normals (Edit Mode =&gt; A =&gt; Mesh =&gt; Normals =&gt; Recalculate Outside or Shift+N) if shading looks odd.
+</li>
+<li>Merge any duplicated vertices at the mirror seam if needed (they should auto-merge when Clipping is enabled).
+</li>
+</ol>
+</li>
+<li>Optional: convert circle-based wrist to cylinder for perfect rounds
+<ol>
+<li>If you need a perfectly circular wrist peg, instead of inset/extrude, add:
+<ol>
+<li>Shift + A =&gt; Mesh =&gt; Cylinder (16 verts), rotate and position it at wrist, then Boolean/Join or integrate with arm geometry.
+</li>
+</ol>
+</li>
+<li>Use Boolean carefully; clean up topology afterward (Merge by Distance / retopology).
+</li>
+</ol>
+</li>
+</ol>
+<h3>Notes &amp; tips</h3>
+<ul>
+<li>Start small: use low-poly circles (16 verts) and only add loops when needed. This keeps topology clean.
+</li>
+<li>Mirror Clipping: ensure center vertices lie exactly on the mirror plane (X=0) for a clean seam.
+</li>
+<li>Axis orientation: the tutorial assumes the arm extends along one scene axis (Y recommended). Adjust R/X/Y/Z constraints accordingly.
+</li>
+<li>Use numeric extrude values for consistent segment lengths (e.g., E =&gt; Y =&gt; 0.20).
+</li>
+<li>Keep quads where possible; avoid unnecessary n-gons around joints for easier smoothing.
+</li>
+<li>Use Ctrl+A =&gt; Apply Scale early if modeling in Object Mode then editing; it prevents unpredictable bevel/scale behavior.
+</li>
+</ul>
+<h3>Example quick keystrokes (summary)</h3>
+<ol>
+<li>Shift+A =&gt; Mesh =&gt; Circle (Verts:16) =&gt; R X 90 =&gt; G to wrist position
+</li>
+<li>Tab =&gt; Edit Mode =&gt; A =&gt; F =&gt; E Z 0.06 =&gt; S 0.9
+</li>
+<li>Select top rim =&gt; E Y 0.20 =&gt; S 0.95 (forearm)
+</li>
+<li>Repeat extrudes (E Y 0.18) and scale to make elbow + upper arm
+</li>
+<li>Tab =&gt; Object Mode =&gt; Modifiers =&gt; Add Mirror =&gt; Clipping ON
+</li>
+<li>Tab =&gt; Edit Mode =&gt; Ctrl+R (add supporting loops) =&gt; Ctrl+B (bevel edges)
+</li>
+<li>Tab =&gt; Object Mode =&gt; Ctrl+2 =&gt; Right-click =&gt; Shade Smooth
+</li>
+<li>Ctrl+A =&gt; Apply Rotation &amp; Scale
+</li>
+</ol>
+
+
+  </main>
+  <script src="../assets/js/site.js?v=20260805f"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,493 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Prepare &amp; Animate a LEGO Minifigure in Blender</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
+</head>
+<body class="content-page">
+  <main class="content-area content-page-area" id="main-content">
+    <h1 class="page-title">Prepare &amp; Animate a LEGO Minifigure in Blender</h1>
+<h3>Overview</h3>
+<ul>
+<li>Goal: clean origins, parent parts into a simple hierarchy, create an &quot;up/down&quot; empty controller, lock axes to limit motion, key a 1–30 run loop, add a 10-frame standing pose, and refine interpolation for a snappy run.
+</li>
+<li>Keep names consistent (e.g., Body, LeftLeg, RightLeg, LeftArm, RightArm, Head, UPctrl).
+</li>
+</ul>
+<h3>Example minimal workflow (summary):</h3>
+<ol>
+<li class="indent-level-2">Fix origins: select part ? Object ? Set Origin ? Origin to Geometry.
+</li>
+<li class="indent-level-2">Parent parts: select child ? Shift+Select Body ? Ctrl+P ? Object.
+</li>
+<li class="indent-level-2">Create “UPctrl” empty ? snap to body ? parent Body to UP_ctrl.
+</li>
+<li class="indent-level-2">Apply transforms to UP_ctrl (Ctrl+A) and lock X/Y &amp; rotations.
+</li>
+<li class="indent-level-2">Set frame range 1–30; key UP_ctrl high at frame 1 (G Z ? I Location).
+</li>
+<li class="indent-level-2">Key passing at frame 15, copy to create full stride (copy frames to 30/45/60)
+</li>
+<li class="indent-level-2">Key limb rotations with I ? Rotation in staggered frames.
+</li>
+<li class="indent-level-2">Graph Editor: select Z-curve ? V ? Vector for hits.
+</li>
+<li class="indent-level-2">Copy reserve keys to frame 65 &amp; 70, set 65 interpolation to Constant, set 70 to standing pose.
+</li>
+<li class="indent-level-2">Polish, shift keys to exactly align loop, save.
+</li>
+<li>Scene cleanup &amp; origin fixes
+</li>
+</ol>
+<ul>
+<li>Why: origins affect rotations, mirror, physics, and center-of-mass.
+</li>
+<li>How: move the 3D Cursor into desired place and snap object origins to it (Median Point)
+</li>
+<li>Steps:
+</li>
+</ul>
+<ol>
+<li>You may want to delete the mirrored arms and legs to set origins and re-mirror
+</li>
+<li>Also move all object geometry and reference up so minifigs feet are on the floor.
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/126091418c545465be4944f93816048a" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/126091418c545465be4944f93816048a.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/126091418c545465be4944f93816048a" target="_blank" rel="noopener noreferrer">https://gyazo.com/126091418c545465be4944f93816048a</a></p>
+</li>
+<li>Select each part (Body, Legs, Arms, Head) and verify origin:
+</li>
+</ol>
+<ul>
+<li class="indent-level-2">Tab ? Edit Mode: origin may be off in geometry for animation.
+</li>
+<li class="indent-level-2">Fix: Tab to Edit ? select geometry ? Shift+S ? Cursor to Selected ? Tab to Object ? Object ? Set Origin ? Origin to 3D Cursor
+</li>
+<li class="indent-level-2">Or simply: Object ? Set Origin ? Origin to Geometry to center origin on the mesh.
+</li>
+</ul>
+<p class="indent-level-2">Example: for the leg I selected the two center vertices for the leg circle, then stil in Edit mode pressed Shift S and selected “Cursor to Selected” - This placed it perfectly equidistant between the two vertices, and will be good for rotation.</p>
+<p class="indent-level-2">Otherwise you can move the 3D Cursor by selecting the 3D Cursor in the toolbar and selecting within it to drag (can press X,Y,Z to constrain), also left clicking on the background will drop it at that location.</p>
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/e44cb9a7d894864ae90e3dbf48a161db" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/e44cb9a7d894864ae90e3dbf48a161db.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/e44cb9a7d894864ae90e3dbf48a161db" target="_blank" rel="noopener noreferrer">https://gyazo.com/e44cb9a7d894864ae90e3dbf48a161db</a></p>
+<ol>
+<li>Toggle visibility of the origin if needed: Overlays ? Origins.
+</li>
+</ol>
+<h3>Keystrokes (important)</h3>
+<ul>
+<li class="indent-level-4">Tab — toggle Object/Edit Mode
+</li>
+<li class="indent-level-4">Shift+S ? open snap pie (Cursor to Selected / Selection to Cursor)
+</li>
+<li class="indent-level-4">Object ? Set Origin ? Origin to Geometry / Origin to 3D Cursor
+</li>
+</ul>
+<h3>gg</h3>
+<ol>
+<li>Test rotation in X axis only
+</li>
+<li>Duplicate and mirror the arm and leg with new pivots by menu, not modifier
+</li>
+</ol>
+<ul>
+<li>Shift-D in object mode – Z to drag to other side
+</li>
+<li>Object=&gt;Mirror+&gt;Z Axis – Drag to reference.
+</li>
+</ul>
+<ol>
+<li>Build simple hierarchy (parenting)
+</li>
+</ol>
+<ul>
+<li>Goal: Hips is Parent of Legs, Body is parent of arms and child of Hips; then Hips parented under a single empty controller.
+</li>
+<li>Steps:
+</li>
+</ul>
+<ol>
+<li>Parent Arms to the Body, Body to Waist, and Legs to the Hips:
+</li>
+</ol>
+<ul>
+<li class="indent-level-2">Select child (e.g., RightLeg) ? Shift+Select Body ? Ctrl+P ? Select &quot;Object&quot;.
+</li>
+<li class="indent-level-2">Repeat for all limbs and head.
+</li>
+</ul>
+<ol>
+<li>Create an empty to act as the up/down animation controller:
+</li>
+</ol>
+<ul>
+<li class="indent-level-2">Add ? Empty 3 Arrows (or Mesh helper) ? position it near model
+</li>
+</ul>
+<p class="indent-level-2">(snap if needed).</p>
+<ul>
+<li class="indent-level-2">Snap: Select helper ? Shift+Select Body ? Object ? Snap ? Selection to Active
+</li>
+</ul>
+<p class="indent-level-2">(or use Shift+S and set cursor then move).</p>
+<ul>
+<li class="indent-level-2">Rename empty to &quot;UP&quot; or &quot;UPctrl&quot;.
+</li>
+</ul>
+<ol>
+<li>Parent Body to the empty:
+</li>
+</ol>
+<ul>
+<li>Select Body ? Shift+Select UPctrl ? Ctrl+P ? Object.
+</li>
+</ul>
+<h3>Keystrokes</h3>
+<ul>
+<li class="indent-level-4">Ctrl+P ? Parent menu (Object)
+</li>
+<li class="indent-level-4">Add ? Empty (via Add menu)
+</li>
+<li class="indent-level-4">Object ? Snap ? Selection to Active
+</li>
+</ul>
+<h3>(or use Shift+S to place cursor and move object)</h3>
+<ol>
+<li>Apply transforms and lock channels
+</li>
+</ol>
+<ul>
+<li>Why: keep controller clean, prevent accidental edits, and restrict motion to intended axes.
+</li>
+<li>Steps:
+</li>
+</ul>
+<ol>
+<li>Select UPctrl ? Object ? Apply ? All Transforms (Ctrl+A ? Apply All Transforms) to zero it out.
+</li>
+<li>Lock unwanted transform channels in the N-panel (Item ? Location / Rotation / Scale locks):
+</li>
+</ol>
+<ul>
+<li class="indent-level-2">Example for UPctrl: lock X &amp; Y location and all rotation/scale, leave Z location unlocked.
+</li>
+<li class="indent-level-2">For limbs: lock non-used rotation axes (e.g., allow rotation only on X for simple joint).
+</li>
+</ul>
+<ol>
+<li>Zero unnecessary transforms (Alt+G / Alt+R / Alt+S as needed).
+</li>
+</ol>
+<h3>Keystrokes</h3>
+<ul>
+<li class="indent-level-4">Ctrl+A ? Apply (Location / Rotation / Scale / All Transforms)
+</li>
+<li class="indent-level-4">N ? Item panel (lock channel icons)
+</li>
+<li class="indent-level-4">Alt+G / Alt+R / Alt+S — clear transforms
+</li>
+</ul>
+<ol>
+<li>Pose &amp; initial rig testing
+</li>
+</ol>
+<ul>
+<li class="indent-level-2">Test parenting: move the UPctrl (G then Z) — whole character should follow.
+</li>
+<li class="indent-level-2">Rotate an arm/leg in Object Mode (R) — check locked axes; fix locks if needed.
+</li>
+</ul>
+<h3>Keystrokes</h3>
+<ul>
+<li class="indent-level-4">G / R / S — move / rotate / scale
+</li>
+<li class="indent-level-4">G then Z — constrain to Z axis
+</li>
+</ul>
+<p class="indent-level-4">(or press G + Z twice for local axis depending on mode)</p>
+<ol>
+<li>Create the run loop — dope sheet workflow
+</li>
+</ol>
+<ul>
+<li>Can be in Animation or Layout window – use +X axis view
+</li>
+<li>Make sure Dopesheet is displayed on bottom, expand Summary on Left if needed
+</li>
+<li>Frame range and approach:
+</li>
+<li>Set timeline range to 1 ? 30 (the cyclic run).
+</li>
+<li>Put keyframes at main poses and copy to build periodic cycle.
+</li>
+<li>Steps:
+</li>
+</ul>
+<ol>
+<li>Set frame range: Start = 1, End = 30.
+</li>
+<li>UPctrl: choose the high point of the bounce (e.g., frame
+</li>
+<li>— G ? move on Z to desired high ? I ? Location.
+</li>
+<li>Copy UP keyframe to frame 30 and to mid-stride frames:
+</li>
+</ol>
+<ul>
+<li>Select keyframe(s) ? Ctrl+C ? move playhead to destination ? Ctrl+V
+<figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/a2b62e3e66b1e8733b27bfe436bbb66f" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/a2b62e3e66b1e8733b27bfe436bbb66f.png" alt="Gyazo preview" loading="lazy" /></a>
+<figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
+</figure>
+<p><a href="https://gyazo.com/a2b62e3e66b1e8733b27bfe436bbb66f" target="_blank" rel="noopener noreferrer">https://gyazo.com/a2b62e3e66b1e8733b27bfe436bbb66f</a></p>
+</li>
+</ul>
+<ol>
+<li>Add passing point: move to frame 15 (mid between 0 &amp;
+</li>
+<li>? lower UPctrl ? I ? Location.
+</li>
+<li>Key limbs:
+</li>
+</ol>
+<ul>
+<li class="indent-level-2">Select a leg (RightLeg) ? R ? rotate to forward pose ? K ? Rotation.
+</li>
+<li class="indent-level-2">Select opposite arm ? R ? rotate backwards ? K ? Rotation.
+</li>
+<li class="indent-level-2">Repeat for other leg and arm offsets (stagger frames so right-forward = left-back on alternate frames).
+</li>
+</ul>
+<ol>
+<li>Copy/paste sets to create the second stride (copy frame groups to frames 30–60 or use manual insertion at 7/22).
+</li>
+</ol>
+<ul>
+<li>Tips:
+</li>
+<li>Use Dope Sheet for bulk copying
+</li>
+</ul>
+<p>(Select Summary, Ctrl+C to copy all visible key-channels).</p>
+<ul>
+<li>If auto-keying is on (recording icon), movement will automatically add keys
+</li>
+</ul>
+<p>(be careful - it keys everything).</p>
+<h3>Keystrokes</h3>
+<ul>
+<li class="indent-level-4">K ? Insert Keyframe (choose Location / Rotation / LocRotScale)
+</li>
+<li class="indent-level-4">Ctrl+C / Ctrl+V — copy/paste keyframes
+</li>
+<li class="indent-level-4">Shift+Select objects to key multiple items
+</li>
+<li class="indent-level-4">Space / Play to preview
+</li>
+<li class="indent-level-4">Ctrl+Tab to togglebetween dopesheet and curve view
+</li>
+</ul>
+<ol>
+<li>Refine timing &amp; interpolation (Graph Editor)
+</li>
+</ol>
+<ul>
+<li>Use Graph Editor to refine curves and create snappy hits.
+</li>
+<li>Steps:
+</li>
+</ul>
+<ol>
+<li>Switch to Graph Editor: Ctrl+Tab (or change editor type).
+</li>
+<li>Isolate the UP Z-curve (or other curves): select property (e.g., Location Z) and hide others: Alt+H / Shift+H or use channel visibility to focus.
+</li>
+<li>Change interpolation to add a “hit”and “bounce”:
+</li>
+</ol>
+<ul>
+<li>Select key(s) ? press V ? choose Vector to create linear hit
+</li>
+</ul>
+<p>(or Constant to hold a pose).</p>
+<ol>
+<li>For the standing pose that begins at frame 70, make those keys use Constant interpolation so you jump out of the loop into the standing pose without affecting the cycle.
+</li>
+<li>Use Home to frame all, and H / Alt+H to hide/unhide curves if necessary.
+</li>
+</ol>
+<h3>Keystrokes</h3>
+<ul>
+<li class="indent-level-4">Ctrl+Tab ? switch editor; or change editor type to Graph Editor
+</li>
+<li class="indent-level-4">V ? change key interpolation (Vector / Constant / Bezier)
+</li>
+<li class="indent-level-4">Alt+H / Shift+H — show/hide curves or channels
+</li>
+<li class="indent-level-4">Home — frame all
+</li>
+</ul>
+<ol>
+<li>Add standing pose and non-disruptive transition
+</li>
+</ol>
+<ul>
+<li>Goal: extend beyond the cycle so you can trigger a standing pose without altering the run cycle.
+</li>
+<li>Steps:
+</li>
+</ul>
+<ol>
+<li>Copy a reference keyframe (e.g., the neutral or passing frame from
+</li>
+<li>? Ctrl+C ? go to frame 31 and 40 ? Ctrl+V.
+</li>
+<li>At frame 31 (a reserved frame before
+</li>
+<li>change interpolation type to Constant so the walk cycle does not smoothly blend into the standing pose.
+</li>
+<li>At frame 31 and 40 set the neutral (stand) pose for limbs: rotate/position and K ? Rotation (or K ? LocRot) and ensure frame 31?40 is constant for a clean jump to stand.
+</li>
+<li>Test playback up to frame 41 to ensure loop unaffected: set end frame to 30 for the looping cycle, and preview extra frames for stand.
+</li>
+</ol>
+<h3>Keystrokes</h3>
+<ul>
+<li class="indent-level-4">Ctrl+C / Ctrl+V — copy/paste keys to frame 70
+</li>
+<li class="indent-level-4">V ? Constant interpolation (or via key menu)
+</li>
+<li class="indent-level-4">I ? Insert keyframe for pose
+</li>
+</ul>
+<ol>
+<li>Final adjustments &amp; housekeeping
+</li>
+</ol>
+<ul>
+<li class="indent-level-2">Move all keys to start at a clean frame if needed
+</li>
+</ul>
+<h3>(drag select in Dope Sheet and slide)</h3>
+<ul>
+<li class="indent-level-2">Ensure the Walk/Run loop is exactly 30 frames
+</li>
+</ul>
+<h3>(correct off-by-one by dragging keys in Dope Sheet)</h3>
+<ul>
+<li class="indent-level-2">Hide helper/reference geometry: move to a collection and toggle its visibility.
+</li>
+<li class="indent-level-2">Save file (File ? Save As) with a meaningful name (e.g., ready_anim.blend).
+</li>
+</ul>
+<h3>Keystrokes</h3>
+<ul>
+<li class="indent-level-4">G (in Dope Sheet) ? drag keyframes
+</li>
+<li class="indent-level-4">Ctrl+S ? Save
+</li>
+</ul>
+<h3>FBX Export</h3>
+<ol>
+<li>Right click on Empty object controller and select Hierarchy
+</li>
+<li>File/Export Fbx
+</li>
+<li>Use settings Below:
+<ol>
+<li>Include
+<ol>
+<li>Limit To: Click on Selected Objects
+</li>
+<li>Object Types: Click on Mesh,
+</li>
+<li>Object Types: Shift Click to select Empty and Armature as well
+</li>
+</ol>
+</li>
+<li>Transform
+<ol>
+<li>Apply Scalings: All Local
+</li>
+<li>Forward: -Z Forward
+</li>
+<li>Up: Y Up
+</li>
+<li>Tick Apply Unit
+</li>
+<li>Tick Use Space Transform
+</li>
+</ol>
+</li>
+<li>Geometry: Apply Modifiers
+</li>
+<li>Armature
+<ol>
+<li>Tick Only Deform Bones
+</li>
+<li>Untick Add Leaf Bones
+</li>
+</ol>
+</li>
+<li>Animation
+<ol>
+<li>Tick Key all Bones
+</li>
+<li>Untick NLA Strips
+</li>
+<li>Tick Force Start/End Keying
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Export Fbx
+</li>
+<li>Import to Unity and setup animation as normal
+</li>
+</ol>
+<h3>Quick Troubleshooting &amp; Best Practices</h3>
+<ul>
+<li>Accidental origin offsets: fix with Object ? Set Origin ? Origin to Geometry.
+</li>
+<li>Rigid-body or modifier issues: origin acts as center; set origin properly before using physics/mirror.
+</li>
+<li>Use naming conventions and collections to avoid selecting wrong objects in other views.
+</li>
+<li>Lock channels to limit accidental translation/rotation (N panel ? Item ? lock icons).
+</li>
+<li>Keep UPctrl clean (zeroed transforms) and use it as the main animation parent for world movement.
+</li>
+</ul>
+<h3>Compact keystroke cheat list</h3>
+<ul>
+<li>Tab; G / R / S; I (Insert Keyframe); Ctrl+A; Ctrl+P; Ctrl+C / Ctrl+V; Shift+S; Alt+G / Alt+R / Alt+S; N (Item panel); V (interpolation); Ctrl+Tab (switch editor); Space (play); Ctrl+S (save)
+</li>
+</ul>
+
+
+  </main>
+  <script src="../assets/js/site.js?v=20260805f"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

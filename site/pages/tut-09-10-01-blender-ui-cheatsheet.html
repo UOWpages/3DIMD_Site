@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Blender UI CheatSheet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
+</head>
+<body class="content-page">
+  <main class="content-area content-page-area" id="main-content">
+    <h1 class="page-title">Blender UI CheatSheet</h1>
+<h3>Quick reference for modeling in Blender (Default Keymap)</h3>
+<h3>Windows</h3>
+<ul>
+<li>Go to top corner of a window to get a “+” sign
+</li>
+<li>This can be dragged down to form a new window.
+</li>
+<li>Dragging this across an existing window give the option to split it.
+</li>
+<li>It can also be dragged into an existing window to join them.
+</li>
+</ul>
+<h3>Modes &amp; Navigation</h3>
+<ul>
+<li>Tab: Toggle Object/Edit Mode
+</li>
+<li>1 / 2 / 3: Vertex / Edge / Face select (Edit Mode)
+</li>
+<li>Middle Mouse Button (MMB): Orbit
+</li>
+<li>Shift + MMB: Pan
+</li>
+<li>Scroll Wheel: Zoom
+</li>
+<li>Numpad 1 / 3 / 7: Front / Right / Top orthographic views
+</li>
+<li>Ctrl + Numpad 1/3/7: Opposite view
+</li>
+<li>Numpad 5: Toggle perspective / orthographic
+</li>
+</ul>
+<h3>Transform Basics</h3>
+<ul>
+<li>G: Grab / Move ? then X / Y / Z to constrain (e.g., G ? Z)
+</li>
+<li>R: Rotate ? R ? X/Y/Z to constrain
+</li>
+<li>S: Scale ? S ? X/Y/Z to constrain
+</li>
+<li>Shift (hold): finer control when transforming
+</li>
+<li>Ctrl + A (Object Mode): Apply ? Location / Rotation / Scale
+</li>
+</ul>
+<h3>Selection Tools</h3>
+<ul>
+<li>A: Select all / deselect all
+</li>
+<li>B: Box Select (or LMB and drag)
+</li>
+<li>C: Circle Select
+</li>
+<li>L: Select linked (hover then L)
+</li>
+<li>Alt + Click (edge): Select edge loop
+</li>
+<li>Ctrl + Alt + Click (edge): Select edge ring (keymap dependent)
+</li>
+<li>Ctrl + L: Select linked geometry under cursor
+</li>
+</ul>
+<h3>Modeling Operations (Edit Mode)</h3>
+<ul>
+<li>E: Extrude (faces/edges/verts)
+</li>
+<li>I: Inset faces
+</li>
+<li>F: Make face / fill
+</li>
+<li>Ctrl + R: Loop Cut (click, then move; right-click to center)
+</li>
+<li>Ctrl + B: Bevel (edges) — mouse wheel to add segments
+</li>
+<li>X / Delete: Delete (choose Vertices / Edges / Faces / Only Faces / Edges &amp; Faces)
+</li>
+<li>M: Merge (or Move to collection in Object Mode)
+</li>
+<li>P: Separate ? Selection (make new object)
+</li>
+<li>K: Knife tool (click to cut; Enter to confirm)
+</li>
+<li>V: Rip (separate verts) / (depends on keymap)
+</li>
+<li>Alt + M (or M in some keymaps): Merge vertices by center / at cursor
+</li>
+</ul>
+<h3>Proportional Editing</h3>
+<ul>
+<li>O: Toggle Proportional Editing
+</li>
+<li>Mouse wheel: change influence radius while transforming
+</li>
+</ul>
+<h3>Snapping</h3>
+<ul>
+<li>Shift + Tab: Toggle Snapping
+</li>
+<li>Hold Ctrl while transforming: temporary snap
+</li>
+<li>Snap types: Vertex / Edge / Face / Increment (set in header)
+</li>
+</ul>
+<h3>Modifiers (non-destructive workflow)</h3>
+<ul>
+<li>Mirror: Add Modifier ? Mirror (enable Clipping to weld center)
+</li>
+<li>Subdivision Surface (Subsurf): Smooth geometry; use supporting loops to keep edges crisp
+</li>
+<li>Boolean: Add Modifier ? Boolean (use carefully; clean topology after)
+</li>
+<li>Bevel, Solidify, Array: common helpers
+</li>
+<li>Order matters: modifiers apply top ? bottom in the stack
+</li>
+</ul>
+<h3>Shading &amp; Viewport</h3>
+<ul>
+<li>Z: Quick shading pie (Wireframe, Solid, Material Preview, Rendered)
+</li>
+<li>Right-click ? Shade Smooth / Shade Flat
+</li>
+<li>Overlays (top-right in 3D View): toggle face orientation, normals, grid, origins
+</li>
+<li>X-Ray / X-Ray slider: select through geometry
+</li>
+<li>Show Gizmo, Show Overlays, Toggle Xray and ViewPort Shading is ideal for modeling
+</li>
+</ul>
+<h3>Outliner &amp; Scene Management</h3>
+<ul>
+<li>Collections: Group objects for visibility / render
+</li>
+<li>Select Filter for Restriction toggles (icons in Outliner for below)
+</li>
+<li>Click icons in Outliner to toggle Visibility / Selectability / Render
+</li>
+<li>Rename objects (double-click in Outliner) — keep names clear
+</li>
+</ul>
+<h3>Common Cleanup &amp; Tools</h3>
+<ul>
+<li>Ctrl + J: Join selected objects
+</li>
+<li>Alt + J: Convert tris?quads (if available)
+</li>
+<li>Mesh ? Clean Up: Merge by Distance (remove doubles), Delete Loose, etc.
+</li>
+<li>Ctrl + Shift + R / Ctrl + 2/3: Quick Subdivision shortcuts (Ctrl+2 = add Subsurf level + apply visually)
+</li>
+</ul>
+<h3>Quick Workflow (Box Modeling ? Refine ? Detail)</h3>
+<ol>
+<li>Block out main forms using primitives (Cube, Cylinder, Sphere).
+</li>
+<li>Add Mirror modifier for symmetry.
+</li>
+<li>Use Loop Cuts (Ctrl+R) to add detail loops where needed.
+</li>
+<li>Bevel (Ctrl+B) or add supporting loops to control edge sharpness.
+</li>
+<li>Add Subdivision Surface and Shade Smooth for preview.
+</li>
+<li>Add fine details last; apply boolean only when necessary and retopologize afterwards.
+</li>
+</ol>
+<h3>Useful Shortcuts (compact)</h3>
+<ul>
+<li>Tab (Object/Edit), G (Translate), R (Rotate), S(Scale), E (Extrude), I(Insert), F, Ctrl+R (Loops), Ctrl+B (Bevel), Shift+D (Duplicate), X (Delete), P (Separate), Ctrl+A (Apply transforms), O (Proportional editing), Shift+Tab (snap)
+</li>
+</ul>
+<h3>Tips &amp; Best Practices</h3>
+<ul>
+<li>Keep quads for clean deformation and subdivision.
+</li>
+<li>Work non-destructively: use modifiers; apply only when necessary.
+</li>
+<li>Apply transforms (Ctrl+A) before boolean/bevel to avoid issues.
+</li>
+<li>Use supporting loops for sharp edges under Subsurf.
+</li>
+<li>Organize into collections and name objects clearly.
+</li>
+<li>Save incrementally (model_v01.blend, model_v02.blend).
+</li>
+</ul>
+
+
+  </main>
+  <script src="../assets/js/site.js?v=20260805f"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
