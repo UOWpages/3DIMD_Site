@@ -22,13 +22,19 @@
   padding: var(--space-5);
   position: relative;
   animation: slideIn 0.4s ease-in-out;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .slide.active {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+}
+
+.slide-frame {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 @keyframes slideIn {
@@ -50,7 +56,7 @@
   font-weight: 700;
   color: #ffffff;
   background: #60a5fa;
-  margin: calc(var(--space-5) * -1.8) calc(var(--space-5) * -1) var(--space-4) calc(var(--space-5) * -1);
+  margin: calc(var(--space-5) * -1.8) calc(var(--space-5) * -1) 0 calc(var(--space-5) * -1);
   padding: 2.35rem var(--space-3) 0.7rem;
   border: 3px solid #000;
   border-radius: 0;
@@ -61,12 +67,192 @@
   line-height: 1.1;
   min-height: 4.8rem;
   box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.slide h1 {
+  font-family: "Archivo Black", "Space Grotesk", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  margin: 0 0 var(--space-3) 0;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.slide h2 {
+  font-family: "Archivo Black", "Space Grotesk", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin: var(--space-3) 0;
+  color: var(--ink);
+}
+
+.slide h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: var(--space-3) 0 var(--space-2) 0;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.slide p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: var(--space-2) 0;
+  color: var(--muted);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.slide img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: 4px 4px 0 var(--line);
+  margin: var(--space-3) auto;
+  display: block;
+}
+
+.slide-logo {
+  height: 1.2rem !important;
+  width: auto !important;
+  max-width: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  mix-blend-mode: multiply;
+  display: block;
+  padding: 0;
+}
+
+.slide ul, .slide ol {
+  margin: var(--space-2) 0;
+  padding-left: var(--space-4);
+}
+
+.slide li {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.learning-outcome {
+  font-size: 0.9rem;
+  margin: var(--space-2) 0;
+  padding-left: var(--space-3);
+}
+
+.module-aim {
+  font-size: 0.85rem;
+  margin: var(--space-2) 0;
+  padding-left: var(--space-3);
+  line-height: 1.5;
+}
+
+.section-label {
+  font-weight: 700;
+  font-size: 1rem;
+  margin: var(--space-3) 0 var(--space-2) 0;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+a {
+  color: var(--accent-alt);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--accent);
 }
 
 .slide-content {
-  flex: 1;
+  flex: 1 1 auto;
   overflow-y: auto;
+  min-height: 0;
   margin-bottom: var(--space-4);
+  padding-right: var(--space-2);
+}
+
+.slide-frame .slide-content {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  min-height: 0;
+  margin-bottom: var(--space-4);
+  padding-right: var(--space-2);
+}
+
+.assessment-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.slide-content-assessment {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-height: 0;
+}
+
+.slide-content-assessment .assessment-table-wrap {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  padding-bottom: 2.25rem;
+  box-sizing: border-box;
+}
+
+.assessment-table {
+  width: 100%;
+  min-width: 980px;
+  border-collapse: collapse;
+  border: 3px solid #1f4f88;
+  table-layout: fixed;
+}
+
+.slide-content-assessment .assessment-table {
+  height: 100%;
+}
+
+.assessment-table th,
+.assessment-table td {
+  border: 2px solid #1f4f88;
+  padding: 0.7rem;
+  vertical-align: middle;
+  text-align: left;
+  color: #102a4a;
+  line-height: 1.35;
+}
+
+.assessment-table thead th {
+  background: #ef3e2d;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.assessment-table tbody td {
+  background: #ead4d4;
+  font-weight: 600;
+}
+
+.assessment-table tbody td:first-child {
+  background: #ef3e2d;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.assessment-table .assessment-value {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .slide-controls {
@@ -81,7 +267,8 @@
   box-shadow: none;
   padding: var(--space-2) var(--space-3);
   position: relative;
-  margin: var(--space-3) calc(var(--space-5) * -1) calc(var(--space-5) * -1) calc(var(--space-5) * -1);
+  margin: 0 calc(var(--space-5) * -1) calc(var(--space-5) * -1) calc(var(--space-5) * -1);
+  flex-shrink: 0;
 }
 
 .slide-button {

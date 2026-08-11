@@ -9,115 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
   <link rel="stylesheet" href="../assets/css/slideshow.css" />
-  <style>
-    .slide h1 {
-      font-family: "Archivo Black", "Space Grotesk", sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      font-size: clamp(1.8rem, 5vw, 3rem);
-      margin: 0 0 var(--space-3) 0;
-      line-height: 1.2;
-      color: var(--ink);
-    }
-
-    .slide h2 {
-      font-family: "Archivo Black", "Space Grotesk", sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      margin: var(--space-3) 0;
-      color: var(--ink);
-    }
-
-    .slide h3 {
-      font-family: "Space Grotesk", sans-serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin: var(--space-3) 0 var(--space-2) 0;
-      color: var(--ink);
-      text-transform: uppercase;
-      letter-spacing: 0.01em;
-    }
-
-    .slide p {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin: var(--space-2) 0;
-      color: var(--muted);
-      white-space: pre-wrap;
-      word-wrap: break-word;
-    }
-
-    .learning-outcome {
-      font-size: 0.9rem;
-      margin: var(--space-2) 0;
-      padding-left: var(--space-3);
-    }
-
-    .module-aim {
-      font-size: 0.85rem;
-      margin: var(--space-2) 0;
-      padding-left: var(--space-3);
-      line-height: 1.5;
-    }
-
-    .section-label {
-      font-weight: 700;
-      font-size: 1rem;
-      margin: var(--space-3) 0 var(--space-2) 0;
-      color: var(--ink);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .slide img {
-      max-width: 100%;
-      height: auto;
-      border: 2px solid var(--line);
-      border-radius: var(--radius-sm);
-      box-shadow: 4px 4px 0 var(--line);
-      margin: var(--space-3) auto;
-      display: block;
-    }
-
-    .slide-logo {
-      height: 1.5rem;
-      width: auto;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-      margin: 0;
-      mix-blend-mode: multiply;
-    }
-
-    img.slide-logo {
-      height: 1.5rem;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-      margin: 0;
-    }
-
-    .slide ul, .slide ol {
-      margin: var(--space-2) 0;
-      padding-left: var(--space-4);
-    }
-
-    .slide li {
-      margin: 0.5rem 0;
-      line-height: 1.6;
-      font-size: 0.95rem;
-    }
-
-    a {
-      color: var(--accent-alt);
-      text-decoration: underline;
-    }
-
-    a:hover {
-      color: var(--accent);
-    }
-  </style>
 </head>
 <body>
   <div class="slideshow-container">
@@ -348,8 +239,51 @@
     <!-- Slide 10 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content">
+      <div class="slide-content slide-content-assessment">
     <h2>Assessment Methods and Weighting:</h2>
+    <div class="assessment-table-wrap">
+      <table class="assessment-table">
+        <thead>
+          <tr>
+            <th>Assessment name</th>
+            <th>Weighting %</th>
+            <th>Qualifying mark %</th>
+            <th>Qualifying set</th>
+            <th>Assessment type (e.g. essay, presentation, open exam or closed exam)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Group coursework 1 - 3D modelling and composition</td>
+            <td class="assessment-value">50</td>
+            <td class="assessment-value">30</td>
+            <td></td>
+            <td>Formative, Coursework (3D interactive media product), presentation</td>
+          </tr>
+          <tr>
+            <td>Preparation for Assessment</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>24hrs</td>
+          </tr>
+          <tr>
+            <td>Group coursework 2 - 3D animation and interactivity</td>
+            <td class="assessment-value">50</td>
+            <td class="assessment-value">30</td>
+            <td></td>
+            <td>Coursework (3D interactive media product), report (800 words)</td>
+          </tr>
+          <tr>
+            <td>Preparation for Assessment</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>24hrs</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
       </div>
       <div class="slide-controls">
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
@@ -1083,6 +1017,23 @@
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
 
+    function normalizeSlideStructure(slide) {
+      if (slide.querySelector('.slide-frame')) return;
+
+      const title = slide.querySelector('.slide-title');
+      const controls = slide.querySelector('.slide-controls');
+      const body = slide.querySelector('.slide-content');
+
+      if (!title || !controls || !body) return;
+
+      const frame = document.createElement('div');
+      frame.className = 'slide-frame';
+      frame.appendChild(title);
+      frame.appendChild(body);
+      frame.appendChild(controls);
+      slide.appendChild(frame);
+    }
+
     // Convert URLs in text nodes to clickable links
     function linkifyText(element) {
       const urlPattern = /(https?:\/\/[^\s]+)/g;
@@ -1114,9 +1065,10 @@
       });
     }
 
-    // Initialize URL linking for all slides
+    // Normalize each slide into a shared frame with flexible content body
     slides.forEach(slide => {
-      linkifyText(slide);
+      normalizeSlideStructure(slide);
+      linkifyText(slide.querySelector('.slide-content') || slide);
     });
 
     // Update slide counter display

@@ -13,7 +13,123 @@ except ImportError:
     from pptx import Presentation
 
 import json
+import posixpath
+import re
+import zipfile
 from pathlib import Path
+from urllib.request import urlopen
+from xml.etree import ElementTree as ET
+
+from pptx.enum.shapes import MSO_SHAPE_TYPE
+
+
+def iter_shapes(shape):
+    yield shape
+    children = getattr(shape, "shapes", None)
+    if children:
+        for child in children:
+            yield from iter_shapes(child)
+
+
+def extract_images_from_shape(shape, slide_number, output_dir, slide_content):
+    extracted = False
+    for candidate in iter_shapes(shape):
+        if getattr(candidate, "shape_type", None) != MSO_SHAPE_TYPE.PICTURE:
+            image = getattr(candidate, "image", None)
+            if image is None:
+                continue
+        else:
+            image = getattr(candidate, "image", None)
+            if image is None:
+                continue
+
+        try:
+            image_filename = f"slide{slide_number}_image{len(slide_content['images'])}.png"
+            image_path = output_dir / image_filename
+
+            with open(image_path, 'wb') as f:
+                f.write(image.blob)
+
+            slide_content["images"].append({
+                "filename": image_filename,
+                "path": f"images/{image_filename}"
+            })
+            print(f"  Saved image: {image_filename}")
+            extracted = True
+        except Exception as e:
+            print(f"  Error saving image: {e}")
+
+    return extracted
+
+
+def extract_images_from_package(slide_number, pptx_path, output_dir, slide_content):
+    extracted = False
+    try:
+        with zipfile.ZipFile(pptx_path) as archive:
+            slide_xml_name = f"ppt/slides/slide{slide_number}.xml"
+            if slide_xml_name not in archive.namelist():
+                return False
+
+            slide_xml = archive.read(slide_xml_name).decode("utf-8", errors="ignore")
+            rels_path = f"ppt/slides/_rels/slide{slide_number}.xml.rels"
+            rels_xml = archive.read(rels_path).decode("utf-8", errors="ignore") if rels_path in archive.namelist() else ""
+            if not rels_xml:
+                return False
+
+            rels = ET.fromstring(rels_xml.encode("utf-8"))
+            rel_map = {}
+            for rel in rels.findall('{http://schemas.openxmlformats.org/package/2006/relationships}Relationship'):
+                rel_id = rel.attrib.get('Id')
+                if rel_id:
+                    rel_map[rel_id] = {
+                        'target': rel.attrib.get('Target', ''),
+                        'target_mode': rel.attrib.get('TargetMode', '')
+                    }
+
+            seen_targets = set()
+            for match in re.finditer(r'<a:blip[^>]*(?:r:embed|r:link)="([^"]+)"', slide_xml):
+                rel_id = match.group(1)
+                rel_info = rel_map.get(rel_id)
+                if not rel_info:
+                    continue
+
+                target = rel_info['target']
+                target_mode = rel_info['target_mode']
+                lookup_key = f"{rel_id}:{target}"
+                if lookup_key in seen_targets:
+                    continue
+                seen_targets.add(lookup_key)
+
+                try:
+                    if target_mode == 'External' or target.startswith(('http://', 'https://')):
+                        image_bytes = urlopen(target).read()
+                        ext = '.bin'
+                    else:
+                        source_dir = posixpath.dirname(slide_xml_name)
+                        resolved_path = posixpath.normpath(posixpath.join(source_dir, target))
+                        if resolved_path.startswith('/'):
+                            resolved_path = resolved_path.lstrip('/')
+                        image_bytes = archive.read(resolved_path)
+                        ext = posixpath.splitext(resolved_path)[1] or '.bin'
+
+                    image_filename = f"slide{slide_number}_image{len(slide_content['images'])}{ext or '.bin'}"
+                    image_path = output_dir / image_filename
+                    with open(image_path, 'wb') as f:
+                        f.write(image_bytes)
+
+                    slide_content["images"].append({
+                        "filename": image_filename,
+                        "path": f"images/{image_filename}"
+                    })
+                    print(f"  Saved image: {image_filename}")
+                    extracted = True
+                except Exception as e:
+                    print(f"  Error saving image: {e}")
+    except Exception as e:
+        print(f"  Error reading slide package: {e}")
+
+    return extracted
+
 
 pptx_path = Path(__file__).parent / "site" / "lectures" / "3DIMD Lecture 01a Module Info 01.pptx"
 output_dir = Path(__file__).parent / "site" / "lectures" / "images"
@@ -40,24 +156,10 @@ for slide_num, slide in enumerate(prs.slides, 1):
                 slide_content["title"] = text
             else:
                 slide_content["content"].append(text)
-        
-        # Extract images
-        if shape.shape_type == 13:  # Picture
-            try:
-                image = shape.image
-                image_filename = f"slide{slide_num}_image{len(slide_content['images'])}.png"
-                image_path = output_dir / image_filename
-                
-                with open(image_path, 'wb') as f:
-                    f.write(image.blob)
-                
-                slide_content["images"].append({
-                    "filename": image_filename,
-                    "path": f"images/{image_filename}"
-                })
-                print(f"  Saved image: {image_filename}")
-            except Exception as e:
-                print(f"  Error saving image: {e}")
+
+        # Extract images from the slide package relationships and any nested children
+        extract_images_from_package(slide_num, pptx_path, output_dir, slide_content)
+        extract_images_from_shape(shape, slide_num, output_dir, slide_content)
     
     slides_data.append(slide_content)
     print(f"Slide {slide_num}: {slide_content['title']}")
