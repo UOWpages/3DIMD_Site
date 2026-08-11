@@ -1,0 +1,136 @@
+/* Slideshow Core Layout - LOCKED */
+
+.slideshow-container {
+  position: relative;
+  max-width: 100%;
+  height: 100vh;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide {
+  display: none;
+  width: 95%;
+  max-width: 1400px;
+  height: 80vh;
+  background: var(--surface);
+  border: 4px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-5);
+  position: relative;
+  animation: slideIn 0.4s ease-in-out;
+  overflow-y: auto;
+}
+
+.slide.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-title {
+  font-family: "Archivo Black", "Space Grotesk", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: #60a5fa;
+  margin: calc(var(--space-5) * -1) calc(var(--space-5) * -1) var(--space-4) calc(var(--space-5) * -1);
+  padding: var(--space-4) var(--space-3);
+  border: 3px solid #000;
+  border-radius: 0;
+  box-shadow: 4px 4px 0 #000;
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+}
+
+.slide-content {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: var(--space-4);
+}
+
+.slide-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  background: #fcd34d;
+  border: 3px solid #000;
+  border-top: 3px solid #000;
+  border-radius: 0;
+  box-shadow: none;
+  padding: var(--space-3);
+  position: relative;
+  margin: var(--space-3) calc(var(--space-5) * -1) calc(var(--space-5) * -1) calc(var(--space-5) * -1);
+}
+
+.slide-button {
+  background: var(--accent);
+  color: #ffffff;
+  border: 3px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 var(--line);
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.slide-button:hover {
+  box-shadow: 6px 6px 0 var(--line);
+  transform: translate(-2px, -2px);
+}
+
+.slide-button:active {
+  box-shadow: 2px 2px 0 var(--line);
+  transform: translate(1px, 1px);
+}
+
+.slide-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.slide-counter {
+  position: absolute;
+  bottom: calc(100% + var(--space-3));
+  right: var(--space-3);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.keyboard-hint {
+  display: none;
+}
+
+.keyboard-hint kbd {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 0.2rem 0.4rem;
+  font-family: monospace;
+  box-shadow: 1px 1px 0 var(--line);
+}

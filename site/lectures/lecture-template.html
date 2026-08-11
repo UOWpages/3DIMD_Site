@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Lecture Template</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
+  <style>
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      height: 100vh;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide {
+      display: none;
+      width: 90%;
+      max-width: 1000px;
+      height: 85vh;
+      background: var(--surface);
+      border: 4px solid var(--line);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      padding: var(--space-5);
+      position: relative;
+      animation: slideIn 0.4s ease-in-out;
+    }
+
+    .slide.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .slide h1 {
+      font-family: "Archivo Black", "Space Grotesk", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      margin: 0 0 var(--space-3) 0;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+
+    .slide h2 {
+      font-family: "Archivo Black", "Space Grotesk", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      margin: var(--space-3) 0;
+      color: var(--ink);
+    }
+
+    .slide p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin: var(--space-2) 0;
+      color: var(--muted);
+    }
+
+    .slide-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .slide-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+      border-top: 2px solid var(--line);
+      padding-top: var(--space-3);
+    }
+
+    .slide-button {
+      background: var(--accent);
+      color: #ffffff;
+      border: 3px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: var(--space-2) var(--space-3);
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      box-shadow: 4px 4px 0 var(--line);
+      transition: all 0.2s ease;
+      font-size: 0.9rem;
+    }
+
+    .slide-button:hover {
+      box-shadow: 6px 6px 0 var(--line);
+      transform: translate(-2px, -2px);
+    }
+
+    .slide-button:active {
+      box-shadow: 2px 2px 0 var(--line);
+      transform: translate(1px, 1px);
+    }
+
+    .slide-button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .slide-counter {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      background: var(--accent-soft);
+      border: 2px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: var(--space-2) var(--space-3);
+      box-shadow: 2px 2px 0 var(--line);
+    }
+
+    .slide-content ul,
+    .slide-content ol {
+      margin: var(--space-3) 0;
+      padding-left: var(--space-5);
+    }
+
+    .slide-content li {
+      margin: var(--space-2) 0;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .slide-content figure {
+      margin: var(--space-3) 0;
+      text-align: center;
+    }
+
+    .slide-content img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid var(--line);
+      border-radius: var(--radius-sm);
+      box-shadow: 4px 4px 0 var(--line);
+    }
+
+    .slide-content figcaption {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: var(--space-2);
+      font-style: italic;
+    }
+
+    .accent-box {
+      background: var(--accent-soft);
+      border: 3px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3);
+      margin: var(--space-3) 0;
+      box-shadow: 4px 4px 0 var(--line);
+    }
+
+    .keyboard-hint {
+      position: absolute;
+      bottom: var(--space-2);
+      right: var(--space-3);
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .keyboard-hint kbd {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      padding: 0.2rem 0.4rem;
+      font-family: monospace;
+      box-shadow: 1px 1px 0 var(--line);
+    }
+  </style>
+</head>
+<body>
+  <div class="slideshow-container">
+    <!-- Slide 1: Title -->
+    <div class="slide active">
+      <div class="slide-content">
+        <h1>Lecture Title</h1>
+        <p style="font-size: 1.3rem; margin-top: var(--space-4);">Add your lecture title here</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)" disabled>← Previous</button>
+        <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">1</span></div>
+        <button class="slide-button" onclick="changeSlide(1)" disabled>Next →</button>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/site.js?v=20260805f"></script>
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    // Update slide counter display
+    function updateCounters() {
+      document.querySelectorAll('#current-slide').forEach(el => {
+        el.textContent = currentSlide + 1;
+      });
+      document.querySelectorAll('#total-slides').forEach(el => {
+        el.textContent = totalSlides;
+      });
+    }
+
+    function showSlide(n) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[currentSlide].classList.add('active');
+      
+      // Update button states
+      document.querySelectorAll('.slide-button').forEach((btn, idx) => {
+        const isFirstSlide = currentSlide === 0;
+        const isLastSlide = currentSlide === totalSlides - 1;
+        
+        if (btn.textContent.includes('Previous')) {
+          btn.disabled = isFirstSlide;
+        } else if (btn.textContent.includes('Next')) {
+          btn.disabled = isLastSlide;
+        }
+      });
+      
+      updateCounters();
+    }
+
+    function changeSlide(n) {
+      currentSlide += n;
+      if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+      if (currentSlide < 0) currentSlide = 0;
+      showSlide(currentSlide);
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+    });
+
+    // Initialize
+    updateCounters();
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>

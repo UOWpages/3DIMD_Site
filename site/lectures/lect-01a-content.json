@@ -1,0 +1,452 @@
+[
+  {
+    "slide_number": 1,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "5MMCS007W\t\t\t\t\tLecture 01a\n\nIntermission – 3D Examples\nhttps://uowdigital.padlet.org/fergusj/web-web3d-and-web3-ecosystem-9xv91ovkasaaviua\nhttps://uowdigital.padlet.org/fergusj/3dimd-cw-samples-5ohcvanq1wlcq0h9"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 2,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Lecturers\n\nJeff Ferguson (Module Leader)\u000bLectures Tuesdays 11:00-13:00\nTutorials Tuesdays 14:00-16:00, 16:00-18:00\nEmail: j.ferguson@westminster.ac.uk\nOffice Hours: Tuesdays 10:00-11:00, 13:00-14:00\nAppointments by email request\nPlease contact for module related issues\n\n\nPumudu Fernando (IIT Module Delivery)\nEmail: pumudu.f@iit.ac.lk\nOffice Hours: email for contact"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 3,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Proforma Overview:\n\nThis module introduces students to concepts of 3D user interfaces \nand 3D animated and interactive media. It covers essential topics \nincluding 3D modelling principles, methods and techniques, \ncomplex 3D objects creation, deformation and transformations, \ntexture mapping methods, colour and lighting. It uses an industry \nstandard games engine to demonstrate 3D animation concepts, \nproperties, controllers and scripting to create 3D animated, \ninteractive media content."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 4,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Learning Outcomes:\n\nLO1: Demonstrate an applied understanding of 3D modelling concepts and the \nunderlying geometrical principles and apply appropriate techniques and tools to \ncreate 3D interactive media;\n\nLO2: Incorporate 3D content in an industry standard games platform/engine;\n\nLO3: Demonstrate an applied understanding of 3D animation concept, properties, \ncontrollers and use of scripting techniques to create in 3D animation;\n\nLO4: Demonstrate an applied understanding of scripting techniques to incorporate \ninteractive behaviours on 3D concept;\n\nLO5: Work individually, as well as an effective team member to develop a common 3D \ninteractive media product;\n\nLO6: Communicate design concepts by oral and visual means and provide documentation for \na 3D interactive media product in written form."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 5,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Module Aims:\nL5-M-LO1-MC - Specify, design, develop and test IMPs to solve real-life \nmedium-scale problems with appropriate techniques.\n\nL5-M-LO5-CS - Demonstrate competency in object-oriented design and \nalgorithmic and mathematical approaches to solve medium scale problems.\n\nL5-P-LO3-MC - Produce assets for the development of an IMP through \nappropriate professional digital content creation, following an object oriented \napproach.\n\nL5-P-LO8-CS - Utilise, compare and contrast software frameworks and \narchitectures and implement solutions using object-oriented programming.\n\nL5-D-LO6-MC - Employ a standard process such as storyboarding to design, \nrepresent and formally communicate the specification of an IMP."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 6,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Module Aims Continued:\nL5-D-LO4-CS - Employ a standard design language for the design, representation and \nformal specification of software.\n\nL5-O-LO7-MC - Explain the life cycle of IMPs in the constraints of its operating technical \nenvironment.\n\nL5-O-LO7-CS - Explain the basic principles of modern operating systems and how they \nserve operational needs.\n\nL5-S-LO11-MC - Demonstrate professional responsibility in the development of quality \ninteractive media solutions in a global context and the presentation and defence of these \nin multiple communication forms, supported by methodical research.\n\nL5-S-LO10-CS - Demonstrate professional responsibility in the development of quality \ncomputer science solutions in a global context and the presentation and defence of these \nin multiple communication forms, supported by methodical research."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 7,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Coursework (Group work)\n\nCoursework 1 - Assesses the student skills in working as a team to plan and visualise a given 3D interactive media concept that addresses specific technical requirements, translate these into a practical sequence and compose the required 3D scene and content (the content will be later animated and interactive by adding appropriate behaviours to it) using industry standard tools. In addition, it assesses the student’s skills presenting and communicating their design concept efficiently. (Learning outcomes 1, 2, 5, 6)\n\nCoursework 2 - Assesses the student practical ability to use appropriate scripting language to create required animation and interactivity to a proposed 3D interactive media product. In addition, it assesses the student’s skills documenting their implementation in a report using a professional style and their entrepreneurial skills by the creation of a working video demo of their project.  (Learning outcomes 3-6)."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 8,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Coursework (Group work)\nNote: – Groups will consist of equal numbers of CS, DM, CG, and other students. This has worked well in the past to play to each others strengths and also facilitate knowledge transfer.\n\nSpecial Note: – This means your groups will not be in your tutorial sessions. This is normal, and does not affect your ability to plan and work together. Tutorials are for individual development. Group work is to be done outside of tutorials as part of “independent study”. All proformas indicate hours of independent study are required to complete the module outside of the normal lecture and tutorial time. The hours for independent study are normally more that those of lectures and tutorials combined, and are seen as the only way to complete the module successfully. The independent study hours for this module are as follows:\nLecture: \t24\nTutorial: \t24 \nModule and course based general study: 104\nPreparation for assessment: 48\nTotal outside of class: 152 !\t(This is what we look for in marking)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 9,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Assessment criteria:\n\nThe student will demonstrate achievement of the learning outcomes by being able to:\n\nCompose a 3D interactive media product following given technical requirements \nwithout restricting creativity; \nUsing appropriate tools and scripting language to create 3D animated, interactive media content, smoothly integrate it in a 3D interactive media product and deploy it for multiple platforms and devices;\nDemonstrate professional behaviour in identifying roles, delegating tasks to group  members, recognising obligations, working individually, as well as a member of a team, in the development of a quality assured solutions to a medium scale interactive media product;\nCommunicate design concepts by oral and visual means;\nWrite documentation of a 3D interactive media product."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 10,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Assessment Methods and Weighting:"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 11,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Assessment criteria:\n\n\n\nTo achieve higher marks, students must demonstrate a greater degree of expertise and knowledge, and in particular to demonstrate knowledge of economic programming skills, \ncreative skills, as well as the ability to effectively work in a group."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 12,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Marking:\n\n70 or above : Work which shows exceptional effort, meeting all the requirements, but also demonstrates understanding and work beyond topics covered in class.\n \n60 – 70 : Work which demonstrates considerable effort, meeting all the requirements, but not going beyond topics covered in class.\n \n50-60 : Work which demonstrates some effort, and meeting most of the above requirements, or meeting requirements with little effort or understanding.\n \n40-50 : Work which does not demonstrate great effort, and meets only a few of the above requirements, or meets most but with extremely poor effort and understanding. Work which is borderline in terms of suitability for submission.\n \nBelow 40 : FAIL - Work which has not been adequately attempted, demonstrates little effort and an insufficient understanding."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 13,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Areas to ensure for CW:\n\nResearch, Design and Planning\nMethodology and Management\nImplementation and Deployment\nAnalysis and Evaluation \n\nAssessment:\n\nVideo Presentations submitted to Blackboard\nPresentations and Discussions in class\nPeer Review in video and in class"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 14,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Penalty for Late Submissions:\n\nCoursework submitted up to 24 hours late will receive a deduction of 10 marks.\n\nCoursework submitted after 24 hours will receive a mark of zero."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 15,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Mitigating Circumstances:\nIf you are unable to submit your coursework or attend an assessment due to unforeseen, unpreventable, serious circumstances you may be eligible to claim for Mitigating Circumstances. \n\nThe University operates a ‘fit to sit’ policy which means if you submit a piece of coursework or sit an exam and/or in class test, you have deemed yourself fit to do so. You cannot submit a claim for mitigating circumstances in this case.\n\nClaims should be submitted as close to the deadline for the item of work as possible. Please follow the guidelines and complete the MC form fully, this helps the Registry in administering your claim correctly and efficiently. \n\nUnfortunately, claims with missing information may not be considered and may have to be returned to you."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 16,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Academic Misconduct - Plagiarism, Collusion:\n\nCan result in a Zero or Suspension\n\nhttps://www.westminster.ac.uk/study/current-students/resources/academic-regulations/academic-misconduct"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 17,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Syllabus:\n\u000b3D User Interfaces (UIs) and interaction styles:\nintroduce applications of 3D UIs, video gaming, large displays, mobile applications, etc. Discuss principles of designing Usable 3D UIs. Understand the design space.\n\u000b3D world representation and 3D space transformation\n\u000bKey concept of 3D modelling, primitives:\npolygonal mesh representation (vertices, edges, faces), creating and editing a scene from primitives, polygon editing, parametric curves, NURBs and spline-based modelling concepts, lathing, extruding and Boolean modelling techniques to create complex models groups and hierarchies, construction history."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 18,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Syllabus:\n\nUnderstanding Visual effects, shading (composing and colour grading), texturing mapping (UV texture layout, coordinates, mapping) and paint effects. Brief introduction to lighting (illumination model, light types and properties) and shading (mental ray shading).\n\nPreparation for animation, basic skeletons (not full body character) and basic rigging techniques (not to the extent of character animation).\n\nAnimation techniques, timeline based animation; motion paths; basic relationships: constraints, set driven keys. Standard 3D UI for 3D interactive games engines.\n\nInteractivity, control a 3D geometry and animation properties with the use of appropriate scripting language.\n\nCurrent 3D UI Research."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 19,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Schedule: Schedule 3DIMD 2025.docx"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 20,
+    "title": "",
+    "content": [
+      "Padlet with Examples!",
+      "CW Details, Previous CW, Real world examples\nhttps://uowdigital.padlet.org/fergusj/3dimd-cw-samples-2025-1f4w3m19lc80m9cf"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 21,
+    "title": "",
+    "content": [
+      "Mobile Learning – iPads, Devices, Web",
+      "1",
+      "2",
+      "3",
+      "Powerpoint\n\nLectures",
+      "Padlet,\nExcel Sheets\nGroup Work",
+      "BB Panpoto\nVideo\nLectures",
+      "Always Use University \nEmail Accounts for access,\n\nIf denied access on learning documents or platforms, this is likely the cause, try switching web browser logins to Uni email.",
+      "On Blackboard\nUltra\n\n\nUniversity Outlook\nAccount Login",
+      "On Blackboard\nUltra\n\n\nUniversity Outlook\nAccount Login",
+      "On Blackboard\nUltra: \nDiscussion, Padlets, Discord\n\nUniversity MS \nAccount Login\nGroup Work\nVideo Presentations\nPeer Review"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 22,
+    "title": "",
+    "content": [
+      "Further Reading List and Reference",
+      "3DUI",
+      "3DUI Research",
+      "3DSMax",
+      "Unity3D",
+      "C#"
+    ],
+    "images": [
+      {
+        "filename": "slide22_image0.png",
+        "path": "images/slide22_image0.png"
+      },
+      {
+        "filename": "slide22_image1.png",
+        "path": "images/slide22_image1.png"
+      },
+      {
+        "filename": "slide22_image2.png",
+        "path": "images/slide22_image2.png"
+      },
+      {
+        "filename": "slide22_image3.png",
+        "path": "images/slide22_image3.png"
+      },
+      {
+        "filename": "slide22_image4.png",
+        "path": "images/slide22_image4.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 23,
+    "title": "",
+    "content": [
+      "Further Reading List and Reference",
+      "3DUI\n3DUI:Theory and Practice\neBook in Library\nReading List in BB",
+      "THIS IS THE KEY TEXT, YOU SHOULD ALL READ THIS:\u000b(Doug Bowman is now head of AR/VR at Apple)\nTitle: 3D User Interfaces: Theory and Practice\nAuthor: Doug A Bowman\nPublisher: Addison-Wesley Professional \nIdentifier: ISBN0-13-339059-4 \nCreation Date: 2004 \nLanguage: English\nSource: infoLinX \u000binfoLinX"
+    ],
+    "images": [
+      {
+        "filename": "slide23_image0.png",
+        "path": "images/slide23_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 24,
+    "title": "",
+    "content": [
+      "Further Reading List and Reference",
+      "3DUI\nConference and book\nResearch Journal\u000bLink-Library",
+      "Conference\nhttps://people.cs.vt.edu/bowman/3dui.org/Home.html \n\nCommittee Resource:\nThis has some key summaries of the book in the Resources\nhttp://people.cs.vt.edu/~bowman/3dui.org/Home.html\nhttp://people.cs.vt.edu/~bowman/3dui.org/Resources.html\n\nJournal\nTitle: 2016 IEEE Symposium on 3D User Interfaces (3DUI)\nPublisher: IEEE \nCreation Date: 2016 \nLanguage: English\nSource: infoLinX \n\nMicrosoft\nhttps://www.autodeskresearch.com/projects/3dnav"
+    ],
+    "images": [
+      {
+        "filename": "slide24_image0.png",
+        "path": "images/slide24_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 25,
+    "title": "",
+    "content": [
+      "Further Reading List and Reference",
+      "3DSMax",
+      "Online Autodesk Tutorials\nhttp://help.autodesk.com/view/3DSMAX/2017/ENU/?guid=GUID-68FFEEDA-3801-444E-B450-942E03A7523D\u000b\nPluralsight, Digital Tutors\u000b(Try temporary License)\u000b\nLynda.com (now Linkedin)\n(University now has subscription)\n\nModule Tutorial Sheets",
+      "Box Modelling\nhttps://www.youtube.com/watch?v=3ZuLmd9OSYc\n\nEdge Modelling\nhttps://www.youtube.com/channel/UClFsEsF33aNadnLUn-tqpRQ\n\nPivots\nhttp://www.aclockworkberry.com/world-coordinate-systems-in-3ds-max-unity-and-unreal-engine/\u000b \nProcedural work\nhttps://www.pluralsight.com/courses/procedural-generation-3ds-max-2080#play-49466%E2%80%8B",
+      "Lego Man\nhttps://www.youtube.com/watch?v=u9wghSWKf-c"
+    ],
+    "images": [
+      {
+        "filename": "slide25_image0.png",
+        "path": "images/slide25_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 26,
+    "title": "",
+    "content": [
+      "Further Reading List and Reference",
+      "C#",
+      "Tutorials Point\nhttp://www.tutorialspoint.com/csharp/\n\nMSDN\nhttp://www.microsoftvirtualacademy.com/training-courses/c-fundamentals-for-absolute-beginners\n\nHead First C#\nhttps://github.com/head-first-csharp/fifth-edition \n\u000bC# Programming Yellow Book\u000bhttp://static1.squarespace.com/static/5019271be4b0807297e8f404/t/55e8091ee4b0b7a615665de5/1441270046307/CSharp+Book+2015+Final.pdf\u000b\nYoutube\nhttps://www.youtube.com/playlist?list=PL_eGgISVYZkdtClbuMbZqlNJ-xLo_OTwc \n\nLynda.com/ Linkedin\n(University now has subscription)\n\nPluralsight, Digital Tutors\u000b(Try temporary License)\n\nPackt C#, Unity Scripting\nhttps://www.packtpub.com/"
+    ],
+    "images": [
+      {
+        "filename": "slide26_image0.png",
+        "path": "images/slide26_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 27,
+    "title": "",
+    "content": [
+      "Further Reading List and Reference",
+      "Unity3D",
+      "Unity Hub/Unity Learn\n(Gameplay Scripting, Rollaball)\nhttps://unity.com/learn\nhttps://unity3d.com/learn/tutorials/topics/scripting\n\nLearn Unity \nhttps://learn.unity.com/ \n\nUnity UI Tutorials\u000bhttps://unity3d.com/learn/tutorials/topics/user-interface-ui\n\nWiki.Unity3D.com\nhttp://wiki.unity3d.com/index.php/Main_Page\n\nUnity Manual\nhttps://docs.unity3d.com/2023.2/Documentation/Manual/index.html \n\nPackt Publishing\nhttps://www.packtpub.com/\n\nYoutube Ctrl Alt Del https://www.youtube.com/channel/UClFsEsF33aNadnLUn-tqpRQ\nYoutube BergZurg\nhttps://www.youtube.com/channel/UCOIcO8Lsk1MERedhOnew73A\n\nPluralsight, Digital Tutors (Try temporary License)\nLynda.com (University now has subscription via Linkedin)\n\nModule Tutorial Sheets"
+    ],
+    "images": [
+      {
+        "filename": "slide27_image0.png",
+        "path": "images/slide27_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 28,
+    "title": "",
+    "content": [
+      "Further Reading List and Reference",
+      "Experience Survey UOW Only: >>>\nhttps://uowdigital.padlet.org/fergusj/3dimd-intro-2025-uow-b51inegc8wf3wwc1 \n\n\n\n\n\nExperience Survey IIT Only:  >>>\nhttps://uowdigital.padlet.org/fergusj/3dimd-intro-2025-iit-7uspoqpdrfcpk107"
+    ],
+    "images": [
+      {
+        "filename": "slide28_image0.png",
+        "path": "images/slide28_image0.png"
+      },
+      {
+        "filename": "slide28_image1.png",
+        "path": "images/slide28_image1.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 29,
+    "title": "",
+    "content": [
+      "Workflow – 3DUI for Interactive VE*",
+      "3DS Max\nModelling\nTexturing\nFbx",
+      "Unity3D\nShaders\nLighting\u000bC# Interaction\nC# Navigation\u000bC# System States",
+      "WebGL\nChrome or Firefox\u000bKeyboard Input\u000bMouse Input",
+      "Fbx",
+      "*Virtual Environment"
+    ],
+    "images": [
+      {
+        "filename": "slide29_image0.png",
+        "path": "images/slide29_image0.png"
+      },
+      {
+        "filename": "slide29_image1.png",
+        "path": "images/slide29_image1.png"
+      },
+      {
+        "filename": "slide29_image2.png",
+        "path": "images/slide29_image2.png"
+      },
+      {
+        "filename": "slide29_image3.png",
+        "path": "images/slide29_image3.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 30,
+    "title": "",
+    "content": [
+      "Virtual Environment – 3DUI Needed",
+      "At its most basic, we need some sort of 3D UI to interact with a Virtual Environment.\n\nWe may think we know instinctively what a VE is, but to correctly define and use 3D UI concepts, we must know what flavour of VE we are using or need.\n\nThis is complicated greatly by public perceptions of VEs and the misnaming and misconceptions that happens."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 31,
+    "title": "",
+    "content": [
+      "Basic - Mixed Reality Scale"
+    ],
+    "images": [
+      {
+        "filename": "slide31_image0.png",
+        "path": "images/slide31_image0.png"
+      },
+      {
+        "filename": "slide31_image1.png",
+        "path": "images/slide31_image1.png"
+      },
+      {
+        "filename": "slide31_image2.png",
+        "path": "images/slide31_image2.png"
+      },
+      {
+        "filename": "slide31_image3.png",
+        "path": "images/slide31_image3.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 32,
+    "title": "",
+    "content": [
+      "Basic – VE Permutations – Part 1",
+      "Real world examples \nhttps://uowdigital.padlet.org/fergusj/3dimd-cw-samples-5ohcvanq1wlcq0h9 \n\nVR Platforms\nhttps://padlet.com/sselwood1/VirtualMeeting\n\nXR In Industry\nhttps://uowdigital.padlet.org/fergusj/XRinIndustry\n\nXR Lab Website\nXR Lab on Blackboard\nXR Lab Examples\nXR Lab Demo Videos\n…and some misnomers\nHolograms - No\nVirtual Reality (360 Video)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 33,
+    "title": "",
+    "content": [
+      "3DUI VR",
+      "Immersive (VR) Journalism\nFishtank VR - Google Cardboard 6 x 9\nhttps://www.theguardian.com/world/ng-interactive/2016/apr/27/6x9-a-virtual-experience-of-solitary-confinement \nDesktop VR – Harvest of Change \nhttp://www.desmoinesregister.com/story/money/agriculture/2014/09/17/harvest-of-change-virtual-farm-virtual-reality/15785377/\nSyrian Prison\nhttps://saydnaya.amnesty.org/\n\n360 Image/Video w/ 3DUI \n\tHoloBuilder https://www.holobuilder.com/ \nVR with POV \n\tBBC Taster http://www.bbc.co.uk/taster/\nVR with 3D Input\n\tVive Job Simulator  http://jobsimulatorgame.com/\n\tIkea VR https://www.youtube.com/watch?v=1S0GO5kbMYo\n\tVive Tilt Brush https://www.youtube.com/watch?v=aocLCCvJTBU\n        https://www.youtube.com/watch?v=GSbkn6mCfXE"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 34,
+    "title": "",
+    "content": [
+      "3DUI New Platforms",
+      "Larger Recent Ecosystem:\n\nhttps://uowdigital.padlet.org/fergusj/web3d-and-web3-ecosystem-9xv91ovkasaaviua\n\nWeb3D (WebGL/GPU)\nWebXR\n\nIncludes WebRTC, WebVR, WebAR and other openprotocols and file formats\n\nWeb3 – tokenisation allowing for self-publishing and interoperability on above protocols"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 35,
+    "title": "",
+    "content": [
+      "References",
+      "3D User Interfaces: Theory and Practice\nDoug A. Bowman, Ernst Kruijff, Joseph J. LaViola, Ivan Poupyrev\nAddison Wesley Longman Publishing\nUSA https://people.cs.vt.edu/~bowman/3dui.org/CHI_2008.html \n\nThe Three-Dimensional User Interface\nHou Wenjun\nBeijing University of Posts and Telecommunications\nChina https://cdn.intechopen.com/pdfs/5463/InTech-The_three_dimensional_user_interface.pdf"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 36,
+    "title": "",
+    "content": [
+      "Group Formation",
+      "Groups of 4-5 Students\u000bYOU WILL BE ASSIGNED TO GROUPS IN YOUR TUTORIAL\u000b\nTutorials for first 4 weeks are Unity basics for CW1\nCW1 is the start and planning for an IMP (Interactive Media Product)\nCW2 is the completion of an IMP (Interactive Media Product)\n\u000bGroup Assignment\nStart talking about Idea/Problem and general design\n3D GUI, Navigation, Interaction, States, Animation\nLego brainstorm – Virtual or Real\nThink about Peer Review and Assessment\n\tVideo review\n\tConnoisseurship practice"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 37,
+    "title": "",
+    "content": [
+      "Group Brainstorm",
+      "Assemble in your group\n\u000bGroup Activity\nExplore ideas online\nStart to negotiate ideas (not final)\nLego brainstorm – \nBuild diorama with negotiated ideas\n\nPhotograph, Submit and Share\nTake Photos, add notes and publish to padlet (UOW)\nhttps://uowdigital.padlet.org/fergusj/2025-3dimd-brainstorm-3igzgiru8o4neldo"
+    ],
+    "images": [
+      {
+        "filename": "slide37_image0.png",
+        "path": "images/slide37_image0.png"
+      }
+    ]
+  }
+]

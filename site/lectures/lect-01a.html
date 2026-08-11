@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Lecture 01a - Module Info</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
+  <link rel="stylesheet" href="../assets/css/slideshow.css" />
+  <style>
+    .slide h1 {
+      font-family: "Archivo Black", "Space Grotesk", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      margin: 0 0 var(--space-3) 0;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+
+    .slide h2 {
+      font-family: "Archivo Black", "Space Grotesk", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      margin: var(--space-3) 0;
+      color: var(--ink);
+    }
+
+    .slide h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin: var(--space-3) 0 var(--space-2) 0;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+    }
+
+    .slide p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: var(--space-2) 0;
+      color: var(--muted);
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .learning-outcome {
+      font-size: 0.9rem;
+      margin: var(--space-2) 0;
+      padding-left: var(--space-3);
+    }
+
+    .module-aim {
+      font-size: 0.85rem;
+      margin: var(--space-2) 0;
+      padding-left: var(--space-3);
+      line-height: 1.5;
+    }
+
+    .section-label {
+      font-weight: 700;
+      font-size: 1rem;
+      margin: var(--space-3) 0 var(--space-2) 0;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .slide img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid var(--line);
+      border-radius: var(--radius-sm);
+      box-shadow: 4px 4px 0 var(--line);
+      margin: var(--space-3) auto;
+      display: block;
+    }
+
+    .slide ul, .slide ol {
+      margin: var(--space-2) 0;
+      padding-left: var(--space-4);
+    }
+
+    .slide li {
+      margin: 0.5rem 0;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    a {
+      color: var(--accent-alt);
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="slideshow-container">
+    <!-- Slide 1 -->
+    <div class="slide active">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>5MMCS007W					Lecture 01a</h2>
+    <p>Intermission – 3D Examples</p>
+    <p>https://uowdigital.padlet.org/fergusj/web-web3d-and-web3-ecosystem-9xv91ovkasaaviua</p>
+    <p>https://uowdigital.padlet.org/fergusj/3dimd-cw-samples-5ohcvanq1wlcq0h9</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)" disabled> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Lecturers</h2>
+    <p>Jeff Ferguson (Module Leader)Lectures Tuesdays 11:00-13:00</p>
+    <p>Tutorials Tuesdays 14:00-16:00, 16:00-18:00</p>
+    <p>Email: j.ferguson@westminster.ac.uk</p>
+    <p>Office Hours: Tuesdays 10:00-11:00, 13:00-14:00</p>
+    <p>Appointments by email request</p>
+    <p>Please contact for module related issues</p>
+    <p>Pumudu Fernando (IIT Module Delivery)</p>
+    <p>Email: pumudu.f@iit.ac.lk</p>
+    <p>Office Hours: email for contact</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Proforma Overview:</h2>
+    <p>This module introduces students to concepts of 3D user interfaces</p>
+    <p>and 3D animated and interactive media. It covers essential topics</p>
+    <p>including 3D modelling principles, methods and techniques,</p>
+    <p>complex 3D objects creation, deformation and transformations,</p>
+    <p>texture mapping methods, colour and lighting. It uses an industry</p>
+    <p>standard games engine to demonstrate 3D animation concepts,</p>
+    <p>properties, controllers and scripting to create 3D animated,</p>
+    <p>interactive media content.</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Learning Outcomes:</h2>
+    <p class="learning-outcome"><strong>LO1: Demonstrate an applied understanding of 3D modelling concepts and the</strong></p>
+    <p>underlying geometrical principles and apply appropriate techniques and tools to</p>
+    <p>create 3D interactive media;</p>
+    <p class="learning-outcome"><strong>LO2: Incorporate 3D content in an industry standard games platform/engine;</strong></p>
+    <p class="learning-outcome"><strong>LO3: Demonstrate an applied understanding of 3D animation concept, properties,</strong></p>
+    <p>controllers and use of scripting techniques to create in 3D animation;</p>
+    <p class="learning-outcome"><strong>LO4: Demonstrate an applied understanding of scripting techniques to incorporate</strong></p>
+    <p>interactive behaviours on 3D concept;</p>
+    <p class="learning-outcome"><strong>LO5: Work individually, as well as an effective team member to develop a common 3D</strong></p>
+    <p>interactive media product;</p>
+    <p class="learning-outcome"><strong>LO6: Communicate design concepts by oral and visual means and provide documentation for</strong></p>
+    <p>a 3D interactive media product in written form.</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Module Aims:</h2>
+    <p class="module-aim"><strong>L5-M-LO1-MC - Specify, design, develop and test IMPs to solve real-life</strong></p>
+    <p>medium-scale problems with appropriate techniques.</p>
+    <p class="module-aim"><strong>L5-M-LO5-CS - Demonstrate competency in object-oriented design and</strong></p>
+    <p>algorithmic and mathematical approaches to solve medium scale problems.</p>
+    <p class="module-aim"><strong>L5-P-LO3-MC - Produce assets for the development of an IMP through</strong></p>
+    <p>appropriate professional digital content creation, following an object oriented</p>
+    <p>approach.</p>
+    <p class="module-aim"><strong>L5-P-LO8-CS - Utilise, compare and contrast software frameworks and</strong></p>
+    <p>architectures and implement solutions using object-oriented programming.</p>
+    <p class="module-aim"><strong>L5-D-LO6-MC - Employ a standard process such as storyboarding to design,</strong></p>
+    <p>represent and formally communicate the specification of an IMP.</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 6 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Module Aims Continued:</h2>
+    <p class="module-aim"><strong>L5-D-LO4-CS - Employ a standard design language for the design, representation and</strong></p>
+    <p>formal specification of software.</p>
+    <p class="module-aim"><strong>L5-O-LO7-MC - Explain the life cycle of IMPs in the constraints of its operating technical</strong></p>
+    <p>environment.</p>
+    <p class="module-aim"><strong>L5-O-LO7-CS - Explain the basic principles of modern operating systems and how they</strong></p>
+    <p>serve operational needs.</p>
+    <p class="module-aim"><strong>L5-S-LO11-MC - Demonstrate professional responsibility in the development of quality</strong></p>
+    <p>interactive media solutions in a global context and the presentation and defence of these</p>
+    <p>in multiple communication forms, supported by methodical research.</p>
+    <p class="module-aim"><strong>L5-S-LO10-CS - Demonstrate professional responsibility in the development of quality</strong></p>
+    <p>computer science solutions in a global context and the presentation and defence of these</p>
+    <p>in multiple communication forms, supported by methodical research.</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 7 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Coursework (Group work)</h2>
+    <p>Coursework 1 - Assesses the student skills in working as a team to plan and visualise a given 3D interactive media concept that addresses specific technical requirements, translate these into a practical sequence and compose the required 3D scene and content (the content will be later animated and interactive by adding appropriate behaviours to it) using industry standard tools. In addition, it assesses the student’s skills presenting and communicating their design concept efficiently. (Learning outcomes 1, 2, 5, 6)</p>
+    <p>Coursework 2 - Assesses the student practical ability to use appropriate scripting language to create required animation and interactivity to a proposed 3D interactive media product. In addition, it assesses the student’s skills documenting their implementation in a report using a professional style and their entrepreneurial skills by the creation of a working video demo of their project.  (Learning outcomes 3-6).</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 8 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Coursework (Group work)</h2>
+    <p>Note: – Groups will consist of equal numbers of CS, DM, CG, and other students. This has worked well in the past to play to each others strengths and also facilitate knowledge transfer.</p>
+    <h3>Special Note: – This means your groups will not be in your tutorial sessions. This is normal, and does not affect your ability to plan and work together. Tutorials are for individual development. Group work is to be done outside of tutorials as part of “independent study”. All proformas indicate hours of independent study are required to complete the module outside of the normal lecture and tutorial time. The hours for independent study are normally more that those of lectures and tutorials combined, and are seen as the only way to complete the module successfully. The independent study hours for this module are as follows:</h3>
+    <p>Lecture: 	24</p>
+    <p>Tutorial: 	24</p>
+    <p>Module and course based general study: 104</p>
+    <p>Preparation for assessment: 48</p>
+    <p>Total outside of class: 152 !	(This is what we look for in marking)</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 9 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Assessment criteria:</h2>
+    <h3>The student will demonstrate achievement of the learning outcomes by being able to:</h3>
+    <p>Compose a 3D interactive media product following given technical requirements</p>
+    <p>without restricting creativity;</p>
+    <p>Using appropriate tools and scripting language to create 3D animated, interactive media content, smoothly integrate it in a 3D interactive media product and deploy it for multiple platforms and devices;</p>
+    <p>Demonstrate professional behaviour in identifying roles, delegating tasks to group  members, recognising obligations, working individually, as well as a member of a team, in the development of a quality assured solutions to a medium scale interactive media product;</p>
+    <p>Communicate design concepts by oral and visual means;</p>
+    <p>Write documentation of a 3D interactive media product.</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 10 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Assessment Methods and Weighting:</h2>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 11 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Assessment criteria:</h2>
+    <p>To achieve higher marks, students must demonstrate a greater degree of expertise and knowledge, and in particular to demonstrate knowledge of economic programming skills,</p>
+    <p>creative skills, as well as the ability to effectively work in a group.</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-11">11</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 12 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Marking:</h2>
+    <p>70 or above : Work which shows exceptional effort, meeting all the requirements, but also demonstrates understanding and work beyond topics covered in class.</p>
+    <p>60 – 70 : Work which demonstrates considerable effort, meeting all the requirements, but not going beyond topics covered in class.</p>
+    <p>50-60 : Work which demonstrates some effort, and meeting most of the above requirements, or meeting requirements with little effort or understanding.</p>
+    <p>40-50 : Work which does not demonstrate great effort, and meets only a few of the above requirements, or meets most but with extremely poor effort and understanding. Work which is borderline in terms of suitability for submission.</p>
+    <p>Below 40 : FAIL - Work which has not been adequately attempted, demonstrates little effort and an insufficient understanding.</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-12">12</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 13 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Areas to ensure for CW:</h2>
+    <p>Research, Design and Planning</p>
+    <p>Methodology and Management</p>
+    <p>Implementation and Deployment</p>
+    <p>Analysis and Evaluation</p>
+    <h3>Assessment:</h3>
+    <p>Video Presentations submitted to Blackboard</p>
+    <p>Presentations and Discussions in class</p>
+    <p>Peer Review in video and in class</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-13">13</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 14 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Penalty for Late Submissions:</h2>
+    <p>Coursework submitted up to 24 hours late will receive a deduction of 10 marks.</p>
+    <p>Coursework submitted after 24 hours will receive a mark of zero.</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-14">14</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 15 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Mitigating Circumstances:</h2>
+    <p>If you are unable to submit your coursework or attend an assessment due to unforeseen, unpreventable, serious circumstances you may be eligible to claim for Mitigating Circumstances.</p>
+    <p>The University operates a ‘fit to sit’ policy which means if you submit a piece of coursework or sit an exam and/or in class test, you have deemed yourself fit to do so. You cannot submit a claim for mitigating circumstances in this case.</p>
+    <p>Claims should be submitted as close to the deadline for the item of work as possible. Please follow the guidelines and complete the MC form fully, this helps the Registry in administering your claim correctly and efficiently.</p>
+    <p>Unfortunately, claims with missing information may not be considered and may have to be returned to you.</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-15">15</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 16 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Academic Misconduct - Plagiarism, Collusion:</h2>
+    <p>Can result in a Zero or Suspension</p>
+    <p>https://www.westminster.ac.uk/study/current-students/resources/academic-regulations/academic-misconduct</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-16">16</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 17 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Syllabus:</h2>
+    <h3>3D User Interfaces (UIs) and interaction styles:</h3>
+    <p>introduce applications of 3D UIs, video gaming, large displays, mobile applications, etc. Discuss principles of designing Usable 3D UIs. Understand the design space.</p>
+    <p>3D world representation and 3D space transformation</p>
+    <h3>Key concept of 3D modelling, primitives:</h3>
+    <p>polygonal mesh representation (vertices, edges, faces), creating and editing a scene from primitives, polygon editing, parametric curves, NURBs and spline-based modelling concepts, lathing, extruding and Boolean modelling techniques to create complex models groups and hierarchies, construction history.</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-17">17</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 18 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Syllabus:</h2>
+    <p>Understanding Visual effects, shading (composing and colour grading), texturing mapping (UV texture layout, coordinates, mapping) and paint effects. Brief introduction to lighting (illumination model, light types and properties) and shading (mental ray shading).</p>
+    <p>Preparation for animation, basic skeletons (not full body character) and basic rigging techniques (not to the extent of character animation).</p>
+    <p>Animation techniques, timeline based animation; motion paths; basic relationships: constraints, set driven keys. Standard 3D UI for 3D interactive games engines.</p>
+    <p>Interactivity, control a 3D geometry and animation properties with the use of appropriate scripting language.</p>
+    <p>Current 3D UI Research.</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-18">18</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 19 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Schedule: Schedule 3DIMD 2025.docx</h2>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-19">19</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 20 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Padlet with Examples!</h2>
+    <p>CW Details, Previous CW, Real world examples</p>
+    <p>https://uowdigital.padlet.org/fergusj/3dimd-cw-samples-2025-1f4w3m19lc80m9cf</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-20">20</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 21 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Mobile Learning – iPads, Devices, Web</h2>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>Powerpoint</p>
+    <p>Lectures</p>
+    <p>Padlet,</p>
+    <p>Excel Sheets</p>
+    <p>Group Work</p>
+    <p>BB Panpoto</p>
+    <p>Video</p>
+    <p>Lectures</p>
+    <p>Always Use University</p>
+    <p>Email Accounts for access,</p>
+    <p>If denied access on learning documents or platforms, this is likely the cause, try switching web browser logins to Uni email.</p>
+    <p>On Blackboard</p>
+    <p>Ultra</p>
+    <p>University Outlook</p>
+    <p>Account Login</p>
+    <p>On Blackboard</p>
+    <p>Ultra</p>
+    <p>University Outlook</p>
+    <p>Account Login</p>
+    <p>On Blackboard</p>
+    <h3>Ultra:</h3>
+    <p>Discussion, Padlets, Discord</p>
+    <p>University MS</p>
+    <p>Account Login</p>
+    <p>Group Work</p>
+    <p>Video Presentations</p>
+    <p>Peer Review</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-21">21</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 22 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Further Reading List and Reference</h2>
+    <p class="section-label">3DUI</p>
+    <p>3DUI Research</p>
+    <p>3DSMax</p>
+    <p>Unity3D</p>
+    <p class="section-label">C#</p>
+    <img src="images/slide22_image0.png" alt="Slide 22 image" />
+    <img src="images/slide22_image1.png" alt="Slide 22 image" />
+    <img src="images/slide22_image2.png" alt="Slide 22 image" />
+    <img src="images/slide22_image3.png" alt="Slide 22 image" />
+    <img src="images/slide22_image4.png" alt="Slide 22 image" />
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-22">22</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 23 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Further Reading List and Reference</h2>
+    <p class="section-label">3DUI</p>
+    <p>3DUI:Theory and Practice</p>
+    <p>eBook in Library</p>
+    <p>Reading List in BB</p>
+    <p>THIS IS THE KEY TEXT, YOU SHOULD ALL READ THIS:(Doug Bowman is now head of AR/VR at Apple)</p>
+    <p>Title: 3D User Interfaces: Theory and Practice</p>
+    <p>Author: Doug A Bowman</p>
+    <p>Publisher: Addison-Wesley Professional</p>
+    <p>Identifier: ISBN0-13-339059-4</p>
+    <p>Creation Date: 2004</p>
+    <p>Language: English</p>
+    <p>Source: infoLinX infoLinX</p>
+    <img src="images/slide23_image0.png" alt="Slide 23 image" />
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-23">23</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 24 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Further Reading List and Reference</h2>
+    <p class="section-label">3DUI</p>
+    <p>Conference and book</p>
+    <p>Research JournalLink-Library</p>
+    <p>Conference</p>
+    <p>https://people.cs.vt.edu/bowman/3dui.org/Home.html</p>
+    <h3>Committee Resource:</h3>
+    <p>This has some key summaries of the book in the Resources</p>
+    <p>http://people.cs.vt.edu/~bowman/3dui.org/Home.html</p>
+    <p>http://people.cs.vt.edu/~bowman/3dui.org/Resources.html</p>
+    <p>Journal</p>
+    <p>Title: 2016 IEEE Symposium on 3D User Interfaces (3DUI)</p>
+    <p>Publisher: IEEE</p>
+    <p>Creation Date: 2016</p>
+    <p>Language: English</p>
+    <p>Source: infoLinX</p>
+    <p>Microsoft</p>
+    <p>https://www.autodeskresearch.com/projects/3dnav</p>
+    <img src="images/slide24_image0.png" alt="Slide 24 image" />
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-24">24</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 25 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Further Reading List and Reference</h2>
+    <p>3DSMax</p>
+    <p>Online Autodesk Tutorials</p>
+    <p>http://help.autodesk.com/view/3DSMAX/2017/ENU/?guid=GUID-68FFEEDA-3801-444E-B450-942E03A7523D</p>
+    <p>Pluralsight, Digital Tutors(Try temporary License)</p>
+    <p>Lynda.com (now Linkedin)</p>
+    <p>(University now has subscription)</p>
+    <p>Module Tutorial Sheets</p>
+    <p>Box Modelling</p>
+    <p>https://www.youtube.com/watch?v=3ZuLmd9OSYc</p>
+    <p>Edge Modelling</p>
+    <p>https://www.youtube.com/channel/UClFsEsF33aNadnLUn-tqpRQ</p>
+    <p>Pivots</p>
+    <p>http://www.aclockworkberry.com/world-coordinate-systems-in-3ds-max-unity-and-unreal-engine/</p>
+    <p>Procedural work</p>
+    <p>https://www.pluralsight.com/courses/procedural-generation-3ds-max-2080#play-49466%E2%80%8B</p>
+    <p>Lego Man</p>
+    <p>https://www.youtube.com/watch?v=u9wghSWKf-c</p>
+    <img src="images/slide25_image0.png" alt="Slide 25 image" />
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-25">25</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 26 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Further Reading List and Reference</h2>
+    <p class="section-label">C#</p>
+    <p>Tutorials Point</p>
+    <p>http://www.tutorialspoint.com/csharp/</p>
+    <p class="section-label">MSDN</p>
+    <p>http://www.microsoftvirtualacademy.com/training-courses/c-fundamentals-for-absolute-beginners</p>
+    <p>Head First C#</p>
+    <p>https://github.com/head-first-csharp/fifth-edition</p>
+    <p>C# Programming Yellow Bookhttp://static1.squarespace.com/static/5019271be4b0807297e8f404/t/55e8091ee4b0b7a615665de5/1441270046307/CSharp+Book+2015+Final.pdf</p>
+    <p>Youtube</p>
+    <p>https://www.youtube.com/playlist?list=PL_eGgISVYZkdtClbuMbZqlNJ-xLo_OTwc</p>
+    <p>Lynda.com/ Linkedin</p>
+    <p>(University now has subscription)</p>
+    <p>Pluralsight, Digital Tutors(Try temporary License)</p>
+    <p>Packt C#, Unity Scripting</p>
+    <p>https://www.packtpub.com/</p>
+    <img src="images/slide26_image0.png" alt="Slide 26 image" />
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-26">26</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 27 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Further Reading List and Reference</h2>
+    <p>Unity3D</p>
+    <p>Unity Hub/Unity Learn</p>
+    <p>(Gameplay Scripting, Rollaball)</p>
+    <p>https://unity.com/learn</p>
+    <p>https://unity3d.com/learn/tutorials/topics/scripting</p>
+    <p>Learn Unity</p>
+    <p>https://learn.unity.com/</p>
+    <p>Unity UI Tutorialshttps://unity3d.com/learn/tutorials/topics/user-interface-ui</p>
+    <p>Wiki.Unity3D.com</p>
+    <p>http://wiki.unity3d.com/index.php/Main_Page</p>
+    <p>Unity Manual</p>
+    <p>https://docs.unity3d.com/2023.2/Documentation/Manual/index.html</p>
+    <p>Packt Publishing</p>
+    <p>https://www.packtpub.com/</p>
+    <p>Youtube Ctrl Alt Del https://www.youtube.com/channel/UClFsEsF33aNadnLUn-tqpRQ</p>
+    <p>Youtube BergZurg</p>
+    <p>https://www.youtube.com/channel/UCOIcO8Lsk1MERedhOnew73A</p>
+    <p>Pluralsight, Digital Tutors (Try temporary License)</p>
+    <p>Lynda.com (University now has subscription via Linkedin)</p>
+    <p>Module Tutorial Sheets</p>
+    <img src="images/slide27_image0.png" alt="Slide 27 image" />
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-27">27</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 28 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Further Reading List and Reference</h2>
+    <p>Experience Survey UOW Only: >>></p>
+    <p>https://uowdigital.padlet.org/fergusj/3dimd-intro-2025-uow-b51inegc8wf3wwc1</p>
+    <p>Experience Survey IIT Only:  >>></p>
+    <p>https://uowdigital.padlet.org/fergusj/3dimd-intro-2025-iit-7uspoqpdrfcpk107</p>
+    <img src="images/slide28_image0.png" alt="Slide 28 image" />
+    <img src="images/slide28_image1.png" alt="Slide 28 image" />
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-28">28</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 29 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Workflow – 3DUI for Interactive VE*</h2>
+    <p>3DS Max</p>
+    <p>Modelling</p>
+    <p>Texturing</p>
+    <p>Fbx</p>
+    <p>Unity3D</p>
+    <p>Shaders</p>
+    <p>LightingC# Interaction</p>
+    <p>C# NavigationC# System States</p>
+    <p>WebGL</p>
+    <p>Chrome or FirefoxKeyboard InputMouse Input</p>
+    <p>Fbx</p>
+    <p>*Virtual Environment</p>
+    <img src="images/slide29_image0.png" alt="Slide 29 image" />
+    <img src="images/slide29_image1.png" alt="Slide 29 image" />
+    <img src="images/slide29_image2.png" alt="Slide 29 image" />
+    <img src="images/slide29_image3.png" alt="Slide 29 image" />
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-29">29</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 30 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Virtual Environment – 3DUI Needed</h2>
+    <p>At its most basic, we need some sort of 3D UI to interact with a Virtual Environment.</p>
+    <p>We may think we know instinctively what a VE is, but to correctly define and use 3D UI concepts, we must know what flavour of VE we are using or need.</p>
+    <p>This is complicated greatly by public perceptions of VEs and the misnaming and misconceptions that happens.</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-30">30</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 31 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Basic - Mixed Reality Scale</h2>
+    <img src="images/slide31_image0.png" alt="Slide 31 image" />
+    <img src="images/slide31_image1.png" alt="Slide 31 image" />
+    <img src="images/slide31_image2.png" alt="Slide 31 image" />
+    <img src="images/slide31_image3.png" alt="Slide 31 image" />
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-31">31</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 32 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Basic – VE Permutations – Part 1</h2>
+    <p>Real world examples</p>
+    <p>https://uowdigital.padlet.org/fergusj/3dimd-cw-samples-5ohcvanq1wlcq0h9</p>
+    <p>VR Platforms</p>
+    <p>https://padlet.com/sselwood1/VirtualMeeting</p>
+    <p>XR In Industry</p>
+    <p>https://uowdigital.padlet.org/fergusj/XRinIndustry</p>
+    <p>XR Lab Website</p>
+    <p>XR Lab on Blackboard</p>
+    <p>XR Lab Examples</p>
+    <p>XR Lab Demo Videos</p>
+    <p>…and some misnomers</p>
+    <p>Holograms - No</p>
+    <p>Virtual Reality (360 Video)</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-32">32</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 33 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>3DUI VR</h2>
+    <p>Immersive (VR) Journalism</p>
+    <p>Fishtank VR - Google Cardboard 6 x 9</p>
+    <p>https://www.theguardian.com/world/ng-interactive/2016/apr/27/6x9-a-virtual-experience-of-solitary-confinement</p>
+    <p>Desktop VR – Harvest of Change</p>
+    <p>http://www.desmoinesregister.com/story/money/agriculture/2014/09/17/harvest-of-change-virtual-farm-virtual-reality/15785377/</p>
+    <p>Syrian Prison</p>
+    <p>https://saydnaya.amnesty.org/</p>
+    <p>360 Image/Video w/ 3DUI</p>
+    <p>HoloBuilder https://www.holobuilder.com/</p>
+    <p>VR with POV</p>
+    <p>BBC Taster http://www.bbc.co.uk/taster/</p>
+    <p>VR with 3D Input</p>
+    <p>Vive Job Simulator  http://jobsimulatorgame.com/</p>
+    <p>Ikea VR https://www.youtube.com/watch?v=1S0GO5kbMYo</p>
+    <p>Vive Tilt Brush https://www.youtube.com/watch?v=aocLCCvJTBU</p>
+    <p>https://www.youtube.com/watch?v=GSbkn6mCfXE</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-33">33</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 34 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>3DUI New Platforms</h2>
+    <h3>Larger Recent Ecosystem:</h3>
+    <p>https://uowdigital.padlet.org/fergusj/web3d-and-web3-ecosystem-9xv91ovkasaaviua</p>
+    <p>Web3D (WebGL/GPU)</p>
+    <p>WebXR</p>
+    <p>Includes WebRTC, WebVR, WebAR and other openprotocols and file formats</p>
+    <p>Web3 – tokenisation allowing for self-publishing and interoperability on above protocols</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-34">34</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 35 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>References</h2>
+    <p>3D User Interfaces: Theory and Practice</p>
+    <p>Doug A. Bowman, Ernst Kruijff, Joseph J. LaViola, Ivan Poupyrev</p>
+    <p>Addison Wesley Longman Publishing</p>
+    <p>USA https://people.cs.vt.edu/~bowman/3dui.org/CHI_2008.html</p>
+    <p>The Three-Dimensional User Interface</p>
+    <p>Hou Wenjun</p>
+    <p>Beijing University of Posts and Telecommunications</p>
+    <p>China https://cdn.intechopen.com/pdfs/5463/InTech-The_three_dimensional_user_interface.pdf</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-35">35</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 36 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Group Formation</h2>
+    <p>Groups of 4-5 StudentsYOU WILL BE ASSIGNED TO GROUPS IN YOUR TUTORIAL</p>
+    <p>Tutorials for first 4 weeks are Unity basics for CW1</p>
+    <p>CW1 is the start and planning for an IMP (Interactive Media Product)</p>
+    <p>CW2 is the completion of an IMP (Interactive Media Product)</p>
+    <p>Group Assignment</p>
+    <p>Start talking about Idea/Problem and general design</p>
+    <p>3D GUI, Navigation, Interaction, States, Animation</p>
+    <p>Lego brainstorm – Virtual or Real</p>
+    <p>Think about Peer Review and Assessment</p>
+    <p>Video review</p>
+    <p>Connoisseurship practice</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-36">36</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 37 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Group Brainstorm</h2>
+    <p>Assemble in your group</p>
+    <p>Group Activity</p>
+    <p>Explore ideas online</p>
+    <p>Start to negotiate ideas (not final)</p>
+    <p>Lego brainstorm –</p>
+    <p>Build diorama with negotiated ideas</p>
+    <p>Photograph, Submit and Share</p>
+    <p>Take Photos, add notes and publish to padlet (UOW)</p>
+    <p>https://uowdigital.padlet.org/fergusj/2025-3dimd-brainstorm-3igzgiru8o4neldo</p>
+    <img src="images/slide37_image0.png" alt="Slide 37 image" />
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <button class="slide-button" onclick="changeSlide(1)" disabled>Next → </button>
+        <div class="slide-counter"><span id="current-slide-37">37</span> / <span id="total-slides">37</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../assets/js/site.js?v=20260805f"></script>
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    // Convert URLs in text nodes to clickable links
+    function linkifyText(element) {
+      const urlPattern = /(https?:\/\/[^\s]+)/g;
+      const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+      );
+
+      const nodesToReplace = [];
+      let node;
+
+      while (node = walker.nextNode()) {
+        if (urlPattern.test(node.textContent)) {
+          nodesToReplace.push(node);
+        }
+      }
+
+      urlPattern.lastIndex = 0;
+
+      nodesToReplace.forEach(textNode => {
+        const span = document.createElement('span');
+        span.innerHTML = textNode.textContent.replace(
+          /(https?:\/\/[^\s]+)/g,
+          '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
+        textNode.parentNode.replaceChild(span, textNode);
+      });
+    }
+
+    // Initialize URL linking for all slides
+    slides.forEach(slide => {
+      linkifyText(slide);
+    });
+
+    // Update slide counter display
+    function updateCounters() {
+      const counter = document.querySelector('.slide-counter');
+      if (counter) {
+        counter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+      }
+    }
+
+    function showSlide(n) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[currentSlide].classList.add('active');
+      
+      // Update button states
+      const allButtons = document.querySelectorAll('.slide-button');
+      const isFirstSlide = currentSlide === 0;
+      const isLastSlide = currentSlide === totalSlides - 1;
+      
+      allButtons.forEach((btn) => {
+        if (btn.textContent.includes('Previous')) {
+          btn.disabled = isFirstSlide;
+        } else if (btn.textContent.includes('Next')) {
+          btn.disabled = isLastSlide;
+        }
+      });
+      
+      updateCounters();
+    }
+
+    function changeSlide(n) {
+      currentSlide += n;
+      if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+      if (currentSlide < 0) currentSlide = 0;
+      showSlide(currentSlide);
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+    });
+
+    // Initialize
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>
