@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -9,6 +9,84 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
   <link rel="stylesheet" href="../assets/css/slideshow.css" />
+  <style>
+    .slide-content .accordion {
+      margin: 0 0 0.7rem;
+      border: 2px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: #ffffff;
+      box-shadow: 2px 2px 0 var(--line);
+      overflow: hidden;
+    }
+
+    .slide-content .accordion > summary {
+      cursor: pointer;
+      list-style: none;
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.65rem 0.8rem;
+      background: #fef3c7;
+      color: var(--ink);
+      border-bottom: 2px solid var(--line);
+    }
+
+    .slide-content .accordion > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .slide-content .accordion > summary::before {
+      content: "+ ";
+      font-weight: 700;
+      margin-right: 0.25rem;
+    }
+
+    .slide-content .accordion[open] > summary::before {
+      content: "- ";
+    }
+
+    .slide-content .accordion-body {
+      padding: 0.75rem 0.85rem;
+      background: #ffffff;
+    }
+
+    .slide-content .accordion-body > :first-child {
+      margin-top: 0;
+    }
+
+    .slide-content .accordion-body > :last-child {
+      margin-bottom: 0;
+    }
+
+    .slide-content .media-stack {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .slide-content .embed-card {
+      border: 2px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem;
+      background: #f8fafc;
+      box-shadow: 2px 2px 0 var(--line);
+    }
+
+    .slide-content .embed-card iframe {
+      width: 100%;
+      min-height: 360px;
+      border: 0;
+      display: block;
+    }
+
+    .slide-content .compact-list {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+
+    .slide-content .compact-list li {
+      margin: 0.4rem 0;
+    }
+  </style>
 </head>
 <body>
   <div class="slideshow-container">
@@ -16,16 +94,105 @@
     <div class="slide active">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
-    <h2>5MMCS007W					Lecture 01a</h2>
-    <p>Intermission – 3D Examples</p>
-    <p>https://uowdigital.padlet.org/fergusj/web-web3d-and-web3-ecosystem-9xv91ovkasaaviua</p>
-    <p>https://uowdigital.padlet.org/fergusj/3dimd-cw-samples-5ohcvanq1wlcq0h9</p>
+    <h2>5MMCS007W Lecture 01a</h2>
+
+    <details class="accordion">
+      <summary>Intermission - 3D Examples</summary>
+      <div class="accordion-body media-stack">
+        <p><a href="https://uowdigital.padlet.org/fergusj/3dimd-cw-samples-5ohcvanq1wlcq0h9" target="_blank" rel="noopener noreferrer">https://uowdigital.padlet.org/fergusj/3dimd-cw-samples-5ohcvanq1wlcq0h9</a></p>
+        <article class="embed-card">
+          <iframe src="https://uowdigital.padlet.org/fergusj/3dimd-cw-samples-5ohcvanq1wlcq0h9" title="3DIMD CW Samples Padlet" loading="lazy" allow="clipboard-read; clipboard-write"></iframe>
+        </article>
+        <p><a href="https://uowdigital.padlet.org/fergusj/web-web3d-and-web3-ecosystem-9xv91ovkasaaviua" target="_blank" rel="noopener noreferrer">https://uowdigital.padlet.org/fergusj/web-web3d-and-web3-ecosystem-9xv91ovkasaaviua</a></p>
+        <article class="embed-card">
+          <iframe src="https://uowdigital.padlet.org/fergusj/web-web3d-and-web3-ecosystem-9xv91ovkasaaviua" title="Web Web3D and Web3 Ecosystem Padlet" loading="lazy" allow="clipboard-read; clipboard-write"></iframe>
+        </article>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>Welcome to 3D Interactive Media Development</summary>
+      <div class="accordion-body">
+        <p><strong>Overview:</strong> This module introduces the development of interactive 3D prototypes and the core concepts of 3D User Interfaces.</p>
+        <p><strong>Collaborative Teamwork:</strong> You will work in groups of 4-5 students, integrating strengths from Digital Media, Computer Science, and Games Development.</p>
+        <p><strong>The Goal:</strong> Moving beyond simple "games" to better understand 3D User Interface concepts, and to create Interactive Dioramas that inform and educate the user.</p>
+        <p><strong>Deliverable:</strong> A finished interactive 3D prototype for your professional portfolio.</p>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>Lecturers</summary>
+      <div class="accordion-body">
+        <p><strong>Jeff Ferguson (Module Leader)</strong><br />Lectures Tuesdays 11:00-13:00<br />Tutorials Tuesdays 14:00-16:00, 16:00-18:00<br />Email: j.ferguson@westminster.ac.uk<br />Office Hours: Tuesdays 10:00-11:00, 13:00-14:00<br />Appointments by email request<br />Please contact for module related issues</p>
+        <p><strong>Pumudu Fernando (IIT Module Delivery)</strong><br />Email: pumudu.f@iit.ac.lk<br />Office Hours: email for contact</p>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>Proforma Overview</summary>
+      <div class="accordion-body">
+        <p>This module introduces students to concepts of 3D user interfaces and 3D animated and interactive media. It covers essential topics, including 3D modelling principles, methods and techniques, complex 3D objects creation, deformation and transformations, texture mapping methods, colour and lighting. It uses an industry standard games engine to demonstrate 3D animation concepts, properties, controllers and scripting to create 3D animated, interactive media content.</p>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>Learning Outcomes</summary>
+      <div class="accordion-body">
+        <ol class="compact-list">
+          <li>LO1: Demonstrate an applied understanding of 3D modelling concepts and the underlying geometrical principles and apply appropriate techniques and tools to create 3D interactive media.</li>
+          <li>LO2: Incorporate 3D content in an industry standard games platform/engine.</li>
+          <li>LO3: Demonstrate an applied understanding of 3D animation concept, properties, controllers and use of scripting techniques to create in 3D animation.</li>
+          <li>LO4: Demonstrate an applied understanding of scripting techniques to incorporate interactive behaviours on 3D concept.</li>
+          <li>LO5: Work individually, as well as an effective team member to develop a common 3D interactive media product.</li>
+          <li>LO6: Communicate design concepts by oral and visual means and provide documentation for a 3D interactive media product in written form.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>Module Aims</summary>
+      <div class="accordion-body">
+        <ol class="compact-list">
+          <li>L5-M-LO1-MC - Specify, design, develop and test IMPs to solve real-life medium-scale problems with appropriate techniques.</li>
+          <li>L5-M-LO5-CS - Demonstrate competency in object-oriented design and algorithmic and mathematical approaches to solve medium scale problems.</li>
+          <li>L5-P-LO3-MC - Produce assets for the development of an IMP through appropriate professional digital content creation, following an object oriented approach.</li>
+          <li>L5-P-LO8-CS - Utilise, compare and contrast software frameworks and architectures and implement solutions using object-oriented programming.</li>
+          <li>L5-D-LO6-MC - Employ a standard process such as storyboarding to design, represent and formally communicate the specification of an IMP.</li>
+          <li>L5-D-LO4-CS - Employ a standard design language for the design, representation and formal specification of software.</li>
+          <li>L5-O-LO7-MC - Explain the life cycle of IMPs in the constraints of its operating technical environment.</li>
+          <li>L5-O-LO7-CS - Explain the basic principles of modern operating systems and how they serve operational needs.</li>
+          <li>L5-S-LO11-MC - Demonstrate professional responsibility in the development of quality interactive media solutions in a global context and the presentation and defence of these in multiple communication forms, supported by methodical research.</li>
+          <li>L5-S-LO10-CS - Demonstrate professional responsibility in the development of quality computer science solutions in a global context and the presentation and defence of these in multiple communication forms, supported by methodical research.</li>
+        </ol>
+      </div>
+    </details>
       </div>
       <div class="slide-controls">
         <button class="slide-button" onclick="changeSlide(-1)" disabled> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">38</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Welcome to 3D Interactive Media Development</h2>
+    <p><strong>Overview:</strong> This module introduces the development of interactive 3D prototypes and the core concepts of 3D User Interfaces.</p>
+    <p><strong>Collaborative Teamwork:</strong> You will work in groups of 4-5 students, integrating strengths from Digital Media, Computer Science, and Games Development.</p>
+    <p><strong>The Goal:</strong> Moving beyond simple "games" to create Interactive Dioramas that inform and educate the user.</p>
+    <p><strong>Deliverable:</strong> A finished interactive 3D prototype for your professional portfolio.</p>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -51,7 +218,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -76,7 +243,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -105,7 +272,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -133,7 +300,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -162,7 +329,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -181,7 +348,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -205,7 +372,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -229,7 +396,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -289,7 +456,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-11">11</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -308,7 +475,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-11">11</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-12">12</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -330,7 +497,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-12">12</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-13">13</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -355,7 +522,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-13">13</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-14">14</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -374,7 +541,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-14">14</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-15">15</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -395,7 +562,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-15">15</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-16">16</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -414,7 +581,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-16">16</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-17">17</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -436,7 +603,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-17">17</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-18">18</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -458,7 +625,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-18">18</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-19">19</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -475,7 +642,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-19">19</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-20">20</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -494,7 +661,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-20">20</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-21">21</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -541,7 +708,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-21">21</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-22">22</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -568,7 +735,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-22">22</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-23">23</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -598,7 +765,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-23">23</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-24">24</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -633,7 +800,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-24">24</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-25">25</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -668,7 +835,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-25">25</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-26">26</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -701,7 +868,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-26">26</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-27">27</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -739,7 +906,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-27">27</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-28">28</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -762,7 +929,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-28">28</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-29">29</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -795,7 +962,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-29">29</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-30">30</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -815,7 +982,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-30">30</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-31">31</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -836,7 +1003,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-31">31</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-32">32</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -866,7 +1033,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-32">32</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-33">33</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -899,7 +1066,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-33">33</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-34">34</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -922,7 +1089,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-34">34</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-35">35</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -947,7 +1114,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-35">35</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-36">36</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -975,7 +1142,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-36">36</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-37">37</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -1002,7 +1169,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)" disabled>Next → </button>
-        <div class="slide-counter"><span id="current-slide-37">37</span> / <span id="total-slides">37</span></div>
+        <div class="slide-counter"><span id="current-slide-38">38</span> / <span id="total-slides">38</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
