@@ -92,6 +92,24 @@ html_template = '''<!DOCTYPE html>
       display: block;
     }
 
+    .slide-logo {
+      height: 2rem;
+      width: auto;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      margin: 0;
+      mix-blend-mode: multiply;
+    }
+
+    img.slide-logo {
+      height: 2rem;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      margin: 0;
+    }
+
     .slide ul, .slide ol {
       margin: var(--space-2) 0;
       padding-left: var(--space-4);
@@ -170,6 +188,7 @@ for slide in slides_data:
 {content_html}      </div>
       <div class="slide-controls">
         <button class="slide-button" onclick="changeSlide(-1)"{"" if slide_num > 1 else " disabled"}> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)"{"" if slide_num < len(slides_data) else " disabled"}>Next → </button>
         <div class="slide-counter"><span id="current-slide-{slide_num}">{slide_num}</span> / <span id="total-slides">{len(slides_data)}</span></div>
       </div>

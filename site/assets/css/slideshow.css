@@ -112,6 +112,15 @@
   cursor: not-allowed;
 }
 
+.slide-logo {
+  height: 0.5rem;
+  width: auto;
+  background: transparent;
+  mix-blend-mode: multiply;
+  border: none;
+  box-shadow: none;
+}
+
 .slide-counter {
   position: absolute;
   bottom: calc(100% + var(--space-3));
