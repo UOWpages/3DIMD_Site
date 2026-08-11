@@ -366,6 +366,15 @@ a:hover {
   line-height: 1.65;
 }
 
+.slide-content .accordion-body h3 {
+  margin: 0.35rem 0 0.02rem;
+  font-size: 1.1rem;
+}
+
+.slide-content .welcome-section-body p {
+  margin-left: 1.35rem;
+}
+
 .slide-content .accordion-body p,
 .slide-content .accordion-body li,
 .slide-content .accordion-body a {
