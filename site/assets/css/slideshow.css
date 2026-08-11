@@ -258,7 +258,7 @@ a:hover {
 
 .slide-controls {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   gap: var(--space-2);
   background: #fcd34d;
@@ -270,6 +270,14 @@ a:hover {
   position: relative;
   margin: 0 calc(var(--space-5) * -1) calc(var(--space-5) * -1) calc(var(--space-5) * -1);
   flex-shrink: 0;
+}
+
+.slide-controls > .slide-button:first-child {
+  margin-right: auto;
+}
+
+.slide-controls > .slide-button:last-of-type {
+  order: 4;
 }
 
 .slide-button {
@@ -310,16 +318,20 @@ a:hover {
   mix-blend-mode: multiply;
   border: none;
   box-shadow: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .slide-counter {
-  position: absolute;
-  bottom: calc(100% + var(--space-3));
-  right: var(--space-3);
+  position: static;
+  order: 3;
   font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
   font-size: 0.85rem;
-  color: var(--muted);
+  color: var(--ink);
+  margin: 0 0.25rem;
 }
 
 .keyboard-hint {
