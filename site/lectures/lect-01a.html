@@ -115,7 +115,7 @@
         <button class="slide-button" onclick="changeSlide(-1)" disabled> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -285,7 +285,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -295,41 +295,133 @@
     <!-- Slide 3 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content">
-    <h2>Syllabus:</h2>
-    <h3>3D User Interfaces (UIs) and interaction styles:</h3>
-    <p>introduce applications of 3D UIs, video gaming, large displays, mobile applications, etc. Discuss principles of designing Usable 3D UIs. Understand the design space.</p>
-    <p>3D world representation and 3D space transformation</p>
-    <h3>Key concept of 3D modelling, primitives:</h3>
-    <p>polygonal mesh representation (vertices, edges, faces), creating and editing a scene from primitives, polygon editing, parametric curves, NURBs and spline-based modelling concepts, lathing, extruding and Boolean modelling techniques to create complex models groups and hierarchies, construction history.</p>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
-        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">23</span></div>
-      </div>
-      <div class="keyboard-hint">
-        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
-      </div>
-    </div>
+      <div class="slide-content slide-content-accordion">
+    <h2>Syllabus, Schedule and Examples</h2>
+    <div class="accordion-scroll">
 
-    <!-- Slide 4 -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content">
-    <h2>Syllabus:</h2>
-    <p>Understanding Visual effects, shading (composing and colour grading), texturing mapping (UV texture layout, coordinates, mapping) and paint effects. Brief introduction to lighting (illumination model, light types and properties) and shading (mental ray shading).</p>
-    <p>Preparation for animation, basic skeletons (not full body character) and basic rigging techniques (not to the extent of character animation).</p>
-    <p>Animation techniques, timeline based animation; motion paths; basic relationships: constraints, set driven keys. Standard 3D UI for 3D interactive games engines.</p>
-    <p>Interactivity, control a 3D geometry and animation properties with the use of appropriate scripting language.</p>
-    <p>Current 3D UI Research.</p>
+    <details class="accordion">
+      <summary>Syllabus</summary>
+      <div class="accordion-body">
+        <h3>3D User Interfaces (UIs) and interaction styles:</h3>
+        <p>introduce applications of 3D UIs, video gaming, large displays, mobile applications, etc. Discuss principles of designing Usable 3D UIs. Understand the design space.</p>
+        <p>3D world representation and 3D space transformation</p>
+        <h3>Key concept of 3D modelling, primitives:</h3>
+        <p>polygonal mesh representation (vertices, edges, faces), creating and editing a scene from primitives, polygon editing, parametric curves, NURBs and spline-based modelling concepts, lathing, extruding and Boolean modelling techniques to create complex models groups and hierarchies, construction history.</p>
+        <p>Understanding Visual effects, shading (composing and colour grading), texturing mapping (UV texture layout, coordinates, mapping) and paint effects. Brief introduction to lighting (illumination model, light types and properties) and shading (mental ray shading).</p>
+        <p>Preparation for animation, basic skeletons (not full body character) and basic rigging techniques (not to the extent of character animation).</p>
+        <p>Animation techniques, timeline based animation; motion paths; basic relationships: constraints, set driven keys. Standard 3D UI for 3D interactive games engines.</p>
+        <p>Interactivity, control a 3D geometry and animation properties with the use of appropriate scripting language.</p>
+        <p>Current 3D UI Research.</p>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>Schedule</summary>
+      <div class="accordion-body">
+        <p class="schedule-subtitle">(Subject to change)</p>
+
+        <article class="schedule-week">
+          <h3>Week 0 - Before Lectures</h3>
+          <p>Orientation via BlackBoard/Padlet, Unity install and test, tutorial edit/build/upload.</p>
+        </article>
+
+        <article class="schedule-week">
+          <h3>22 Sept - Week 1</h3>
+          <p><strong>Lecture 1:</strong> Module Info, Unity Intro/Concepts, Group familiarisation.</p>
+          <p><strong>Tutorial 1:</strong> Unity Coding (Intro, Logo, Gallery), Group familiarisation.</p>
+        </article>
+
+        <article class="schedule-week">
+          <h3>29 Sept - Week 2</h3>
+          <p><strong>Lecture 2:</strong> 3D/3DUI, Unity OOP.</p>
+          <p><strong>Tutorial 2-3:</strong> Controllers, Physics, Versioning (VS/GitHub).</p>
+        </article>
+
+        <article class="schedule-week">
+          <h3>6 Oct - Week 3</h3>
+          <p><strong>Lecture 3:</strong> 3DUI Theory and Practice.</p>
+          <p><strong>Tutorial 2-3:</strong> Controllers, Physics, Versioning (Groups).</p>
+        </article>
+
+        <article class="schedule-week">
+          <h3>13 Oct - Week 4</h3>
+          <p><strong>Lecture 4:</strong> CW Report/Videos, Unity Game Objects.</p>
+          <p><strong>Tutorial 4:</strong> Objects as Animation Controllers, Group Work, Peer Review.</p>
+          <p>Plus GitHub Copilot AI Assist.</p>
+        </article>
+
+        <article class="schedule-week">
+          <h3>20 Oct - Week 5</h3>
+          <p><strong>Lecture 5:</strong> Unity UI/Animation, Document AI Code Assist.</p>
+          <p><strong>Tutorial 5:</strong> UI Animation Controllers (Brick, Array, Widget), WIP Review, Document AI Code Assist.</p>
+          <div class="schedule-deadline">29 Oct: CW1 WIP Video due (BlackBoard link to OneDrive)</div>
+          <div class="schedule-deadline">5 Nov: CW1 PR Video due (BlackBoard link to OneDrive)</div>
+        </article>
+
+        <article class="schedule-week">
+          <h3>26-30 Oct - Week 6</h3>
+          <p>Engagement Week - focus on WIP video.</p>
+        </article>
+
+        <article class="schedule-week">
+          <h3>3 Nov - Week 7</h3>
+          <p><strong>Lecture 7:</strong> Unity UI/CW Architecture (Examples), Document AI Code Assist (Continue).</p>
+          <p><strong>Tutorial 7:</strong> Lego Walk, Slider Array, Button Animate, Readouts, Group Check, Document AI Code Assist (Continue).</p>
+        </article>
+
+        <article class="schedule-week">
+          <h3>10 Nov - Week 8</h3>
+          <p><strong>Lecture 8:</strong> Input, Movement, Collisions.</p>
+          <p><strong>Tutorial 8:</strong> Lego Minifig Modelling Part 1, CW2 Architecture.</p>
+          <div class="schedule-deadline">12 Nov: CW1 Full Submission (BlackBoard link to OneDrive)</div>
+        </article>
+
+        <article class="schedule-week">
+          <h3>17 Nov - Week 9</h3>
+          <p><strong>Lecture 9:</strong> Collisions, Physics in Controllers.</p>
+          <p><strong>Tutorial 9:</strong> Lego Minifig Modelling Part 2, CW2 Architecture.</p>
+        </article>
+
+        <article class="schedule-week">
+          <h3>24 Nov - Week 10</h3>
+          <p><strong>Lecture 10:</strong> Cameras, Lerping.</p>
+          <p><strong>Tutorial 10:</strong> Lego Minifig Modelling Part 3 (Texturing, Animation), CW2 Arch.</p>
+        </article>
+
+        <article class="schedule-week">
+          <h3>1 Dec - Week 11</h3>
+          <p><strong>Lecture 11:</strong> Pivots and Animation, Lerping.</p>
+          <p><strong>Tutorial 11:</strong> Cameras, Animation, Lerping.</p>
+        </article>
+
+        <article class="schedule-week">
+          <h3>8 Dec - Week 12</h3>
+          <p><strong>Lecture 12:</strong> Shaders and Lighting.</p>
+          <p><strong>Tutorial 12:</strong> Lighting and Troubleshooting.</p>
+          <div class="schedule-deadline">14 Dec: CW2 WIP Video due (BlackBoard link to OneDrive)</div>
+          <div class="schedule-deadline">21 Dec: CW2 PR Video due (BlackBoard link to OneDrive; can be submitted up to 8 Jan 2026 without penalty)</div>
+          <div class="schedule-deadline">7 Jan: CW2 Full Submission (BlackBoard link to OneDrive)</div>
+        </article>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>Coursework Examples</summary>
+      <div class="accordion-body media-stack">
+        <p><a href="https://uowdigital.padlet.org/fergusj/3dimd-cw-samples-2025-1f4w3m19lc80m9cf" target="_blank" rel="noopener noreferrer">https://uowdigital.padlet.org/fergusj/3dimd-cw-samples-2025-1f4w3m19lc80m9cf</a></p>
+        <article class="embed-card">
+          <iframe src="https://uowdigital.padlet.org/fergusj/3dimd-cw-samples-2025-1f4w3m19lc80m9cf" title="3DIMD Coursework Examples Padlet" loading="lazy" allow="clipboard-read; clipboard-write"></iframe>
+        </article>
+      </div>
+    </details>
+
+    </div>
       </div>
       <div class="slide-controls">
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -337,127 +429,6 @@
     </div>
 
     <!-- Slide 5 -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-schedule">
-    <h2>Schedule: 3DIMD 2025</h2>
-    <p class="schedule-subtitle">(Subject to change)</p>
-    <div class="schedule-scroll">
-      <article class="schedule-week">
-        <h3>Week 0 - Before Lectures</h3>
-        <p>Orientation via BlackBoard/Padlet, Unity install and test, tutorial edit/build/upload.</p>
-      </article>
-
-      <article class="schedule-week">
-        <h3>23 Sept - Week 1</h3>
-        <p><strong>Lecture 1:</strong> Module Info, Unity Intro/Concepts, Group familiarisation.</p>
-        <p><strong>Tutorial 1:</strong> Unity Coding (Intro, Logo, Gallery), Group familiarisation.</p>
-      </article>
-
-      <article class="schedule-week">
-        <h3>30 Sept - Week 2</h3>
-        <p><strong>Lecture 2:</strong> 3D/3DUI, Unity OOP.</p>
-        <p><strong>Tutorial 2-3:</strong> Controllers, Physics, Versioning (VS/GitHub).</p>
-      </article>
-
-      <article class="schedule-week">
-        <h3>7 Oct - Week 3</h3>
-        <p><strong>Lecture 3:</strong> 3DUI Theory and Practice.</p>
-        <p><strong>Tutorial 2-3:</strong> Controllers, Physics, Versioning (Groups).</p>
-      </article>
-
-      <article class="schedule-week">
-        <h3>14 Oct - Week 4</h3>
-        <p><strong>Lecture 4:</strong> CW Report/Videos, Unity Game Objects.</p>
-        <p><strong>Tutorial 4:</strong> Objects as Animation Controllers, Group Work, Peer Review.</p>
-        <p>Plus GitHub Copilot AI Assist.</p>
-      </article>
-
-      <article class="schedule-week">
-        <h3>21 Oct - Week 5</h3>
-        <p><strong>Lecture 5:</strong> Unity UI/Animation, Document AI Code Assist.</p>
-        <p><strong>Tutorial 5:</strong> UI Animation Controllers (Brick, Array, Widget), WIP Review, Document AI Code Assist.</p>
-        <div class="schedule-deadline">30 Oct: CW1 WIP Video due (BlackBoard link to OneDrive)</div>
-        <div class="schedule-deadline">6 Nov: CW1 PR Video due (BlackBoard link to OneDrive)</div>
-      </article>
-
-      <article class="schedule-week">
-        <h3>27-31 Oct - Week 6</h3>
-        <p>Engagement Week - focus on WIP video.</p>
-      </article>
-
-      <article class="schedule-week">
-        <h3>4 Nov - Week 7</h3>
-        <p><strong>Lecture 7:</strong> Unity UI/CW Architecture (Examples), Document AI Code Assist (Continue).</p>
-        <p><strong>Tutorial 7:</strong> Lego Walk, Slider Array, Button Animate, Readouts, Group Check, Document AI Code Assist (Continue).</p>
-      </article>
-
-      <article class="schedule-week">
-        <h3>11 Nov - Week 8</h3>
-        <p><strong>Lecture 8:</strong> Input, Movement, Collisions.</p>
-        <p><strong>Tutorial 8:</strong> Lego Minifig Modelling Part 1, CW2 Architecture.</p>
-        <div class="schedule-deadline">13 Nov: CW1 Full Submission (BlackBoard link to OneDrive)</div>
-      </article>
-
-      <article class="schedule-week">
-        <h3>18 Nov - Week 9</h3>
-        <p><strong>Lecture 9:</strong> Collisions, Physics in Controllers.</p>
-        <p><strong>Tutorial 9:</strong> Lego Minifig Modelling Part 2, CW2 Architecture.</p>
-      </article>
-
-      <article class="schedule-week">
-        <h3>25 Nov - Week 10</h3>
-        <p><strong>Lecture 10:</strong> Cameras, Lerping.</p>
-        <p><strong>Tutorial 10:</strong> Lego Minifig Modelling Part 3 (Texturing, Animation), CW2 Arch.</p>
-      </article>
-
-      <article class="schedule-week">
-        <h3>2 Dec - Week 11</h3>
-        <p><strong>Lecture 11:</strong> Pivots and Animation, Lerping.</p>
-        <p><strong>Tutorial 11:</strong> Cameras, Animation, Lerping.</p>
-      </article>
-
-      <article class="schedule-week">
-        <h3>9 Dec - Week 12</h3>
-        <p><strong>Lecture 12:</strong> Shaders and Lighting.</p>
-        <p><strong>Tutorial 12:</strong> Lighting and Troubleshooting.</p>
-        <div class="schedule-deadline">15 Dec: CW2 WIP Video due (BlackBoard link to OneDrive)</div>
-        <div class="schedule-deadline">22 Dec: CW2 PR Video due (BlackBoard link to OneDrive; can be submitted up to 8 Jan 2026 without penalty)</div>
-        <div class="schedule-deadline">8 Jan: CW2 Full Submission (BlackBoard link to OneDrive)</div>
-      </article>
-    </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
-        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">23</span></div>
-      </div>
-      <div class="keyboard-hint">
-        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
-      </div>
-    </div>
-
-    <!-- Slide 6 -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content">
-    <h2>Padlet with Examples!</h2>
-    <p>CW Details, Previous CW, Real world examples</p>
-    <p>https://uowdigital.padlet.org/fergusj/3dimd-cw-samples-2025-1f4w3m19lc80m9cf</p>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
-        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">23</span></div>
-      </div>
-      <div class="keyboard-hint">
-        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
-      </div>
-    </div>
-
-    <!-- Slide 7 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
@@ -497,14 +468,14 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 8 -->
+    <!-- Slide 6 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
@@ -524,14 +495,14 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 9 -->
+    <!-- Slide 7 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
@@ -554,14 +525,14 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 10 -->
+    <!-- Slide 8 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
@@ -589,14 +560,14 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 11 -->
+    <!-- Slide 9 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
@@ -624,14 +595,14 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-11">11</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 12 -->
+    <!-- Slide 10 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
@@ -657,14 +628,14 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-12">12</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 13 -->
+    <!-- Slide 11 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
@@ -695,14 +666,14 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-13">13</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-11">11</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 14 -->
+    <!-- Slide 12 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
@@ -718,14 +689,14 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-14">14</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-12">12</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 15 -->
+    <!-- Slide 13 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
@@ -751,14 +722,14 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-15">15</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-13">13</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 16 -->
+    <!-- Slide 14 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
@@ -771,14 +742,14 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-16">16</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-14">14</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 17 -->
+    <!-- Slide 15 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
@@ -792,14 +763,14 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-17">17</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-15">15</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 18 -->
+    <!-- Slide 16 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
@@ -822,14 +793,14 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-18">18</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-16">16</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 19 -->
+    <!-- Slide 17 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
@@ -855,14 +826,14 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-19">19</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-17">17</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 20 -->
+    <!-- Slide 18 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
@@ -878,14 +849,14 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-20">20</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-18">18</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 21 -->
+    <!-- Slide 19 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
@@ -903,14 +874,14 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-21">21</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-19">19</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 22 -->
+    <!-- Slide 20 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
@@ -931,14 +902,14 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)">Next → </button>
-        <div class="slide-counter"><span id="current-slide-22">22</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-20">20</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 23 -->
+    <!-- Slide 21 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
@@ -958,7 +929,7 @@
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" onclick="changeSlide(1)" disabled>Next → </button>
-        <div class="slide-counter"><span id="current-slide-23">23</span> / <span id="total-slides">23</span></div>
+        <div class="slide-counter"><span id="current-slide-21">21</span> / <span id="total-slides">21</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate

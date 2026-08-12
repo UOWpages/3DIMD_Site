@@ -1529,7 +1529,7 @@ foreach ($page in ($pages | Sort-Object -Property NavOrder)) {
   $inventoryLines.Add("| $($page.SourceFile) | $($c.Paragraphs) | $($c.Lists) | $($c.Tables) | $($c.Images) | $($c.Links) | $($c.Gyazo) | $($c.YouTube) | $($c.Panopto) |")
 }
 
-Set-Content -Path (Join-Path $docsRoot "migration-plan.md") -Value ($inventoryLines -join "`n") -Encoding UTF8
+Set-Content -Path (Join-Path $docsRoot "migration-reference.md") -Value ($inventoryLines -join "`n") -Encoding UTF8
 
 $authoringGuide = @"
 # Authoring Guide

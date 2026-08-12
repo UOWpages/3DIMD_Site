@@ -30,7 +30,7 @@ If any item is FAIL, continue editing and re-run checks until all PASS.
 
 Use [site/pages/tut-00-01-student-version.html](../site/pages/tut-00-01-student-version.html) as the canonical structural template for tutorial pages.
 
-This file is the authoritative tutorial-page specification. Where tutorial-page instructions differ, this file takes precedence over [docs/authoring-guide.md](./authoring-guide.md). [docs/migration-plan.md](./migration-plan.md) is process/reference only.
+This file is the authoritative tutorial-page specification. Where tutorial-page instructions differ, this file takes precedence over [docs/authoring-guide.md](./authoring-guide.md). [docs/migration-reference.md](./migration-reference.md) is process/reference only.
 
 Locked execution contract for every use:
 

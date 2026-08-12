@@ -13,7 +13,7 @@ This generates:
 
 - site/index.html and site/pages/*.html
 - site/assets/css/site.css and site/assets/js/site.js
-- docs/migration-plan.md
+- docs/migration-reference.md
 - docs/authoring-guide.md
 - reports/validation-report.md
 
