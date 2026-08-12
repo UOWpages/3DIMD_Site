@@ -3,7 +3,7 @@ import zipfile
 import re
 import sys
 
-path = Path('Tut 07 UI Overview.docx')
+path = Path('docx/Tut 07 UI Overview.docx')
 if not path.exists():
     print('FILE_NOT_FOUND')
     sys.exit(1)
