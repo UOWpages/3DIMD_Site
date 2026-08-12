@@ -668,6 +668,15 @@ a:hover {
   align-items: center;
   gap: 0.55rem;
   padding: 0.35rem 0.55rem;
+  cursor: pointer;
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
+}
+
+.neo-slide-6 .neo-tech-card:hover,
+.neo-slide-6 .neo-tech-card:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #111111;
+  outline: none;
 }
 
 .neo-slide-6 .neo-tech-icon-wrap {
@@ -733,6 +742,297 @@ a:hover {
 
   .neo-slide-6 .neo-tech-csharp {
     min-width: 0;
+  }
+}
+
+/* Topic alert modal (slide 6 interactions) */
+.neo-topic-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  padding: 1.1rem;
+}
+
+.neo-topic-modal[hidden] {
+  display: none;
+}
+
+.neo-topic-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 15, 29, 0.68);
+}
+
+.neo-topic-modal-panel {
+  position: relative;
+  width: min(1120px, 96vw);
+  max-height: 90vh;
+  border: 4px solid #111111;
+  box-shadow: 10px 10px 0 #111111;
+  background: #f6fbff;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+}
+
+.neo-topic-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.75rem 0.95rem;
+  border-bottom: 3px solid #111111;
+  background: #ffd54f;
+}
+
+.neo-topic-modal-header h2 {
+  margin: 0;
+  color: #111111;
+  font-family: "Archivo Black", "Space Grotesk", sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.neo-topic-modal-close {
+  border: 3px solid #111111;
+  background: #ef4444;
+  color: #ffffff;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.35rem 0.6rem;
+  box-shadow: 3px 3px 0 #111111;
+  cursor: pointer;
+}
+
+.neo-topic-modal-close:hover,
+.neo-topic-modal-close:focus-visible {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 #111111;
+  outline: none;
+}
+
+.neo-topic-modal-content {
+  overflow-y: auto;
+  padding: 0.9rem;
+  background: linear-gradient(180deg, #e6f3ff 0%, #f8fcff 100%);
+  border-top: 2px solid #111111;
+}
+
+.neo-topic-modal-content > :first-child {
+  margin-top: 0;
+}
+
+.neo-topic-modal-content > :last-child {
+  margin-bottom: 0;
+}
+
+.neo-topic-modal-content h2,
+.neo-topic-modal-content h3,
+.neo-topic-modal-content .section-label {
+  margin: 0.45rem 0 0.35rem;
+  display: inline-block;
+  border: 2px solid #111111;
+  background: #5eead4;
+  color: #0f172a;
+  box-shadow: 3px 3px 0 #111111;
+  padding: 0.2rem 0.45rem;
+  text-transform: uppercase;
+}
+
+.neo-topic-modal-content p,
+.neo-topic-modal-content li,
+.neo-topic-modal-content a {
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.neo-topic-modal-content p,
+.neo-topic-modal-content ul,
+.neo-topic-modal-content ol {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  margin: 0.35rem 0;
+  padding: 0;
+}
+
+.neo-topic-modal-content ul,
+.neo-topic-modal-content ol {
+  padding-left: 1.15rem;
+}
+
+.neo-topic-modal[data-topic="3DUI"] .neo-topic-modal-header,
+.neo-topic-modal[data-topic="3DUI Research"] .neo-topic-modal-header {
+  background: #fb923c;
+}
+
+.neo-topic-modal[data-topic="Blender"] .neo-topic-modal-header {
+  background: #22d3ee;
+}
+
+.neo-topic-modal[data-topic="Unity3D"] .neo-topic-modal-header {
+  background: #9ca3af;
+}
+
+.neo-topic-modal[data-topic="C#"] .neo-topic-modal-header {
+  background: #a3e635;
+}
+
+.neo-topic-modal[data-topic="3DUI"] .neo-topic-modal-content,
+.neo-topic-modal[data-topic="3DUI Research"] .neo-topic-modal-content {
+  background: linear-gradient(180deg, #fff2e2 0%, #fff9f2 100%);
+}
+
+.neo-topic-modal[data-topic="Blender"] .neo-topic-modal-content {
+  background: linear-gradient(180deg, #e6fbff 0%, #f6fdff 100%);
+}
+
+.neo-topic-modal[data-topic="Unity3D"] .neo-topic-modal-content {
+  background: linear-gradient(180deg, #eef2f6 0%, #fafbfc 100%);
+}
+
+.neo-topic-modal[data-topic="C#"] .neo-topic-modal-content {
+  background: linear-gradient(180deg, #f2ffe6 0%, #fbfff7 100%);
+}
+
+.neo-topic-modal-content img {
+  margin: 0.55rem 0;
+}
+
+/* Slide 13 pipeline layout */
+.neo-slide-13 .slide-content .accordion {
+  border: 3px solid #111111;
+  border-radius: 0;
+  box-shadow: 6px 6px 0 #111111;
+}
+
+.neo-slide-13 .slide-content .accordion > summary {
+  background: #0f2c57;
+  color: #f8fafc;
+  border-bottom: 3px solid #111111;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.neo-slide-13 .slide-content .accordion-body {
+  background: linear-gradient(180deg, #0b1d38 0%, #132f54 78%, #264f87 100%);
+  padding: 1rem;
+}
+
+.neo-slide-13 .neo-pipeline-stage {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 70px minmax(220px, 1fr) 60px minmax(220px, 1fr);
+  align-items: start;
+  gap: 0.35rem;
+}
+
+.neo-slide-13 .neo-pipeline-card {
+  border: 0;
+  box-shadow: none;
+  padding: 0.2rem;
+  min-height: 0;
+}
+
+.neo-slide-13 .neo-pipeline-blender {
+  background: transparent;
+}
+
+.neo-slide-13 .neo-pipeline-unity {
+  background: transparent;
+}
+
+.neo-slide-13 .neo-pipeline-webgl {
+  background: transparent;
+}
+
+.neo-slide-13 .neo-pipeline-icon-wrap {
+  width: 110px;
+  height: 110px;
+  border: 0;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  margin: 0 0 0.2rem;
+}
+
+.neo-slide-13 .neo-pipeline-icon-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
+.neo-slide-13 .neo-pipeline-card h3 {
+  margin: 0 0 0.2rem;
+  color: #ffffff;
+  font-size: 1.28rem;
+  text-transform: none;
+  text-align: left;
+}
+
+.neo-slide-13 .neo-pipeline-card p {
+  margin: 0.04rem 0;
+  color: #ffffff;
+  font-size: 1.12rem;
+  line-height: 1.12;
+  font-weight: 700;
+}
+
+.neo-slide-13 .neo-pipeline-arrow {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 0.1rem;
+  min-height: 120px;
+}
+
+.neo-slide-13 .neo-pipeline-arrow-icon {
+  display: inline-block;
+  color: #ffffff;
+  font-family: "Archivo Black", "Space Grotesk", sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.neo-slide-13 .neo-pipeline-arrow-label {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+
+.neo-slide-13 .neo-pipeline-note {
+  margin: 0.7rem 0 0;
+  color: #dbeafe;
+  font-size: 0.95rem;
+  font-style: italic;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+@media (max-width: 1200px) {
+  .neo-slide-13 .neo-pipeline-stage {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .neo-slide-13 .neo-pipeline-arrow {
+    min-height: auto;
+    justify-items: start;
+  }
+
+  .neo-slide-13 .neo-pipeline-card {
+    min-height: 0;
   }
 }
 
