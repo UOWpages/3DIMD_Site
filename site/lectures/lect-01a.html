@@ -562,17 +562,32 @@
       </div>
     </div>
 
-    <!-- Slide 12 -->
+    <!-- Slide 7 -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content">
-    <h2>Further Reading List and Reference</h2>
-    <p>Experience Survey UOW Only: >>></p>
-    <p>https://uowdigital.padlet.org/fergusj/3dimd-intro-2025-uow-b51inegc8wf3wwc1</p>
-    <p>Experience Survey IIT Only:  >>></p>
-    <p>https://uowdigital.padlet.org/fergusj/3dimd-intro-2025-iit-7uspoqpdrfcpk107</p>
-    <img src="images/slide28_image0.png" alt="Slide 28 image" />
-    <img src="images/slide28_image1.png" alt="Slide 28 image" />
+      <div class="slide-content slide-content-accordion">
+    <h2>Experience Survey</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>University of Westminster</summary>
+        <div class="accordion-body media-stack">
+          <p><a href="https://uowdigital.padlet.org/fergusj/3dimd-intro-2025-uow-b51inegc8wf3wwc1" target="_blank" rel="noopener noreferrer">https://uowdigital.padlet.org/fergusj/3dimd-intro-2025-uow-b51inegc8wf3wwc1</a></p>
+          <article class="embed-card">
+            <iframe src="https://uowdigital.padlet.org/fergusj/3dimd-intro-2025-uow-b51inegc8wf3wwc1" title="University of Westminster Experience Survey" loading="lazy" allow="clipboard-read; clipboard-write"></iframe>
+          </article>
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary>Informatics Institute of Technology</summary>
+        <div class="accordion-body media-stack">
+          <p><a href="https://uowdigital.padlet.org/fergusj/3dimd-intro-2025-iit-7uspoqpdrfcpk107" target="_blank" rel="noopener noreferrer">https://uowdigital.padlet.org/fergusj/3dimd-intro-2025-iit-7uspoqpdrfcpk107</a></p>
+          <article class="embed-card">
+            <iframe src="https://uowdigital.padlet.org/fergusj/3dimd-intro-2025-iit-7uspoqpdrfcpk107" title="Informatics Institute of Technology Experience Survey" loading="lazy" allow="clipboard-read; clipboard-write"></iframe>
+          </article>
+        </div>
+      </details>
+    </div>
       </div>
       <div class="slide-controls">
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
@@ -1090,7 +1105,7 @@
       if (title.includes('ve permutations') || title.includes('3dui vr') || title.includes('new platforms')) {
         return {
           overview: 'Examples and Notes',
-          resources: 'Links and Media'
+          resources: 'Padlet and Media'
         };
       }
 
@@ -1187,6 +1202,36 @@
         const content = document.createElement('div');
         content.className = 'accordion-body';
         resourcesItems.forEach((node) => content.appendChild(node));
+
+        // For VE permutations slide, embed the first Padlet link directly in the media section.
+        const headingText = (h2 ? h2.textContent : '').toLowerCase();
+        if (headingText.includes('ve permutations')) {
+          const urlPattern = /(https?:\/\/[^\s]+)/i;
+          const padletNode = resourcesItems.find((node) => {
+            const text = (node.textContent || '').trim();
+            return /padlet\./i.test(text) && urlPattern.test(text);
+          });
+
+          if (padletNode) {
+            const text = (padletNode.textContent || '').trim();
+            const match = text.match(urlPattern);
+            const padletUrl = match ? match[0] : '';
+
+            if (padletUrl) {
+              const embedCard = document.createElement('article');
+              embedCard.className = 'embed-card';
+
+              const iframe = document.createElement('iframe');
+              iframe.src = padletUrl;
+              iframe.title = 'VE Permutations Padlet';
+              iframe.loading = 'lazy';
+              iframe.setAttribute('allow', 'clipboard-read; clipboard-write');
+
+              embedCard.appendChild(iframe);
+              content.appendChild(embedCard);
+            }
+          }
+        }
 
         resources.appendChild(summary);
         resources.appendChild(content);
