@@ -429,40 +429,45 @@
     </div>
 
     <!-- Slide 5 -->
-    <div class="slide">
+    <div class="slide neo-slide-5">
       <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content">
+      <div class="slide-content slide-content-accordion">
     <h2>Mobile Learning – iPads, Devices, Web</h2>
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>Powerpoint</p>
-    <p>Lectures</p>
-    <p>Padlet,</p>
-    <p>Excel Sheets</p>
-    <p>Group Work</p>
-    <p>BB Panpoto</p>
-    <p>Video</p>
-    <p>Lectures</p>
-    <p>Always Use University</p>
-    <p>Email Accounts for access,</p>
-    <p>If denied access on learning documents or platforms, this is likely the cause, try switching web browser logins to Uni email.</p>
-    <p>On Blackboard</p>
-    <p>Ultra</p>
-    <p>University Outlook</p>
-    <p>Account Login</p>
-    <p>On Blackboard</p>
-    <p>Ultra</p>
-    <p>University Outlook</p>
-    <p>Account Login</p>
-    <p>On Blackboard</p>
-    <h3>Ultra:</h3>
-    <p>Discussion, Padlets, Discord</p>
-    <p>University MS</p>
-    <p>Account Login</p>
-    <p>Group Work</p>
-    <p>Video Presentations</p>
-    <p>Peer Review</p>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Mobile Learning Channels</summary>
+        <div class="accordion-body">
+          <div class="neo-mobile-grid">
+            <article class="neo-mobile-card">
+              <h3>Powerpoint</h3>
+              <p>Lectures</p>
+              <div class="neo-step">1</div>
+              <p class="neo-strong">On Blackboard Ultra</p>
+              <p>University Outlook Account Login</p>
+            </article>
+
+            <article class="neo-mobile-card">
+              <h3>BB Panopto Video</h3>
+              <p>Lectures</p>
+              <div class="neo-step">2</div>
+              <p class="neo-strong">On Blackboard Ultra</p>
+              <p>University Outlook Account Login</p>
+            </article>
+
+            <article class="neo-mobile-card">
+              <h3>Padlet, Excel Sheets</h3>
+              <p>Group Work</p>
+              <div class="neo-step">3</div>
+              <p class="neo-strong">On Blackboard Ultra: Discussion, Padlets, Discord</p>
+              <p>University MS Account Login Group Work</p>
+            </article>
+          </div>
+
+          <p class="neo-note">Always use University email accounts for access. If denied access on learning documents or platforms, switch browser login to your University account.</p>
+          <p class="neo-note">Video presentations and peer review are coordinated through these channels.</p>
+        </div>
+      </details>
+    </div>
       </div>
       <div class="slide-controls">
         <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
@@ -992,9 +997,147 @@
       });
     }
 
+    function getAccordionLabels(titleText) {
+      const title = (titleText || '').toLowerCase();
+
+      if (title.includes('further reading list and reference')) {
+        return {
+          overview: 'Reading Notes',
+          resources: 'References and Media'
+        };
+      }
+
+      if (title.includes('workflow')) {
+        return {
+          overview: 'Workflow Steps',
+          resources: 'Diagrams and Media'
+        };
+      }
+
+      if (title.includes('mixed reality scale')) {
+        return {
+          overview: 'Overview',
+          resources: 'Visual References'
+        };
+      }
+
+      if (title.includes('ve permutations') || title.includes('3dui vr') || title.includes('new platforms')) {
+        return {
+          overview: 'Examples and Notes',
+          resources: 'Links and Media'
+        };
+      }
+
+      if (title.includes('references')) {
+        return {
+          overview: 'Citations',
+          resources: 'Reference Links'
+        };
+      }
+
+      if (title.includes('group formation')) {
+        return {
+          overview: 'Guidance',
+          resources: 'Resources'
+        };
+      }
+
+      if (title.includes('group brainstorm')) {
+        return {
+          overview: 'Activity Steps',
+          resources: 'Padlet and Media'
+        };
+      }
+
+      return {
+        overview: 'Overview',
+        resources: 'Resources and Media'
+      };
+    }
+
+    // Convert legacy content-heavy slides into the same accordion sensibility used earlier.
+    // Slides 1-3 are intentionally excluded per authoring requirement.
+    function convertLegacySlideToAccordion(slide) {
+      const body = slide.querySelector('.slide-content');
+      if (!body || body.classList.contains('slide-content-accordion')) return;
+
+      const h2 = body.querySelector(':scope > h2');
+      const labels = getAccordionLabels(h2 ? h2.textContent : '');
+      const children = Array.from(body.children).filter((node) => node !== h2);
+      if (!children.length) return;
+
+      const overviewItems = [];
+      const resourcesItems = [];
+
+      children.forEach((node) => {
+        const tag = node.tagName ? node.tagName.toLowerCase() : '';
+        const text = (node.textContent || '').trim();
+        const hasUrl = /https?:\/\//i.test(text);
+        const isImage = tag === 'img';
+        const isSectionLabel = node.classList && node.classList.contains('section-label');
+        const hasLink = Boolean(node.querySelector && node.querySelector('a'));
+
+        if (isImage || hasUrl || hasLink) {
+          resourcesItems.push(node);
+        } else if (isSectionLabel) {
+          overviewItems.push(node);
+        } else {
+          overviewItems.push(node);
+        }
+      });
+
+      body.classList.add('slide-content-accordion');
+      body.innerHTML = '';
+
+      if (h2) body.appendChild(h2);
+
+      const scroll = document.createElement('div');
+      scroll.className = 'accordion-scroll';
+
+      if (overviewItems.length) {
+        const overview = document.createElement('details');
+        overview.className = 'accordion';
+        overview.open = true;
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.overview;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        overviewItems.forEach((node) => content.appendChild(node));
+
+        overview.appendChild(summary);
+        overview.appendChild(content);
+        scroll.appendChild(overview);
+      }
+
+      if (resourcesItems.length) {
+        const resources = document.createElement('details');
+        resources.className = 'accordion';
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.resources;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        resourcesItems.forEach((node) => content.appendChild(node));
+
+        resources.appendChild(summary);
+        resources.appendChild(content);
+        scroll.appendChild(resources);
+      }
+
+      body.appendChild(scroll);
+    }
+
     // Normalize each slide into a shared frame with flexible content body
-    slides.forEach(slide => {
+    slides.forEach((slide, index) => {
       normalizeSlideStructure(slide);
+
+      if (index >= 3) {
+        convertLegacySlideToAccordion(slide);
+      }
+
       linkifyText(slide.querySelector('.slide-content') || slide);
     });
 
