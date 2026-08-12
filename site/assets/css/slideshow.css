@@ -452,6 +452,60 @@ a:hover {
   padding-right: 0.2rem;
 }
 
+.slide-content-schedule {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.slide-content-schedule > h2 {
+  margin: 0;
+}
+
+.slide-content .schedule-subtitle {
+  margin: 0.15rem 0 0.65rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.schedule-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 0.2rem;
+}
+
+.slide-content .schedule-week {
+  background: #ffffff;
+  border: 2px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: 2px 2px 0 var(--line);
+  padding: 0.55rem 0.7rem;
+  margin: 0 0 0.55rem;
+}
+
+.slide-content .schedule-week h3 {
+  margin: 0 0 0.18rem;
+  font-size: 1.05rem;
+}
+
+.slide-content .schedule-week p {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin: 0.2rem 0;
+}
+
+.slide-content .schedule-deadline {
+  margin-top: 0.25rem;
+  padding: 0.35rem 0.5rem;
+  border-left: 3px solid #1d4ed8;
+  background: #eef5ff;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: #102a4a;
+}
+
 .keyboard-hint {
   display: none;
 }
