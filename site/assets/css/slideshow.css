@@ -1036,6 +1036,48 @@ a:hover {
   }
 }
 
+/* Slide 9 mixed reality scale */
+.neo-slide-9 .mr-scale-board {
+  background: #ed8a84;
+  border: 4px solid #111111;
+  box-shadow: 6px 6px 0 #111111;
+  padding: 0.75rem;
+}
+
+.neo-slide-9 .mr-scale-top {
+  width: 100%;
+  max-width: 820px;
+  display: block;
+  margin: 0 auto 0.55rem;
+  border: 0;
+  box-shadow: none;
+}
+
+.neo-slide-9 .mr-scale-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.neo-slide-9 .mr-scale-grid img {
+  width: 100%;
+  border: 3px solid #111111;
+  background: #000000;
+  box-shadow: 3px 3px 0 #111111;
+  margin: 0;
+}
+
+.neo-slide-9 .neo-slide-9-examples p {
+  margin: 0.08rem 0;
+  line-height: 1.3;
+}
+
+@media (max-width: 1000px) {
+  .neo-slide-9 .mr-scale-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .keyboard-hint {
   display: none;
 }
