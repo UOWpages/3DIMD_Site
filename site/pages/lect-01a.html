@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
-  <link rel="stylesheet" href="../assets/css/slideshow.css" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260805m" />
+  <link rel="stylesheet" href="../assets/css/slideshow.css?v=20260813b" />
 </head>
 <body>
   <div class="slideshow-container">
@@ -873,6 +873,11 @@
 
   <script src="../assets/js/site.js?v=20260805f"></script>
   <script>
+    const isLecturePage = /\/lect-[^/]+\.html$/i.test(window.location.pathname);
+    if (isLecturePage && document.body) {
+      document.body.classList.add('lecture-fullbleed');
+    }
+
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;

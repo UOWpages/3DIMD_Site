@@ -6,6 +6,7 @@
   const frame = document.getElementById("content-frame");
   const home = document.getElementById("home-content");
   const meta = document.getElementById("content-meta");
+  const contentShell = document.querySelector(".content-shell");
 
   const normalizeText = (value) => value.replace(/\s+/g, " ").trim();
 
@@ -215,6 +216,11 @@
     link.getAttribute("data-page") || link.getAttribute("href")
   );
 
+  const setContentShellMode = (pageKey) => {
+    if (!contentShell) return;
+    contentShell.classList.remove("content-shell--immersive");
+  };
+
   const getLinkLabel = (link) => {
     const explicit = link.getAttribute("data-label");
     return explicit || link.textContent.trim() || "Tutorial";
@@ -277,6 +283,7 @@
 
   const loadHome = () => {
     if (!frame || !home) return;
+    setContentShellMode("home");
     frame.style.display = "none";
     frame.removeAttribute("src");
     home.hidden = false;
@@ -295,6 +302,7 @@
     }
 
     const label = getLinkLabel(link);
+    setContentShellMode(pageKey);
     frame.src = pageKey;
     frame.style.display = "block";
     home.hidden = true;

@@ -37,7 +37,8 @@ body {
   min-height: 100vh;
   --header-height: 96px;
   line-height: 1.55;
-  overflow: hidden;
+  overflow-y: hidden;
+  overflow-x: auto;
   background:
     radial-gradient(circle at 20% 20%, #ffe1c4 0 18%, transparent 19%),
     radial-gradient(circle at 80% 8%, #b9e6ff 0 14%, transparent 15%),
@@ -71,7 +72,7 @@ a:hover {
   justify-content: flex-start;
   align-items: center;
   gap: 1rem;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .module-header h1 {
@@ -84,6 +85,8 @@ a:hover {
   color: #ffffff;
   padding: 0;
   text-align: left;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .module-header p {
@@ -205,6 +208,22 @@ a:hover {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+
+.content-shell.content-shell--immersive {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.content-shell.content-shell--immersive .content-meta {
+  display: none;
+}
+
+.content-shell.content-shell--immersive .content-body {
+  background: #ffffff;
 }
 
 .content-meta {

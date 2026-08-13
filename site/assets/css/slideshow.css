@@ -1097,3 +1097,76 @@ a:hover {
   font-family: monospace;
   box-shadow: 1px 1px 0 var(--line);
 }
+
+/* Full-shell rendering for Lecture 01a inside the site iframe. */
+body.lecture-fullbleed .slideshow-container,
+body.lect-01a-fullbleed .slideshow-container {
+  height: 100%;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+body.lecture-fullbleed .slide,
+body.lect-01a-fullbleed .slide {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  animation: none;
+  overflow: hidden;
+}
+
+body.lecture-fullbleed .slide-frame,
+body.lect-01a-fullbleed .slide-frame {
+  overflow: hidden;
+}
+
+body.lecture-fullbleed .slide-title,
+body.lect-01a-fullbleed .slide-title {
+  margin: 0;
+  padding: 1.65rem 1rem 0.7rem;
+}
+
+body.lecture-fullbleed .slide-content,
+body.lecture-fullbleed .slide-frame .slide-content,
+body.lect-01a-fullbleed .slide-content,
+body.lect-01a-fullbleed .slide-frame .slide-content {
+  margin-bottom: 0;
+  padding: 0.8rem 1.15rem 0;
+  overflow-x: hidden;
+}
+
+body.lecture-fullbleed .slide-content .accordion-scroll,
+body.lect-01a-fullbleed .slide-content .accordion-scroll {
+  padding-left: 0.6rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.45rem;
+  overflow-x: hidden;
+}
+
+body.lecture-fullbleed .slide-content .schedule-scroll,
+body.lecture-fullbleed .slide-content .assessment-table-wrap,
+body.lect-01a-fullbleed .slide-content .schedule-scroll,
+body.lect-01a-fullbleed .slide-content .assessment-table-wrap {
+  padding-left: 0.6rem;
+  padding-right: 0.75rem;
+}
+
+body.lecture-fullbleed .slide-content .slide-content-accordion,
+body.lect-01a-fullbleed .slide-content .slide-content-accordion {
+  overflow: hidden;
+}
+
+body.lecture-fullbleed .slide-content .accordion,
+body.lect-01a-fullbleed .slide-content .accordion {
+  margin-left: 0.15rem;
+  margin-right: 0.15rem;
+}
+
+body.lecture-fullbleed .slide-controls,
+body.lect-01a-fullbleed .slide-controls {
+  margin: 0;
+}
