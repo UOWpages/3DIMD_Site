@@ -59,4 +59,4 @@ Do not change anything unrelated to checklist failures.
 
 ## Usage Tip
 
-Always specify an exact target file path and slide scope (for example: site/lectures/lect-01a.html, slides 5-9) to avoid accidental broad edits.
+Always specify an exact target file path and slide scope (for example: site/pages/lect-01a.html, slides 5-9) to avoid accidental broad edits.

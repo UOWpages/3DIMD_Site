@@ -1,7 +1,7 @@
 # Lecture Conversion Playbook
 
-Version: 1.0-draft
-Last Updated: 2026-08-12
+Version: 1.1-draft
+Last Updated: 2026-08-13
 Status: Working Draft
 
 ## 1. Purpose and Scope
@@ -28,7 +28,7 @@ Out of scope:
 2. [final-lecture-template-spec.md](./final-lecture-template-spec.md)
 3. [prompt-strategy-catalog.md](./prompt-strategy-catalog.md)
 4. ../site/lectures/lecture-template.html
-5. ../site/lectures/lect-01a.html
+5. ../site/pages/lect-01a.html (canonical lecture panel implementation)
 6. ../site/assets/css/slideshow.css
 7. ../.github/copilot-instructions.md
 
@@ -220,5 +220,6 @@ Every conversion run must output:
 4. Record material process changes in the change log.
 
 ## 18. Change Log
+- 1.1-draft: Updated canonical lecture reference to site/pages/lect-01a.html and aligned playbook with full-bleed lecture panel behavior.
 - 1.0-draft: Expanded from skeleton to full operational draft aligned 1:1 with final lecture template spec.
 - 0.1-draft: Initial skeleton.

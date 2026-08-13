@@ -1,0 +1,470 @@
+[
+  {
+    "slide_number": 1,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Lecture Tutorial 01b"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 2,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Unity3D"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 3,
+    "title": "",
+    "content": [
+      "Professional Game Engines (3D to 2D)\nAll have free versions with commercial options\nUnity3D\nUnreal Engine 5+\nGodot\nCryEngine\nLumberyard\nMonogame\nMarmalade",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 4,
+    "title": "",
+    "content": [
+      "Unity3D\nFlexible GameObject and Component Architecture on top of Monodevelop\nPros\nC# or Visual Scripting\nVR Friendly – engine of choice for many VR hardware manufacturers\nSome automatic optimisation\u000bMultiple platform builds\nLarge Support Community and tutorials\nWide range of free and paid assets\nNow has real time Global Illumination system\nVery fast for prototyping\nCons\nNot as powerful as UE6\nWebGL code will be larger – there are options such as Needle Tools to build\nShader, Lighting systems lagging behind UE5\nHas a more entry level feel – limited modelling and building",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 5,
+    "title": "",
+    "content": [
+      "Unreal Engine 5+\nC++ in Unreal’s Blueprint visual scripting system\nPros\nComplete game development toolset\nProfessional engine choice\nPowerful and expandable\nC++ blueprint base\nHigh end dynamic real time Lighting and Shading\nHigh number of particles\nCons\nSteeper Learning Curve than other engines\nSlower to support VR\nHeavier to run and not always ideal for mobile games",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 6,
+    "title": "",
+    "content": [
+      "Overview\nUnreal tended to be the market standard, but Unity has seemed to surpass it. It offers modular assets that cover any weak spots in the program, PhysX, a new GI PBR based system, and is the engine of choice for many new VR hardware manufacturers\nhttps://unity3d.com/public-relations\nWhy?\nJust good enough\nFlexible marketplace additions – developer opportunity\nDecreases code complexity (C#)\nLarge code library\nWorkflow is very streamlined - Iteration is fast\nMultiple platforms\nSolid and reliable – comfortable\nLarge support community\nOverall strategy of inclusiveness\nhttps://www.quora.com/Why-is-Unity-Game-Engine-so-successful",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 7,
+    "title": "",
+    "content": [
+      "3D Web Game Engines/Frameworks Ecosystem\n\n3D Frameworks\nPlayCanvas - https://playcanvas.com/\nBabylon.js - http://www.babylonjs.com/\nThree.js - https://threejs.org/\n\nWeb VR Framework\nAframe - https://aframe.io/aframe-school/#/\n\n2D Game Frameworks (Some Overlap)\nHTML5 Game Engines - https://html5gameengine.com/",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 8,
+    "title": "",
+    "content": [
+      "3D Web Game Engines/Frameworks\n\nMetaCampus with 3D augmentation \nhttps://www.youtube.com/watch?v=XLMv_qEXJO0&t=18s\n\nWhy use Unity for this?\n\tBuilds to WebGL\n\tFairly Optimised\n\tGood Entry to WebGL, Web3D, WebVR\n\tPowerful and simple Scripting",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 9,
+    "title": "",
+    "content": [
+      "Unity3D Install \nMust have personal account – free for our purposes\nCan have multiple versions installed – Via Unity Hub\nSome Unity Hub Tutorials are in 2020.3f\nModule Uses 6000.0.55f1 – it is the only version supported for the duration of the module in order to minimise issues\nProjects must Use 6000.0.55f1 \nMust open projects in correct versions\n\nCan work online or offline – login helps consolidate projects and\nHub DesktopSettings between machines, especially if using Github Website",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 10,
+    "title": "",
+    "content": [
+      "This week covers:\n\nBasic Architecture\n\nUser Interface\n\nConcepts\n\nNext Week: Basic Scripting in C#",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 11,
+    "title": "",
+    "content": [
+      "Basic Architecture\n\nIf familiar, please work on brainstorming on:",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 12,
+    "title": "",
+    "content": [
+      "Basic Architecture",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 13,
+    "title": "",
+    "content": [
+      "Basic Architecture (File in Top Menu)\n\u000bCreating Project:\n\nYou are prompted to create  2D or 3D\n\t3D Contains 2D elements as well – images, textures, sprites\n\nYou can swap at any time\n\nFor 2.5D, select 3D and set camera and scene view to orthographic\n\nThere is Physics and Physics 2D settings you can adjust in edit/preferences",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 14,
+    "title": "",
+    "content": [
+      "Basic Architecture (Project Window)\n\u000bProjects – projects are hierarchal folders created by Unity that\nContain all the assets of a work\n\nAssets may include Scripts, Data files, Animations, 3D Mesh Objects\nFonts, Plugins, Materials,  Textures, \n\nThe Project File on Disk has Assets Folder, which displays all the \nitems above, as well as other folders for Library items, Project Settings, Temp files, Builds, other data, and other operational items.\n\nThey may contain Visual Studio  or VSCode files if these are used as an IDE.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 15,
+    "title": "",
+    "content": [
+      "Basic Architecture (Project Window)\n\u000bProject Window in Unity\n\nYou may move or organise your files or folders in any way you see fit in the \nUnity Project  Window within the Unity UI.\n\nIf you do it here, Unity keeps track of your files and will create all necessary \nlinkages without any work on your part.\n\nDo Not move files within the project in the windows interface, as this will \nBreak the linkages above.\n\nThe Project Window may also contain shortcuts for certain files at the top",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 16,
+    "title": "",
+    "content": [
+      "Basic Architecture (Scenes, Builds)\n\u000bScenes – these double up in Unity as Levels, and are sometimes\nreferred to as such. There is a SceneManager class you can use if desired.\n\nScenes are saved in the Assets Folder and appear in the project Window.\n\nBuilds – in build Settings you can select scenes (levels) to add to the export. \nIt will play the first scene unless scripts otherwise specify. You may export to \nany Platform that is loaded. Install any platforms required at install stage or \nnow, as these are all optional, apart from a PC build.\n\nBuild Platforms include: Webplayer (deprecated, now WebGL/GPU), Standalone (exe), Android, iOS, tvOS,  Tizen,  Xbox, PS, Windows Store, and Samsung TV",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 17,
+    "title": "",
+    "content": [
+      "Basic Architecture (Top Menu)\n\u000bEdit - These are a very basic set of functions and preferences\n\nPreferences/External Tools:\n\nIDE (Integrated Development Environment)- You can change IDE from Monodevelop to Visual Studio or VS Code in Preferences/External Tools. We will use Visual Studio.\nImage Editing Program Options – Open by Individual File\nAndroid SDK - Also has the android SDK link to set up if you have that installed.\nVersion Control:\n\tVisual Studio and Github Web – This is seamless and straightforward for linking with Unity. You will have to setup Github accounts, and it may be a good idea to have a Group github account that all have a password for. From anywhere you work you can pull down projects, work on them, and push changes back up to the account as separate commits.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 18,
+    "title": "",
+    "content": [
+      "Basic Architecture (Top Menu)\nEdit: These are a very basic set of functions, build modules and preferences.\n\nAssets: All standard Assets packages from the Unity library can be created here, or downloaded or custom packages installed.\n\nGameObject (Empty Node) : This is the basic node used in Unity and is generic. From here you can create all library GameObjects from Unity \n\nComponent (Script): This is a drop down menu of all Unity Components. This mirrors the Add Component button in the Inspector Window\n\nWindow: Typical windows besides the default to use are Game, Animator, \nand Lighting. The Window menu also provides access to the asset store. Typically you will purchase and load packages directly through this window into Unity",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 19,
+    "title": "",
+    "content": [
+      "Basic Architecture (Hierarchy Window)\n\nThis is your working directory - List of Game Objects in Scene.\n\nDrag items from Projects window into here or Scene View.\n\nRe-Order by dragging up and down.\n\nCan drag to other GameObjects to make child/parent.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 20,
+    "title": "",
+    "content": [
+      "Basic Architecture (GameObjects)\n\nGameObjects are the fundamental objects in Unity that represent characters, props, and scenery.\n\nThey do not accomplish much in themselves, but they act as containers for Components(Scripts), which implement the real functionality.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 21,
+    "title": "",
+    "content": [
+      "Basic Architecture (GameObjects)\n\nGameObjects and Components:\nBase GameObject has name, tag, layer, and transform component\nScripts Are Components and define the empty GameObject\nGameObjects and Components(Scripts) are Initialised and run when play is pressed \n\nScripts must be attached to a GameObject in order for scripts to run (more later).\nScripts can be attached to an Empty gameObject.\n\nAll GameObjects Components and Scripts in scene(s) in build\nAre available to run if accessed and visible. \n\nGameObjects will have variable and references that can be modified.\nReferences can be to any Components, GameObjects, or Assets.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 22,
+    "title": "",
+    "content": [
+      "Could create all elements from empty GO\nhttps://docs.unity3d.com/Manual/class-GameObject.html\n\nUnity is initialised and run from the Main Camera object.\nThis is the minimum requirement in order to build and run a scene/level.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 23,
+    "title": "",
+    "content": [
+      "Basic Architecture (Components)\n\nComponents are scripts, either pre-defined library or user defined\n\nGameObjects will come with default Components(scripts) depending on \nType, and these define the blank GameObject.\n\nThe Transform Component is the basic GameObject Component, \nAlong with name, tag, and layer.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 24,
+    "title": "",
+    "content": [
+      "Basic Architecture (Inspector Window)\n\nGameObjects, Scripts, and other assets are available for review and change in the Inspector Window. This exposes the individual components attached. You can add, remove, toggle active mode, or change and add/subtract parameters that are exposed. \n\nPublic script variables declared are exposed here for value input or links to other game objects by drag and drop.\n\nReferences to data files or other GameObjects may be exposed by the script and available here.\n\nComponents are added at the bottom.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 25,
+    "title": "",
+    "content": [
+      "Basic Architecture (Inspector Window)\n\nSome default and possible library/added components include:\nName\nVisibility – Turns object on and off. Simple.\nStatic – Game information Precomputed for non moving object\nTag – Allows naming for scripts to access (Collisions)\nLayer – Cameras, Lights, can render certain layers, Raycasting can ignore\n\t(Camera Culling Mask, Raycast Layermask)\nTransform – translation, rotation, scaling\nMesh – has rendering options, materials\nCollider",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 26,
+    "title": "",
+    "content": [
+      "Basic Architecture (Scripts, Classes)\n\nScripts and Classes\n\nMonoBehaviour is the base class every script derives from.\nUsing Javascript every script automatically derives from MonoBehaviour. \nWhen using C# or Boo you have to explicitly derive from MonoBehaviour.\n\nClasses – derived from monobehaviour, which unity is built on. MonoBehaviour is the base class every script derives from. Using Javascript every script automatically derives from MonoBehaviour.  When using C# or Boo you have to explicitly derive from MonoBehaviour.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 27,
+    "title": "",
+    "content": [
+      "Unity (C#) (GameObjects)\n\nMonobehaviour and Unity structure:\nhttps://docs.unity3d.com/uploads/Main/monobehaviour_flowchart.svg",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 28,
+    "title": "",
+    "content": [
+      "Basic Architecture \n(Scripts, Classes, NameSpaces)\n\n\nNamespaces\nLibraries of Classes provided by Unity,  third parties, or yourself.\n\nTypical:\nusing UnityEngine;\nusing System.Collections;",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 29,
+    "title": "",
+    "content": [
+      "Basic Architecture (Default Scene Views)\n\nScene – basic working 3D/2D view\n\nGame – View from Main Camera",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 30,
+    "title": "",
+    "content": [
+      "Basic Architecture (Default Scene Views)\n\nMain Camera – causes scene to run\nDirectional Light – required\n\nCannot have two main cameras in name\n\nLater we can have a look at 3PC and FPC Cameras",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 31,
+    "title": "",
+    "content": [
+      "Basic Architecture (Assets, Packages)\n\nThree basic kinds:\n\tUnity Own\n\tUser Created\n\tThird Party\n\nUnity comes with free assets and offers a library or premium \n(not free) assets",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 32,
+    "title": "",
+    "content": [
+      "Basic Architecture (Assets, Packages)\n\nAssets:\nCan be any individual file elements previously discussed.\nCan be Created  via Assets/Create/\nCan be imported via Assets/Import New Asset\n\nPackages:\nThese are any combinations of assets and can include anything in the normal range of assets or custom assets in combination.\nUnity provides a library of asset packages for various customised approaches \n(2D, Cameras, Characters, CrossPlatformInput, Effects, Environment, ParticleSystems, Prototyping, Utility, Vehicles)",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 33,
+    "title": "",
+    "content": [
+      "Basic Architecture (PreFabs)\n\nGood for enemies, multiple objects, scenery that is repeated,\nSlightly modified, or procedurally animated or scripted.\n\nGameObject Template to create Instances – one edit affects all\n\nNote: Dragging Asset into Hierarcy or Scene/Game View will create\nAn Instance – changes to asset will change this instance. However,\nIt is not a prefab unless you define it as such. So, there can be two Levels of instancing for edits.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 34,
+    "title": "",
+    "content": [
+      "Basic Architecture (PreFabs)\n\nYou can drag the prefab in or spawn it in your scripts\n(instantiating at runtime)\n\nNote: You can instantiate a Prefab from one line of code, with complete \nfunctionality. Creating equivalent GameObjects from code takes an average of \nfive lines of code, but likely more.You can set up, test, and modify the Prefab \nquickly and easily in the Scene and Inspector.You can change the Prefab being \ninstanced without changing the code that instantiates it. A simple rocket might \nbe altered into a super-charged rocket, and no code changes are required.\n\nhttps://docs.unity3d.com/Manual/InstantiatingPrefabs.html",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 35,
+    "title": "",
+    "content": [
+      "Basic Architecture (PreFab Example)\n\nA robot exploding to many pieces:\u000b\nThe complete, operational robot is destroyed and replaced with a wrecked robot Prefab. This Prefab would consist of the robot split into many parts, all set up with Rigidbodies and Particle Systems of their own. This technique allows you to blow up a robot into many pieces, with just one line of code, replacing one object with a Prefab.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 36,
+    "title": "",
+    "content": [
+      "Basic Architecture (Controllers - MVC)\nThese are Components or Packages provided by Unity libraries that can be added to a GameObject to give custom behaviour. These may be imported as packages, have own interface, or be added as a component.\n\nAnimator: New System for handling animation \n(Add as Component, has Window with Visual interface, Use Inspector on Animation to preview in first instance) \nCharacter: System for Navigation and player animation\n(Import Character Package,  has Prefabs FPC and 3PC)\nScripts: Various scripts can also act as controllers\nhttp://wiki.unity3d.com/index.php/Scripts/Controllers#Animation_Controllers",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 37,
+    "title": "",
+    "content": [
+      "Basic Architecture (Scripts)\nThese are added as components and are available for access\nBy any GameObject or other Script if desired. Methods (Functions)  and variables can be accessed if desired.\n\nIt is not necessary to define the start script, as all scripts are called when built and run.\n\nBy default, the Awake, OnEnable and Update functions of different scripts are called in the order the scripts are loaded (which is arbitrary). However, it is possible to modify this order using the Script Execution Order settings (menu: Edit > Project Settings > Script Execution Order).",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 38,
+    "title": "",
+    "content": [
+      "Basic Architecture (Animator)\n\nMechanim\n\nAlso legacy Animation\n\nCan co-exist as component controllers in different GameObjects in the scene.\n\n\nTo be covered in depth later in these slides",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 39,
+    "title": "",
+    "content": [
+      "Basic Architecture (Shading and Lighting)\n\nPBR GI\n\nBasic Skybox:\n\nTo be covered in depth later",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 40,
+    "title": "",
+    "content": [
+      "Demo \n\nSkybox\nClick on the Assets folder in the project view\nUsing the top menu bar, select Assets/Create/Material. This will create a new material object in the assets folder\nRename the new material as Skybox\nSelect the Skybox Asset in the project view\nIn the inspector view, The Shader  option is defaulted to standard. Change that to Skybox/6 sided. This will create 6 textural slots for your new material.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 41,
+    "title": "",
+    "content": [
+      "Working in Unity\n\nCreate Login if needed, but can work offline\nDownload and Use Unity 6000.0.55f for duration of Module",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 42,
+    "title": "",
+    "content": [
+      "Working in Unity (Toolbar)\n\nBasic Controls\nScene Window:\n\tToolbar top left has pan, translate, scale, box transform\n\tTransform Gizmos:\n\t\tPivot or centre\n\t\tLocal or Global \n\nUnity overlays a global coordinate system that may have a \ndifferent location pivot to the objects own \n(we covered this last week with pivots)",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 43,
+    "title": "",
+    "content": [
+      "Working in Unity (Play Mode)\n\nCan be in Game Window or Full screen. View is from camera\n\nWhen in Play mode, public variables and other exposed settings\nMay be adjusted for experimentation.\n\nPlease note: These changes are not saved, so if you want to \nKeep them, you must then adjust in the project after you exit\nPlay mode.\n\nConsole window shows Errors and script lines the occur on",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 44,
+    "title": "",
+    "content": [
+      "Working in Unity ( IDEs)\n\nMonodevelop IDE – Deprecated\n\nVisual Studio IDE – Now preferred option, works well with Github Website\n\nVS Code IDE also works, and is lighter, works well with Github Desktop, but takes further setup for full options.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 45,
+    "title": "",
+    "content": [
+      "Working in Unity (C# and OOP Concepts)\nClasses, namespaces\nEach script that you create will by default inherit from MonoBehaviour. Each script that you create will also have two functions defined by default: Start() and Update().\u000b\nThe Start() function will be run only once at the start of the program. So any logic and data initializations that you need or want to do can be placed in the Start() function.\u000b\nThe Update() function is where most of the magic happens. This is the function that gets called continuously throughout the life of your game or simulation. This is the function where you will update your game objects. In short it is the function which will be called each frame before rendering the scene.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 46,
+    "title": "",
+    "content": [
+      "Unity (C#)",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 47,
+    "title": "",
+    "content": [
+      "Unity (C#)\n\nDependencies\n\tUsing UnityEngine: lets MainCamera be initiated.\nNamespaces\n\tMonoBehaviour is a class in Namespace UnityEngine. \tOthers are not Class Definitions.\nStart and Update Functions\n\tVoid means it does not return a value. \n\tStart initializes, Update refreshes.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 48,
+    "title": "",
+    "content": [
+      "Unity (C#)\n\nC# Basic Script\nusing UnityEngine;\nusing System.Collections;\n \npublic class articleRotate : MonoBehaviour {\n// Use this for initialization\nvoid Start () {\n}\n// Update is called once per frame\nvoid Update () {\n      this.transform.Rotate (new Vector3 (0, 1, 0), 1);\n}\n}",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 49,
+    "title": "",
+    "content": [
+      "Unity (C#) Vs. C#\n\nUnity provides a framework so that you don't have to work out input handling, graphics instance setup, game loop, game object handling, physics, rendering, lighting etc yourself.\n\nhttps://www.reddit.com/r/Unity3D/comments/32wps3/is_c_in_unity_different_to_general_c/",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 50,
+    "title": "",
+    "content": [
+      "Unity (C#) Vs. C#\n\nConstructors (the method that initializes a class' data). You almost never use constructors in Unity (in fact you can't for the most part), but you use them everywhere in normal development.\n\nhttps://www.reddit.com/r/Unity3D/comments/32wps3/is_c_in_unity_different_to_general_c/",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 51,
+    "title": "",
+    "content": [
+      "Unity (C#) Vs. C# Constructors",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 52,
+    "title": "",
+    "content": [
+      "Demo  Tutorial - Gallery",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  }
+]

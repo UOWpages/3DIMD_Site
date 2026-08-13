@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Extract content and images from PowerPoint file"""
 
+import argparse
 import os
 import sys
 
@@ -31,7 +32,7 @@ def iter_shapes(shape):
             yield from iter_shapes(child)
 
 
-def extract_images_from_shape(shape, slide_number, output_dir, slide_content):
+def extract_images_from_shape(shape, slide_number, output_dir, slide_content, image_prefix):
     extracted = False
     for candidate in iter_shapes(shape):
         if getattr(candidate, "shape_type", None) != MSO_SHAPE_TYPE.PICTURE:
@@ -44,7 +45,7 @@ def extract_images_from_shape(shape, slide_number, output_dir, slide_content):
                 continue
 
         try:
-            image_filename = f"slide{slide_number}_image{len(slide_content['images'])}.png"
+            image_filename = f"{image_prefix}_slide{slide_number}_image{len(slide_content['images'])}.png"
             image_path = output_dir / image_filename
 
             with open(image_path, 'wb') as f:
@@ -62,7 +63,7 @@ def extract_images_from_shape(shape, slide_number, output_dir, slide_content):
     return extracted
 
 
-def extract_images_from_package(slide_number, pptx_path, output_dir, slide_content):
+def extract_images_from_package(slide_number, pptx_path, output_dir, slide_content, image_prefix):
     extracted = False
     try:
         with zipfile.ZipFile(pptx_path) as archive:
@@ -112,7 +113,7 @@ def extract_images_from_package(slide_number, pptx_path, output_dir, slide_conte
                         image_bytes = archive.read(resolved_path)
                         ext = posixpath.splitext(resolved_path)[1] or '.bin'
 
-                    image_filename = f"slide{slide_number}_image{len(slide_content['images'])}{ext or '.bin'}"
+                    image_filename = f"{image_prefix}_slide{slide_number}_image{len(slide_content['images'])}{ext or '.bin'}"
                     image_path = output_dir / image_filename
                     with open(image_path, 'wb') as f:
                         f.write(image_bytes)
@@ -131,50 +132,101 @@ def extract_images_from_package(slide_number, pptx_path, output_dir, slide_conte
     return extracted
 
 
-pptx_path = Path(__file__).parent / "site" / "lectures" / "3DIMD Lecture 01a Module Info 01.pptx"
-output_dir = Path(__file__).parent / "site" / "lectures" / "images"
-output_dir.mkdir(parents=True, exist_ok=True)
+def build_args():
+    parser = argparse.ArgumentParser(description="Extract content and images from a lecture PowerPoint file.")
+    parser.add_argument(
+        "--lecture-id",
+        default="lect-01a",
+        help="Lecture id used for output naming, e.g. lect-01b",
+    )
+    parser.add_argument(
+        "--pptx",
+        default="3DIMD Lecture 01a Module Info 01.pptx",
+        help="PowerPoint filename inside the source PPTX directory.",
+    )
+    parser.add_argument(
+        "--source-dir",
+        default="site/source-lecture-pptx",
+        help="Directory containing lecture PPTX source files.",
+    )
+    parser.add_argument(
+        "--pages-dir",
+        default="site/pages",
+        help="Directory where lecture page assets and JSON are generated.",
+    )
+    parser.add_argument(
+        "--images-subdir",
+        default="images",
+        help="Images subdirectory under pages directory.",
+    )
+    return parser.parse_args()
 
-print(f"Extracting from: {pptx_path}")
 
-prs = Presentation(str(pptx_path))
-slides_data = []
+def main():
+    args = build_args()
+    repo_root = Path(__file__).parent
+    pptx_path = repo_root / Path(args.source_dir) / args.pptx
+    pages_dir = repo_root / Path(args.pages_dir)
+    output_dir = pages_dir / args.images_subdir
+    output_file = pages_dir / f"{args.lecture_id}-content.json"
+    image_prefix = args.lecture_id.replace("/", "-").replace("\\", "-")
 
-for slide_num, slide in enumerate(prs.slides, 1):
-    slide_content = {
-        "slide_number": slide_num,
-        "title": "",
-        "content": [],
-        "images": []
-    }
-    
-    # Extract text and shapes
-    for shape in slide.shapes:
-        if hasattr(shape, "text") and shape.text.strip():
-            text = shape.text.strip()
-            if shape.name.startswith("Title"):
-                slide_content["title"] = text
-            else:
-                slide_content["content"].append(text)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
-        # Extract images from the slide package relationships and any nested children
-        extract_images_from_package(slide_num, pptx_path, output_dir, slide_content)
-        extract_images_from_shape(shape, slide_num, output_dir, slide_content)
-    
-    slides_data.append(slide_content)
-    print(f"Slide {slide_num}: {slide_content['title']}")
+    print(f"Extracting from: {pptx_path}")
 
-# Output as JSON for easy review
-output_file = Path(__file__).parent / "site" / "lectures" / "lect-01a-content.json"
-with open(output_file, 'w', encoding='utf-8') as f:
-    json.dump(slides_data, f, indent=2, ensure_ascii=False)
+    prs = Presentation(str(pptx_path))
+    slides_data = []
 
-print(f"\nExtracted {len(slides_data)} slides")
-print(f"Content saved to: {output_file}")
-print("\nSlide Summary:")
-for slide in slides_data:
-    print(f"\nSlide {slide['slide_number']}: {slide['title']}")
-    for line in slide['content']:
-        print(f"  - {line[:80]}")
-    if slide['images']:
-        print(f"  Images: {len(slide['images'])}")
+    for slide_num, slide in enumerate(prs.slides, 1):
+        slide_content = {
+            "slide_number": slide_num,
+            "title": "",
+            "content": [],
+            "images": []
+        }
+
+        # Extract text and shapes
+        for shape in slide.shapes:
+            if hasattr(shape, "text") and shape.text.strip():
+                text = shape.text.strip()
+                if shape.name.startswith("Title"):
+                    slide_content["title"] = text
+                else:
+                    slide_content["content"].append(text)
+
+            # Extract images from package relationships and any nested children.
+            extract_images_from_package(
+                slide_num,
+                pptx_path,
+                output_dir,
+                slide_content,
+                image_prefix,
+            )
+            extract_images_from_shape(
+                shape,
+                slide_num,
+                output_dir,
+                slide_content,
+                image_prefix,
+            )
+
+        slides_data.append(slide_content)
+        print(f"Slide {slide_num}: {slide_content['title']}")
+
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(slides_data, f, indent=2, ensure_ascii=False)
+
+    print(f"\nExtracted {len(slides_data)} slides")
+    print(f"Content saved to: {output_file}")
+    print("\nSlide Summary:")
+    for slide in slides_data:
+        print(f"\nSlide {slide['slide_number']}: {slide['title']}")
+        for line in slide['content']:
+            print(f"  - {line[:80]}")
+        if slide['images']:
+            print(f"  Images: {len(slide['images'])}")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,215 +1,161 @@
 #!/usr/bin/env python3
-"""Convert extracted PowerPoint JSON to HTML slideshow"""
+"""Convert extracted PowerPoint JSON to HTML slideshow using the canonical lecture panel shell."""
 
+import argparse
 import json
 from pathlib import Path
 
-# Load the extracted content
-json_path = Path(__file__).parent / "site" / "lectures" / "lect-01a-content.json"
-with open(json_path, 'r', encoding='utf-8') as f:
+
+def build_args():
+    parser = argparse.ArgumentParser(description="Generate lecture slideshow HTML from extracted lecture JSON.")
+    parser.add_argument(
+        "--lecture-id",
+        default="lect-01a",
+        help="Lecture id used for input/output naming, e.g. lect-01b",
+    )
+    parser.add_argument(
+        "--lecture-title",
+        default="Lecture 01a - Module Info",
+        help="Text used in the HTML document title.",
+    )
+    parser.add_argument(
+        "--module-title",
+        default="3D Interactive Media Development",
+        help="Default per-slide title text.",
+    )
+    parser.add_argument(
+        "--pages-dir",
+        default="site/pages",
+        help="Directory containing lecture JSON and HTML outputs.",
+    )
+    return parser.parse_args()
+
+
+args = build_args()
+pages_dir = Path(__file__).parent / Path(args.pages_dir)
+
+json_path = pages_dir / f"{args.lecture_id}-content.json"
+with open(json_path, "r", encoding="utf-8") as f:
     slides_data = json.load(f)
 
-# Generate HTML
-html_template = '''<!DOCTYPE html>
-<html lang="en">
+html_template = """<!DOCTYPE html>
+<html lang=\"en\">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3DIMD | Lecture 01a - Module Info</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
-  <link rel="stylesheet" href="../assets/css/slideshow.css" />
+  <meta charset=\"UTF-8\" />
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />
+  <title>3DIMD | __LECTURE_TITLE__</title>
+  <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />
+  <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />
+  <link href=\"https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap\" rel=\"stylesheet\" />
+  <link rel=\"stylesheet\" href=\"../assets/css/site.css?v=20260805m\" />
+  <link rel=\"stylesheet\" href=\"../assets/css/slideshow.css?v=20260813b\" />
   <style>
-    .slide h1 {
-      font-family: "Archivo Black", "Space Grotesk", sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      font-size: clamp(1.8rem, 5vw, 3rem);
-      margin: 0 0 var(--space-3) 0;
-      line-height: 1.2;
-      color: var(--ink);
+    body.lecture-fullbleed .slideshow-container {
+      visibility: hidden;
     }
 
-    .slide h2 {
-      font-family: "Archivo Black", "Space Grotesk", sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      margin: var(--space-3) 0;
-      color: var(--ink);
+    body.lecture-fullbleed.lecture-ready .slideshow-container {
+      visibility: visible;
     }
 
-    .slide h3 {
-      font-family: "Space Grotesk", sans-serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin: var(--space-3) 0 var(--space-2) 0;
-      color: var(--ink);
-      text-transform: uppercase;
-      letter-spacing: 0.01em;
+    body.lecture-fullbleed .slide-title {
+      display: none !important;
     }
 
-    .slide p {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin: var(--space-2) 0;
-      color: var(--muted);
-      white-space: pre-wrap;
-      word-wrap: break-word;
-    }
-
-    .learning-outcome {
-      font-size: 0.9rem;
-      margin: var(--space-2) 0;
-      padding-left: var(--space-3);
-    }
-
-    .module-aim {
-      font-size: 0.85rem;
-      margin: var(--space-2) 0;
-      padding-left: var(--space-3);
-      line-height: 1.5;
-    }
-
-    .section-label {
-      font-weight: 700;
-      font-size: 1rem;
-      margin: var(--space-3) 0 var(--space-2) 0;
-      color: var(--ink);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .slide img {
-      max-width: 100%;
-      height: auto;
-      border: 2px solid var(--line);
-      border-radius: var(--radius-sm);
-      box-shadow: 4px 4px 0 var(--line);
-      margin: var(--space-3) auto;
-      display: block;
-    }
-
-    .slide-logo {
-      height: 2rem;
-      width: auto;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-      margin: 0;
-      mix-blend-mode: multiply;
-    }
-
-    img.slide-logo {
-      height: 2rem;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-      margin: 0;
-    }
-
-    .slide ul, .slide ol {
-      margin: var(--space-2) 0;
-      padding-left: var(--space-4);
-    }
-
-    .slide li {
-      margin: 0.5rem 0;
-      line-height: 1.6;
-      font-size: 0.95rem;
-    }
-
-    a {
-      color: var(--accent-alt);
-      text-decoration: underline;
-    }
-
-    a:hover {
-      color: var(--accent);
+    body.lecture-fullbleed .slide-content > h2 {
+      display: none !important;
     }
   </style>
 </head>
-<body>
-  <div class="slideshow-container">
-'''
+<body class=\"lecture-fullbleed\">
+  <div class=\"slideshow-container\">
+"""
 
-# Generate slides
 for slide in slides_data:
-    slide_num = slide['slide_number']
-    content = slide['content']
-    images = slide['images']
-    
-    # Format content with smart typography
+    slide_num = slide["slide_number"]
+    content = slide["content"]
+    images = slide["images"]
+
     content_html = ""
     if content:
         is_first_heading = True
-        for idx, text in enumerate(content):
-            if text.strip() == "3D Interactive Media Development":
-                continue  # Skip module title as it's now in slide-title
-            
-            # Split text into lines
-            lines = text.split('\n')
-            for line in lines:
+        for text in content:
+            if text.strip() == args.module_title:
+                continue
+
+            for line in text.split("\n"):
                 line = line.strip()
-                if not line or line == "":
+                if not line:
                     continue
-                
-                # First substantive line is slide heading
+
                 if is_first_heading:
-                    content_html += f'    <h2>{line}</h2>\n'
+                    content_html += f"    <h2>{line}</h2>\n"
                     is_first_heading = False
                     continue
-                
-                # Lines ending with colon are section headers
-                if line.endswith(':'):
-                    content_html += f'    <h3>{line}</h3>\n'
-                # Lines starting with LO are learning outcomes
-                elif line.startswith('LO'):
-                    content_html += f'    <p class="learning-outcome"><strong>{line}</strong></p>\n'
-                # Lines starting with L5- are module aims
-                elif line.startswith('L5-'):
-                    content_html += f'    <p class="module-aim"><strong>{line}</strong></p>\n'
-                # Lines that are short, all caps (likely section labels)
+
+                if line.endswith(":"):
+                    content_html += f"    <h3>{line}</h3>\n"
+                elif line.startswith("LO"):
+                    content_html += f"    <p class=\"learning-outcome\"><strong>{line}</strong></p>\n"
+                elif line.startswith("L5-"):
+                    content_html += f"    <p class=\"module-aim\"><strong>{line}</strong></p>\n"
                 elif line.isupper() and len(line) < 50 and len(line.split()) <= 3:
-                    content_html += f'    <p class="section-label">{line}</p>\n'
+                    content_html += f"    <p class=\"section-label\">{line}</p>\n"
                 else:
-                    content_html += f'    <p>{line}</p>\n'
-    
-    # Add images
+                    content_html += f"    <p>{line}</p>\n"
+
     for img in images:
-        content_html += f'    <img src="images/{img["filename"]}" alt="Slide {slide_num} image" />\n'
-    
-    html_template += f'''    <!-- Slide {slide_num} -->
-    <div class="slide{"" if slide_num != 1 else " active"}">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content">
+        content_html += f"    <img src=\"images/{img['filename']}\" alt=\"Slide {slide_num} image\" />\n"
+
+    html_template += f"""    <!-- Slide {slide_num} -->
+    <div class=\"slide{"" if slide_num != 1 else " active"}\">
+      <div class=\"slide-title\">{args.module_title}</div>
+      <div class=\"slide-content\">
 {content_html}      </div>
-      <div class="slide-controls">
-        <button class="slide-button" onclick="changeSlide(-1)"{"" if slide_num > 1 else " disabled"}> ← Previous</button>
-        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" onclick="changeSlide(1)"{"" if slide_num < len(slides_data) else " disabled"}>Next → </button>
-        <div class="slide-counter"><span id="current-slide-{slide_num}">{slide_num}</span> / <span id="total-slides">{len(slides_data)}</span></div>
+      <div class=\"slide-controls\">
+        <button class=\"slide-button\" onclick=\"changeSlide(-1)\"{"" if slide_num > 1 else " disabled"}> ← Previous</button>
+        <img src=\"../images/UOW_Logo_Length_Alpha.png\" class=\"slide-logo\" alt=\"University of Westminster\" />
+        <button class=\"slide-button\" onclick=\"changeSlide(1)\"{"" if slide_num < len(slides_data) else " disabled"}>Next → </button>
+        <div class=\"slide-counter\"><span id=\"current-slide-{slide_num}\">{slide_num}</span> / <span id=\"total-slides\">{len(slides_data)}</span></div>
       </div>
-      <div class="keyboard-hint">
+      <div class=\"keyboard-hint\">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-'''
+"""
 
-html_template += '''  </div>
+html_template += """  </div>
 
-  <script src="../assets/js/site.js?v=20260805f"></script>
+  <script src=\"../assets/js/site.js?v=20260805f\"></script>
   <script>
+    const isLecturePage = /\\/lect-[^/]+\\.html$/i.test(window.location.pathname);
+    if (isLecturePage && document.body) {
+      document.body.classList.add('lecture-fullbleed');
+    }
+
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
 
-    // Convert URLs in text nodes to clickable links
+    function normalizeSlideStructure(slide) {
+      if (slide.querySelector('.slide-frame')) return;
+
+      const title = slide.querySelector('.slide-title');
+      const controls = slide.querySelector('.slide-controls');
+      const body = slide.querySelector('.slide-content');
+      if (!title || !controls || !body) return;
+
+      const frame = document.createElement('div');
+      frame.className = 'slide-frame';
+      frame.appendChild(title);
+      frame.appendChild(body);
+      frame.appendChild(controls);
+      slide.appendChild(frame);
+    }
+
     function linkifyText(element) {
-      const urlPattern = /(https?:\/\/[^\s]+)/g;
+      const urlPattern = /(https?:\\/\\/[^\\s]+)/g;
       const walker = document.createTreeWalker(
         element,
         NodeFilter.SHOW_TEXT,
@@ -228,38 +174,160 @@ html_template += '''  </div>
 
       urlPattern.lastIndex = 0;
 
-      nodesToReplace.forEach(textNode => {
+      nodesToReplace.forEach((textNode) => {
         const span = document.createElement('span');
         span.innerHTML = textNode.textContent.replace(
-          /(https?:\/\/[^\s]+)/g,
+          /(https?:\\/\\/[^\\s]+)/g,
           '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
         );
         textNode.parentNode.replaceChild(span, textNode);
       });
     }
 
-    // Initialize URL linking for all slides
-    slides.forEach(slide => {
-      linkifyText(slide);
-    });
+    function getAccordionLabels(titleText) {
+      const title = (titleText || '').toLowerCase();
 
-    // Update slide counter display
-    function updateCounters() {
-      const counter = document.querySelector('.slide-counter');
-      if (counter) {
-        counter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+      if (title.includes('workflow')) {
+        return { overview: 'Workflow Steps', resources: 'Diagrams and Media' };
+      }
+
+      if (title.includes('references') || title.includes('reading')) {
+        return { overview: 'Reading Notes', resources: 'References and Media' };
+      }
+
+      if (title.includes('group') || title.includes('activity')) {
+        return { overview: 'Guidance', resources: 'Resources' };
+      }
+
+      return { overview: 'Overview', resources: 'Resources and Media' };
+    }
+
+    function convertLegacySlideToAccordion(slide) {
+      const body = slide.querySelector('.slide-content');
+      if (!body || body.classList.contains('slide-content-accordion')) return;
+
+      const h2 = body.querySelector(':scope > h2');
+      const labels = getAccordionLabels(h2 ? h2.textContent : '');
+      const children = Array.from(body.children).filter((node) => node !== h2);
+      if (!children.length) return;
+
+      const overviewItems = [];
+      const resourcesItems = [];
+
+      children.forEach((node) => {
+        const tag = node.tagName ? node.tagName.toLowerCase() : '';
+        const text = (node.textContent || '').trim();
+        const hasUrl = /https?:\\/\\//i.test(text);
+        const isImage = tag === 'img';
+        const hasLink = Boolean(node.querySelector && node.querySelector('a'));
+
+        if (isImage || hasUrl || hasLink) {
+          resourcesItems.push(node);
+        } else {
+          overviewItems.push(node);
+        }
+      });
+
+      body.classList.add('slide-content-accordion');
+      body.innerHTML = '';
+      if (h2) body.appendChild(h2);
+
+      const scroll = document.createElement('div');
+      scroll.className = 'accordion-scroll';
+
+      if (overviewItems.length) {
+        const overview = document.createElement('details');
+        overview.className = 'accordion';
+        overview.open = true;
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.overview;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        overviewItems.forEach((node) => content.appendChild(node));
+
+        overview.appendChild(summary);
+        overview.appendChild(content);
+        scroll.appendChild(overview);
+      }
+
+      if (resourcesItems.length) {
+        const resources = document.createElement('details');
+        resources.className = 'accordion';
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.resources;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        resourcesItems.forEach((node) => content.appendChild(node));
+
+        resources.appendChild(summary);
+        resources.appendChild(content);
+        scroll.appendChild(resources);
+      }
+
+      body.appendChild(scroll);
+    }
+
+    function syncSlideTitles() {
+      slides.forEach((slide) => {
+        const title = slide.querySelector('.slide-title');
+        const heading = slide.querySelector('.slide-content h2');
+        if (!title || !heading) return;
+
+        const headingText = (heading.textContent || '').replace(/\\s+/g, ' ').trim();
+        if (headingText) {
+          title.textContent = headingText;
+          heading.remove();
+        }
+      });
+    }
+
+    function announceActiveSlideTitle() {
+      const activeSlide = slides[currentSlide];
+      if (!activeSlide) return;
+
+      const titleNode = activeSlide.querySelector('.slide-title');
+      const titleText = (titleNode ? titleNode.textContent : '').replace(/\\s+/g, ' ').trim();
+      if (!titleText) return;
+
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({
+          type: 'lecture-slide-title',
+          title: titleText
+        }, '*');
       }
     }
 
+    slides.forEach((slide, index) => {
+      normalizeSlideStructure(slide);
+      if (index >= 3) {
+        convertLegacySlideToAccordion(slide);
+      }
+      linkifyText(slide.querySelector('.slide-content') || slide);
+    });
+
+    syncSlideTitles();
+
+    function updateCounters() {
+      slides.forEach((slide, index) => {
+        const counter = slide.querySelector('.slide-counter');
+        if (counter) {
+          counter.textContent = `${index + 1} / ${totalSlides}`;
+        }
+      });
+    }
+
     function showSlide(n) {
-      slides.forEach(slide => slide.classList.remove('active'));
+      slides.forEach((slide) => slide.classList.remove('active'));
       slides[currentSlide].classList.add('active');
-      
-      // Update button states
+
       const allButtons = document.querySelectorAll('.slide-button');
       const isFirstSlide = currentSlide === 0;
       const isLastSlide = currentSlide === totalSlides - 1;
-      
+
       allButtons.forEach((btn) => {
         if (btn.textContent.includes('Previous')) {
           btn.disabled = isFirstSlide;
@@ -267,8 +335,9 @@ html_template += '''  </div>
           btn.disabled = isLastSlide;
         }
       });
-      
+
       updateCounters();
+      announceActiveSlideTitle();
     }
 
     function changeSlide(n) {
@@ -278,21 +347,21 @@ html_template += '''  </div>
       showSlide(currentSlide);
     }
 
-    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') changeSlide(1);
       if (e.key === 'ArrowLeft') changeSlide(-1);
     });
 
-    // Initialize
     showSlide(currentSlide);
+    document.body.classList.add('lecture-ready');
   </script>
 </body>
-</html>'''
+</html>"""
 
-# Write output
-output_file = Path(__file__).parent / "site" / "lectures" / "lect-01a.html"
-with open(output_file, 'w', encoding='utf-8') as f:
+html_template = html_template.replace("__LECTURE_TITLE__", args.lecture_title)
+
+output_file = pages_dir / f"{args.lecture_id}.html"
+with open(output_file, "w", encoding="utf-8") as f:
     f.write(html_template)
 
 print(f"Generated slideshow with {len(slides_data)} slides")

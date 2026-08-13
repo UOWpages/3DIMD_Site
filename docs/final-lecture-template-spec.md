@@ -1,7 +1,7 @@
 # Final Lecture Template Spec
 
-Version: 1.0-draft
-Last Updated: 2026-08-12
+Version: 1.1-draft
+Last Updated: 2026-08-13
 Status: Working Draft
 
 ## 1. Purpose and Scope
@@ -24,7 +24,7 @@ Primary references:
 1. [documentation-hub.md](./documentation-hub.md)
 2. [lecture-conversion-playbook.md](./lecture-conversion-playbook.md)
 3. ../site/lectures/lecture-template.html
-4. ../site/lectures/lect-01a.html
+4. ../site/pages/lect-01a.html (canonical lecture panel implementation)
 5. ../site/assets/css/slideshow.css
 6. ../site/assets/css/site.css
 7. ../site/assets/js/site.js
@@ -49,6 +49,13 @@ Mandatory constraints:
 1. Do not remove required regions on any slide.
 2. Do not add tutorial-specific wrappers to lecture slides.
 3. Do not create custom one-off slide shells that bypass normalization.
+
+Canonical panel requirements (from lect-01a):
+1. Body must use the lecture full-bleed mode class.
+2. Slideshow visibility must be gated until lecture-ready is set.
+3. Slide frame normalization is required and must be idempotent.
+4. Slide heading-to-title synchronization must be preserved.
+5. Legacy content slides may be converted into accordion panels for overflow-safe reading.
 
 ## 4. Slide Typology and Usage
 Use one primary type per slide:
@@ -211,5 +218,6 @@ This spec pairs directly with [lecture-conversion-playbook.md](./lecture-convers
 4. Do not relax structural requirements without updating conversion and prompt docs.
 
 ## 14. Change Log
+- 1.1-draft: Canonical lecture panel implementation moved to site/pages/lect-01a.html and requirements updated to match current full-bleed lecture behavior.
 - 1.0-draft: Expanded from skeleton to full draft, aligned to current lecture slideshow structure and schedule/accordion patterns.
 - 0.1-draft: Initial skeleton.

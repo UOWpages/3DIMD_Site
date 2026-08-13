@@ -44,3 +44,8 @@ None.
 	- Verified from `site/index.html` iframe path (not standalone tutorial page).
 	- Accordion expansion produces active panel scrolling in the tutorial scroll container.
 
+- 2026-08-13: Lecture PPTX conversion milestone reached.
+	- Lecture conversion tooling now supports CLI-driven PPTX-to-lecture generation for new decks (including Lecture 01b).
+	- Canonical lecture panel spec is aligned to `site/pages/lect-01a.html`, with docs updated to match.
+	- Verified in `site/index.html` iframe flow: Lecture 01b navigation, title sync, slide counter progression, and first/last navigation button states.
+
