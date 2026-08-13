@@ -14,7 +14,7 @@
     <h1 class="page-title">Prepare &amp; Animate a LEGO Minifigure in Blender</h1>
 <h3>Overview</h3>
 <ul>
-<li>Goal: clean origins, parent parts into a simple hierarchy, create an &quot;up/down&quot; empty controller, lock axes to limit motion, key a 1�30 run loop, add a 10-frame standing pose, and refine interpolation for a snappy run.
+<li>Goal: clean origins, parent parts into a simple hierarchy, create an &quot;up/down&quot; empty controller, lock axes to limit motion, key a 1-30 run loop, add a 10-frame standing pose, and refine interpolation for a snappy run.
 </li>
 <li>Keep names consistent (e.g., Body, LeftLeg, RightLeg, LeftArm, RightArm, Head, UPctrl).
 </li>
@@ -25,11 +25,11 @@
 </li>
 <li class="indent-level-2">Parent parts: select child ? Shift+Select Body ? Ctrl+P ? Object.
 </li>
-<li class="indent-level-2">Create �UPctrl� empty ? snap to body ? parent Body to UP_ctrl.
+<li class="indent-level-2">Create -UPctrl- empty ? snap to body ? parent Body to UP_ctrl.
 </li>
 <li class="indent-level-2">Apply transforms to UP_ctrl (Ctrl+A) and lock X/Y &amp; rotations.
 </li>
-<li class="indent-level-2">Set frame range 1�30; key UP_ctrl high at frame 1 (G Z ? I Location).
+<li class="indent-level-2">Set frame range 1-30; key UP_ctrl high at frame 1 (G Z ? I Location).
 </li>
 <li class="indent-level-2">Key passing at frame 15, copy to create full stride (copy frames to 30/45/60)
 </li>
@@ -73,7 +73,7 @@
 <li class="indent-level-2">Or simply: Object ? Set Origin ? Origin to Geometry to center origin on the mesh.
 </li>
 </ul>
-<p class="indent-level-2">Example: for the leg I selected the two center vertices for the leg circle, then stil in Edit mode pressed Shift S and selected �Cursor to Selected� - This placed it perfectly equidistant between the two vertices, and will be good for rotation.</p>
+<p class="indent-level-2">Example: for the leg I selected the two center vertices for the leg circle, then stil in Edit mode pressed Shift S and selected -Cursor to Selected- - This placed it perfectly equidistant between the two vertices, and will be good for rotation.</p>
 <p class="indent-level-2">Otherwise you can move the 3D Cursor by selecting the 3D Cursor in the toolbar and selecting within it to drag (can press X,Y,Z to constrain), also left clicking on the background will drop it at that location.</p>
 <figure class="image-figure gyazo-inline">
 <a href="https://gyazo.com/e44cb9a7d894864ae90e3dbf48a161db" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/e44cb9a7d894864ae90e3dbf48a161db.png" alt="Gyazo preview" loading="lazy" /></a>
@@ -86,7 +86,7 @@
 </ol>
 <h3>Keystrokes (important)</h3>
 <ul>
-<li class="indent-level-4">Tab � toggle Object/Edit Mode
+<li class="indent-level-4">Tab - toggle Object/Edit Mode
 </li>
 <li class="indent-level-4">Shift+S ? open snap pie (Cursor to Selected / Selection to Cursor)
 </li>
@@ -101,9 +101,9 @@
 </li>
 </ol>
 <ul>
-<li>Shift-D in object mode � Z to drag to other side
+<li>Shift-D in object mode - Z to drag to other side
 </li>
-<li>Object=&gt;Mirror+&gt;Z Axis � Drag to reference.
+<li>Object=&gt;Mirror+&gt;Z Axis - Drag to reference.
 </li>
 </ul>
 <ol>
@@ -194,7 +194,7 @@
 </li>
 <li class="indent-level-4">N ? Item panel (lock channel icons)
 </li>
-<li class="indent-level-4">Alt+G / Alt+R / Alt+S � clear transforms
+<li class="indent-level-4">Alt+G / Alt+R / Alt+S - clear transforms
 </li>
 </ul>
 <ol>
@@ -202,25 +202,25 @@
 </li>
 </ol>
 <ul>
-<li class="indent-level-2">Test parenting: move the UPctrl (G then Z) � whole character should follow.
+<li class="indent-level-2">Test parenting: move the UPctrl (G then Z) - whole character should follow.
 </li>
-<li class="indent-level-2">Rotate an arm/leg in Object Mode (R) � check locked axes; fix locks if needed.
+<li class="indent-level-2">Rotate an arm/leg in Object Mode (R) - check locked axes; fix locks if needed.
 </li>
 </ul>
 <h3>Keystrokes</h3>
 <ul>
-<li class="indent-level-4">G / R / S � move / rotate / scale
+<li class="indent-level-4">G / R / S - move / rotate / scale
 </li>
-<li class="indent-level-4">G then Z � constrain to Z axis
+<li class="indent-level-4">G then Z - constrain to Z axis
 </li>
 </ul>
 <p class="indent-level-4">(or press G + Z twice for local axis depending on mode)</p>
 <ol>
-<li>Create the run loop � dope sheet workflow
+<li>Create the run loop - dope sheet workflow
 </li>
 </ol>
 <ul>
-<li>Can be in Animation or Layout window � use +X axis view
+<li>Can be in Animation or Layout window - use +X axis view
 </li>
 <li>Make sure Dopesheet is displayed on bottom, expand Summary on Left if needed
 </li>
@@ -238,7 +238,7 @@
 </li>
 <li>UPctrl: choose the high point of the bounce (e.g., frame
 </li>
-<li>� G ? move on Z to desired high ? I ? Location.
+<li>- G ? move on Z to desired high ? I ? Location.
 </li>
 <li>Copy UP keyframe to frame 30 and to mid-stride frames:
 </li>
@@ -269,7 +269,7 @@
 </li>
 </ul>
 <ol>
-<li>Copy/paste sets to create the second stride (copy frame groups to frames 30�60 or use manual insertion at 7/22).
+<li>Copy/paste sets to create the second stride (copy frame groups to frames 30-60 or use manual insertion at 7/22).
 </li>
 </ol>
 <ul>
@@ -288,7 +288,7 @@
 <ul>
 <li class="indent-level-4">K ? Insert Keyframe (choose Location / Rotation / LocRotScale)
 </li>
-<li class="indent-level-4">Ctrl+C / Ctrl+V � copy/paste keyframes
+<li class="indent-level-4">Ctrl+C / Ctrl+V - copy/paste keyframes
 </li>
 <li class="indent-level-4">Shift+Select objects to key multiple items
 </li>
@@ -312,7 +312,7 @@
 </li>
 <li>Isolate the UP Z-curve (or other curves): select property (e.g., Location Z) and hide others: Alt+H / Shift+H or use channel visibility to focus.
 </li>
-<li>Change interpolation to add a �hit�and �bounce�:
+<li>Change interpolation to add a -hit-and -bounce-:
 </li>
 </ol>
 <ul>
@@ -332,9 +332,9 @@
 </li>
 <li class="indent-level-4">V ? change key interpolation (Vector / Constant / Bezier)
 </li>
-<li class="indent-level-4">Alt+H / Shift+H � show/hide curves or channels
+<li class="indent-level-4">Alt+H / Shift+H - show/hide curves or channels
 </li>
-<li class="indent-level-4">Home � frame all
+<li class="indent-level-4">Home - frame all
 </li>
 </ul>
 <ol>
@@ -363,7 +363,7 @@
 </ol>
 <h3>Keystrokes</h3>
 <ul>
-<li class="indent-level-4">Ctrl+C / Ctrl+V � copy/paste keys to frame 70
+<li class="indent-level-4">Ctrl+C / Ctrl+V - copy/paste keys to frame 70
 </li>
 <li class="indent-level-4">V ? Constant interpolation (or via key menu)
 </li>
