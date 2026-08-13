@@ -7,6 +7,8 @@
   const home = document.getElementById("home-content");
   const meta = document.getElementById("content-meta");
   const contentShell = document.querySelector(".content-shell");
+  let currentPageKey = "home";
+  let currentPageLabel = "Home";
 
   const normalizeText = (value) => value.replace(/\s+/g, " ").trim();
 
@@ -212,13 +214,26 @@
     return noPrefix.split("?")[0].split("#")[0];
   };
 
+  const isLecturePageKey = (pageKey) => /^pages\/lect-[^/]+\.html$/i.test(normalizePageKey(pageKey || ""));
+
   const getLinkKey = (link) => normalizePageKey(
     link.getAttribute("data-page") || link.getAttribute("href")
   );
 
   const setContentShellMode = (pageKey) => {
     if (!contentShell) return;
+    const lectureMode = isLecturePageKey(pageKey);
     contentShell.classList.remove("content-shell--immersive");
+    if (lectureMode) {
+      contentShell.classList.add("content-shell--lecture");
+    } else {
+      contentShell.classList.remove("content-shell--lecture");
+    }
+  };
+
+  const setLectureDocumentMode = (pageKey) => {
+    if (!frame?.contentDocument?.body) return;
+    frame.contentDocument.body.classList.toggle("lecture-fullbleed", isLecturePageKey(pageKey));
   };
 
   const getLinkLabel = (link) => {
@@ -255,6 +270,22 @@
     }
   };
 
+  const setLectureMeta = (slideTitle) => {
+    if (!meta || !currentPageKey.startsWith("pages/lect-")) return;
+    const cleaned = normalizeText(slideTitle || "");
+    if (!cleaned) return;
+    meta.classList.add("content-meta--lecture");
+    meta.textContent = `${currentPageLabel}: ${cleaned}`;
+  };
+
+  const getActiveLectureSlideTitle = (rootDocument) => {
+    const activeSlide = rootDocument?.querySelector(".slide.active");
+    if (!activeSlide) return "";
+
+    const titleNode = activeSlide.querySelector(".slide-title");
+    return normalizeText(titleNode?.textContent || "");
+  };
+
   const saveNavState = (activeKey) => {
     if (!nav) return;
     try {
@@ -283,7 +314,11 @@
 
   const loadHome = () => {
     if (!frame || !home) return;
+    currentPageKey = "home";
+    currentPageLabel = "Home";
     setContentShellMode("home");
+    setLectureDocumentMode("home");
+    meta?.classList.remove("content-meta--lecture");
     frame.style.display = "none";
     frame.removeAttribute("src");
     home.hidden = false;
@@ -302,7 +337,14 @@
     }
 
     const label = getLinkLabel(link);
+    currentPageKey = pageKey;
+    currentPageLabel = label;
     setContentShellMode(pageKey);
+    if (!isLecturePageKey(pageKey)) {
+      meta?.classList.remove("content-meta--lecture");
+    } else {
+      meta?.classList.add("content-meta--lecture");
+    }
     frame.src = pageKey;
     frame.style.display = "block";
     home.hidden = true;
@@ -380,11 +422,21 @@
   }
 
   if (frame) {
+    window.addEventListener("message", (event) => {
+      const data = event.data;
+      if (!data || data.type !== "lecture-slide-title") return;
+      if (event.source !== frame.contentWindow) return;
+      setLectureMeta(data.title);
+    });
+
     frame.addEventListener("load", () => {
       try {
+        setContentShellMode(currentPageKey);
+        setLectureDocumentMode(currentPageKey);
         enhancePseudoPanels(frame.contentDocument);
         enableVideoPlaceholders(frame.contentDocument);
         enableImageExpand(frame.contentDocument);
+        setLectureMeta(getActiveLectureSlideTitle(frame.contentDocument));
       } catch {
         // Ignore cross-document access issues.
       }

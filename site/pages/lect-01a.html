@@ -1264,6 +1264,22 @@
       });
     }
 
+    function announceActiveSlideTitle() {
+      const activeSlide = slides[currentSlide];
+      if (!activeSlide) return;
+
+      const titleNode = activeSlide.querySelector('.slide-title');
+      const titleText = (titleNode ? titleNode.textContent : '').replace(/\s+/g, ' ').trim();
+      if (!titleText) return;
+
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({
+          type: 'lecture-slide-title',
+          title: titleText
+        }, '*');
+      }
+    }
+
     syncSlideTitles();
 
     // Update slide counter display
@@ -1294,6 +1310,7 @@
       });
       
       updateCounters();
+      announceActiveSlideTitle();
     }
 
     function changeSlide(n) {

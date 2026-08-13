@@ -1126,8 +1126,7 @@ body.lect-01a-fullbleed .slide-frame {
 
 body.lecture-fullbleed .slide-title,
 body.lect-01a-fullbleed .slide-title {
-  margin: 0;
-  padding: 1.65rem 1rem 0.7rem;
+  display: none;
 }
 
 body.lecture-fullbleed .slide-content,
@@ -1135,7 +1134,7 @@ body.lecture-fullbleed .slide-frame .slide-content,
 body.lect-01a-fullbleed .slide-content,
 body.lect-01a-fullbleed .slide-frame .slide-content {
   margin-bottom: 0;
-  padding: 0.8rem 1.15rem 0;
+  padding: 0.5rem 1.15rem 0;
   overflow-x: hidden;
 }
 
