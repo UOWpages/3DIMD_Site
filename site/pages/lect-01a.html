@@ -16,7 +16,7 @@
     <div class="slide active">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content slide-content-accordion">
-    <h2>5MMCS007W Lecture 01a: Welcome and Overview</h2>
+    <h2>Welcome and Overview</h2>
     <div class="accordion-scroll">
 
     <details class="accordion">
@@ -126,7 +126,7 @@
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content slide-content-accordion">
-    <h2>5MMCS007W Lecture 01a: Group Coursework Overview</h2>
+    <h2>Group Coursework Overview</h2>
     <div class="accordion-scroll">
 
     <details class="accordion">
@@ -432,7 +432,7 @@
     <div class="slide neo-slide-5">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content slide-content-accordion">
-    <h2>Mobile Learning – iPads, Devices, Web</h2>
+    <h2>Learning Content Platforms</h2>
     <div class="accordion-scroll">
       <details class="accordion">
         <summary>Mobile Learning Channels</summary>
@@ -487,7 +487,7 @@
     <h2>Reading List</h2>
     <div class="accordion-scroll">
       <details class="accordion">
-        <summary>Leganto Reading List</summary>
+        <summary>BlackboardReading List</summary>
         <div class="accordion-body media-stack">
           <p><a href="https://readinglist.westminster.ac.uk/leganto/public/44WST_INST/lists/9326977540003711?auth=SAML" target="_blank" rel="noopener noreferrer">https://readinglist.westminster.ac.uk/leganto/public/44WST_INST/lists/9326977540003711?auth=SAML</a></p>
           <article class="embed-card">
@@ -777,7 +777,7 @@
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
-    <h2>References</h2>
+    <h2>Main 3DUI References</h2>
     <p>3D User Interfaces: Theory and Practice</p>
     <p>Doug A. Bowman, Ernst Kruijff, Joseph J. LaViola, Ivan Poupyrev</p>
     <p>Addison Wesley Longman Publishing</p>
@@ -802,7 +802,7 @@
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content slide-content-accordion">
-    <h2>Group Formation</h2>
+    <h2>Group Formation and First Steps</h2>
     <div class="accordion-scroll">
       <details class="accordion">
         <summary>Guidance</summary>
@@ -1264,6 +1264,14 @@
       });
     }
 
+    function markLectureSlideTitles() {
+      slides.forEach((slide) => {
+        slide.querySelectorAll('.slide-content h2').forEach((heading) => {
+          heading.classList.add('lecture-slide-title');
+        });
+      });
+    }
+
     function announceActiveSlideTitle() {
       const activeSlide = slides[currentSlide];
       if (!activeSlide) return;
@@ -1280,6 +1288,7 @@
       }
     }
 
+    markLectureSlideTitles();
     syncSlideTitles();
 
     // Update slide counter display

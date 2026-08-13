@@ -1138,6 +1138,12 @@ body.lect-01a-fullbleed .slide-frame .slide-content {
   overflow-x: hidden;
 }
 
+body.lecture-fullbleed .slide-content h2,
+body.lecture-fullbleed .lecture-slide-title,
+body.lect-01a-fullbleed .slide-content h2 {
+  color: #ffff66;
+}
+
 body.lecture-fullbleed .slide-content .accordion-scroll,
 body.lect-01a-fullbleed .slide-content .accordion-scroll {
   padding-left: 0.6rem;
