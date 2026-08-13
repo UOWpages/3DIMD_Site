@@ -239,7 +239,15 @@ a:hover {
   padding-bottom: 1.5rem;
   font-size: 2.8rem;
   line-height: 1.05;
+  color: #ffffff;
+}
+
+.content-meta.content-meta--lecture .content-meta-prefix {
   color: #ffff66;
+}
+
+.content-meta.content-meta--lecture .content-meta-slide {
+  color: #ffffff;
 }
 
 .content-meta {
