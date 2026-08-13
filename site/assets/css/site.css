@@ -234,6 +234,13 @@ a:hover {
   color: #ffff66;
 }
 
+.content-shell.content-shell--tutorial .content-meta {
+  padding-top: 1.3rem;
+  padding-bottom: 1.3rem;
+  font-size: 1.85rem;
+  line-height: 1.15;
+}
+
 .content-meta.content-meta--lecture {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -247,6 +254,22 @@ a:hover {
 }
 
 .content-meta.content-meta--lecture .content-meta-slide {
+  color: #ffffff;
+}
+
+.content-meta.content-meta--tutorial {
+  padding-top: 1.3rem;
+  padding-bottom: 1.3rem;
+  font-size: 1.85rem;
+  line-height: 1.15;
+  color: #ffffff;
+}
+
+.content-meta.content-meta--tutorial .content-meta-prefix {
+  color: #ffff66;
+}
+
+.content-meta.content-meta--tutorial .content-meta-slide {
   color: #ffffff;
 }
 
@@ -308,6 +331,10 @@ body.content-page {
   font-size: clamp(1.15rem, 1.4vw + 0.95rem, 1.75rem);
   line-height: 1.2;
   text-transform: uppercase;
+}
+
+body.content-page .page-title {
+  display: none;
 }
 
 .content-page-area h2,

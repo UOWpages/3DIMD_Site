@@ -10,6 +10,32 @@
   let currentPageKey = "home";
   let currentPageLabel = "Home";
   let currentSlideTitle = "";
+  let currentTutorialTitle = "";
+  let tutorialTitlePollToken = 0;
+  const tutorialTitleFallbackByPageKey = {
+    "pages/tut-00-01-lecturer-version.html": "#/|AC",
+    "pages/tut-00-01-student-version.html": "Unity Intro - Core Principles and Setup",
+    "pages/tut-02-03-lecturer.html": "Unity Intro – Interaction Scripting",
+    "pages/tut-02-03-students.html": "Unity Intro – Interaction Scripting",
+    "pages/tut-04-lecturers.html": "Unity Animation and Animation Import Overview",
+    "pages/tut-04-students.html": "Unity Animation and Animation Import Overview",
+    "pages/tut-05.html": "Unity Animation and UI Buttons Overview",
+    "pages/tut-07-ui-overview.html": "Week 07 Tutorial – Unity Animation and UI Buttons Overview",
+    "pages/tut-08-character-troubleshooting-bb.html": "Unity – 3 types of character controllers:",
+    "pages/tut-08-physics-quiz-rbct.html": "Unity3D Physics Quiz: Rigidbody, Collider & Trigger Matrix (Basic)",
+    "pages/tut-09-10-0-blender-origins-and-pivots-cheatsheet.html": "Blender - Origins & Pivot Points",
+    "pages/tut-09-10-00-blender-ui-overview.html": "Blender UI Overview",
+    "pages/tut-09-10-01-blender-ui-cheatsheet.html": "Blender UI CheatSheet",
+    "pages/tut-09-10-02-blender-lego-minifig-tutorial-startup-and-reference-images.html": "Setup Reference Images in Blender:",
+    "pages/tut-09-10-03-blender-lego-minifig-tutorial-torso-and-head.html": "Blender Lego Minifig Tutorial - Torso and Head",
+    "pages/tut-09-10-04-blender-lego-minifig-tutorial-hips-and-legs-2.html": "Blender Lego Minifig Tutorial – Hips and Legs",
+    "pages/tut-09-10-04-blender-lego-minifig-tutorial-hips-and-legs.html": "Blender Lego Minifig Tutorial – Hips and Legs",
+    "pages/tut-09-10-05-blender-lego-minifig-tutorial-arms-and-hands-2.html": "Blender Lego Minifig Tutorial – Arms and Hands",
+    "pages/tut-09-10-05-blender-lego-minifig-tutorial-arms-and-hands.html": "Blender Lego Minifig Tutorial – Arms and Hands",
+    "pages/tut-11-01-blender-materials-and-texturing.html": "Face as UV Mapped Texture with Alpha Channel (see through background)",
+    "pages/tut-11-02-blender-pivots-and-animation-sheet.html": "Prepare & Animate a LEGO Minifigure in Blender",
+    "pages/tut-12-urp-lighting-2026.html": "URP Lighting with Café Model"
+  };
 
   const normalizeText = (value) => value.replace(/\s+/g, " ").trim();
 
@@ -216,6 +242,7 @@
   };
 
   const isLecturePageKey = (pageKey) => /^pages\/lect-[^/]+\.html$/i.test(normalizePageKey(pageKey || ""));
+  const isTutorialPageKey = (pageKey) => /^pages\/tut-[^/]+\.html$/i.test(normalizePageKey(pageKey || ""));
 
   const getLinkKey = (link) => normalizePageKey(
     link.getAttribute("data-page") || link.getAttribute("href")
@@ -231,11 +258,17 @@
   const setContentShellMode = (pageKey) => {
     if (!contentShell) return;
     const lectureMode = isLecturePageKey(pageKey);
+    const tutorialMode = isTutorialPageKey(pageKey);
     contentShell.classList.remove("content-shell--immersive");
     if (lectureMode) {
       contentShell.classList.add("content-shell--lecture");
     } else {
       contentShell.classList.remove("content-shell--lecture");
+    }
+    if (tutorialMode) {
+      contentShell.classList.add("content-shell--tutorial");
+    } else {
+      contentShell.classList.remove("content-shell--tutorial");
     }
   };
 
@@ -279,7 +312,7 @@
   };
 
   const renderLectureMeta = () => {
-    if (!meta || !currentPageKey.startsWith("pages/lect-")) return;
+    if (!meta || !isLecturePageKey(currentPageKey)) return;
 
     meta.textContent = "";
 
@@ -299,7 +332,7 @@
   };
 
   const setLectureMeta = (slideTitle) => {
-    if (!meta || !currentPageKey.startsWith("pages/lect-")) return;
+    if (!meta || !isLecturePageKey(currentPageKey)) return;
     meta.classList.add("content-meta--lecture");
     const normalizedTitle = normalizeText(slideTitle || "");
     if (normalizedTitle) {
@@ -314,6 +347,74 @@
 
     const titleNode = activeSlide.querySelector(".slide-title");
     return normalizeText(titleNode?.textContent || "");
+  };
+
+  const getTutorialPageTitle = (rootDocument) => {
+    if (!rootDocument) return "";
+
+    const titleNode = rootDocument.querySelector(
+      ".page-title, main h1, .content-page-area h2, h2"
+    );
+    const headingTitle = normalizeText(titleNode?.textContent || "");
+    if (headingTitle) return headingTitle;
+
+    const docTitle = normalizeText(rootDocument.title || "");
+    return docTitle.replace(/^3DIMD\s*\|\s*/i, "");
+  };
+
+  const renderTutorialMeta = () => {
+    if (!meta || !isTutorialPageKey(currentPageKey)) return;
+
+    meta.textContent = "";
+
+    const prefix = document.createElement("span");
+    prefix.className = "content-meta-prefix";
+    prefix.textContent = `${currentPageLabel}:`;
+    meta.append(prefix);
+
+    const tutorialTitle = normalizeText(currentTutorialTitle || "");
+    if (!tutorialTitle) return;
+
+    const spacer = document.createTextNode(" ");
+    const suffix = document.createElement("span");
+    suffix.className = "content-meta-slide";
+    suffix.textContent = tutorialTitle;
+    meta.append(spacer, suffix);
+  };
+
+  const setTutorialMeta = (tutorialTitle) => {
+    if (!meta || !isTutorialPageKey(currentPageKey)) return;
+    meta.classList.add("content-meta--tutorial");
+    const normalizedTitle = normalizeText(tutorialTitle || "");
+    if (normalizedTitle) {
+      currentTutorialTitle = normalizedTitle;
+    }
+    renderTutorialMeta();
+  };
+
+  const pollTutorialMetaFromFrame = () => {
+    if (!isTutorialPageKey(currentPageKey) || !frame) return;
+
+    const token = ++tutorialTitlePollToken;
+    const maxAttempts = 40;
+    let attempts = 0;
+
+    const tick = () => {
+      if (token !== tutorialTitlePollToken) return;
+      if (!isTutorialPageKey(currentPageKey) || !frame.contentDocument) return;
+
+      const tutorialTitle = getTutorialPageTitle(frame.contentDocument);
+      if (tutorialTitle) {
+        setTutorialMeta(tutorialTitle);
+        return;
+      }
+
+      attempts += 1;
+      if (attempts >= maxAttempts) return;
+      requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
   };
 
   const saveNavState = (activeKey) => {
@@ -347,9 +448,11 @@
     currentPageKey = "home";
     currentPageLabel = "Home";
     currentSlideTitle = "";
+    currentTutorialTitle = "";
     setContentShellMode("home");
     setLectureDocumentMode("home");
     meta?.classList.remove("content-meta--lecture");
+    meta?.classList.remove("content-meta--tutorial");
     frame.style.display = "none";
     frame.removeAttribute("src");
     home.hidden = false;
@@ -371,17 +474,33 @@
     currentPageKey = pageKey;
     currentPageLabel = getSidebarLabelForPageKey(pageKey) || label;
     currentSlideTitle = "";
+    currentTutorialTitle = "";
     setContentShellMode(pageKey);
-    if (!isLecturePageKey(pageKey)) {
-      meta?.classList.remove("content-meta--lecture");
-      setMeta(label);
-    } else {
+    if (isLecturePageKey(pageKey)) {
+      meta?.classList.remove("content-meta--tutorial");
       meta?.classList.add("content-meta--lecture");
       renderLectureMeta();
+    } else if (isTutorialPageKey(pageKey)) {
+      meta?.classList.remove("content-meta--lecture");
+      meta?.classList.add("content-meta--tutorial");
+      const fallbackTitle = tutorialTitleFallbackByPageKey[pageKey];
+      if (fallbackTitle) {
+        currentTutorialTitle = fallbackTitle;
+      }
+      renderTutorialMeta();
+    } else {
+      meta?.classList.remove("content-meta--lecture");
+      meta?.classList.remove("content-meta--tutorial");
+      setMeta(label);
     }
     frame.src = pageKey;
     frame.style.display = "block";
     home.hidden = true;
+
+    if (isTutorialPageKey(pageKey)) {
+      pollTutorialMetaFromFrame();
+    }
+
     document.title = `3DIMD | ${label}`;
     setActiveLink(pageKey);
     saveNavState(pageKey);
@@ -463,15 +582,33 @@
     });
 
     frame.addEventListener("load", () => {
-      try {
-        setContentShellMode(currentPageKey);
-        setLectureDocumentMode(currentPageKey);
-        enhancePseudoPanels(frame.contentDocument);
-        enableVideoPlaceholders(frame.contentDocument);
-        enableImageExpand(frame.contentDocument);
+      const rootDocument = frame.contentDocument;
+      if (!rootDocument) return;
 
+      setContentShellMode(currentPageKey);
+      setLectureDocumentMode(currentPageKey);
+
+      try {
+        enhancePseudoPanels(rootDocument);
+      } catch {
+        // Continue even if an enhancement fails.
+      }
+
+      try {
+        enableVideoPlaceholders(rootDocument);
+      } catch {
+        // Continue even if an enhancement fails.
+      }
+
+      try {
+        enableImageExpand(rootDocument);
+      } catch {
+        // Continue even if an enhancement fails.
+      }
+
+      if (isLecturePageKey(currentPageKey)) {
         const syncLectureTitle = () => {
-          const activeTitle = getActiveLectureSlideTitle(frame.contentDocument);
+          const activeTitle = getActiveLectureSlideTitle(rootDocument);
           if (activeTitle) {
             setLectureMeta(activeTitle);
             return true;
@@ -484,8 +621,48 @@
             syncLectureTitle();
           });
         }
-      } catch {
-        // Ignore cross-document access issues.
+      }
+
+      if (isTutorialPageKey(currentPageKey)) {
+        const syncTutorialTitle = () => {
+          const tutorialTitle = getTutorialPageTitle(rootDocument);
+          if (tutorialTitle) {
+            setTutorialMeta(tutorialTitle);
+            return true;
+          }
+          return false;
+        };
+
+        if (!syncTutorialTitle()) {
+          requestAnimationFrame(() => {
+            if (!syncTutorialTitle()) {
+              setTimeout(() => {
+                if (syncTutorialTitle()) return;
+
+                const observerTarget = rootDocument.documentElement || rootDocument.body;
+                if (!observerTarget) return;
+
+                const observer = new MutationObserver(() => {
+                  if (syncTutorialTitle()) {
+                    observer.disconnect();
+                  }
+                });
+
+                observer.observe(observerTarget, {
+                  childList: true,
+                  subtree: true,
+                  characterData: true
+                });
+
+                setTimeout(() => {
+                  observer.disconnect();
+                }, 3000);
+              }, 120);
+            }
+          });
+        }
+
+        pollTutorialMetaFromFrame();
       }
     });
   }
