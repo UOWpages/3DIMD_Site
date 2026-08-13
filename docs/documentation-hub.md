@@ -1,7 +1,7 @@
 # Documentation Hub
 
-Version: 1.0-draft
-Last Updated: 2026-08-12
+Version: 1.1-draft
+Last Updated: 2026-08-13
 Status: Working Draft
 
 ## 1. Purpose
@@ -50,6 +50,7 @@ Policy:
 7. [lecture-prompt-template.md](./lecture-prompt-template.md)
 8. [tutorial-layout-prompt.md](./tutorial-layout-prompt.md)
 9. [lecture-layout-prompt.md](./lecture-layout-prompt.md)
+10. [emojibake-strategy.md](./emojibake-strategy.md)
 
 ## 6. Workflow Modes
 1. Audit mode: no edits, PASS/FAIL only.
@@ -79,5 +80,6 @@ Use these exact shared section names across spec and playbook docs where applica
 3. Named owner and review cadence per document.
 
 ## 10. Change Log
+- 1.1-draft: Added emojibake strategy document to the documentation map.
 - 1.0-draft: Promoted hub to working draft and added explicit doc links and section-name alignment guidance.
 - 0.1-draft: Initial skeleton.

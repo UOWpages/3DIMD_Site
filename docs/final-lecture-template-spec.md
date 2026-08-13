@@ -88,6 +88,8 @@ Selection guidance:
 1. Use details and summary for collapsible lecture blocks.
 2. Keep accordion body content structurally valid and readable.
 3. Avoid deep nested accordions unless required by content density.
+4. For auto-converted slides, infer summary labels from nearby titles first (for example h3 labels or h2 parenthetical phrases) before falling back to generic names.
+5. When inference is insufficient, set an explicit per-slide label override to keep section naming meaningful.
 
 ### 5.4 Schedule and Deadline Rules
 1. Schedule slides use a dedicated schedule content container.

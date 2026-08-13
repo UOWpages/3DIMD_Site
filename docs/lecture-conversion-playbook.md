@@ -122,11 +122,13 @@ Required actions:
 2. Preserve instructional meaning and intent.
 3. Convert dense blocks into approved components where needed.
 4. Normalize schedule text into week cards and deadline callouts where applicable.
+5. When creating accordion summaries, infer section labels from nearby headings before using generic defaults.
 
 Content constraints:
 1. Preserve chronology for schedule content.
 2. Avoid stylistic rewrites that alter teaching intent.
 3. Keep terminology consistent within the lecture.
+4. If no reliable local heading exists for an accordion summary, use an explicit override label.
 
 Exit criteria:
 1. Content is readable, structured, and aligned to slide type.
