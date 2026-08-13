@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/site.css?v=20260805l" />
+    <link rel="stylesheet" href="../assets/css/site.css?v=20260813v" />
 </head>
 <body class="content-page">
   <main class="content-area content-page-area" id="main-content">
@@ -85,7 +85,7 @@
 { question: "If you want collision checks to ignore trigger colliders, which option do you pass to queries?", options: ["QueryTriggerInteraction.Ignore", "QueryTriggerInteraction.Collide", "QueryTriggerInteraction.UseGlobal", "QueryTriggerInteraction.Always"], answer: 0 },
 { question: "Which Unity component is NOT required to detect a trigger event?", options: ["A Collider set as trigger", "A script with OnTriggerEnter", "A Rigidbody on at least one object", "A Renderer"], answer: 3 },
 { question: "If you need contact point info inside OnCollisionEnter, which object gives you that?", options: ["The Collision parameter passed into OnCollisionEnter", "The Collider component alone", "The Renderer", "The Transform only"], answer: 0 },
-{ question: "How do you make two layers never collide (project-wide)?", options: ["Turn off their checkbox in Project Settings â†’ Physics collision matrix", "Rename layers to the same name", "Remove colliders", "Make them triggers"], answer: 0 },
+{ question: "How do you make two layers never collide (project-wide)?", options: ["Turn off their checkbox in Project Settings → Physics collision matrix", "Rename layers to the same name", "Remove colliders", "Make them triggers"], answer: 0 },
 { question: "Which of these is a good practice to reduce physics CPU usage?", options: ["Use primitive colliders and layer masks to limit checks", "Use many MeshColliders", "Enable continuous detection for everything", "Use triggers for all objects"], answer: 0 },
 { question: "What happens to a Collider if you disable its GameObject?", options: ["It no longer participates in physics", "It becomes stronger", "It becomes invisible only but still collides", "It changes layer"], answer: 0 },
 { question: "Which of these is the correct signature for a 3D trigger entry method?", options: ["void OnTriggerEnter(Collider other)", "void OnTriggerEnter(Collision other)", "void OnTriggerEnter2D(Collider2D other)", "void OnCollisionEnter(Collider other)"], answer: 0 },
@@ -127,7 +127,7 @@
 { question: "Which of the following best describes a compound collider?", options: ["Multiple primitive colliders combined (often using child objects) to approximate a complex shape", "A single large MeshCollider", "A trigger that contains other triggers", "A collider that changes at runtime"], answer: 0 },
 { question: "Which of these is an easy-first-step if OnCollisionEnter never fires in your scene?", options: ["Ensure at least one object in the collision pair has a Rigidbody and collision layers allow the pair", "Change texture", "Set application target frame rate to 60", "Disable all scripts"], answer: 0 },
 { question: "Which of the following is a correct use of QueryTriggerInteraction to include triggers in a physics query?", options: ["Physics.Raycast(..., QueryTriggerInteraction.Collide)", "Physics.Raycast(..., QueryTriggerInteraction.Ignore)", "Physics.Raycast(..., QueryTriggerInteraction.None)", "QueryTriggerInteraction isn't valid"], answer: 0 },
-{ question: "Which Unity window lets you toggle which layers collide with each other?", options: ["Project Settings â†’ Physics (Collision Matrix)", "Lighting window", "Animation window", "Audio Mixer"], answer: 0 },
+{ question: "Which Unity window lets you toggle which layers collide with each other?", options: ["Project Settings → Physics (Collision Matrix)", "Lighting window", "Animation window", "Audio Mixer"], answer: 0 },
 { question: "Which of these methods is most appropriate for detecting if a space is free before moving an object there?", options: ["Physics.OverlapBox/OverlapCapsule to test for overlaps", "Transform.GetChild", "Debug.Log", "Instantiate"], answer: 0 }
         ];
 
@@ -234,7 +234,7 @@
     
 </script>
   </main>
-  <script src="../assets/js/site.js?v=20260805f"></script>
+  <script src="../assets/js/site.js?v=20260813ac"></script>
 </body>
 </html>
 

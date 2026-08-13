@@ -37,3 +37,10 @@ None.
 
 None.
 
+## Milestones
+
+- 2026-08-13: Tutorial scrollbar milestone reached.
+	- Tutorial pages now use a lecture-style internal scroll region with a stable in-flow footer/logo.
+	- Verified from `site/index.html` iframe path (not standalone tutorial page).
+	- Accordion expansion produces active panel scrolling in the tutorial scroll container.
+

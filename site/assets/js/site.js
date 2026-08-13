@@ -235,6 +235,57 @@
     });
   };
 
+  const normalizeTutorialPage = (rootDocument) => {
+    const main = rootDocument?.querySelector(".content-page-area");
+    if (!main) return;
+
+    let footer = main.querySelector(".tutorial-page-footer");
+    if (!footer) {
+      footer = rootDocument.createElement("div");
+      footer.className = "tutorial-page-footer";
+
+      const logo = rootDocument.createElement("img");
+      logo.className = "tutorial-page-footer__logo";
+      logo.src = "../images/UOW_Logo_Length_Alpha.png";
+      logo.alt = "University of Westminster";
+
+      footer.append(logo);
+      main.append(footer);
+    }
+
+    let scrollRegion = main.querySelector(":scope > .tutorial-page-scroll");
+    if (!scrollRegion || scrollRegion.nodeType !== 1) {
+      scrollRegion = rootDocument.createElement("div");
+      scrollRegion.className = "tutorial-page-scroll";
+      main.insertBefore(scrollRegion, footer);
+    }
+
+    Array.from(main.childNodes).forEach((node) => {
+      if (node === scrollRegion || node === footer) return;
+      scrollRegion.append(node);
+    });
+
+    if (scrollRegion.dataset.tutorialAccordionScrollInitialized === "true") return;
+    scrollRegion.dataset.tutorialAccordionScrollInitialized = "true";
+
+    scrollRegion.querySelectorAll("details > summary").forEach((summary) => {
+      summary.addEventListener("click", () => {
+        const details = summary.parentElement;
+        window.setTimeout(() => {
+          if (!(details instanceof HTMLDetailsElement) || !details.open) return;
+
+          const regionRect = scrollRegion.getBoundingClientRect();
+          const detailsRect = details.getBoundingClientRect();
+          const nextTop = scrollRegion.scrollTop + (detailsRect.top - regionRect.top) - 12;
+
+          if (nextTop > scrollRegion.scrollTop) {
+            scrollRegion.scrollTop = nextTop;
+          }
+        }, 120);
+      });
+    });
+  };
+
   const normalizePageKey = (value) => {
     if (!value) return "";
     const noPrefix = value.replace(/^[.][/]/, "");
@@ -606,6 +657,12 @@
         // Continue even if an enhancement fails.
       }
 
+      try {
+        normalizeTutorialPage(rootDocument);
+      } catch {
+        // Continue even if tutorial layout normalization fails.
+      }
+
       if (isLecturePageKey(currentPageKey)) {
         const syncLectureTitle = () => {
           const activeTitle = getActiveLectureSlideTitle(rootDocument);
@@ -671,6 +728,7 @@
   enhancePseudoPanels(document);
   enableVideoPlaceholders(document);
   enableImageExpand(document);
+  normalizeTutorialPage(document);
   if (frame && home) {
     restoreActiveState();
   }
