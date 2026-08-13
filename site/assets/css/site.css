@@ -56,22 +56,22 @@ a:hover {
 
 .module-header {
   border-bottom: 4px solid var(--line);
-  background: #ffe600;
-  padding: var(--space-3) var(--space-4);
+  background: #60a5fa;
+  padding: 1.25rem 1.25rem 0.8rem;
   position: sticky;
   top: 0;
   z-index: 20;
-  box-shadow: 0 6px 0 #111111;
+  box-shadow: none;
 }
 
 .module-header__inner {
-  max-width: var(--maxw);
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   gap: 1rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .module-header h1 {
@@ -79,8 +79,11 @@ a:hover {
   font-family: "Archivo Black", "Space Grotesk", sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  font-size: clamp(1.2rem, 2.1vw, 2rem);
-  line-height: 1.1;
+  font-size: clamp(2.3rem, 5.8vw, 4rem);
+  line-height: 1.02;
+  color: #ffffff;
+  padding: 0;
+  text-align: left;
 }
 
 .module-header p {
@@ -206,11 +209,11 @@ a:hover {
 
 .content-meta {
   border-bottom: 4px solid var(--line);
-  background: var(--accent-alt);
+  background: #ff1f1f;
   color: #ffffff;
   font-weight: 700;
-  padding: 0.65rem 0.9rem;
-  font-size: 0.94rem;
+  padding: 1rem 1rem;
+  font-size: 1.1rem;
   letter-spacing: 0.01em;
 }
 

@@ -1244,6 +1244,23 @@
 
     setupSlide6TopicDialogs();
 
+    // Use each slide's own H2 as its top title bar text.
+    function syncSlideTitles() {
+      slides.forEach((slide) => {
+        const title = slide.querySelector('.slide-title');
+        const heading = slide.querySelector('.slide-content h2');
+        if (!title || !heading) return;
+
+        const headingText = (heading.textContent || '').replace(/\s+/g, ' ').trim();
+        if (headingText) {
+          title.textContent = headingText;
+          heading.remove();
+        }
+      });
+    }
+
+    syncSlideTitles();
+
     // Update slide counter display
     function updateCounters() {
       slides.forEach((slide, index) => {

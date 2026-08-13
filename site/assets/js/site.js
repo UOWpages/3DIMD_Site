@@ -228,6 +228,19 @@
         link.removeAttribute("aria-current");
       }
     });
+
+    if (window.matchMedia("(max-width: 960px)").matches) {
+      const active = nav?.querySelector('a[aria-current="page"]');
+      if (active instanceof HTMLElement) {
+        requestAnimationFrame(() => {
+          active.scrollIntoView({
+            block: "nearest",
+            inline: "center",
+            behavior: "smooth"
+          });
+        });
+      }
+    }
   };
 
   const setMeta = (label) => {
@@ -340,6 +353,18 @@
     nav.addEventListener("scroll", () => {
       saveNavState();
     }, { passive: true });
+
+    window.addEventListener("resize", () => {
+      if (!window.matchMedia("(max-width: 960px)").matches) return;
+      const active = nav.querySelector('a[aria-current="page"]');
+      if (active instanceof HTMLElement) {
+        active.scrollIntoView({
+          block: "nearest",
+          inline: "center",
+          behavior: "auto"
+        });
+      }
+    });
 
     window.addEventListener("beforeunload", () => {
       saveNavState();
