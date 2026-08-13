@@ -1225,6 +1225,21 @@ body.content-page .page-title {
     padding: 0.95rem 1rem;
   }
 
+  .module-header h1 {
+    font-size: clamp(1.35rem, 7.2vw, 1.95rem);
+    line-height: 1.06;
+  }
+
+  .content-shell.content-shell--lecture .content-meta,
+  .content-shell.content-shell--tutorial .content-meta,
+  .content-meta.content-meta--lecture,
+  .content-meta.content-meta--tutorial {
+    font-size: clamp(1.3rem, 6.1vw, 1.85rem);
+    line-height: 1.12;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
   .module-header p {
     font-size: 0.8rem;
   }
