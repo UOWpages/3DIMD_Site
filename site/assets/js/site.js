@@ -1,8 +1,10 @@
 (() => {
   const NAV_SCROLL_KEY = "site.nav.scrollTop";
   const NAV_ACTIVE_KEY = "site.nav.activePage";
+  const NAV_GROUPS_KEY = "site.nav.groups";
   const nav = document.querySelector(".nav-rail");
   const links = Array.from(document.querySelectorAll(".nav-rail a"));
+  const navToggles = Array.from(document.querySelectorAll(".nav-toggle"));
   const frame = document.getElementById("content-frame");
   const home = document.getElementById("home-content");
   const meta = document.getElementById("content-meta");
@@ -295,6 +297,50 @@
   const isLecturePageKey = (pageKey) => /^pages\/lect-[^/]+\.html$/i.test(normalizePageKey(pageKey || ""));
   const isTutorialPageKey = (pageKey) => /^pages\/tut-[^/]+\.html$/i.test(normalizePageKey(pageKey || ""));
 
+  const getNavGroupForPageKey = (pageKey) => {
+    if (isLecturePageKey(pageKey)) return "lectures";
+    if (isTutorialPageKey(pageKey)) return "tutorials";
+    return null;
+  };
+
+  const loadNavGroupState = () => {
+    try {
+      return JSON.parse(sessionStorage.getItem(NAV_GROUPS_KEY) || "{}");
+    } catch {
+      return {};
+    }
+  };
+
+  const navGroupState = loadNavGroupState();
+
+  const saveNavGroupState = () => {
+    try {
+      sessionStorage.setItem(NAV_GROUPS_KEY, JSON.stringify(navGroupState));
+    } catch {
+      // Ignore storage issues in restricted contexts.
+    }
+  };
+
+  const setNavGroupExpanded = (groupName, expanded) => {
+    const toggle = navToggles.find((item) => item.dataset.navToggle === groupName);
+    const group = nav?.querySelector(`.nav-group[data-nav-group="${groupName}"]`);
+    if (!toggle || !group) return;
+    toggle.setAttribute("aria-expanded", String(expanded));
+    toggle.classList.toggle("is-expanded", expanded);
+    group.hidden = !expanded;
+    navGroupState[groupName] = expanded;
+    saveNavGroupState();
+  };
+
+  navToggles.forEach((toggle) => {
+    const groupName = toggle.dataset.navToggle;
+    setNavGroupExpanded(groupName, navGroupState[groupName] === true);
+    toggle.addEventListener("click", () => {
+      const expanded = toggle.getAttribute("aria-expanded") === "true";
+      setNavGroupExpanded(groupName, !expanded);
+    });
+  });
+
   const getLinkKey = (link) => normalizePageKey(
     link.getAttribute("data-page") || link.getAttribute("href")
   );
@@ -555,6 +601,10 @@
     document.title = `3DIMD | ${label}`;
     setActiveLink(pageKey);
     saveNavState(pageKey);
+    const navGroup = getNavGroupForPageKey(pageKey);
+    if (navGroup) {
+      setNavGroupExpanded(navGroup, true);
+    }
     link.focus({ preventScroll: true });
   };
 

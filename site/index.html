@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/site.css?v=20260813v" />
+  <link rel="stylesheet" href="assets/css/site.css?v=20260814a" />
 </head>
 <body>
   <header class="module-header">
@@ -18,11 +18,22 @@
   <div class="site-shell">
 <nav class="nav-rail" aria-label="Module navigation">
 <h2 class="nav-title">Module Navigation</h2>
-<p><a href="./index.html" data-page="home" data-label="Home">Home</a></p>
-<h3>Students</h3>
+<ul class="nav-top">
+<li class="nav-top-item"><a href="./index.html" data-page="home" data-label="Sitemap">Sitemap</a></li>
+<li class="nav-top-item nav-top-item--group">
+<button type="button" class="nav-toggle" data-nav-toggle="lectures" aria-expanded="false">Lectures</button>
+<div class="nav-group" data-nav-group="lectures" hidden>
 <ul>
 <li><a href="pages/lect-01a.html" data-page="pages/lect-01a.html" data-label="Lecture 01a Module Info">Lecture 01a Module Info</a></li>
 <li><a href="pages/lect-01b.html" data-page="pages/lect-01b.html" data-label="Lecture 01b Unity Intro and Concepts">Lecture 01b Unity Intro and Concepts</a></li>
+</ul>
+</div>
+</li>
+<li class="nav-top-item nav-top-item--group">
+<button type="button" class="nav-toggle" data-nav-toggle="tutorials" aria-expanded="false">Tutorials</button>
+<div class="nav-group" data-nav-group="tutorials" hidden>
+<h3>Students</h3>
+<ul>
 <li><a href="pages/tut-00-01-student-version.html" data-page="pages/tut-00-01-student-version.html" data-label="Tutorial 00 01">Tutorial 00 01</a></li>
 <li><a href="pages/tut-02-03-students.html" data-page="pages/tut-02-03-students.html" data-label="Tutorial 02 03">Tutorial 02 03</a></li>
 <li><a href="pages/tut-04-students.html" data-page="pages/tut-04-students.html" data-label="Tutorial 04">Tutorial 04</a></li>
@@ -51,6 +62,9 @@
 <h3>Assessments</h3>
 <ul>
 <li><a href="pages/tut-08-physics-quiz-rbct.html" data-page="pages/tut-08-physics-quiz-rbct.html" data-label="Tutorial 08">Tutorial 08</a></li>
+</ul>
+</div>
+</li>
 </ul>
 </nav>
 
@@ -104,6 +118,6 @@
       </div>
     </section>
   </div>
-  <script src="assets/js/site.js?v=20260813ac"></script>
+  <script src="assets/js/site.js?v=20260814a"></script>
 </body>
 </html>
