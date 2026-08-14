@@ -152,7 +152,52 @@ Step 2 — Polish pass (produces the final lect-01a/01b visual/interaction style
 3. Re-run both scripts from a clean Step 1 output rather than re-running them on
    their own prior output — they are not designed to be idempotent on
    already-wrapped/already-accordion-ized content.
-4. Add the new page's nav entry under `.nav-group[data-nav-group="lectures"]` in
+4. Manual pass — embed video links: after accordionizing, find any bare video URL
+   paragraphs left in an accordion body and replace them in place with embedded
+   videos wrapped in nested collapsible `video-accordion` sections. Each video gets
+   its own collapsible accordion for a clean, browsable presentation. Keep other
+   surrounding `<p>` lines untouched; only the raw video URL lines are replaced.
+   Number videos sequentially per slide when a slide has more than one.
+   
+   **All video types** (YouTube, youtu.be, Panopto, Vimeo, etc.) use this nested
+   collapsible pattern:
+   ```html
+   <details class="accordion accordion--nested video-accordion">
+     <summary>Video: <Description or Context from Nearby Text></summary>
+     <div class="accordion-body">
+       <article class="embed-card">
+         <iframe class="video-embed" src="<EMBED_URL>" title="<Slide/Section Heading> video <N>" loading="lazy" allowfullscreen></iframe>
+         <p><a href="<WATCH_URL>" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+       </article>
+     </div>
+   </details>
+   ```
+   
+   **YouTube and youtu.be links:**
+   - Extract `<VIDEO_ID>` from:
+     - `https://www.youtube.com/watch?v=<ID>` → use `<ID>`
+     - `https://youtu.be/<ID>` → use `<ID>`
+   - `<EMBED_URL>` = `https://www.youtube.com/embed/<VIDEO_ID>`
+   - `<WATCH_URL>` = original URL (watch or youtu.be)
+   - `class="video-embed"`
+   
+   **Panopto links:**
+   - Extract `<UUID>` from the Panopto URL's `id=` parameter
+   - `<EMBED_URL>` = `https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=<UUID>`
+   - `<WATCH_URL>` = `https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=<UUID>`
+   - `class="panopto-embed"`
+   
+   **Other video hosts (Vimeo, etc.):**
+   - Use the standard embed URL provided by the host
+   - `class="video-embed"`
+   
+   **Summary text guidance:**
+   Infer video content from nearby text/headings. Examples:
+   - "Create (Legacy) and call from other script" → "Video: Create (Legacy) and call from other script"
+   - "Animator states" section → "Video: Animator states setup"
+   - When context unclear, use generic "Video 1", "Video 2", etc.
+   
+5. Add the new page's nav entry under `.nav-group[data-nav-group="lectures"]` in
    `site/index.html`, and bump the `?v=` query string on any shared CSS/JS files
    that were touched.
 

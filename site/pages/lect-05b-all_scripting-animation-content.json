@@ -1,0 +1,122 @@
+[
+  {
+    "slide_number": 1,
+    "title": "3D Interactive Media Development",
+    "content": [
+      "5MMCS001W\t\t\t\tLecture Tutorial\n\nIntermission"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 2,
+    "title": "3D Interactive Media Development",
+    "content": [
+      "Demo for Tutorial - Max Export Lego Walk to Unity\n\nUnity Animator/Animation"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 3,
+    "title": "3D Interactive Media Development",
+    "content": [
+      "Basic Architecture (Animator)\n\n1. Mechanim (Animator)\n2. Also legacy Animation Controller\n\nCan co-exist as component controllers in different GameObjects in the scene."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 4,
+    "title": "3D Interactive Media Development",
+    "content": [
+      "Unity Animation System (Animator)\n\nAlso known as mechanim…\nSetup and workflow for animations of objects, characters, and properties\n\nImported Animation clips\nAnimation created within Unity\n\nCan retarget for humanoids\nClip Alignment workflow\n\nVisual programming\n\nLayering and Masking\nDifferent logic for different body parts"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 5,
+    "title": "3D Interactive Media Development",
+    "content": [
+      "Unity Animator Controller\n\nThe Animator Controller controls animation through layers with state machines, controlled by parameters.\n\nThe Animator Component is added to an object to be animated.\nIt acts as a constructor\n\nVariables:\n\tLayers – Layers of animations in the controller window.\n\t\tThe Layer has a visual State Machine that controls the model’s animations\n\tParameters – expose control by script (Speed), transitions and blendtrees\n\nTransitions, Masks, Logic and Booleans"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 6,
+    "title": "3D Interactive Media Development",
+    "content": [
+      "Unity Animation System (Animator) Workflow\n\nBased on Animation Clips – usually imported\nOrganised in Animator Controller flowchart\nCan be basic or complex (for whole player animations)\nAvatar system allows humanoid retargeting as well as muscle definitions\n\nAnimator Component in a Game Object has:\n\t1. Animation Clips\n\t2. Animator Controller\n\t3. Avatar\n\nThese are defined and adjusted in the inspector window in the top level of an imported fbx.\n\nAnimator Component references the Animator Controller, which references the Animation Clips used."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 7,
+    "title": "3D Interactive Media Development",
+    "content": [
+      "Demo for Tutorial - Unity Animation Legacy\n\nAnimation Component\n\nUnity also allows for legacy animation via the Animation Component\n\nAnimation Window is not the same as the Animation component!\n\nAnimation window is for viewing and editing animations, be they legacy or Animator ready"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 8,
+    "title": "3D Interactive Media Development",
+    "content": [
+      "Export Lego Walk to Unity"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 9,
+    "title": "3D Interactive Media Development",
+    "content": [
+      "Import Lego Walk to Unity\nDetail\n\tFbx Animation comes in separately under imported fbx in project window\n\tInspector window when selecting root of imported fbx  brings up all detail\n\t\tTabs:\n\t\tModel – Can adjust scale factor as needed, Read/Write, Normals\n\t\tRig – Generic or humanoid for Animator, Legacy for Animation\n\t\t\tAvatar: Usually create from this model, Root if clip moving\n\t\tAnimations – Add and block out anims, rename, Loop\n\tDrag root of imported Fbx into the Hierarchy\t\n\tAnimator component of Animation clips, avatar, controller needed to drive\n\t(Added Automatcally…)\n\tAnimation component (Legacy) uses clips (separate adjustments in inspector)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 10,
+    "title": "3D Interactive Media Development",
+    "content": [
+      "Import Lego Walk to Unity\n\n\tAnimation window when selecting root of imported fbx  \n\tBrings up all keyframes, graphs of animation clips. \n\tCan browse imported clips and also record new clips here"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 11,
+    "title": "3D Interactive Media Development",
+    "content": [
+      "Tutorial - Unity Animation\n\n00 – Export as Fbx\n01 – Import to Unity as Fbx, Trigger Animator with OnMouseDown\n02 – Change and Play Animations in Legacy\n03 – Animator states with blend tree and script control\n\tUnity 5 Tutorial - Animation Control\n\tAnimator Scripting - Unity Official Tutorials\n\n04 - Create, Add and Edit Animations in Unity\n\tCreate (Legacy) and call from other script\n\thttps://www.youtube.com/watch?v=aJOH0Jlo4YA\n\t\tCreate an Object, add Animation Component and Script\n\t\tAnimation window, Record (autokey), loop\n\tCreate (Animator) – Bouncing Ball, Character, Booleans, Speed, Blend Tree (just a 2d example, 3d to come)\n\thttps://www.youtube.com/watch?v=ts24UWC0mY4\n\thttps://youtu.be/QN3joSQyzQQ"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 12,
+    "title": "3D Interactive Media Development",
+    "content": [
+      "Tutorial - Unity Animation\n\n04 - Create, Add and Edit Animations in Unity\n\nClip Read Only Issue:\u000b \nhttps://community.unity.com/t5/Editor/Read-Only-Animation-by-Default/td-p/547545\u000bYou can select the animations you wish to modify, and duplicate them (Ctrl+D, if you're on Windows).Drop the imported model on the scene, and associate the duplicated animations.Then you can modify these ones through the Animation window.\n\nCan then create new Clips in Animation Window as well.\u000b\u000bAdvanced – http://answers.unity3d.com/questions/187907/how-to-add-keyframes-on-imported-read-only-animati.html"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 13,
+    "title": "3D Interactive Media Development",
+    "content": [
+      "Tutorial - Unity Input and Movement (later sheets)\n\n\n02 - Input and Movement – Done with Previous Week 02\n\nUnity UI and movement scripting\n\tLerp\n\tMovetowards\n\tOther\n\nNavigation – Prefabs 3PC, FPC, Animator for player\n\tTGC\n\tOther"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 14,
+    "title": "3D Interactive Media Development",
+    "content": [
+      "Files\n\nLego Brick and Lego Walk 3DSMax file\n\nFbx Walk Export\n\nUnity Files for Tutorial sheets"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 15,
+    "title": "3D Interactive Media Development",
+    "content": [
+      "Extras\n\nLego Brick and Lego Walk 3DSMax file to download\nCreate a wall of bricks in max with array\nCreate same wall in Unity with scripted array"
+    ],
+    "images": []
+  }
+]

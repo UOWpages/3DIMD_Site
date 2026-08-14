@@ -418,6 +418,67 @@ a:hover {
   display: block;
 }
 
+.slide-content .video-accordion {
+  margin: 0.75rem 0;
+  border: 3px solid var(--line);
+  border-radius: 12px;
+  background: #fff8de;
+  box-shadow: 4px 4px 0 #111111;
+  overflow: hidden;
+}
+
+.slide-content .video-accordion > summary {
+  border: 0;
+  border-bottom: 3px solid var(--line);
+  border-radius: 0;
+  background: linear-gradient(90deg, #ffe066 0%, #ffc53d 100%);
+  font-size: 1rem;
+  padding: 0.6rem 0.75rem;
+}
+
+.slide-content .video-accordion > summary::before {
+  border-left-color: #111111;
+}
+
+.slide-content .video-accordion > summary::after {
+  content: "";
+  width: 0.65rem;
+  height: 0.65rem;
+  margin-left: auto;
+  border-radius: 999px;
+  border: 2px solid var(--line);
+  background: #ffffff;
+  box-shadow:
+    -1rem 0 0 -0.08rem #ff8a5b,
+    -1rem 0 0 0.12rem #111111,
+    -2rem 0 0 -0.08rem #6fd3ff,
+    -2rem 0 0 0.12rem #111111;
+}
+
+.slide-content .video-accordion .accordion-body {
+  border-top: 0;
+  padding: 0.6rem 0.7rem 0.75rem;
+  background: linear-gradient(180deg, #fffdf7 0%, #fff6d8 100%);
+}
+
+.slide-content .video-accordion .embed-card {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+.slide-content .video-accordion .video-embed,
+.slide-content .video-accordion .panopto-embed {
+  border: 3px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 3px 3px 0 #111111;
+  background: #fbfdff;
+  min-height: 400px;
+}
+
 .slide-content .lecturer-entry + .lecturer-entry {
   margin-top: 1rem;
 }

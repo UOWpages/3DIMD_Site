@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Lecture 05b - Unity Scripting: Animation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260805m" />
+  <link rel="stylesheet" href="../assets/css/slideshow.css?v=20260814c" />
+  <style>
+    body.lecture-fullbleed .slideshow-container {
+      visibility: hidden;
+    }
+
+    body.lecture-fullbleed.lecture-ready .slideshow-container {
+      visibility: visible;
+    }
+
+    body.lecture-fullbleed .slide-title {
+      display: none !important;
+    }
+
+    body.lecture-fullbleed .slide-content > h2 {
+      display: none !important;
+    }
+  </style>
+</head>
+<body class="lecture-fullbleed">
+  <div class="slideshow-container">
+    <!-- Slide 1 -->
+    <div class="slide active">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>5MMCS001W Lecture Tutorial</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>5MMCS001W Lecture Tutorial</summary>
+        <div class="accordion-body">
+    <p>Intermission</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)" disabled> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Demo for Tutorial - Max Export Lego Walk to Unity</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Overview</summary>
+        <div class="accordion-body">
+    <p>Unity Animator/Animation</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Basic Architecture (Animator)</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Animator</summary>
+        <div class="accordion-body">
+    <p>1. Mechanim (Animator)</p>
+    <p>2. Also legacy Animation Controller</p>
+    <p>Can co-exist as component controllers in different GameObjects in the scene.</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Animation System (Animator)</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Animator</summary>
+        <div class="accordion-body">
+    <p>Also known as mechanim…</p>
+    <p>Setup and workflow for animations of objects, characters, and properties</p>
+    <p>Imported Animation clips</p>
+    <p>Animation created within Unity</p>
+    <p>Can retarget for humanoids</p>
+    <p>Clip Alignment workflow</p>
+    <p>Visual programming</p>
+    <p>Layering and Masking</p>
+    <p>Different logic for different body parts</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Animator Controller</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Unity Animator Controller</summary>
+        <div class="accordion-body">
+    <p>The Animator Controller controls animation through layers with state machines, controlled by parameters.</p>
+    <p>The Animator Component is added to an object to be animated.</p>
+    <p>It acts as a constructor</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Variables</summary>
+        <div class="accordion-body">
+    <h3>Variables:</h3>
+    <p>Layers – Layers of animations in the controller window.</p>
+    <p>The Layer has a visual State Machine that controls the model’s animations</p>
+    <p>Parameters – expose control by script (Speed), transitions and blendtrees</p>
+    <p>Transitions, Masks, Logic and Booleans</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 6 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Animation System (Animator) Workflow</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Overview</summary>
+        <div class="accordion-body">
+    <p>Based on Animation Clips – usually imported</p>
+    <p>Organised in Animator Controller flowchart</p>
+    <p>Can be basic or complex (for whole player animations)</p>
+    <p>Avatar system allows humanoid retargeting as well as muscle definitions</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Animator Component in a Game Object has</summary>
+        <div class="accordion-body">
+    <h3>Animator Component in a Game Object has:</h3>
+    <p>1. Animation Clips</p>
+    <p>2. Animator Controller</p>
+    <p>3. Avatar</p>
+    <p>These are defined and adjusted in the inspector window in the top level of an imported fbx.</p>
+    <p>Animator Component references the Animator Controller, which references the Animation Clips used.</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 7 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Demo for Tutorial - Unity Animation Legacy</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Overview</summary>
+        <div class="accordion-body">
+    <p>Animation Component</p>
+    <p>Unity also allows for legacy animation via the Animation Component</p>
+    <p>Animation Window is not the same as the Animation component!</p>
+    <p>Animation window is for viewing and editing animations, be they legacy or Animator ready</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 8 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Export Lego Walk to Unity</h2>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 9 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Import Lego Walk to Unity</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Import Lego Walk to Unity</summary>
+        <div class="accordion-body">
+    <p>Detail</p>
+    <p>Fbx Animation comes in separately under imported fbx in project window</p>
+    <p>Inspector window when selecting root of imported fbx brings up all detail</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Tabs</summary>
+        <div class="accordion-body">
+    <h3>Tabs:</h3>
+    <p>Model – Can adjust scale factor as needed, Read/Write, Normals</p>
+    <p>Rig – Generic or humanoid for Animator, Legacy for Animation</p>
+    <p>Avatar: Usually create from this model, Root if clip moving</p>
+    <p>Animations – Add and block out anims, rename, Loop</p>
+    <p>Drag root of imported Fbx into the Hierarchy</p>
+    <p>Animator component of Animation clips, avatar, controller needed to drive</p>
+    <p>(Added Automatcally…)</p>
+    <p>Animation component (Legacy) uses clips (separate adjustments in inspector)</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 10 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Import Lego Walk to Unity</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Import Lego Walk to Unity</summary>
+        <div class="accordion-body">
+    <p>Animation window when selecting root of imported fbx</p>
+    <p>Brings up all keyframes, graphs of animation clips.</p>
+    <p>Can browse imported clips and also record new clips here</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 11 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Tutorial - Unity Animation</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Tutorial - Unity Animation</summary>
+        <div class="accordion-body">
+    <p>00 – Export as Fbx</p>
+    <p>01 – Import to Unity as Fbx, Trigger Animator with OnMouseDown</p>
+    <p>02 – Change and Play Animations in Legacy</p>
+    <p>03 – Animator states with blend tree and script control</p>
+    <p>Unity 5 Tutorial - Animation Control</p>
+    <p>Animator Scripting - Unity Official Tutorials</p>
+    <p>04 - Create, Add and Edit Animations in Unity</p>
+    <p>Create (Legacy) and call from other script</p>
+    <details class="accordion accordion--nested video-accordion">
+      <summary>Video: Create (Legacy) and call from other script</summary>
+      <div class="accordion-body">
+        <article class="embed-card">
+          <iframe class="video-embed" src="https://www.youtube.com/embed/aJOH0Jlo4YA" title="Tutorial - Unity Animation video 1" loading="lazy" allowfullscreen></iframe>
+          <p><a href="https://www.youtube.com/watch?v=aJOH0Jlo4YA" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+        </article>
+      </div>
+    </details>
+    <p>Create an Object, add Animation Component and Script</p>
+    <p>Animation window, Record (autokey), loop</p>
+    <p>Create (Animator) – Bouncing Ball, Character, Booleans, Speed, Blend Tree (just a 2d example, 3d to come)</p>
+    <details class="accordion accordion--nested video-accordion">
+      <summary>Video: Create (Animator)</summary>
+      <div class="accordion-body">
+        <article class="embed-card">
+          <iframe class="video-embed" src="https://www.youtube.com/embed/ts24UWC0mY4" title="Tutorial - Unity Animation video 2" loading="lazy" allowfullscreen></iframe>
+          <p><a href="https://www.youtube.com/watch?v=ts24UWC0mY4" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+        </article>
+      </div>
+    </details>
+    <details class="accordion accordion--nested video-accordion">
+      <summary>Video: Animation Setup</summary>
+      <div class="accordion-body">
+        <article class="embed-card">
+          <iframe class="video-embed" src="https://www.youtube.com/embed/QN3joSQyzQQ" title="Tutorial - Unity Animation video 3" loading="lazy" allowfullscreen></iframe>
+          <p><a href="https://youtu.be/QN3joSQyzQQ" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+        </article>
+      </div>
+    </details>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-11">11</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 12 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Tutorial - Unity Animation</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Tutorial - Unity Animation</summary>
+        <div class="accordion-body">
+    <p>04 - Create, Add and Edit Animations in Unity</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Clip Read Only Issue</summary>
+        <div class="accordion-body">
+    <h3>Clip Read Only Issue:</h3>
+    <p>https://community.unity.com/t5/Editor/Read-Only-Animation-by-Default/td-p/547545</p>
+    <p>You can select the animations you wish to modify, and duplicate them (Ctrl+D, if you&#x27;re on Windows).Drop the imported model on the scene, and associate the duplicated animations.Then you can modify these ones through the Animation window.</p>
+    <p>Can then create new Clips in Animation Window as well.</p>
+    <p>Advanced – http://answers.unity3d.com/questions/187907/how-to-add-keyframes-on-imported-read-only-animati.html</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-12">12</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 13 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Tutorial - Unity Input and Movement (later sheets)</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>later sheets</summary>
+        <div class="accordion-body">
+    <p>02 - Input and Movement – Done with Previous Week 02</p>
+    <p>Unity UI and movement scripting</p>
+    <p>Lerp</p>
+    <p>Movetowards</p>
+    <p>Other</p>
+    <p>Navigation – Prefabs 3PC, FPC, Animator for player</p>
+    <p class="section-label">TGC</p>
+    <p>Other</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-13">13</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 14 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Files</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Files</summary>
+        <div class="accordion-body">
+    <p>Lego Brick and Lego Walk 3DSMax file</p>
+    <p>Fbx Walk Export</p>
+    <p>Unity Files for Tutorial sheets</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-14">14</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 15 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Extras</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Extras</summary>
+        <div class="accordion-body">
+    <p>Lego Brick and Lego Walk 3DSMax file to download</p>
+    <p>Create a wall of bricks in max with array</p>
+    <p>Create same wall in Unity with scripted array</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)" disabled>Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-15">15</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../assets/js/site.js?v=20260805f"></script>
+  <script>
+    const isLecturePage = /\/lect-[^/]+\.html$/i.test(window.location.pathname);
+    if (isLecturePage && document.body) {
+      document.body.classList.add('lecture-fullbleed');
+    }
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function normalizeSlideStructure(slide) {
+      if (slide.querySelector('.slide-frame')) return;
+
+      const title = slide.querySelector('.slide-title');
+      const controls = slide.querySelector('.slide-controls');
+      const body = slide.querySelector('.slide-content');
+      if (!title || !controls || !body) return;
+
+      const frame = document.createElement('div');
+      frame.className = 'slide-frame';
+      frame.appendChild(title);
+      frame.appendChild(body);
+      frame.appendChild(controls);
+      slide.appendChild(frame);
+    }
+
+    function linkifyText(element) {
+      const urlPattern = /(https?:\/\/[^\s]+)/g;
+      const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+      );
+
+      const nodesToReplace = [];
+      let node;
+
+      while (node = walker.nextNode()) {
+        if (urlPattern.test(node.textContent)) {
+          nodesToReplace.push(node);
+        }
+      }
+
+      urlPattern.lastIndex = 0;
+
+      nodesToReplace.forEach((textNode) => {
+        const span = document.createElement('span');
+        span.innerHTML = textNode.textContent.replace(
+          /(https?:\/\/[^\s]+)/g,
+          '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
+        textNode.parentNode.replaceChild(span, textNode);
+      });
+    }
+
+    function syncSlideTitles() {
+      slides.forEach((slide) => {
+        const title = slide.querySelector('.slide-title');
+        const heading = slide.querySelector('.slide-content h2');
+        if (!title || !heading) return;
+
+        const headingText = (heading.textContent || '').replace(/\s+/g, ' ').trim();
+        if (headingText) {
+          title.textContent = headingText;
+          heading.remove();
+        }
+      });
+    }
+
+    function announceActiveSlideTitle() {
+      const activeSlide = slides[currentSlide];
+      if (!activeSlide) return;
+
+      const titleNode = activeSlide.querySelector('.slide-title');
+      const titleText = (titleNode ? titleNode.textContent : '').replace(/\s+/g, ' ').trim();
+      if (!titleText) return;
+
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({
+          type: 'lecture-slide-title',
+          title: titleText
+        }, '*');
+      }
+    }
+
+    slides.forEach((slide) => {
+      normalizeSlideStructure(slide);
+      linkifyText(slide.querySelector('.slide-content') || slide);
+    });
+
+    syncSlideTitles();
+
+    function updateCounters() {
+      slides.forEach((slide, index) => {
+        const counter = slide.querySelector('.slide-counter');
+        if (counter) {
+          counter.textContent = `${index + 1} / ${totalSlides}`;
+        }
+      });
+    }
+
+    function showSlide(n) {
+      slides.forEach((slide) => slide.classList.remove('active'));
+      slides[currentSlide].classList.add('active');
+
+      const allButtons = document.querySelectorAll('.slide-button');
+      const isFirstSlide = currentSlide === 0;
+      const isLastSlide = currentSlide === totalSlides - 1;
+
+      allButtons.forEach((btn) => {
+        if (btn.textContent.includes('Previous')) {
+          btn.disabled = isFirstSlide;
+        } else if (btn.textContent.includes('Next')) {
+          btn.disabled = isLastSlide;
+        }
+      });
+
+      updateCounters();
+      announceActiveSlideTitle();
+    }
+
+    function changeSlide(n) {
+      currentSlide += n;
+      if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+      if (currentSlide < 0) currentSlide = 0;
+      showSlide(currentSlide);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+    });
+
+    showSlide(currentSlide);
+    document.body.classList.add('lecture-ready');
+  </script>
+</body>
+</html>

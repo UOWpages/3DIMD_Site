@@ -23,7 +23,7 @@ Keep all future additions normalized, semantic, and compatible with the shared s
 
 - Notes: note, note--important, note--tip
 - Accordions: accordion with summary and accordion-body
-- Embeds: video-embed for YouTube, panopto-embed for Panopto
+- Embeds: video-embed for YouTube/Vimeo, panopto-embed for Panopto
 - Media links: media-list and link-card
 - Images: image-figure with image-caption
 
@@ -37,13 +37,21 @@ Keep all future additions normalized, semantic, and compatible with the shared s
 
 ## Media Handling Rules
 
-1. YouTube links: convert to an embed iframe in a collapsed video details section.
-2. Panopto links: convert to an embed iframe in a collapsed video details section.
-3. Other media links: use link-card entries in a media-list.
-4. Gyazo links: use preview image when possible, with a clickable fallback link.
-5. Site-wide image interaction: clicking embedded figure images opens an expanded image overlay; clicking the expanded image/overlay closes it.
-6. Caption wording for Gyazo previews: use "Gyazo preview (click image to expand)."
-7. External links should include `target="_blank"` and `rel="noopener noreferrer"` together when they point off-site.
+1. **YouTube/youtu.be links:** convert to an embed iframe wrapped in a nested
+   collapsible `<details class="accordion accordion--nested video-accordion">` section
+   with `class="video-embed"` on the iframe, `loading="lazy"` and `allowfullscreen` attributes.
+   Each video gets its own collapsible accordion with a descriptive summary label.
+2. **Panopto links:** convert to an embed iframe with the same nested video-accordion
+   collapsible pattern, using `class="panopto-embed"` on the iframe, with both
+   `/Embed.aspx?id=<UUID>` embed URL and `/Viewer.aspx?id=<UUID>` fallback watch link.
+3. **Other video hosts (Vimeo, etc.):** use the host's standard embed URL with the same
+   nested video-accordion collapsible pattern, `class="video-embed"`, `loading="lazy"`,
+   and `allowfullscreen` attributes.
+4. Other media links: use link-card entries in a media-list.
+5. Gyazo links: use preview image when possible, with a clickable fallback link.
+6. Site-wide image interaction: clicking embedded figure images opens an expanded image overlay; clicking the expanded image/overlay closes it.
+7. Caption wording for Gyazo previews: use "Gyazo preview (click image to expand)."
+8. External links should include `target="_blank"` and `rel="noopener noreferrer"` together when they point off-site.
 
 ## QA Checklist
 
