@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Lecture 04b - Unity Scripting: Access Other GameObjects and Scripts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260805m" />
+  <link rel="stylesheet" href="../assets/css/slideshow.css?v=20260814b" />
+  <style>
+    body.lecture-fullbleed .slideshow-container {
+      visibility: hidden;
+    }
+
+    body.lecture-fullbleed.lecture-ready .slideshow-container {
+      visibility: visible;
+    }
+
+    body.lecture-fullbleed .slide-title {
+      display: none !important;
+    }
+
+    body.lecture-fullbleed .slide-content > h2 {
+      display: none !important;
+    }
+  </style>
+</head>
+<body class="lecture-fullbleed">
+  <div class="slideshow-container">
+    <!-- Slide 1 -->
+    <div class="slide active">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>5MMCS001W Lecture 04b</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>5MMCS001W Lecture 04b</summary>
+        <div class="accordion-body">
+    <p>C# in Unity and OOP, Triggering Animations, Basic Movement and Input, Leading to Unity UI</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)" disabled> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Examples – Access to Variables, Methods, Game Objects and Scripts</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Overview</summary>
+        <div class="accordion-body">
+    <p>Access other GO and scripts, public, static, instantiate</p>
+    <p>Get GameObject</p>
+    <p>Get Component</p>
+    <p>Get Script</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Examples – Access to Variables, Methods, Game Objects and Scripts</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Overview</summary>
+        <div class="accordion-body">
+    <p>Some declaration and Initialisation options – in Constructor, Awake, Start</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using UnityEngine;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using System.Collections;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">public class UsingOtherComponents : MonoBehaviour</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">{</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">public GameObject otherGameObject;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">private AnotherScript anotherScript;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">private YetAnotherScript yetAnotherScript;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">private BoxCollider boxCol;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">void Awake ()</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 1">{</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">anotherScript = GetComponent&lt;AnotherScript&gt;();</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">yetAnotherScript = otherGameObject.GetComponent&lt;YetAnotherScript&gt;();</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">boxCol = otherGameObject.GetComponent&lt;BoxCollider&gt;();</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 1">}</div>
+      </div>
+    </section>
+    <p class="slide-citation">From <a href="https://unity3d.com/learn/tutorials/topics/scripting/getcomponent" target="_blank" rel="noopener noreferrer">https://unity3d.com/learn/tutorials/topics/scripting/getcomponent</a></p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Examples – Access to Variables, Methods, Game Objects and Scripts</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Overview</summary>
+        <div class="accordion-body">
+    <p>Some declaration and Initialisation options – in Constructor, Awake, Start</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using UnityEngine;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using System.Collections;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">public class AnotherScript : MonoBehaviour</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">{</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">public int playerScore = 9001;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using UnityEngine;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using System.Collections;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">public class YetAnotherScript : MonoBehaviour</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">{</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">public int numberOfPlayerDeaths = 3;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+      </div>
+    </section>
+    <p class="slide-citation">From <a href="https://unity3d.com/learn/tutorials/topics/scripting/getcomponent" target="_blank" rel="noopener noreferrer">https://unity3d.com/learn/tutorials/topics/scripting/getcomponent</a></p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Examples – Access to Variables, Methods, Game Objects and Scripts</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Overview</summary>
+        <div class="accordion-body">
+    <p>Some declaration and Initialisation options – in Constructor, Awake, Start</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">void Start ()</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">{</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 1">boxCol.size = new Vector3(3,3,3);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 1">Debug.Log(&quot;The player&#x27;s score is &quot; + anotherScript.playerScore);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 1">Debug.Log(&quot;The player has died &quot; + yetAnotherScript.numberOfPlayerDeaths + &quot; times&quot;);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+      </div>
+    </section>
+    <p class="slide-citation">From <a href="https://unity3d.com/learn/tutorials/topics/scripting/getcomponent" target="_blank" rel="noopener noreferrer">https://unity3d.com/learn/tutorials/topics/scripting/getcomponent</a></p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 6 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Examples – Access to Variables, Methods, Game Objects and Scripts</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Overview</summary>
+        <div class="accordion-body">
+    <p>Get Script – otherScript.cs attached to same or another GameObject</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using UnityEngine;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using System.Collections;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">public class example : MonoBehaviour {</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">void Update() {</div>
+        <div class="pseudo-panel__line pseudo-panel__line--comment" style="--pseudo-indent-level: 2">// Declare and Initialise GameObject.OtherScript component on this gameobject</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">OtherScript otherScript = GetComponent&lt;OtherScript&gt;();</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">otherScript.DoSomething();</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 1">}</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+      </div>
+    </section>
+    <p class="slide-citation">From <a href="https://docs.unity3d.com/410/Documentation/ScriptReference/index.Accessing_Other_Game_Objects.html" target="_blank" rel="noopener noreferrer">https://docs.unity3d.com/410/Documentation/ScriptReference/index.Accessing_Other_Game_Objects.html</a></p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 7 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Examples – Access to Variables, Methods, Game Objects and Scripts</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>You can assign variables to any object type through the inspector</summary>
+        <div class="accordion-body">
+    <h3>You can assign variables to any object type through the inspector:</h3>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using UnityEngine;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using System.Collections;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">public class example : MonoBehaviour {</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">public Transform target;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">void Update() {</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">target.Translate(0, 1, 0);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 1">}</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+      </div>
+    </section>
+    <p class="slide-citation">From <a href="https://docs.unity3d.com/410/Documentation/ScriptReference/index.Accessing_Other_Game_Objects.html" target="_blank" rel="noopener noreferrer">https://docs.unity3d.com/410/Documentation/ScriptReference/index.Accessing_Other_Game_Objects.html</a></p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 8 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Examples – Access to Variables, Methods, Game Objects and Scripts</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Overview</summary>
+        <div class="accordion-body">
+    <p>You can also expose references to other objects to the inspector.</p>
+    <p>Below you can drag a game object that contains the OtherScript on the target slot in the inspector.</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using UnityEngine;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using System.Collections;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">public class example : MonoBehaviour {</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">public OtherScript target;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">void Update() {</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">target.foo = 2;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">target.DoSomething(&quot;Hello&quot;);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 1">}</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+      </div>
+    </section>
+    <p class="slide-citation">From <a href="https://docs.unity3d.com/410/Documentation/ScriptReference/index.Accessing_Other_Game_Objects.html" target="_blank" rel="noopener noreferrer">https://docs.unity3d.com/410/Documentation/ScriptReference/index.Accessing_Other_Game_Objects.html</a></p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 9 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Examples – Access to Variables, Methods, Game Objects and Scripts</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Overview</summary>
+        <div class="accordion-body">
+    <p>You can search for game objects with certain tags using GameObject.FindWithTag and GameObject.FindGameObjectsWithTag.</p>
+    <p>Use GameObject.Find to find a game object by name.</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using UnityEngine;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using System.Collections;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">public class example : MonoBehaviour {</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">void Start() {</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">GameObject go = GameObject.Find(&quot;SomeGuy&quot;);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">go.transform.Translate(0, 1, 0);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">GameObject player = GameObject.FindWithTag(&quot;Player&quot;);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">player.transform.Translate(0, 1, 0);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 1">}</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+      </div>
+    </section>
+    <p class="slide-citation">From <a href="https://docs.unity3d.com/410/Documentation/ScriptReference/index.Accessing_Other_Game_Objects.html" target="_blank" rel="noopener noreferrer">https://docs.unity3d.com/410/Documentation/ScriptReference/index.Accessing_Other_Game_Objects.html</a></p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 10 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Examples – Access to Variables, Methods, Game Objects and Scripts</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Overview</summary>
+        <div class="accordion-body">
+    <p>You can use GetComponent on the result to get to any script or component on the found (another) game object</p>
+    <p>The &lt;&gt; reference a component of the type specified…</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using UnityEngine;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using System.Collections;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">public class example : MonoBehaviour {</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">void Start() {</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">GameObject go = GameObject.Find(&quot;SomeGuy&quot;);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">go.GetComponent&lt;OtherScript&gt;().DoSomething();</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">GameObject player = GameObject.FindWithTag(&quot;Player&quot;);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">player.GetComponent&lt;OtherScript&gt;().DoSomething();</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 1">}</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+      </div>
+    </section>
+    <p class="slide-citation">From <a href="https://docs.unity3d.com/410/Documentation/ScriptReference/index.Accessing_Other_Game_Objects.html" target="_blank" rel="noopener noreferrer">https://docs.unity3d.com/410/Documentation/ScriptReference/index.Accessing_Other_Game_Objects.html</a></p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 11 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Examples Basic to More Advanced</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Unity Examples Basic to More Advanced</summary>
+        <div class="accordion-body">
+    <p>Access other GO and scripts for scale and animator</p>
+    <p>Unity tag, trigger and collision in tutorial 4 project: demo</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-11">11</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 12 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Examples Basic to More Advanced</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Unity Examples Basic to More Advanced</summary>
+        <div class="accordion-body">
+    <p>Lego Walk Scene 01 – Collider and OnMouseDown to turn Animator on and off</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using UnityEngine;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using System.Collections;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">public class AnimatorEnable : MonoBehaviour {</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">public Animator anim;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--comment" style="--pseudo-indent-level: 1">// Use this for initialization</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">void Start()</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 1">{</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">anim = GetComponent&lt;Animator&gt;();</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">anim.enabled = false;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 1">}</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">public void OnMouseDown()</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 1">{</div>
+      </div>
+    </section>
+    <p>anim.enabled = !anim.enabled; //for 1. Mouse Down Collider Animator simple</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+      </div>
+    </section>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-12">12</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 13 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Examples Basic to More Advanced</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Unity Examples Basic to More Advanced</summary>
+        <div class="accordion-body">
+    <p>Lego Walk Scene 01 – Collider and OnMouseDown to turn Animator on and off</p>
+    <p>From second GameObject as public variable</p>
+    <p>Create 3d Cube as second GameObject</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 0">Add Script below;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using UnityEngine;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using System.Collections;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">public class Interaction : MonoBehaviour {</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">public GameObject legoMinifig;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">public void OnMouseDown()</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 1">{</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">legoMinifig.GetComponent&lt;AnimatorEnable&gt;().OnMouseDown();</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 1">}</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+      </div>
+    </section>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-13">13</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 14 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Examples Basic to More Advanced</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Unity Examples Basic to More Advanced</summary>
+        <div class="accordion-body">
+    <p>Lego Walk Scene 01 – Collider and OnMouseDown to turn Animator on and off</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Add This to end of script on Lego Minifig</summary>
+        <div class="accordion-body">
+    <h3>Add This to end of script on Lego Minifig:</h3>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">public void ScaleLego()</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">{</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 1">transform.localScale += new Vector3(0.1F, 0, 0);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--comment" style="--pseudo-indent-level: 1">// https://docs.unity3d.com/ScriptReference/Transform-localScale.html</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+        <div class="pseudo-panel__line pseudo-panel__line--comment" style="--pseudo-indent-level: 0">// Adds 0.1 float number to scale when run</div>
+        <div class="pseudo-panel__line pseudo-panel__line--comment" style="--pseudo-indent-level: 0">// We will access this outside of the script and GameObject</div>
+      </div>
+    </section>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-14">14</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 15 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Examples Basic to More Advanced</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Unity Examples Basic to More Advanced</summary>
+        <div class="accordion-body">
+    <p>Lego Walk Scene 01 – Collider and OnMouseDown to Scale in X</p>
+    <p>From third GameObject</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--comment" style="--pseudo-indent-level: 0">// This finds the game object by name rather than dragging into exposed variable box to wire up;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using UnityEngine;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using System.Collections;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">public class InteractionScale : MonoBehaviour {</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 1">GameObject legoMinifig;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--comment" style="--pseudo-indent-level: 1">// Use this for initialization</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">void Start()</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 1">{</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">legoMinifig = GameObject.FindWithTag(&quot;Lego&quot;);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 1">}</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">public void OnMouseDown()</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 1">{</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">legoMinifig.GetComponent&lt;AnimatorEnable&gt;().ScaleLego();</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 1">}</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+      </div>
+    </section>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> &larr; Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)" disabled>Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-15">15</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../assets/js/site.js?v=20260805f"></script>
+  <script>
+    const isLecturePage = /\/lect-[^/]+\.html$/i.test(window.location.pathname);
+    if (isLecturePage && document.body) {
+      document.body.classList.add('lecture-fullbleed');
+    }
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function normalizeSlideStructure(slide) {
+      if (slide.querySelector('.slide-frame')) return;
+
+      const title = slide.querySelector('.slide-title');
+      const controls = slide.querySelector('.slide-controls');
+      const body = slide.querySelector('.slide-content');
+      if (!title || !controls || !body) return;
+
+      const frame = document.createElement('div');
+      frame.className = 'slide-frame';
+      frame.appendChild(title);
+      frame.appendChild(body);
+      frame.appendChild(controls);
+      slide.appendChild(frame);
+    }
+
+    function linkifyText(element) {
+      const urlPattern = /(https?:\/\/[^\s]+)/g;
+      const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+      );
+
+      const nodesToReplace = [];
+      let node;
+
+      while (node = walker.nextNode()) {
+        if (urlPattern.test(node.textContent)) {
+          nodesToReplace.push(node);
+        }
+      }
+
+      urlPattern.lastIndex = 0;
+
+      nodesToReplace.forEach((textNode) => {
+        const span = document.createElement('span');
+        span.innerHTML = textNode.textContent.replace(
+          /(https?:\/\/[^\s]+)/g,
+          '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
+        textNode.parentNode.replaceChild(span, textNode);
+      });
+    }
+
+    function syncSlideTitles() {
+      slides.forEach((slide) => {
+        const title = slide.querySelector('.slide-title');
+        const heading = slide.querySelector('.slide-content h2');
+        if (!title || !heading) return;
+
+        const headingText = (heading.textContent || '').replace(/\s+/g, ' ').trim();
+        if (headingText) {
+          title.textContent = headingText;
+          heading.remove();
+        }
+      });
+    }
+
+    function announceActiveSlideTitle() {
+      const activeSlide = slides[currentSlide];
+      if (!activeSlide) return;
+
+      const titleNode = activeSlide.querySelector('.slide-title');
+      const titleText = (titleNode ? titleNode.textContent : '').replace(/\s+/g, ' ').trim();
+      if (!titleText) return;
+
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({
+          type: 'lecture-slide-title',
+          title: titleText
+        }, '*');
+      }
+    }
+
+    slides.forEach((slide) => {
+      normalizeSlideStructure(slide);
+      linkifyText(slide.querySelector('.slide-content') || slide);
+    });
+
+    syncSlideTitles();
+
+    function updateCounters() {
+      slides.forEach((slide, index) => {
+        const counter = slide.querySelector('.slide-counter');
+        if (counter) {
+          counter.textContent = `${index + 1} / ${totalSlides}`;
+        }
+      });
+    }
+
+    function showSlide(n) {
+      slides.forEach((slide) => slide.classList.remove('active'));
+      slides[currentSlide].classList.add('active');
+
+      const allButtons = document.querySelectorAll('.slide-button');
+      const isFirstSlide = currentSlide === 0;
+      const isLastSlide = currentSlide === totalSlides - 1;
+
+      allButtons.forEach((btn) => {
+        if (btn.textContent.includes('Previous')) {
+          btn.disabled = isFirstSlide;
+        } else if (btn.textContent.includes('Next')) {
+          btn.disabled = isLastSlide;
+        }
+      });
+
+      updateCounters();
+      announceActiveSlideTitle();
+    }
+
+    function changeSlide(n) {
+      currentSlide += n;
+      if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+      if (currentSlide < 0) currentSlide = 0;
+      showSlide(currentSlide);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+    });
+
+    showSlide(currentSlide);
+    document.body.classList.add('lecture-ready');
+  </script>
+</body>
+</html>

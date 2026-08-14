@@ -1,0 +1,137 @@
+[
+  {
+    "slide_number": 1,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "5MMCS001W\t\t\t\t\tLecture 04b\n\n\nC# in Unity and OOP, Triggering Animations, Basic Movement and Input, Leading to Unity UI"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 2,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Unity Examples – Access to Variables, Methods, Game Objects and Scripts\n\nAccess other GO and scripts, public, static, instantiate\n\nGet GameObject\n\nGet Component\n\nGet Script"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 3,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Unity Examples – Access to Variables, Methods, Game Objects and Scripts\nSome declaration and Initialisation options – in Constructor, Awake, Start\nusing UnityEngine;\u000busing System.Collections;\npublic class UsingOtherComponents : MonoBehaviour\u000b{\u000b    public GameObject otherGameObject; \u000b    private AnotherScript anotherScript;\u000b    private YetAnotherScript yetAnotherScript;\u000b    private BoxCollider boxCol;   \u000b    \u000b    void Awake ()\u000b    {\u000b        anotherScript = GetComponent<AnotherScript>();\u000b        yetAnotherScript = otherGameObject.GetComponent<YetAnotherScript>();\u000b        boxCol = otherGameObject.GetComponent<BoxCollider>();\u000b    }\nFrom <https://unity3d.com/learn/tutorials/topics/scripting/getcomponent>"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 4,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Unity Examples – Access to Variables, Methods, Game Objects and Scripts\nSome declaration and Initialisation options – in Constructor, Awake, Start\n\nusing UnityEngine;\nusing System.Collections;\n\npublic class AnotherScript : MonoBehaviour\n{\n    public int playerScore = 9001;\n}\n\nusing UnityEngine;\nusing System.Collections;\n\npublic class YetAnotherScript : MonoBehaviour\n{\n    public int numberOfPlayerDeaths = 3;\n}\n\nFrom <https://unity3d.com/learn/tutorials/topics/scripting/getcomponent>"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 5,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Unity Examples – Access to Variables, Methods, Game Objects and Scripts\nSome declaration and Initialisation options – in Constructor, Awake, Start\n \nvoid Start ()\u000b    {\u000b        boxCol.size = new Vector3(3,3,3);\u000b        Debug.Log(\"The player's score is \" + anotherScript.playerScore);\u000b        Debug.Log(\"The player has died \" + yetAnotherScript.numberOfPlayerDeaths + \" times\");\u000b    }\u000b}\n\nFrom <https://unity3d.com/learn/tutorials/topics/scripting/getcomponent>"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 6,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Unity Examples – Access to Variables, Methods, Game Objects and Scripts\nGet Script – otherScript.cs attached to same or another GameObject\n\nusing UnityEngine;\nusing System.Collections;\n\npublic class example : MonoBehaviour {\n\tvoid Update() {\n        // Declare and Initialise GameObject.OtherScript component on this gameobject\n\t\tOtherScript otherScript = GetComponent<OtherScript>();\n\t\totherScript.DoSomething();\n\t}\n}\n\nFrom <https://docs.unity3d.com/410/Documentation/ScriptReference/index.Accessing_Other_Game_Objects.html>"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 7,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Unity Examples – Access to Variables, Methods, Game Objects and Scripts\nYou can assign variables to any object type through the inspector:\n\nusing UnityEngine;\nusing System.Collections;\n \npublic class example : MonoBehaviour {\n\n\tpublic Transform target;\n\n\tvoid Update() {\n\t\ttarget.Translate(0, 1, 0);\n\t}\n}\u000b\nFrom <https://docs.unity3d.com/410/Documentation/ScriptReference/index.Accessing_Other_Game_Objects.html>"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 8,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Unity Examples – Access to Variables, Methods, Game Objects and Scripts\u000bYou can also expose references to other objects to the inspector. \u000bBelow you can drag a game object that contains the OtherScript on the target slot in the inspector.\n\u000busing UnityEngine;\nusing System.Collections;\n \npublic class example : MonoBehaviour {\n\tpublic OtherScript target;\n\n\tvoid Update() {\n\t\ttarget.foo = 2;\n\t\ttarget.DoSomething(\"Hello\");\n\t}\n}\nFrom <https://docs.unity3d.com/410/Documentation/ScriptReference/index.Accessing_Other_Game_Objects.html>"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 9,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Unity Examples – Access to Variables, Methods, Game Objects and Scripts\u000bYou can search for game objects with certain tags using GameObject.FindWithTag and GameObject.FindGameObjectsWithTag. \nUse GameObject.Find to find a game object by name.\nusing UnityEngine;\nusing System.Collections;\n\npublic class example : MonoBehaviour {\n\tvoid Start() {\n\t\tGameObject go = GameObject.Find(\"SomeGuy\");\n\t\tgo.transform.Translate(0, 1, 0);\n\t\tGameObject player = GameObject.FindWithTag(\"Player\");\n\t\tplayer.transform.Translate(0, 1, 0);\n\t}\n}\n From <https://docs.unity3d.com/410/Documentation/ScriptReference/index.Accessing_Other_Game_Objects.html>"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 10,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Unity Examples – Access to Variables, Methods, Game Objects and Scripts\u000bYou can use GetComponent on the result to get to any script or component on the found (another) game object\nThe <> reference a component of the type specified…\nusing UnityEngine;\nusing System.Collections;\n \npublic class example : MonoBehaviour {\n\tvoid Start() {\n\t\tGameObject go = GameObject.Find(\"SomeGuy\");\n\t\tgo.GetComponent<OtherScript>().DoSomething();\n\t\tGameObject player = GameObject.FindWithTag(\"Player\");\n\t\tplayer.GetComponent<OtherScript>().DoSomething();\n}\n}\n\nFrom <https://docs.unity3d.com/410/Documentation/ScriptReference/index.Accessing_Other_Game_Objects.html>"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 11,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Unity Examples Basic to More Advanced\n\nAccess other GO and scripts for scale and animator\n\nUnity tag, trigger and collision in tutorial 4 project: demo"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 12,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Unity Examples Basic to More Advanced\nLego Walk Scene 01 – Collider and OnMouseDown to turn Animator on and off\nusing UnityEngine;\nusing System.Collections;\n\npublic class AnimatorEnable : MonoBehaviour {\n\n    public Animator anim;\n\n    // Use this for initialization\n    void Start()\n    {\n        anim = GetComponent<Animator>();\n        anim.enabled = false;\n}\n\n    public void OnMouseDown()\n    {\n        anim.enabled = !anim.enabled; //for 1. Mouse Down Collider Animator simple\n    }\n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 13,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Unity Examples Basic to More Advanced\nLego Walk Scene 01 – Collider and OnMouseDown to turn Animator on and off \nFrom second GameObject as public variable\nCreate 3d Cube as second GameObject\nAdd Script below;\nusing UnityEngine;\nusing System.Collections;\n\npublic class Interaction : MonoBehaviour {\n    public GameObject legoMinifig;\n\n    public void OnMouseDown()\n    {\n        legoMinifig.GetComponent<AnimatorEnable>().OnMouseDown();\n    }\n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 14,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Unity Examples Basic to More Advanced\nLego Walk Scene 01 – Collider and OnMouseDown to turn Animator on and off \n\nAdd This to end of script on Lego Minifig:\n\n\n public void ScaleLego()\n    {\n        transform.localScale += new Vector3(0.1F, 0, 0);\n        // https://docs.unity3d.com/ScriptReference/Transform-localScale.html\n    }\n\n\n// Adds 0.1 float number to scale when run\n// We will access this outside of the script and GameObject"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 15,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Unity Examples Basic to More Advanced\nLego Walk Scene 01 – Collider and OnMouseDown to Scale in X\nFrom third GameObject\n// This finds the game object by name rather than dragging into exposed variable box to wire up;\nusing UnityEngine;\nusing System.Collections;\n\npublic class InteractionScale : MonoBehaviour {\n    GameObject legoMinifig;\n    // Use this for initialization\n    void Start()\n    {\n        legoMinifig = GameObject.FindWithTag(\"Lego\");\n    }\n    public void OnMouseDown()\n    {\n        legoMinifig.GetComponent<AnimatorEnable>().ScaleLego();\n}\n}"
+    ],
+    "images": []
+  }
+]
