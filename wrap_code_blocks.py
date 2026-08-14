@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Step 2a of the PPTX->HTML lecture pipeline: wrap contiguous C# code
-paragraphs in a lecture HTML page into collapsible
-<details class="accordion accordion--nested"> sections whose body is styled
-exactly like the tutorial pseudocode panels (site.js `enhancePseudoPanels`
-output / .pseudo-panel CSS in site.css), instead of relying on the runtime
-auto-detection (which only triggers on literal "pseudo code:" headings).
+"""Step 2a of the PPTX->HTML lecture pipeline: replace contiguous C# code
+paragraphs in a lecture HTML page with an inline `.pseudo-panel` (not wrapped
+in a collapsible <details>), styled exactly like the tutorial pseudocode
+panels (site.js `enhancePseudoPanels` output / .pseudo-panel CSS in
+site.css), instead of relying on the runtime auto-detection (which only
+triggers on literal "pseudo code:" headings).
 
 Usage: python wrap_code_blocks.py [site/pages/lect-XX.html]
 """
@@ -49,16 +49,16 @@ def build_pseudo_panel(run):
     """Render `run` (list of raw line texts) as a .pseudo-panel matching
     site.js's enhancePseudoPanels output structure."""
     out = [
-        '          <section class="pseudo-panel pseudo-panel--compact">',
-        '            <div class="pseudo-panel__chrome">',
-        '              <div class="pseudo-panel__dots">',
-        '                <span class="pseudo-panel__dot"></span>',
-        '                <span class="pseudo-panel__dot"></span>',
-        '                <span class="pseudo-panel__dot"></span>',
-        '              </div>',
-        '              <div class="pseudo-panel__title">Code Example</div>',
-        '            </div>',
-        '            <div class="pseudo-panel__body" role="region" aria-label="Code Example">',
+        '    <section class="pseudo-panel pseudo-panel--compact">',
+        '      <div class="pseudo-panel__chrome">',
+        '        <div class="pseudo-panel__dots">',
+        '          <span class="pseudo-panel__dot"></span>',
+        '          <span class="pseudo-panel__dot"></span>',
+        '          <span class="pseudo-panel__dot"></span>',
+        '        </div>',
+        '        <div class="pseudo-panel__title">Code Example</div>',
+        '      </div>',
+        '      <div class="pseudo-panel__body" role="region" aria-label="Code Example">',
     ]
 
     indent_level = 0
@@ -78,15 +78,15 @@ def build_pseudo_panel(run):
             tone = "code"
 
         out.append(
-            f'              <div class="pseudo-panel__line pseudo-panel__line--{tone}" '
+            f'        <div class="pseudo-panel__line pseudo-panel__line--{tone}" '
             f'style="--pseudo-indent-level: {indent_level}">{text}</div>'
         )
 
         if text.endswith("{"):
             indent_level += 1
 
-    out.append('            </div>')
-    out.append('          </section>')
+    out.append('      </div>')
+    out.append('    </section>')
     return out
 
 
@@ -109,12 +109,7 @@ def main():
                 else:
                     break
 
-            out.append('    <details class="accordion accordion--nested">')
-            out.append("      <summary>Code Example</summary>")
-            out.append('      <div class="accordion-body">')
             out.extend(build_pseudo_panel(run))
-            out.append("      </div>")
-            out.append("    </details>")
             wrapped_count += 1
             continue
 

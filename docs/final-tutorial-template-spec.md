@@ -1,7 +1,7 @@
 # Final Tutorial Template Spec
 
-Version: 1.0-draft
-Last Updated: 2026-08-12
+Version: 1.1-draft
+Last Updated: 2026-08-14
 Status: Working Draft
 
 ## 1. Purpose and Scope
@@ -61,6 +61,15 @@ Forbidden structure patterns:
 2. Do not use pre/code blocks for pseudo-code.
 3. Keep brace lines as standalone lines in the visual pseudo-code pattern.
 4. Keep pseudo-code content placement aligned to its matching tutorial section.
+5. Pseudo-code panels render inline and must not be wrapped in a collapsible
+   `<details>`/`<summary>` accordion — the panel itself must always be visible
+   without requiring an extra click.
+6. When removing an existing collapsible wrapper around a pseudo-code block,
+   or authoring a new one, if the wrapper's `<summary>` (or equivalent
+   heading) named the section (for example a filename or task name) and that
+   name is not merely a duplicate of the generic "Pseudo Code:" trigger text,
+   append that name to the trigger heading (for example `Pseudo Code:
+   logoScreen.cs (attached to logo screen plane, which is child of camera)`).
 
 ### 4.4 Video and Embed Contract
 1. Video links in content must be converted using the canonical nested video accordion component.
@@ -106,6 +115,8 @@ Report every line as PASS/FAIL:
 5. No raw media cards outside nested video accordion wrappers.
 6. Pseudo-code is not rendered as pre/code or markdown fences.
 7. Pseudo-code visual style matches canonical line-by-line pattern.
+7a. Pseudo-code panels are not wrapped in a collapsible details/summary accordion.
+7b. A removed/absent wrapper's section name (filename or task name), when meaningful, is appended to the pseudo-code trigger heading.
 8. No duplicate media links blocks.
 9. No unnecessary extra wrapper sections.
 10. Nested ordered-list structure is valid.
@@ -124,6 +135,7 @@ Report every line as PASS/FAIL:
 2. Using pre/code or markdown fences for pseudo-code sections.
 3. Placing raw media cards directly in page flow outside approved wrappers.
 4. Breaking nested list semantics or marker sequence.
+5. Wrapping a pseudo-code panel in a collapsible details/summary accordion instead of rendering it inline.
 5. Moving source content to unrelated sections for convenience.
 6. Introducing encoding corruption during edits.
 
@@ -149,5 +161,6 @@ This spec pairs directly with [tutorial-conversion-playbook.md](./tutorial-conve
 3. Record version/date changes in the change log.
 
 ## 13. Change Log
+- 1.1-draft: Established as canon that pseudo-code panels render inline and must not be wrapped in a collapsible details/summary accordion; when a wrapper's summary named the section, that name is appended to the pseudo-code trigger heading. Applied via unwrap_pseudocode_panels.py (repo root) to tut-00-01-student-version.html, tut-02-03-lecturer.html, tut-02-03-students.html, and tut-04-students.html.
 - 1.0-draft: Expanded from skeleton to full tutorial standard aligned with canonical tutorial layout rules.
 - 0.1-draft: Initial skeleton.

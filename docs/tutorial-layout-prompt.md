@@ -20,6 +20,7 @@ Before finishing, report PASS/FAIL for:
 - Raw article.embed-card outside nested video accordions
 - Pseudo-code rendered as pre/code or markdown fences
 - Pseudo-code styling matches Tut 00 01 line-by-line h3/p
+- Pseudo-code panel is not wrapped in a collapsible details/summary accordion
 - Duplicate media links blocks
 - Unnecessary extra wrapper sections
 - Nested list structure is valid (no orphan `li`, no `</li></li>`, parent/child `ol` nesting intact)
@@ -61,6 +62,7 @@ Follow these rules exactly:
 13. Do not use `pre`/`code` blocks or Markdown code fences for pseudo-code under any circumstances.
 14. Keep pseudo-code in the same visual pattern as Tut 00 01, including line-by-line `h3`/`p` presentation and standalone brace lines.
 14a. CSS requirement: Pseudo-panel lines must have `white-space: normal;` to collapse formatting whitespace and maintain tight line spacing. Never use `white-space: pre;` on `.pseudo-panel__line` elements.
+14i. Pseudo-code panels must render inline and must never be wrapped in a collapsible `details`/`summary` accordion — the panel must always be visible without an extra click. If an existing or would-be wrapper's `summary` names the section (for example a filename or task name) and that name is not just a duplicate of the generic "Pseudo Code:" trigger text, append it to the trigger heading instead (for example `Pseudo Code: logoScreen.cs (attached to logo screen plane, which is child of camera)`). See unwrap_pseudocode_panels.py (repo root) for the reference implementation.
 14b. Image interaction requirement: for Gyazo and other embedded figure images, clicking the image must expand it in-page, and clicking the expanded image/overlay must close it. Use caption wording `Gyazo preview (click image to expand).`
 14c. HTML indentation/readability requirement: keep tutorial-page markup consistently indented and nested for human readability, matching the style of the canonical tutorial pages. Do not flatten or reflow markup unless required to fix structure.
 14d. Encoding integrity requirement: keep page text UTF-8 clean and reject mojibake or other corrupted character output.
@@ -82,6 +84,7 @@ Before finishing, run this mandatory PASS/FAIL checklist and report each line ex
 - Raw `article.embed-card` outside nested video accordions: PASS/FAIL
 - Pseudo-code rendered as `pre`/`code` or Markdown fences: PASS/FAIL
 - Pseudo-code styling matches Tut 00 01 line-by-line `h3`/`p`: PASS/FAIL
+- Pseudo-code panel is not wrapped in a collapsible `details`/`summary` accordion: PASS/FAIL
 - Duplicate media links blocks: PASS/FAIL
 - Unnecessary extra wrapper sections: PASS/FAIL
 - Nested ordered-list structure valid (no orphan `li`, no `</li></li>`, correct parent/child nesting): PASS/FAIL

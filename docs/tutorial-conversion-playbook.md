@@ -1,7 +1,7 @@
 # Tutorial Conversion Playbook
 
-Version: 1.0-draft
-Last Updated: 2026-08-12
+Version: 1.1-draft
+Last Updated: 2026-08-14
 Status: Working Draft
 
 ## 1. Purpose and Scope
@@ -95,6 +95,7 @@ Operational rules:
 2. Convert inline video links to approved nested video component pattern.
 3. Remove raw media-card placement outside approved wrappers.
 4. Convert pseudo-code formatting to canonical line-by-line pattern.
+4a. Unwrap any pseudo-code panel that is nested inside a collapsible details/summary accordion so it renders inline; if the removed summary named the section meaningfully, append that name to the "Pseudo Code:" trigger heading. See unwrap_pseudocode_panels.py (repo root).
 5. Repair list nesting and marker hierarchy with minimal structural change.
 6. Preserve source-aligned media placement when source DOCX is available.
 
@@ -115,6 +116,7 @@ Release gate policy:
 1. Incorrect video embedding structure: replace with canonical nested video accordion component in-place.
 2. Invalid nested list semantics: reattach nested ordered lists under correct parent list item.
 3. Pseudo-code rendered in forbidden tags: replace with canonical line-by-line pseudo layout.
+3a. Pseudo-code wrapped in a collapsible details/summary accordion: unwrap it so the panel renders inline, appending the wrapper's section name to the trigger heading if meaningful.
 4. Duplicate wrappers or content blocks: remove redundant wrapper and preserve one authoritative content path.
 5. Encoding corruption: restore UTF-8 clean text and verify symbols/special characters.
 
@@ -141,6 +143,7 @@ Report PASS/FAIL for each:
 5. No raw media cards outside nested video wrappers.
 6. No pre/code or markdown-fence pseudo-code blocks.
 7. Pseudo-code style matches canonical line-by-line format.
+7a. Pseudo-code panels are not wrapped in a collapsible details/summary accordion.
 8. No duplicate media links blocks.
 9. No unnecessary wrapper sections.
 10. Nested ordered-list structure validity.
@@ -177,5 +180,6 @@ Every conversion run outputs:
 4. Record material process updates in the change log.
 
 ## 16. Change Log
+- 1.1-draft: Canonized inline pseudo-code rendering: pseudo-code panels must not be wrapped in a collapsible details/summary accordion, and a removed/absent wrapper's meaningful section name is appended to the "Pseudo Code:" trigger heading. Applied via unwrap_pseudocode_panels.py (repo root).
 - 1.0-draft: Expanded from skeleton to full operational tutorial conversion playbook aligned to tutorial template spec.
 - 0.1-draft: Initial skeleton.

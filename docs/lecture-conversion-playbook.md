@@ -133,11 +133,11 @@ Step 1 — Extraction and structural build (produces plain h2/h3/p/ul slides):
 
 Step 2 — Polish pass (produces the final lect-01a/01b visual/interaction style):
 1. `python wrap_code_blocks.py site/pages/<id>.html` — detects contiguous C#/code
-   paragraphs and wraps each run in a collapsible
-   `<details class="accordion accordion--nested"><summary>Code Example</summary>`
-   section whose body is a hand-authored `.pseudo-panel` (matching the tutorial
-   pseudocode panel styling exactly: chrome with dots/title, monospace body,
-   comment/brace/statement/code tone coloring, indent tracking on `{`/`}`).
+   paragraphs and replaces each run inline with a hand-authored `.pseudo-panel`
+   (matching the tutorial pseudocode panel styling exactly: chrome with dots/title,
+   monospace body, comment/brace/statement/code tone coloring, indent tracking on
+   `{`/`}`). The panel is NOT wrapped in its own collapsible `<details>` — it renders
+   directly in place so the code is always visible without an extra click.
 2. `python accordionize_lecture.py site/pages/<id>.html` — groups each slide's
    content into collapsible `<details class="accordion">` sections keyed by that
    slide's own `<h2>`/`<h3>` headings (used verbatim as `<summary>` labels, minus
