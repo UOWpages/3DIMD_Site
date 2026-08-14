@@ -228,9 +228,45 @@ a:hover {
   color: #ffffff;
 }
 
+.nav-toggle[data-nav-toggle="lectures"].is-expanded {
+  background: #4d94ff;
+}
+
+.nav-toggle[data-nav-toggle="lectures"].is-expanded:hover,
+.nav-toggle[data-nav-toggle="lectures"].is-expanded:focus-visible {
+  background: #2b7fff;
+}
+
+.nav-toggle[data-nav-toggle="tutorials"].is-expanded {
+  background: #c084ff;
+}
+
+.nav-toggle[data-nav-toggle="tutorials"].is-expanded:hover,
+.nav-toggle[data-nav-toggle="tutorials"].is-expanded:focus-visible {
+  background: #ab5cff;
+}
+
 .nav-group {
   margin-top: 0.55rem;
   padding-left: 0.15rem;
+}
+
+.nav-group[data-nav-group="lectures"] a:not([aria-current="page"]) {
+  background: #dceeff;
+}
+
+.nav-group[data-nav-group="lectures"] a:not([aria-current="page"]):hover,
+.nav-group[data-nav-group="lectures"] a:not([aria-current="page"]):focus-visible {
+  background: #c2e0ff;
+}
+
+.nav-group[data-nav-group="tutorials"] a:not([aria-current="page"]) {
+  background: #f1e2ff;
+}
+
+.nav-group[data-nav-group="tutorials"] a:not([aria-current="page"]):hover,
+.nav-group[data-nav-group="tutorials"] a:not([aria-current="page"]):focus-visible {
+  background: #e3caff;
 }
 
 .content-area {
@@ -278,6 +314,7 @@ a:hover {
   font-size: 2.8rem;
   line-height: 1.05;
   color: #ffff66;
+  background: #4d94ff;
 }
 
 .content-shell.content-shell--tutorial .content-meta {
@@ -285,6 +322,7 @@ a:hover {
   padding-bottom: 1.5rem;
   font-size: 2.8rem;
   line-height: 1.05;
+  background: #c084ff;
 }
 
 .content-meta.content-meta--lecture {
@@ -293,6 +331,7 @@ a:hover {
   font-size: 2.8rem;
   line-height: 1.05;
   color: #ffffff;
+  background: #4d94ff;
 }
 
 .content-meta.content-meta--lecture .content-meta-prefix {
@@ -309,6 +348,7 @@ a:hover {
   font-size: 2.8rem;
   line-height: 1.05;
   color: #ffffff;
+  background: #c084ff;
 }
 
 .content-meta.content-meta--tutorial .content-meta-prefix {
@@ -1234,6 +1274,7 @@ body.content-page .page-title {
 
   .nav-toggle {
     display: inline-flex;
+    width: auto;
     align-items: center;
     min-height: 2.25rem;
     padding: 0.35rem 0.62rem;
