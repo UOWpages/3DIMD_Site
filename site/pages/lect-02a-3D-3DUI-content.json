@@ -1,0 +1,1353 @@
+[
+  {
+    "slide_number": 1,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "5MMCS001W\t\t\t\tLecture 02a\n\nhttps://playcanv.as/p/sAsiDvtC/\nhttps://threejs.org/ https://saydnaya.amnesty.org"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 2,
+    "title": "",
+    "content": [
+      "CW Overview",
+      "Reference, Previous Student Work:\nhttps://uowdigital.padlet.org/fergusj/3dimd-cw-samples-2025-1f4w3m19lc80m9cf"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 3,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Covered in this Lecture:\n\n3DUI Overview\n\n3D Basic Concepts and Techniques\n\nCW Methodology\n\nCW Overview\n\nGroups Brainstorm"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 4,
+    "title": "",
+    "content": [
+      "Workflow – 3DUI for Interactive VE*",
+      "3DS Max\nModelling\nTexturing\nFbx",
+      "Unity3D\nShaders\nLighting\u000bC# Interaction\nC# Navigation\u000bC# System States",
+      "WebGL\nChrome or Firefox\u000bKeyboard Input\u000bMouse Input",
+      "Fbx",
+      "*Virtual Environment"
+    ],
+    "images": [
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image0.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image0.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image1.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image1.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image2.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image2.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image3.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image3.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image4.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image4.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image5.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image5.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image6.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image6.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image7.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image7.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image8.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image8.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image9.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image9.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image10.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image10.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image11.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image11.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image12.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image12.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image13.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image13.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image14.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image14.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image15.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image15.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image16.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image16.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image17.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image17.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image18.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image18.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image19.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image19.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image20.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image20.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image21.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image21.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image22.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image22.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image23.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image23.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image24.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image24.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image25.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image25.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image26.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image26.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image27.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image27.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image28.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image28.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image29.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image29.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image30.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image30.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image31.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image31.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image32.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image32.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image33.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image33.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image34.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image34.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image35.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image35.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image36.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image36.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image37.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image37.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image38.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image38.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image39.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image39.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image40.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image40.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image41.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image41.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image42.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image42.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image43.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image43.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image44.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image44.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image45.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image45.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image46.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image46.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image47.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image47.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image48.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image48.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image49.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image49.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image50.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image50.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image51.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image51.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image52.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image52.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image53.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image53.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image54.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image54.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image55.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image55.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image56.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image56.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image57.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image57.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image58.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image58.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide4_image59.png",
+        "path": "images/lect-02a-3D-3DUI_slide4_image59.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 5,
+    "title": "",
+    "content": [
+      "Virtual Environment – 3DUI Needed",
+      "At its most basic, we need some sort of 3D UI to interact with a Virtual Environment.\n\nWe may think we know instinctively what a VE is, but to correctly define and use 3D UI concepts, we must know what flavour of VE we are using or need.\n\nThis is complicated greatly by public perceptions of VEs and the misnaming and misconceptions that happens."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 6,
+    "title": "",
+    "content": [
+      "Basic - Mixed Reality Scale"
+    ],
+    "images": [
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image0.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide6_image0.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image1.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide6_image1.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image2.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide6_image2.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image3.png",
+        "path": "images/lect-02a-3D-3DUI_slide6_image3.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image4.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide6_image4.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image5.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide6_image5.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image6.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide6_image6.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image7.png",
+        "path": "images/lect-02a-3D-3DUI_slide6_image7.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image8.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide6_image8.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image9.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide6_image9.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image10.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide6_image10.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image11.png",
+        "path": "images/lect-02a-3D-3DUI_slide6_image11.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image12.png",
+        "path": "images/lect-02a-3D-3DUI_slide6_image12.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image13.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide6_image13.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image14.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide6_image14.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image15.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide6_image15.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image16.png",
+        "path": "images/lect-02a-3D-3DUI_slide6_image16.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image17.png",
+        "path": "images/lect-02a-3D-3DUI_slide6_image17.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image18.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide6_image18.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image19.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide6_image19.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image20.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide6_image20.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image21.png",
+        "path": "images/lect-02a-3D-3DUI_slide6_image21.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image22.png",
+        "path": "images/lect-02a-3D-3DUI_slide6_image22.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image23.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide6_image23.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image24.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide6_image24.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image25.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide6_image25.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image26.png",
+        "path": "images/lect-02a-3D-3DUI_slide6_image26.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide6_image27.png",
+        "path": "images/lect-02a-3D-3DUI_slide6_image27.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 7,
+    "title": "",
+    "content": [
+      "Basic – VE Permutations – Part 1",
+      "3DIMD examples \nhttps://uowdigital.padlet.org/fergusj/3dimd-cw-samples-5ohcvanq1wlcq0h9 \n\nVR Platforms\nhttps://padlet.com/sselwood1/VirtualMeeting\n\nXR In Industry\nhttps://uowdigital.padlet.org/fergusj/XRinIndustry\n\nXR Lab - Now Immersive Development Lab \nID Lab FYP Examples\nID Lab Demo Videos\n…and some misnomers\nHolograms - No\nVirtual Reality (360 Video)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 8,
+    "title": "",
+    "content": [
+      "3DUI VR",
+      "Immersive (VR) Journalism\nFishtank VR - Google Cardboard 6 x 9\nhttps://www.theguardian.com/world/ng-interactive/2016/apr/27/6x9-a-virtual-experience-of-solitary-confinement \nDesktop VR – Harvest of Change \nhttp://www.desmoinesregister.com/story/money/agriculture/2014/09/17/harvest-of-change-virtual-farm-virtual-reality/15785377/\nSyrian Prison\nhttps://saydnaya.amnesty.org/\n\n360 Image/Video w/ 3DUI \n\tHoloBuilder https://www.holobuilder.com/ \nVR with POV \n\tBBC Taster http://www.bbc.co.uk/taster/\nVR with 3D Input\n\tVive Job Simulator  http://jobsimulatorgame.com/\n\tIkea VR https://www.youtube.com/watch?v=1S0GO5kbMYo\n\tVive Tilt Brush https://www.youtube.com/watch?v=aocLCCvJTBU https://www.youtube.com/watch?v=GSbkn6mCfXE"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 9,
+    "title": "",
+    "content": [
+      "3DUI New Platforms",
+      "Larger Recent Ecosystem:\n\nhttps://uowdigital.padlet.org/fergusj/web3d-and-web3-ecosystem-9xv91ovkasaaviua\n\nWeb3D (WebGL/GPU)\nWebXR\n\nIncludes WebRTC, WebVR, WebAR and other openprotocols and file formats\n\nWeb3 – tokenisation allowing for self-publishing and interoperability on above protocols"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 10,
+    "title": "",
+    "content": [
+      "3DUI Reading List",
+      "Reading List for Module\n\nLook at docs.unity3d.com\n\nSelect version 6000.0 top left\n\nCheck Manual/Scripting API\n\nScripting API\nhttps://docs.unity3d.com/6000.0/Documentation/ScriptReference/Input.html \n\nManual\nhttps://docs.unity3d.com/6000.0/Documentation/Manual/class-InputManager.html"
+    ],
+    "images": [
+      {
+        "filename": "lect-02a-3D-3DUI_slide10_image0.png",
+        "path": "images/lect-02a-3D-3DUI_slide10_image0.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide10_image1.png",
+        "path": "images/lect-02a-3D-3DUI_slide10_image1.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide10_image2.png",
+        "path": "images/lect-02a-3D-3DUI_slide10_image2.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide10_image3.png",
+        "path": "images/lect-02a-3D-3DUI_slide10_image3.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 11,
+    "title": "",
+    "content": [
+      "Basic – VE Assets",
+      "Asset Creation:\n\nMecaBricks\nhttps://www.mecabricks.com/en/workshop\n\nLeoCad\nhttp://www.leocad.org/download.html\u000bLego Digital Designer on Windows and"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 12,
+    "title": "",
+    "content": [
+      "Basic – VE Input and Output",
+      "To work with a VE, we need Input and Output to the system\n\nThe PC gives us a platform for the first VE.\n\nThe Mouse and Keyboard are the Input \n\nThe Screen is the output\n\nInitial VE for PCs was the Desktop Paradigm"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 13,
+    "title": "",
+    "content": [
+      "2D User Interface – Xerox Parc",
+      "Xerox Parc - 1970"
+    ],
+    "images": [
+      {
+        "filename": "lect-02a-3D-3DUI_slide13_image0.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide13_image0.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide13_image1.png",
+        "path": "images/lect-02a-3D-3DUI_slide13_image1.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide13_image2.png",
+        "path": "images/lect-02a-3D-3DUI_slide13_image2.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide13_image3.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide13_image3.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide13_image4.png",
+        "path": "images/lect-02a-3D-3DUI_slide13_image4.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide13_image5.png",
+        "path": "images/lect-02a-3D-3DUI_slide13_image5.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide13_image6.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide13_image6.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide13_image7.png",
+        "path": "images/lect-02a-3D-3DUI_slide13_image7.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide13_image8.png",
+        "path": "images/lect-02a-3D-3DUI_slide13_image8.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide13_image9.png",
+        "path": "images/lect-02a-3D-3DUI_slide13_image9.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide13_image10.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide13_image10.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide13_image11.png",
+        "path": "images/lect-02a-3D-3DUI_slide13_image11.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide13_image12.png",
+        "path": "images/lect-02a-3D-3DUI_slide13_image12.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide13_image13.png",
+        "path": "images/lect-02a-3D-3DUI_slide13_image13.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide13_image14.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide13_image14.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide13_image15.png",
+        "path": "images/lect-02a-3D-3DUI_slide13_image15.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide13_image16.png",
+        "path": "images/lect-02a-3D-3DUI_slide13_image16.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide13_image17.png",
+        "path": "images/lect-02a-3D-3DUI_slide13_image17.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 14,
+    "title": "",
+    "content": [
+      "2D UI Paradigm – The Desktop",
+      "Xerox Alto – 1973 - GUI OS  - Advance from command line structure"
+    ],
+    "images": [
+      {
+        "filename": "lect-02a-3D-3DUI_slide14_image0.png",
+        "path": "images/lect-02a-3D-3DUI_slide14_image0.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide14_image1.png",
+        "path": "images/lect-02a-3D-3DUI_slide14_image1.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide14_image2.png",
+        "path": "images/lect-02a-3D-3DUI_slide14_image2.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide14_image3.png",
+        "path": "images/lect-02a-3D-3DUI_slide14_image3.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide14_image4.png",
+        "path": "images/lect-02a-3D-3DUI_slide14_image4.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide14_image5.png",
+        "path": "images/lect-02a-3D-3DUI_slide14_image5.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide14_image6.png",
+        "path": "images/lect-02a-3D-3DUI_slide14_image6.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide14_image7.png",
+        "path": "images/lect-02a-3D-3DUI_slide14_image7.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide14_image8.png",
+        "path": "images/lect-02a-3D-3DUI_slide14_image8.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide14_image9.png",
+        "path": "images/lect-02a-3D-3DUI_slide14_image9.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 15,
+    "title": "",
+    "content": [
+      "2D User Interface Paradigm - WIMP",
+      "WIMP – Window, Icon, Mouse, Pointer\n\nA.K.A. GUI or Graphical User Interface – used to describe 2D\n\nCharacteristics:\nTraditional Desktop Paradigm\nInput Devices – Mouse and Keyboard\nOutput Devices – Monitor\nInteraction techniques – Click, Drag and Drop\nInterface Widget – Pull Down Menu\nThe Bin can change the system state of an object"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 16,
+    "title": "",
+    "content": [
+      "2D User Interface Paradigm - WIMP",
+      "By Shmuel Csaba Otto Traian, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=31693853"
+    ],
+    "images": [
+      {
+        "filename": "lect-02a-3D-3DUI_slide16_image0.png",
+        "path": "images/lect-02a-3D-3DUI_slide16_image0.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide16_image1.png",
+        "path": "images/lect-02a-3D-3DUI_slide16_image1.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide16_image2.png",
+        "path": "images/lect-02a-3D-3DUI_slide16_image2.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide16_image3.png",
+        "path": "images/lect-02a-3D-3DUI_slide16_image3.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 17,
+    "title": "",
+    "content": [
+      "With WIMP comes HCI (key to 3DUI)",
+      "Really the start of Human Computer Interaction (HCI)\n    Looking at:\nBandwidth Disparity \nContext\nPsychology\nSpatial Perception\nCognition \nTask/Control Mapping Efficacy\nMulti-Modal\nConcerned with Design, Efficacy, Innovative methods and devices, and aligning with human naturalistic behaviour"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 18,
+    "title": "",
+    "content": [
+      "“Off the Desktop” - Non-Traditional UI",
+      "Some elements/concepts inappropriate for newer VEs\n\nMobiles need more graphical interfaces and less text and keyboard use\n\nSome can be expanded upon to accommodate third dimension\n\nAdditional dimension is non-trivial matter – very complex issues arise"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 19,
+    "title": "",
+    "content": [
+      "“Off the Desktop” - Non-Traditional UI",
+      "Need:",
+      "New Devices",
+      "New Metaphors",
+      "New Concepts"
+    ],
+    "images": [
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image0.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image0.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image1.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image1.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image2.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image2.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image3.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image3.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image4.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image4.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image5.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image5.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image6.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image6.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image7.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image7.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image8.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image8.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image9.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image9.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image10.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image10.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image11.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image11.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image12.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image12.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image13.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image13.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image14.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image14.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image15.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image15.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image16.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image16.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image17.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image17.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image18.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image18.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image19.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image19.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image20.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image20.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image21.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image21.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image22.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image22.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image23.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image23.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image24.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image24.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image25.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image25.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide19_image26.png",
+        "path": "images/lect-02a-3D-3DUI_slide19_image26.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 20,
+    "title": "",
+    "content": [
+      "Definitions - 3DUI",
+      "3D Interaction – HCI where user’s tasks are carried out in a 3D spatial context with 3D input devices or 2D input devices with direct mappings to 3D\n\n\n3D User Interface – A UI that involves 3D interaction\n\n\n3D Interaction Technique – A method using hardware and software that allows a user to accomplish a task in a 3DUI"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 21,
+    "title": "",
+    "content": [
+      "Why 3DUI?",
+      "1. 3D Interaction is relevant to real world tasks:\n\nVEs operate in a similar way to the real world\nVEs provide an immersive presence\nThis allows use of natural interaction\nNatural interaction rather than abstracted gives:\nLower Cognitive Load\nBetter Information Transfer\nhigher bandwidth\nIntuitive\nbetter quality"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 22,
+    "title": "",
+    "content": [
+      "Why 3DUI?",
+      "2. 3D Hardware and Software is mature:\n\nMobile Processing Devices\nFast Broadband\nHighly networked software apps\nWeb as 3D platform – no plugins, downloads\nSensors, HMDs, Computer Vision and tracking\nBinaural Audio\nHaptics (Phones)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 23,
+    "title": "",
+    "content": [
+      "But….",
+      "Problems:\nThe VE is abstracted and relies on HCI, so…\nLess opportunities than real world\nLess intuitive than real world\nLess Communication bandwidth\nMore chance of:\ninformation loss\nTime Lag\nCorruption\nTiring\nPerceptual Mismatch\nALSO…"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 24,
+    "title": "",
+    "content": [
+      "Issues with 3D over 2D",
+      "Issues with Extra Dimension\n3DUI needs Simultaneous Operations\nThe new Dimension brings freedom of movement\nCoordinate Space Alignment\nScale, Registration\nInput<>VE<>Output\nEspecially Problematic in AR\nVE has Virtual Camera\nInput has Real World POV + Scale\nOutput is varied and usually 2D\nTablet//Phone has In/Out Plane the same \n2D into 3DVE"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 25,
+    "title": "",
+    "content": [
+      "And….",
+      "2DUI is \nFast\nMature\nNow intuitive\n\nAnd\nConceptually and perceptually familiar\n\nEven if compared to a good 3D UI, users can still interpret the 2DUI as more effective and efficient, even if proved otherwise. <Jacob and Sibert> https://dl.acm.org/citation.cfm?id=142792"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 26,
+    "title": "",
+    "content": [
+      "Why go on? - Advantages",
+      "3D Applications should be useful.\u000bThey can provide:\nScenario Context  \nGives added information layout\nImmersion/Presence\nBeing There\nNatural Skills\nUser has knowledge of world and interactions that are complex, these can be directly transferred.\nImmediacy\nAction to feedback has short distance.\nBandwidth\nAction to feedback has rich information."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 27,
+    "title": "",
+    "content": [
+      "Why go on?",
+      "And they are being developed anyway…."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 28,
+    "title": "",
+    "content": [
+      "Solution?",
+      "Novel 3DUI Design\nBased on Real World or other metaphor\nBased on popular use – touch, etc.\n\nComplexity of options and the VE themselves requires innovation in various areas:\nPsychology\nHCI\nHardware\nSoftware\nGamification"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 29,
+    "title": "",
+    "content": [
+      "Solution",
+      "We must focus on the design of UI with input from various disciplines – simple ones work, more complex will require time and study (or Computer Vision advances)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 30,
+    "title": "",
+    "content": [
+      "Goals",
+      "Goals:\nPerformance – efficient, accurate, productive\nUsability – Ease of use, learning, comfort\nUsefulness – Meets goals, transparent so can focus on task.\n\nAchieved by:\nReducing Users Cognitive Load (Control to Task Mapping)\nNatural Interaction\nEnhancing Spatial Knowledge (Perceptual Structure)\nGives Extra Information – Higher Bandwidth and Quality\nGives Presence – Immersive\nEase of Use (Motor Coordination, Tiring or Clash)\t\n\n\nHou Wenjun Beijing University of Posts and Telecommunications China"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 31,
+    "title": "",
+    "content": [
+      "What is a 3DUI?"
+    ],
+    "images": [
+      {
+        "filename": "lect-02a-3D-3DUI_slide31_image0.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide31_image0.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide31_image1.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide31_image1.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide31_image2.jpeg",
+        "path": "images/lect-02a-3D-3DUI_slide31_image2.jpeg"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide31_image3.png",
+        "path": "images/lect-02a-3D-3DUI_slide31_image3.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 32,
+    "title": "",
+    "content": [
+      "Definitions – 3DUI (Again)",
+      "3D Interaction – HCI where user’s tasks are carried out in a 3D spatial context with 3D input devices or 2D input devices with direct mappings to 3D\n\n\n3D User Interface – A UI that involves 3D interaction\n\n\n3D Interaction Technique – A method using hardware and software that allows a user to accomplish a task in a 3DUI"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 33,
+    "title": "",
+    "content": [
+      "Terminology – HCI, UI",
+      "Human Computer Interaction – Low Bandwidth Communication between humans and computers\u000b\n\tThis is imperfect and prone to misinterpretation, as computers only do what we tell them, and our language and interaction is some complex\n\nUser Interface – medium of communication between users and computers.\n\t\n\tThis is a translation system of sorts. The Computer language is quite raw and alien, an needs an abstraction layer itself. Our interface with this abstraction layer adds another of possible confusion."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 34,
+    "title": "",
+    "content": [
+      "Terminology – Interaction Technique",
+      "Interaction Technique:\nA method allowing the user to accomplish a task via the UI.\nAn interaction technique includes both hardware (I/O Devices) and software components. \n\nThe interaction technique’s software component is responsible for:\nMapping the information from the input device or devices into some action within the system\nMapping the output of the system to a form that can be displayed by the out device(s)."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 35,
+    "title": "",
+    "content": [
+      "Terminology – 3D Interaction",
+      "3D Interaction:\nHCI with tasks directly in 3D space, can use:\n\n3D input devices\n2D input devices with direct mappings to 3D\n\nhttps://www.youtube.com/watch?v=tfU1yLwDdak\n\nJacob and Sibert – Integrated vs separable – both real world inputs and virtual control systems accepting them….\nhttps://dl.acm.org/citation.cfm?id=142792"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 36,
+    "title": "",
+    "content": [
+      "Terminology – Input Devices",
+      "Dof – Degrees of freedom – 1,2,3,6\n\nIntegral\nSeparable\n2dof – Mouse\n3dof – Mouse with scroll wheel (s) or 3D mouse (s)\n3dof – magnetic tracker https://www.intelligentultrasound.com/heartworks/ \n6dof – Razer Hydra"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 37,
+    "title": "",
+    "content": [
+      "Terminology – Input Data",
+      "Input  - range of types and data\n\nElectronics – Digital, Analog\nReported Values – Discrete, Continuous, Hybrid\nData Type – Boolean, Integer, Floating Point\nUser Action – Active, Passive, Hybrid\nInformation Provision – Push, Pull\nUse – Locator, Valuator, Choice\nFrame of Reference – Relative, Absolute (Gyroscopic)\nProperties – Position, Motion, Force"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 38,
+    "title": "",
+    "content": [
+      "Terminology – Input Types",
+      "Input  - range of types and data\n\nDesktop Devices\nTracking Devices\n3D Mice\nSpecial Purpose Devices\nDirect Human Input – Natural Interaction"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 39,
+    "title": "",
+    "content": [
+      "Terminology – Natural Interaction",
+      "For Natural Interaction:\n\nPUI – Perceptual User Interface\nCV – Computer Vision – Webcam tracking\nNatural Feature Tracking\nMarker Tracking – Active, Passive, Fiducial\nTime of Flight\nInfrared\nLaser Pattern"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 40,
+    "title": "",
+    "content": [
+      "Terminology - Usability",
+      "Usability:\nCharacteristics affecting efficacy, ease, comfort, performance."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 41,
+    "title": "",
+    "content": [
+      "Terminology – 3DUI practical",
+      "3D UI:\nA UI that involves 3D interaction – Input, Widgets.\n\n3DS Max Example – 2D mouse control of 3D Gimbal/Widget\n\nKinect 2 Example – 3D Natural Input and 3D direct control of objects via a Virtual Hand"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 42,
+    "title": "",
+    "content": [
+      "3DUI Examples - Research",
+      "Put That There\n\nMixed reality – Will Steptoe\n\nDesktop AR, MR – Microsoft Holodesk\n\nMR – Kinect 3D Scanned Puppets"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 43,
+    "title": "",
+    "content": [
+      "3DUI Examples Web Dev",
+      "Web Dev\n\tPlaycanvas, Goo, Three.js, Babylon.js sandbox\n\thttps://en.wikipedia.org/wiki/List_of_WebGL_frameworks\n\nCodepen.io\nhttps://codepen.io/search/pens?q=three.js&cursor=ZD0xJm89MCZwPTE= \n\nA-Frame\nhttps://aframe.io/\nhttps://threejs.org/\n\nNew Ecosystem:\nhttps://uowdigital.padlet.org/fergusj/web-web3d-and-web3-ecosystem-9xv91ovkasaaviua"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 44,
+    "title": "",
+    "content": [
+      "References",
+      "3D User Interfaces: Theory and Practice\nDoug A. Bowman, Ernst Kruijff, Joseph J. LaViola, Ivan Poupyrev\nAddison Wesley Longman Publishing\nUSA\n\nThe Three-Dimensional User Interface\nHou Wenjun\nBeijing University of Posts and Telecommunications\nChina"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 45,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 46,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "Scalars, Points, Vectors\n\nThree Basic types of entities to define geometric objects.\n\nDefined from mathematical, programming and geometric \nPerspective."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 47,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "Points\n\nIn 3D geometric systems, a point is a location in space\n\nOnly location, no size\n\nBest to use a reference or coordinate system to define"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 48,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "Vectors (Lines)\n\nConnect points with Line Segments\n\nAlso called vectors (direction and magnitude – velocity, force)\n\nHave direction and magnitude (length)\n\nHave Scalar (magnitude) values – real number"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 49,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "Vectors and Affine Spaces\n\nAbstract spaces for representing them\n\nLinear (Vector) space – Vectors and Scalars\n\nScalar Field – combining Scalars with addition and multiplication"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 50,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "Affine Spaces – Coordinate Space. Vector space without an origin. Vectors cannot be summed. Vectors with magnitude but no reference.\n\n(Linear) Vector Space\nA vector space is a mathematical structure formed by a collection of elements called vectors, which may be added together and multiplied (\"scaled\") by numbers, called scalars in this context. Vector point addition can create a new point. Vector is from two points\n\nEuclidean Space\nFundamental space of geometry, defining physical world. Adds measure of size or distance and angle. 3D programs use this to make a representation of the world."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 51,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "A Vector Space is a structure composed of vectors and has no magnitude or dimension, whereas Euclidean Space can be of any dimension and is based on coordinates. \n\nEuclidian Spaces are defined with size and distance between points, and can calculate angles between vectors. \n\nCartesian Coordinates can define Euclidian Space.\n\nCoordinate Space is a system of describing the position of points in space using perpendicular axis lines that meet at a point called the origin. Any given point's position can be described based on its distance from the origin along each axis."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 52,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "Euclidean Space - adds measure of size or distance\n\nCartesian Coordinates \nCoordinate System\nVirtual World Space\n\nAxes – X,Y,Z\n2D is X,Y\n3D is X,Y,Z\n\nSome software have Y up, some Z\nZ is typically described as into the screen and determines \nrendering order of objects"
+    ],
+    "images": [
+      {
+        "filename": "lect-02a-3D-3DUI_slide52_image0.png",
+        "path": "images/lect-02a-3D-3DUI_slide52_image0.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide52_image1.png",
+        "path": "images/lect-02a-3D-3DUI_slide52_image1.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide52_image2.png",
+        "path": "images/lect-02a-3D-3DUI_slide52_image2.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide52_image3.png",
+        "path": "images/lect-02a-3D-3DUI_slide52_image3.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide52_image4.png",
+        "path": "images/lect-02a-3D-3DUI_slide52_image4.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide52_image5.png",
+        "path": "images/lect-02a-3D-3DUI_slide52_image5.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide52_image6.png",
+        "path": "images/lect-02a-3D-3DUI_slide52_image6.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide52_image7.png",
+        "path": "images/lect-02a-3D-3DUI_slide52_image7.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide52_image8.png",
+        "path": "images/lect-02a-3D-3DUI_slide52_image8.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide52_image9.png",
+        "path": "images/lect-02a-3D-3DUI_slide52_image9.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide52_image10.png",
+        "path": "images/lect-02a-3D-3DUI_slide52_image10.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide52_image11.png",
+        "path": "images/lect-02a-3D-3DUI_slide52_image11.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide52_image12.png",
+        "path": "images/lect-02a-3D-3DUI_slide52_image12.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide52_image13.png",
+        "path": "images/lect-02a-3D-3DUI_slide52_image13.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 53,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "Abstract Data Types\n\nWorld Coordinate Space – 3D Virtual Space – Has Origin\nLocal Coordinate Space – Models – Has Pivot or Centre\n\nScaling – each program has its own virtual scale\n\nWorld coordinates are absolute values that are related to the \norigins of the world. They do not depend on any specific object in the world.\n\nThey are applied to all objects in the world indistinctly."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 54,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "Abstract Data Types\n\nCamera Space (3D POV – point of view)\nOrthographic/Perspective view\nScreen Space (2D Display Space, Render Image)\n\nSynthetic Camera Model – Perspective\nOrthographic – Non-Perspective"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 55,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques"
+    ],
+    "images": [
+      {
+        "filename": "lect-02a-3D-3DUI_slide55_image0.png",
+        "path": "images/lect-02a-3D-3DUI_slide55_image0.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide55_image1.png",
+        "path": "images/lect-02a-3D-3DUI_slide55_image1.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide55_image2.png",
+        "path": "images/lect-02a-3D-3DUI_slide55_image2.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide55_image3.png",
+        "path": "images/lect-02a-3D-3DUI_slide55_image3.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 56,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "Abstract Data Types\n\nCan sometimes have correlation and calibration to the real world.(3d input, mocap, AR)\n\nThis can develop into a many layered issue depending on multiple devices or abstractions."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 57,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques"
+    ],
+    "images": [
+      {
+        "filename": "lect-02a-3D-3DUI_slide57_image0.png",
+        "path": "images/lect-02a-3D-3DUI_slide57_image0.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide57_image1.png",
+        "path": "images/lect-02a-3D-3DUI_slide57_image1.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide57_image2.png",
+        "path": "images/lect-02a-3D-3DUI_slide57_image2.png"
+      },
+      {
+        "filename": "lect-02a-3D-3DUI_slide57_image3.png",
+        "path": "images/lect-02a-3D-3DUI_slide57_image3.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 58,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "Abstract Data Types\n\n3D Objects defined by array of numbers \n(cartesian coordinates for vertices)\nObjects have their own local coordinate systems\n\nTheir transformation can be in relation to local or world coordinate systems.\n\nObject Pivot – Local Transformation\nObject Translate – World Transformation"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 59,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "Terms\n\nVertex – Point in the 3D World\n\nVertices – Multiple Vertex\n\nTriangle – Minimum face\n\nMesh – 3D object made of triangles\n\nWireframe – Mesh displayed without shading"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 60,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "Wireframe Objects\n\nWireframe objects at their most basic\n\nVertices (Array)\nLines (Can also be Curves)\nTriangles (Polygons)\n\nVector3 (x,y,z) – Used for 3D position or Direction (Unity, Web3D)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 61,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "Wireframe Objects – Primitive Cube\n\nDrawing Triangles for a cube\n\nCube is made of 8 vertices\n\nEach face is made of 3 vertices\n\nA cube is made of 12 faces"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 62,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "Polygon Shell Mesh:\n\nBecause the appearance of an object depends largely on the exterior of the object, boundary representations are common in computer graphics. Two dimensional surfaces are a good analogy for the objects used in graphics, though quite often these objects are non-manifold (Cannot exist in real world). Since surfaces are not finite, a discrete digital approximation is required: polygonal meshes (and to a lesser extent subdivision surfaces) are by far the most common representation, although point-based representations have been gaining some popularity in recent years."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 63,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "Tessellation:\n\nThe process of transforming representations of objects, such as the middle point coordinate of a sphere and a point on its circumference into a polygon representation of a sphere, is called tessellation. This step is used in polygon-based rendering, where objects are broken down from abstract representations (\"primitives\") such as spheres, cones etc., to so-called meshes, which are nets of interconnected triangles."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 64,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "Tessellation:\n\nMeshes of triangles (instead of e.g. squares) are popular as they have proven to be easy to rasterise (the surface described by each triangle is planar, so the projection is always convex); .[3]Polygon representations are not used in all rendering techniques, and in these cases the tessellation step is not included in the transition from abstract representation to rendered scene.\n\n3DS Max Parametric Primitives to Editable Polys (sub-objects such as vertex, edge, etc…)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 65,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "Subdivision:\n\nA subdivision surface, in the field of 3D computer graphics, is a method of representing a smooth surface via the specification of a coarser piecewise linear polygon mesh. The smooth surface can be calculated from the coarse mesh as the limit of recursive subdivision of each polygonal face into smaller faces that better approximate the smooth surface.\n\nMeshsmooth, Turbosmooth, subdivision in 3DS Max"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 66,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "3D Objects recap\n\nTransform – Scale, Position, Orientation\n\nVector3 – 3D position or direction (Programming)\n\nWorld Transform – Absolute values related to the virtual\nWorld origin\n\nLocal Transform – values relative to the objects own origin\n\nProgramming Transform – Vector3, will use in Unity"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 67,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "3D Objects – File Formats\n\nThey have properties in the file format that they are saved in that define viewers, lighting, materials, shaders, textures and texture coordinates as well as the geometry."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 68,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "Fbx File Format\n\nFbx format further has geometry, materials, textures, lights, cameras, animation, deformations, physics, hierarchical rigs and relations, and inverse kinematics.\n\nAnd more!"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 69,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "3D Objects in OpenGL and Unity\n\nThese have a higher level of abstraction in real time for OpenGL, and for use in Unity3D\n\nIn these software architectures, they have functions and methods as well.\n\nThese are called GameObjects in Unity. \nGameObjects can also be blank, as in reality they are just nodes…"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 70,
+    "title": "",
+    "content": [
+      "3D Basic Concepts and Techniques",
+      "3D Objects\n\nUnity is based on initializing GameObjects (nodes), all of which have fully adjustable Components (scripts), some of which are based on the Object’s properties, some of which are Unity features from their library, and some can be scripts you add."
+    ],
+    "images": []
+  }
+]

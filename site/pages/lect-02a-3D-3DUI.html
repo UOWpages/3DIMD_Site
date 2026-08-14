@@ -1,0 +1,2677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Lecture 02a - 3D and 3DUI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260805m" />
+  <link rel="stylesheet" href="../assets/css/slideshow.css?v=20260814c" />
+  <style>
+    body.lecture-fullbleed .slideshow-container {
+      visibility: hidden;
+    }
+
+    body.lecture-fullbleed.lecture-ready .slideshow-container {
+      visibility: visible;
+    }
+
+    body.lecture-fullbleed .slide-title {
+      display: none !important;
+    }
+
+    body.lecture-fullbleed .slide-content > h2 {
+      display: none !important;
+    }
+  </style>
+</head>
+<body class="lecture-fullbleed">
+  <div class="slideshow-container">
+    <!-- Slide 1 -->
+    <div class="slide active">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>5MMCS001W				Lecture 02a</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>5MMCS001W				Lecture 02a</summary>
+        <div class="accordion-body">
+    <p>https://playcanv.as/p/sAsiDvtC/</p>
+    <p>https://threejs.org/ https://saydnaya.amnesty.org</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)" disabled> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>CW Overview</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Reference, Previous Student Work</summary>
+        <div class="accordion-body">
+    <h3>Reference, Previous Student Work:</h3>
+    <p>https://uowdigital.padlet.org/fergusj/3dimd-cw-samples-2025-1f4w3m19lc80m9cf</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Covered in this Lecture:</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Covered in this Lecture</summary>
+        <div class="accordion-body">
+    <p>3DUI Overview</p>
+    <p>3D Basic Concepts and Techniques</p>
+    <p>CW Methodology</p>
+    <p>CW Overview</p>
+    <p>Groups Brainstorm</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Workflow – 3DUI for Interactive VE*</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Workflow – 3DUI for Interactive VE*</summary>
+        <div class="accordion-body">
+    <p>3DS Max</p>
+    <p>Modelling</p>
+    <p>Texturing</p>
+    <p>Fbx</p>
+    <p>Unity3D</p>
+    <p>Shaders</p>
+    <p>LightingC# Interaction</p>
+    <p>C# NavigationC# System States</p>
+    <p>WebGL</p>
+    <p>Chrome or FirefoxKeyboard InputMouse Input</p>
+    <p>Fbx</p>
+    <p>*Virtual Environment</p>
+    <img src="images/lect-02a-3D-3DUI_slide4_image0.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image1.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image2.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image3.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image4.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image5.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image6.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image7.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image8.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image9.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image10.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image11.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image12.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image13.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image14.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image15.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image16.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image17.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image18.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image19.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image20.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image21.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image22.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image23.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image24.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image25.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image26.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image27.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image28.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image29.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image30.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image31.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image32.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image33.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image34.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image35.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image36.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image37.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image38.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image39.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image40.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image41.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image42.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image43.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image44.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image45.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image46.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image47.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image48.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image49.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image50.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image51.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image52.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image53.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image54.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image55.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image56.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image57.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image58.png" alt="Slide 4 image" />
+    <img src="images/lect-02a-3D-3DUI_slide4_image59.png" alt="Slide 4 image" />
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Virtual Environment – 3DUI Needed</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Virtual Environment – 3DUI Needed</summary>
+        <div class="accordion-body">
+    <p>At its most basic, we need some sort of 3D UI to interact with a Virtual Environment.</p>
+    <p>We may think we know instinctively what a VE is, but to correctly define and use 3D UI concepts, we must know what flavour of VE we are using or need.</p>
+    <p>This is complicated greatly by public perceptions of VEs and the misnaming and misconceptions that happens.</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 6 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Basic - Mixed Reality Scale</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Basic - Mixed Reality Scale</summary>
+        <div class="accordion-body">
+    <img src="images/lect-02a-3D-3DUI_slide6_image0.jpeg" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image1.jpeg" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image2.jpeg" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image3.png" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image4.jpeg" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image5.jpeg" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image6.jpeg" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image7.png" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image8.jpeg" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image9.jpeg" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image10.jpeg" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image11.png" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image12.png" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image13.jpeg" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image14.jpeg" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image15.jpeg" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image16.png" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image17.png" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image18.jpeg" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image19.jpeg" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image20.jpeg" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image21.png" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image22.png" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image23.jpeg" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image24.jpeg" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image25.jpeg" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image26.png" alt="Slide 6 image" />
+    <img src="images/lect-02a-3D-3DUI_slide6_image27.png" alt="Slide 6 image" />
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 7 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Basic – VE Permutations – Part 1</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Basic – VE Permutations – Part 1</summary>
+        <div class="accordion-body">
+    <p>3DIMD examples</p>
+    <p>https://uowdigital.padlet.org/fergusj/3dimd-cw-samples-5ohcvanq1wlcq0h9</p>
+    <p>VR Platforms</p>
+    <p>https://padlet.com/sselwood1/VirtualMeeting</p>
+    <p>XR In Industry</p>
+    <p>https://uowdigital.padlet.org/fergusj/XRinIndustry</p>
+    <p>XR Lab - Now Immersive Development Lab</p>
+    <p>ID Lab FYP Examples</p>
+    <p>ID Lab Demo Videos</p>
+    <p>…and some misnomers</p>
+    <p>Holograms - No</p>
+    <p>Virtual Reality (360 Video)</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 8 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3DUI VR</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3DUI VR</summary>
+        <div class="accordion-body">
+    <p>Immersive (VR) Journalism</p>
+    <p>Fishtank VR - Google Cardboard 6 x 9</p>
+    <p>https://www.theguardian.com/world/ng-interactive/2016/apr/27/6x9-a-virtual-experience-of-solitary-confinement</p>
+    <p>Desktop VR – Harvest of Change</p>
+    <p>http://www.desmoinesregister.com/story/money/agriculture/2014/09/17/harvest-of-change-virtual-farm-virtual-reality/15785377/</p>
+    <p>Syrian Prison</p>
+    <p>https://saydnaya.amnesty.org/</p>
+    <p>360 Image/Video w/ 3DUI</p>
+    <p>HoloBuilder https://www.holobuilder.com/</p>
+    <p>VR with POV</p>
+    <p>BBC Taster http://www.bbc.co.uk/taster/</p>
+    <p>VR with 3D Input</p>
+    <p>Vive Job Simulator  http://jobsimulatorgame.com/</p>
+    <details class="accordion accordion--nested video-accordion">
+      <summary>Ikea VR</summary>
+      <div class="accordion-body">
+        <article class="embed-card">
+          <iframe class="video-embed" src="https://www.youtube.com/embed/1S0GO5kbMYo" title="Ikea VR" loading="lazy" allowfullscreen></iframe>
+          <p><a href="https://www.youtube.com/watch?v=1S0GO5kbMYo" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+        </article>
+      </div>
+    </details>
+    <details class="accordion accordion--nested video-accordion">
+      <summary>Vive Tilt Brush</summary>
+      <div class="accordion-body">
+        <article class="embed-card">
+          <iframe class="video-embed" src="https://www.youtube.com/embed/aocLCCvJTBU" title="Vive Tilt Brush" loading="lazy" allowfullscreen></iframe>
+          <p><a href="https://www.youtube.com/watch?v=aocLCCvJTBU" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+        </article>
+      </div>
+    </details>
+    <details class="accordion accordion--nested video-accordion">
+      <summary>Vive Tilt Brush</summary>
+      <div class="accordion-body">
+        <article class="embed-card">
+          <iframe class="video-embed" src="https://www.youtube.com/embed/GSbkn6mCfXE" title="Vive Tilt Brush" loading="lazy" allowfullscreen></iframe>
+          <p><a href="https://www.youtube.com/watch?v=GSbkn6mCfXE" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+        </article>
+      </div>
+    </details>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 9 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3DUI New Platforms</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Larger Recent Ecosystem</summary>
+        <div class="accordion-body">
+    <h3>Larger Recent Ecosystem:</h3>
+    <p>https://uowdigital.padlet.org/fergusj/web3d-and-web3-ecosystem-9xv91ovkasaaviua</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 0">Web3D (WebGL/GPU)</div>
+      </div>
+    </section>
+    <p>WebXR</p>
+    <p>Includes WebRTC, WebVR, WebAR and other openprotocols and file formats</p>
+    <p>Web3 – tokenisation allowing for self-publishing and interoperability on above protocols</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 10 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3DUI Reading List</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3DUI Reading List</summary>
+        <div class="accordion-body">
+    <p>Reading List for Module</p>
+    <p>Look at docs.unity3d.com</p>
+    <p>Select version 6000.0 top left</p>
+    <p>Check Manual/Scripting API</p>
+    <p>Scripting API</p>
+    <p>https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Input.html</p>
+    <p>Manual</p>
+    <p>https://docs.unity3d.com/6000.0/Documentation/Manual/class-InputManager.html</p>
+    <img src="images/lect-02a-3D-3DUI_slide10_image0.png" alt="Slide 10 image" />
+    <img src="images/lect-02a-3D-3DUI_slide10_image1.png" alt="Slide 10 image" />
+    <img src="images/lect-02a-3D-3DUI_slide10_image2.png" alt="Slide 10 image" />
+    <img src="images/lect-02a-3D-3DUI_slide10_image3.png" alt="Slide 10 image" />
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 11 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Basic – VE Assets</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Asset Creation</summary>
+        <div class="accordion-body">
+    <h3>Asset Creation:</h3>
+    <p>MecaBricks</p>
+    <p>https://www.mecabricks.com/en/workshop</p>
+    <p>LeoCad</p>
+    <p>http://www.leocad.org/download.htmlLego Digital Designer on Windows and</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-11">11</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 12 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Basic – VE Input and Output</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Basic – VE Input and Output</summary>
+        <div class="accordion-body">
+    <p>To work with a VE, we need Input and Output to the system</p>
+    <p>The PC gives us a platform for the first VE.</p>
+    <p>The Mouse and Keyboard are the Input</p>
+    <p>The Screen is the output</p>
+    <p>Initial VE for PCs was the Desktop Paradigm</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-12">12</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 13 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>2D User Interface – Xerox Parc</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>2D User Interface – Xerox Parc</summary>
+        <div class="accordion-body">
+    <p>Xerox Parc - 1970</p>
+    <img src="images/lect-02a-3D-3DUI_slide13_image0.jpeg" alt="Slide 13 image" />
+    <img src="images/lect-02a-3D-3DUI_slide13_image1.png" alt="Slide 13 image" />
+    <img src="images/lect-02a-3D-3DUI_slide13_image2.png" alt="Slide 13 image" />
+    <img src="images/lect-02a-3D-3DUI_slide13_image3.jpeg" alt="Slide 13 image" />
+    <img src="images/lect-02a-3D-3DUI_slide13_image4.png" alt="Slide 13 image" />
+    <img src="images/lect-02a-3D-3DUI_slide13_image5.png" alt="Slide 13 image" />
+    <img src="images/lect-02a-3D-3DUI_slide13_image6.jpeg" alt="Slide 13 image" />
+    <img src="images/lect-02a-3D-3DUI_slide13_image7.png" alt="Slide 13 image" />
+    <img src="images/lect-02a-3D-3DUI_slide13_image8.png" alt="Slide 13 image" />
+    <img src="images/lect-02a-3D-3DUI_slide13_image9.png" alt="Slide 13 image" />
+    <img src="images/lect-02a-3D-3DUI_slide13_image10.jpeg" alt="Slide 13 image" />
+    <img src="images/lect-02a-3D-3DUI_slide13_image11.png" alt="Slide 13 image" />
+    <img src="images/lect-02a-3D-3DUI_slide13_image12.png" alt="Slide 13 image" />
+    <img src="images/lect-02a-3D-3DUI_slide13_image13.png" alt="Slide 13 image" />
+    <img src="images/lect-02a-3D-3DUI_slide13_image14.jpeg" alt="Slide 13 image" />
+    <img src="images/lect-02a-3D-3DUI_slide13_image15.png" alt="Slide 13 image" />
+    <img src="images/lect-02a-3D-3DUI_slide13_image16.png" alt="Slide 13 image" />
+    <img src="images/lect-02a-3D-3DUI_slide13_image17.png" alt="Slide 13 image" />
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-13">13</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 14 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>2D UI Paradigm – The Desktop</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>2D UI Paradigm – The Desktop</summary>
+        <div class="accordion-body">
+    <p>Xerox Alto – 1973 - GUI OS  - Advance from command line structure</p>
+    <img src="images/lect-02a-3D-3DUI_slide14_image0.png" alt="Slide 14 image" />
+    <img src="images/lect-02a-3D-3DUI_slide14_image1.png" alt="Slide 14 image" />
+    <img src="images/lect-02a-3D-3DUI_slide14_image2.png" alt="Slide 14 image" />
+    <img src="images/lect-02a-3D-3DUI_slide14_image3.png" alt="Slide 14 image" />
+    <img src="images/lect-02a-3D-3DUI_slide14_image4.png" alt="Slide 14 image" />
+    <img src="images/lect-02a-3D-3DUI_slide14_image5.png" alt="Slide 14 image" />
+    <img src="images/lect-02a-3D-3DUI_slide14_image6.png" alt="Slide 14 image" />
+    <img src="images/lect-02a-3D-3DUI_slide14_image7.png" alt="Slide 14 image" />
+    <img src="images/lect-02a-3D-3DUI_slide14_image8.png" alt="Slide 14 image" />
+    <img src="images/lect-02a-3D-3DUI_slide14_image9.png" alt="Slide 14 image" />
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-14">14</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 15 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>2D User Interface Paradigm - WIMP</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>2D User Interface Paradigm - WIMP</summary>
+        <div class="accordion-body">
+    <p>WIMP – Window, Icon, Mouse, Pointer</p>
+    <p>A.K.A. GUI or Graphical User Interface – used to describe 2D</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Characteristics</summary>
+        <div class="accordion-body">
+    <h3>Characteristics:</h3>
+    <p>Traditional Desktop Paradigm</p>
+    <p>Input Devices – Mouse and Keyboard</p>
+    <p>Output Devices – Monitor</p>
+    <p>Interaction techniques – Click, Drag and Drop</p>
+    <p>Interface Widget – Pull Down Menu</p>
+    <p>The Bin can change the system state of an object</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-15">15</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 16 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>2D User Interface Paradigm - WIMP</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>2D User Interface Paradigm - WIMP</summary>
+        <div class="accordion-body">
+    <p>By Shmuel Csaba Otto Traian, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=31693853</p>
+    <img src="images/lect-02a-3D-3DUI_slide16_image0.png" alt="Slide 16 image" />
+    <img src="images/lect-02a-3D-3DUI_slide16_image1.png" alt="Slide 16 image" />
+    <img src="images/lect-02a-3D-3DUI_slide16_image2.png" alt="Slide 16 image" />
+    <img src="images/lect-02a-3D-3DUI_slide16_image3.png" alt="Slide 16 image" />
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-16">16</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 17 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>With WIMP comes HCI (key to 3DUI)</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>key to 3DUI</summary>
+        <div class="accordion-body">
+    <p>Really the start of Human Computer Interaction (HCI)</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Looking at</summary>
+        <div class="accordion-body">
+    <h3>Looking at:</h3>
+    <p>Bandwidth Disparity</p>
+    <p>Context</p>
+    <p>Psychology</p>
+    <p>Spatial Perception</p>
+    <p>Cognition</p>
+    <p>Task/Control Mapping Efficacy</p>
+    <p>Multi-Modal</p>
+    <p>Concerned with Design, Efficacy, Innovative methods and devices, and aligning with human naturalistic behaviour</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-17">17</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 18 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>“Off the Desktop” - Non-Traditional UI</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>“Off the Desktop” - Non-Traditional UI</summary>
+        <div class="accordion-body">
+    <p>Some elements/concepts inappropriate for newer VEs</p>
+    <p>Mobiles need more graphical interfaces and less text and keyboard use</p>
+    <p>Some can be expanded upon to accommodate third dimension</p>
+    <p>Additional dimension is non-trivial matter – very complex issues arise</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-18">18</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 19 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>“Off the Desktop” - Non-Traditional UI</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Need</summary>
+        <div class="accordion-body">
+    <h3>Need:</h3>
+    <p>New Devices</p>
+    <p>New Metaphors</p>
+    <p>New Concepts</p>
+    <img src="images/lect-02a-3D-3DUI_slide19_image0.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image1.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image2.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image3.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image4.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image5.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image6.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image7.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image8.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image9.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image10.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image11.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image12.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image13.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image14.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image15.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image16.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image17.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image18.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image19.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image20.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image21.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image22.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image23.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image24.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image25.png" alt="Slide 19 image" />
+    <img src="images/lect-02a-3D-3DUI_slide19_image26.png" alt="Slide 19 image" />
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-19">19</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 20 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Definitions - 3DUI</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Definitions - 3DUI</summary>
+        <div class="accordion-body">
+    <p>3D Interaction – HCI where user’s tasks are carried out in a 3D spatial context with 3D input devices or 2D input devices with direct mappings to 3D</p>
+    <p>3D User Interface – A UI that involves 3D interaction</p>
+    <p>3D Interaction Technique – A method using hardware and software that allows a user to accomplish a task in a 3DUI</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-20">20</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 21 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Why 3DUI?</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>1. 3D Interaction is relevant to real world tasks</summary>
+        <div class="accordion-body">
+    <h3>1. 3D Interaction is relevant to real world tasks:</h3>
+    <p>VEs operate in a similar way to the real world</p>
+    <p>VEs provide an immersive presence</p>
+    <p>This allows use of natural interaction</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Natural interaction rather than abstracted gives</summary>
+        <div class="accordion-body">
+    <h3>Natural interaction rather than abstracted gives:</h3>
+    <p>Lower Cognitive Load</p>
+    <p>Better Information Transfer</p>
+    <p>higher bandwidth</p>
+    <p>Intuitive</p>
+    <p>better quality</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-21">21</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 22 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Why 3DUI?</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>2. 3D Hardware and Software is mature</summary>
+        <div class="accordion-body">
+    <h3>2. 3D Hardware and Software is mature:</h3>
+    <p>Mobile Processing Devices</p>
+    <p>Fast Broadband</p>
+    <p>Highly networked software apps</p>
+    <p>Web as 3D platform – no plugins, downloads</p>
+    <p>Sensors, HMDs, Computer Vision and tracking</p>
+    <p>Binaural Audio</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 0">Haptics (Phones)</div>
+      </div>
+    </section>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-22">22</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 23 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>But….</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Problems</summary>
+        <div class="accordion-body">
+    <h3>Problems:</h3>
+    <p>The VE is abstracted and relies on HCI, so…</p>
+    <p>Less opportunities than real world</p>
+    <p>Less intuitive than real world</p>
+    <p>Less Communication bandwidth</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>More chance of</summary>
+        <div class="accordion-body">
+    <h3>More chance of:</h3>
+    <p>information loss</p>
+    <p>Time Lag</p>
+    <p>Corruption</p>
+    <p>Tiring</p>
+    <p>Perceptual Mismatch</p>
+    <p class="section-label">ALSO…</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-23">23</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 24 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Issues with 3D over 2D</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Issues with 3D over 2D</summary>
+        <div class="accordion-body">
+    <p>Issues with Extra Dimension</p>
+    <p>3DUI needs Simultaneous Operations</p>
+    <p>The new Dimension brings freedom of movement</p>
+    <p>Coordinate Space Alignment</p>
+    <p>Scale, Registration</p>
+    <p>Input<>VE<>Output</p>
+    <p>Especially Problematic in AR</p>
+    <p>VE has Virtual Camera</p>
+    <p>Input has Real World POV + Scale</p>
+    <p>Output is varied and usually 2D</p>
+    <p>Tablet//Phone has In/Out Plane the same</p>
+    <p>2D into 3DVE</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-24">24</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 25 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>And….</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>And….</summary>
+        <div class="accordion-body">
+    <p>2DUI is</p>
+    <p>Fast</p>
+    <p>Mature</p>
+    <p>Now intuitive</p>
+    <p>And</p>
+    <p>Conceptually and perceptually familiar</p>
+    <p>Even if compared to a good 3D UI, users can still interpret the 2DUI as more effective and efficient, even if proved otherwise. <Jacob and Sibert> https://dl.acm.org/citation.cfm?id=142792</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-25">25</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 26 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Why go on? - Advantages</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Applications should be useful.They can provide</summary>
+        <div class="accordion-body">
+    <h3>3D Applications should be useful.They can provide:</h3>
+    <p>Scenario Context</p>
+    <p>Gives added information layout</p>
+    <p>Immersion/Presence</p>
+    <p>Being There</p>
+    <p>Natural Skills</p>
+    <p>User has knowledge of world and interactions that are complex, these can be directly transferred.</p>
+    <p>Immediacy</p>
+    <p>Action to feedback has short distance.</p>
+    <p>Bandwidth</p>
+    <p>Action to feedback has rich information.</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-26">26</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 27 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Why go on?</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Why go on?</summary>
+        <div class="accordion-body">
+    <p>And they are being developed anyway….</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-27">27</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 28 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Solution?</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Solution?</summary>
+        <div class="accordion-body">
+    <p>Novel 3DUI Design</p>
+    <p>Based on Real World or other metaphor</p>
+    <p>Based on popular use – touch, etc.</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Complexity of options and the VE themselves requires innovation in various areas</summary>
+        <div class="accordion-body">
+    <h3>Complexity of options and the VE themselves requires innovation in various areas:</h3>
+    <p>Psychology</p>
+    <p class="section-label">HCI</p>
+    <p>Hardware</p>
+    <p>Software</p>
+    <p>Gamification</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-28">28</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 29 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Solution</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Solution</summary>
+        <div class="accordion-body">
+    <p>We must focus on the design of UI with input from various disciplines – simple ones work, more complex will require time and study (or Computer Vision advances)</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-29">29</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 30 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Goals</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Goals</summary>
+        <div class="accordion-body">
+    <h3>Goals:</h3>
+    <p>Performance – efficient, accurate, productive</p>
+    <p>Usability – Ease of use, learning, comfort</p>
+    <p>Usefulness – Meets goals, transparent so can focus on task.</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Achieved by</summary>
+        <div class="accordion-body">
+    <h3>Achieved by:</h3>
+    <p>Reducing Users Cognitive Load (Control to Task Mapping)</p>
+    <p>Natural Interaction</p>
+    <p>Enhancing Spatial Knowledge (Perceptual Structure)</p>
+    <p>Gives Extra Information – Higher Bandwidth and Quality</p>
+    <p>Gives Presence – Immersive</p>
+    <p>Ease of Use (Motor Coordination, Tiring or Clash)</p>
+    <p>Hou Wenjun Beijing University of Posts and Telecommunications China</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-30">30</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 31 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>What is a 3DUI?</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>What is a 3DUI?</summary>
+        <div class="accordion-body">
+    <img src="images/lect-02a-3D-3DUI_slide31_image0.jpeg" alt="Slide 31 image" />
+    <img src="images/lect-02a-3D-3DUI_slide31_image1.jpeg" alt="Slide 31 image" />
+    <img src="images/lect-02a-3D-3DUI_slide31_image2.jpeg" alt="Slide 31 image" />
+    <img src="images/lect-02a-3D-3DUI_slide31_image3.png" alt="Slide 31 image" />
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-31">31</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 32 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Definitions – 3DUI (Again)</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Again</summary>
+        <div class="accordion-body">
+    <p>3D Interaction – HCI where user’s tasks are carried out in a 3D spatial context with 3D input devices or 2D input devices with direct mappings to 3D</p>
+    <p>3D User Interface – A UI that involves 3D interaction</p>
+    <p>3D Interaction Technique – A method using hardware and software that allows a user to accomplish a task in a 3DUI</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-32">32</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 33 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Terminology – HCI, UI</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Terminology – HCI, UI</summary>
+        <div class="accordion-body">
+    <p>Human Computer Interaction – Low Bandwidth Communication between humans and computers</p>
+    <p>This is imperfect and prone to misinterpretation, as computers only do what we tell them, and our language and interaction is some complex</p>
+    <p>User Interface – medium of communication between users and computers.</p>
+    <p>This is a translation system of sorts. The Computer language is quite raw and alien, an needs an abstraction layer itself. Our interface with this abstraction layer adds another of possible confusion.</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-33">33</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 34 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Terminology – Interaction Technique</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Interaction Technique</summary>
+        <div class="accordion-body">
+    <h3>Interaction Technique:</h3>
+    <p>A method allowing the user to accomplish a task via the UI.</p>
+    <p>An interaction technique includes both hardware (I/O Devices) and software components.</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>The interaction technique’s software component is responsible for</summary>
+        <div class="accordion-body">
+    <h3>The interaction technique’s software component is responsible for:</h3>
+    <p>Mapping the information from the input device or devices into some action within the system</p>
+    <p>Mapping the output of the system to a form that can be displayed by the out device(s).</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-34">34</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 35 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Terminology – 3D Interaction</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Interaction</summary>
+        <div class="accordion-body">
+    <h3>3D Interaction:</h3>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>HCI with tasks directly in 3D space, can use</summary>
+        <div class="accordion-body">
+    <h3>HCI with tasks directly in 3D space, can use:</h3>
+    <p>3D input devices</p>
+    <p>2D input devices with direct mappings to 3D</p>
+    <details class="accordion accordion--nested video-accordion">
+      <summary>HCI with tasks directly in 3D space, can use</summary>
+      <div class="accordion-body">
+        <article class="embed-card">
+          <iframe class="video-embed" src="https://www.youtube.com/embed/tfU1yLwDdak" title="HCI with tasks directly in 3D space, can use" loading="lazy" allowfullscreen></iframe>
+          <p><a href="https://www.youtube.com/watch?v=tfU1yLwDdak" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+        </article>
+      </div>
+    </details>
+    <p>Jacob and Sibert – Integrated vs separable – both real world inputs and virtual control systems accepting them….</p>
+    <p>https://dl.acm.org/citation.cfm?id=142792</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-35">35</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 36 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Terminology – Input Devices</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Terminology – Input Devices</summary>
+        <div class="accordion-body">
+    <p>Dof – Degrees of freedom – 1,2,3,6</p>
+    <p>Integral</p>
+    <p>Separable</p>
+    <p>2dof – Mouse</p>
+    <p>3dof – Mouse with scroll wheel (s) or 3D mouse (s)</p>
+    <p>3dof – magnetic tracker https://www.intelligentultrasound.com/heartworks/</p>
+    <p>6dof – Razer Hydra</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-36">36</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 37 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Terminology – Input Data</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Terminology – Input Data</summary>
+        <div class="accordion-body">
+    <p>Input  - range of types and data</p>
+    <p>Electronics – Digital, Analog</p>
+    <p>Reported Values – Discrete, Continuous, Hybrid</p>
+    <p>Data Type – Boolean, Integer, Floating Point</p>
+    <p>User Action – Active, Passive, Hybrid</p>
+    <p>Information Provision – Push, Pull</p>
+    <p>Use – Locator, Valuator, Choice</p>
+    <p>Frame of Reference – Relative, Absolute (Gyroscopic)</p>
+    <p>Properties – Position, Motion, Force</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-37">37</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 38 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Terminology – Input Types</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Terminology – Input Types</summary>
+        <div class="accordion-body">
+    <p>Input  - range of types and data</p>
+    <p>Desktop Devices</p>
+    <p>Tracking Devices</p>
+    <p>3D Mice</p>
+    <p>Special Purpose Devices</p>
+    <p>Direct Human Input – Natural Interaction</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-38">38</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 39 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Terminology – Natural Interaction</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>For Natural Interaction</summary>
+        <div class="accordion-body">
+    <h3>For Natural Interaction:</h3>
+    <p>PUI – Perceptual User Interface</p>
+    <p>CV – Computer Vision – Webcam tracking</p>
+    <p>Natural Feature Tracking</p>
+    <p>Marker Tracking – Active, Passive, Fiducial</p>
+    <p>Time of Flight</p>
+    <p>Infrared</p>
+    <p>Laser Pattern</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-39">39</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 40 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Terminology - Usability</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Usability</summary>
+        <div class="accordion-body">
+    <h3>Usability:</h3>
+    <p>Characteristics affecting efficacy, ease, comfort, performance.</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-40">40</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 41 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Terminology – 3DUI practical</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D UI</summary>
+        <div class="accordion-body">
+    <h3>3D UI:</h3>
+    <p>A UI that involves 3D interaction – Input, Widgets.</p>
+    <p>3DS Max Example – 2D mouse control of 3D Gimbal/Widget</p>
+    <p>Kinect 2 Example – 3D Natural Input and 3D direct control of objects via a Virtual Hand</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-41">41</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 42 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3DUI Examples - Research</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3DUI Examples - Research</summary>
+        <div class="accordion-body">
+    <p>Put That There</p>
+    <p>Mixed reality – Will Steptoe</p>
+    <p>Desktop AR, MR – Microsoft Holodesk</p>
+    <p>MR – Kinect 3D Scanned Puppets</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-42">42</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 43 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3DUI Examples Web Dev</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3DUI Examples Web Dev</summary>
+        <div class="accordion-body">
+    <p>Web Dev</p>
+    <p>Playcanvas, Goo, Three.js, Babylon.js sandbox</p>
+    <p>https://en.wikipedia.org/wiki/List_of_WebGL_frameworks</p>
+    <p>Codepen.io</p>
+    <p>https://codepen.io/search/pens?q=three.js&cursor=ZD0xJm89MCZwPTE=</p>
+    <p>A-Frame</p>
+    <p>https://aframe.io/</p>
+    <p>https://threejs.org/</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>New Ecosystem</summary>
+        <div class="accordion-body">
+    <h3>New Ecosystem:</h3>
+    <p>https://uowdigital.padlet.org/fergusj/web-web3d-and-web3-ecosystem-9xv91ovkasaaviua</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-43">43</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 44 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>References</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>References</summary>
+        <div class="accordion-body">
+    <p>3D User Interfaces: Theory and Practice</p>
+    <p>Doug A. Bowman, Ernst Kruijff, Joseph J. LaViola, Ivan Poupyrev</p>
+    <p>Addison Wesley Longman Publishing</p>
+    <p class="section-label">USA</p>
+    <p>The Three-Dimensional User Interface</p>
+    <p>Hou Wenjun</p>
+    <p>Beijing University of Posts and Telecommunications</p>
+    <p>China</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-44">44</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 45 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>3D Basic Concepts and Techniques</h2>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-45">45</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 46 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <p>Scalars, Points, Vectors</p>
+    <p>Three Basic types of entities to define geometric objects.</p>
+    <p>Defined from mathematical, programming and geometric</p>
+    <p>Perspective.</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-46">46</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 47 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <p>Points</p>
+    <p>In 3D geometric systems, a point is a location in space</p>
+    <p>Only location, no size</p>
+    <p>Best to use a reference or coordinate system to define</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-47">47</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 48 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 0">Vectors (Lines)</div>
+      </div>
+    </section>
+    <p>Connect points with Line Segments</p>
+    <p>Also called vectors (direction and magnitude – velocity, force)</p>
+    <p>Have direction and magnitude (length)</p>
+    <p>Have Scalar (magnitude) values – real number</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-48">48</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 49 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <p>Vectors and Affine Spaces</p>
+    <p>Abstract spaces for representing them</p>
+    <p>Linear (Vector) space – Vectors and Scalars</p>
+    <p>Scalar Field – combining Scalars with addition and multiplication</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-49">49</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 50 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <p>Affine Spaces – Coordinate Space. Vector space without an origin. Vectors cannot be summed. Vectors with magnitude but no reference.</p>
+    <p>(Linear) Vector Space</p>
+    <p>A vector space is a mathematical structure formed by a collection of elements called vectors, which may be added together and multiplied ("scaled") by numbers, called scalars in this context. Vector point addition can create a new point. Vector is from two points</p>
+    <p>Euclidean Space</p>
+    <p>Fundamental space of geometry, defining physical world. Adds measure of size or distance and angle. 3D programs use this to make a representation of the world.</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-50">50</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 51 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <p>A Vector Space is a structure composed of vectors and has no magnitude or dimension, whereas Euclidean Space can be of any dimension and is based on coordinates.</p>
+    <p>Euclidian Spaces are defined with size and distance between points, and can calculate angles between vectors.</p>
+    <p>Cartesian Coordinates can define Euclidian Space.</p>
+    <p>Coordinate Space is a system of describing the position of points in space using perpendicular axis lines that meet at a point called the origin. Any given point's position can be described based on its distance from the origin along each axis.</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-51">51</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 52 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <p>Euclidean Space - adds measure of size or distance</p>
+    <p>Cartesian Coordinates</p>
+    <p>Coordinate System</p>
+    <p>Virtual World Space</p>
+    <p>Axes – X,Y,Z</p>
+    <p>2D is X,Y</p>
+    <p>3D is X,Y,Z</p>
+    <p>Some software have Y up, some Z</p>
+    <p>Z is typically described as into the screen and determines</p>
+    <p>rendering order of objects</p>
+    <img src="images/lect-02a-3D-3DUI_slide52_image0.png" alt="Slide 52 image" />
+    <img src="images/lect-02a-3D-3DUI_slide52_image1.png" alt="Slide 52 image" />
+    <img src="images/lect-02a-3D-3DUI_slide52_image2.png" alt="Slide 52 image" />
+    <img src="images/lect-02a-3D-3DUI_slide52_image3.png" alt="Slide 52 image" />
+    <img src="images/lect-02a-3D-3DUI_slide52_image4.png" alt="Slide 52 image" />
+    <img src="images/lect-02a-3D-3DUI_slide52_image5.png" alt="Slide 52 image" />
+    <img src="images/lect-02a-3D-3DUI_slide52_image6.png" alt="Slide 52 image" />
+    <img src="images/lect-02a-3D-3DUI_slide52_image7.png" alt="Slide 52 image" />
+    <img src="images/lect-02a-3D-3DUI_slide52_image8.png" alt="Slide 52 image" />
+    <img src="images/lect-02a-3D-3DUI_slide52_image9.png" alt="Slide 52 image" />
+    <img src="images/lect-02a-3D-3DUI_slide52_image10.png" alt="Slide 52 image" />
+    <img src="images/lect-02a-3D-3DUI_slide52_image11.png" alt="Slide 52 image" />
+    <img src="images/lect-02a-3D-3DUI_slide52_image12.png" alt="Slide 52 image" />
+    <img src="images/lect-02a-3D-3DUI_slide52_image13.png" alt="Slide 52 image" />
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-52">52</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 53 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <p>Abstract Data Types</p>
+    <p>World Coordinate Space – 3D Virtual Space – Has Origin</p>
+    <p>Local Coordinate Space – Models – Has Pivot or Centre</p>
+    <p>Scaling – each program has its own virtual scale</p>
+    <p>World coordinates are absolute values that are related to the</p>
+    <p>origins of the world. They do not depend on any specific object in the world.</p>
+    <p>They are applied to all objects in the world indistinctly.</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-53">53</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 54 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <p>Abstract Data Types</p>
+    <p>Camera Space (3D POV – point of view)</p>
+    <p>Orthographic/Perspective view</p>
+    <p>Screen Space (2D Display Space, Render Image)</p>
+    <p>Synthetic Camera Model – Perspective</p>
+    <p>Orthographic – Non-Perspective</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-54">54</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 55 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <img src="images/lect-02a-3D-3DUI_slide55_image0.png" alt="Slide 55 image" />
+    <img src="images/lect-02a-3D-3DUI_slide55_image1.png" alt="Slide 55 image" />
+    <img src="images/lect-02a-3D-3DUI_slide55_image2.png" alt="Slide 55 image" />
+    <img src="images/lect-02a-3D-3DUI_slide55_image3.png" alt="Slide 55 image" />
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-55">55</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 56 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <p>Abstract Data Types</p>
+    <p>Can sometimes have correlation and calibration to the real world.(3d input, mocap, AR)</p>
+    <p>This can develop into a many layered issue depending on multiple devices or abstractions.</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-56">56</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 57 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <img src="images/lect-02a-3D-3DUI_slide57_image0.png" alt="Slide 57 image" />
+    <img src="images/lect-02a-3D-3DUI_slide57_image1.png" alt="Slide 57 image" />
+    <img src="images/lect-02a-3D-3DUI_slide57_image2.png" alt="Slide 57 image" />
+    <img src="images/lect-02a-3D-3DUI_slide57_image3.png" alt="Slide 57 image" />
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-57">57</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 58 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <p>Abstract Data Types</p>
+    <p>3D Objects defined by array of numbers</p>
+    <p>(cartesian coordinates for vertices)</p>
+    <p>Objects have their own local coordinate systems</p>
+    <p>Their transformation can be in relation to local or world coordinate systems.</p>
+    <p>Object Pivot – Local Transformation</p>
+    <p>Object Translate – World Transformation</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-58">58</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 59 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <p>Terms</p>
+    <p>Vertex – Point in the 3D World</p>
+    <p>Vertices – Multiple Vertex</p>
+    <p>Triangle – Minimum face</p>
+    <p>Mesh – 3D object made of triangles</p>
+    <p>Wireframe – Mesh displayed without shading</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-59">59</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 60 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <p>Wireframe Objects</p>
+    <p>Wireframe objects at their most basic</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 0">Vertices (Array)</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 0">Lines (Can also be Curves)</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 0">Triangles (Polygons)</div>
+      </div>
+    </section>
+    <p>Vector3 (x,y,z) – Used for 3D position or Direction (Unity, Web3D)</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-60">60</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 61 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <p>Wireframe Objects – Primitive Cube</p>
+    <p>Drawing Triangles for a cube</p>
+    <p>Cube is made of 8 vertices</p>
+    <p>Each face is made of 3 vertices</p>
+    <p>A cube is made of 12 faces</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-61">61</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 62 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Polygon Shell Mesh</summary>
+        <div class="accordion-body">
+    <h3>Polygon Shell Mesh:</h3>
+    <p>Because the appearance of an object depends largely on the exterior of the object, boundary representations are common in computer graphics. Two dimensional surfaces are a good analogy for the objects used in graphics, though quite often these objects are non-manifold (Cannot exist in real world). Since surfaces are not finite, a discrete digital approximation is required: polygonal meshes (and to a lesser extent subdivision surfaces) are by far the most common representation, although point-based representations have been gaining some popularity in recent years.</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-62">62</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 63 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Tessellation</summary>
+        <div class="accordion-body">
+    <h3>Tessellation:</h3>
+    <p>The process of transforming representations of objects, such as the middle point coordinate of a sphere and a point on its circumference into a polygon representation of a sphere, is called tessellation. This step is used in polygon-based rendering, where objects are broken down from abstract representations ("primitives") such as spheres, cones etc., to so-called meshes, which are nets of interconnected triangles.</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-63">63</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 64 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Tessellation</summary>
+        <div class="accordion-body">
+    <h3>Tessellation:</h3>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 0">Meshes of triangles (instead of e.g. squares) are popular as they have proven to be easy to rasterise (the surface described by each triangle is planar, so the projection is always convex); .[3]Polygon representations are not used in all rendering techniques, and in these cases the tessellation step is not included in the transition from abstract representation to rendered scene.</div>
+      </div>
+    </section>
+    <p>3DS Max Parametric Primitives to Editable Polys (sub-objects such as vertex, edge, etc…)</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-64">64</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 65 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Subdivision</summary>
+        <div class="accordion-body">
+    <h3>Subdivision:</h3>
+    <p>A subdivision surface, in the field of 3D computer graphics, is a method of representing a smooth surface via the specification of a coarser piecewise linear polygon mesh. The smooth surface can be calculated from the coarse mesh as the limit of recursive subdivision of each polygonal face into smaller faces that better approximate the smooth surface.</p>
+    <p>Meshsmooth, Turbosmooth, subdivision in 3DS Max</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-65">65</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 66 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <p>3D Objects recap</p>
+    <p>Transform – Scale, Position, Orientation</p>
+    <p>Vector3 – 3D position or direction (Programming)</p>
+    <p>World Transform – Absolute values related to the virtual</p>
+    <p>World origin</p>
+    <p>Local Transform – values relative to the objects own origin</p>
+    <p>Programming Transform – Vector3, will use in Unity</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-66">66</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 67 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <p>3D Objects – File Formats</p>
+    <p>They have properties in the file format that they are saved in that define viewers, lighting, materials, shaders, textures and texture coordinates as well as the geometry.</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-67">67</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 68 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <p>Fbx File Format</p>
+    <p>Fbx format further has geometry, materials, textures, lights, cameras, animation, deformations, physics, hierarchical rigs and relations, and inverse kinematics.</p>
+    <p>And more!</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-68">68</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 69 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <p>3D Objects in OpenGL and Unity</p>
+    <p>These have a higher level of abstraction in real time for OpenGL, and for use in Unity3D</p>
+    <p>In these software architectures, they have functions and methods as well.</p>
+    <p>These are called GameObjects in Unity.</p>
+    <p>GameObjects can also be blank, as in reality they are just nodes…</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-69">69</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 70 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>3D Basic Concepts and Techniques</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>3D Basic Concepts and Techniques</summary>
+        <div class="accordion-body">
+    <p>3D Objects</p>
+    <p>Unity is based on initializing GameObjects (nodes), all of which have fully adjustable Components (scripts), some of which are based on the Object’s properties, some of which are Unity features from their library, and some can be scripts you add.</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)" disabled>Next → </button>
+        <div class="slide-counter"><span id="current-slide-70">70</span> / <span id="total-slides">70</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../assets/js/site.js?v=20260805f"></script>
+  <script>
+    const isLecturePage = /\/lect-[^/]+\.html$/i.test(window.location.pathname);
+    if (isLecturePage && document.body) {
+      document.body.classList.add('lecture-fullbleed');
+    }
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function normalizeSlideStructure(slide) {
+      if (slide.querySelector('.slide-frame')) return;
+
+      const title = slide.querySelector('.slide-title');
+      const controls = slide.querySelector('.slide-controls');
+      const body = slide.querySelector('.slide-content');
+      if (!title || !controls || !body) return;
+
+      const frame = document.createElement('div');
+      frame.className = 'slide-frame';
+      frame.appendChild(title);
+      frame.appendChild(body);
+      frame.appendChild(controls);
+      slide.appendChild(frame);
+    }
+
+    function linkifyText(element) {
+      const urlPattern = /(https?:\/\/[^\s]+)/g;
+      const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+      );
+
+      const nodesToReplace = [];
+      let node;
+
+      while (node = walker.nextNode()) {
+        if (urlPattern.test(node.textContent)) {
+          nodesToReplace.push(node);
+        }
+      }
+
+      urlPattern.lastIndex = 0;
+
+      nodesToReplace.forEach((textNode) => {
+        const span = document.createElement('span');
+        span.innerHTML = textNode.textContent.replace(
+          /(https?:\/\/[^\s]+)/g,
+          '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
+        textNode.parentNode.replaceChild(span, textNode);
+      });
+    }
+
+    function getAccordionLabels(titleText) {
+      const title = (titleText || '').toLowerCase();
+
+      if (title.includes('workflow')) {
+        return { overview: 'Workflow Steps', resources: 'Diagrams and Media' };
+      }
+
+      if (title.includes('references') || title.includes('reading')) {
+        return { overview: 'Reading Notes', resources: 'References and Media' };
+      }
+
+      if (title.includes('group') || title.includes('activity')) {
+        return { overview: 'Guidance', resources: 'Resources' };
+      }
+
+      return { overview: 'Overview', resources: 'Resources and Media' };
+    }
+
+    function normalizeAccordionLabel(text) {
+      const cleaned = (text || '').replace(/\s+/g, ' ').replace(/[:\-]+$/, '').trim();
+      if (!cleaned) return '';
+
+      const lowered = cleaned.toLowerCase();
+      if (lowered === 'overview' || lowered === 'resources' || lowered === 'resources and media') {
+        return '';
+      }
+
+      return cleaned;
+    }
+
+    function inferOverviewLabel(body, h2) {
+      const headingCandidates = Array.from(body.querySelectorAll(':scope > h3, :scope > .section-label'));
+      for (const node of headingCandidates) {
+        const candidate = normalizeAccordionLabel(node.textContent);
+        if (candidate) return candidate;
+      }
+
+      const headingText = (h2 ? h2.textContent : '').replace(/\s+/g, ' ').trim();
+      const parenthetical = headingText.match(/\(([^)]+)\)/);
+      if (parenthetical) {
+        const candidate = normalizeAccordionLabel(parenthetical[1]);
+        if (candidate) return candidate;
+      }
+
+      const firstParagraph = body.querySelector(':scope > p');
+      if (firstParagraph) {
+        const paragraphText = (firstParagraph.textContent || '').replace(/\s+/g, ' ').trim();
+        const wordCount = paragraphText.split(/\s+/).filter(Boolean).length;
+        const looksLikeLabel = !/[.!?]$/.test(paragraphText) && !/^https?:\/\//i.test(paragraphText);
+        if (wordCount > 0 && wordCount <= 6 && looksLikeLabel) {
+          const candidate = normalizeAccordionLabel(paragraphText);
+          if (candidate) return candidate;
+        }
+      }
+
+      return '';
+    }
+
+    function convertLegacySlideToAccordion(slide) {
+      const body = slide.querySelector('.slide-content');
+      if (!body || body.classList.contains('slide-content-accordion')) return;
+
+      const h2 = body.querySelector(':scope > h2');
+      const labels = getAccordionLabels(h2 ? h2.textContent : '');
+      const inferredOverviewLabel = inferOverviewLabel(body, h2);
+      const customOverviewLabel = body.getAttribute('data-overview-label');
+      const customResourcesLabel = body.getAttribute('data-resources-label');
+      if (inferredOverviewLabel) {
+        labels.overview = inferredOverviewLabel;
+      }
+      if (customOverviewLabel) {
+        labels.overview = customOverviewLabel;
+      }
+      if (customResourcesLabel) {
+        labels.resources = customResourcesLabel;
+      }
+      const children = Array.from(body.children).filter((node) => node !== h2);
+      if (!children.length) return;
+
+      const overviewItems = [];
+      const resourcesItems = [];
+
+      children.forEach((node) => {
+        const tag = node.tagName ? node.tagName.toLowerCase() : '';
+        const text = (node.textContent || '').trim();
+        const hasUrl = /https?:\/\//i.test(text);
+        const isImage = tag === 'img';
+        const hasLink = Boolean(node.querySelector && node.querySelector('a'));
+
+        if (isImage || hasUrl || hasLink) {
+          resourcesItems.push(node);
+        } else {
+          overviewItems.push(node);
+        }
+      });
+
+      body.classList.add('slide-content-accordion');
+      body.innerHTML = '';
+      if (h2) body.appendChild(h2);
+
+      const scroll = document.createElement('div');
+      scroll.className = 'accordion-scroll';
+
+      if (overviewItems.length) {
+        const overview = document.createElement('details');
+        overview.className = 'accordion';
+        overview.open = true;
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.overview;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        overviewItems.forEach((node) => content.appendChild(node));
+
+        overview.appendChild(summary);
+        overview.appendChild(content);
+        scroll.appendChild(overview);
+      }
+
+      if (resourcesItems.length) {
+        const resources = document.createElement('details');
+        resources.className = 'accordion';
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.resources;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        resourcesItems.forEach((node) => content.appendChild(node));
+
+        resources.appendChild(summary);
+        resources.appendChild(content);
+        scroll.appendChild(resources);
+      }
+
+      body.appendChild(scroll);
+    }
+
+    function syncSlideTitles() {
+      slides.forEach((slide) => {
+        const title = slide.querySelector('.slide-title');
+        const heading = slide.querySelector('.slide-content h2');
+        if (!title || !heading) return;
+
+        const headingText = (heading.textContent || '').replace(/\s+/g, ' ').trim();
+        if (headingText) {
+          title.textContent = headingText;
+          heading.remove();
+        }
+      });
+    }
+
+    function announceActiveSlideTitle() {
+      const activeSlide = slides[currentSlide];
+      if (!activeSlide) return;
+
+      const titleNode = activeSlide.querySelector('.slide-title');
+      const titleText = (titleNode ? titleNode.textContent : '').replace(/\s+/g, ' ').trim();
+      if (!titleText) return;
+
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({
+          type: 'lecture-slide-title',
+          title: titleText
+        }, '*');
+      }
+    }
+
+    slides.forEach((slide, index) => {
+      normalizeSlideStructure(slide);
+      if (index >= 3) {
+        convertLegacySlideToAccordion(slide);
+      }
+      linkifyText(slide.querySelector('.slide-content') || slide);
+    });
+
+    syncSlideTitles();
+
+    function updateCounters() {
+      slides.forEach((slide, index) => {
+        const counter = slide.querySelector('.slide-counter');
+        if (counter) {
+          counter.textContent = `${index + 1} / ${totalSlides}`;
+        }
+      });
+    }
+
+    function showSlide(n) {
+      slides.forEach((slide) => slide.classList.remove('active'));
+      slides[currentSlide].classList.add('active');
+
+      const allButtons = document.querySelectorAll('.slide-button');
+      const isFirstSlide = currentSlide === 0;
+      const isLastSlide = currentSlide === totalSlides - 1;
+
+      allButtons.forEach((btn) => {
+        if (btn.textContent.includes('Previous')) {
+          btn.disabled = isFirstSlide;
+        } else if (btn.textContent.includes('Next')) {
+          btn.disabled = isLastSlide;
+        }
+      });
+
+      updateCounters();
+      announceActiveSlideTitle();
+    }
+
+    function changeSlide(n) {
+      currentSlide += n;
+      if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+      if (currentSlide < 0) currentSlide = 0;
+      showSlide(currentSlide);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+    });
+
+    showSlide(currentSlide);
+    document.body.classList.add('lecture-ready');
+  </script>
+</body>
+</html>
