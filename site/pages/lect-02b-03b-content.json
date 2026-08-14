@@ -1,0 +1,776 @@
+[
+  {
+    "slide_number": 1,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "5MMCS001W\t\t\t\t\tLecture 02b-03b\n\nC# in Unity and OOP, Triggering Animations, Basic Movement and Input, Leading to Unity UI"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 2,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "This week:\n\nLecture\nRecap\nOOP\nC# in Unity\nTriggering Animations\nBasic Movement and Input\nMoving on to Unity UI\n\nTutorial\nMore Unity Animation and tutorial sheets \nMoving on – Unity UI"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 3,
+    "title": "",
+    "content": [
+      "Basic Architecture\n\nIf familiar, please work on brainstorming on: \nhttps://uowdigital.padlet.org/fergusj/2025-3dimd-brainstorm-3igzgiru8o4neldo",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 4,
+    "title": "",
+    "content": [
+      "Basic Architecture (GameObjects)\n\nGameObjects and Components:\nBase GameObject has name, tag, layer, and transform component\nScripts Are Components and define the empty GameObject\nGameObjects are Initialised and run when play is pressed \n\nScripts must be attached to a GameObject in order for scripts to run.\nScripts can be attached to an Empty gameObject.\n\nAll GameObjects Components and Scripts in scene(s) in build\nAre available to run if accessed and visible. \n\nGameObjects will have variable and references that can be modified.\nReferences can be to any Components, GameObjects, or Assets.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 5,
+    "title": "",
+    "content": [
+      "Could create all elements from empty GameObject if desired.\nhttps://docs.unity3d.com/Manual/class-GameObject.html\n\nUnity is initialised and run from the Main Camera object.\nThis is the minimum requirement in order to build and run a scene/level",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 6,
+    "title": "",
+    "content": [
+      "Basic Architecture (Components)\n\nComponents are scripts, either pre-defined library or user defined\n\nGameObjects will come with default Components depending on \nType, and these define the blank GameObject.\n\nThe Transform Component is the basic GameObject Component, \nAlong with name, tag, and layer.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 7,
+    "title": "",
+    "content": [
+      "Basic Architecture (Inspector Window)\n\nGameObjects, Scripts, and other assets are available for review and change in the Inspector Window. This exposes the individual components attached. You can add, remove, toggle active mode, or change and add/subtract parameters that are exposed. \n\nPublic script variables declared are exposed here for value input or links to other game objects by drag and drop.\n\nReferences to data files or other GameObjects may be exposed by the script and available here.\n\nComponents are added at the bottom.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 8,
+    "title": "",
+    "content": [
+      "Basic Architecture (Inspector Window)\n\nSome default and possible library/added components include:\nName\nVisibility – Turns object on and off. Simple.\nStatic – Game information Precomputed for non moving object – not same as for variables and methods\nTag – Allows naming for scripts to access (Collisions)\nLayer – Cameras, Lights, can render certain layers, Raycasting can ignore\n\t(Camera Culling Mask, Raycast Layermask)\nTransform – translation, rotation, scaling\nRenderer – displays object\nMeshRenderer – has rendering options, materials\nCollider",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 9,
+    "title": "",
+    "content": [
+      "Unity (C# AND OOP Concepts)",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 10,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nObject-­‐oriented programming (OOP) is a programming language model organized around \"objects\" rather than \"actions\" and data rather than logic. Historically, a program has been viewed as a logical procedure that takes input data, processes it, and produces output data."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 11,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "OOP Concepts\n\nEncapsulation\n\nAbstraction\n\nInheritance\n\nPolymorphism"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 12,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "OOP Concepts\n\nEncapsulation: \n\nBundling Data(attributes) and Methods(Functions) operating on the data into a single unit (class). \n\nThis hides (protects) internal state and requires interaction performed through and objects methods."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 13,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "OOP Concepts\n\nAbstraction:\n\nHiding complex implementation and only showing essential features of objects.\n\nThis reduces complexity and isolates change impacts."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 14,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "OOP Concepts\n\nInheritance:\n\nA class can inherit attributes from another class. (parent/child, super/sub)\n\nThis promotes code reuse and establishes class relationships."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 15,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "OOP Concepts\n\nPolymorphism:\n\nUsing a common interface for multiple data types.\n\nDifferent classes can be treated as instances of the same class through a shared interface."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 16,
+    "title": "",
+    "content": [
+      "Unity (C#)\n\nDependencies\n\tUsing UnityEngine: lets MainCamera be initiated.\nNamespaces\n\tMonoBehaviour is a class in Namespace UnityEngine.\nhttps://discussions.unity.com/t/question-about-the-relationships-between-monobehaviour-namespaces-and-unity-api/827786/3 \t\n  Others are not Class Definitions.\nStart and Update Functions\n\tVoid means it does not return a value. \n\tStart initializes, Update refreshes.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 17,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nNamespaces:\n\nNamespaces are C# program elements designed to help you organize your programs. They also provide assistance in avoiding name clashes between two sets of code. Implementing Namespaces in your own code is a good habit because it is likely to save you from problems later when you want to reuse some of your code. \n\nYou specify the Namespaces you want to use in the top of your code."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 18,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nNamespaces:\n\nWhen you create a new Unity C# Script, the following default namespaces will be included:\n\nusing UnityEngine;\nusing System.Collections;\n\nDifference Unity namespaces have different functional libraries. Add more when you need them…"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 19,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nClasses:\nThe first step in OOP is to identify all the objects you want to manipulate and how they relate to each other, an exercise often known as data modeling. Once you've identified an object, you generalize it as a class of objects and define the kind of data it contains and any logic sequences that can manipulate it. Each distinct logic sequence is known as a method. A real instance of a class is called an “object” or an “instance of a class”. The object or class instance is what you run in the computer. Its methods provide computer instructions and the class object characteristics provide relevant data. You communicate with objects -­‐ and they communicate with each other."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 20,
+    "title": "",
+    "content": [
+      "Working in Unity (C# and OOP Concepts)\n\nEach script that you create will by default inherit from MonoBehaviour. We will discuss this class at a later point. Each script that you create will also have two functions defined by default: Start() and Update().\u000b\nThe Start() function will be run only once at the start of the program. So any logic and data initializations that you need or want to do can be placed in the Start() function.\u000b\nThe Update() function is where most of the magic happens. This is the function that gets called continuously throughout the life of your game or simulation. This is the function where you will update your game objects. In short it is the function which will be called each frame before rendering the scene.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 21,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nClasses:\n\nEverything in C# is based on Classes. Classes are declared by using the keyword class followed by the class name and a set of class members surrounded by curly braces.   A class normally consists of Methods, Fields and Properties. Every class has a constructor, which is called automatically any time an instance of a class is created. The purpose of constructors is to initialize class members when an instance of the class is created. Constructors do not have return values and always have the same name as the class. Unity handles the constuctor for you in a Game Object."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 22,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nThe first step in OOP is to identify all the objects you want to manipulate and how they relate to each other, an exercise often known as data modeling. Once you've identified an object, you generalize it as a class of objects and define the kind of data it contains and any logic sequences that can manipulate it. Each distinct logic sequence is known as a method. A real instance of a class is called an “object” or an “instance of a class”. The object or class instance is what you run in the computer. Its methods provide computer instructions and the class object characteristics provide relevant data. You communicate with objects -­‐ and they communicate with each other."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 23,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nImportant features with OOP are:\n\n•\tClasses and Objects\n•\tInheritance\n•\tPolymorphism\n•\tEncapsulation \n\nYou should cover these in your OOP module. For this module we will keep things basic with practical Unity work and examples."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 24,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nWill Look at:\n\n•\tNamespaces\n•\tClasses\n•\tData Fields\n•\tMethods\n•\tProperties"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 25,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nBasics all programming Languages have:\n\n•\tData Types and Variables\n\n•\tControl Flow: If-­‐Else, etc.\n\n•\tLoops: While Loops, For Loops, etc."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 26,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\n\nDeclaring - Declaring a variable means to introduce a new variable to the program. You define its type and its name.\n\tint a; //a is declared\n\nInstantiate - Instantiating a class means to create a new instance of the class. \n\tMyObject x = new MyObject(); //we are making a new instance of the class MyObject\n\nInitialize - To initialize a variable means to assign it an initial value.\n\tint a; //a is declared\u000b\tint a = 0; //a is declared AND initialized to 0\u000b\tMyObject x = new MyObject(); //x is declared and initialized with an instance of MyObject\n\nAssigning - Assigning to a variable means to provide the variable with a value.\n\tint a = 0; //we are assigning to a; yes, initializing a variable means you assign it a value, so they do overlap!\u000b\ta = 1; //we are assigning to a"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 27,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nData Types, and Variables,  Simple:\n“Variables” are simply storage locations for data. You can place data into them and retrieve their contents as part of a C# expression. The interpretation of the data in a variable is controlled through “Types”. \n  \nThe C# simple types consist of: \n\tBoolean Type\n\tNumeric Type\n\tString Type"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 28,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nData Types, Simple:\n\nBoolean – True, False\nBoolean types are declared using the keyword “bool”. They have two values: “true” or “false”. In other languages, such as C and C++, boolean conditions can be satisfied where 0 means false and anything else means true. However, in C# the only values that satisfy a boolean condition is true and false, which are official keywords."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 29,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nData Types,  Simple:\n\nNumeric – Integrals, Floating Point, Decimal\n\tint i=35;\n\tlong y=654654;\n\tfloat x;\n\tdouble y;\n\tdecimal z;"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 30,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nData Types, Simple:\n\nString\n\n\n\n\n\nstring myString=”Hei på deg”;\nSome Special characters may be used in strings"
+    ],
+    "images": [
+      {
+        "filename": "lect-02b-03b_slide30_image0.png",
+        "path": "images/lect-02b-03b_slide30_image0.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide30_image1.png",
+        "path": "images/lect-02b-03b_slide30_image1.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide30_image2.png",
+        "path": "images/lect-02b-03b_slide30_image2.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide30_image3.png",
+        "path": "images/lect-02b-03b_slide30_image3.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 31,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nVariables:\n\nDeclaring\nDeclaring a variable means to introduce a new variable to the program. You define its type and its name.\n\nInitializing\nTo initialize a variable means to assign it an initial value. Declaring and Initializing can happen in the same line\n\nAssigning\nAssigning to a variable means to provide the variable with a value. This can happen at the start or in runtime"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 32,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nClasses:\nC# is an object-oriented programming language.\n\nEverything in C# is associated with classes and objects, along with its attributes and methods. \n\nFor example: in real life, a car is an object. The car has attributes, such as weight and color, and methods, such as drive and brake.\n\nA Class is like an object constructor, or a \"blueprint\" for creating objects."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 33,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Classes and Constructors OUTSIDE Unity \n(C# and OOP Concepts)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 34,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Constructors Outside Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nConstructor:\nThe purpose of constructors: (a special method) is to initialize class members with values when an instance of the class is created. \n\nExample: \nWe can use a Constructor to create a “default” color for our car. \nWe define the class..."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 35,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Constructors Outside Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\nClasses: First we define…\nclass Car \n{\n\tpublic string color; //Field \n\t\n    \n\n\n\n    //Method\n\tpublic void ShowCarColor() \n\t{\n \t\tMessageBox.Show(\"My Car is: \" + color); \n\t}\n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 36,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Constructors Outside Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\nConstructor:\nclass Car \n{\n\tpublic string color; //Field \n\t//Constructor - Used to initialize the Class \t\n\tpublic Car() \n\t{\n       color=“green”:\n\t}\n\t//Method\n\tpublic void ShowCarColor() \n\t{\n \t\tMessageBox.Show(\"My Car is: \" + color); \n\t}\n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 37,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working Outside Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\nConstructor:\nThen we can use it:\n\nCar myCar = new Car(); //We create an Instance of the Class \n\nmyCar.ShowCarColor(); //We call the Method \n\nmyCar.color = \"blue\"; //We set a value for the color Field \n\nmyCar.ShowCarColor(); //We call the Method"
+    ],
+    "images": [
+      {
+        "filename": "lect-02b-03b_slide37_image0.png",
+        "path": "images/lect-02b-03b_slide37_image0.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide37_image1.png",
+        "path": "images/lect-02b-03b_slide37_image1.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide37_image2.png",
+        "path": "images/lect-02b-03b_slide37_image2.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide37_image3.png",
+        "path": "images/lect-02b-03b_slide37_image3.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide37_image4.png",
+        "path": "images/lect-02b-03b_slide37_image4.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide37_image5.png",
+        "path": "images/lect-02b-03b_slide37_image5.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide37_image6.png",
+        "path": "images/lect-02b-03b_slide37_image6.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide37_image7.png",
+        "path": "images/lect-02b-03b_slide37_image7.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide37_image8.png",
+        "path": "images/lect-02b-03b_slide37_image8.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide37_image9.png",
+        "path": "images/lect-02b-03b_slide37_image9.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 38,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working Outside Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\nConstructor: Can Also pass in values via arguments\nclass Car \n{\n\tpublic string color; //Field \n\t//Constructor - Used to initialize the Class \t\n\tpublic Car(string initColor) \n\t{\n\t\tcolor= initColor;\n\t}\n\t//Method\n\tpublic void ShowCarColor() \n\t{\n \t\tMessageBox.Show(\"My Car is: \" + color); \n\t}\n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 39,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working Outside Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nConstructor:\nNew feature: Initialize an object without a Constructor: \n\nIn C# 4.0 - can do the following: \nDefine the Class (without any constructor): \n\nThen do the following:\nCar myCar = new Car {color=\"white\", model=\"2004\"}; \nmyCar.ShowCarColor(); //We call the Method\n//We set a value for the color Field \n myCar.color = \"blue\";"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 40,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working Outside Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nConstructor:\nNew feature: Initializing an object without a Constructor: \nclass Car \n{\n\tpublic string color; //Field \n\t public string model; //Field \n\n\t//Method\n\tpublic void ShowCarColor() \n\t{\n \t\tMessageBox.Show(\"My Car Color is: \" + color);\n\t\tMessageBox.Show(\"My Car Model is: \" + model); \n\n\t}\n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 41,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Classes and Constructors INSIDE Unity \n(C# and OOP Concepts)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 42,
+    "title": "",
+    "content": [
+      "Unity (C#) (GameObjects)\n\nGameObjects are the fundamental objects in Unity that represent characters, props, and scenery.They do not accomplish much in themselves, but they act as containers for Components, which implement the real functionality.\n\nIn comparison to basic C#, the GameObjects use Awake or Start instead of Constructors to initialize values. \n\nUnity invokes the Constructor either by the script being attached to an active game object, or at runtime by the Instantiate command on a prefab or inactive GameObject.\u000bhttp://answers.unity3d.com/questions/32413/using-constructors-in-unity-c.html",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 43,
+    "title": "",
+    "content": [
+      "Unity (C#) (GameObjects)\n\nGameObjects are the fundamental objects in Unity that represent characters, props, and scenery.They do not accomplish much in themselves, but they act as containers for Components (Scripts), which implement the real functionality.\n\nIn comparison to basic C#, the GameObjects host scripts that are derived from monobehaviour classes. These scripts are the Unity classes. the GameObjects with scripts (classes) use Awake or Start instead of Constructors to initialize values. \n\nUnity invokes the Awake or Start either by the script being attached to an active game object, or at runtime by the Instantiate command on a prefab or inactive GameObject.\u000bhttp://answers.unity3d.com/questions/32413/using-constructors-in-unity-c.html",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 44,
+    "title": "",
+    "content": [
+      "Unity (C#) (GameObjects)\n\nMonobehaviour and Unity structure:\nhttps://docs.unity3d.com/uploads/Main/monobehaviour_flowchart.svg",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 45,
+    "title": "",
+    "content": [
+      "Unity (C#) C# Basic Script\n\nConstructor  The purpose of constructors is to initialize class members when an instance of the class is created. In Unity this is derived from MonoBehaviour\n\nAwake  called automatically when a script is run. Called before Start. Used for references between scripts and initialisation.\n\nStart  called automatically when a script is run. Called after Start but before Update only once script is enabled. (delay initialisation code).\n\nUpdate Called once per frame per script. Frame is the PC processor time  for 1 cycle",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 46,
+    "title": "",
+    "content": [
+      "Unity (C#) C# Basic Script\nMonobehaviour classes are the basis for scripts in Unity - derived\n\nConstructor Intitialization (generally not used in Unity)\nThe purpose of constructors is to initialize class members when an instance of the class is created. In Unity this is derived from MonoBehaviour. You should not use traditional C# constructors for initialization. Instead, Unity uses specific lifecycle methods like Awake(), Start(), Update(), etc.\nConstructor Instantiation (generally not used in Unity)\nUnity manages MonoBehaviour object instantiation internally, so the use of \"new MyClass()\" is rare and often inappropriate. Unity invokes the Awake or Start either by the script being attached to an active game object, or at runtime by the Instantiate command on a prefab or inactive GameObject.\nInstead of constructors, use \nAwake() for initialization logic that needs to happen right when the script is loaded. called automatically when a script is run. Called before Start. Used for references between scripts and initialisation.\nStart() for logic that should happen once the scene is ready. called automatically when a script is run. Called after Start but before Update only once script is enabled. (delay initialisation code).\nUpdate() is called once per frame per script. Frame is the PC processor time  for 1 cycle.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 47,
+    "title": "",
+    "content": [
+      "Unity (C#)\n\nC# Basic Script derived from Monobehaviour and attached to an active Game Object\nusing UnityEngine;\nusing System.Collections;\n\npublic class articleRotate : MonoBehaviour {\n// Use this for initialization\nvoid Start () {\n}\n// Update is called once per frame\nvoid Update () {\n      this.transform.Rotate (new Vector3 (0, 1, 0), 1);\n}\n}",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 48,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working Inside Unity (C# and OOP Concepts)\n\nNo Constructor:\n\n//We create an Instance of a Class/GameObject\n public static Object Instantiate(Object original); - Unity code Usually used with a prefab at runtime, below\n//Instantiate GameObject Prefab at runtime\n Instantiate(myPrefab, new Vector3(0, 0, 0), Quaternion.identity);\n//We create an Instance of the Class independent of GameObjects\n ScriptableObject.CreateInstance(string Classname); - Advanced\n\n//We call the Method \n myCar.ShowCarColor(); \n//We set a value for the color Field \n myCar.color = \"blue\"; \n//We call the Method \n myCar.ShowCarColor();"
+    ],
+    "images": [
+      {
+        "filename": "lect-02b-03b_slide48_image0.png",
+        "path": "images/lect-02b-03b_slide48_image0.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide48_image1.png",
+        "path": "images/lect-02b-03b_slide48_image1.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide48_image2.png",
+        "path": "images/lect-02b-03b_slide48_image2.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide48_image3.png",
+        "path": "images/lect-02b-03b_slide48_image3.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide48_image4.png",
+        "path": "images/lect-02b-03b_slide48_image4.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide48_image5.png",
+        "path": "images/lect-02b-03b_slide48_image5.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide48_image6.png",
+        "path": "images/lect-02b-03b_slide48_image6.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide48_image7.png",
+        "path": "images/lect-02b-03b_slide48_image7.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide48_image8.png",
+        "path": "images/lect-02b-03b_slide48_image8.png"
+      },
+      {
+        "filename": "lect-02b-03b_slide48_image9.png",
+        "path": "images/lect-02b-03b_slide48_image9.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 49,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nControl Flow:\n\nTo be able to control the flow in your program is important in every programming language. \n\nThe two most important techniques are: \n•\tThe if Statement\n•\tThe switch Statement"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 50,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nIf Statement:\n\nThe if statement is probably the most used mechanism to control the flow in your application. \nAn if statement allows you to take different paths of logic, depending on a given condition. When the condition evaluates to a boolean true, a block of code for that true condition will execute. You have the option of a single if statement, multiple else if statements, and an optional else statement."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 51,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nIf Statement:\n\nmyTest=false;\n\nif (myTest==false) \n{\n\tMessageBox.Show(\"Hello\"); \n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 52,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\nIf … Else Statement:\nFor more complex logic we use the if … else statement. \n\nbool myTest;\nmyTest=true;\n\nif (myTest==false)\n{\n\tMessageBox.Show(\"Hello1\"); \n}\nelse\n{\n\tMessageBox.Show(\"Hello2\"); \n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 53,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\nIf … Else If  Statement: Nested\n\nint myTest;\nmyTest=2;\nif (myTest==1)\n{\n\tMessageBox.Show(\"Hello1\"); \n}\nelse If (myTest ==2)\n{\n\tMessageBox.Show(\"Hello2\"); \n}\nElse\n{\n\tMessageBox.Show(\"Hello3\"); \n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 54,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nSwitch Statement:\n\nAnother form of selection statement is the switch statement, which executes a set of logic depending on the value of a given parameter. The types of the values a switch statement operates on can be booleans, enums, integral types, and strings."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 55,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nSwitch Statement:\nSwitch (myTest)\n{\n\tcase 1:\n\tMessageBox.Show(“Hello1”);\n\tBreak;\n\n\tcase 2:\n\tMessageBox.Show(“Hello1”);\n\tBreak;\n\n\tcase 3:\n\tMessageBox.Show(“Hello1”);\n\tBreak;\n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 56,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nLoops:\n•\tThe while loop\n•\tThe do loop\n•\tThe for loop\n•\tThe foreach loop"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 57,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nfor  Loop:\n\nA for loop works like a while loop, except that the syntax of the for loop includes initialization and condition modification. for loops are appropriate when you know exactly how many times you want to perform the statements within the loop."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 58,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nfor  Loop:\n\nfor (int i = 0; i < 10; i++)\n{\n\tMessageBox.Show(\"Inside Loop: \" + myInt.ToString()); \n\tmyint++;\n}\nMessageBox.Show(\"Inside Loop: \" + myInt.ToString());"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 59,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nforeach  Loop:\n\nA foreach loop is used to iterate through the items in a list. It operates on arrays or collections."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 60,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nforeach  Loop:\n\nstring[] names = { \"Elvis\", \"Beatles\", \"Eagles\", \"Rolling Stones\" }; \n\nforeach (string person in names) \n{\n\tMessageBox.Show(person); \n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 61,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nWe can use the for loop very effectively with Arrays (to come)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 62,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nMethods:\n\nMethods are extremely useful because they allow you to separate your logic into different units. You can pass information to methods, have it perform one or more statements, and retrieve a return value. The capability to pass parameters and return values is optional and depends on what you want the method to do. \nMethods are similar to functions, procedure or subroutine used in other programming languages. The difference is that a method is always a part of a class."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 63,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nMethods:\n\nWe learn more about methods below. \nWe have 2 kinds of Methods: \n•\tStatic Methods\n•\tNonstatic Methods (Instance Method)\n\nStatic Methods belongs to the whole class, while nonstatic Methods belong to each instance created from the class."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 64,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nMethods:\n\npublic void ShowCarColor(string color) \n{\n\tMessageBox.Show(\"My Car is: \" + color); \n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 65,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nBasic Variable manipulation: Always change in class, not outside, then issue is just access. Basic Variable and Method/Function manipulation:\n\nDeclare/Initialise/Access local and other GameObject variables and methods\n\nPublic – Allows access by other GO, constructor is public by default\nPrivate – can always use Inheritance, Polymorphism\n\nStatic – class, not object function, do not need to instantiate class to access\nNon Static – must instantiate to access"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 66,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\n\nprivate = local\u000bpublic = global\u000b\u000bstatic = global (but only 1 exists)\u000bprivate static = localized global (but only 1 exists)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 67,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (Static Class)\n\n// Static Class\npublic static class MyClass\n{\n  static MyNameMethod(string myName)\n  {\n    Console.WriteLine(string.format(\"My Name Is: {0}\", myName);\n  }\n}\n//Non Static Class/Method\npublic class MyClass\n{\n  MyNameMethod(string myName)\n  {\n    Console.WriteLine(string.format(\"My Name Is: {0}\", myName);\n  }\n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 68,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (Static Class)\n\nNow lets say you want to execute the MyNameMethod(function), \n\nusing the static version you would do:\nMyClass.MyNameMethod(\"Jimmy James\");  NO INSTANTIATION\n\n\n\nNon static would be:\nMyClass myClassInstance = new MyClass(); INSTANTIATION\nmyClassInstance.MyNameMethod(\"Jimmy James Don Dawn\");\n \nhttps://forum.unity3d.com/threads/static-function.52166/"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 69,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nNonStatic Methods:\nWe define the class: \n\nclass Car \n{\n\t//Nonstatic/Instance Method \n\tpublic void SetColor(string color) \n\t{\n\t\tMessageBox.Show(\"My Car is: \" + color); \n\t}\n}\n\nThen we use it:"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 70,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nNonStatic Methods:\nThen we use it:\n\nCar myCar = new Car(); //We create an Instance of the Class \n\nmyCar.SetColor(\"blue\"); //We call the Method"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 71,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\nStatic:\n•Static is a keyword.\n•You've seen it in front of Main (C# VS program files).\n•If it's not there the program won't run.\n•So what is static?\n•To better understand what it means let's think about its opposite: dynamic.\n•Dynamic is not a keyword, but dynamic means changing.\n•Therefore static means it does not change.\n•Static means it cannot be more than it is.\n•It cannot be an object, it cannot have multiple instances .\n•Static means it belongs to the class as opposed to the object (the copy of the class we create using the new keyword).\n•Unless you specifically call for something to be static, it will be instance (or dynamic)."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 72,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nStatic Methods:\nWe define the class: \nclass Boat \n{\n\t//Static Method \n\tpublic static void SetColor(string color) \n\t{\n\tMessageBox.Show(\"My Boat is: \" + color); \n\t}\n}\nThen we use it:"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 73,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\nTelemark University College Department of Electrical Engineering, Information Technology and Cybernetics\n\nStatic Methods:\nThen we use it:\n\nBoat.SetColor(\"green\"); \n\ni.e., we don’t need to create an object/instantiating the class before we use the Static Method."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 74,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)\n\nprivate = local\u000bpublic = global\u000b\u000bstatic = global (but only 1 exists)\u000bprivate static = localized global (but only 1 exists)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 75,
+    "title": "",
+    "content": [
+      "3D Interactive Media Development",
+      "Working in Unity (C# and OOP Concepts)"
+    ],
+    "images": []
+  }
+]

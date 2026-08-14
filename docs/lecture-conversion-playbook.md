@@ -1,7 +1,7 @@
 # Lecture Conversion Playbook
 
-Version: 1.1-draft
-Last Updated: 2026-08-13
+Version: 1.3-draft
+Last Updated: 2026-08-14
 Status: Working Draft
 
 ## 1. Purpose and Scope
@@ -116,6 +116,46 @@ Structural safety rules:
 Exit criteria:
 1. All scoped slides satisfy baseline structural contract.
 
+### 8a. Automated Conversion Tooling (2-step)
+This process is implemented as two automated steps that produce a fully compliant
+lecture page with no manual re-authoring for the base conversion:
+
+Step 1 — Extraction and structural build (produces plain h2/h3/p/ul slides):
+1. `python extract_pptx.py --lecture-id <id> --pptx "<file>.pptx"` — extracts text and
+   images from the source PPTX into `site/pages/<id>-content.json` plus
+   `site/pages/images/`. Use the system Python interpreter (e.g. `C:\Python312\python.exe`)
+   if the repo `.venv` is broken or missing.
+2. `python generate_html_slideshow.py --lecture-id <id> --lecture-title "..."` for a
+   standard deck, or a custom one-off build script (see `temp/build_lect_02b_03b.py`
+   for a worked example) when the source needs extra normalization such as
+   whitespace/tab cleanup, bullet-list detection, or a recurring attribution/citation
+   line (rendered via the `.slide-citation` class in slideshow.css).
+
+Step 2 — Polish pass (produces the final lect-01a/01b visual/interaction style):
+1. `python wrap_code_blocks.py site/pages/<id>.html` — detects contiguous C#/code
+   paragraphs and wraps each run in a collapsible
+   `<details class="accordion accordion--nested"><summary>Code Example</summary>`
+   section whose body is a hand-authored `.pseudo-panel` (matching the tutorial
+   pseudocode panel styling exactly: chrome with dots/title, monospace body,
+   comment/brace/statement/code tone coloring, indent tracking on `{`/`}`).
+2. `python accordionize_lecture.py site/pages/<id>.html` — groups each slide's
+   content into collapsible `<details class="accordion">` sections keyed by that
+   slide's own `<h2>`/`<h3>` headings (used verbatim as `<summary>` labels, minus
+   trailing colon), wraps them in `.accordion-scroll`, and sets
+   `.slide-content-accordion` on the outer content div. This must run **after**
+   `wrap_code_blocks.py`, since it treats already-built `<details>` code blocks as
+   atomic units (via div/details-depth balancing) rather than reprocessing their
+   contents. It also gives slide body text the same larger font size used in
+   lect-01a/01b for free, since that sizing lives on
+   `.slide-content .accordion-body p/li/a` in slideshow.css rather than on plain
+   `.slide-content p`.
+3. Re-run both scripts from a clean Step 1 output rather than re-running them on
+   their own prior output — they are not designed to be idempotent on
+   already-wrapped/already-accordion-ized content.
+4. Add the new page's nav entry under `.nav-group[data-nav-group="lectures"]` in
+   `site/index.html`, and bump the `?v=` query string on any shared CSS/JS files
+   that were touched.
+
 ## 9. Stage 4: Content Normalization
 Required actions:
 1. Normalize headings and body text for clarity and scanability.
@@ -222,6 +262,8 @@ Every conversion run must output:
 4. Record material process changes in the change log.
 
 ## 18. Change Log
+- 1.3-draft: Formalized the conversion into a repeatable 2-step process (documented in section 8a): Step 1 (extract_pptx.py + generate_html_slideshow.py or a custom build script) produces plain structural slides (h2/h3/p/ul); Step 2 (wrap_code_blocks.py + accordionize_lecture.py, promoted from one-off temp/ scripts to permanent root-level tooling) polishes them into the lect-01a/01b visual style — code snippets become collapsible pseudo-panel-styled blocks, and each slide's h3-delimited content is grouped into collapsible accordion sections (using the slide's own h2/h3 headings as section names), which also gives slide body text the same font sizing as lect-01a/01b for free.
+- 1.2-draft: Milestone — first full PPTX-to-HTML lecture conversion executed end-to-end via extract_pptx.py + a JSON-to-slide builder script, producing site/pages/lect-02b-03b.html (75 slides, 24 images) with 1:1 slide mapping, list/heading/citation normalization, and no manual re-authoring required. Added the reusable `.slide-citation` component class to slideshow.css for recurring source attribution lines.
 - 1.1-draft: Updated canonical lecture reference to site/pages/lect-01a.html and aligned playbook with full-bleed lecture panel behavior.
 - 1.0-draft: Expanded from skeleton to full operational draft aligned 1:1 with final lecture template spec.
 - 0.1-draft: Initial skeleton.
