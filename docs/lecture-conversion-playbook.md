@@ -195,8 +195,10 @@ Step 2 — Polish pass (produces the final lect-01a/01b visual/interaction style
    
    **Panopto links:**
    - Extract `<UUID>` from the Panopto URL's `id=` parameter
-   - `<EMBED_URL>` = `https://westminster.cloud.panopto.eu/Panopto/Panopto/Pages/Embed.aspx?id=<UUID>`
+    - `<EMBED_URL>` = `https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?pid=<UUID>`
    - `<WATCH_URL>` = `https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=<UUID>`
+    - The embed page may require a student Panopto login and third-party authentication;
+       opening the Viewer fallback in a normal or incognito window can be necessary.
    - `class="panopto-embed"`
    
    **Other video hosts (Vimeo, etc.):**

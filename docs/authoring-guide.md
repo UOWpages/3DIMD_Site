@@ -42,8 +42,10 @@ Keep all future additions normalized, semantic, and compatible with the shared s
    with `class="video-embed"` on the iframe, `loading="lazy"` and `allowfullscreen` attributes.
    Each video gets its own collapsible accordion with a descriptive summary label.
 2. **Panopto links:** convert to an embed iframe with the same nested video-accordion
-   collapsible pattern, using `class="panopto-embed"` on the iframe, with both
-   `/Embed.aspx?id=<UUID>` embed URL and `/Viewer.aspx?id=<UUID>` fallback watch link.
+   collapsible pattern, using `class="panopto-embed"` on the iframe, with
+   `/Embed.aspx?pid=<UUID>` embed URL and `/Viewer.aspx?id=<UUID>` fallback watch link.
+   Student authentication may require opening the Viewer fallback in a normal or
+   incognito browser window.
 3. **Other video hosts (Vimeo, etc.):** use the host's standard embed URL with the same
    nested video-accordion collapsible pattern, `class="video-embed"`, `loading="lazy"`,
    and `allowfullscreen` attributes.

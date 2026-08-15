@@ -203,8 +203,11 @@ html_template += """  </div>
         const query = youtubeMatch ? (youtubeMatch[2] || '') : '';
         const embedUrl = youtubeMatch
           ? `https://www.youtube.com/embed/${videoId}${query}`
-          : `https://${host}/Panopto/Panopto/Pages/Embed.aspx?id=${videoId}`;
+          : `https://${host}/Panopto/Pages/Embed.aspx?pid=${videoId}`;
         const iframeClass = youtubeMatch ? 'video-embed' : 'panopto-embed';
+        const authNote = panoptoMatch
+          ? '<p class="video-auth-note">Student Panopto login may be required. If the embedded player does not refresh after sign-in, open the source link in a new or incognito window.</p>'
+          : '';
         const details = document.createElement('details');
         details.className = 'accordion accordion--nested video-accordion';
         details.innerHTML = `
@@ -212,6 +215,7 @@ html_template += """  </div>
           <div class="accordion-body">
             <article class="embed-card">
               <iframe class="${iframeClass}" src="${embedUrl}" title="${context || 'Video'}" loading="lazy" allowfullscreen></iframe>
+              ${authNote}
               <p><a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Open source link</a></p>
             </article>
           </div>`;
