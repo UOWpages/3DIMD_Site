@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Lecture 05a - Unity UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260805m" />
+    <link rel="stylesheet" href="../assets/css/slideshow.css?v=20260814e" />
+  <style>
+    body.lecture-fullbleed .slideshow-container {
+      visibility: hidden;
+    }
+
+    body.lecture-fullbleed.lecture-ready .slideshow-container {
+      visibility: visible;
+    }
+
+    body.lecture-fullbleed .slide-title {
+      display: none !important;
+    }
+
+    body.lecture-fullbleed .slide-content > h2 {
+      display: none !important;
+    }
+  </style>
+</head>
+<body class="lecture-fullbleed">
+  <div class="slideshow-container">
+    <!-- Slide 1 -->
+    <div class="slide active">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>5MMCS001W                Lecture 05a</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>5MMCS001W                Lecture 05a</summary>
+        <div class="accordion-body">
+    <p>https://www.blend4web.com/apps/dairy_plant/dairy_plant.html?v=93906d9bd04fe610df690c519724295f</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)" disabled> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Troubleshooting</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Troubleshooting</summary>
+        <div class="accordion-body">
+    <p>Use</p>
+    <p>Github Desktop/VS Code for Versioning on Apple Mac,</p>
+    <p>Github website and Visual Studio on Windows</p>
+    <p>Play/Play-Pause Buttons selected in Unity</p>
+    <p>You lose all adjustments made while these are on</p>
+    <p>Do not work off Network, H Drive or USB drive!!!</p>
+    <p>Your scene will get errors and get corrupted !!!</p>
+    <p>Instead, save work on google drive or onedrive as a zip, copy over to C:Temp at start of tutorial, and save scenes, save project, exit Unity, then zip up whole project and copy back to cloud drive at the end of tutorial. Or you can use Unity Collaborate in top right when signed in - sheet on that later.</p>
+    <p>CW1 will be Blackboard/Google Drive Link submission</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Input Manager</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Unity Input Manager</summary>
+        <div class="accordion-body">
+    <p>Each program you write, whether the program is a phone application, a web application, a game or an embedded system, needs some sort of an input. In general every program needs some sort of an input and some sort of an output. The output is what the users sees, and the input is what the user enters or gives to the program to generate the output based on some algorithm.</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Unity 3D is no different. The game engine needs to be able to process inputs from different sources</summary>
+        <div class="accordion-body">
+    <h3>Unity 3D is no different. The game engine needs to be able to process inputs from different sources:</h3>
+    <p>Keyboard</p>
+    <p>Mouse</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 0">Joystick(s)</div>
+      </div>
+    </section>
+    <p>Unity 3D manages its inputs through the Input Manager. The Input Manager is accessible by selecting Edit->Project Settings->Input from the main menu bar.</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Input Manager</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Input Manager</summary>
+        <div class="accordion-body">
+    <img src="images/lect-05a-unity-ui_slide4_image0.png" alt="Slide 4 image" />
+    <img src="images/lect-05a-unity-ui_slide4_image1.png" alt="Slide 4 image" />
+    <img src="images/lect-05a-unity-ui_slide4_image2.png" alt="Slide 4 image" />
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Input Manager</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Figure 1 lists all of the out of the box Input configurations defined in the game engine. Let’s go ahead and expand the first Input Definition called Horizontal. Looking at Figure 2, you will notice the attributes that are defined under the Horizontal Axis input configuration. The following are the properties of the input configuration that are important to take a note of</summary>
+        <div class="accordion-body">
+    <h3>Figure 1 lists all of the out of the box Input configurations defined in the game engine. Let’s go ahead and expand the first Input Definition called Horizontal. Looking at Figure 2, you will notice the attributes that are defined under the Horizontal Axis input configuration. The following are the properties of the input configuration that are important to take a note of:</h3>
+    <p>Name: the name of the axis as defines in the Input Manager. This is the name that you can refer to in your C# code for to detect and perform an operation as desired.</p>
+    <p>Positive Button: defines the primary button that will provide the positive direction / force.</p>
+    <p>Negative Button: defines the primary button that will provide the negative direction / force.</p>
+    <p>Alt. Positive Button: same as the positive button, but defines a secondary input intake.</p>
+    <p>Alt. Negative Button: same as the negative button, but defines a secondary input intake.</p>
+    <p>Type: defines where the input source is coming from; (Keyboard/Mouse/Joystick).</p>
+    <p>Axis: which axis in the world should the force be applied to.</p>
+    <img src="images/lect-05a-unity-ui_slide5_image0.png" alt="Slide 5 image" />
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 6 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Input Manager</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Input key values to handle the rotation for the dynamically created primitives in the following order</summary>
+        <div class="accordion-body">
+    <h3>Input key values to handle the rotation for the dynamically created primitives in the following order:</h3>
+    <p>Key A will be responsible to rotate Cube1’ on the Y-Axis.</p>
+    <p>Key B will be responsible to rotate Cube2’ on the X-Axis.</p>
+    <p>Key C will be responsible to rotate Cube3’ on the Z-Axis.</p>
+    <p>Notice, that the Update() function is where you place the logic to perform your Input and Output. The code checks to see if the primitives have been initialized, and if true, then it will check for input from the user. Based on the key value it will apply the appropriate rotation to the Game Object.</p>
+    <p>Each primitive will rotate independently only when the specific key associated to its rotation is pressed. For instance, if you press the A key, Cube1’ will continuously rotate until you stop pressing it. It will stop at the last rotation angle where you lifted your finger from the key.</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 7 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Input Manager/Movement Scripting</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Unity Input Manager/Movement Scripting</summary>
+        <div class="accordion-body">
+    <p>Unity Input Manager/Movement Scripting - Tutorial 2</p>
+    <p>CreatePrimitivesFromImport.cs – on Main Camera, Can access all Cube Game Objects</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">if(Input.GetKey(KeyCode.A)){</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 1">this.cube1.transform.Rotate(new Vector3(0,1,0), 1);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+        <div class="pseudo-panel__line pseudo-panel__line--comment" style="--pseudo-indent-level: 0">// apply the x-axis transform to Cube2'</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">if(Input.GetKey(KeyCode.B)){</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 1">this.cube2.transform.Rotate(new Vector3(1,0,0), 1);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+        <div class="pseudo-panel__line pseudo-panel__line--comment" style="--pseudo-indent-level: 0">// apply the z-axis transform to Cube3'</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">if(Input.GetKey(KeyCode.C)){</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 1">this.cube3.transform.Rotate(new Vector3(0,0,1), 1);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+      </div>
+    </section>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 8 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity Animator Scripting</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Unity Animator Scripting</summary>
+        <div class="accordion-body">
+    <p>Unity Animator Scripting - Tutorial 3,4</p>
+    <p>Array, Animate, Export from Max</p>
+    <p>New Project, Import</p>
+    <p>Divide into Static, Explode, Implode animations</p>
+    <p>Set up Animator</p>
+    <p>Script for Input</p>
+    <p>Video</p>
+    <p>https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=22ba15c1-b106-4f12-a65f-b09f010dc569</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 9 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>Unity UI</h2>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 10 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity UI Architecture</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Unity UI Architecture</summary>
+        <div class="accordion-body">
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 0">UnityEngine.UI Namespace - using UnityEngine.UI;</div>
+      </div>
+    </section>
+    <p>Canvas, RectTransform</p>
+    <p>Button, Image, Panel, Text</p>
+    <p>Prefabs</p>
+    <p>Events, Event Triggers</p>
+    <p>Slider</p>
+    <p>Transitions</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 11 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity UI Architecture</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Unity UI Architecture</summary>
+        <div class="accordion-body">
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using UnityEngine.UI;</div>
+      </div>
+    </section>
+    <p>Canvas – Base component of UI</p>
+    <p>Screen Space Overlay – exactly to screen size, nothing rendered in front</p>
+    <p>Screen Space Camera – Similar, but affected by camera settings</p>
+    <p>(Perspective vs orthographic)</p>
+    <p>World Space – makes a 3D world object</p>
+    <p>(in game screens)</p>
+    <p>Drawn in Hierarchy order</p>
+    <p>Images, Buttons, Text all children of this</p>
+    <p>Dragged into boxes to wire up</p>
+    <p>Event System</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-11">11</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 12 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity UI Architecture</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Unity UI Architecture</summary>
+        <div class="accordion-body">
+    <p>https://unity3d.com/learn/tutorials/topics/user-interface-ui/ui-events-and-event-triggers</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using UnityEngine.UI;</div>
+      </div>
+    </section>
+    <p>Event System - Game Object and Component</p>
+    <p>Allows UI elements to be selected</p>
+    <p>Input Modules</p>
+    <p>Gamepad and keyboard/mouse</p>
+    <p>Touch</p>
+    <p>Unity input is a class and a manager</p>
+    <p>Determine Event Firing for UI</p>
+    <p>OnClick event – Pointer Down and Pointer Up Event needed in Component</p>
+    <p>Button Component has Function list box</p>
+    <p>EventTrigger</p>
+    <p>Image Component would need this</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-12">12</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 13 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity UI Architecture</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Unity UI Architecture</summary>
+        <div class="accordion-body">
+    <p>https://unity3d.com/learn/tutorials/topics/user-interface-ui/ui-events-and-event-triggers</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using UnityEngine.UI;</div>
+      </div>
+    </section>
+    <p>Determine Event Firing for UI</p>
+    <p>OnClick event – Pointer Down and Pointer Up Event needed in Component</p>
+    <p>Button Component has Function list box</p>
+    <p>EventTrigger</p>
+    <p>Image Component would need this</p>
+    <p>Dragging Game Object in will expose Components and Functions for use</p>
+    <p>Must be Public, Void, and of no or 1 parameter of: float, int, str, or Object</p>
+    <p>Can call on attached scripts as well</p>
+    <p>access as component in script or</p>
+    <p>drag itself into box</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-13">13</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 14 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity UI Architecture</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Unity UI Architecture</summary>
+        <div class="accordion-body">
+    <p>https://www.lynda.com/Unity-tutorials/Create-button-element/489008/519845-4.html</p>
+    <p>Text – most fundamental UI element</p>
+    <p>display game readouts, dialogue, instructions, menus</p>
+    <p>Wired up by dragging UI Text Element into exposed Public Var Box of Script</p>
+    <p>Used in conjunction with other element</p>
+    <p>pre built into buttons as child</p>
+    <p>Creating UI text creates Canvas Parent</p>
+    <p>Zero out, adjustments</p>
+    <p>Modify at runtime with scripts</p>
+    <p>Text Readout Tutorial</p>
+    <p>http://www.noorcon.com/articles/Unity3D_Game_Programming_Part_4.html</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-14">14</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 15 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity UI Architecture</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Unity UI Architecture</summary>
+        <div class="accordion-body">
+    <p>https://www.lynda.com/Unity-tutorials/Create-button-element/489008/519845-4.html</p>
+    <p>Button – most Common UI element</p>
+    <p>Direct Interaction</p>
+    <p>Comes with text element</p>
+    <p>Can use images</p>
+    <p>Creating UI Button creates Canvas Parent</p>
+    <p>Zero out, Adjust rect transform</p>
+    <p>Has transition (hover, click)</p>
+    <p>Event Handler</p>
+    <p>On Click</p>
+    <p>Modify Text Element of Button at runtime</p>
+    <p>Drag Text element into OnClick Box</p>
+    <p>Modify Text Object, Script, and string text Property in function to I’m clicked</p>
+    <p>dynamic objects cant be selected.</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-15">15</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 16 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity UI Architecture</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Unity UI Architecture</summary>
+        <div class="accordion-body">
+    <p>http://www.noorcon.com/articles/Unity3D_Game_Programming_Part_4.html</p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Basics</summary>
+        <div class="accordion-body">
+    <h3>Basics:</h3>
+    <p>HUD Text Readout from Script Public Variable</p>
+    <p>http://www.noorcon.com/articles/Unity3D_Game_Programming_Part_4.html</p>
+    <p>Button OnClick Event Handling (Associated Functions must be public and void)</p>
+    <p>http://www.noorcon.com/articles/Unity3D_Game_Programming_Part_4.html</p>
+    <p>Button Runtime text feedback</p>
+    <p>https://www.lynda.com/Unity-tutorials/Create-button-element/489008/519845-4.html</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-16">16</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 17 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Tutorial 1. Unity UI HUD</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Tutorial 1. Unity UI HUD</summary>
+        <div class="accordion-body">
+    <p>Text Readouts on Panels- Basic</p>
+    <p>Initialize Cubes from key</p>
+    <p>Animate from key</p>
+    <p>Readout in Unity UI</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-17">17</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 18 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Tutorial 1. Unity UI HUD</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Tutorial 1. Unity UI HUD</summary>
+        <div class="accordion-body">
+    <p>Text Readouts on Panels- Basic</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using UnityEngine;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using UnityEngine.UI;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">using System.Collections;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">public class cube1Rotate : MonoBehaviour {</div>
+        <div class="pseudo-panel__line pseudo-panel__line--comment" style="--pseudo-indent-level: 1">// variable to store Text UI Element</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">public Text lblCube1Position;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">private string position = "";</div>
+        <div class="pseudo-panel__line pseudo-panel__line--comment" style="--pseudo-indent-level: 1">// Use this for initialization</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">void Start () {</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 1">}</div>
+        <div class="pseudo-panel__line pseudo-panel__line--comment" style="--pseudo-indent-level: 1">// Update is called once per frame</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">void Update () {</div>
+        <div class="pseudo-panel__line pseudo-panel__line--comment" style="--pseudo-indent-level: 2">// Rotate our game object around it's y-axis</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">transform.Rotate (new Vector3 (0, 1, 0), 1);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 2">if (this.lblCube1Position != null) {</div>
+      </div>
+    </section>
+    <p>position = string.Format("P:<{0:F2},{1:F2},{2:F2}>; R:<{3:F2},{4:F2},{5:F2}>",</p>
+    <p>transform.localPosition.x,</p>
+    <p>transform.localPosition.y,</p>
+    <p>transform.localPosition.z,</p>
+    <p>transform.localEulerAngles.x,</p>
+    <p>transform.localEulerAngles.y,</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 0">transform.localEulerAngles.z);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 0">this.lblCube1Position.text = position;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+      </div>
+    </section>
+    <img src="images/lect-05a-unity-ui_slide18_image0.jpeg" alt="Slide 18 image" />
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-18">18</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 19 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Tutorial 1. Unity UI Initialize Game Objects</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Overview</summary>
+        <div class="accordion-body">
+    <p>Button</p>
+    <p>(OnClick event and public void function)</p>
+    <p>Drag object with Script and Function to OnClick Placeholder</p>
+    <p>Select function from drop down box</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--comment" style="--pseudo-indent-level: 0">// This function will be called when the Space Bar on the keyboard is pressed</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">public void CreateMyPrimitives(){</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 1">if (!this.PRIMITIVES_CREATED) {</div>
+        <div class="pseudo-panel__line pseudo-panel__line--comment" style="--pseudo-indent-level: 2">// initialize our Cube1 primitive and place it at location (0,2,0)</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">this.cube1 = GameObject.CreatePrimitive (PrimitiveType.Cube);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">this.cube1.transform.localPosition = new Vector3 (0, 2, 0);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--comment" style="--pseudo-indent-level: 2">// initialize our Cube2 primitive and place it at location (3,2,0)</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">this.cube2 = GameObject.CreatePrimitive (PrimitiveType.Cube);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">this.cube2.transform.localPosition = new Vector3 (3, 2, 0);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--comment" style="--pseudo-indent-level: 2">// initialize our Cube3 primitive and place it at location (-3,2,0)</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">this.cube3 = GameObject.CreatePrimitive (PrimitiveType.Cube);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">this.cube3.transform.localPosition = new Vector3 (-3, 2, 0);</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 2">this.PRIMITIVES_CREATED = true;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 1">}</div>
+      </div>
+    </section>
+    <img src="images/lect-05a-unity-ui_slide19_image0.jpeg" alt="Slide 19 image" />
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-19">19</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 20 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content">
+    <h2>We can continue with Unity UI with extra features in the next tutorials >>></h2>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-20">20</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 21 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Extra</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Extra</summary>
+        <div class="accordion-body">
+    <p>Extra - Tutorial 2. Animate UI Button</p>
+    <p>https://youtu.be/mgaUKk8hfjg</p>
+    <img src="images/lect-05a-unity-ui_slide21_image0.png" alt="Slide 21 image" />
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-21">21</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 22 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Extra</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Extra</summary>
+        <div class="accordion-body">
+    <p>Extra – Tutorial -  Unity UI HUD Text Readout Score – Simplified</p>
+    <p>UI Cookbook chapter 2</p>
+    <p>1. Make UI/Text – call it “Score Counter”</p>
+    <p>2. Add Component/Script</p>
+    <p>3. Create Text “uiText” and “score” variables</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">private Text uiText;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">private long score = 0;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 0">4. In Start – uiText = GetComponent<Text>();</div>
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">void Start () {</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 1">uiText = this.GetComponent<Text> ();</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 1">updateScoreCounter ();</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+      </div>
+    </section>
+    <p>5. Add Points (run script when key is pressed - remember how to do this?)</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">public void addPoints(int points){</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 1">score += points;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 1">updateScoreCounter ();</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+      </div>
+    </section>
+    <p>6. Method outside of update</p>
+    <section class="pseudo-panel pseudo-panel--compact">
+      <div class="pseudo-panel__chrome">
+        <div class="pseudo-panel__dots">
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+          <span class="pseudo-panel__dot"></span>
+        </div>
+        <div class="pseudo-panel__title">Code Example</div>
+      </div>
+      <div class="pseudo-panel__body" role="region" aria-label="Code Example">
+        <div class="pseudo-panel__line pseudo-panel__line--statement" style="--pseudo-indent-level: 0">private void updateScoreCounter(){</div>
+        <div class="pseudo-panel__line pseudo-panel__line--code" style="--pseudo-indent-level: 1">uiText.text = "<color=blue>Score</color>: " + score;</div>
+        <div class="pseudo-panel__line pseudo-panel__line--brace" style="--pseudo-indent-level: 0">}</div>
+      </div>
+    </section>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-22">22</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 23 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity UI Tutorials General Interface</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Unity UI Tutorials General Interface</summary>
+        <div class="accordion-body">
+    <p>Official Unity</p>
+    <p>https://learn.unity.com/tutorial/ui-componentsodules/beginner/live-training-archive/the-new-ui?playlist=17111</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-23">23</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 24 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity UI HUD Various (Games)</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Games</summary>
+        <div class="accordion-body">
+    <p>Readouts</p>
+    <p>http://www.noorcon.com/articles/Unity3D_Game_Programming_Part_4.html</p>
+    <p>Health Bar</p>
+    <p>http://www.noorcon.com/articles/Unity3D_Game_Programming_Part_9.html</p>
+    <p>https://www.packtpub.com/mapt/book/Game%20Development/9781785885822/2/ch02lvl1sec23/Implementing+a+linear+health+bar</p>
+    <p>Timer</p>
+    <p>http://www.noorcon.com/articles/Unity3D_Game_Programming_Part_6.html</p>
+    <p>https://www.packtpub.com/mapt/book/Game%20Development/9781785885822/3/ch03lvl1sec29/Implementing+a+numeric+timer</p>
+    <p>Collection Bar</p>
+    <p>http://www.noorcon.com/articles/Unity3D_Game_Programming_Part_6.html</p>
+    <p>Score/Info</p>
+    <p>http://www.noorcon.com/articles/Unity3D_Game_Programming_Part_6.html</p>
+    <p>https://www.packtpub.com/mapt/book/Game%20Development/9781785885822/2/ch02lvl1sec19/Implementing+a+score+counter</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-24">24</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 25 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity UI Levels</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Unity UI Levels</summary>
+        <div class="accordion-body">
+    <p>Scene/Level selection</p>
+    <p>https://www.youtube.com/watch?v=FIa7qxGaRZo&index=86&list=PLX2vGYjWbI0Tg4eS9w29PPqg0Fx4sIL7p</p>
+    <p>Minimaps</p>
+    <p>https://www.packtpub.com/mapt/book/Game%20Development/9781785885822</p>
+    <p>https://www.packtpub.com/mapt#collapse10</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)">Next → </button>
+        <div class="slide-counter"><span id="current-slide-25">25</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 26 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+    <div class="slide-content slide-content-accordion">
+    <h2>Unity UI Widgets</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Unity UI Widgets</summary>
+        <div class="accordion-body">
+    <p>Player Control</p>
+    <p>https://www.youtube.com/watch?v=nGYObojmkO4</p>
+    <p>Shop UI with ScrollLists</p>
+    <p>https://www.youtube.com/watch?v=TAJCr3_kfEc</p>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" onclick="changeSlide(-1)"> ← Previous</button>
+        <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" onclick="changeSlide(1)" disabled>Next → </button>
+        <div class="slide-counter"><span id="current-slide-26">26</span> / <span id="total-slides">26</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../assets/js/site.js?v=20260805f"></script>
+  <script>
+    const isLecturePage = /\/lect-[^/]+\.html$/i.test(window.location.pathname);
+    if (isLecturePage && document.body) {
+      document.body.classList.add('lecture-fullbleed');
+    }
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function normalizeSlideStructure(slide) {
+      if (slide.querySelector('.slide-frame')) return;
+
+      const title = slide.querySelector('.slide-title');
+      const controls = slide.querySelector('.slide-controls');
+      const body = slide.querySelector('.slide-content');
+      if (!title || !controls || !body) return;
+
+      const frame = document.createElement('div');
+      frame.className = 'slide-frame';
+      frame.appendChild(title);
+      frame.appendChild(body);
+      frame.appendChild(controls);
+      slide.appendChild(frame);
+    }
+
+    function linkifyText(element) {
+      const urlPattern = /(https?:\/\/[^\s]+)/g;
+      const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+      );
+
+      const nodesToReplace = [];
+      let node;
+
+      while (node = walker.nextNode()) {
+        if (urlPattern.test(node.textContent)) {
+          nodesToReplace.push(node);
+        }
+      }
+
+      urlPattern.lastIndex = 0;
+
+      nodesToReplace.forEach((textNode) => {
+        const span = document.createElement('span');
+        span.innerHTML = textNode.textContent.replace(
+          /(https?:\/\/[^\s]+)/g,
+          '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
+        textNode.parentNode.replaceChild(span, textNode);
+      });
+    }
+
+    function enhanceLectureVideos(slide) {
+      const youtubePattern = /^https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([^\s&?]+)(.*)$/i;
+      const panoptoPattern = /^https?:\/\/([^\s/]+\.panopto\.eu)\/Panopto\/Pages\/Viewer\.aspx\?id=([^\s&]+)/i;
+      slide.querySelectorAll('.accordion-body > p').forEach((paragraph) => {
+        const sourceUrl = paragraph.textContent.trim();
+        const youtubeMatch = sourceUrl.match(youtubePattern);
+        const panoptoMatch = sourceUrl.match(panoptoPattern);
+        if (!youtubeMatch && !panoptoMatch) return;
+
+        const previous = paragraph.previousElementSibling;
+        const context = previous ? previous.textContent.replace(/\s+/g, ' ').trim() : '';
+        const host = panoptoMatch ? panoptoMatch[1] : '';
+        const videoId = youtubeMatch ? youtubeMatch[1] : panoptoMatch[2];
+        const query = youtubeMatch ? (youtubeMatch[2] || '') : '';
+        const embedUrl = youtubeMatch
+          ? `https://www.youtube.com/embed/${videoId}${query}`
+          : `https://${host}/Panopto/Panopto/Pages/Embed.aspx?id=${videoId}`;
+        const iframeClass = youtubeMatch ? 'video-embed' : 'panopto-embed';
+        const details = document.createElement('details');
+        details.className = 'accordion accordion--nested video-accordion';
+        details.innerHTML = `
+          <summary>${context || 'Video'}</summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <iframe class="${iframeClass}" src="${embedUrl}" title="${context || 'Video'}" loading="lazy" allowfullscreen></iframe>
+              <p><a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+            </article>
+          </div>`;
+        paragraph.replaceWith(details);
+      });
+    }
+
+    function enhanceLectureImageLayouts(slide) {
+      slide.querySelectorAll('.accordion-body').forEach((body) => {
+        const images = Array.from(body.children).filter((child) => child.tagName === 'IMG');
+        if (!images.length || body.querySelector(':scope > .slide-media-layout')) return;
+
+        const layout = document.createElement('div');
+        layout.className = 'slide-media-layout';
+        const textColumn = document.createElement('div');
+        textColumn.className = 'slide-text-column';
+        const imageColumn = document.createElement('div');
+        imageColumn.className = 'slide-image-column';
+
+        Array.from(body.children).forEach((child) => {
+          if (child.tagName === 'IMG') imageColumn.appendChild(child);
+          else textColumn.appendChild(child);
+        });
+
+        layout.append(textColumn, imageColumn);
+        body.appendChild(layout);
+      });
+    }
+
+    function getAccordionLabels(titleText) {
+      const title = (titleText || '').toLowerCase();
+
+      if (title.includes('workflow')) {
+        return { overview: 'Workflow Steps', resources: 'Diagrams and Media' };
+      }
+
+      if (title.includes('references') || title.includes('reading')) {
+        return { overview: 'Reading Notes', resources: 'References and Media' };
+      }
+
+      if (title.includes('group') || title.includes('activity')) {
+        return { overview: 'Guidance', resources: 'Resources' };
+      }
+
+      return { overview: 'Overview', resources: 'Resources and Media' };
+    }
+
+    function normalizeAccordionLabel(text) {
+      const cleaned = (text || '').replace(/\s+/g, ' ').replace(/[:\-]+$/, '').trim();
+      if (!cleaned) return '';
+
+      const lowered = cleaned.toLowerCase();
+      if (lowered === 'overview' || lowered === 'resources' || lowered === 'resources and media') {
+        return '';
+      }
+
+      return cleaned;
+    }
+
+    function inferOverviewLabel(body, h2) {
+      const headingCandidates = Array.from(body.querySelectorAll(':scope > h3, :scope > .section-label'));
+      for (const node of headingCandidates) {
+        const candidate = normalizeAccordionLabel(node.textContent);
+        if (candidate) return candidate;
+      }
+
+      const headingText = (h2 ? h2.textContent : '').replace(/\s+/g, ' ').trim();
+      const parenthetical = headingText.match(/\(([^)]+)\)/);
+      if (parenthetical) {
+        const candidate = normalizeAccordionLabel(parenthetical[1]);
+        if (candidate) return candidate;
+      }
+
+      const firstParagraph = body.querySelector(':scope > p');
+      if (firstParagraph) {
+        const paragraphText = (firstParagraph.textContent || '').replace(/\s+/g, ' ').trim();
+        const wordCount = paragraphText.split(/\s+/).filter(Boolean).length;
+        const looksLikeLabel = !/[.!?]$/.test(paragraphText) && !/^https?:\/\//i.test(paragraphText);
+        if (wordCount > 0 && wordCount <= 6 && looksLikeLabel) {
+          const candidate = normalizeAccordionLabel(paragraphText);
+          if (candidate) return candidate;
+        }
+      }
+
+      return '';
+    }
+
+    function convertLegacySlideToAccordion(slide) {
+      const body = slide.querySelector('.slide-content');
+      if (!body || body.classList.contains('slide-content-accordion')) return;
+
+      const h2 = body.querySelector(':scope > h2');
+      const labels = getAccordionLabels(h2 ? h2.textContent : '');
+      const inferredOverviewLabel = inferOverviewLabel(body, h2);
+      const customOverviewLabel = body.getAttribute('data-overview-label');
+      const customResourcesLabel = body.getAttribute('data-resources-label');
+      if (inferredOverviewLabel) {
+        labels.overview = inferredOverviewLabel;
+      }
+      if (customOverviewLabel) {
+        labels.overview = customOverviewLabel;
+      }
+      if (customResourcesLabel) {
+        labels.resources = customResourcesLabel;
+      }
+      const children = Array.from(body.children).filter((node) => node !== h2);
+      if (!children.length) return;
+
+      const overviewItems = [];
+      const resourcesItems = [];
+
+      children.forEach((node) => {
+        const tag = node.tagName ? node.tagName.toLowerCase() : '';
+        const text = (node.textContent || '').trim();
+        const hasUrl = /https?:\/\//i.test(text);
+        const isImage = tag === 'img';
+        const hasLink = Boolean(node.querySelector && node.querySelector('a'));
+
+        if (isImage || hasUrl || hasLink) {
+          resourcesItems.push(node);
+        } else {
+          overviewItems.push(node);
+        }
+      });
+
+      body.classList.add('slide-content-accordion');
+      body.innerHTML = '';
+      if (h2) body.appendChild(h2);
+
+      const scroll = document.createElement('div');
+      scroll.className = 'accordion-scroll';
+
+      if (overviewItems.length) {
+        const overview = document.createElement('details');
+        overview.className = 'accordion';
+        overview.open = true;
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.overview;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        overviewItems.forEach((node) => content.appendChild(node));
+
+        overview.appendChild(summary);
+        overview.appendChild(content);
+        scroll.appendChild(overview);
+      }
+
+      if (resourcesItems.length) {
+        const resources = document.createElement('details');
+        resources.className = 'accordion';
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.resources;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        resourcesItems.forEach((node) => content.appendChild(node));
+
+        resources.appendChild(summary);
+        resources.appendChild(content);
+        scroll.appendChild(resources);
+      }
+
+      body.appendChild(scroll);
+    }
+
+    function syncSlideTitles() {
+      slides.forEach((slide) => {
+        const title = slide.querySelector('.slide-title');
+        const heading = slide.querySelector('.slide-content h2');
+        if (!title || !heading) return;
+
+        const headingText = (heading.textContent || '').replace(/\s+/g, ' ').trim();
+        if (headingText) {
+          title.textContent = headingText;
+          heading.remove();
+        }
+      });
+    }
+
+    function announceActiveSlideTitle() {
+      const activeSlide = slides[currentSlide];
+      if (!activeSlide) return;
+
+      const titleNode = activeSlide.querySelector('.slide-title');
+      const titleText = (titleNode ? titleNode.textContent : '').replace(/\s+/g, ' ').trim();
+      if (!titleText) return;
+
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({
+          type: 'lecture-slide-title',
+          title: titleText
+        }, '*');
+      }
+    }
+
+    slides.forEach((slide, index) => {
+      normalizeSlideStructure(slide);
+      if (index >= 3) {
+        convertLegacySlideToAccordion(slide);
+      }
+      enhanceLectureVideos(slide);
+      enhanceLectureImageLayouts(slide);
+      linkifyText(slide.querySelector('.slide-content') || slide);
+    });
+
+    syncSlideTitles();
+
+    function updateCounters() {
+      slides.forEach((slide, index) => {
+        const counter = slide.querySelector('.slide-counter');
+        if (counter) {
+          counter.textContent = `${index + 1} / ${totalSlides}`;
+        }
+      });
+    }
+
+    function showSlide(n) {
+      slides.forEach((slide) => slide.classList.remove('active'));
+      slides[currentSlide].classList.add('active');
+
+      const allButtons = document.querySelectorAll('.slide-button');
+      const isFirstSlide = currentSlide === 0;
+      const isLastSlide = currentSlide === totalSlides - 1;
+
+      allButtons.forEach((btn) => {
+        if (btn.textContent.includes('Previous')) {
+          btn.disabled = isFirstSlide;
+        } else if (btn.textContent.includes('Next')) {
+          btn.disabled = isLastSlide;
+        }
+      });
+
+      updateCounters();
+      announceActiveSlideTitle();
+    }
+
+    function changeSlide(n) {
+      currentSlide += n;
+      if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+      if (currentSlide < 0) currentSlide = 0;
+      showSlide(currentSlide);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+    });
+
+    showSlide(currentSlide);
+    document.body.classList.add('lecture-ready');
+  </script>
+</body>
+</html>

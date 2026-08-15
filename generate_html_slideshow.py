@@ -188,23 +188,30 @@ html_template += """  </div>
     }
 
     function enhanceLectureVideos(slide) {
-      const videoPattern = /^https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([^\s&?]+)(.*)$/i;
+      const youtubePattern = /^https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([^\s&?]+)(.*)$/i;
+      const panoptoPattern = /^https?:\/\/([^\s/]+\.panopto\.eu)\/Panopto\/Pages\/Viewer\.aspx\?id=([^\s&]+)/i;
       slide.querySelectorAll('.accordion-body > p').forEach((paragraph) => {
-        const match = paragraph.textContent.trim().match(videoPattern);
-        if (!match) return;
+        const sourceUrl = paragraph.textContent.trim();
+        const youtubeMatch = sourceUrl.match(youtubePattern);
+        const panoptoMatch = sourceUrl.match(panoptoPattern);
+        if (!youtubeMatch && !panoptoMatch) return;
 
-        const sourceUrl = match[0];
-        const videoId = match[1];
-        const query = match[2] || '';
         const previous = paragraph.previousElementSibling;
         const context = previous ? previous.textContent.replace(/\s+/g, ' ').trim() : '';
+        const host = panoptoMatch ? panoptoMatch[1] : '';
+        const videoId = youtubeMatch ? youtubeMatch[1] : panoptoMatch[2];
+        const query = youtubeMatch ? (youtubeMatch[2] || '') : '';
+        const embedUrl = youtubeMatch
+          ? `https://www.youtube.com/embed/${videoId}${query}`
+          : `https://${host}/Panopto/Panopto/Pages/Embed.aspx?id=${videoId}`;
+        const iframeClass = youtubeMatch ? 'video-embed' : 'panopto-embed';
         const details = document.createElement('details');
         details.className = 'accordion accordion--nested video-accordion';
         details.innerHTML = `
           <summary>${context || 'Video'}</summary>
           <div class="accordion-body">
             <article class="embed-card">
-              <iframe class="video-embed" src="https://www.youtube.com/embed/${videoId}${query}" title="${context || 'Video'}" loading="lazy" allowfullscreen></iframe>
+              <iframe class="${iframeClass}" src="${embedUrl}" title="${context || 'Video'}" loading="lazy" allowfullscreen></iframe>
               <p><a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Open source link</a></p>
             </article>
           </div>`;

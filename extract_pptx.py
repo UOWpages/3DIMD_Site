@@ -205,11 +205,26 @@ def main():
             image_prefix,
         )
 
+        text_shapes = [
+            shape for shape in slide.shapes
+            if hasattr(shape, "text") and shape.text.strip()
+        ]
+        title_shape = next(
+            (shape for shape in text_shapes if shape.name.startswith("Title")),
+            None,
+        )
+        if title_shape is None and text_shapes:
+            first_shape = text_shapes[0]
+            first_text = first_shape.text.strip()
+            if len(first_text) <= 120 and "\n" not in first_text:
+                title_shape = first_shape
+        title_shape_name = title_shape.name if title_shape is not None else None
+
         # Extract text and shapes
         for shape in slide.shapes:
             if hasattr(shape, "text") and shape.text.strip():
                 text = shape.text.strip()
-                if shape.name.startswith("Title"):
+                if shape.name == title_shape_name:
                     slide_content["title"] = text
                 else:
                     slide_content["content"].append(text)

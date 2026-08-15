@@ -1,0 +1,584 @@
+[
+  {
+    "slide_number": 1,
+    "title": "3D Interactive Media Development",
+    "section_title": "5MMCS001W\t\t\t\tLecture 04",
+    "content": [],
+    "images": []
+  },
+  {
+    "slide_number": 2,
+    "title": "3D Interactive Media Development",
+    "section_title": "3DUI Interaction Practical examples",
+    "content": [
+      "3DUI Interaction Practical examples – web\n\n100,000 Stars – Google VR experiment\nhttp://stars.chromeexperiments.com/\nStarts with mouse orbit like whitevoid, inertia, Music\nLike Eames degrees\nRestricted to Solar system as focus.\n\n3DUI:\nSlider Bar – Scrolling (We could have control for exploded view)\nWaypoints\nMouse Orbit\nLabels\nZoom out\nCursor lock, switch\nIdle animations\nEase-ins, outs, Fade-ins, outs"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 3,
+    "title": "CW Overview and Recap",
+    "section_title": "",
+    "content": [],
+    "images": []
+  },
+  {
+    "slide_number": 4,
+    "title": "CW Scope – 3DUI, 3DVE",
+    "section_title": "3D Content Creation/Production Software",
+    "content": [
+      "\n3D World Representation with Navigation and Transformation\n\n2D/3D Input Devices and Paradigms\n\n2D/3D UI Concepts and Research\n\n3D Platforms"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 5,
+    "title": "3DUI CW Framework – Concepts",
+    "section_title": "Lego Based Construction",
+    "content": [
+      "Mecabricks – use to make variety for builds\nMinifigs with Animation – will be given one.\nVE Perceptual Structure/Navigation\nExploded View or 3D or 2.5D Diorama\nWaypoint/Mouse Orbit or 3rd Person Navigation\nVE Interaction – Selection/Manipulation\nHUD, 2D Menu in 3D World\n2D Input control of Object/3D Object Widget (on screen joypad)\nState changes by Keyboard/Menu\nCollision Triggering\nSystem Control – Animation\nAnimation Triggering\nNarrative Animation\nScripted movement control"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 6,
+    "title": "3DUI CW Framework – Elements",
+    "section_title": "Elements:",
+    "content": [
+      "Navigation\nInteraction\nSystem Control"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 7,
+    "title": "3DUI CW Framework - Platform",
+    "section_title": "Framework for Module:",
+    "content": [
+      "Inputs – Mouse, Keyboard\nSoftware/Hardware Platform - Desktop\nOutput –2D Screen Display \n\n\nThis is plenty complex to explore the wide range of choice just for these. We will develop 3D Interaction via 2D manipulation of a 3D environment. We might use a 3D Widget for direct object manipulation as a stretch target, or do touch input and widgets  for android, or Accelerometer and 360 video with 3DUI"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 8,
+    "title": "3DUI CW Framework – 3D Interaction",
+    "section_title": "So…",
+    "content": [
+      "2D Manipulation of 3D\n\t(2D Input Devices with Direct Mappings to 3D)\n3D Manipulation of 3D\n\t(3D Input Devices)\nRazer Hydra – 3D Facebook\nImmersive 3D with PUI\nBrenda Laurel\n3D Input"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 9,
+    "title": "CW 3D Interaction Techniques",
+    "section_title": "3D UI: 3D interaction Widgets.",
+    "content": [
+      "\n2D HUD on 3D POV\n2D Menu on 3D POV\n2D Menu within 3D VE\n2D mouse selection of button for 3D Interaction\n2D mouse direct control of object\n2D mouse direct control of 3D Gimbal/Widget for object\n2D and 3D Collision\n3D Natural Input and 3D direct control of objects"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 10,
+    "title": "3DUI CW Framework – HCI",
+    "section_title": "Goals:",
+    "content": [
+      "Reduce Cognitive Load\nEnhance Spatial Knowledge\nEase of Use\n\nManage Elements to Achieve Goals:\nControl to Task Mapping\nPerceptual Structure\nMotor Coordination"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 11,
+    "title": "3DUI CW Framework – Software",
+    "section_title": "Module Supported Framework:",
+    "content": [
+      "3DS Max\nModelling\nTexturing\nAnimation\nUnity3D\nInput Navigation\n3D UI Interaction/ Movement Scripting\nAnimation Triggering / Narrative Animation\nState Control\nShaders and Lighting\nWebGL Build\nOutput\nMouse and Keyboard Control"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 12,
+    "title": "CW1 Group Report Outline",
+    "section_title": "",
+    "content": [],
+    "images": []
+  },
+  {
+    "slide_number": 13,
+    "title": "Module Scope – Working Practice",
+    "section_title": "System Design and Implementation:",
+    "content": [
+      "\nDefine Problem or Narrative to Convey (3.2.2)\n\nDeploy Theory in Design and Implementation (2.1.5)\n\nDeploy Software and Hardware Tools Effectively (2.2.4)\n\nDeploy Systems to meet Commercial Goal (3.1.1)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 14,
+    "title": "3DUI CW 1 (Group)",
+    "section_title": "3. Planning for CW2 3DUI Interactivity Report (Group Presentation, 1 per group)",
+    "content": [
+      "\n\na. Concept and Design"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 15,
+    "title": "3DUI CW 1 (Group)",
+    "section_title": "3. Planning for CW2 3DUI Interactivity Report (Group Presentation, 1 per group)",
+    "content": [
+      "\n\nb. Design Diagrams"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 16,
+    "title": "Module Scope Architecture",
+    "section_title": "Model View Controller",
+    "content": [
+      "Software architecture for GUIs\n\nDiagrams\n\tUse Case Diagram\n\thttp://casecomplete.com/learn\n\n\tStoryboard – Views\n\n\tDomain/Class Diagram\n\thttps://en.wikipedia.org/wiki/Class_diagram"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 17,
+    "title": "3DUI CW 1",
+    "section_title": "StoryBoard/Flowchart",
+    "content": [
+      "Views\nNavigation\nHierarchy\n\nTabs\nMenus\nCall-Outs\n(Detail)\n\nOverview\nFlow\nDetails\n\nThis is \nAlmost \nMVC – Model View Controller (Later)"
+    ],
+    "images": [
+      {
+        "filename": "lect-04a-report_slide17_image0.jpg",
+        "path": "images/lect-04a-report_slide17_image0.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 18,
+    "title": "3DUI CW 1",
+    "section_title": "StoryBoard/Flowchart",
+    "content": [
+      "Views\nNavigation\nHierarchy\n\nTabs\nMenus\nCall-Outs\n(Detail)\n\nOverview\nFlow\nDetails\n\nThis is \nAlmost \nMVC – Model View Controller (Later)"
+    ],
+    "images": [
+      {
+        "filename": "lect-04a-report_slide18_image0.png",
+        "path": "images/lect-04a-report_slide18_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 19,
+    "title": "3DUI CW 1",
+    "section_title": "Use Case Diagram",
+    "content": [
+      "Casecomplete\nhttps://casecomplete.com/\nhttp://astah.net/\n\nDefines:\nProduct context and boundaries\nOverview of apps required functionality and overall use scenario using Actor (Stakeholder or end user)\nDocument Models of Key Aspects of your App\nThe required Functionality of your project"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 20,
+    "title": "3DUI CW 1",
+    "section_title": "Use Case Diagram",
+    "content": [],
+    "images": [
+      {
+        "filename": "lect-04a-report_slide20_image0.png",
+        "path": "images/lect-04a-report_slide20_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 21,
+    "title": "3DUI CW 1",
+    "section_title": "Use Case Diagram",
+    "content": [
+      "http://creately.com/blog/diagrams/use-case-diagram-relationships/\n\nRelationship types\nAssociation between actor and use case\nGeneralization of an actor\nExtend between two use cases\nInclude between two use cases\nGeneralization of a use case"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 22,
+    "title": "3DUI CW 1",
+    "section_title": "Use Case Diagram",
+    "content": [
+      "http://creately.com/blog/diagrams/use-case-diagram-relationships/\nThe <<include>> relationship represents a mandatory part of a use case's workflow, where one use case's behavior is always included in another. In contrast, the <<extend>> relationship signifies optional behavior that adds functionality to a base use case under specific conditions.  \n\nIncludes\n\tThe base use case is incomplete without the included use case.\n\tThe included use case is mandatory and not optional.\n\n\nExtends\nThe extending use case is dependent on the extended (base) use case. \nThe extending use case is usually optional and can be triggered conditionally.\nIn the diagram you can see that the extending use case is triggered only for deposits over 10,000 or when the age is over 55.\nThe extended (base) use case must be meaningful on its own. This means it -\tbase use case should be independent and must not rely on the behavior of the \textending use case."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 23,
+    "title": "3DUI CW 1",
+    "section_title": "Use Case Diagram Acupuncture",
+    "content": [
+      "Casecomplete\nhttp://astah.net/"
+    ],
+    "images": [
+      {
+        "filename": "lect-04a-report_slide23_image0.png",
+        "path": "images/lect-04a-report_slide23_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 24,
+    "title": "3DUI CW 1",
+    "section_title": "Use Case Diagram",
+    "content": [
+      "http://creately.com/blog/diagrams/use-case-diagram-relationships/\n\n\n\n\nThink about an Example for 10000 Stars"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 25,
+    "title": "3DUI CW 1",
+    "section_title": "Domain Model/Class Diagram",
+    "content": [
+      "\nDomain model (class diagram)\nhttps://en.wikipedia.org/wiki/Class_diagram\n\n\nEntities\nNeed\n\tClasses\n\tAssociations - labelled\n\tAggregation - yes (maybe composition)\n\tMultiplicity\nAttributes- not strictly needed \nsome methods"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 26,
+    "title": "3DUI CW 1",
+    "section_title": "Domain Model/Class Diagram",
+    "content": [
+      "Domain Model/Class Diagram – Model, View, Controller\n\nA software architectural pattern for implementing user interfaces on computers. It divides a given software application into three interconnected parts, so as to separate internal representations of information from the ways that information is presented to or accepted from the user.\n\nTraditionally used for desktop graphical user interfaces (GUIs), this architecture has become popular for designing web applications.\n\nAs with other software patterns, MVC expresses the \"core of the solution\" to a problem while allowing it to be adapted for each system."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 27,
+    "title": "3DUI CW 1",
+    "section_title": "Domain Model/Class Diagram",
+    "content": [
+      "Domain Model/Class Diagram – Model, View, Controller\nComponents\nThe central component of MVC, the model, captures the behavior of the application in terms of its problem domain, independent of the user interface.\n\nModel\nThe model directly manages the data, logic, and rules of the application.\n\nView\nA view can be any output representation of information, such as a chart or a diagram. Multiple views of the same information are possible, such as a bar chart for management and a tabular view for accountants.\n\nController\nThe third part, the controller, accepts input and converts it to commands for the model or view."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 28,
+    "title": "3DUI CW 1",
+    "section_title": "Domain Model/Class Diagram",
+    "content": [
+      "Domain Model/Class Diagram – Model, View, Controller\nInteractions\nIn addition to dividing the application into three kinds of components, the model–view–controller design defines the interactions between them.\n\nModel\nA model stores data that is retrieved according to commands from the controller and displayed in the view.\n\nView\nA view generates new output to the user based on changes in the model.\n\nController\nA controller can send commands to the model to update the model's state (e.g., editing a document). It can also send commands to its associated view to change the view's presentation of the model (e.g., by scrolling through a document)."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 29,
+    "title": "3DUI CW 1",
+    "section_title": "Domain Model/Class Diagram",
+    "content": [
+      "Domain Model/Class Diagram – Model, View, Controller"
+    ],
+    "images": [
+      {
+        "filename": "lect-04a-report_slide29_image0.png",
+        "path": "images/lect-04a-report_slide29_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 30,
+    "title": "3DUI CW 1",
+    "section_title": "Domain Model/Class Diagram Murder Riddle",
+    "content": [],
+    "images": [
+      {
+        "filename": "lect-04a-report_slide30_image0.png",
+        "path": "images/lect-04a-report_slide30_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 31,
+    "title": "3DUI CW 1",
+    "section_title": "Domain Model/Class Diagram",
+    "content": [
+      "https://en.wikipedia.org/wiki/Class_diagram\n\n\n\nThink about an Example for 10000 Stars"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 32,
+    "title": "3DUI CW 1",
+    "section_title": "Diagrams Reference and Guides:",
+    "content": [
+      "\n       All Diagrams\nhttp://astah.net/\nhttp://casecomplete.com/learn\n\nClass/Domain Diagrams\nhttps://en.wikipedia.org/wiki/Class_diagram\n\nModel View Controller\nhttps://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 33,
+    "title": "3DUI CW 1 (Group)",
+    "section_title": "3. Planning for CW2 3DUI Interactivity Report (Group Presentation, 1 per group)",
+    "content": [
+      "\n\nc. Project Management Methodology"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 34,
+    "title": "Module Scope – Working Practice",
+    "section_title": "Methodology:",
+    "content": [
+      "\nWorking, Management and Development Techniques to achieve objectives (2.1.8)\n\nPeer Review, Group Work, Organisation (2.3.2)\n\nProblem Solving Strategies and Methodology (2.1.3)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 35,
+    "title": "Module Scope Working Methodology",
+    "section_title": "Some Examples:",
+    "content": [
+      "\nAgile\n\nExtreme Programming\n\nWaterfall\n\nSpiral\n\nIncremental"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 36,
+    "title": "Module Scope Working Methodology",
+    "section_title": "Some Examples:",
+    "content": [
+      "\nAgile\nhttp://agilemethodology.org/\n\nThe Agile movement seeks alternatives to traditional project management. Agile approaches help teams respond to unpredictability through incremental, iterative work cadences and empirical feedback. Agilists propose alternatives to waterfall, or traditional sequential development. \n\nScrum emphasizes empirical feedback, team self management, and striving to build properly tested product increments within short iterations. Doing Scrum as it’s actually defined usually comes into conflict with existing habits at established non-Agile organizations."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 37,
+    "title": "Module Scope Working Methodology",
+    "section_title": "Some Examples:",
+    "content": [
+      "\nAgile\nhttp://agilemethodology.org/\n\nIndividuals and interactions over processes and tools\n\nWorking software over comprehensive documentation\n\nCustomer collaboration over contract negotiation\n\nResponding to change over following a plan"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 38,
+    "title": "Module Scope Working Methodology",
+    "section_title": "Some Examples:",
+    "content": [
+      "\nAgile Scrum\nhttp://www.collab.net/sites/default/files/uploads/CollabNet_scrumreferencecard.pdf\n\nScrum is the most popular way of introducing Agility due to its simplicity and flexibility. \n\nScrum emphasizes empirical feedback, team self management, and striving to build properly tested product increments within short iterations. Doing Scrum as it’s actually defined usually comes into conflict with existing habits at established non-Agile organizations."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 39,
+    "title": "Module Scope Working Methodology",
+    "section_title": "Some Examples:",
+    "content": [
+      "\nSimple Agile\nhttp://agileforall.com/new-to-agile-keep-it-very-simple/\n\n1.Collaborate – High Bandwidth Communication in Real Time\n2. Work Together – Follows good communication – Pairing, Paired Programming\n3. Honor Priorities – Work on Highest ranked priority story in Backlog for next iteration\n4. Respect the Customer, Process, Product, Team, and Each Other\n5. Do the simplest thing that works, then stop\n6. Improve every iteration"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 40,
+    "title": "Module Scope Working Methodology",
+    "section_title": "Some Examples:",
+    "content": [
+      "\nWaterfall\n\nThe Waterfall software development model has sequential and distinct phases. After completing each development phase, a milestone review should be conducted. The phases of the waterfall model are “requirements analysis and definition, system and software design, implementation and unit testing, integration and system testing, operation and maintenance” (Fairley, 2009). The development cycle can only move from one phase to the next after a milestone review is conducted."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 41,
+    "title": "Module Scope Working Methodology",
+    "section_title": "Some Examples:",
+    "content": [
+      "\nWaterfall\n\n\n\n\n\n\n\nThe waterfall development model originates in the manufacturing and construction industries: highly structured physical environments in which after-the-fact changes are prohibitively costly, if not impossible. Because no formal software development methodologies existed at the time, this hardware-oriented model was simply adapted for software development."
+    ],
+    "images": [
+      {
+        "filename": "lect-04a-report_slide41_image0.png",
+        "path": "images/lect-04a-report_slide41_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 42,
+    "title": "Module Scope Working Methodology",
+    "section_title": "Some Examples:",
+    "content": [
+      "\nWaterfall\n\nThe disadvantage of the Waterfall model is that this model ignores any requirements or needs that may change as the product is being developed. By using this model, it can be difficult to make changes once the project is underway. The reasons for this limitation are the nature of the milestone reviews and the time taken between each one. Problems are caught at the milestones which may be too late. If the problems were detected earlier, they could have been fixed earlier in development (Fairley, 2009)."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 43,
+    "title": "Module Scope Working Methodology",
+    "section_title": "Some Examples:",
+    "content": [
+      "\nIncremental\n\nAnother type of development model is the incremental model. Unlike the Waterfall model where the developer attempts to create the application in one attempt, Incremental development is fragmented into increments. This type of methodology prioritises the development of essential requirements in early increments.\n After each increment is developed, the increment is tested and validated meaning that problems can be found earlier in the development cycle. As the code is developed, it may need rewriting and revalidating. This model allows the developer to “build-test-demonstrate’ progress (Fairley, 2009). Early increments can also act as prototypes that can be shown to stakeholders or used as a proof of concept ."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 44,
+    "title": "Module Scope Working Methodology",
+    "section_title": "Some Examples:",
+    "content": [
+      "\nIncremental\n\nDisadvantages of the incremental build happen when an excess amount of time is spent reworking increments. Another issue arises when the planned requirements are not developed in an increment (Fairley, 2009)."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 45,
+    "title": "Module Scope Working Methodology",
+    "section_title": "Some Examples:",
+    "content": [
+      "\nIncremental – Iterative- Agile\n\nIterative - you don't finish a feature in one go. You are in a code >> get feedback >> code >> ... cycle. You keep iterating till done.\n\nIncremental - you build as much as you need right now. You don't over-engineer or add flexibility unless the need is proven. When the need arises, you build on top of whatever already exists. (Note: differs from iterative in that you're adding new things.. vs refining something).\n\nAgile - you are agile if you value the same things as listed in the agile manifesto. It also means that there is no standard template or checklist or procedure to \"do agile\". It doesn't overspecify.. it just states that you can use whatever practices you need to \"be agile\". Scrum, XP, Kanban are some of the more prescriptive 'agile' methodologies because they share the same set of values. Continuous and early feedback, frequent releases/demos, evolve design, etc.. hence they can be iterative and incremental.\n\nhttps://stackoverflow.com/questions/11842318/difference-between-agile-and-iterative-and-incremental-development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 46,
+    "title": "Module Scope Working Methodology",
+    "section_title": "Some Examples:",
+    "content": [
+      "\nSpiral\n\nThe spiral model is a risk-driven process model generator for software projects. Based on the unique risk patterns of a given project, the spiral model guides a team to adopt elements of one or more process models, such as incremental, waterfall, or evolutionary prototyping)."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 47,
+    "title": "Module Scope Working Methodology",
+    "section_title": "Some Examples:",
+    "content": [
+      "\nSpiral\nBoehm lists these assumptions as follows:\nThe requirements are known in advance of implementation.\nThe requirements have no unresolved, high-risk implications, such as risks due to cost, schedule, performance, safety, security, user interfaces, organizational impacts, etc.\nThe nature of the requirements will not change very much during development or evolution.\nThe requirements are compatible with all the key system stakeholders’ expectations, including users, customer, developers, maintainers, and investors.\nThe right architecture for implementing the requirements is well understood.\nThere is enough calendar time to proceed sequentially."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 48,
+    "title": "Module Scope Working Methodology",
+    "section_title": "",
+    "content": [],
+    "images": [
+      {
+        "filename": "lect-04a-report_slide48_image0.png",
+        "path": "images/lect-04a-report_slide48_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 49,
+    "title": "3DUI CW 1 (Group)",
+    "section_title": "3. Planning for CW2 3DUI Interactivity Report (Group Presentation, 1 per group)",
+    "content": [
+      "\n\nd. Commercial Analysis"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 50,
+    "title": "Module Scope – Working Practice",
+    "section_title": "System/Commercial Analysis:",
+    "content": [
+      "\nAnalyse current and future requirements for system (2.1.4)\n\nDeploy Theory in Evaluation (2.1.5)\n\nAnalyse Commercial Issues (2.1.7)\n\nEvaluate outcomes (4.2.2)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 51,
+    "title": "3DUI CW 1 (Group)",
+    "section_title": "3. Planning for CW2 3DUI Interactivity Report (Group Presentation, 1 per group)",
+    "content": [
+      "\n\nc. Commercial Analysis"
+    ],
+    "images": [
+      {
+        "filename": "lect-04a-report_slide51_image0.jpg",
+        "path": "images/lect-04a-report_slide51_image0.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 52,
+    "title": "Module Scope – Working Practice",
+    "section_title": "System/Commercial Analysis:",
+    "content": [
+      "\nGames Experience Questionnaire"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 53,
+    "title": "3DUI CW 1 (Group)",
+    "section_title": "3. Planning for CW2 3DUI Interactivity Report (Group Presentation, 1 per group)",
+    "content": [
+      "\n\ne. Navigation Framework (with mouse and keyboard)\n\tSome Examples are:\ncoded controller with collision, mouse for camera zoom and object selection\nObjects are Waypoints for navigation, with mouse orbit of Waypoint\n\tFor more see 3D User Interfaces: Theory and Practice and Lectures"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 54,
+    "title": "3DUI CW 1 (Group)",
+    "section_title": "3. Planning for CW2 3DUI Interactivity Report (Group Presentation, 1 per group) (cntd…)",
+    "content": [
+      "\t\nf. Interactivity (Selection and Manipulation, Triggers with mouse and keyboard)\n\tSome Examples are:\n3D Interaction – Unity UI 2D Buttons/Menus in 3D World Space\n3D Interaction  - Mouse interaction directly with object via 3D Gimbal\n2D Interaction – Unity UI 2D Heads Up Display\nState changes/Triggers with keyboard\nCollisions\n\tFor more see 3D User Interfaces: Theory and Practice and Lectures\n\ng. Animation, Movement, Narrative\n\tSome Examples are:\nFigure and non-figure Animation, Triggered and Narrative\nTransforms and Scripted Movement or Interaction\n\t\tInvestigate Unity Options"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 55,
+    "title": "3DUI CW 1 (Group)",
+    "section_title": "3. Planning for CW2 3DUI Interactivity Report (Group Presentation, 1 per group) (cntd…)",
+    "content": [
+      "\ng. Lighting, Shaders, and Texturing\n\tExamples: Provisional Plans based on work and learning so far\n\tInvestigate Unity Options - URP - Universal Render Pipeline\n\nh. Discuss 3D UI Efficacy\nConceptual  Control to Task mapping\nPerceptual structure, cognitive load and any disconnect\nMotor coordination and any tiring or clash"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 56,
+    "title": "3DUI CW 1",
+    "section_title": "Remember",
+    "content": [
+      "Remember – CW1 is initial planning – Group Report (3)\nOverview\nResearch/Reference\nProblem, Project Concept\n3DUI Theory and concepts used\nb.\tDesign – (Diagrams, MVC)\nStoryboard/Flowchart\nUse Case Diagram\nDomain/Class Diagram\nc.\tProject Methodology\nAgile, Extreme, Waterfall, Spiral\nd.\tCommercial Analysis\nCurrent/Future Requirements, Theory, Commercial Issues, UI Sentiment\nInteractivity (Selection and Manipulation)\nAnimation, Movement, Narrative\nLighting, Shaders, Texturing\nUI Efficacy"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 57,
+    "title": "3DUI CW 2",
+    "section_title": "Remember",
+    "content": [
+      "Remember – CW1 is initial planning - Individual Report (2)\n\n\nIndividual contributions\nGroup Contributions\nRendered Images of above\nAny details that present your work within the group and help me mark you."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 58,
+    "title": "3DUI CW 2",
+    "section_title": "Clarification",
+    "content": [
+      "Clarification – CW2 is implementation – Individual Report for CW2, no Group report\n\nIndividual contributions\nGroup Contributions\nProject Management Methodology and results\nCommercial viability\nStoryboard/Flowchart, Basic Use Case Diagram, Basic Domain/Class Diagram (final)\nNavigation Framework\nInteractivity (Selection and Manipulation)\nAnimation and Movement\nLighting, Shaders, Texturing\nDiscussion of UI Efficacy\ni. Conceptual  Control to Task mapping\n\tii. Perceptual structure, cognitive load and any disconnect\n\tiii. Motor coordination and any tiring or clash"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 59,
+    "title": "3DUI CW 1 (Group)",
+    "section_title": "4. Group Contributions",
+    "content": [
+      "Group Padlet, linked to blackboard and including all group and individual renders\nGroup BB area\nVideo blogs in Padlet\nPresentations in class\nMeeting minutes or notes\nWork in Progress Video for 4 Nov\nPeer review Video with comments on other groups' work"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 60,
+    "title": "3DUI Unity",
+    "section_title": "Unity 3D UI",
+    "content": [
+      "\nStart to think about Unity UI\n\nhttps://www.youtube.com/watch?v=JrlFMwLI1fw\nhttps://unity3d.com/learn/tutorials/topics/user-interface-ui\n\nhttps://docs.unity3d.com/Packages/com.unity.ugui@2.0/manual/index.html"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 61,
+    "title": "References",
+    "section_title": "3D User Interfaces: Theory and Practice",
+    "content": [
+      "Doug A. Bowman, Ernst Kruijff, Joseph J. LaViola, Ivan Poupyrev\nAddison Wesley Longman Publishing\nUSA\n\nThe Three-Dimensional User Interface\nHou Wenjun\nBeijing University of Posts and Telecommunications\nChina"
+    ],
+    "images": []
+  }
+]
