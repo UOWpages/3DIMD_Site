@@ -48,7 +48,7 @@ html_template = """<!DOCTYPE html>
   <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />
   <link href=\"https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap\" rel=\"stylesheet\" />
   <link rel=\"stylesheet\" href=\"../assets/css/site.css?v=20260805m\" />
-  <link rel=\"stylesheet\" href=\"../assets/css/slideshow.css?v=20260813b\" />
+    <link rel=\"stylesheet\" href=\"../assets/css/slideshow.css?v=20260814e\" />
   <style>
     body.lecture-fullbleed .slideshow-container {
       visibility: hidden;
@@ -75,10 +75,18 @@ for slide in slides_data:
     slide_num = slide["slide_number"]
     content = slide["content"]
     images = slide["images"]
+    parent_title = (slide.get("title") or "").strip()
+    section_title = (slide.get("section_title") or "").strip()
+    if section_title and parent_title and parent_title != args.module_title:
+        display_title = f"{parent_title} - {section_title}"
+    else:
+        display_title = section_title or parent_title
 
     content_html = ""
+    if display_title:
+        content_html += f"    <h2>{display_title}</h2>\n"
+
     if content:
-        is_first_heading = True
         for text in content:
             if text.strip() == args.module_title:
                 continue
@@ -86,11 +94,6 @@ for slide in slides_data:
             for line in text.split("\n"):
                 line = line.strip()
                 if not line:
-                    continue
-
-                if is_first_heading:
-                    content_html += f"    <h2>{line}</h2>\n"
-                    is_first_heading = False
                     continue
 
                 if line.endswith(":"):
@@ -181,6 +184,53 @@ html_template += """  </div>
           '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
         );
         textNode.parentNode.replaceChild(span, textNode);
+      });
+    }
+
+    function enhanceLectureVideos(slide) {
+      const videoPattern = /^https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([^\s&?]+)(.*)$/i;
+      slide.querySelectorAll('.accordion-body > p').forEach((paragraph) => {
+        const match = paragraph.textContent.trim().match(videoPattern);
+        if (!match) return;
+
+        const sourceUrl = match[0];
+        const videoId = match[1];
+        const query = match[2] || '';
+        const previous = paragraph.previousElementSibling;
+        const context = previous ? previous.textContent.replace(/\s+/g, ' ').trim() : '';
+        const details = document.createElement('details');
+        details.className = 'accordion accordion--nested video-accordion';
+        details.innerHTML = `
+          <summary>${context || 'Video'}</summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <iframe class="video-embed" src="https://www.youtube.com/embed/${videoId}${query}" title="${context || 'Video'}" loading="lazy" allowfullscreen></iframe>
+              <p><a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+            </article>
+          </div>`;
+        paragraph.replaceWith(details);
+      });
+    }
+
+    function enhanceLectureImageLayouts(slide) {
+      slide.querySelectorAll('.accordion-body').forEach((body) => {
+        const images = Array.from(body.children).filter((child) => child.tagName === 'IMG');
+        if (!images.length || body.querySelector(':scope > .slide-media-layout')) return;
+
+        const layout = document.createElement('div');
+        layout.className = 'slide-media-layout';
+        const textColumn = document.createElement('div');
+        textColumn.className = 'slide-text-column';
+        const imageColumn = document.createElement('div');
+        imageColumn.className = 'slide-image-column';
+
+        Array.from(body.children).forEach((child) => {
+          if (child.tagName === 'IMG') imageColumn.appendChild(child);
+          else textColumn.appendChild(child);
+        });
+
+        layout.append(textColumn, imageColumn);
+        body.appendChild(layout);
       });
     }
 
@@ -358,6 +408,8 @@ html_template += """  </div>
       if (index >= 3) {
         convertLegacySlideToAccordion(slide);
       }
+      enhanceLectureVideos(slide);
+      enhanceLectureImageLayouts(slide);
       linkifyText(slide.querySelector('.slide-content') || slide);
     });
 

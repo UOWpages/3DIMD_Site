@@ -1,0 +1,635 @@
+[
+  {
+    "slide_number": 1,
+    "title": "3D Interactive Media Development",
+    "section_title": "5MMCS001W\t\t\t\tLecture 03a",
+    "content": [
+      "\nExample of an immersive 3D UI\nhttps://www.youtube.com/watch?v=gwYjnWCcw18"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 2,
+    "title": "3D Interactive Media Development",
+    "section_title": "3DUI Interaction Practical examples",
+    "content": [
+      "\nQuake 3 Web (js)\nhttps://media.tojicode.com/q3bsp/\n\nMouse Look - Cursor Lock\n\nMouse Selection  - State Switch from Cursor Lock\n\nWASD Keyboard Navigation\n\nKeyboard Interaction – State Changes"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 3,
+    "title": "3D Interactive Media Development",
+    "section_title": "3DUI Interaction Practical examples",
+    "content": [
+      "\nWhitevoid\nhttp://www.whitevoid.com/\n\nMouse Orbit – Selected object (Mouse Look vs Mouse Orbit?)\n\nMouse Raycast Selection of 3D object in 3D VE from 2D Screen\n\nAnimations triggered by Object Selections  - Exploded view\n\nCamera Waypoint Animation to 3D Object Selection – Mouse Orbit\n\nLowest level of selection frames and plays media"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 4,
+    "title": "3D Interactive Media Development",
+    "section_title": "3DUI Interaction Practical examples",
+    "content": [
+      "3DUI Interaction Practical examples - extras\n\nInteractive 2D CV\nhttp://www.rleonardi.com/interactive-resume/\n\nNarrative controlled by Mouse or Keyboard – Camera timeline\n\n2D Diorama/Game Level\n\nCollisions/timeline trigger animations\n\nWeb Links\n\nCould be 3D with camera controls, object selection"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 5,
+    "title": "3D Interactive Media Development",
+    "section_title": "3DUI Interaction Practical examples",
+    "content": [
+      "\nPractical Examples:\n\t\nExploded view\nhttp://www.wilmotli.com/pubs/li08exview3D.pdf\nhttps://www.youtube.com/watch?v=NL2QFLiM_mY\n\nExploded View – Car (Advanced)\nhttps://www.youtube.com/watch?v=_i5RkAxGiwQ\n\nDiorama Fragments\nhttps://www.youtube.com/watch?v=Ty_hqTtvHdI\nhttps://www.youtube.com/watch?v=5zmqZZshdfs\nhttps://www.youtube.com/watch?v=U09hwnsUkY8\nhttps://www.youtube.com/watch?v=iPEfHOCUVMI\nhttps://www.youtube.com/watch?v=XmTRQml4Js0\nhttps://www.youtube.com/watch?v=ErqpzWrQHAY\nhttps://www.youtube.com/watch?v=meieYpHYTVU"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 6,
+    "title": "Terminology",
+    "section_title": "IVR",
+    "content": [
+      "IVR – If VR is fully immersive with natural interactions, this meets the guidelines for full VR as set down by Brenda Laurel:\n\nWhat is Virtual Reality?\nhttps://medium.com/@blaurel/what-is-virtual-reality-77b876d829ba"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 7,
+    "title": "Terminology",
+    "section_title": "VR, VE",
+    "content": [
+      "VR, VE – Virtual Reality and Virtual Environment:\nThese are somewhat synonymous, though the VE may not be as fully featured. \n\nVirtual Reality is used indiscriminately and may not be accurate in all cases (360 video is sometimes incorrectly described as VR)\n\nVirtual Reality is usually fully immersive"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 8,
+    "title": "Terminology",
+    "section_title": "AR",
+    "content": [
+      "AR – Augmented Reality involves enhancing a real world feed with virtual objects calibrated to the coordinate space.\n\nOn the Mixed Reality Scale, this can slide towards Augmented Virtuality – BBC Virtual News sets with real presenters"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 9,
+    "title": "3DUI Applications",
+    "section_title": "Simulation, Training, Education",
+    "content": [
+      "Cultural Heritage, Tourism, Archaeology\nArt ,Entertainment\nVisualization - Architecture, Contruction\nVisualization - Product Design, Prototyping\nMedicine, Psychiatry\nCommunication, Collaboration, Social media, Telepresence"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 10,
+    "title": "History",
+    "section_title": "GUI",
+    "content": [
+      "1973-1983 – Mouse, Keyboard, Raster Graphics, PCs\n\nUI Design\n\nHCI Studied\nPerception\nCognition\nHuman Factors\nGraphic Design"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 11,
+    "title": "History",
+    "section_title": "1940s",
+    "content": [
+      "\nFred Waller – First VR System – Military Tail Gunner Trainer\nwww.cineramaadventure.com/trainer.htm"
+    ],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide11_image0.jpg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide11_image0.jpg"
+      },
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide11_image1.jpg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide11_image1.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 12,
+    "title": "History",
+    "section_title": "1960s",
+    "content": [
+      "\nIvan Sutherland – Head Tracked Head Mounted Display"
+    ],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide12_image0.jpg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide12_image0.jpg"
+      },
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide12_image1.jpg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide12_image1.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 13,
+    "title": "History",
+    "section_title": "1980s on…",
+    "content": [
+      "\nTracking and Mocap\nComputer vision\nHaptics\nHMDs – Stereoscopy, FOV, FOR, Resolution and Refresh rate improved"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 14,
+    "title": "History – Platform Development",
+    "section_title": "1990s on…",
+    "content": [
+      "\n\n\n\n\nWeb Browsers – VRML\nGames – PC Graphics cards and GPUs drove development\nCommercial and Military flight simulators\nAugmented Reality from 2000 onwards\nMobile processor development\nSmart Phone/ Tablet development - GPS, WiFi, Touch Controls, Front and Back mounted cameras, high speed processors\nArcade VR"
+    ],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide14_image0.gif",
+        "path": "images/lect-03a-3DUI-theory-practice_slide14_image0.gif"
+      },
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide14_image1.jpeg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide14_image1.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 15,
+    "title": "History – Platform Development",
+    "section_title": "2000s on…",
+    "content": [
+      "\nCommercial VR\n\n\nSpatial Games Controllers\nWii\nSony eyeToy\nKinect"
+    ],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide15_image0.jpeg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide15_image0.jpeg"
+      },
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide15_image1.jpeg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide15_image1.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 16,
+    "title": "Current - Input Devices for VE",
+    "section_title": "2D GUI",
+    "content": [
+      "\nMouse\nKeyboard\nKeyboards\nChording Keyboards\nVirtual (Tablet) Keyboards\nCustom hardware"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 17,
+    "title": "Current - Input Devices for VE",
+    "section_title": "3D Motion Tracking",
+    "content": [
+      "3D Motion Tracking – Input Devices\nRazer Hydra – facebook VR\nHaptic Pen - Botox\nMagnetic sensors\n3D Mouse - 3D Spacemouse – 6dof, no tracking\n\n3D Motion Capture – Full Body or Part Body\nWaldo\nGloves\nSynertial\nCyberglove\nHaptic Body Device\nCyber grasp"
+    ],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide17_image0.jpg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide17_image0.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 18,
+    "title": "Current - Input Devices for VE",
+    "section_title": "3D Sensors",
+    "content": [
+      "3D Sensors – Magnetic, Inertial, Accelerometer, GPS\n\nSensor Data\n3dof – Orientation or Position only\n6dof – Position and Orientation\nContinuous Data or Discrete\n\nTypical Uses\nHead Tracker for POV, Parallax views, Fishtank VR, HMDs\nHands, Feet – Vtime Virtual Treadmill\nVive Paintbrush"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 19,
+    "title": "Current - Outputs/Displays",
+    "section_title": "Output/Displays…",
+    "content": [
+      "\nMonitor – Mono and Stereo\nHead Mounted Display – tracked head, stereo\nProjected – Mono/Stereo, Cave\nRetinal\nVolumetric\nMobile Device – Smart Phone or Tablet, Can be used as a virtual window, and HMD in mono/stereo (Google Cardboard, Samsung GearVR), or a mobile “desktop”"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 20,
+    "title": "3D Interactive Media Development",
+    "section_title": "3DUI Interaction Practical Considerations:",
+    "content": [
+      "Output DeviceCan introduce third coordinate space to consider, along with VE and Input device\n\nRange of Coordinate Spaces \n(3D VE, 2D Display, Inputs)\nRange of Viewpoints\nRange of Software\nRange of Input Devices\nRange of Platforms\n\n\n\n\n\nhttps://www.vs.inf.ethz.ch/edu/FS2013/DS/reports/AlexanderCebulla_ProjectionBasedAugmentedReality_report.pdf"
+    ],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide20_image0.png",
+        "path": "images/lect-03a-3DUI-theory-practice_slide20_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 21,
+    "title": "3D Interactive Media Development",
+    "section_title": "3DUI Interaction Practical Considerations:",
+    "content": [
+      "Issues with Extra Dimension\n3DUI needs Simultaneous Operations\nThe new Dimension brings freedom of movement\nCoordinate Space Alignment\nScale, Registration\nInput<>VE<>Output\nEspecially Problematic in AR\nVE has Virtual Camera\nInput has Real World POV + Scale\nOutput is varied and usually 2D\nTablet//Phone has In/Out Plane the same \n2D into 3DVE\nTo be continued!"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 22,
+    "title": "Current – Platform Development",
+    "section_title": "Current:",
+    "content": [
+      "\nTablets\nMobiles\nDesktops\n3D and Haptics inputs\nIntegrated HMD\nHoloLens, Google cardboard, Oculus Rift, Vive\nSome Spatial games controllers\nVive, Oculus Touch\n\nCave\nHybrid"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 23,
+    "title": "Current State of Technology",
+    "section_title": "Tablet/Smartphone",
+    "content": [
+      "Mobile CPU/GPU\nBroadband connectivity\nInput and Output in same screen\nInput\nVirtual Keyboard\nTouch Input\nAccelerometer\nGPS\nOutput\nDirect 3D Interaction through 2d Screen\nVirtual Window for AR\nCan augment further 3DUI – Virtual Menus"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 24,
+    "title": "3DUI Framework Chart",
+    "section_title": "",
+    "content": [],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide24_image0.png",
+        "path": "images/lect-03a-3DUI-theory-practice_slide24_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 25,
+    "title": "3DUI - Basic Elements",
+    "section_title": "Basic Elements to consider and Plan",
+    "content": [
+      "\nNavigation\nTravel\nPoint of View - POV\n\nInteraction\nSelection\nManipulation\n\nSystem Control\nStates\nModes of Interaction"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 26,
+    "title": "3DUI - Navigation",
+    "section_title": "Basic Elements to consider and Plan",
+    "content": [
+      "\nNavigation\nThe most common VE task, and is actually composed of two tasks. \n\nTravel is the motor component of navigation, and just refers to the physical movement from place to place. \n\nWayfinding is the cognitive or decision making component of navigation, and ask the questions “Where am I”, ”Where do I want to go”, ”How do I get there”…"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 27,
+    "title": "3DUI - Navigation",
+    "section_title": "Basic Elements to consider and Plan",
+    "content": [
+      "\nNavigation\nTravel\nPoint of View – POV\nExamples:\nWASD\nPointing – Travel and gaze in different directions\nArrows\nMouse Look/orbit\nClutching, Waypoints, Grabbing and Pulling\nPaired with Locomotion devices – Vtime Treadmill"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 28,
+    "title": "3DUI – Navigation Classes",
+    "section_title": "",
+    "content": [],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide28_image0.jpg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide28_image0.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 29,
+    "title": "3DUI – Navigation Tips",
+    "section_title": "Travel should be simple:",
+    "content": [
+      "Low cognitive load\nTarget based to object\nSteering for search\nProvide multiple techniques for multiple tasks\nUse graceful transitions\nSeparate gaze from travel – permanent or switchable\n\nQuake WebGL\n//media.tojicode.com/q3bsp/"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 30,
+    "title": "3DUI – Navigation",
+    "section_title": "Reverie",
+    "content": [
+      "Reverie – lazynav\nhttps://youtu.be/hL5mQcCFU9I\n\n\nVtime Treadmill"
+    ],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide30_image0.jpg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide30_image0.jpg"
+      },
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide30_image1.jpg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide30_image1.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 31,
+    "title": "3DUI - Basic Elements",
+    "section_title": "Basic Elements to consider and Plan",
+    "content": [
+      "\nInteraction\nSelection\nSimply the specification of an object or \n\tset of objects for some purpose.\nManipulation\nRefers to the specification of object properties (most often position and orientation, but also other attributes). Selection and Manipulation are often used together, but selection may be a stand-alone task. For example, the user may select an object in order to apply a command such as delete to the obj."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 32,
+    "title": "3DUI - Selection",
+    "section_title": "",
+    "content": [],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide32_image0.jpg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide32_image0.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 33,
+    "title": "3DUI Selection Techniques",
+    "section_title": "Virtual Hand",
+    "content": [
+      "\nRaycasting/Occlusion\n\nGo-Go arm extension"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 34,
+    "title": "3DUI - Selection",
+    "section_title": "Simple Virtual Hand",
+    "content": [
+      "Object is Selected by collision, made child of mapped VH, then released. \nNatural one-to-one mapping between Physical and Virtual hands. \nKinect is a good example of use. \nDirect Mapping and touching of objects.\nCan only select objects within Physical hand reach.\n\n\n\n\n\n\n\nRazer VR +\nFacebook VR"
+    ],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide34_image0.jpeg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide34_image0.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 35,
+    "title": "3DUI - Selection",
+    "section_title": "RayCasting",
+    "content": [
+      "Virtual Hand or Mouse Laser Pointer\nLaser pointer attached to Physical hand\nRay is cast into the 3D VE from 3D input or 2D Plane (Screen)\nFirst object intersected is selected\nMade by only 2 dof (pitch and yaw)\nEfficient - Mouse or touch\nLimitation of 3rd dof works well for remote selection\nAlso cone casting and snap to object rays\nHigh performance\nOcclusion\nWorks in image plane (tablet, mobile)\nCovers it to select – ray from eye to nearest object through finger"
+    ],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide35_image0.png",
+        "path": "images/lect-03a-3DUI-theory-practice_slide35_image0.png"
+      },
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide35_image1.jpeg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide35_image1.jpeg"
+      },
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide35_image2.jpeg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide35_image2.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 36,
+    "title": "3DUI - Selection",
+    "section_title": "Occlusion",
+    "content": [
+      "Works in image plane (tablet, mobile)\nCovers it to select – ray from eye to nearest object through finger\nSticky finger, head crusher, palm lifter",
+      "http://www.cs.cmu.edu/~stage3/publications/97/conferences/3DSymposium/HeadCrusher/"
+    ],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide36_image0.gif",
+        "path": "images/lect-03a-3DUI-theory-practice_slide36_image0.gif"
+      },
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide36_image1.gif",
+        "path": "images/lect-03a-3DUI-theory-practice_slide36_image1.gif"
+      },
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide36_image2.gif",
+        "path": "images/lect-03a-3DUI-theory-practice_slide36_image2.gif"
+      }
+    ]
+  },
+  {
+    "slide_number": 37,
+    "title": "3DUI - Selection",
+    "section_title": "Go Go Arm Extension",
+    "content": [
+      "Virtual Hand\nNon one-to-one mapping\nRequires 3dof"
+    ],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide37_image0.jpeg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide37_image0.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 38,
+    "title": "3DUI - Selection",
+    "section_title": "Increase selection area:",
+    "content": [
+      "Cone casting\nSnapping\n3D Bubble cursor"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 39,
+    "title": "3DUI - Selection",
+    "section_title": "Other",
+    "content": [
+      "\nMultimodal – Eye Tracking and Speech select\n\nhttps://repository.royalholloway.ac.uk/file/c4d1a84d-d4d4-a856-b25a-331dd40dedbe/8/Murtagh-Eye_movements_and_voice.pdf"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 40,
+    "title": "3DUI - Manipulation",
+    "section_title": "",
+    "content": [],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide40_image0.jpg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide40_image0.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 41,
+    "title": "3DUI - Manipulation",
+    "section_title": "Exocentric Metaphors",
+    "content": [
+      "World In Miniature – Dollhouse manipulated in hand\nAutomatic Scaling – Selection scales objects to user\nEgo Centric Metaphors\nVirtual Hand Metaphors\nClassic Virtual Hand – Isomorphic, Direct Mapping\nGo-Go – VH but nonilinear mapping\nIndirect Go-Go – Raycasting\nVirtual Pointer Metaphors\nRay-Casting, Occlusion – Laser Pointer, Finger Cover\nAperture - Peephole\nFlashlight – Cone Selection\nImage Plane"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 42,
+    "title": "3DUI - Manipulation",
+    "section_title": "HOMER",
+    "content": [
+      "hand object manipulation extending raycasting - Linear"
+    ],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide42_image0.jpeg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide42_image0.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 43,
+    "title": "3DUI - Manipulation",
+    "section_title": "Go-Go (Indirect Go-Go)",
+    "content": [
+      "Moves VH to Object to manipulate – Non-Linear\n(ray casting) Like Waypoint and Mouse orbit, but for object rather than camera"
+    ],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide43_image0.jpeg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide43_image0.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 44,
+    "title": "3DUI - Manipulation",
+    "section_title": "Scaled World Grab",
+    "content": [
+      "Used with Occlusion selection – Image Plane\nScaled to directly adjust like Virtual Hand"
+    ],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide44_image0.jpeg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide44_image0.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 45,
+    "title": "3DUI - Manipulation",
+    "section_title": "WIM",
+    "content": [
+      "WIM – World In Miniature – dollhouse or game map\nMap that has effect on VE\nManipulate items and navigation in small area."
+    ],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide45_image0.jpeg",
+        "path": "images/lect-03a-3DUI-theory-practice_slide45_image0.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 46,
+    "title": "3DUI - Manipulation",
+    "section_title": "Typical for this project:",
+    "content": [
+      "\n2D Interface controls for 3D Manipulation - Button or Slider\n\n3D Widget – direct object manipulation tools\n\nState Buttons or sliders – Time(Narrative), Materials\n\n\nLook at Vizor.io:\n\thttps://www.youtube.com/watch?v=n1g9QaKe7rU"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 47,
+    "title": "Terminology – 3D UI Widgets",
+    "section_title": "3D UI: Menus and 3D interaction Widgets in Vizor.io",
+    "content": [
+      "https://www.youtube.com/watch?v=_FvWtFyeNss&list=PLL0Qt-QS9kmTNhmYOMOvy0XMyvzdAdFnX\n\n2D HUD on 3D POV\n2D Menu on 3D POV\n2D Menu within 3D VE\n2D mouse selection of button for 3D Interaction\n2D mouse direct control of object\n2D mouse direct control of 3D Gimbal/Widget for object\n3D Natural Input and 3D direct control of objects"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 48,
+    "title": "3D Interactive Media Development",
+    "section_title": "3DUI Interaction Widget examples",
+    "content": [
+      "\nPractical Examples:\n\t\n2D Joystick Widget\nhttps://www.youtube.com/watch?v=nGYObojmkO4"
+    ],
+    "images": [
+      {
+        "filename": "lect-03a-3DUI-theory-practice_slide48_image0.png",
+        "path": "images/lect-03a-3DUI-theory-practice_slide48_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 49,
+    "title": "3DUI Interaction - Example",
+    "section_title": "Multimodal Example",
+    "content": [
+      "Multimodal Example – Historical - 1980\nPut That There\nhttps://www.youtube.com/watch?v=sC5Zg0fU2e8"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 50,
+    "title": "3DUI Interaction – Manipulation Tips",
+    "section_title": "Match Interaction Technique to Device",
+    "content": [
+      "\nReduce Clutching\n\nUse Pointing Techniques for Selection\nBest Control to task Cognitive Map\n\nUse Virtual Hand Techniques for Manipulation – (extra)\nBest Control to task Cognitive Map\n\nReduce dof if Possible\nClamp extra dimension to 2.5D or Orthographic\nLimit free movement in extra dimension"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 51,
+    "title": "3DUI Interaction – System Control",
+    "section_title": "Basic Elements to consider and Plan",
+    "content": [
+      "\nSystem Control \nThe task of Changing the System State or Mode of Interaction.\n\nThis is usually done with some type of command to the system\nExamples:\n2D\nMenus\nCommand Line\n\nCan Involve selection, manipulation, etc. ..\n…but best to consider it separately"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 52,
+    "title": "3DUI Interaction – System Control",
+    "section_title": "System Control Techniques",
+    "content": [
+      "\nVirtual Menus –Unity3D UI\nTool Selectors – metaphors\nSpeech Commands (Multimodal)\nPen and Tablet\n\nFor CW\nJust need Selection technique\nUse good Visual Feedback\nUse menus, tabs, buttons, widgets and other systems for higher marks\nLet the ideas drive the interaction"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 53,
+    "title": "3DUI Interaction – System Control",
+    "section_title": "System Control Techniques",
+    "content": [
+      "\nUnity 3D UI \nhttps://www.youtube.com/watch?v=QxRAIjXdfFU\n\nEssentially similar to Immerse\nhttps://www.youtube.com/watch?v=gwYjnWCcw18"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 54,
+    "title": "3DUI Interaction -System Control Tips",
+    "section_title": "System Control Tips",
+    "content": [
+      "\nDon’t Disturb Flow of Action\n\nUse Correct Spatial Reference\n\nAllow for Multimodal\n\nStructure Functions\n\nGive Good Feedback"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 55,
+    "title": "3DUI Applications",
+    "section_title": "Simulation, Training, Education",
+    "content": [
+      "Cultural Heritage, Tourism, Archaeology\nArt ,Entertainment\nVisualization - Architecture, Contruction\nVisualization - Product Design, Prototyping\nMedicine, Psychiatry\nCommunication, Collaboration, Social media, Telepresence"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 56,
+    "title": "3DUI Unity",
+    "section_title": "Screen Capture Software",
+    "content": [
+      "Any Issues?\n\nStart to think about Unity UI\nhttps://www.youtube.com/watch?v=JrlFMwLI1fw\nhttps://unity3d.com/learn/tutorials/topics/user-interface-ui\n\nhttps://blogs.unity3d.com/2014/06/30/unity-4-6-new-ui-world-space-canvas/"
+    ],
+    "images": []
+  }
+]

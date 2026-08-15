@@ -115,6 +115,8 @@ def strip_label(text: str) -> str:
 
 
 def infer_label_from_h2(h2_text: str) -> str:
+    if " - " in h2_text:
+        return h2_text.rsplit(" - ", 1)[1].strip().rstrip(":")
     paren = re.search(r"\(([^)]+)\)\s*$", h2_text)
     if paren:
         return paren.group(1).strip()
@@ -149,6 +151,9 @@ def accordionize_slide(body_lines):
                 sections.append(current)
             m = H3_RE.search(node["lines"][0])
             label = strip_label(m.group(1)) if m else "Details"
+            dash_label = re.match(r"^(.*?)\s+[–-]\s+", label)
+            if dash_label:
+                label = dash_label.group(1).strip()
             current = {"label": label, "nodes": [node]}
         else:
             if current is None:

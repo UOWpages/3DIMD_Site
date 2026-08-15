@@ -2,6 +2,7 @@
 """Extract content and images from PowerPoint file"""
 
 import argparse
+import hashlib
 import os
 import sys
 
@@ -45,6 +46,10 @@ def extract_images_from_shape(shape, slide_number, output_dir, slide_content, im
                 continue
 
         try:
+            image_hash = hashlib.sha256(image.blob).hexdigest()
+            if image_hash in slide_content.setdefault("_image_hashes", set()):
+                continue
+            slide_content["_image_hashes"].add(image_hash)
             image_filename = f"{image_prefix}_slide{slide_number}_image{len(slide_content['images'])}.png"
             image_path = output_dir / image_filename
 
@@ -113,6 +118,10 @@ def extract_images_from_package(slide_number, pptx_path, output_dir, slide_conte
                         image_bytes = archive.read(resolved_path)
                         ext = posixpath.splitext(resolved_path)[1] or '.bin'
 
+                    image_hash = hashlib.sha256(image_bytes).hexdigest()
+                    if image_hash in slide_content.setdefault("_image_hashes", set()):
+                        continue
+                    slide_content["_image_hashes"].add(image_hash)
                     image_filename = f"{image_prefix}_slide{slide_number}_image{len(slide_content['images'])}{ext or '.bin'}"
                     image_path = output_dir / image_filename
                     with open(image_path, 'wb') as f:
@@ -182,9 +191,19 @@ def main():
         slide_content = {
             "slide_number": slide_num,
             "title": "",
+            "section_title": "",
             "content": [],
             "images": []
         }
+
+        # Package relationships belong to the slide, not each individual shape.
+        extract_images_from_package(
+            slide_num,
+            pptx_path,
+            output_dir,
+            slide_content,
+            image_prefix,
+        )
 
         # Extract text and shapes
         for shape in slide.shapes:
@@ -195,14 +214,7 @@ def main():
                 else:
                     slide_content["content"].append(text)
 
-            # Extract images from package relationships and any nested children.
-            extract_images_from_package(
-                slide_num,
-                pptx_path,
-                output_dir,
-                slide_content,
-                image_prefix,
-            )
+            # Extract images embedded directly in shapes and nested groups.
             extract_images_from_shape(
                 shape,
                 slide_num,
@@ -211,6 +223,23 @@ def main():
                 image_prefix,
             )
 
+        if slide_content["content"]:
+            first_block = slide_content["content"][0]
+            block_lines = first_block.splitlines()
+            first_line_index = next((index for index, line in enumerate(block_lines) if line.strip()), None)
+            first_line = block_lines[first_line_index].strip() if first_line_index is not None else ""
+            title_match = re.match(r"^(.*?)\s+[–-]\s+", first_line)
+            section_title = title_match.group(1).strip() if title_match else first_line
+            slide_content["section_title"] = section_title
+            if first_line_index is not None:
+                remove_title_line = not title_match
+                remaining_lines = block_lines[first_line_index + 1:] if remove_title_line else block_lines[first_line_index:]
+                if remaining_lines:
+                    slide_content["content"][0] = "\n".join(remaining_lines)
+                else:
+                    slide_content["content"].pop(0)
+
+        slide_content.pop("_image_hashes", None)
         slides_data.append(slide_content)
         print(f"Slide {slide_num}: {slide_content['title']}")
 

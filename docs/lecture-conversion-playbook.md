@@ -123,13 +123,25 @@ lecture page with no manual re-authoring for the base conversion:
 Step 1 — Extraction and structural build (produces plain h2/h3/p/ul slides):
 1. `python extract_pptx.py --lecture-id <id> --pptx "<file>.pptx"` — extracts text and
    images from the source PPTX into `site/pages/<id>-content.json` plus
-   `site/pages/images/`. Use the system Python interpreter (e.g. `C:\Python312\python.exe`)
+   `site/pages/images/`. The first non-title text line in each slide body is stored as
+   `section_title` and becomes the generated slide section heading. Image bytes are
+   deduplicated per slide by content hash. Use the system Python interpreter (e.g.
+   `C:\Python312\python.exe`)
    if the repo `.venv` is broken or missing.
 2. `python generate_html_slideshow.py --lecture-id <id> --lecture-title "..."` for a
    standard deck, or a custom one-off build script (see `temp/build_lect_02b_03b.py`
    for a worked example) when the source needs extra normalization such as
    whitespace/tab cleanup, bullet-list detection, or a recurring attribution/citation
    line (rendered via the `.slide-citation` class in slideshow.css).
+
+Section-title rule:
+1. Use the PPTX red title-bar text as the parent title.
+2. Use the first body heading as the subsection title. When it contains a dash,
+   use the short text before the dash as the subsection label and retain the full
+   source line in the accordion body.
+3. Render the blue slide heading as `<Parent Title> - <Subsection Title>`.
+   If the parent is the generic module title, render only the subsection title.
+4. Use only the subsection title for the collapsible accordion summary.
 
 Step 2 — Polish pass (produces the final lect-01a/01b visual/interaction style):
 1. `python wrap_code_blocks.py site/pages/<id>.html` — detects contiguous C#/code
