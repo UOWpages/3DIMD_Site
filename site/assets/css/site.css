@@ -1023,7 +1023,7 @@ body.content-page .page-title {
   border: 3px solid var(--line);
   border-radius: 18px;
   background: #fff8de;
-  box-shadow: 7px 7px 0 #111111;
+  box-shadow: none;
   overflow: hidden;
 }
 
@@ -1081,6 +1081,8 @@ body.content-page .page-title {
 
 .pseudo-panel__title {
   min-width: 0;
+  color: #000000;
+  text-shadow: none;
   font-family: "Archivo Black", "Space Grotesk", sans-serif;
   font-size: 0.92rem;
   letter-spacing: 0.05em;
