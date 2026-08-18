@@ -98,31 +98,49 @@
 
     const overlay = rootDocument.createElement("div");
     overlay.className = "image-lightbox";
+    overlay.setAttribute("role", "dialog");
+    overlay.setAttribute("aria-modal", "true");
+    overlay.setAttribute("aria-label", "Expanded image preview");
     overlay.setAttribute("aria-hidden", "true");
+
+    const closeButton = rootDocument.createElement("button");
+    closeButton.className = "image-lightbox__close";
+    closeButton.type = "button";
+    closeButton.setAttribute("aria-label", "Close expanded image");
+    closeButton.textContent = "Close";
 
     const fullImage = rootDocument.createElement("img");
     fullImage.className = "image-lightbox__image";
     fullImage.alt = "Expanded image preview";
-    overlay.append(fullImage);
+    overlay.append(closeButton, fullImage);
+
+    let triggerImage = null;
 
     const closeOverlay = () => {
       overlay.classList.remove("is-open");
       overlay.setAttribute("aria-hidden", "true");
       fullImage.removeAttribute("src");
+      triggerImage?.focus({ preventScroll: true });
+      triggerImage = null;
     };
 
-    const openOverlay = (src) => {
+    const openOverlay = (src, image) => {
       if (!src) return;
+      triggerImage = image;
       fullImage.src = src;
       overlay.classList.add("is-open");
       overlay.setAttribute("aria-hidden", "false");
+      closeButton.focus({ preventScroll: true });
     };
 
-    overlay.addEventListener("click", closeOverlay);
+    closeButton.addEventListener("click", closeOverlay);
+    overlay.addEventListener("click", (event) => {
+      if (event.target === overlay) closeOverlay();
+    });
 
     rootDocument.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
-        closeOverlay();
+        if (overlay.classList.contains("is-open")) closeOverlay();
       }
     });
 
@@ -143,7 +161,7 @@
         event.preventDefault();
       }
 
-      openOverlay(image.currentSrc || image.src);
+      openOverlay(image.currentSrc || image.src, image);
     });
 
     rootDocument.body.append(overlay);
