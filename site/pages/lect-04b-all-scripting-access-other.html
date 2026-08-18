@@ -720,8 +720,8 @@
     }
 
     let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const totalSlides = slides.length;
+    let slides = Array.from(document.querySelectorAll('.slide'));
+    let totalSlides = slides.length;
 
     function normalizeSlideStructure(slide) {
       if (slide.querySelector('.slide-frame')) return;
@@ -769,6 +769,25 @@
       });
     }
 
+    function consolidateAccessSections() {
+      if (slides.length < 10) return;
+
+      const target = slides[1];
+      const targetScroll = target?.querySelector('.accordion-scroll');
+      if (!targetScroll || target.dataset.sectionsConsolidated === 'true') return;
+
+      slides.slice(2, 10).forEach((sourceSlide) => {
+        sourceSlide.querySelectorAll('.accordion-scroll > .accordion').forEach((section) => {
+          targetScroll.appendChild(section);
+        });
+        sourceSlide.remove();
+      });
+
+      target.dataset.sectionsConsolidated = 'true';
+      slides = Array.from(document.querySelectorAll('.slide'));
+      totalSlides = slides.length;
+    }
+
     function syncSlideTitles() {
       slides.forEach((slide) => {
         const title = slide.querySelector('.slide-title');
@@ -798,6 +817,8 @@
         }, '*');
       }
     }
+
+    consolidateAccessSections();
 
     slides.forEach((slide) => {
       normalizeSlideStructure(slide);
