@@ -344,10 +344,10 @@ a:hover {
 
 .slide-content .accordion {
   margin: 0 0 0.7rem;
-  border: 2px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: #ffffff;
-  box-shadow: 2px 2px 0 var(--line);
+  border: 3px solid var(--line);
+  border-radius: var(--radius-md);
+  background: #f6f7f9;
+  box-shadow: var(--shadow-md);
   overflow: hidden;
 }
 
@@ -373,8 +373,8 @@ body.lecture-fullbleed .slide-content > h2 {
   font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
   font-size: 1.4rem;
-  padding: 0.65rem 0.8rem;
-  background: #fef3c7;
+  padding: 0.9rem 1rem;
+  background: #fcd34d;
   color: var(--ink);
   border-bottom: 2px solid var(--line);
 }
@@ -405,7 +405,7 @@ body.lecture-fullbleed .slide-content .accordion > summary:hover {
 }
 
 .slide-content .accordion-body {
-  padding: 0.75rem 0.85rem;
+  padding: 0.75rem 0.9rem;
   background: #ffffff;
   font-size: 1.25rem;
   line-height: 1.65;
@@ -554,19 +554,20 @@ body.lecture-fullbleed .slide-content .pseudo-panel * {
 .slide-content .video-accordion {
   margin: 0.75rem 0;
   border: 3px solid var(--line);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   background: #fff8de;
-  box-shadow: 4px 4px 0 #111111;
+  box-shadow: var(--shadow-md);
   overflow: hidden;
 }
 
 .slide-content .video-accordion > summary {
   border: 0;
-  border-bottom: 3px solid var(--line);
+  border-bottom: 2px solid var(--line);
   border-radius: 0;
-  background: linear-gradient(90deg, #ffe066 0%, #ffc53d 100%);
-  font-size: 1rem;
-  padding: 0.6rem 0.75rem;
+  background: #fcd34d;
+  color: #000000;
+  font-size: 1.4rem;
+  padding: 0.9rem 1rem;
 }
 
 .slide-content .video-accordion > summary::before {
@@ -591,7 +592,7 @@ body.lecture-fullbleed .slide-content .pseudo-panel * {
 .slide-content .video-accordion .accordion-body {
   border-top: 0;
   padding: 0.6rem 0.7rem 0.75rem;
-  background: linear-gradient(180deg, #fffdf7 0%, #fff6d8 100%);
+  background: #ffffff;
 }
 
 .slide-content .video-accordion .embed-card {
@@ -1347,9 +1348,9 @@ body.lect-01a-fullbleed .slide-content h2 {
 
 body.lecture-fullbleed .slide-content .accordion-scroll,
 body.lect-01a-fullbleed .slide-content .accordion-scroll {
-  padding-left: 0.6rem;
-  padding-right: 0.75rem;
-  padding-bottom: 0.45rem;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 1.25rem;
   overflow-x: hidden;
 }
 
