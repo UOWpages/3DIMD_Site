@@ -13,6 +13,8 @@
   let currentPageLabel = "Home";
   let currentSlideTitle = "";
   let currentTutorialTitle = "";
+  let currentSourcePageKey = "home";
+  let currentOverviewTarget = "";
   let tutorialTitlePollToken = 0;
   const tutorialTitleFallbackByPageKey = {
     "pages/tut-00-01-lecturer-version.html": "#/|AC",
@@ -40,6 +42,19 @@
   };
 
   const normalizeText = (value) => value.replace(/\s+/g, " ").trim();
+
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+
+    const button = target.closest("button[data-slide-step]");
+    if (!(button instanceof HTMLButtonElement) || button.disabled) return;
+
+    const step = Number(button.dataset.slideStep);
+    if (!Number.isFinite(step) || typeof window.changeSlide !== "function") return;
+
+    window.changeSlide(step);
+  });
 
   const isPseudoStart = (node) => {
     if (!(node instanceof HTMLElement)) return false;
@@ -566,6 +581,8 @@
     currentPageLabel = "Home";
     currentSlideTitle = "";
     currentTutorialTitle = "";
+    currentSourcePageKey = "home";
+    currentOverviewTarget = "";
     setContentShellMode("home");
     setLectureDocumentMode("home");
     meta?.classList.remove("content-meta--lecture");
@@ -592,12 +609,14 @@
     currentPageLabel = getSidebarLabelForPageKey(pageKey) || label;
     currentSlideTitle = "";
     currentTutorialTitle = "";
-    setContentShellMode(pageKey);
-    if (isLecturePageKey(pageKey)) {
+    currentSourcePageKey = link.dataset.sourcePage || pageKey;
+    currentOverviewTarget = link.dataset.overviewTarget || "";
+    setContentShellMode(currentSourcePageKey);
+    if (isLecturePageKey(currentSourcePageKey)) {
       meta?.classList.remove("content-meta--tutorial");
       meta?.classList.add("content-meta--lecture");
       renderLectureMeta();
-    } else if (isTutorialPageKey(pageKey)) {
+    } else if (isTutorialPageKey(currentSourcePageKey)) {
       meta?.classList.remove("content-meta--lecture");
       meta?.classList.add("content-meta--tutorial");
       const fallbackTitle = tutorialTitleFallbackByPageKey[pageKey];
@@ -610,18 +629,18 @@
       meta?.classList.remove("content-meta--tutorial");
       setMeta(label);
     }
-    frame.src = pageKey;
+    frame.src = currentSourcePageKey;
     frame.style.display = "block";
     home.hidden = true;
 
-    if (isTutorialPageKey(pageKey)) {
+    if (isTutorialPageKey(currentSourcePageKey)) {
       pollTutorialMetaFromFrame();
     }
 
     document.title = `3DIMD | ${label}`;
     setActiveLink(pageKey);
     saveNavState(pageKey);
-    const navGroup = getNavGroupForPageKey(pageKey);
+    const navGroup = link.closest(".nav-group")?.dataset.navGroup || getNavGroupForPageKey(pageKey);
     if (navGroup) {
       setNavGroupExpanded(navGroup, true);
     }
@@ -706,8 +725,22 @@
       const rootDocument = frame.contentDocument;
       if (!rootDocument) return;
 
-      setContentShellMode(currentPageKey);
-      setLectureDocumentMode(currentPageKey);
+      setContentShellMode(currentSourcePageKey);
+      setLectureDocumentMode(currentSourcePageKey);
+
+      if (currentOverviewTarget) {
+        const targetText = normalizeText(currentOverviewTarget).toLowerCase();
+        const targetSummary = Array.from(rootDocument.querySelectorAll("details > summary"))
+          .find((summary) => normalizeText(summary.textContent || "").toLowerCase() === targetText);
+        const targetHeading = Array.from(rootDocument.querySelectorAll("h2, h3"))
+          .find((heading) => normalizeText(heading.textContent || "").toLowerCase() === targetText);
+        const target = targetSummary || targetHeading;
+        if (target) {
+          const details = target.closest("details");
+          if (details) details.open = true;
+          target.scrollIntoView({ block: "start" });
+        }
+      }
 
       try {
         enhancePseudoPanels(rootDocument);

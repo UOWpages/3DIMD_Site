@@ -99,9 +99,9 @@ for slide in slides_data:
       <div class=\"slide-content\">
 {content_html}      </div>
       <div class=\"slide-controls\">
-        <button class=\"slide-button\" onclick=\"changeSlide(-1)\"{"" if slide_num > 1 else " disabled"}> ← Previous</button>
+        <button class=\"slide-button\" data-slide-step=\\"-1\\"{"" if slide_num > 1 else " disabled"}> ← Previous</button>
         <img src=\"../images/UOW_Logo_Length_Alpha.png\" class=\"slide-logo\" alt=\"University of Westminster\" />
-        <button class=\"slide-button\" onclick=\"changeSlide(1)\"{"" if slide_num < len(slides_data) else " disabled"}>Next → </button>
+        <button class=\"slide-button\" data-slide-step=\\"1\\"{"" if slide_num < len(slides_data) else " disabled"}>Next → </button>
         <div class=\"slide-counter\"><span id=\"current-slide-{slide_num}\">{slide_num}</span> / <span id=\"total-slides\">{len(slides_data)}</span></div>
       </div>
       <div class=\"keyboard-hint\">

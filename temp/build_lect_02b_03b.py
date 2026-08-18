@@ -124,9 +124,9 @@ def build_slide_html(slide, total_slides):
 {content_html}
       </div>
       <div class="slide-controls">
-        <button class="slide-button" onclick="changeSlide(-1)"{prev_disabled}> &larr; Previous</button>
+        <button class="slide-button" data-slide-step="-1"{prev_disabled}> &larr; Previous</button>
         <img src="../images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" onclick="changeSlide(1)"{next_disabled}>Next &rarr; </button>
+        <button class="slide-button" data-slide-step="1"{next_disabled}>Next &rarr; </button>
         <div class="slide-counter"><span id="current-slide-{slide_num}">{slide_num}</span> / <span id="total-slides">{total_slides}</span></div>
       </div>
       <div class="keyboard-hint">

@@ -19,7 +19,18 @@
 <nav class="nav-rail" aria-label="Module navigation">
 <h2 class="nav-title">Module Navigation</h2>
 <ul class="nav-top">
-<li class="nav-top-item"><a href="./index.html" data-page="home" data-label="Sitemap">Sitemap</a></li>
+<li class="nav-top-item nav-top-item--group">
+<button type="button" class="nav-toggle" data-nav-toggle="overview" aria-expanded="false">Overview</button>
+<div class="nav-group" data-nav-group="overview" hidden>
+<ul>
+<li><a href="pages/lect-01a.html" data-page="overview/welcome" data-source-page="pages/lect-01a.html" data-overview-target="Welcome to 3D Interactive Media Development" data-label="Welcome">Welcome</a></li>
+<li><a href="pages/lect-01a.html" data-page="overview/overview" data-source-page="pages/lect-01a.html" data-overview-target="Overview:" data-label="Overview">Overview</a></li>
+<li><a href="pages/lect-01a.html" data-page="overview/schedule" data-source-page="pages/lect-01a.html" data-overview-target="Schedule" data-label="Schedule">Schedule</a></li>
+<li><a href="pages/lect-01a.html" data-page="overview/software-required" data-source-page="pages/lect-01a.html" data-overview-target="Learning Content Platforms" data-label="Software Required">Software Required</a></li>
+<li><a href="pages/lect-01a.html" data-page="overview/cw-and-samples" data-source-page="pages/lect-01a.html" data-overview-target="Coursework Examples" data-label="CW and Samples">CW and Samples</a></li>
+</ul>
+</div>
+</li>
 <li class="nav-top-item nav-top-item--group">
 <button type="button" class="nav-toggle" data-nav-toggle="lectures" aria-expanded="false">Lectures</button>
 <div class="nav-group" data-nav-group="lectures" hidden>
@@ -69,6 +80,7 @@
 </ul>
 </div>
 </li>
+<li class="nav-top-item"><a href="./index.html" data-page="home" data-label="Sitemap">Sitemap</a></li>
 </ul>
 </nav>
 

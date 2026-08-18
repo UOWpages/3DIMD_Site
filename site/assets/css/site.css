@@ -246,6 +246,17 @@ a:hover {
   background: #ab5cff;
 }
 
+.nav-toggle[data-nav-toggle="overview"].is-expanded {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+.nav-toggle[data-nav-toggle="overview"].is-expanded:hover,
+.nav-toggle[data-nav-toggle="overview"].is-expanded:focus-visible {
+  background: #15803d;
+  color: #ffffff;
+}
+
 .nav-group {
   margin-top: 0.55rem;
   padding-left: 0.15rem;
@@ -267,6 +278,15 @@ a:hover {
 .nav-group[data-nav-group="tutorials"] a:not([aria-current="page"]):hover,
 .nav-group[data-nav-group="tutorials"] a:not([aria-current="page"]):focus-visible {
   background: #e3caff;
+}
+
+.nav-group[data-nav-group="overview"] a:not([aria-current="page"]) {
+  background: #bbf7d0;
+}
+
+.nav-group[data-nav-group="overview"] a:not([aria-current="page"]):hover,
+.nav-group[data-nav-group="overview"] a:not([aria-current="page"]):focus-visible {
+  background: #86efac;
 }
 
 .content-area {
