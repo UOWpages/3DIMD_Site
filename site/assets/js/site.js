@@ -223,7 +223,9 @@
 
         line.className = `pseudo-panel__line pseudo-panel__line--${tone}`;
         line.style.setProperty("--pseudo-indent-level", String(indentLevel));
-        line.innerHTML = node.innerHTML;
+        node.childNodes.forEach((child) => {
+          line.append(child.cloneNode(true));
+        });
         body.append(line);
 
         if (/{\s*$/.test(rawText)) {
