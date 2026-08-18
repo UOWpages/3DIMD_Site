@@ -386,6 +386,10 @@ body.lecture-fullbleed .slide-content .accordion > summary {
   border-bottom: 2px solid #000;
 }
 
+body.lecture-fullbleed .slide-content .accordion {
+  box-shadow: var(--shadow-md);
+}
+
 body.lecture-fullbleed .slide-content .accordion > summary::before {
   border-left-color: #000000;
 }

@@ -572,7 +572,7 @@ body.content-page .page-title {
 .section-card h2 {
   margin-top: 0.35rem;
   margin-bottom: 0.35rem;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   border-bottom: 2px solid #000000;
   background: #fcd34d;
   color: #000000;
@@ -694,6 +694,7 @@ body.content-page .page-title {
   cursor: pointer;
   padding: 0.9rem 1rem;
   font-weight: 700;
+  font-size: 1.4rem;
   list-style: none;
   background: #fcd34d;
   color: #000000;
