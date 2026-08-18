@@ -973,7 +973,7 @@ function Build-ContentPage {
     <h1 class="page-title">$(Escape-Html $PageTitle)</h1>
 $ContentHtml
   </main>
-  <script src="../assets/js/site.js?v=20260805f"></script>
+  <script src="../assets/js/site.js?v=20260818a"></script>
 </body>
 </html>
 "@
