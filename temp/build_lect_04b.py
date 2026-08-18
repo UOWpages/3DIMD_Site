@@ -158,23 +158,6 @@ HEAD = f"""<!DOCTYPE html>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/site.css?v=20260805m" />
   <link rel="stylesheet" href="../assets/css/slideshow.css?v=20260814b" />
-  <style>
-    body.lecture-fullbleed .slideshow-container {{
-      visibility: hidden;
-    }}
-
-    body.lecture-fullbleed.lecture-ready .slideshow-container {{
-      visibility: visible;
-    }}
-
-    body.lecture-fullbleed .slide-title {{
-      display: none !important;
-    }}
-
-    body.lecture-fullbleed .slide-content > h2 {{
-      display: none !important;
-    }}
-  </style>
 </head>
 <body class="lecture-fullbleed">
   <div class="slideshow-container">

@@ -1258,9 +1258,9 @@ $scriptBody
     SourceFile = "./Tut 08 Physics Quiz RBCT.html"
     FileName = "tut-08-physics-quiz-rbct.html"
     TargetPage = "site/pages/tut-08-physics-quiz-rbct.html"
-    NavTitle = "Tut 08 Physics Quiz"
-    Category = "Assessments"
-    NavOrder = $NavOrder
+    NavTitle = "Tutorial 08 Quiz"
+    Category = "Students"
+    NavOrder = 9.5
     PageTitle = $title
     ContentHtml = $content
     MediaAssets = "none"

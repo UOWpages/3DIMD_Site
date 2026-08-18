@@ -159,10 +159,10 @@
                 const questionDiv = document.createElement('div');
                 questionDiv.className = 'question';
                 questionDiv.innerHTML = `
-                    <h3>${idx + 1}. ${q.question}</h3>
-                    <div class="options">
+                    <h3 id="question-${idx}">${idx + 1}. ${q.question}</h3>
+                    <div class="options" role="group" aria-labelledby="question-${idx}">
                         ${q.options.map((option, i) => `
-                            <div class="option" data-q="${idx}" data-o="${i}">${escapeHtml(option)}</div>
+                            <button type="button" class="option" data-q="${idx}" data-o="${i}" aria-pressed="false">${escapeHtml(option)}</button>
                         `).join('')}
                     </div>
                     <div class="feedback" id="feedback-${idx}"></div>
@@ -177,8 +177,12 @@
                     const oIndex = parseInt(this.getAttribute('data-o'), 10);
                     userAnswers[qIndex] = oIndex;
 
-                    document.querySelectorAll(`.option[data-q="${qIndex}"]`).forEach(el => el.classList.remove('selected'));
+                    document.querySelectorAll(`.option[data-q="${qIndex}"]`).forEach(el => {
+                        el.classList.remove('selected');
+                        el.setAttribute('aria-pressed', 'false');
+                    });
                     this.classList.add('selected');
+                    this.setAttribute('aria-pressed', 'true');
 
                     const fb = document.getElementById(`feedback-${qIndex}`);
                     if (fb) fb.style.display = 'none';

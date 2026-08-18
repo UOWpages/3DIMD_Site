@@ -342,15 +342,6 @@ a:hover {
   margin: 0 0.25rem;
 }
 
-.slide-content .accordion {
-  margin: 0 0 0.7rem;
-  border: 3px solid var(--line);
-  border-radius: var(--radius-md);
-  background: #f6f7f9;
-  box-shadow: var(--shadow-md);
-  overflow: hidden;
-}
-
 body.lecture-fullbleed .slideshow-container {
   visibility: hidden;
 }
@@ -367,27 +358,11 @@ body.lecture-fullbleed .slide-content > h2 {
   display: none !important;
 }
 
-.slide-content .accordion > summary {
-  cursor: pointer;
-  list-style: none;
-  font-family: "Space Grotesk", sans-serif;
-  font-weight: 700;
-  font-size: 1.4rem;
-  padding: 0.9rem 1rem;
-  background: #fcd34d;
-  color: var(--ink);
-  border-bottom: 2px solid var(--line);
-}
-
 body.lecture-fullbleed .slide-content .accordion > summary {
   background: #fcd34d;
   color: #000000;
   text-shadow: none;
   border-bottom: 2px solid #000;
-}
-
-body.lecture-fullbleed .slide-content .accordion {
-  box-shadow: var(--shadow-md);
 }
 
 body.lecture-fullbleed .slide-content .accordion > summary::before {
@@ -398,17 +373,6 @@ body.lecture-fullbleed .slide-content .accordion > summary:hover {
   background: #fcd34d;
   color: #000000;
   text-shadow: none;
-}
-
-.slide-content .accordion > summary::-webkit-details-marker {
-  display: none;
-}
-
-.slide-content .accordion-body {
-  padding: 0.75rem 0.9rem;
-  background: #ffffff;
-  font-size: 1.25rem;
-  line-height: 1.65;
 }
 
 body.lecture-fullbleed .slide-content .accordion-body {
@@ -549,50 +513,6 @@ body.lecture-fullbleed .slide-content .pseudo-panel * {
   min-height: 520px;
   border: 0;
   display: block;
-}
-
-.slide-content .video-accordion {
-  margin: 0.75rem 0;
-  border: 3px solid var(--line);
-  border-radius: var(--radius-md);
-  background: #fff8de;
-  box-shadow: var(--shadow-md);
-  overflow: hidden;
-}
-
-.slide-content .video-accordion > summary {
-  border: 0;
-  border-bottom: 2px solid var(--line);
-  border-radius: 0;
-  background: #fcd34d;
-  color: #000000;
-  font-size: 1.4rem;
-  padding: 0.9rem 1rem;
-}
-
-.slide-content .video-accordion > summary::before {
-  border-left-color: #111111;
-}
-
-.slide-content .video-accordion > summary::after {
-  content: "";
-  width: 0.65rem;
-  height: 0.65rem;
-  margin-left: auto;
-  border-radius: 999px;
-  border: 2px solid var(--line);
-  background: #ffffff;
-  box-shadow:
-    -1rem 0 0 -0.08rem #ff8a5b,
-    -1rem 0 0 0.12rem #111111,
-    -2rem 0 0 -0.08rem #6fd3ff,
-    -2rem 0 0 0.12rem #111111;
-}
-
-.slide-content .video-accordion .accordion-body {
-  border-top: 0;
-  padding: 0.6rem 0.7rem 0.75rem;
-  background: #ffffff;
 }
 
 .slide-content .video-accordion .embed-card {

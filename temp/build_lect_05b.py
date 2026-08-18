@@ -9,31 +9,6 @@ normalized to real newlines.
 """
 import html
 import json
-import re
-from pathlib import Path
-
-REPO_ROOT = Path(__file__).parent.parent
-PAGES_DIR = REPO_ROOT / "site" / "pages"
-LECTURE_ID = "lect-05b-all_scripting-animation"
-JSON_PATH = PAGES_DIR / f"{LECTURE_ID}-content.json"
-OUTPUT_PATH = PAGES_DIR / f"{LECTURE_ID}.html"
-
-MODULE_TITLE = "3D Interactive Media Development"
-LECTURE_TITLE = "Lecture 05b - Unity Scripting: Animation"
-
-SOFT_HYPHEN = "\u00ad"
-ZERO_WIDTH = "\u200b"
-
-CITATION_RE = re.compile(r'^From\s*<?\s*(https?://\S+?)\s*>?\s*$', re.IGNORECASE)
-
-
-def clean_text(text: str) -> str:
-    text = text.replace(SOFT_HYPHEN, "").replace(ZERO_WIDTH, "")
-    text = text.replace("\u000b", "\n").replace("\u000c", "\n")
-    text = text.replace("\u2010", "-")
-    return text
-
-
 def is_bullet(line: str) -> bool:
     return bool(re.match(r"^[\u2022*\-]\s*\t?\s*", line)) and len(line) > 1
 
@@ -153,23 +128,6 @@ HEAD = f"""<!DOCTYPE html>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/site.css?v=20260805m" />
   <link rel="stylesheet" href="../assets/css/slideshow.css?v=20260814b" />
-  <style>
-    body.lecture-fullbleed .slideshow-container {{
-      visibility: hidden;
-    }}
-
-    body.lecture-fullbleed.lecture-ready .slideshow-container {{
-      visibility: visible;
-    }}
-
-    body.lecture-fullbleed .slide-title {{
-      display: none !important;
-    }}
-
-    body.lecture-fullbleed .slide-content > h2 {{
-      display: none !important;
-    }}
-  </style>
 </head>
 <body class="lecture-fullbleed">
   <div class="slideshow-container">

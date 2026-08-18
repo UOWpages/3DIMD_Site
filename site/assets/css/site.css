@@ -1132,6 +1132,14 @@ body.content-page .page-title {
   white-space: normal;
 }
 
+.pseudo-panel__line.indent-level-0 { --pseudo-indent-level: 0; }
+.pseudo-panel__line.indent-level-1 { --pseudo-indent-level: 1; }
+.pseudo-panel__line.indent-level-2 { --pseudo-indent-level: 2; }
+.pseudo-panel__line.indent-level-3 { --pseudo-indent-level: 3; }
+.pseudo-panel__line.indent-level-4 { --pseudo-indent-level: 4; }
+.pseudo-panel__line.indent-level-5 { --pseudo-indent-level: 5; }
+.pseudo-panel__line.indent-level-6 { --pseudo-indent-level: 6; }
+
 .pseudo-panel__line + .pseudo-panel__line {
   margin-top: 0;
 }
@@ -1186,12 +1194,22 @@ body.content-page .page-title {
 }
 
 .quiz-container .option {
+  display: block;
+  width: 100%;
   margin-top: 0.5rem;
   border: 2px solid var(--line);
   background: #f6f7f8;
   border-radius: 8px;
   padding: 0.55rem 0.65rem;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
   cursor: pointer;
+}
+
+.quiz-container .option:focus-visible {
+  outline: 3px solid var(--accent-alt);
+  outline-offset: 2px;
 }
 
 .quiz-container .option.selected {
