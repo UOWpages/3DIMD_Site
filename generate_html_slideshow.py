@@ -72,8 +72,47 @@ def build_software_section(slide):
     )
     body = f'<div class="software-required__hero">{image_html}</div>'
   elif number == 2:
-    title = "Links"
-    body = render_software_lines(slide.get("content", []))
+    sections = [
+      (
+        "Links",
+        ["All software is Free, but needs various accounts. You must set up the accounts and download/ install/ test on your laptop or desktop before tutorials start."],
+      ),
+      (
+        "All University Software and Platforms:",
+        [
+          "Overview and Links for All University Software and Platforms.",
+          "https://www.westminster.ac.uk/current-students/studies/study-skills-and-training/digital-skills/software-and-platforms",
+        ],
+      ),
+      (
+        "Apps Anywhere (may require a new install from link – new UI):",
+        [
+          "Portal for University and Home Software Installs.",
+          "https://www.westminster.ac.uk/current-students/studies/study-skills-and-training/digital-skills/appsanywhere-university-software",
+        ],
+      ),
+      (
+        "Adobe Creative Cloud for Student Home Install:",
+        [
+          "Portal for University and Home Software Installs.",
+          "https://www.westminster.ac.uk/current-students/studies/study-skills-and-training/digital-skills/adobe-creative-cloud-for-students",
+        ],
+      ),
+      (
+        "Splashtop (Log into and Use University PCs and software - Unsupported):",
+        [
+          "Portal for University and Home Software Installs.",
+          "https://www.westminster.ac.uk/current-students/studies/study-skills-and-training/digital-skills/splashtop-remote-access",
+        ],
+      ),
+    ]
+    return "".join(
+      f'''      <details class="accordion">
+        <summary>{html.escape(title)}</summary>
+        <div class="accordion-body">{render_software_lines(content)}</div>
+      </details>'''
+      for title, content in sections
+    )
   elif number == 3:
     sections = [
       (
@@ -84,19 +123,42 @@ def build_software_section(slide):
           "Unity3D and Mecabricks are used in the first 6 weeks and throughout. 3DStudio max and Photoshop in the last 6 weeks.",
         ],
       ),
-      ("Required: Blender 5.2", ["Blender 5.2 is used for 3D modelling and asset preparation."],),
-      ("Required: Unity3D 6000.3.19f1", ["Unity3D 6000.3.19f1 is the required version for this module."],),
+      (
+        "Required: Blender 5.2",
+        ["Blender 5.2 is used for 3D modelling and asset preparation.", "https://www.blender.org/download/"],
+      ),
+      (
+        "Required: Unity3D 6000.3.19f1",
+        [
+          "Unity3D 6000.3.19f1 is the required version for this module.",
+          "https://unity.com/releases/editor/archive",
+        ],
+      ),
       (
         "Required: Visual Studio 2026 Community",
         [
           "Visual Studio 2026 Community is the required development environment for Unity scripting.",
-          "https://visualstudio.microsoft.com/downloads/",
+          "https://visualstudio.microsoft.com/vs/unity-tools/",
         ],
       ),
-      ("Required: Github", ["https://github.com/"],),
-      ("Required: MecaBricks", ["https://www.mecabricks.com/en/"],),
-      ("Useful: Adobe CC and Photoshop", ["Adobe Creative Cloud and Photoshop are useful for image editing and texture work."],),
-      ("Useful: Github CoPilot", ["Github CoPilot is useful for assisted coding and development support.", "https://github.com/copilot"],),
+      ("Required: Github", ["GitHub is required for project versioning and collaboration.", "https://github.com/"],),
+      ("Required: MecaBricks", ["MecaBricks is used for browser-based 3D modelling.", "https://www.mecabricks.com/en/"],),
+      (
+        "Useful: Adobe CC and Photoshop",
+        [
+          "Adobe Creative Cloud and Photoshop are useful for image editing and texture work.",
+          "https://www.westminster.ac.uk/current-students/studies/study-skills-and-training/digital-skills/adobe-creative-cloud-for-students",
+        ],
+      ),
+      (
+        "Useful: Github CoPilot",
+        [
+          "GitHub Copilot is useful for assisted coding and development support.",
+          "https://github.com/copilot",
+          "https://docs.github.com/en/copilot/get-started/plans-for-github-copilot",
+          "https://docs.github.com/en/copilot/get-started/best-practices-for-using-github-copilot",
+        ],
+      ),
     ]
     body = "".join(
       f'''      <details class="accordion">
