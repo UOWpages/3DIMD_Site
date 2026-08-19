@@ -75,27 +75,104 @@ def build_software_section(slide):
     title = "Links"
     body = render_software_lines(slide.get("content", []))
   elif number == 3:
-    title = "Links"
-    body = (
-      '<div class="software-required__links-layout">'
-      f'<div class="software-required__links">{render_software_lines(slide.get("content", []))}</div>'
-      '<div class="software-required__side-images">'
-      + "".join(
-        f'<img src="images/{image["filename"]}" alt="Software link reference {index + 1}" />'
-        for index, image in enumerate(images)
-      )
-      + "</div></div>"
+    sections = [
+      (
+        "Software Links",
+        [
+          "All software is Free, but needs various accounts, try setting up the accounts and downloading/ installing/ testing on your Laptop or desktop.",
+          "Both Macs and PCs are ok to use in this module.",
+          "Unity3D and Mecabricks are used in the first 6 weeks and throughout. 3DStudio max and Photoshop in the last 6 weeks.",
+        ],
+      ),
+      ("Required: Blender 5.2", ["Blender 5.2 is used for 3D modelling and asset preparation."],),
+      ("Required: Unity3D 6000.3.19f1", ["Unity3D 6000.3.19f1 is the required version for this module."],),
+      (
+        "Required: Visual Studio 2026 Community",
+        [
+          "Visual Studio 2026 Community is the required development environment for Unity scripting.",
+          "https://visualstudio.microsoft.com/downloads/",
+        ],
+      ),
+      ("Required: Github", ["https://github.com/"],),
+      ("Required: MecaBricks", ["https://www.mecabricks.com/en/"],),
+      ("Useful: Adobe CC and Photoshop", ["Adobe Creative Cloud and Photoshop are useful for image editing and texture work."],),
+      ("Useful: Github CoPilot", ["Github CoPilot is useful for assisted coding and development support.", "https://github.com/copilot"],),
+    ]
+    body = "".join(
+      f'''      <details class="accordion">
+        <summary>{html.escape(title)}</summary>
+        <div class="accordion-body">{render_software_lines(content)}</div>
+      </details>'''
+      for title, content in sections
+    )
+    return body
+  elif number == 4:
+    sections = [
+      (
+        "First Actions: Unity3D",
+        [
+          "Allow at least 30 minutes to download, install Unity and the project to be ready to work, depending on your broadband connection.",
+          "If you are having trouble with your connection, please contact me or the service desk asap.",
+          "The tutorial should take 30-45 minutes.",
+          "If you have already installed Visual Studio Code, install the Unity VSCode Extension and check the version of the Visual Studio Editor you have.",
+        ],
+      ),
+      (
+        "Unity3D Install: Setup a Unity ID and a Student Account",
+        [
+          "Setup a Unity ID and a Student Account:",
+          "https://id.unity.com/en/conversations/501975b1-9ab1-4599-b9f1-72fa4235b61d01bf",
+          "https://unity.com/products/unity-student?currency=EUR",
+          "Download Unity Hub by clicking the Unity Hub button at https://store.unity.com/download-nuo",
+          "Download Unity version 6000.0.55f1 at: https://unity3d.com/get-unity/download/archive",
+        ],
+      ),
+      (
+        "Unity3D Install: Extra: Start some Unity3D Basics Tutorials:",
+        [
+          "Open Welcome to Unity Essentials from the Unity Learn Tab in Unity Hub, or link directly here: https://learn.unity.com/pathway/unity-essentials",
+          "Work the tutorial within the project. Save the project to keep working by closing the project and selecting Keep in the prompt.",
+          "Build and share the tutorial game on Unity Play or https://get.simmer.io/",
+          "Share link to Padlet: https://uowdigital.padlet.org/fergusj/AIMDUnityLearn",
+        ],
+      ),
+      (
+        "Visual Studio 2026 Community Install",
+        [
+          "Install Visual Studio and update the Visual Studio Editor package for Unity using the links below.",
+          "https://visualstudio.microsoft.com/vs/unity-tools/",
+          "Make sure Visual Studio Editor in the Unity Package Manager is updated to version 20.0.22.",
+        ],
+      ),
+      (
+        "Github/GitHub CoPilot Install",
+        [
+          "GitHub and Copilot within Visual Studio are used for group project versioning from Week 2 onwards.",
+          "Signup: https://docs.github.com/en/education/about-github-education/github-education-for-students/apply-to-github-education-as-a-student",
+          "Copilot Signup: https://github.com/copilot",
+          "https://docs.github.com/en/copilot/get-started/plans-for-github-copilot",
+          "https://docs.github.com/en/copilot/get-started/best-practices-for-using-github-copilot",
+        ],
+      ),
+    ]
+    return "".join(
+      f'''      <details class="accordion">
+        <summary>{html.escape(title)}</summary>
+        <div class="accordion-body">{render_software_lines(content)}</div>
+      </details>'''
+      for title, content in sections
     )
   else:
     title = "Software Required"
     body = render_software_lines(slide.get("content", []))
 
-  return f'''      <details class="accordion software-required__section" open>
+  return f'''      <details class="accordion">
     <summary>{title}</summary>
     <div class="accordion-body">{body}</div>
     </details>'''
 
 body_class = "lecture-fullbleed software-required" if args.lecture_id == "software-required" else "lecture-fullbleed"
+content_class = "slide-content slide-content-accordion" if args.lecture_id == "software-required" else "slide-content"
 
 html_template = """<!DOCTYPE html>
 <html lang=\"en\">
@@ -114,6 +191,7 @@ html_template = """<!DOCTYPE html>
 """
 
 html_template = html_template.replace("__BODY_CLASS__", body_class)
+html_template = html_template.replace("__CONTENT_CLASS__", content_class)
 
 for slide in slides_data:
     slide_num = slide["slide_number"]
@@ -128,7 +206,12 @@ for slide in slides_data:
 
     content_html = ""
     if args.lecture_id == "software-required":
-      content_html = build_software_section(slide)
+      content_html = (
+        f"    <h2>{html.escape(display_title or 'Software Required')}</h2>\n"
+        "    <div class=\"accordion-scroll\">\n"
+        f"{build_software_section(slide)}\n"
+        "    </div>\n"
+      )
     elif display_title:
       content_html += f"    <h2>{display_title}</h2>\n"
 
@@ -160,7 +243,7 @@ for slide in slides_data:
     html_template += f"""    <!-- Slide {slide_num} -->
     <div class=\"slide{"" if slide_num != 1 else " active"}\">
       <div class=\"slide-title\">{args.module_title}</div>
-      <div class=\"slide-content\">
+      <div class=\"{content_class}\">
 {content_html}      </div>
       <div class=\"slide-controls\">
         <button class=\"slide-button\" data-slide-step="-1"{"" if slide_num > 1 else " disabled"}> ← Previous</button>
