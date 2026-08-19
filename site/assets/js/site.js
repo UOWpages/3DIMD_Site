@@ -329,12 +329,14 @@
     return noPrefix.split("?")[0].split("#")[0];
   };
 
-  const isLecturePageKey = (pageKey) => /^pages\/(?:lect-[^/]+|software-required)\.html$/i.test(normalizePageKey(pageKey || ""));
+  const isLecturePageKey = (pageKey) => /^pages\/lect-[^/]+\.html$/i.test(normalizePageKey(pageKey || ""));
   const isTutorialPageKey = (pageKey) => /^pages\/tut-[^/]+\.html$/i.test(normalizePageKey(pageKey || ""));
+  const isOverviewPageKey = (pageKey) => /^pages\/overview-[^/]+\.html$/i.test(normalizePageKey(pageKey || ""));
 
   const getNavGroupForPageKey = (pageKey) => {
     if (isLecturePageKey(pageKey)) return "lectures";
     if (isTutorialPageKey(pageKey)) return "tutorials";
+    if (isOverviewPageKey(pageKey)) return "overview";
     return null;
   };
 
@@ -391,6 +393,7 @@
     if (!contentShell) return;
     const lectureMode = isLecturePageKey(pageKey);
     const tutorialMode = isTutorialPageKey(pageKey);
+    const overviewMode = isOverviewPageKey(pageKey);
     contentShell.classList.remove("content-shell--immersive");
     if (lectureMode) {
       contentShell.classList.add("content-shell--lecture");
@@ -402,11 +405,17 @@
     } else {
       contentShell.classList.remove("content-shell--tutorial");
     }
+    if (overviewMode) {
+      contentShell.classList.add("content-shell--overview");
+    } else {
+      contentShell.classList.remove("content-shell--overview");
+    }
   };
 
   const setLectureDocumentMode = (pageKey) => {
     if (!frame?.contentDocument?.body) return;
-    frame.contentDocument.body.classList.toggle("lecture-fullbleed", isLecturePageKey(pageKey));
+    const isSlideshowOverview = isOverviewPageKey(pageKey) && Boolean(frame.contentDocument.body.querySelector(".slideshow-container"));
+    frame.contentDocument.body.classList.toggle("lecture-fullbleed", isLecturePageKey(pageKey) || isSlideshowOverview);
   };
 
   const getLinkLabel = (link) => {
@@ -587,6 +596,7 @@
     setLectureDocumentMode("home");
     meta?.classList.remove("content-meta--lecture");
     meta?.classList.remove("content-meta--tutorial");
+    meta?.classList.remove("content-meta--overview");
     frame.style.display = "none";
     frame.removeAttribute("src");
     home.hidden = false;
@@ -614,19 +624,27 @@
     setContentShellMode(currentSourcePageKey);
     if (isLecturePageKey(currentSourcePageKey)) {
       meta?.classList.remove("content-meta--tutorial");
+      meta?.classList.remove("content-meta--overview");
       meta?.classList.add("content-meta--lecture");
       renderLectureMeta();
     } else if (isTutorialPageKey(currentSourcePageKey)) {
       meta?.classList.remove("content-meta--lecture");
+      meta?.classList.remove("content-meta--overview");
       meta?.classList.add("content-meta--tutorial");
       const fallbackTitle = tutorialTitleFallbackByPageKey[pageKey];
       if (fallbackTitle) {
         currentTutorialTitle = fallbackTitle;
       }
       renderTutorialMeta();
+    } else if (isOverviewPageKey(currentSourcePageKey)) {
+      meta?.classList.remove("content-meta--lecture");
+      meta?.classList.remove("content-meta--tutorial");
+      meta?.classList.add("content-meta--overview");
+      setMeta(label);
     } else {
       meta?.classList.remove("content-meta--lecture");
       meta?.classList.remove("content-meta--tutorial");
+      meta?.classList.remove("content-meta--overview");
       setMeta(label);
     }
     frame.src = currentSourcePageKey;
@@ -727,6 +745,9 @@
 
       setContentShellMode(currentSourcePageKey);
       setLectureDocumentMode(currentSourcePageKey);
+      if (rootDocument.body) {
+        rootDocument.body.classList.toggle("overview-page", isOverviewPageKey(currentSourcePageKey));
+      }
 
       if (currentOverviewTarget) {
         const targetText = normalizeText(currentOverviewTarget).toLowerCase();

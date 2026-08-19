@@ -345,6 +345,14 @@ a:hover {
   background: #c084ff;
 }
 
+.content-shell.content-shell--overview .content-meta {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  font-size: 2.8rem;
+  line-height: 1.05;
+  background: #16a34a;
+}
+
 .content-meta.content-meta--lecture {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -376,6 +384,23 @@ a:hover {
 }
 
 .content-meta.content-meta--tutorial .content-meta-slide {
+  color: #ffffff;
+}
+
+.content-meta.content-meta--overview {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  font-size: 2.8rem;
+  line-height: 1.05;
+  color: #ffffff;
+  background: #16a34a;
+}
+
+.content-meta.content-meta--overview .content-meta-prefix {
+  color: #ffff66;
+}
+
+.content-meta.content-meta--overview .content-meta-slide {
   color: #ffffff;
 }
 
@@ -1428,3 +1453,77 @@ body.content-page .page-title {
     padding: 1rem;
   }
 }
+
+/* Overview Content Pages - Dark Blue Background & Yellow Font Styling matching Lectures */
+body.overview-page .accordion-body,
+.content-shell--overview iframe.content-frame .accordion-body {
+  background: #123d73;
+  color: #fff7a8;
+  border-top: 2px solid #000000;
+  text-shadow: 1px 1px 0 #000000;
+}
+
+body.overview-page .accordion-body h3,
+.content-shell--overview iframe.content-frame .accordion-body h3 {
+  color: #fff7a8;
+  text-shadow: 1px 1px 0 #000000;
+  font-size: 1.5rem;
+}
+
+body.overview-page .accordion-body p,
+body.overview-page .accordion-body li,
+body.overview-page .accordion-body a,
+body.overview-page .accordion-body strong,
+body.overview-page .accordion-body div,
+.content-shell--overview iframe.content-frame .accordion-body p,
+.content-shell--overview iframe.content-frame .accordion-body li,
+.content-shell--overview iframe.content-frame .accordion-body a,
+.content-shell--overview iframe.content-frame .accordion-body strong {
+  color: #fff7a8;
+  text-shadow: 1px 1px 0 #000000;
+  font-size: 1.3rem;
+  line-height: 1.65;
+}
+
+body.overview-page .accordion-body a,
+.content-shell--overview iframe.content-frame .accordion-body a {
+  color: #ffff66;
+  text-decoration: underline;
+}
+
+body.overview-page .accordion-body .schedule-subtitle {
+  color: #ffff66;
+  font-size: 1.1rem;
+}
+
+body.overview-page .accordion-body .schedule-week {
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid #000000;
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.85rem;
+  margin: 0 0 0.65rem;
+}
+
+body.overview-page .accordion-body .schedule-week h3 {
+  color: #fff7a8;
+  font-size: 1.35rem;
+  margin: 0 0 0.25rem;
+}
+
+body.overview-page .accordion-body .schedule-week p {
+  color: #fff7a8;
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+body.overview-page .accordion-body .schedule-deadline {
+  background: #fcd34d;
+  color: #000000;
+  border-left: 5px solid #ff1f1f;
+  text-shadow: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.45rem 0.65rem;
+  margin-top: 0.4rem;
+}
+
