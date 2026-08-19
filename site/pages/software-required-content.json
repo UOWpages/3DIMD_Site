@@ -1,0 +1,129 @@
+[
+  {
+    "slide_number": 1,
+    "title": "1",
+    "section_title": "Software Required for this Module",
+    "content": [
+      "3D Interactive \nMedia Development"
+    ],
+    "images": [
+      {
+        "filename": "software-required_slide1_image0.png",
+        "path": "images/software-required_slide1_image0.png"
+      },
+      {
+        "filename": "software-required_slide1_image1.png",
+        "path": "images/software-required_slide1_image1.png"
+      },
+      {
+        "filename": "software-required_slide1_image2.png",
+        "path": "images/software-required_slide1_image2.png"
+      },
+      {
+        "filename": "software-required_slide1_image3.jpeg",
+        "path": "images/software-required_slide1_image3.jpeg"
+      },
+      {
+        "filename": "software-required_slide1_image4.jpeg",
+        "path": "images/software-required_slide1_image4.jpeg"
+      },
+      {
+        "filename": "software-required_slide1_image5.png",
+        "path": "images/software-required_slide1_image5.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 2,
+    "title": "",
+    "section_title": "Software:",
+    "content": [
+      "Links",
+      "All software is Free, but needs various accounts. You must set up the accounts and download/ install/ test on your laptop or desktop before tutorials start.",
+      "2",
+      "All University Software:\n\nApps Anywhere (may require a new install from link – new UI):\u000b\nAdobe Creative Cloud for Students:\u000b\nSplashtop (Log into and Use University PCs and software - Unsupported):"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 3,
+    "title": "",
+    "section_title": "Software:",
+    "content": [
+      "Links",
+      "All software is Free, but needs various accounts, try setting up the accounts and downloading/ installing/ testing on your Laptop or desktop.\n\nBoth Macs and PCs are ok to use in this module.\n\nUnity3D and Mecabricks are used in the first 6 weeks and throughout. 3DStudio max and Photoshop in the last 6 weeks.",
+      "3",
+      "Autodesk 3DSMax  Studio (not available on Macs): \nhttps://www.autodesk.com/education/edu-software/overview?sorting=featured&filters=individual",
+      "MecaBricks: https://www.mecabricks.com/en/",
+      "Unity3D 6000.0.55f1 (Student License):",
+      "Adobe CC and Adobe Photoshop:",
+      "Visual Studio 2022 Community: https://visualstudio.microsoft.com/downloads/",
+      "Github : https://github.com/",
+      "Required:",
+      "Useful:"
+    ],
+    "images": [
+      {
+        "filename": "software-required_slide3_image0.png",
+        "path": "images/software-required_slide3_image0.png"
+      },
+      {
+        "filename": "software-required_slide3_image1.png",
+        "path": "images/software-required_slide3_image1.png"
+      },
+      {
+        "filename": "software-required_slide3_image2.jpeg",
+        "path": "images/software-required_slide3_image2.jpeg"
+      },
+      {
+        "filename": "software-required_slide3_image3.jpeg",
+        "path": "images/software-required_slide3_image3.jpeg"
+      },
+      {
+        "filename": "software-required_slide3_image4.png",
+        "path": "images/software-required_slide3_image4.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 4,
+    "title": "",
+    "section_title": "Software:",
+    "content": [
+      "First Actions:\nUnity",
+      "Allow at least 30 minutes to download, install unity and the project to be ready to work, depending on your broadband connection. \n\nIf you are having trouble with your connection, please contact me or the service desk asap. \n\nThe tutorial should take 30-45 Minutes. \n\nIf you have already installed Visual Studio Code…. Install the Unity VSCode Extension, and check the version of the Visual Studio Editor you have",
+      "4",
+      "1. Unity3D Install:\nSetup a Unity ID and a Student Account:\nhttps://id.unity.com/en/conversations/501975b1-9ab1-4599-b9f1-72fa4235b61d01bf \nhttps://unity.com/products/unity-student?currency=EUR \nDownload UnityHub  by clicking Unity Hub button at  https://store.unity.com/download-nuo\nDownload Unity version 6000.0.55f1 at: https://unity3d.com/get-unity/download/archive \nExtra: Start some Unity3D Basics Tutorials:\nOpen \"Welcome to Unity Essentials\" from the Unity Learn Tab in Unity Hub - or - \nLink directly here: https://learn.unity.com/pathway/unity-essentials \nWork the tutorial within the project (Click on buttons on right hand Tab)\nSave Project: The Tutorial is loaded in Temp files - save the project to keep working by closing the project, and selecting “Keep” in the prompt.\nBuild and share the tutorial game on Unity Play or: https://get.simmer.io/ \nShare link to Padlet: https://uowdigital.padlet.org/fergusj/AIMDUnityLearn",
+      "5. Visual Studio (Install Visual Studio and update Visual Studio Editor package for Unity by following the below links):\nhttps://visualstudio.microsoft.com/vs/unity-tools/ \nMake sure \"Visual Studio Editor\" in Unity package manager is updated to version 20.0.22",
+      "6.GitHub(and Copilot) within Visual Studio (For Group Project Versioning, Week 2 onwards):\nSignup: \nhttps://docs.github.com/en/education/about-github-education/github-education-for-students/apply-to-github-education-as-a-student\nCopilot Signup: \nhttps://github.com/copilot\nhttps://docs.github.com/en/copilot/get-started/plans-for-github-copilot\nhttps://docs.github.com/en/copilot/get-started/best-practices-for-using-github-copilot"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 5,
+    "title": "",
+    "section_title": "Software:",
+    "content": [
+      "VERSIONS:\nUnity",
+      "IMPORTANT\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+      "5",
+      "Versions:\nDownloaded Tutorials may be in earlier versions\nUnity Hub should be Latest Version\nWE WILL USE UNITY3D 6000.0.55f1 FOR ALL TUTORIALS AND COURSEWORK\nInstall from Hub or here: \nhttps://unity3d.com/get-unity/download/archive?_ga=2.215337873.708256744.1599897727-1458467987.1502860184\nYou can keep multiple versions in your Hub, but be careful which you are using, as Unity is not backwards compatible. \nOnce your project is in 6000.0.55f1, you cannot go back.\n\nWe will only support you in 6000.0.55f1 for Coursework.\n\nWe will only support Unity3D 6000.0.55f1  for VR/AR work via the XR Lab. \n\nThis is for your own benefit and support, please understand we cannot support a wide range of versions."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 6,
+    "title": "",
+    "section_title": "Software:",
+    "content": [
+      "Further Steps",
+      "If you are an expert, try working ahead on the following.\n\nMecabricks for 3D Models\n\nAdobe CC Photoshop\n\nUnity Starter Assets\n\nUnity Collaborate",
+      "6",
+      "MecaBricks:\n1.Login and try building a model. \nhttps://www.mecabricks.com/en/\n2. Try exporting to Dae/Fbx and Importing to Unity 3D",
+      "Github / Visual Studio / VS Code\n\n(for version saving and working on group project):\n\nGithub Copliot: https://github.com/copilot",
+      "Adobe CC Photoshop (Optional):\n1.Install Adobe CC:\n2. Install Adobe Photoshop from Adobe CC",
+      "Unity Starter Assets (Various useful prefabs):\nUnity Asset Store Window in the program or…\nhttps://assetstore.unity.com/"
+    ],
+    "images": []
+  }
+]

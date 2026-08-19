@@ -329,7 +329,7 @@
     return noPrefix.split("?")[0].split("#")[0];
   };
 
-  const isLecturePageKey = (pageKey) => /^pages\/lect-[^/]+\.html$/i.test(normalizePageKey(pageKey || ""));
+  const isLecturePageKey = (pageKey) => /^pages\/(?:lect-[^/]+|software-required)\.html$/i.test(normalizePageKey(pageKey || ""));
   const isTutorialPageKey = (pageKey) => /^pages\/tut-[^/]+\.html$/i.test(normalizePageKey(pageKey || ""));
 
   const getNavGroupForPageKey = (pageKey) => {

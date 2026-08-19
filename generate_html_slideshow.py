@@ -2,6 +2,7 @@
 """Convert extracted PowerPoint JSON to HTML slideshow using the canonical lecture panel shell."""
 
 import argparse
+import html
 import json
 from pathlib import Path
 
@@ -38,6 +39,64 @@ json_path = pages_dir / f"{args.lecture_id}-content.json"
 with open(json_path, "r", encoding="utf-8") as f:
     slides_data = json.load(f)
 
+
+def render_software_lines(content):
+  lines = []
+  for block in content:
+    for line in block.replace("\u000b", "\n").splitlines():
+      line = line.strip()
+      if not line or line.isdigit() or line == "Links":
+        continue
+      escaped = html.escape(line)
+      if line.endswith(":"):
+        lines.append(f"<h3>{escaped}</h3>")
+      else:
+        lines.append(f"<p>{escaped}</p>")
+  return "\n".join(lines)
+
+
+def build_software_section(slide):
+  number = slide["slide_number"]
+  images = slide.get("images", [])
+  if number == 1:
+    title = "3D Interactive Media Development: Software Required for this Module"
+    image_html = (
+      f'<img class="software-required__backdrop" src="images/{images[0]["filename"]}" '
+      'alt="Software required overview" />'
+      '<div class="software-required__image-row">'
+      + "".join(
+        f'<img src="images/{image["filename"]}" alt="Software required example {index + 1}" />'
+        for index, image in enumerate(images[1:])
+      )
+      + "</div>"
+    )
+    body = f'<div class="software-required__hero">{image_html}</div>'
+  elif number == 2:
+    title = "Links"
+    body = render_software_lines(slide.get("content", []))
+  elif number == 3:
+    title = "Links"
+    body = (
+      '<div class="software-required__links-layout">'
+      f'<div class="software-required__links">{render_software_lines(slide.get("content", []))}</div>'
+      '<div class="software-required__side-images">'
+      + "".join(
+        f'<img src="images/{image["filename"]}" alt="Software link reference {index + 1}" />'
+        for index, image in enumerate(images)
+      )
+      + "</div></div>"
+    )
+  else:
+    title = "Software Required"
+    body = render_software_lines(slide.get("content", []))
+
+  return f'''      <details class="accordion software-required__section" open>
+    <summary>{title}</summary>
+    <div class="accordion-body">{body}</div>
+    </details>'''
+
+body_class = "lecture-fullbleed software-required" if args.lecture_id == "software-required" else "lecture-fullbleed"
+
 html_template = """<!DOCTYPE html>
 <html lang=\"en\">
 <head>
@@ -50,9 +109,11 @@ html_template = """<!DOCTYPE html>
   <link rel=\"stylesheet\" href=\"../assets/css/site.css?v=20260818a" />
     <link rel=\"stylesheet\" href=\"../assets/css/slideshow.css?v=20260818a" />
 </head>
-<body class=\"lecture-fullbleed\">
+<body class=\"__BODY_CLASS__\">
   <div class=\"slideshow-container\">
 """
+
+html_template = html_template.replace("__BODY_CLASS__", body_class)
 
 for slide in slides_data:
     slide_num = slide["slide_number"]
@@ -66,10 +127,12 @@ for slide in slides_data:
         display_title = section_title or parent_title
 
     content_html = ""
-    if display_title:
-        content_html += f"    <h2>{display_title}</h2>\n"
+    if args.lecture_id == "software-required":
+      content_html = build_software_section(slide)
+    elif display_title:
+      content_html += f"    <h2>{display_title}</h2>\n"
 
-    if content:
+    if content and args.lecture_id != "software-required":
         for text in content:
             if text.strip() == args.module_title:
                 continue
@@ -90,7 +153,8 @@ for slide in slides_data:
                 else:
                     content_html += f"    <p>{line}</p>\n"
 
-    for img in images:
+    if args.lecture_id != "software-required":
+      for img in images:
         content_html += f"    <img src=\"images/{img['filename']}\" alt=\"Slide {slide_num} image\" />\n"
 
     html_template += f"""    <!-- Slide {slide_num} -->
@@ -99,9 +163,9 @@ for slide in slides_data:
       <div class=\"slide-content\">
 {content_html}      </div>
       <div class=\"slide-controls\">
-        <button class=\"slide-button\" data-slide-step=\\"-1\\"{"" if slide_num > 1 else " disabled"}> ← Previous</button>
+        <button class=\"slide-button\" data-slide-step="-1"{"" if slide_num > 1 else " disabled"}> ← Previous</button>
         <img src=\"../images/UOW_Logo_Length_Alpha.png\" class=\"slide-logo\" alt=\"University of Westminster\" />
-        <button class=\"slide-button\" data-slide-step=\\"1\\"{"" if slide_num < len(slides_data) else " disabled"}>Next → </button>
+        <button class=\"slide-button\" data-slide-step="1"{"" if slide_num < len(slides_data) else " disabled"}>Next → </button>
         <div class=\"slide-counter\"><span id=\"current-slide-{slide_num}\">{slide_num}</span> / <span id=\"total-slides\">{len(slides_data)}</span></div>
       </div>
       <div class=\"keyboard-hint\">
@@ -115,7 +179,7 @@ html_template += """  </div>
 
   <script src=\"../assets/js/site.js?v=20260818a"></script>
   <script>
-    const isLecturePage = /\\/lect-[^/]+\\.html$/i.test(window.location.pathname);
+    const isLecturePage = /\\/(?:lect-[^/]+|software-required)\\.html$/i.test(window.location.pathname);
     if (isLecturePage && document.body) {
       document.body.classList.add('lecture-fullbleed');
     }

@@ -36,14 +36,12 @@ def iter_shapes(shape):
 def extract_images_from_shape(shape, slide_number, output_dir, slide_content, image_prefix):
     extracted = False
     for candidate in iter_shapes(shape):
-        if getattr(candidate, "shape_type", None) != MSO_SHAPE_TYPE.PICTURE:
+        try:
             image = getattr(candidate, "image", None)
-            if image is None:
-                continue
-        else:
-            image = getattr(candidate, "image", None)
-            if image is None:
-                continue
+        except (AttributeError, ValueError):
+            continue
+        if image is None:
+            continue
 
         try:
             image_hash = hashlib.sha256(image.blob).hexdigest()
