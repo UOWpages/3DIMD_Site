@@ -921,10 +921,20 @@ body.content-page .page-title {
 }
 
 .embed-card {
+  width: 100%;
   background: #ffffff;
   border: 2px solid var(--line);
   border-radius: 10px;
   padding: var(--space-2);
+  box-sizing: border-box;
+}
+
+.embed-card iframe {
+  width: 100%;
+  min-height: 600px;
+  height: 75vh;
+  border: 0;
+  display: block;
 }
 
 .embed-title {
