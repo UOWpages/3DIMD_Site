@@ -80,7 +80,7 @@ a:hover {
   font-family: "Archivo Black", "Space Grotesk", sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  font-size: clamp(1.8rem, 4.4vw, 4rem);
+  font-size: clamp(1.6rem, 3.8vw, 3.2rem);
   line-height: 1.02;
   color: #ffffff;
   padding: 0;
@@ -331,7 +331,7 @@ a:hover {
 .content-shell.content-shell--lecture .content-meta {
   padding-top: 0.9rem;
   padding-bottom: 0.9rem;
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   line-height: 1.05;
   color: #ffff66;
   background: #4d94ff;
@@ -340,7 +340,7 @@ a:hover {
 .content-shell.content-shell--tutorial .content-meta {
   padding-top: 0.9rem;
   padding-bottom: 0.9rem;
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   line-height: 1.05;
   background: #c084ff;
 }
@@ -348,7 +348,7 @@ a:hover {
 .content-shell.content-shell--overview .content-meta {
   padding-top: 0.9rem;
   padding-bottom: 0.9rem;
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   line-height: 1.05;
   background: #16a34a;
 }
@@ -356,7 +356,7 @@ a:hover {
 .content-meta.content-meta--lecture {
   padding-top: 0.9rem;
   padding-bottom: 0.9rem;
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   line-height: 1.05;
   color: #ffffff;
   background: #4d94ff;
@@ -373,7 +373,7 @@ a:hover {
 .content-meta.content-meta--tutorial {
   padding-top: 0.9rem;
   padding-bottom: 0.9rem;
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   line-height: 1.05;
   color: #ffffff;
   background: #c084ff;
@@ -390,7 +390,7 @@ a:hover {
 .content-meta.content-meta--overview {
   padding-top: 0.9rem;
   padding-bottom: 0.9rem;
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   line-height: 1.05;
   color: #ffffff;
   background: #16a34a;
@@ -1409,7 +1409,7 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p {
 
 @media (max-width: 1200px) {
   .module-header h1 {
-    font-size: clamp(1.35rem, 4.8vw, 2.6rem);
+    font-size: clamp(1.2rem, 4.2vw, 2.2rem);
   }
 
   .content-shell.content-shell--lecture .content-meta,
@@ -1418,7 +1418,7 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p {
   .content-meta.content-meta--lecture,
   .content-meta.content-meta--tutorial,
   .content-meta.content-meta--overview {
-    font-size: clamp(1.2rem, 2.1vw, 2rem);
+    font-size: clamp(1.2rem, 2vw, 1.9rem);
     line-height: 1.08;
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
@@ -1431,11 +1431,11 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p {
   }
 
   .content-meta.content-meta--compact {
-    font-size: clamp(1.05rem, 1.65vw, 1.65rem);
+    font-size: clamp(1rem, 1.45vw, 1.35rem);
   }
 
   .content-meta.content-meta--compact-tight {
-    font-size: clamp(0.95rem, 1.35vw, 1.4rem);
+    font-size: clamp(0.9rem, 1.2vw, 1.15rem);
   }
 
   .accordion > summary,
@@ -1544,7 +1544,7 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p {
   }
 
   .module-header h1 {
-    font-size: clamp(0.72rem, 4.4vw, 1.95rem);
+    font-size: clamp(0.68rem, 4vw, 1.7rem);
     line-height: 1.06;
   }
 
@@ -1554,10 +1554,22 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p {
   .content-meta.content-meta--lecture,
   .content-meta.content-meta--tutorial,
   .content-meta.content-meta--overview {
-    font-size: clamp(1.3rem, 6.1vw, 1.85rem);
+    font-size: clamp(1.3rem, 6vw, 1.75rem);
     line-height: 1.12;
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
+  }
+
+  .content-shell.content-shell--lecture .content-meta,
+  .content-shell.content-shell--tutorial .content-meta,
+  .content-shell.content-shell--overview .content-meta,
+  .content-meta.content-meta--lecture,
+  .content-meta.content-meta--tutorial,
+  .content-meta.content-meta--overview {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    font-size: clamp(1.3rem, 5.8vw, 1.7rem);
   }
 
   .module-header p {
@@ -1571,6 +1583,17 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p {
 
   .content-area {
     padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-shell.content-shell--lecture .content-meta,
+  .content-shell.content-shell--tutorial .content-meta,
+  .content-shell.content-shell--overview .content-meta,
+  .content-meta.content-meta--lecture,
+  .content-meta.content-meta--tutorial,
+  .content-meta.content-meta--overview {
+    font-size: clamp(1.1rem, 5.2vw, 1.4rem);
   }
 }
 
