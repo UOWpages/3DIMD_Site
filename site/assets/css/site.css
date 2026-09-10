@@ -1455,6 +1455,22 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p {
     padding: 0.5rem 0.7rem;
   }
 
+  .content-page-area h2 {
+    font-size: 0.95rem;
+  }
+
+  .content-page-area h3,
+  .content-page-area h4 {
+    font-size: 0.9rem;
+  }
+
+  .content-page-area p,
+  .content-page-area li,
+  .content-page-area a,
+  .content-page-area strong {
+    font-size: 0.92rem;
+  }
+
   .site-shell {
     grid-template-rows: auto minmax(0, 1fr);
     grid-template-columns: 1fr;
@@ -1584,6 +1600,22 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p {
   .content-area {
     padding: 1rem;
   }
+
+  .content-page-area h2 {
+    font-size: 0.9rem;
+  }
+
+  .content-page-area h3,
+  .content-page-area h4 {
+    font-size: 0.86rem;
+  }
+
+  .content-page-area p,
+  .content-page-area li,
+  .content-page-area a,
+  .content-page-area strong {
+    font-size: 0.84rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1701,5 +1733,41 @@ body.lecture-fullbleed .slide-content .schedule-deadline {
   font-size: 1.1rem;
   padding: 0.45rem 0.65rem;
   margin-top: 0.4rem;
+}
+
+@media (max-width: 1200px) {
+  body.overview-page .accordion-body h3,
+  .content-shell--overview iframe.content-frame .accordion-body h3 {
+    font-size: 1.2rem;
+  }
+
+  body.overview-page .accordion-body p,
+  body.overview-page .accordion-body li,
+  body.overview-page .accordion-body a,
+  body.overview-page .accordion-body strong,
+  .content-shell--overview iframe.content-frame .accordion-body p,
+  .content-shell--overview iframe.content-frame .accordion-body li,
+  .content-shell--overview iframe.content-frame .accordion-body a,
+  .content-shell--overview iframe.content-frame .accordion-body strong {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 680px) {
+  body.overview-page .accordion-body h3,
+  .content-shell--overview iframe.content-frame .accordion-body h3 {
+    font-size: 1rem;
+  }
+
+  body.overview-page .accordion-body p,
+  body.overview-page .accordion-body li,
+  body.overview-page .accordion-body a,
+  body.overview-page .accordion-body strong,
+  .content-shell--overview iframe.content-frame .accordion-body p,
+  .content-shell--overview iframe.content-frame .accordion-body li,
+  .content-shell--overview iframe.content-frame .accordion-body a,
+  .content-shell--overview iframe.content-frame .accordion-body strong {
+    font-size: 0.9rem;
+  }
 }
 
