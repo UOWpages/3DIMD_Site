@@ -1412,6 +1412,49 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p {
     font-size: clamp(1.35rem, 4.8vw, 2.6rem);
   }
 
+  .content-shell.content-shell--lecture .content-meta,
+  .content-shell.content-shell--tutorial .content-meta,
+  .content-shell.content-shell--overview .content-meta,
+  .content-meta.content-meta--lecture,
+  .content-meta.content-meta--tutorial,
+  .content-meta.content-meta--overview {
+    font-size: clamp(1.2rem, 2.1vw, 2rem);
+    line-height: 1.08;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    min-height: 2.7rem;
+  }
+
+  .content-meta.content-meta--compact,
+  .content-meta.content-meta--compact-tight {
+    white-space: nowrap;
+  }
+
+  .content-meta.content-meta--compact {
+    font-size: clamp(1.05rem, 1.65vw, 1.65rem);
+  }
+
+  .content-meta.content-meta--compact-tight {
+    font-size: clamp(0.95rem, 1.35vw, 1.4rem);
+  }
+
+  .accordion > summary,
+  .accordion--nested > summary,
+  .video-accordion > summary {
+    padding: 0.38rem 0.75rem;
+    font-size: clamp(0.95rem, 1.4vw + 0.35rem, 1.2rem);
+    line-height: 1.2;
+    min-height: 1.95rem;
+  }
+
+  .accordion {
+    margin-bottom: 0.5rem;
+  }
+
+  .accordion-body {
+    padding: 0.5rem 0.7rem;
+  }
+
   .site-shell {
     grid-template-rows: auto minmax(0, 1fr);
     grid-template-columns: 1fr;

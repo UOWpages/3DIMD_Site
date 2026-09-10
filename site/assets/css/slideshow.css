@@ -72,6 +72,16 @@
   flex-shrink: 0;
 }
 
+@media (max-width: 1200px) {
+  .slide-title {
+    font-size: clamp(1.7rem, 2.7vw, 2.4rem);
+    min-height: 3.25rem;
+    padding: 1.1rem 0.9rem 0.55rem;
+    margin-left: calc(var(--space-5) * -0.9);
+    margin-right: calc(var(--space-5) * -0.9);
+  }
+}
+
 .slide h1 {
   font-family: "Archivo Black", "Space Grotesk", sans-serif;
   text-transform: uppercase;

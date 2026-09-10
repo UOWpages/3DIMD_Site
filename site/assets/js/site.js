@@ -510,8 +510,30 @@
   const setMeta = (label) => {
     if (meta) {
       meta.textContent = label;
+      fitContentMeta();
     }
   };
+
+  const fitContentMeta = () => {
+    if (!meta) return;
+
+    meta.classList.remove("content-meta--compact", "content-meta--compact-tight");
+    if (window.innerWidth > 1200) {
+      meta.style.whiteSpace = "";
+      return;
+    }
+
+    meta.style.whiteSpace = "nowrap";
+    if (meta.scrollWidth > meta.clientWidth) {
+      meta.classList.add("content-meta--compact");
+      if (meta.scrollWidth > meta.clientWidth) {
+        meta.classList.add("content-meta--compact-tight");
+      }
+    }
+    meta.style.whiteSpace = "";
+  };
+
+  window.addEventListener("resize", fitContentMeta);
 
   const renderLectureMeta = () => {
     if (!meta || !isLecturePageKey(currentPageKey)) return;
@@ -531,6 +553,7 @@
     suffix.className = "content-meta-slide";
     suffix.textContent = slideTitle;
     meta.append(spacer, suffix);
+    fitContentMeta();
   };
 
   const setLectureMeta = (slideTitle) => {
@@ -582,6 +605,7 @@
     suffix.className = "content-meta-slide";
     suffix.textContent = tutorialTitle;
     meta.append(spacer, suffix);
+    fitContentMeta();
   };
 
   const setTutorialMeta = (tutorialTitle) => {
