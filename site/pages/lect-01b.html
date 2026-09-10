@@ -236,12 +236,14 @@
       <details class="accordion" open>
         <summary>Creating Project</summary>
         <div class="accordion-body">
-          <h3>Creating Project:</h3>
-          <p>You are prompted to create 2D or 3D</p>
-          <p>3D Contains 2D elements as well - images, textures, sprites</p>
-          <p>You can swap at any time</p>
-          <p>For 2.5D, select 3D and set camera and scene view to orthographic</p>
-          <p>There is Physics and Physics 2D settings you can adjust in edit/preferences</p>
+          <div class="h3-detail">
+            <h3>Creating Project:</h3>
+            <p>You are prompted to create 2D or 3D</p>
+            <p>3D Contains 2D elements as well - images, textures, sprites</p>
+            <p>You can swap at any time</p>
+            <p>For 2.5D, select 3D and set camera and scene view to orthographic</p>
+            <p>There is Physics and Physics 2D settings you can adjust in edit/preferences</p>
+          </div>
         </div>
       </details>
       <details class="accordion">
@@ -286,12 +288,16 @@
         <summary>Top Menu (Functions and Tools)</summary>
         <div class="accordion-body">
           <p>Edit - These are a very basic set of functions and preferences</p>
-          <h3>Preferences/External Tools:</h3>
-          <p>IDE (Integrated Development Environment)- You can change IDE from Monodevelop to Visual Studio or VS Code in Preferences/External Tools. We will use Visual Studio.</p>
-          <p>Image Editing Program Options - Open by Individual File</p>
-          <p>Android SDK - Also has the android SDK link to set up if you have that installed.</p>
-          <h3>Version Control:</h3>
-          <p>Visual Studio and Github Web - This is seamless and straightforward for linking with Unity. You will have to setup Github accounts, and it may be a good idea to have a Group github account that all have a password for. From anywhere you work you can pull down projects, work on them, and push changes back up to the account as separate commits.</p>
+          <div class="h3-detail">
+            <h3>Preferences/External Tools:</h3>
+            <p>IDE (Integrated Development Environment)- You can change IDE from Monodevelop to Visual Studio or VS Code in Preferences/External Tools. We will use Visual Studio.</p>
+            <p>Image Editing Program Options - Open by Individual File</p>
+            <p>Android SDK - Also has the android SDK link to set up if you have that installed.</p>
+          </div>
+          <div class="h3-detail">
+            <h3>Version Control:</h3>
+            <p>Visual Studio and Github Web - This is seamless and straightforward for linking with Unity. You will have to setup Github accounts, and it may be a good idea to have a Group github account that all have a password for. From anywhere you work you can pull down projects, work on them, and push changes back up to the account as separate commits.</p>
+          </div>
         </div>
       </details>
       <details class="accordion">
@@ -343,16 +349,18 @@
       <details class="accordion">
         <summary>GameObjects and Components</summary>
         <div class="accordion-body">
-          <h3>GameObjects and Components:</h3>
-          <p>Base GameObject has name, tag, layer, and transform component</p>
-          <p>Scripts Are Components and define the empty GameObject</p>
-          <p>GameObjects and Components(Scripts) are Initialised and run when play is pressed</p>
-          <p>Scripts must be attached to a GameObject in order for scripts to run (more later).</p>
-          <p>Scripts can be attached to an Empty gameObject.</p>
-          <p>All GameObjects Components and Scripts in scene(s) in build</p>
-          <p>Are available to run if accessed and visible.</p>
-          <p>GameObjects will have variable and references that can be modified.</p>
-          <p>References can be to any Components, GameObjects, or Assets.</p>
+          <div class="h3-detail">
+            <h3>GameObjects and Components:</h3>
+            <p>Base GameObject has name, tag, layer, and transform component</p>
+            <p>Scripts Are Components and define the empty GameObject</p>
+            <p>GameObjects and Components(Scripts) are Initialised and run when play is pressed</p>
+            <p>Scripts must be attached to a GameObject in order for scripts to run (more later).</p>
+            <p>Scripts can be attached to an Empty gameObject.</p>
+            <p>All GameObjects Components and Scripts in scene(s) in build</p>
+            <p>Are available to run if accessed and visible.</p>
+            <p>GameObjects will have variable and references that can be modified.</p>
+            <p>References can be to any Components, GameObjects, or Assets.</p>
+          </div>
         </div>
       </details>
       <details class="accordion">
@@ -406,16 +414,18 @@
       <details class="accordion">
         <summary>Default and Added Components</summary>
         <div class="accordion-body">
-          <h3>Some default and possible library/added components include:</h3>
-          <p>Name</p>
-          <p>Visibility - Turns object on and off. Simple.</p>
-          <p>Static - Game information Precomputed for non moving object</p>
-          <p>Tag - Allows naming for scripts to access (Collisions)</p>
-          <p>Layer - Cameras, Lights, can render certain layers, Raycasting can ignore</p>
-          <p>(Camera Culling Mask, Raycast Layermask)</p>
-          <p>Transform - translation, rotation, scaling</p>
-          <p>Mesh - has rendering options, materials</p>
-          <p>Collider</p>
+          <div class="h3-detail">
+            <h3>Some default and possible library/added components include:</h3>
+            <p>Name</p>
+            <p>Visibility - Turns object on and off. Simple.</p>
+            <p>Static - Game information Precomputed for non moving object</p>
+            <p>Tag - Allows naming for scripts to access (Collisions)</p>
+            <p>Layer - Cameras, Lights, can render certain layers, Raycasting can ignore</p>
+            <p>(Camera Culling Mask, Raycast Layermask)</p>
+            <p>Transform - translation, rotation, scaling</p>
+            <p>Mesh - has rendering options, materials</p>
+            <p>Collider</p>
+          </div>
         </div>
       </details>
     </div>
@@ -456,9 +466,11 @@
         <summary>Namespaces</summary>
         <div class="accordion-body">
           <p>Libraries of Classes provided by Unity, third parties, or yourself.</p>
-          <h3>Typical:</h3>
-          <p>using UnityEngine;</p>
-          <p>using System.Collections;</p>
+          <div class="h3-detail">
+            <h3>Typical:</h3>
+            <p>using UnityEngine;</p>
+            <p>using System.Collections;</p>
+          </div>
         </div>
       </details>
     </div>
@@ -593,8 +605,10 @@
       <details class="accordion">
         <summary>Prefab Example</summary>
         <div class="accordion-body">
-          <h3>A robot exploding to many pieces:</h3>
-          <p>The complete, operational robot is destroyed and replaced with a wrecked robot Prefab. This Prefab would consist of the robot split into many parts, all set up with Rigidbodies and Particle Systems of their own. This technique allows you to blow up a robot into many pieces, with just one line of code, replacing one object with a Prefab.</p>
+          <div class="h3-detail">
+            <h3>A robot exploding to many pieces:</h3>
+            <p>The complete, operational robot is destroyed and replaced with a wrecked robot Prefab. This Prefab would consist of the robot split into many parts, all set up with Rigidbodies and Particle Systems of their own. This technique allows you to blow up a robot into many pieces, with just one line of code, replacing one object with a Prefab.</p>
+          </div>
         </div>
       </details>
     </div>
@@ -686,8 +700,10 @@
         <summary>Basic Skybox</summary>
         <div class="accordion-body">
           <p class="section-label">PBR GI</p>
-          <h3>Basic Skybox:</h3>
-          <p>To be covered in depth later</p>
+          <div class="h3-detail">
+            <h3>Basic Skybox:</h3>
+            <p>To be covered in depth later</p>
+          </div>
         </div>
       </details>
       <details class="accordion">
@@ -731,13 +747,17 @@
         <summary>Working in Unity (Toolbar)</summary>
         <div class="accordion-body">
           <p>Basic Controls</p>
-          <h3>Scene Window:</h3>
-          <p>Toolbar top left has pan, translate, scale, box transform</p>
-          <h3>Transform Gizmos:</h3>
-          <p>Pivot or centre</p>
-          <p>Local or Global</p>
-          <p>Unity overlays a global coordinate system that may have a different location pivot to the objects own</p>
-          <p>(we covered this last week with pivots)</p>
+          <div class="h3-detail">
+            <h3>Scene Window:</h3>
+            <p>Toolbar top left has pan, translate, scale, box transform</p>
+          </div>
+          <div class="h3-detail">
+            <h3>Transform Gizmos:</h3>
+            <p>Pivot or centre</p>
+            <p>Local or Global</p>
+            <p>Unity overlays a global coordinate system that may have a different location pivot to the objects own</p>
+            <p>(we covered this last week with pivots)</p>
+          </div>
         </div>
       </details>
       <details class="accordion">
@@ -802,13 +822,19 @@
       <details class="accordion">
         <summary>Unity (C#) Dependencies, NameSpaces, Start and Update Functions</summary>
         <div class="accordion-body">
-          <h3>Dependencies</h3>
-          <p>Using UnityEngine: lets MainCamera be initiated.</p>
-          <h3>Namespaces</h3>
-          <p>MonoBehaviour is a class in Namespace UnityEngine. Others are not Class Definitions.</p>
-          <h3>Start and Update Functions</h3>
-          <p>Void means it does not return a value.</p>
-          <p>Start initializes, Update refreshes.</p>
+          <div class="h3-detail">
+            <h3>Dependencies</h3>
+            <p>Using UnityEngine: lets MainCamera be initiated.</p>
+          </div>
+          <div class="h3-detail">
+            <h3>Namespaces</h3>
+            <p>MonoBehaviour is a class in Namespace UnityEngine. Others are not Class Definitions.</p>
+          </div>
+          <div class="h3-detail">
+            <h3>Start and Update Functions</h3>
+            <p>Void means it does not return a value.</p>
+            <p>Start initializes, Update refreshes.</p>
+          </div>
         </div>
       </details>
       <details class="accordion">

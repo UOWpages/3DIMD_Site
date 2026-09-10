@@ -633,6 +633,11 @@ body.content-page .page-title {
   margin: 0.2rem 0;
 }
 
+body.overview-page .accordion-body .h3-detail > p,
+body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p {
+  margin-left: 1.35rem;
+}
+
 .section-card {
   background: var(--surface);
   border: 3px solid var(--line);
