@@ -1735,6 +1735,22 @@ body.lecture-fullbleed .slide-content .schedule-deadline {
   margin-top: 0.4rem;
 }
 
+body.overview-page .content-page-area > .accordion > .accordion-body > .accordion--nested > .accordion-body {
+  background: #ffffff;
+  color: var(--ink);
+  border-top: 1px solid #d3dce4;
+  text-shadow: none;
+}
+
+body.overview-page .content-page-area > .accordion > .accordion-body > .accordion--nested > .accordion-body h3,
+body.overview-page .content-page-area > .accordion > .accordion-body > .accordion--nested > .accordion-body p,
+body.overview-page .content-page-area > .accordion > .accordion-body > .accordion--nested > .accordion-body li,
+body.overview-page .content-page-area > .accordion > .accordion-body > .accordion--nested > .accordion-body a,
+body.overview-page .content-page-area > .accordion > .accordion-body > .accordion--nested > .accordion-body strong {
+  color: inherit;
+  text-shadow: none;
+}
+
 @media (max-width: 1200px) {
   body.overview-page .accordion-body h3,
   .content-shell--overview iframe.content-frame .accordion-body h3 {

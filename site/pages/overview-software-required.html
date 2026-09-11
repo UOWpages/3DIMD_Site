@@ -32,11 +32,11 @@
                   />
                   <div class="software-required__image-row">
                     <img
-                      src="images/software-required_slide1_image1.png"
+                      src="images/lect-02a-3D-3DUI_slide4_image10.png"
                       alt="Software required example 1"
                     /><img
-                      src="images/software-required_slide1_image2.png"
-                      alt="Software required example 2"
+                      src="https://www.clipartmax.com/png/middle/347-3472687_blender-software-logo.png"
+                      alt="Blender logo"
                     /><img
                       src="images/software-required_slide1_image3.jpeg"
                       alt="Software required example 3"
@@ -432,6 +432,17 @@
         frame.appendChild(body);
         frame.appendChild(controls);
         slide.appendChild(frame);
+      }
+
+      const firstAccordionSummary = document.querySelector(
+        ".slide:first-child .accordion > summary",
+      );
+      if (firstAccordionSummary) {
+        firstAccordionSummary.addEventListener("click", (event) => {
+          event.preventDefault();
+          const details = firstAccordionSummary.parentElement;
+          details.open = !details.open;
+        });
       }
 
       function linkifyText(element) {
