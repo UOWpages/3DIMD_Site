@@ -519,9 +519,12 @@ body.content-page::after {
 }
 
 .tutorial-page-footer__logo {
-  height: 1.2rem;
+  height: auto;
+  max-height: 1.2rem;
   width: auto;
-  max-width: none;
+  max-width: min(40%, 345.6px);
+  aspect-ratio: 972 / 54;
+  object-fit: contain;
   border: none;
   border-radius: 0;
   box-shadow: none;
@@ -1615,6 +1618,13 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p {
   .content-page-area a,
   .content-page-area strong {
     font-size: 0.84rem;
+  }
+
+  .tutorial-page-footer {
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    min-height: 2.75rem;
+    flex-wrap: wrap;
   }
 }
 

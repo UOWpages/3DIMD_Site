@@ -1,5 +1,5 @@
 {
-  "git.enableSmartCommit": true,
+  "git.enableSmartCommit": "all",
   "git.suggestSmartCommit": false,
   "git.confirmSync": false
 }
