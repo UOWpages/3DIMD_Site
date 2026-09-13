@@ -284,7 +284,7 @@
 
       const logo = rootDocument.createElement("img");
       logo.className = "tutorial-page-footer__logo";
-      logo.src = "../images/UOW_Logo_Length_Alpha.png";
+      logo.src = "images/UOW_Logo_Length_Alpha.png";
       logo.alt = "University of Westminster";
 
       footer.append(logo);
