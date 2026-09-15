@@ -135,7 +135,7 @@
     "title": "3D Interactive Media Development",
     "section_title": "Unity UI Architecture",
     "content": [
-      "https://www.lynda.com/Unity-tutorials/Create-button-element/489008/519845-4.html\n\nText – most fundamental UI element \n\tdisplay game readouts, dialogue, instructions, menus\n\tWired up by dragging UI Text Element into exposed Public Var Box of Script\n\tUsed in conjunction with other element\n\tpre built into buttons as child\nCreating UI text creates Canvas Parent\n\tZero out, adjustments\n\tModify at runtime with scripts\nText Readout Tutorial\nhttp://www.noorcon.com/articles/Unity3D_Game_Programming_Part_4.html"
+      "https://www.lynda.com/Unity-tutorials/Create-button-element/489008/519845-4.html\n\nText – most fundamental UI element \n\tdisplay game readouts, dialogue, instructions, menus\n\tWired up by dragging UI Text Element into exposed Public Var Box of Script\n\tUsed in conjunction with other element\n\tpre built into buttons as child\nCreating UI text creates Canvas Parent\n\tZero out, adjustments\n\tModify at runtime with scripts\nText Readout Tutorial\nhttps://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDlfyn-TwZlSrtdyrZwVWk6AaUZfBaI8mAqxAwrV2yWUY0?e=U3fnnE"
     ],
     "images": []
   },
@@ -153,7 +153,7 @@
     "title": "3D Interactive Media Development",
     "section_title": "Unity UI Architecture",
     "content": [
-      "http://www.noorcon.com/articles/Unity3D_Game_Programming_Part_4.html\n\nBasics:\n\nHUD Text Readout from Script Public Variable\nhttp://www.noorcon.com/articles/Unity3D_Game_Programming_Part_4.html\n\nButton OnClick Event Handling (Associated Functions must be public and void)\nhttp://www.noorcon.com/articles/Unity3D_Game_Programming_Part_4.html\n\nButton Runtime text feedback\nhttps://www.lynda.com/Unity-tutorials/Create-button-element/489008/519845-4.html"
+      "https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDlfyn-TwZlSrtdyrZwVWk6AaUZfBaI8mAqxAwrV2yWUY0?e=U3fnnE\n\nBasics:\n\nHUD Text Readout from Script Public Variable\nhttps://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDlfyn-TwZlSrtdyrZwVWk6AaUZfBaI8mAqxAwrV2yWUY0?e=U3fnnE\n\nButton OnClick Event Handling (Associated Functions must be public and void)\nhttps://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDlfyn-TwZlSrtdyrZwVWk6AaUZfBaI8mAqxAwrV2yWUY0?e=U3fnnE\n\nButton Runtime text feedback\nhttps://www.lynda.com/Unity-tutorials/Create-button-element/489008/519845-4.html"
     ],
     "images": []
   },
@@ -238,7 +238,7 @@
     "title": "3D Interactive Media Development",
     "section_title": "Unity UI HUD Various (Games)",
     "content": [
-      "\nReadouts\nhttp://www.noorcon.com/articles/Unity3D_Game_Programming_Part_4.html\nHealth Bar\nhttp://www.noorcon.com/articles/Unity3D_Game_Programming_Part_9.html\nhttps://www.packtpub.com/mapt/book/Game%20Development/9781785885822/2/ch02lvl1sec23/Implementing+a+linear+health+bar\nTimer\nhttp://www.noorcon.com/articles/Unity3D_Game_Programming_Part_6.html\nhttps://www.packtpub.com/mapt/book/Game%20Development/9781785885822/3/ch03lvl1sec29/Implementing+a+numeric+timer\nCollection Bar\nhttp://www.noorcon.com/articles/Unity3D_Game_Programming_Part_6.html\nScore/Info\nhttp://www.noorcon.com/articles/Unity3D_Game_Programming_Part_6.html\nhttps://www.packtpub.com/mapt/book/Game%20Development/9781785885822/2/ch02lvl1sec19/Implementing+a+score+counter"
+      "\nReadouts\nhttps://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDlfyn-TwZlSrtdyrZwVWk6AaUZfBaI8mAqxAwrV2yWUY0?e=U3fnnE\nHealth Bar\nhttps://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDyd8ffCVnBRZq2D95pOVReAVhNyLORYnrS7k9CuQzQYW8?e=xAjlzV\nhttps://www.packtpub.com/mapt/book/Game%20Development/9781785885822/2/ch02lvl1sec23/Implementing+a+linear+health+bar\nTimer\nhttps://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDL7ziFEPxRRbOrjE77YOwsAYFjqNQw-kV8MTRphxhgToA?e=CD36XT\nhttps://www.packtpub.com/mapt/book/Game%20Development/9781785885822/3/ch03lvl1sec29/Implementing+a+numeric+timer\nCollection Bar\nhttps://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDL7ziFEPxRRbOrjE77YOwsAYFjqNQw-kV8MTRphxhgToA?e=CD36XT\nScore/Info\nhttps://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDL7ziFEPxRRbOrjE77YOwsAYFjqNQw-kV8MTRphxhgToA?e=CD36XT\nhttps://www.packtpub.com/mapt/book/Game%20Development/9781785885822/2/ch02lvl1sec19/Implementing+a+score+counter"
     ],
     "images": []
   },
