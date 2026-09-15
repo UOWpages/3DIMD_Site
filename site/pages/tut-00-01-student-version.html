@@ -772,29 +772,27 @@
         </section>
 
         <h2>1. Install the New Input System</h2>
-
+        <ol>
         <ol>
           <li>Open your existing 3DIMD Unity project.</li>
-          <li>
-            Open:
+          <li>Open:
             <ol>
               <li><strong>Window &gt; Package Manager</strong></li>
             </ol>
           </li>
-          <li>
-            In Package Manager, select:
+          <li>In Package Manager, select:
             <ol>
               <li><strong>Unity Registry</strong></li>
             </ol>
           </li>
-          <li>
-            Search for:
+          <li>Search for:
             <ol>
               <li><strong>Input System</strong></li>
             </ol>
           </li>
           <li>Select the Unity <strong>Input System</strong> package.</li>
           <li>Click <strong>Install</strong> if it is not already installed.</li>
+        </ol>
         </ol>
 
         <p>
@@ -807,7 +805,7 @@
         </p>
 
         <h2>2. Enable both input systems</h2>
-
+        <ol>
         <ol>
           <li>
             Enable both input systems.
@@ -821,6 +819,7 @@
               <li> Set it to: Both </li>
             </ol>
           </li>
+        </ol>
         </ol>
 
         <p>
@@ -850,12 +849,11 @@
           The original tutorial already contains a Logo Screen interaction in which the
           Space key hides/shows the logo screen.
         </p>
-
         <p>
           Rather than replacing the original script, make a duplicate so that you can
           compare the two systems.
         </p>
-
+        <ol>
         <ol>
           <li>Find the existing <code>logoScreen.cs</code> script.</li>
           <li>Duplicate it.</li>
@@ -868,7 +866,7 @@
           <li>Open the duplicate in Visual Studio.</li>
           <li>Change the class name to match the new filename.</li>
         </ol>
-
+        </ol>
         <p>
           The important distinction is:
         </p>
@@ -1096,7 +1094,7 @@
         </p>
 
         <h2>7. Test the Logo Screen</h2>
-
+        <ol>
         <ol>
           <li>Save the script.</li>
           <li>Return to Unity.</li>
@@ -1105,7 +1103,7 @@
           <li>Enter Play Mode.</li>
           <li>Press <strong>Space</strong>.</li>
         </ol>
-
+        </ol>
         <p>
           The Logo Screen should hide/show in exactly the same way as the original
           tutorial.
@@ -1184,14 +1182,14 @@
           These concepts do not need to change. We are only changing the way the script
           reads the keyboard.
         </p>
-
+        <ol>
         <ol>
           <li>Duplicate <code>GalleryControl.cs</code>.</li>
           <li> Rename the duplicate:<code>GalleryControl_NIS.cs</code></li>
           <li>Change the class name to <code>GalleryControl_NIS</code>.</li>
           <li> Add:<code>using UnityEngine.InputSystem;</code></li>
         </ol>
-
+        </ol>
         <h2>10. New Input System - Arrow keys</h2>
 
         <p>
@@ -1401,7 +1399,7 @@
         </p>
 
         <h2>12. Test the Gallery</h2>
-
+        <ol>  
         <ol>
           <li>Disable the original <code>GalleryControl</code> component on your test Gallery object.</li>
           <li>Add <code>GalleryControl_NIS</code>.</li>
@@ -1411,7 +1409,7 @@
           <li>Press <strong>Left Arrow</strong>.</li>
           <li>Watch the Console for the current counter value.</li>
         </ol>
-
+        </ol>
         <p>
           The gallery should behave in the same way as the original version.
         </p>
@@ -1471,15 +1469,10 @@
           <div class="learning-concept-example__title">Learning Concept Example: KEYBOARD INPUT</div>
           <div class="learning-concept-example__body">
             <div class="learning-concept-example__line">KEYBOARD INPUT</div>
-            <div class="learning-concept-example__line indent-level-1">-</div>
             <div class="learning-concept-example__line indent-level-2">New Input System</div>
-            <div class="learning-concept-example__line indent-level-1">-</div>
             <div class="learning-concept-example__line indent-level-2">&quot;Right Arrow was pressed&quot;</div>
-            <div class="learning-concept-example__line indent-level-1">-</div>
             <div class="learning-concept-example__line indent-level-2">Gallery code</div>
-            <div class="learning-concept-example__line indent-level-1">-</div>
             <div class="learning-concept-example__line indent-level-2">counter changes</div>
-            <div class="learning-concept-example__line indent-level-1">-</div>
             <div class="learning-concept-example__line indent-level-2">GameObjects are displayed/hidden</div>
           </div>
         </section>
@@ -1583,11 +1576,8 @@
           <div class="learning-concept-example__title">Learning Concept Example: PHYSICAL DEVICE</div>
           <div class="learning-concept-example__body">
             <div class="learning-concept-example__line">PHYSICAL DEVICE</div>
-            <div class="learning-concept-example__line indent-level-1">-</div>
             <div class="learning-concept-example__line indent-level-2">KEYBOARD</div>
-            <div class="learning-concept-example__line indent-level-1">-</div>
             <div class="learning-concept-example__line indent-level-2">SPACE KEY</div>
-            <div class="learning-concept-example__line indent-level-1">-</div>
             <div class="learning-concept-example__line indent-level-2">wasPressedThisFrame</div>
           </div>
         </section>
@@ -1600,11 +1590,8 @@
           <div class="learning-concept-example__title">Learning Concept Example: PHYSICAL DEVICE</div>
           <div class="learning-concept-example__body">
             <div class="learning-concept-example__line">PHYSICAL DEVICE</div>
-            <div class="learning-concept-example__line indent-level-1">-</div>
             <div class="learning-concept-example__line indent-level-2">BINDING</div>
-            <div class="learning-concept-example__line indent-level-1">-</div>
             <div class="learning-concept-example__line indent-level-2">INPUT ACTION</div>
-            <div class="learning-concept-example__line indent-level-1">-</div>
             <div class="learning-concept-example__line indent-level-2">GAMEPLAY</div>
           </div>
         </section>
@@ -1669,38 +1656,56 @@
         </p>
 
         <h2>17. Troubleshooting</h2>
+        <ol>
+        <ol>
+          <li>Compiler error: Keyboard could not be found</li>
+          <li>Check that your script contains:</li>
+            <section class="code-panel code-panel--compact" data-code-type="code">
+              <div class="code-panel__chrome">
+                <div class="code-panel__dots">
+                  <span class="code-panel__dot"></span>
+                  <span class="code-panel__dot"></span>
+                  <span class="code-panel__dot"></span>
+                </div>
+                <div class="code-panel__title">Code Example</div>
+              </div>
+              <div class="code-panel__body" role="region" aria-label="Code Example">
+                <div class="code-panel__line code-panel__line--statement">using UnityEngine.InputSystem;</div>
+              </div>
+            </section>
+          <li>Also check that the Input System package is installed.</li>
+          <li><b>Input System code does not work</b></li>
+            <ol>
+              <li>Check: Edit/Project Settings/Player/Other Settings/Active Input Handling</li>
+              <li>Set this to <b>Both</b></li>
+            </ol>
+          <li>The old version and new version both respond</li>
+            <ol>
+              <li>This normally means both scripts are active on the same GameObject.</li>
+              <li>Disable the original script when testing the NIS version.</li>
+            </ol>
+          <li>Keyboard.current is null</li>
+          <ol>
+              <li>The example checks for this possibility:</li>
+                    <section class="code-panel code-panel--compact" data-code-type="code">
+                      <div class="code-panel__chrome">
+                        <div class="code-panel__dots">
+                          <span class="code-panel__dot"></span>
+                          <span class="code-panel__dot"></span>
+                          <span class="code-panel__dot"></span>
+                        </div>
+                        <div class="code-panel__title">Code Example</div>
+                      </div>
+                      <div class="code-panel__body" role="region" aria-label="Code Example">
+                        <div class="code-panel__line code-panel__line--statement">Keyboard.current != null</div>
+                      </div>
+                    </section>
+              <li>This prevents the script from trying to access a keyboard that is not currently available.</li>
+          </ol>
+        </ol>
+        </ol>
 
-        <h3>Compiler error: Keyboard could not be found</h3>
-
-        <p>
-          Check that your script contains:
-        </p>
-
-        <section class="code-panel code-panel--compact" data-code-type="code">
-          <div class="code-panel__chrome">
-            <div class="code-panel__dots">
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-            </div>
-            <div class="code-panel__title">Code Example</div>
-          </div>
-          <div class="code-panel__body" role="region" aria-label="Code Example">
-            <div class="code-panel__line code-panel__line--statement">using UnityEngine.InputSystem;</div>
-          </div>
-        </section>
-
-        <p>
-          Also check that the Input System package is installed.
-        </p>
-
-        <h3>Input System code does not work</h3>
-
-        <p>
-          Check:
-        </p>
-
-        <section class="learning-concept-example">
+        <!-- <section class="learning-concept-example">
           <div class="learning-concept-example__title">Learning Concept Example: Edit</div>
           <div class="learning-concept-example__body">
             <div class="learning-concept-example__line">Edit</div>
@@ -1709,9 +1714,9 @@
             <div class="learning-concept-example__line indent-level-1">&gt; Other Settings</div>
             <div class="learning-concept-example__line indent-level-1">&gt; Active Input Handling</div>
           </div>
-        </section>
+        </section> -->
 
-        <p>
+<!--         <p>
           Set this to:
         </p>
 
@@ -1727,57 +1732,20 @@
           <div class="code-panel__body" role="region" aria-label="Code Example">
             <div class="code-panel__line">Both</div>
           </div>
-        </section>
-
-        <h3>The old version and new version both respond</h3>
-
-        <p>
-          This normally means both scripts are active on the same GameObject.
-          Disable the original script when testing the NIS version.
-        </p>
-
-        <h3>Keyboard.current is null</h3>
-
-        <p>
-          The example checks for this possibility:
-        </p>
-
-        <section class="code-panel code-panel--compact" data-code-type="code">
-          <div class="code-panel__chrome">
-            <div class="code-panel__dots">
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-            </div>
-            <div class="code-panel__title">Code Example</div>
-          </div>
-          <div class="code-panel__body" role="region" aria-label="Code Example">
-            <div class="code-panel__line code-panel__line--statement">Keyboard.current != null</div>
-          </div>
-        </section>
-
-        <p>
-          This prevents the script from trying to access a keyboard that is not currently
-          available.
-        </p>
-
-        <h2>18. What you should understand before Tutorial 02/03</h2>
-
-        <p>
-          At the end of this stretch task you should understand that:
-        </p>
-
-        <ul>
-          <li>The New Input System is installed as a Unity package.</li>
-          <li>The old and new input systems can operate side by side.</li>
-          <li><code>UnityEngine.InputSystem</code> provides access to the New Input System.</li>
-          <li><code>Keyboard.current</code> provides access to the current keyboard.</li>
-          <li>Individual keys can be accessed such as <code>spaceKey</code>, <code>leftArrowKey</code> and <code>rightArrowKey</code>.</li>
-          <li><code>wasPressedThisFrame</code> detects a key press during the current frame.</li>
-          <li>The input system provides the input; your existing gameplay code performs the interaction.</li>
-          <li>You do not need an Input Actions asset to use the New Input System.</li>
-        </ul>
-
+        </section> -->
+      <section class="learning-concept-example">
+        <div class="learning-concept-example__title">18. What you should understand before Tutorial 02/03</div>
+        <div class="learning-concept-example__body">
+            <div class="learning-concept-example__line indent-level-1">The New Input System is installed as a Unity package.</div>
+            <div class="learning-concept-example__line indent-level-1">The old and new input systems can operate side by side.</div>
+            <div class="learning-concept-example__line indent-level-1"><code>UnityEngine.InputSystem</code> provides access to the New Input System.</div>
+            <div class="learning-concept-example__line indent-level-1" indent-level-1><code>Keyboard.current</code> provides access to the current keyboard.</div>
+            <div class="learning-concept-example__line indent-level-1">Individual keys can be accessed such as <code>spaceKey</code>, <code>leftArrowKey</code> and <code>rightArrowKey</code>.</div>
+            <div class="learning-concept-example__line indent-level-1"><code>wasPressedThisFrame</code> detects a key press during the current frame.</div>
+            <div class="learning-concept-example__line indent-level-1">The input system provides the input; your existing gameplay code performs the interaction.</div>
+            <div class="learning-concept-example__line indent-level-1">You do not need an Input Actions asset to use the New Input System.</div>
+        </div>
+      </section>
         <p>
           <strong>Next step:</strong> Tutorial 02/03 introduces Input Actions, where
           keyboard controls are separated from gameplay actions such as movement,
