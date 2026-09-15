@@ -659,10 +659,17 @@
    </details>
    <details class="accordion">
     <summary>
-     Stretch Tasks
+    Stretch Tasks: Debug Logs
     </summary>
     <div class="accordion-body media-stack">
-     <h3>Use Debug.log to make Console messages for variables</h3>
+     <h3>Stretch Task: Debug Logs</h3>
+      </div>
+     </details>
+     <details class="accordion">
+      <summary>
+    Stretch Task: Change Material with Keys
+      </summary>
+      <div class="accordion-body media-stack">
      <ol>
       <li>
        Change material rather than renderer with keys.
@@ -673,6 +680,740 @@
       </li>
      </ol>
     </div>
+   </details>
+   <details class="accordion">
+      <summary>
+       Stretch Task: New Input System, Key Access
+      </summary>
+      <div class="accordion-body media-stack">
+       <h2>Stretch Target: New Input System - Basic Keyboard Input</h2>
+
+       <p>
+      This is an optional extension to Tutorial 00/01. The main tutorial uses Unity's
+      older Input Manager. This stretch target introduces the <strong>New Input System (NIS)</strong>
+      in a very simple way, without using Input Actions yet.
+       </p>
+
+       <p>
+      You will install and enable the New Input System, then create duplicate versions
+      of the existing Logo Screen and Gallery control scripts. The duplicate scripts
+      will use the New Input System to read keyboard input while performing the same
+      interactions as the original tutorial.
+       </p>
+
+       <p>
+      <strong>Input Actions are deliberately NOT introduced here.</strong>
+      They will be introduced in Tutorial 02/03.
+       </p>
+
+       <h3>What you will learn</h3>
+
+       <ul>
+      <li>What the New Input System is.</li>
+      <li>How to install the Input System package.</li>
+      <li>How to enable the New Input System while keeping the old Input System available.</li>
+      <li>How to access a keyboard directly using <code>Keyboard.current</code>.</li>
+      <li>How to detect a key being pressed this frame using <code>wasPressedThisFrame</code>.</li>
+      <li>How the New Input System differs from <code>Input.GetKeyDown()</code>.</li>
+      <li>Why Input Actions will be useful later.</li>
+       </ul>
+
+       <h2>1. New Input System - What is it?</h2>
+
+       <p>
+      Unity has two input systems:
+       </p>
+
+       <ul>
+      <li><strong>Input Manager / Legacy Input System</strong> - the system used in the main Tutorial 00/01 exercises.</li>
+      <li><strong>Input System Package / New Input System</strong> - Unity's newer, more extensible input system.</li>
+       </ul>
+
+       <p>
+      The old system commonly uses code such as:
+       </p>
+
+       <pre><code>Input.GetKeyDown(KeyCode.Space)</code></pre>
+
+       <p>
+      The New Input System can access the keyboard directly:
+       </p>
+
+       <pre><code>Keyboard.current.spaceKey.wasPressedThisFrame</code></pre>
+
+       <p>
+      The New Input System can eventually provide a much more flexible way of
+      separating the physical device from the gameplay action. This will be covered
+      using <strong>Input Actions</strong> in Tutorial 02/03.
+       </p>
+
+       <p>
+      For this stretch target, we are deliberately using the simpler direct keyboard
+      approach first.
+       </p>
+
+       <h2>2. Install the New Input System</h2>
+
+       <ol>
+      <li>Open your existing 3DIMD Unity project.</li>
+      <li>
+       Open:
+       <br>
+       <strong>Window &gt; Package Manager</strong>
+      </li>
+      <li>
+       In Package Manager, select:
+       <br>
+       <strong>Unity Registry</strong>
+      </li>
+      <li>
+       Search for:
+       <br>
+       <strong>Input System</strong>
+      </li>
+      <li>Select the Unity <strong>Input System</strong> package.</li>
+      <li>Click <strong>Install</strong> if it is not already installed.</li>
+       </ol>
+
+       <p>
+      The Input System is a separate Unity package and must be installed before
+      using the <code>UnityEngine.InputSystem</code> namespace.
+       </p>
+
+       <p>
+      <strong>Do not create an Input Actions asset yet.</strong>
+       </p>
+
+       <h2>3. Enable both input systems</h2>
+
+       <p>
+      Because the original Tutorial 00/01 scripts use the old Input Manager, do not
+      switch the project completely to the New Input System at this stage.
+       </p>
+
+       <p>
+      Go to:
+       </p>
+
+       <pre><code>Edit &gt; Project Settings &gt; Player</code></pre>
+
+       <p>
+      Find:
+       </p>
+
+       <pre><code>Other Settings
+    &gt; Configuration
+      &gt; Active Input Handling</code></pre>
+
+       <p>
+      Set it to:
+       </p>
+
+       <pre><code>Both</code></pre>
+
+       <p>
+      This allows the old Input Manager and the New Input System to operate side by
+      side. This is useful while learning and migrating an existing project.
+       </p>
+
+       <p>
+      Unity provides three choices: <strong>Input Manager (Old)</strong>,
+      <strong>Input System Package (New)</strong>, and <strong>Both</strong>.
+      The Both option allows the two systems to operate side by side.
+       </p>
+
+       <p>
+      Unity may ask to restart the Editor after changing this setting. Allow Unity
+      to restart.
+       </p>
+
+       <p>
+      <strong>Important:</strong> Do not change the project to New only for this
+      exercise. The original Tutorial 00/01 scripts still use the old system.
+       </p>
+
+       <h2>4. Make a duplicate of the existing Logo Screen script</h2>
+
+       <p>
+      The original tutorial already contains a Logo Screen interaction in which the
+      Space key hides/shows the logo screen.
+       </p>
+
+       <p>
+      Rather than replacing the original script, make a duplicate so that you can
+      compare the two systems.
+       </p>
+
+       <ol>
+      <li>Find the existing <code>logoScreen.cs</code> script.</li>
+      <li>Duplicate it.</li>
+      <li>
+       Rename the duplicate:
+       <br>
+       <code>logoScreen_NIS.cs</code>
+      </li>
+      <li>Open the duplicate in Visual Studio.</li>
+      <li>Change the class name to match the new filename.</li>
+       </ol>
+
+       <p>
+      The important distinction is:
+       </p>
+
+       <pre><code>logoScreen.cs
+    = original / Legacy Input System
+
+  logoScreen_NIS.cs
+    = duplicate / New Input System</code></pre>
+
+       <p>
+      Do not leave both scripts controlling the same Logo Screen GameObject at the
+      same time.
+       </p>
+
+       <h2>5. Add the New Input System namespace</h2>
+
+       <p>
+      At the top of <code>logoScreen_NIS.cs</code>, add:
+       </p>
+
+       <pre><code>using UnityEngine.InputSystem;</code></pre>
+
+       <p>
+      Your imports should now include:
+       </p>
+
+       <pre><code>using System.Collections;
+  using System.Collections.Generic;
+  using UnityEngine;
+  using UnityEngine.InputSystem;</code></pre>
+
+       <p>
+      The important addition is:
+       </p>
+
+       <pre><code>using UnityEngine.InputSystem;</code></pre>
+
+       <p>
+      This gives the script access to the New Input System classes, including
+      <code>Keyboard</code>.
+       </p>
+
+       <h2>6. New Input System - detect the Space key</h2>
+
+       <p>
+      The old system might use:
+       </p>
+
+       <pre><code>Input.GetKeyDown(KeyCode.Space)</code></pre>
+
+       <p>
+      The equivalent direct New Input System approach is:
+       </p>
+
+       <pre><code>Keyboard.current.spaceKey.wasPressedThisFrame</code></pre>
+
+       <p>
+      Read this as:
+       </p>
+
+       <pre><code>Keyboard
+    .current
+      .spaceKey
+        .wasPressedThisFrame</code></pre>
+
+       <ul>
+      <li><code>Keyboard</code> = the keyboard device.</li>
+      <li><code>current</code> = the currently connected keyboard.</li>
+      <li><code>spaceKey</code> = the Space key.</li>
+      <li><code>wasPressedThisFrame</code> = true for the frame in which the key was pressed.</li>
+       </ul>
+
+       <p>
+      This is conceptually similar to the old <code>Input.GetKeyDown()</code>.
+      Unity's Input System migration documentation maps <code>Input.GetKeyDown()</code>
+      to <code>ButtonControl.wasPressedThisFrame</code>.
+       </p>
+
+       <h2>7. Complete Logo Screen NIS example</h2>
+
+       <p>
+      Replace the input section of your duplicated script with the New Input System
+      version.
+       </p>
+
+       <pre><code>using System.Collections;
+  using System.Collections.Generic;
+  using UnityEngine;
+  using UnityEngine.InputSystem;
+
+  public class logoScreen_NIS : MonoBehaviour
+  {
+    private Renderer logoRenderer;
+
+    void Start()
+    {
+      logoRenderer = GetComponent&lt;Renderer&gt;();
+    }
+
+    void Update()
+    {
+      if (Keyboard.current != null &amp;&amp;
+        Keyboard.current.spaceKey.wasPressedThisFrame)
+      {
+        logoRenderer.enabled = !logoRenderer.enabled;
+      }
+    }
+  }</code></pre>
+
+       <p>
+      The important New Input System code is:
+       </p>
+
+       <pre><code>if (Keyboard.current != null &amp;&amp;
+    Keyboard.current.spaceKey.wasPressedThisFrame)
+  {
+    logoRenderer.enabled = !logoRenderer.enabled;
+  }</code></pre>
+
+       <p>
+      The rest of the script is ordinary Unity/C# code. The New Input System is
+      simply providing the keyboard input.
+       </p>
+
+       <h2>8. Test the Logo Screen</h2>
+
+       <ol>
+      <li>Save the script.</li>
+      <li>Return to Unity.</li>
+      <li>Remove or disable the original <code>logoScreen</code> component from the test copy of the Logo Screen.</li>
+      <li>Add <code>logoScreen_NIS</code> to the duplicate/test Logo Screen object.</li>
+      <li>Enter Play Mode.</li>
+      <li>Press <strong>Space</strong>.</li>
+       </ol>
+
+       <p>
+      The Logo Screen should hide/show in exactly the same way as the original
+      tutorial.
+       </p>
+
+       <p>
+      You have now implemented your first New Input System keyboard interaction
+      <strong>without using an Input Action</strong>.
+       </p>
+
+       <h2>9. Compare the two versions</h2>
+
+       <p><strong>Legacy Input System:</strong></p>
+
+       <pre><code>if (Input.GetKeyDown(KeyCode.Space))
+  {
+    // interaction
+  }</code></pre>
+
+       <p><strong>New Input System:</strong></p>
+
+       <pre><code>if (Keyboard.current.spaceKey.wasPressedThisFrame)
+  {
+    // interaction
+  }</code></pre>
+
+       <p>
+      Both scripts perform the same job.
+      The difference is where the input information comes from.
+       </p>
+
+       <h2>10. Duplicate the Gallery Control script</h2>
+
+       <p>
+      The original Gallery Control exercise uses the Left and Right Arrow keys to
+      cycle through an array of GameObjects.
+       </p>
+
+       <p>
+      The existing tutorial uses keyboard input to:
+       </p>
+
+       <ul>
+      <li>Increase the array counter with the Right Arrow.</li>
+      <li>Decrease the array counter with the Left Arrow.</li>
+      <li>Cycle back to the beginning/end of the array.</li>
+      <li>Display the selected GameObject.</li>
+      <li>Hide the other GameObjects.</li>
+       </ul>
+
+       <p>
+      These concepts do not need to change. We are only changing the way the script
+      reads the keyboard.
+       </p>
+
+       <ol>
+      <li>Duplicate <code>GalleryControl.cs</code>.</li>
+      <li>
+       Rename the duplicate:
+       <br>
+       <code>GalleryControl_NIS.cs</code>
+      </li>
+      <li>Change the class name to <code>GalleryControl_NIS</code>.</li>
+      <li>
+       Add:
+       <br>
+       <code>using UnityEngine.InputSystem;</code>
+      </li>
+       </ol>
+
+       <h2>11. New Input System - Arrow keys</h2>
+
+       <p>
+      The New Input System provides direct access to the individual arrow keys:
+       </p>
+
+       <pre><code>Keyboard.current.rightArrowKey.wasPressedThisFrame
+
+  Keyboard.current.leftArrowKey.wasPressedThisFrame</code></pre>
+
+       <p>
+      So the old:
+       </p>
+
+       <pre><code>Input.GetKeyDown(KeyCode.RightArrow)</code></pre>
+
+       <p>
+      becomes:
+       </p>
+
+       <pre><code>Keyboard.current.rightArrowKey.wasPressedThisFrame</code></pre>
+
+       <p>
+      And:
+       </p>
+
+       <pre><code>Input.GetKeyDown(KeyCode.LeftArrow)</code></pre>
+
+       <p>
+      becomes:
+       </p>
+
+       <pre><code>Keyboard.current.leftArrowKey.wasPressedThisFrame</code></pre>
+
+       <h2>12. Complete Gallery Control NIS example</h2>
+
+       <p>
+      The following is a basic New Input System version of the existing Gallery
+      Control exercise.
+       </p>
+
+       <pre><code>using System.Collections;
+  using System.Collections.Generic;
+  using UnityEngine;
+  using UnityEngine.InputSystem;
+
+  public class GalleryControl_NIS : MonoBehaviour
+  {
+    public GameObject[] galleryObjects;
+
+    public int counter = 0;
+
+    void Start()
+    {
+      for (int i = 0; i &lt; galleryObjects.Length; i++)
+      {
+        galleryObjects[i].SetActive(i == counter);
+      }
+    }
+
+    void Update()
+    {
+      if (Keyboard.current != null &amp;&amp;
+        Keyboard.current.rightArrowKey.wasPressedThisFrame)
+      {
+        counter++;
+
+        if (counter &gt;= galleryObjects.Length)
+        {
+          counter = 0;
+        }
+      }
+
+      if (Keyboard.current != null &amp;&amp;
+        Keyboard.current.leftArrowKey.wasPressedThisFrame)
+      {
+        counter--;
+
+        if (counter &lt; 0)
+        {
+          counter = galleryObjects.Length - 1;
+        }
+      }
+
+      Debug.Log("Current gallery object: " + counter);
+
+      for (int i = 0; i &lt; galleryObjects.Length; i++)
+      {
+        galleryObjects[i].SetActive(i == counter);
+      }
+    }
+  }</code></pre>
+
+       <p>
+      The important new code is only the keyboard checks:
+       </p>
+
+       <pre><code>Keyboard.current.rightArrowKey.wasPressedThisFrame</code></pre>
+
+       <p>and:</p>
+
+       <pre><code>Keyboard.current.leftArrowKey.wasPressedThisFrame</code></pre>
+
+       <p>
+      The array, counter, loop and <code>SetActive()</code> concepts are unchanged.
+       </p>
+
+       <h2>13. Test the Gallery</h2>
+
+       <ol>
+      <li>Disable the original <code>GalleryControl</code> component on your test Gallery object.</li>
+      <li>Add <code>GalleryControl_NIS</code>.</li>
+      <li>Populate the <code>Gallery Objects</code> array in the Inspector exactly as in the original tutorial.</li>
+      <li>Enter Play Mode.</li>
+      <li>Press <strong>Right Arrow</strong>.</li>
+      <li>Press <strong>Left Arrow</strong>.</li>
+      <li>Watch the Console for the current counter value.</li>
+       </ol>
+
+       <p>
+      The gallery should behave in the same way as the original version.
+       </p>
+
+       <h2>14. What has actually changed?</h2>
+
+       <p>
+      Very little of the gameplay code has changed.
+       </p>
+
+       <p>
+      The original system:
+       </p>
+
+       <pre><code>Input.GetKeyDown(KeyCode.RightArrow)</code></pre>
+
+       <p>
+      has been replaced with:
+       </p>
+
+       <pre><code>Keyboard.current.rightArrowKey.wasPressedThisFrame</code></pre>
+
+       <p>
+      The array and GameObject code remains the same.
+       </p>
+
+       <p>
+      This is an important programming concept:
+      <strong>input detection and the interaction caused by the input are separate concerns.</strong>
+       </p>
+
+       <pre><code>KEYBOARD INPUT
+      -
+  New Input System
+      -
+  "Right Arrow was pressed"
+      -
+  Gallery code
+      -
+  counter changes
+      -
+  GameObjects are displayed/hidden</code></pre>
+
+       <h2>15. Why are we NOT using Input Actions yet?</h2>
+
+       <p>
+      The New Input System has several levels of use.
+      For this stretch target we are starting with the simplest:
+       </p>
+
+       <pre><code>Keyboard.current</code></pre>
+
+       <p>
+      This directly accesses a physical input device.
+       </p>
+
+       <p>
+      Later, Input Actions allow us to create a logical action such as:
+       </p>
+
+       <pre><code>Move
+  Look
+  Jump
+  Fire
+  Next
+  Previous</code></pre>
+
+       <p>
+      and then decide which physical controls perform that action.
+       </p>
+
+       <p>
+      For example, later we could define:
+       </p>
+
+       <pre><code>Move
+    W
+    A
+    S
+    D
+    Arrow Keys
+    Gamepad Stick</code></pre>
+
+       <p>
+      The gameplay script can then ask for the value of <code>Move</code> without
+      needing to know which physical device generated it.
+       </p>
+
+       <p>
+      <strong>Input Actions are introduced in Tutorial 02/03.</strong>
+       </p>
+
+       <h2>16. Key concept - device versus action</h2>
+
+       <p>
+      At this stage you are accessing the device directly:
+       </p>
+
+       <pre><code>Keyboard.current.spaceKey</code></pre>
+
+       <p>
+      Think of this as:
+       </p>
+
+       <pre><code>PHYSICAL DEVICE
+      -
+     KEYBOARD
+      -
+     SPACE KEY
+      -
+  wasPressedThisFrame</code></pre>
+
+       <p>
+      Later, with Input Actions, the structure becomes:
+       </p>
+
+       <pre><code>PHYSICAL DEVICE
+      -
+     BINDING
+      -
+   INPUT ACTION
+      -
+     GAMEPLAY</code></pre>
+
+       <p>
+      This separation is one of the major advantages of the New Input System.
+       </p>
+
+       <h2>17. Important: Update() versus FixedUpdate()</h2>
+
+       <p>
+      These keyboard checks are being used for button-like interactions:
+       </p>
+
+       <pre><code>wasPressedThisFrame</code></pre>
+
+       <p>
+      Therefore, read them in <code>Update()</code>.
+       </p>
+
+       <p>
+      For example:
+       </p>
+
+       <pre><code>void Update()
+  {
+    if (Keyboard.current.spaceKey.wasPressedThisFrame)
+    {
+      // do something once
+    }
+  }</code></pre>
+
+       <p>
+      Later, when using the New Input System to control a Rigidbody with physics,
+      the input and physics operations need to be considered separately. This will
+      be covered in Tutorial 02/03.
+       </p>
+
+       <h2>18. Troubleshooting</h2>
+
+       <h3>Compiler error: Keyboard could not be found</h3>
+
+       <p>
+      Check that your script contains:
+       </p>
+
+       <pre><code>using UnityEngine.InputSystem;</code></pre>
+
+       <p>
+      Also check that the Input System package is installed.
+       </p>
+
+       <h3>Input System code does not work</h3>
+
+       <p>
+      Check:
+       </p>
+
+       <pre><code>Edit
+  &gt; Project Settings
+  &gt; Player
+  &gt; Other Settings
+  &gt; Active Input Handling</code></pre>
+
+       <p>
+      Set this to:
+       </p>
+
+       <pre><code>Both</code></pre>
+
+       <h3>The old version and new version both respond</h3>
+
+       <p>
+      This normally means both scripts are active on the same GameObject.
+      Disable the original script when testing the NIS version.
+       </p>
+
+       <h3>Keyboard.current is null</h3>
+
+       <p>
+      The example checks for this possibility:
+       </p>
+
+       <pre><code>Keyboard.current != null</code></pre>
+
+       <p>
+      This prevents the script from trying to access a keyboard that is not currently
+      available.
+       </p>
+
+       <h2>19. What you should understand before Tutorial 02/03</h2>
+
+       <p>
+      At the end of this stretch task you should understand that:
+       </p>
+
+       <ul>
+      <li>The New Input System is installed as a Unity package.</li>
+      <li>The old and new input systems can operate side by side.</li>
+      <li><code>UnityEngine.InputSystem</code> provides access to the New Input System.</li>
+      <li><code>Keyboard.current</code> provides access to the current keyboard.</li>
+      <li>Individual keys can be accessed such as <code>spaceKey</code>, <code>leftArrowKey</code> and <code>rightArrowKey</code>.</li>
+      <li><code>wasPressedThisFrame</code> detects a key press during the current frame.</li>
+      <li>The input system provides the input; your existing gameplay code performs the interaction.</li>
+      <li>You do not need an Input Actions asset to use the New Input System.</li>
+       </ul>
+
+       <p>
+      <strong>Next step:</strong> Tutorial 02/03 introduces Input Actions, where
+      keyboard controls are separated from gameplay actions such as movement,
+      acceleration and looking.
+       </p>
+      </div>
    </details>
    <details class="accordion accordion--nested">
     <summary>
