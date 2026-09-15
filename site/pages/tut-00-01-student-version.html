@@ -1,964 +1,998 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3DIMD | Unity Intro - Core Principles and Setup</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-       <link href="../assets/css/site.css?v=20260915d" rel="stylesheet" />
-  </head>
-  <body class="content-page">
-    <main class="content-area content-page-area" id="main-content">
-   <h1 class="page-title">
-    Unity Intro - Core Principles and Setup
-   </h1>
-   <details class="accordion">
-    <summary>
-     Software Setup and Installation
-    </summary>
-    <div class="accordion-body media-stack">
-     <h3>Padlet</h3>
-     <p>
-      <a href="https://uowdigital.padlet.org/fergusj/3DIMDUnityIntro" rel="noopener noreferrer" target="_blank">
-       https://uowdigital.padlet.org/fergusj/3DIMDUnityIntro
-      </a>
-     </p>
-     <p>
-      Unity 6000.3.19f1 Install Software Links (may install other version and tutorial first)
-     </p>
-     <ol>
-      <li>
-       Setup Student account here:
-       <a href="https://unity.com/products/unity-student" rel="noopener noreferrer" target="_blank">
-        https://unity.com/products/unity-student
-       </a>
-      </li>
-      <li>
-       Start Here
-       <a href="https://store.unity.com/download-nuo" rel="noopener noreferrer" target="_blank">
-        https://store.unity.com/download-nuo
-       </a>
-      </li>
-      <li>
-      Install Unity Hub, and Unity version 6000.3.19f1:
-       <a href="https://unity3d.com/get-unity/download/archive" rel="noopener noreferrer" target="_blank">
-        https://unity3d.com/get-unity/download/archive
-       </a>
-      </li>
-     </ol>
-     <h3>Unity Learn Optional Extras</h3>
-     <ol>
-      <li>
-       Download Unity Hub and explore Unity Learn in the hub and Unity Play online
-       <p>
-        <a href="https://play.unity.com/how-to" rel="noopener noreferrer" target="_blank">
-         https://play.unity.com/how-to
-        </a>
-       </p>
-      </li>
-      <li>
-       Look at Unity Essentials in Unity Learn in the Unity Hub or here:
-       <p>
-        <a href="https://learn.unity.com/mission/real-time-creation-essentials" rel="noopener noreferrer" target="_blank">
-         https://learn.unity.com/mission/real-time-creation-essentials
-        </a>
-       </p>
-      </li>
-     </ol>
-     <details class="accordion accordion--nested video-accordion">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Unity Intro - Core Principles and Setup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet" />
+  <link href="../assets/css/site.css?v=20260915d" rel="stylesheet" />
+</head>
+
+<body class="content-page">
+  <main class="content-area content-page-area" id="main-content">
+    <h1 class="page-title">
+      Unity Intro - Core Principles and Setup
+    </h1>
+    <details class="accordion">
       <summary>
-       Video: Unity Basics
+        Software Setup and Installation
       </summary>
-      <div class="accordion-body">
-       <article class="embed-card">
-        <iframe allowfullscreen="" class="panopto-embed" allow="autoplay" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=aabb6d3f-b9ad-4c54-b2eb-b08300dc880e&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" title="Unity Basics Video">
-        </iframe>
+      <div class="accordion-body media-stack">
+        <h3>Padlet</h3>
         <p>
-         <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=aabb6d3f-b9ad-4c54-b2eb-b08300dc880e" rel="noopener noreferrer" target="_blank">
-          Open source link
-         </a>
-        </p>
-       </article>
-      </div>
-     </details>
-     <details class="accordion accordion--nested video-accordion">
-      <summary>
-       Video: Lecture 01b Unity Concepts
-      </summary>
-      <div class="accordion-body">
-       <article class="embed-card">
-        <iframe allowfullscreen="" class="panopto-embed" allow="autoplay" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=99daba44-a90b-42fc-96d5-b09000a89f55&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" title="Lecture 01b Unity Concepts Video">
-        </iframe>
-        <p>
-         <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=99daba44-a90b-42fc-96d5-b09000a89f55" rel="noopener noreferrer" target="_blank">
-          Open source link
-         </a>
-        </p>
-       </article>
-      </div>
-     </details>
-     <h3>Installation</h3>
-     <ol>
-      <li>USE 6000.3.19f1 only - version in University</li>
-      <li>Not Always Backwards Compatible</li>
-      <li>Unity Hub (versions options)</li>
-      <li>Sign in (optional)</li>
-      <li>Create project</li>
-      <li>
-       Build options
-       <ol>
-        <li>2D vs. 3D</li>
-        <li>-Universal 3D- Lighting (3D with Extras - Later) (All)</li>
-        <li>Templates with Walkthroughs (Asset Store)</li>
-        <li>Etc.</li>
-       </ol>
-      </li>
-     </ol>
-    </div>
-   </details>
-   <details class="accordion">
-    <summary>
-     Unity Interface and Core Concepts
-    </summary>
-    <div class="accordion-body media-stack">
-     <h3>User Interface</h3>
-     <ol>
-      <li>
-       Interface: Windows
-       <ol>
-        <li>Hierarchy</li>
-        <li>Scene/Game/Asset Store/Others</li>
-        <li>Project/Assets (windows folder - show)</li>
-        <li>Console</li>
-        <li>Inspector</li>
-        <li>Lighting</li>
-        <li>Windows menu tab - Animation, others</li>
-        <li>Preferences and dependencies</li>
-        <li>Build and platforms</li>
-       </ol>
-      </li>
-      <li>
-       Navigation
-       <ol>
-        <li>
-         Mouse
-         <ol>
-          <li>RMB - rotate</li>
-          <li>MMB - Scroll in out</li>
-          <li>MMB - pan</li>
-         </ol>
-        </li>
-        <li>F for framing</li>
-        <li>
-         Gizmo
-         <ol>
-          <li>Orthographic vs perspective</li>
-         </ol>
-        </li>
-       </ol>
-      </li>
-      <li>
-       Manipulation
-       <ol>
-        <li>Units, Pivots, Scale</li>
-        <li>Reset in inspector - Zero out for best practice!</li>
-        <li>Boxes and spinners in Inspector</li>
-        <li>Local vs. Global - more obvious with offset pivot</li>
-        <li>Gimbals</li>
-        <li>Snap with CTRL</li>
-        <li>Move in 1 axis at a time for best practice!</li>
-        <li>Select in hierarchy and press F if lost in interface</li>
-       </ol>
-      </li>
-      <li>
-       Playback Mode
-       <ol>
-        <li>Play/Pause - Inspector adjustments (unsaved!)</li>
-        <li>Console - Debug.Log variables</li>
-        <li>Trouble shooting Console Error messages (google)</li>
-        <li>ALL CHANGES MADE IN PLAY OR PLAY/PAUSE MODE ARE UNSAVED</li>
-       </ol>
-      </li>
-      <li>
-       Saving
-       <ol>
-        <li>Scene + Project</li>
-        <li>Saving Project without scene will not save scene</li>
-        <li>Version Control - Github via Visual Studio (To Be Covered Later)</li>
-       </ol>
-      </li>
-      <li>
-       Import, Export
-       <ol>
-        <li>Individual Assets</li>
-        <li>
-         Packages - consist of:
-         <ol>
-          <li>Game Objects</li>
-          <li>Components(Scripts)</li>
-         </ol>
-        </li>
-        <li>Fbx Assets (more on Fbx later)</li>
-       </ol>
-      </li>
-     </ol>
-    </div>
-   </details>
-   <details class="accordion">
-    <summary>
-     Mecabricks Workflow
-    </summary>
-    <div class="accordion-body media-stack">
-     <details class="accordion accordion--nested video-accordion">
-      <summary>
-       Video: Tutorial 01 Mecabricks
-      </summary>
-      <div class="accordion-body">
-       <article class="embed-card">
-        <iframe allowfullscreen="" class="panopto-embed" allow="autoplay" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=baeb0408-f559-43f3-8efb-b09000e0cefd&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" title="Tutorial 01 Mecabricks Video">
-        </iframe>
-        <p>
-         <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=baeb0408-f559-43f3-8efb-b09000e0cefd" rel="noopener noreferrer" target="_blank">
-          Open source link
-         </a>
-        </p>
-       </article>
-      </div>
-     </details>
-     <h3>Task - Import Assets</h3>
-     <ol>
-      <li>
-       Mecabricks Site Intro -
-       <a href="https://www.mecabricks.com/" rel="noopener noreferrer" target="_blank">
-        https://www.mecabricks.com/
-       </a>
-       <ol>
-        <li>
-         Register
-         <ol>
-          <li>Tour Parts and Workshop</li>
-          <li>Create 1 x basic brick</li>
-          <li>Create 2 more constructions - 5-10 min</li>
-          <li>
-           Export as:
-           <ol>
-            <li>DAE</li>
-            <li>Vertex Normals Smooth</li>
-            <li>Ungrouped</li>
-           </ol>
-          </li>
-         </ol>
-        </li>
-        <li>
-         Needs Unity project
-         <ol>
-          <li>Not on USB or H drive!</li>
-          <li>Work on C drive and copy over at end or Use Github/Visual Studio to version</li>
-         </ol>
-        </li>
-        <li>
-         Import Mecabricks
-         <ol>
-          <li>Dae, Fbx</li>
-          <li>
-           Import Settings
-           <ol>
-            <li>Select Model top level in Project</li>
-            <li>Expand to see elements</li>
-            <li>Look at inspector window for tabs</li>
-           </ol>
-          </li>
-          <li>
-           Shader
-           <ol>
-            <li>To Adjust - greyed out - solution:</li>
-            <li>Select Model/Inspector/Materials Tab/Location - Use External (Legacy) or Extract Materials</li>
-           </ol>
-          </li>
-          <li>Drag into Hierarchy vs drag into scene window</li>
-          <li>Zero out!</li>
-          <li>
-           Units, Pivots, TSR
-           <ol>
-            <li>Local vs Global - most obvious with offset pivots</li>
-           </ol>
-          </li>
-         </ol>
-        </li>
-       </ol>
-      </li>
-      <details class="accordion accordion--nested video-accordion">
-       <summary>
-        Video: Mecabricks Shader Fix
-       </summary>
-       <div class="accordion-body">
-        <article class="embed-card">
-         <iframe allowfullscreen="" class="video-embed" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/xOeodlLTx8g" title="Mecabricks Shader Fix">
-         </iframe>
-         <p>
-          <a href="https://www.youtube.com/watch?v=xOeodlLTx8g" rel="noopener noreferrer" target="_blank">
-           Open source link
+          <a href="https://uowdigital.padlet.org/fergusj/3DIMDUnityIntro" rel="noopener noreferrer" target="_blank">
+            https://uowdigital.padlet.org/fergusj/3DIMDUnityIntro
           </a>
-         </p>
-        </article>
-       </div>
-      </details>
-     </ol>
-    </div>
-   </details>
-   <details class="accordion">
-    <summary>
-     IDE Setup: Visual Studio / Script Editor
-    </summary>
-    <div class="accordion-body media-stack">
-     <h3>Install Visual Studio 2022 Community as the script editor (IDE) for Unity</h3>
-     <ol>
-      <li>Start new Unity project</li>
-      <li>
-       Update Visual Studio Editor in Unity Package Manager if needed to 20.0.22
-       <figure class="image-figure gyazo-inline">
-        <a href="https://gyazo.com/c5d2466916aa3de27604458adf7e7584" rel="noopener noreferrer" target="_blank">
-         <img alt="Gyazo preview" loading="lazy" src="https://i.gyazo.com/c5d2466916aa3de27604458adf7e7584.png"/>
-        </a>
-        <figcaption class="image-caption">
-         Gyazo preview (click image to expand).
-        </figcaption>
-       </figure>
-       <p class="indent-level-4">
-        <a href="https://gyazo.com/c5d2466916aa3de27604458adf7e7584" rel="noopener noreferrer" target="_blank">
-         https://gyazo.com/c5d2466916aa3de27604458adf7e7584
-        </a>
-       </p>
-      </li>
-      <li>Open Unity -Preferences- from top menu -Edit- and go to -External Tools- for the Script Editors List</li>
-      <li class="indent-level-4">
-       Make sure the -External Script Editor- is set to Visual Studio 2022:
-       <figure class="image-figure gyazo-inline">
-        <a href="https://gyazo.com/b0e51f43c1ebcc56a844808ca740702a" rel="noopener noreferrer" target="_blank">
-         <img alt="Gyazo preview" loading="lazy" src="https://i.gyazo.com/b0e51f43c1ebcc56a844808ca740702a.png"/>
-        </a>
-        <figcaption class="image-caption">
-         Gyazo preview (click image to expand).
-        </figcaption>
-       </figure>
-       <p class="indent-level-4">
-        <a href="https://gyazo.com/b0e51f43c1ebcc56a844808ca740702a" rel="noopener noreferrer" target="_blank">
-         https://gyazo.com/b0e51f43c1ebcc56a844808ca740702a
-        </a>
-       </p>
-      </li>
-      <li>Test open a script by double clicking on it in Unity</li>
-     </ol>
-    </div>
-   </details>
-   <details class="accordion">
-    <summary>
-     Task: Logo Screen
-    </summary>
-    <div class="accordion-body media-stack">
-     <details class="accordion accordion--nested video-accordion">
-      <summary>
-       Video: Logo Screen Part 1 - Model
-      </summary>
-      <div class="accordion-body">
-       <article class="embed-card">
-        <iframe allowfullscreen="" class="panopto-embed" allow="autoplay" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=714905bc-87d8-4fb7-8b2d-b0900111979d&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" title="Tutorial 01 Logo Screen Part 1 The Model">
-        </iframe>
-        <p>
-         <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=714905bc-87d8-4fb7-8b2d-b0900111979d" rel="noopener noreferrer" target="_blank">
-          Open source link
-         </a>
         </p>
-       </article>
-      </div>
-     </details>
-     <details class="accordion accordion--nested video-accordion">
-      <summary>
-       Video: Align Camera
-      </summary>
-      <div class="accordion-body">
-       <article class="embed-card">
-        <iframe allowfullscreen="" class="panopto-embed" allow="autoplay" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ba0defc8-9bfc-47b6-a9fa-b09100f80c59&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" title="Tutorial 01 Addition Align Camera">
-        </iframe>
         <p>
-         <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=ba0defc8-9bfc-47b6-a9fa-b09100f80c59" rel="noopener noreferrer" target="_blank">
-          Open source link
-         </a>
+          Unity 6000.3.19f1 Install Software Links (may install other version and tutorial first)
         </p>
-       </article>
+        <ol>
+          <li>
+            Setup Student account here:
+            <a href="https://unity.com/products/unity-student" rel="noopener noreferrer" target="_blank">
+              https://unity.com/products/unity-student
+            </a>
+          </li>
+          <li>
+            Start Here
+            <a href="https://store.unity.com/download-nuo" rel="noopener noreferrer" target="_blank">
+              https://store.unity.com/download-nuo
+            </a>
+          </li>
+          <li>
+            Install Unity Hub, and Unity version 6000.3.19f1:
+            <a href="https://unity3d.com/get-unity/download/archive" rel="noopener noreferrer" target="_blank">
+              https://unity3d.com/get-unity/download/archive
+            </a>
+          </li>
+        </ol>
+        <h3>Unity Learn Optional Extras</h3>
+        <ol>
+          <li>
+            Download Unity Hub and explore Unity Learn in the hub and Unity Play online
+            <p>
+              <a href="https://play.unity.com/how-to" rel="noopener noreferrer" target="_blank">
+                https://play.unity.com/how-to
+              </a>
+            </p>
+          </li>
+          <li>
+            Look at Unity Essentials in Unity Learn in the Unity Hub or here:
+            <p>
+              <a href="https://learn.unity.com/mission/real-time-creation-essentials" rel="noopener noreferrer" target="_blank">
+                https://learn.unity.com/mission/real-time-creation-essentials
+              </a>
+            </p>
+          </li>
+        </ol>
+        <details class="accordion accordion--nested video-accordion">
+          <summary>
+            Video: Unity Basics
+          </summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <iframe allowfullscreen="" class="panopto-embed" allow="autoplay" loading="lazy"
+                src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=aabb6d3f-b9ad-4c54-b2eb-b08300dc880e&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all"
+                title="Unity Basics Video">
+              </iframe>
+              <p>
+                <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=aabb6d3f-b9ad-4c54-b2eb-b08300dc880e"
+                  rel="noopener noreferrer" target="_blank">
+                  Open source link
+                </a>
+              </p>
+            </article>
+          </div>
+        </details>
+        <details class="accordion accordion--nested video-accordion">
+          <summary>
+            Video: Lecture 01b Unity Concepts
+          </summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <iframe allowfullscreen="" class="panopto-embed" allow="autoplay" loading="lazy"
+                src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=99daba44-a90b-42fc-96d5-b09000a89f55&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all"
+                title="Lecture 01b Unity Concepts Video">
+              </iframe>
+              <p>
+                <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=99daba44-a90b-42fc-96d5-b09000a89f55"
+                  rel="noopener noreferrer" target="_blank">
+                  Open source link
+                </a>
+              </p>
+            </article>
+          </div>
+        </details>
+        <h3>Installation</h3>
+        <ol>
+          <li>USE 6000.3.19f1 only - version in University</li>
+          <li>Not Always Backwards Compatible</li>
+          <li>Unity Hub (versions options)</li>
+          <li>Sign in (optional)</li>
+          <li>Create project</li>
+          <li>
+            Build options
+            <ol>
+              <li>2D vs. 3D</li>
+              <li>-Universal 3D- Lighting (3D with Extras - Later) (All)</li>
+              <li>Templates with Walkthroughs (Asset Store)</li>
+              <li>Etc.</li>
+            </ol>
+          </li>
+        </ol>
       </div>
-     </details>
-     <details class="accordion accordion--nested video-accordion">
+    </details>
+    <details class="accordion">
       <summary>
-       Video: Logo Screen Part 1 - Code
+        Unity Interface and Core Concepts
       </summary>
-      <div class="accordion-body">
-       <article class="embed-card">
-        <iframe allowfullscreen="" class="panopto-embed" allow="autoplay" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3f145167-ac7a-4303-a72e-b092009aa5dc&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" title="Tutorial 01 Logo Screen Part 1 The Code">
-        </iframe>
-        <p>
-         <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=3f145167-ac7a-4303-a72e-b092009aa5dc" rel="noopener noreferrer" target="_blank">
-          Open source link
-         </a>
-        </p>
-       </article>
+      <div class="accordion-body media-stack">
+        <h3>User Interface</h3>
+        <ol>
+          <li>
+            Interface: Windows
+            <ol>
+              <li>Hierarchy</li>
+              <li>Scene/Game/Asset Store/Others</li>
+              <li>Project/Assets (windows folder - show)</li>
+              <li>Console</li>
+              <li>Inspector</li>
+              <li>Lighting</li>
+              <li>Windows menu tab - Animation, others</li>
+              <li>Preferences and dependencies</li>
+              <li>Build and platforms</li>
+            </ol>
+          </li>
+          <li>
+            Navigation
+            <ol>
+              <li>
+                Mouse
+                <ol>
+                  <li>RMB - rotate</li>
+                  <li>MMB - Scroll in out</li>
+                  <li>MMB - pan</li>
+                </ol>
+              </li>
+              <li>F for framing</li>
+              <li>
+                Gizmo
+                <ol>
+                  <li>Orthographic vs perspective</li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li>
+            Manipulation
+            <ol>
+              <li>Units, Pivots, Scale</li>
+              <li>Reset in inspector - Zero out for best practice!</li>
+              <li>Boxes and spinners in Inspector</li>
+              <li>Local vs. Global - more obvious with offset pivot</li>
+              <li>Gimbals</li>
+              <li>Snap with CTRL</li>
+              <li>Move in 1 axis at a time for best practice!</li>
+              <li>Select in hierarchy and press F if lost in interface</li>
+            </ol>
+          </li>
+          <li>
+            Playback Mode
+            <ol>
+              <li>Play/Pause - Inspector adjustments (unsaved!)</li>
+              <li>Console - Debug.Log variables</li>
+              <li>Trouble shooting Console Error messages (google)</li>
+              <li>ALL CHANGES MADE IN PLAY OR PLAY/PAUSE MODE ARE UNSAVED</li>
+            </ol>
+          </li>
+          <li>
+            Saving
+            <ol>
+              <li>Scene + Project</li>
+              <li>Saving Project without scene will not save scene</li>
+              <li>Version Control - Github via Visual Studio (To Be Covered Later)</li>
+            </ol>
+          </li>
+          <li>
+            Import, Export
+            <ol>
+              <li>Individual Assets</li>
+              <li>
+                Packages - consist of:
+                <ol>
+                  <li>Game Objects</li>
+                  <li>Components(Scripts)</li>
+                </ol>
+              </li>
+              <li>Fbx Assets (more on Fbx later)</li>
+            </ol>
+          </li>
+        </ol>
       </div>
-     </details>
-     <!-- <h3>
+    </details>
+    <details class="accordion">
+      <summary>
+        Mecabricks Workflow
+      </summary>
+      <div class="accordion-body media-stack">
+        <details class="accordion accordion--nested video-accordion">
+          <summary>
+            Video: Tutorial 01 Mecabricks
+          </summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <iframe allowfullscreen="" class="panopto-embed" allow="autoplay" loading="lazy"
+                src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=baeb0408-f559-43f3-8efb-b09000e0cefd&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all"
+                title="Tutorial 01 Mecabricks Video">
+              </iframe>
+              <p>
+                <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=baeb0408-f559-43f3-8efb-b09000e0cefd"
+                  rel="noopener noreferrer" target="_blank">
+                  Open source link
+                </a>
+              </p>
+            </article>
+          </div>
+        </details>
+        <h3>Task - Import Assets</h3>
+        <ol>
+          <li>
+            Mecabricks Site Intro -
+            <a href="https://www.mecabricks.com/" rel="noopener noreferrer" target="_blank">
+              https://www.mecabricks.com/
+            </a>
+            <ol>
+              <li>
+                Register
+                <ol>
+                  <li>Tour Parts and Workshop</li>
+                  <li>Create 1 x basic brick</li>
+                  <li>Create 2 more constructions - 5-10 min</li>
+                  <li>
+                    Export as:
+                    <ol>
+                      <li>DAE</li>
+                      <li>Vertex Normals Smooth</li>
+                      <li>Ungrouped</li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+              <li>
+                Needs Unity project
+                <ol>
+                  <li>Not on USB or H drive!</li>
+                  <li>Work on C drive and copy over at end or Use Github/Visual Studio to version</li>
+                </ol>
+              </li>
+              <li>
+                Import Mecabricks
+                <ol>
+                  <li>Dae, Fbx</li>
+                  <li>
+                    Import Settings
+                    <ol>
+                      <li>Select Model top level in Project</li>
+                      <li>Expand to see elements</li>
+                      <li>Look at inspector window for tabs</li>
+                    </ol>
+                  </li>
+                  <li>
+                    Shader
+                    <ol>
+                      <li>To Adjust - greyed out - solution:</li>
+                      <li>Select Model/Inspector/Materials Tab/Location - Use External (Legacy) or Extract Materials</li>
+                    </ol>
+                  </li>
+                  <li>Drag into Hierarchy vs drag into scene window</li>
+                  <li>Zero out!</li>
+                  <li>
+                    Units, Pivots, TSR
+                    <ol>
+                      <li>Local vs Global - most obvious with offset pivots</li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <details class="accordion accordion--nested video-accordion">
+            <summary>
+              Video: Mecabricks Shader Fix
+            </summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe allowfullscreen="" class="video-embed" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+                  src="https://www.youtube.com/embed/xOeodlLTx8g" title="Mecabricks Shader Fix">
+                </iframe>
+                <p>
+                  <a href="https://www.youtube.com/watch?v=xOeodlLTx8g" rel="noopener noreferrer" target="_blank">
+                    Open source link
+                  </a>
+                </p>
+              </article>
+            </div>
+          </details>
+        </ol>
+      </div>
+    </details>
+    <details class="accordion">
+      <summary>
+        IDE Setup: Visual Studio / Script Editor
+      </summary>
+      <div class="accordion-body media-stack">
+        <h3>Install Visual Studio 2022 Community as the script editor (IDE) for Unity</h3>
+        <ol>
+          <li>Start new Unity project</li>
+          <li>
+            Update Visual Studio Editor in Unity Package Manager if needed to 20.0.22
+            <figure class="image-figure gyazo-inline">
+              <a href="https://gyazo.com/c5d2466916aa3de27604458adf7e7584" rel="noopener noreferrer" target="_blank">
+                <img alt="Gyazo preview" loading="lazy" src="https://i.gyazo.com/c5d2466916aa3de27604458adf7e7584.png" />
+              </a>
+              <figcaption class="image-caption">
+                Gyazo preview (click image to expand).
+              </figcaption>
+            </figure>
+            <p class="indent-level-4">
+              <a href="https://gyazo.com/c5d2466916aa3de27604458adf7e7584" rel="noopener noreferrer" target="_blank">
+                https://gyazo.com/c5d2466916aa3de27604458adf7e7584
+              </a>
+            </p>
+          </li>
+          <li>Open Unity -Preferences- from top menu -Edit- and go to -External Tools- for the Script Editors List</li>
+          <li class="indent-level-4">
+            Make sure the -External Script Editor- is set to Visual Studio 2022:
+            <figure class="image-figure gyazo-inline">
+              <a href="https://gyazo.com/b0e51f43c1ebcc56a844808ca740702a" rel="noopener noreferrer" target="_blank">
+                <img alt="Gyazo preview" loading="lazy" src="https://i.gyazo.com/b0e51f43c1ebcc56a844808ca740702a.png" />
+              </a>
+              <figcaption class="image-caption">
+                Gyazo preview (click image to expand).
+              </figcaption>
+            </figure>
+            <p class="indent-level-4">
+              <a href="https://gyazo.com/b0e51f43c1ebcc56a844808ca740702a" rel="noopener noreferrer" target="_blank">
+                https://gyazo.com/b0e51f43c1ebcc56a844808ca740702a
+              </a>
+            </p>
+          </li>
+          <li>Test open a script by double clicking on it in Unity</li>
+        </ol>
+      </div>
+    </details>
+    <details class="accordion">
+      <summary>
+        Task: Logo Screen
+      </summary>
+      <div class="accordion-body media-stack">
+        <details class="accordion accordion--nested video-accordion">
+          <summary>
+            Video: Logo Screen Part 1 - Model
+          </summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <iframe allowfullscreen="" class="panopto-embed" allow="autoplay" loading="lazy"
+                src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=714905bc-87d8-4fb7-8b2d-b0900111979d&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all"
+                title="Tutorial 01 Logo Screen Part 1 The Model">
+              </iframe>
+              <p>
+                <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=714905bc-87d8-4fb7-8b2d-b0900111979d"
+                  rel="noopener noreferrer" target="_blank">
+                  Open source link
+                </a>
+              </p>
+            </article>
+          </div>
+        </details>
+        <details class="accordion accordion--nested video-accordion">
+          <summary>
+            Video: Align Camera
+          </summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <iframe allowfullscreen="" class="panopto-embed" allow="autoplay" loading="lazy"
+                src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ba0defc8-9bfc-47b6-a9fa-b09100f80c59&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all"
+                title="Tutorial 01 Addition Align Camera">
+              </iframe>
+              <p>
+                <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=ba0defc8-9bfc-47b6-a9fa-b09100f80c59"
+                  rel="noopener noreferrer" target="_blank">
+                  Open source link
+                </a>
+              </p>
+            </article>
+          </div>
+        </details>
+        <details class="accordion accordion--nested video-accordion">
+          <summary>
+            Video: Logo Screen Part 1 - Code
+          </summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <iframe allowfullscreen="" class="panopto-embed" allow="autoplay" loading="lazy"
+                src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3f145167-ac7a-4303-a72e-b092009aa5dc&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all"
+                title="Tutorial 01 Logo Screen Part 1 The Code">
+              </iframe>
+              <p>
+                <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=3f145167-ac7a-4303-a72e-b092009aa5dc"
+                  rel="noopener noreferrer" target="_blank">
+                  Open source link
+                </a>
+              </p>
+            </article>
+          </div>
+        </details>
+        <!-- <h3>
       Task - Logo Screen and Gallery
      </h3> -->
-     <!-- <ol>
+        <!-- <ol>
       <li>
        LogoScreen.cs -->
-       <ol>
-        <li>
-         Logo Screen - Create 3D Plane
-         <!-- <ol> -->
+        <ol>
           <li>
-           Position and Rotate to be covering brick at a 45 degree angle
-           <figure class="image-figure gyazo-inline">
-            <a href="https://gyazo.com/710e6954b4af490f0d09cbabe06a0c38" rel="noopener noreferrer" target="_blank">
-             <img alt="Gyazo preview" loading="lazy" src="https://i.gyazo.com/710e6954b4af490f0d09cbabe06a0c38.png"/>
-            </a>
-            <figcaption class="image-caption">
-             Gyazo preview (click image to expand).
-            </figcaption>
-           </figure>
-           <!-- <ol> -->
-            <li>
-             Select camera
-             <ol>
+            Logo Screen - Create 3D Plane
+            <!-- <ol> -->
+          <li>
+            Position and Rotate to be covering brick at a 45 degree angle
+            <figure class="image-figure gyazo-inline">
+              <a href="https://gyazo.com/710e6954b4af490f0d09cbabe06a0c38" rel="noopener noreferrer" target="_blank">
+                <img alt="Gyazo preview" loading="lazy" src="https://i.gyazo.com/710e6954b4af490f0d09cbabe06a0c38.png" />
+              </a>
+              <figcaption class="image-caption">
+                Gyazo preview (click image to expand).
+              </figcaption>
+            </figure>
+            <!-- <ol> -->
+          <li>
+            Select camera
+            <ol>
               <li>
-               Rotate Camera to get view of plane like so (using Unity UI mouse controls or WASD game style controls and F fro Frame):
-               <figure class="image-figure gyazo-inline">
-                <a href="https://gyazo.com/9eed830bd908f0d1af46f0ccb5274fc5" rel="noopener noreferrer" target="_blank">
-                 <img alt="Gyazo preview" loading="lazy" src="https://i.gyazo.com/9eed830bd908f0d1af46f0ccb5274fc5.png"/>
-                </a>
-                <figcaption class="image-caption">
-                 Gyazo preview (click image to expand).
-                </figcaption>
-               </figure>
+                Rotate Camera to get view of plane like so (using Unity UI mouse controls or WASD game style controls and F fro Frame):
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/9eed830bd908f0d1af46f0ccb5274fc5" rel="noopener noreferrer" target="_blank">
+                    <img alt="Gyazo preview" loading="lazy" src="https://i.gyazo.com/9eed830bd908f0d1af46f0ccb5274fc5.png" />
+                  </a>
+                  <figcaption class="image-caption">
+                    Gyazo preview (click image to expand).
+                  </figcaption>
+                </figure>
               </li>
               <li>
-               With camera selected, go to top menu and Select GameObject/Align with View
-               <figure class="image-figure gyazo-inline">
-                <a href="https://gyazo.com/dbb553dcf830e3c23cec2ac079240b09" rel="noopener noreferrer" target="_blank">
-                 <img alt="Gyazo preview" loading="lazy" src="https://i.gyazo.com/dbb553dcf830e3c23cec2ac079240b09.png"/>
-                </a>
-                <figcaption class="image-caption">
-                 Gyazo preview (click image to expand).
-                </figcaption>
-               </figure>
+                With camera selected, go to top menu and Select GameObject/Align with View
+                <figure class="image-figure gyazo-inline">
+                  <a href="https://gyazo.com/dbb553dcf830e3c23cec2ac079240b09" rel="noopener noreferrer" target="_blank">
+                    <img alt="Gyazo preview" loading="lazy" src="https://i.gyazo.com/dbb553dcf830e3c23cec2ac079240b09.png" />
+                  </a>
+                  <figcaption class="image-caption">
+                    Gyazo preview (click image to expand).
+                  </figcaption>
+                </figure>
               </li>
               <li>Camera is now in optimal position without manual adjustment.</li>
-             </ol>
-            </li>
-            <li>
-             Find Plane Material in Materials folder
-             <ol>
+            </ol>
+          </li>
+          <li>
+            Find Plane Material in Materials folder
+            <ol>
               <li>You cannot edit this at the moment</li>
               <li>Either create a new material to drag onto the plane</li>
               <li>Drag MBLogo.png into the base slot in material inspector</li>
               <li>or...</li>
               <li>Drag MBLogo.png onto the plane to create a MBLogo Material</li>
               <li>More on materials later!</li>
-             </ol>
-            </li>
-            <li>
-             Scripting: Logo screen hide with key press
-             <ol>
+            </ol>
+          </li>
+          <li>
+            Scripting: Logo screen hide with key press
+            <ol>
               <li>Write code from pseudo code cues</li>
               <li>Try with public renderer and also -this-</li>
               <li>Teaches: Input by key, renderer, enabled, getComponent, this, Boolean switch</li>
               <li>Try with both GetComponent and -this-</li>
-             </ol>
-            </li>
-           <!-- </ol> -->
+            </ol>
           </li>
-         <!-- </ol> -->
-           <h3>Pseudo Code: logoScreen.cs (attached to logo screen plane, which is child of camera)</h3>
-           <h3>using System.Collections;</h3>
-           <h3>using System.Collections.Generic;</h3>
-           <h3>using UnityEngine;</h3>
-           <h3>public class logoScreen : MonoBehaviour{</h3>
-           <p>
+          <!-- </ol> -->
+          </li>
+          <!-- </ol> -->
+          <h3>Pseudo Code: logoScreen.cs (attached to logo screen plane, which is child of camera)</h3>
+          <h3>using System.Collections;</h3>
+          <h3>using System.Collections.Generic;</h3>
+          <h3>using UnityEngine;</h3>
+          <h3>public class logoScreen : MonoBehaviour{</h3>
+          <p>
             //PSEUDO CODE: Declare(Create) a public variable for a Game Object, Type: Renderer
-           </p>
-           <p>
+          </p>
+          <p>
             //FUNCTION: Accesses "this" Game Object by default, or can drag in another in Inspector Box....
-           </p>
-           <h3>void Start()</h3>
-           <h3>{</h3>
-           <p>
+          </p>
+          <h3>void Start()</h3>
+          <h3>{</h3>
+          <p>
             //PSEUDO CODE: Initialize variable with Mesh Renderer from Game Object this script is attached to...
-           </p>
-           <p>
+          </p>
+          <p>
             //(default), or use "this" to specify more precisely, or drag in different Game Object to Inspector Box.
-           </p>
-           <h3>//ALTERNATE: use "this" to access variable</h3>
-           <h3>}</h3>
-           <h3>void Update()</h3>
-           <h3>{</h3>
-           <h3>//PSEUDO CODE: Check for Key input (Space Key)</h3>
-           <h3>{</h3>
-           <h3>//PSEUDO CODE: Turn on/off mesh renderer</h3>
-           <h3>//ALTERNATE: use "this"</h3>
-           <p>
+          </p>
+          <h3>//ALTERNATE: use "this" to access variable</h3>
+          <h3>}</h3>
+          <h3>void Update()</h3>
+          <h3>{</h3>
+          <h3>//PSEUDO CODE: Check for Key input (Space Key)</h3>
+          <h3>{</h3>
+          <h3>//PSEUDO CODE: Turn on/off mesh renderer</h3>
+          <h3>//ALTERNATE: use "this"</h3>
+          <p>
             //this.GetComponent&lt;Renderer&gt;().enabled = !this.GetComponent&lt;Renderer&gt;().enabled;
-           </p>
-           <h3>}</h3>
-           <h3>}</h3>
-           <h3>}</h3>
-        </li>
-       </ol>
-      <!-- </li>
+          </p>
+          <h3>}</h3>
+          <h3>}</h3>
+          <h3>}</h3>
+          </li>
+        </ol>
+        <!-- </li>
      </ol> -->
-    </div>
-   </details>
-   <details class="accordion">
-    <summary>
-     Task: Gallery Control
-    </summary>
-    <div class="accordion-body media-stack">
-     <details class="accordion accordion--nested video-accordion">
-      <summary>
-       Video: Gallery Array Part 2 - Code
-      </summary>
-      <div class="accordion-body">
-       <article class="embed-card">
-        <iframe allowfullscreen="" class="panopto-embed" allow="autoplay" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=68c7b6eb-2312-4ef5-9be9-b09700d57275&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" title="Tutorial 01 Gallery Array Part 2 The Code">
-        </iframe>
-        <p>
-         <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=68c7b6eb-2312-4ef5-9be9-b09700d57275" rel="noopener noreferrer" target="_blank">
-          Open source link
-         </a>
-        </p>
-       </article>
       </div>
-     </details>
-     <!-- <h3>
+    </details>
+    <details class="accordion">
+      <summary>
+        Task: Gallery Control
+      </summary>
+      <div class="accordion-body media-stack">
+        <details class="accordion accordion--nested video-accordion">
+          <summary>
+            Video: Gallery Array Part 2 - Code
+          </summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <iframe allowfullscreen="" class="panopto-embed" allow="autoplay" loading="lazy"
+                src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=68c7b6eb-2312-4ef5-9be9-b09700d57275&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all"
+                title="Tutorial 01 Gallery Array Part 2 The Code">
+              </iframe>
+              <p>
+                <a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=68c7b6eb-2312-4ef5-9be9-b09700d57275"
+                  rel="noopener noreferrer" target="_blank">
+                  Open source link
+                </a>
+              </p>
+            </article>
+          </div>
+        </details>
+        <!-- <h3>
       GalleryControl.cs
      </h3> -->
-     <ol>
-      <li>Cycle Objects - hide and unhide with code (both ways)</li>
-      <li>Create Gallery GameObject Plane below Mecabrick models - scale to 15,1,15</li>
-      <li>Duplicate Mecabrick Model, adjust material/shaders to distinguish between them.</li>
-      <li>Drag all into Hierarchy, arrange</li>
-      <li>Populate array (after code below)</li>
-      <li>
-       Write code from pseudo code cues:
-       <ol>
-        <li>
-         Check Unity manual and script reference:
-         <ol>
+        <ol>
+          <li>Cycle Objects - hide and unhide with code (both ways)</li>
+          <li>Create Gallery GameObject Plane below Mecabrick models - scale to 15,1,15</li>
+          <li>Duplicate Mecabrick Model, adjust material/shaders to distinguish between them.</li>
+          <li>Drag all into Hierarchy, arrange</li>
+          <li>Populate array (after code below)</li>
           <li>
-           Unity Scripting Reference:
-            <a href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/GameObject.html" rel="noopener noreferrer" target="_blank">
-             https://docs.unity3d.com/6000.0/Documentation/ScriptReference/GameObject.html
-            </a>
+            Write code from pseudo code cues:
+            <ol>
+              <li>
+                Check Unity manual and script reference:
+                <ol>
+                  <li>
+                    Unity Scripting Reference:
+                    <a href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/GameObject.html" rel="noopener noreferrer"
+                      target="_blank">
+                      https://docs.unity3d.com/6000.0/Documentation/ScriptReference/GameObject.html
+                    </a>
+                  </li>
+                  <li>
+                    Unity Manual Reference:
+                    <a href="https://docs.unity3d.com/6000.0/Documentation/Manual/class-GameObject.html" rel="noopener noreferrer"
+                      target="_blank">
+                      https://docs.unity3d.com/6000.0/Documentation/Manual/class-GameObject.html
+                    </a>
+                  </li>
+                </ol>
+              </li>
+              <li>Use If loop to create a counter value incremented by left and right keyboard input</li>
+              <li>Use Array of Game Objects with length adjusted in Inspector window</li>
+              <li>Same Array of Game Objects with assets dragged into Game Object slots in Inspector window</li>
+              <li>For loop so that counter value cycles through the index of the array from keyboard input and displays the current index
+                value Game Object, and hides the others.</li>
+            </ol>
           </li>
-          <li>
-           Unity Manual Reference:
-            <a href="https://docs.unity3d.com/6000.0/Documentation/Manual/class-GameObject.html" rel="noopener noreferrer" target="_blank">
-             https://docs.unity3d.com/6000.0/Documentation/Manual/class-GameObject.html
-            </a>
-          </li>
-         </ol>
-        </li>
-        <li>Use If loop to create a counter value incremented by left and right keyboard input</li>
-        <li>Use Array of Game Objects with length adjusted in Inspector window</li>
-        <li>Same Array of Game Objects with assets dragged into Game Object slots in Inspector window</li>
-        <li>For loop so that counter value cycles through the index of the array from keyboard input and displays the current index value Game Object, and hides the others.</li>
-       </ol>
-      </li>
-      <li>Teaches: Input by key, Array, Counter, Degug.log, GetComponent from Array, renderer enabled, Game Object SetActive</li>
-     </ol>
-     <h3>Check scene</h3>
-     <ol>
-      <li>Reference scripts in scene- right click on scripts</li>
-     </ol>
-       <h3>Pseudo Code: GalleryControl.cs</h3>
-       <h3>GalleryControl.cs (attached to ground plane)</h3>
-       <h3>using System.Collections;</h3>
-       <h3>using System.Collections.Generic;</h3>
-       <h3>using UnityEngine;</h3>
-       <h3>public class GalleryControl : MonoBehaviour</h3>
-       <h3>{</h3>
-       <p>
-        //PSEUDO CODE: Declare(Create) a public variable for an array, Type: GameObject
-       </p>
-       <p>
-        //FUNCTION: Can Populate(Initialize) in Inspector Box and hold multiple Game Objects....
-       </p>
-       <h3>//PSEUDO CODE: Declare(Create) and Initialize a public variable for counting</h3>
-       <p>
-        //FUNCTION: Starts at 0, used to access array items in sequence....
-       </p>
-       <h3>void Start()</h3>
-       <h3>{</h3>
-       <h3>}</h3>
-       <h3>void Update()</h3>
-       <h3>{</h3>
-       <h3>//PSEUDO CODE: Check for Key input (RightArrow)</h3>
-       <h3>{</h3>
-       <p>
-        //PSEUDO CODE: if there are still game objects in array, increase counter by one
-       </p>
-       <h3>//FUNCTION: To move up the array</h3>
-       <h3>{</h3>
-       <h3>}</h3>
-       <p>
-        //PSEUDO CODE:at the end of array, reset counter to go back to start of array
-       </p>
-       <h3>//FUNCTION: to cycle the array</h3>
-       <h3>{</h3>
-       <h3>}</h3>
-       <h3>//PSEUDO CODE: Check for Key input (LeftArrow)</h3>
-       <p>
-        //PSEUDO CODE: if there are still game objects in array, decrease counter by one
-       </p>
-       <h3>//FUNCTION: To move down the array</h3>
-       <h3>{</h3>
-       <h3>}</h3>
-       <p>
-        //PSEUDO CODE: at the beginning of array, reset counter to go back to end of array
-       </p>
-       <h3>//FUNCTION: to cycle the array</h3>
-       <h3>{</h3>
-       <p>
-        //TIP: Don't forget Arrays start at 0!
-       </p>
-       <h3>}</h3>
-       <h3>}</h3>
-       <h3>//PSEUDO CODE: Print to Console log the vaue of the counter</h3>
-       <h3>//FUNCTION: To check the keys work accurately</h3>
-       <h3>{</h3>
-       <p>
-        //PSEUDO CODE: Using counter, loop through Array, turn the Game Objects on and off
-       </p>
-       <p>
-        //FUNCTION: This displays and hide the items as controlled by the keys
-       </p>
-       <p>
-        //TIP: Check if each array item matches the counter with the debug -Current- value
-       </p>
-       <p class="indent-level-2">
-        //Use a Component of GameObjects to display/hide as needed - look in Unity reference manual
-       </p>
-       <h3>{</h3>
-       <h3>{</h3>
-       <h3>}</h3>
-       <h3>{</h3>
-       <h3>}</h3>
-       <h3>}</h3>
-       <h3>}</h3>
-       <h3>}</h3>
-    </div>
-   </details>
-   <details class="accordion">
-    <summary>
-    Stretch Tasks: Debug Logs
-    </summary>
-    <div class="accordion-body media-stack">
-     <h3>Stretch Task: Debug Logs</h3>
+          <li>Teaches: Input by key, Array, Counter, Degug.log, GetComponent from Array, renderer enabled, Game Object SetActive</li>
+        </ol>
+        <h3>Check scene</h3>
+        <ol>
+          <li>Reference scripts in scene- right click on scripts</li>
+        </ol>
+        <h3>Pseudo Code: GalleryControl.cs</h3>
+        <h3>GalleryControl.cs (attached to ground plane)</h3>
+        <h3>using System.Collections;</h3>
+        <h3>using System.Collections.Generic;</h3>
+        <h3>using UnityEngine;</h3>
+        <h3>public class GalleryControl : MonoBehaviour</h3>
+        <h3>{</h3>
+        <p>
+          //PSEUDO CODE: Declare(Create) a public variable for an array, Type: GameObject
+        </p>
+        <p>
+          //FUNCTION: Can Populate(Initialize) in Inspector Box and hold multiple Game Objects....
+        </p>
+        <h3>//PSEUDO CODE: Declare(Create) and Initialize a public variable for counting</h3>
+        <p>
+          //FUNCTION: Starts at 0, used to access array items in sequence....
+        </p>
+        <h3>void Start()</h3>
+        <h3>{</h3>
+        <h3>}</h3>
+        <h3>void Update()</h3>
+        <h3>{</h3>
+        <h3>//PSEUDO CODE: Check for Key input (RightArrow)</h3>
+        <h3>{</h3>
+        <p>
+          //PSEUDO CODE: if there are still game objects in array, increase counter by one
+        </p>
+        <h3>//FUNCTION: To move up the array</h3>
+        <h3>{</h3>
+        <h3>}</h3>
+        <p>
+          //PSEUDO CODE:at the end of array, reset counter to go back to start of array
+        </p>
+        <h3>//FUNCTION: to cycle the array</h3>
+        <h3>{</h3>
+        <h3>}</h3>
+        <h3>//PSEUDO CODE: Check for Key input (LeftArrow)</h3>
+        <p>
+          //PSEUDO CODE: if there are still game objects in array, decrease counter by one
+        </p>
+        <h3>//FUNCTION: To move down the array</h3>
+        <h3>{</h3>
+        <h3>}</h3>
+        <p>
+          //PSEUDO CODE: at the beginning of array, reset counter to go back to end of array
+        </p>
+        <h3>//FUNCTION: to cycle the array</h3>
+        <h3>{</h3>
+        <p>
+          //TIP: Don't forget Arrays start at 0!
+        </p>
+        <h3>}</h3>
+        <h3>}</h3>
+        <h3>//PSEUDO CODE: Print to Console log the vaue of the counter</h3>
+        <h3>//FUNCTION: To check the keys work accurately</h3>
+        <h3>{</h3>
+        <p>
+          //PSEUDO CODE: Using counter, loop through Array, turn the Game Objects on and off
+        </p>
+        <p>
+          //FUNCTION: This displays and hide the items as controlled by the keys
+        </p>
+        <p>
+          //TIP: Check if each array item matches the counter with the debug -Current- value
+        </p>
+        <p class="indent-level-2">
+          //Use a Component of GameObjects to display/hide as needed - look in Unity reference manual
+        </p>
+        <h3>{</h3>
+        <h3>{</h3>
+        <h3>}</h3>
+        <h3>{</h3>
+        <h3>}</h3>
+        <h3>}</h3>
+        <h3>}</h3>
+        <h3>}</h3>
       </div>
-     </details>
-     <details class="accordion">
+    </details>
+    <details class="accordion">
       <summary>
-    Stretch Task: Change Material with Keys
+        Stretch Tasks: Debug Logs
       </summary>
       <div class="accordion-body media-stack">
-     <ol>
-      <li>
-       Change material rather than renderer with keys.
-       <ol>
-        <li>Clue: this.GetComponent&lt;Renderer&gt;().material = red;</li>
-        <li>Use array of materials? Research this</li>
-       </ol>
-      </li>
-     </ol>
-    </div>
-   </details>
-   <details class="accordion">
+        <h3>Stretch Task: Debug Logs</h3>
+      </div>
+    </details>
+    <details class="accordion">
       <summary>
-       Stretch Task: New Input System, Key Access
+        Stretch Task: Change Material with Keys
       </summary>
       <div class="accordion-body media-stack">
-       <h2>Stretch Target: New Input System - Basic Keyboard Input</h2>
+        <ol>
+          <li>
+            Change material rather than renderer with keys.
+            <ol>
+              <li>Clue: this.GetComponent&lt;Renderer&gt;().material = red;</li>
+              <li>Use array of materials? Research this</li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+    </details>
+    <details class="accordion">
+      <summary>
+        Stretch Task: New Input System, Key Access
+      </summary>
+      <div class="accordion-body media-stack">
+        <h2>Stretch Target: New Input System - Basic Keyboard Input</h2>
 
-       <p>
-      This is an optional extension to Tutorial 00/01. The main tutorial uses Unity's
-      older Input Manager. This stretch target introduces the <strong>New Input System (NIS)</strong>
-      in a very simple way, without using Input Actions yet.
-       </p>
+        <p>
+          This is an optional extension to Tutorial 00/01. The main tutorial uses Unity's
+          older Input Manager. This stretch target introduces the <strong>New Input System (NIS)</strong>
+          in a very simple way, without using Input Actions yet.
+        </p>
 
-       <p>
-      You will install and enable the New Input System, then create duplicate versions
-      of the existing Logo Screen and Gallery control scripts. The duplicate scripts
-      will use the New Input System to read keyboard input while performing the same
-      interactions as the original tutorial.
-       </p>
+        <p>
+          You will install and enable the New Input System, then create duplicate versions
+          of the existing Logo Screen and Gallery control scripts. The duplicate scripts
+          will use the New Input System to read keyboard input while performing the same
+          interactions as the original tutorial.
+        </p>
 
-       <p>
-      <strong>Input Actions are deliberately NOT introduced here.</strong>
-      They will be introduced in Tutorial 02/03.
-       </p>
+        <p>
+          <strong>Input Actions are deliberately NOT introduced here.</strong>
+          They will be introduced in Tutorial 02/03.
+        </p>
 
-       <section class="learning-concept-example">
-        <div class="learning-concept-example__title">Learning Concept Example: What you will learn</div>
-        <div class="learning-concept-example__body">
-         <div class="learning-concept-example__line">What you will learn</div>
-         <div class="learning-concept-example__line indent-level-1">- What the New Input System is.</div>
-         <div class="learning-concept-example__line indent-level-1">- How to install the Input System package.</div>
-         <div class="learning-concept-example__line indent-level-1">- How to enable the New Input System while keeping the old Input System available.</div>
-         <div class="learning-concept-example__line indent-level-1">- How to access a keyboard directly using Keyboard.current.</div>
-         <div class="learning-concept-example__line indent-level-1">- How to detect a key being pressed this frame using wasPressedThisFrame.</div>
-         <div class="learning-concept-example__line indent-level-1">- How the New Input System differs from Input.GetKeyDown().</div>
-         <div class="learning-concept-example__line indent-level-1">- Why Input Actions will be useful later.</div>
-        </div>
-       </section>
-
-       <section class="learning-concept-example">
-        <div class="learning-concept-example__title">Learning Concept Example: New Input System - What is it?</div>
-        <div class="learning-concept-example__body">
-         <div class="learning-concept-example__line">New Input System - What is it?</div>
-         <div class="learning-concept-example__line indent-level-1">Unity has two input systems:</div>
-         <div class="learning-concept-example__line indent-level-2">- Input Manager / Legacy Input System - the system used in the main Tutorial 00/01 exercises.</div>
-         <div class="learning-concept-example__line indent-level-2">- Input System Package / New Input System - Unity's newer, more extensible input system.</div>
-         <div class="learning-concept-example__line indent-level-1">The old system commonly uses code such as:</div>
-         <div class="learning-concept-example__line indent-level-2">Input.GetKeyDown(KeyCode.Space)</div>
-         <div class="learning-concept-example__line indent-level-1">The New Input System can access the keyboard directly:</div>
-         <div class="learning-concept-example__line indent-level-2">Keyboard.current.spaceKey.wasPressedThisFrame</div>
-         <div class="learning-concept-example__line indent-level-1">The New Input System can eventually provide a much more flexible way of separating the physical device from the gameplay action.</div>
-         <div class="learning-concept-example__line indent-level-1">This will be covered using Input Actions in Tutorial 02/03.</div>
-         <div class="learning-concept-example__line indent-level-1">For this stretch target, we are deliberately using the simpler direct keyboard approach first.</div>
-        </div>
-       </section>
-
-       <h2>1. Install the New Input System</h2>
-
-       <ol>
-      <li>Open your existing 3DIMD Unity project.</li>
-      <li>
-      Open:
-      <ol>
-       <li><strong>Window &gt; Package Manager</strong></li>
-      </ol>
-      </li>
-      <li>
-       In Package Manager, select:
-      <ol>
-       <li><strong>Unity Registry</strong></li>
-      </ol>
-      </li>
-      <li>
-       Search for:
-      <ol>
-       <li><strong>Input System</strong></li>
-      </ol>
-      </li>
-      <li>Select the Unity <strong>Input System</strong> package.</li>
-      <li>Click <strong>Install</strong> if it is not already installed.</li>
-       </ol>
-
-       <p>
-      The Input System is a separate Unity package and must be installed before
-      using the <code>UnityEngine.InputSystem</code> namespace.
-       </p>
-
-       <p>
-      <strong>Do not create an Input Actions asset yet.</strong>
-       </p>
-
-          <h2>2. Enable both input systems</h2>
-
-          <ol>
-            <li>
-              Enable both input systems.
-              <p>
-                  Because the original Tutorial 00/01 scripts use the old Input Manager, do not
-                  switch the project completely to the New Input System at this stage.
-              </p>
-              <ol>
-                  <li> Go to: Edit &gt; Project Settings &gt; Player </li>
-                  <li> Find: Other Settings &gt; Configuration &gt; Active Input Handling </li>
-                  <li> Set it to: Both </li>
-              </ol>
-            </li>
-          </ol>
-
-       <p>
-      This allows the old Input Manager and the New Input System to operate side by
-      side. This is useful while learning and migrating an existing project.
-       </p>
-
-       <p>
-      Unity provides three choices: <strong>Input Manager (Old)</strong>,
-      <strong>Input System Package (New)</strong>, and <strong>Both</strong>.
-      The Both option allows the two systems to operate side by side.
-       </p>
-
-       <p>
-      Unity may ask to restart the Editor after changing this setting. Allow Unity
-      to restart.
-       </p>
-
-       <p>
-      <strong>Important:</strong> Do not change the project to New only for this
-      exercise. The original Tutorial 00/01 scripts still use the old system.
-       </p>
-
-       <h2>3. Make a duplicate of the existing Logo Screen script</h2>
-
-       <p>
-      The original tutorial already contains a Logo Screen interaction in which the
-      Space key hides/shows the logo screen.
-       </p>
-
-       <p>
-      Rather than replacing the original script, make a duplicate so that you can
-      compare the two systems.
-       </p>
-
-       <ol>
-      <li>Find the existing <code>logoScreen.cs</code> script.</li>
-      <li>Duplicate it.</li>
-      <li>
-       Rename the duplicate:
-      <ol>
-       <li><code>logoScreen_NIS.cs</code></li>
-      </ol>
-      </li>
-      <li>Open the duplicate in Visual Studio.</li>
-      <li>Change the class name to match the new filename.</li>
-       </ol>
-
-       <p>
-      The important distinction is:
-       </p>
-
-                <section class="learning-concept-example">
-         <div class="learning-concept-example__title">Learning Concept Example: logoScreen.cs</div>
-         <div class="learning-concept-example__body">
-          <div class="learning-concept-example__line">logoScreen.cs</div>
-          <div class="learning-concept-example__line indent-level-1">= original / Legacy Input System</div>
-          <div class="learning-concept-example__line">&nbsp;</div>
-          <div class="learning-concept-example__line">logoScreen_NIS.cs</div>
-          <div class="learning-concept-example__line indent-level-1">= duplicate / New Input System</div>
-         </div>
+        <section class="learning-concept-example">
+          <div class="learning-concept-example__title">Learning Concept Example: What you will learn</div>
+          <div class="learning-concept-example__body">
+            <div class="learning-concept-example__line">What you will learn</div>
+            <div class="learning-concept-example__line indent-level-1">- What the New Input System is.</div>
+            <div class="learning-concept-example__line indent-level-1">- How to install the Input System package.</div>
+            <div class="learning-concept-example__line indent-level-1">- How to enable the New Input System while keeping the old Input
+              System available.</div>
+            <div class="learning-concept-example__line indent-level-1">- How to access a keyboard directly using Keyboard.current.</div>
+            <div class="learning-concept-example__line indent-level-1">- How to detect a key being pressed this frame using
+              wasPressedThisFrame.</div>
+            <div class="learning-concept-example__line indent-level-1">- How the New Input System differs from Input.GetKeyDown().</div>
+            <div class="learning-concept-example__line indent-level-1">- Why Input Actions will be useful later.</div>
+          </div>
         </section>
 
-       <p>
-      Do not leave both scripts controlling the same Logo Screen GameObject at the
-      same time.
-       </p>
+        <section class="learning-concept-example">
+          <div class="learning-concept-example__title">Learning Concept Example: New Input System - What is it?</div>
+          <div class="learning-concept-example__body">
+            <div class="learning-concept-example__line">New Input System - What is it?</div>
+            <div class="learning-concept-example__line indent-level-1">Unity has two input systems:</div>
+            <div class="learning-concept-example__line indent-level-2">- Input Manager / Legacy Input System - the system used in the main
+              Tutorial 00/01 exercises.</div>
+            <div class="learning-concept-example__line indent-level-2">- Input System Package / New Input System - Unity's newer, more
+              extensible input system.</div>
+            <div class="learning-concept-example__line indent-level-1">The old system commonly uses code such as:</div>
+            <div class="learning-concept-example__line indent-level-2">Input.GetKeyDown(KeyCode.Space)</div>
+            <div class="learning-concept-example__line indent-level-1">The New Input System can access the keyboard directly:</div>
+            <div class="learning-concept-example__line indent-level-2">Keyboard.current.spaceKey.wasPressedThisFrame</div>
+            <div class="learning-concept-example__line indent-level-1">The New Input System can eventually provide a much more flexible way
+              of separating the physical device from the gameplay action.</div>
+            <div class="learning-concept-example__line indent-level-1">This will be covered using Input Actions in Tutorial 02/03.</div>
+            <div class="learning-concept-example__line indent-level-1">For this stretch target, we are deliberately using the simpler direct
+              keyboard approach first.</div>
+          </div>
+        </section>
 
-       <h2>4. Add the New Input System namespace</h2>
+        <h2>1. Install the New Input System</h2>
 
-       <p>
-      At the top of <code>logoScreen_NIS.cs</code>, add:
-       </p>
+        <ol>
+          <li>Open your existing 3DIMD Unity project.</li>
+          <li>
+            Open:
+            <ol>
+              <li><strong>Window &gt; Package Manager</strong></li>
+            </ol>
+          </li>
+          <li>
+            In Package Manager, select:
+            <ol>
+              <li><strong>Unity Registry</strong></li>
+            </ol>
+          </li>
+          <li>
+            Search for:
+            <ol>
+              <li><strong>Input System</strong></li>
+            </ol>
+          </li>
+          <li>Select the Unity <strong>Input System</strong> package.</li>
+          <li>Click <strong>Install</strong> if it is not already installed.</li>
+        </ol>
 
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">using UnityEngine.InputSystem;</div>
-        </div>
-       </section>
+        <p>
+          The Input System is a separate Unity package and must be installed before
+          using the <code>UnityEngine.InputSystem</code> namespace.
+        </p>
 
-       <p>
-      Your imports should now include:
-       </p>
+        <p>
+          <strong>Do not create an Input Actions asset yet.</strong>
+        </p>
 
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">using System.Collections;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-1">using System.Collections.Generic;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-1">using UnityEngine;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-1">using UnityEngine.InputSystem;</div>
-        </div>
-       </section>
+        <h2>2. Enable both input systems</h2>
 
-       <p>
-      The important addition is:
-       </p>
+        <ol>
+          <li>
+            Enable both input systems.
+            <p>
+              Because the original Tutorial 00/01 scripts use the old Input Manager, do not
+              switch the project completely to the New Input System at this stage.
+            </p>
+            <ol>
+              <li> Go to: Edit &gt; Project Settings &gt; Player </li>
+              <li> Find: Other Settings &gt; Configuration &gt; Active Input Handling </li>
+              <li> Set it to: Both </li>
+            </ol>
+          </li>
+        </ol>
 
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">using UnityEngine.InputSystem;</div>
-        </div>
-       </section>
+        <p>
+          This allows the old Input Manager and the New Input System to operate side by
+          side. This is useful while learning and migrating an existing project.
+        </p>
 
-       <p>
-      This gives the script access to the New Input System classes, including
-      <code>Keyboard</code>.
-       </p>
+        <p>
+          Unity provides three choices: <strong>Input Manager (Old)</strong>,
+          <strong>Input System Package (New)</strong>, and <strong>Both</strong>.
+          The Both option allows the two systems to operate side by side.
+        </p>
 
-       <h2>5. New Input System - detect the Space key</h2>
+        <p>
+          Unity may ask to restart the Editor after changing this setting. Allow Unity
+          to restart.
+        </p>
 
-       <p>
-      The old system might use:
-       </p>
+        <p>
+          <strong>Important:</strong> Do not change the project to New only for this
+          exercise. The original Tutorial 00/01 scripts still use the old system.
+        </p>
 
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">Input.GetKeyDown(KeyCode.Space)</div>
-        </div>
-       </section>
+        <h2>3. Make a duplicate of the existing Logo Screen script</h2>
 
-       <p>
-      The equivalent direct New Input System approach is:
-       </p>
+        <p>
+          The original tutorial already contains a Logo Screen interaction in which the
+          Space key hides/shows the logo screen.
+        </p>
 
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">Keyboard.current.spaceKey.wasPressedThisFrame</div>
-        </div>
-       </section>
+        <p>
+          Rather than replacing the original script, make a duplicate so that you can
+          compare the two systems.
+        </p>
 
-       <p>
-<!--       Read this as:
+        <ol>
+          <li>Find the existing <code>logoScreen.cs</code> script.</li>
+          <li>Duplicate it.</li>
+          <li>
+            Rename the duplicate:
+            <ol>
+              <li><code>logoScreen_NIS.cs</code></li>
+            </ol>
+          </li>
+          <li>Open the duplicate in Visual Studio.</li>
+          <li>Change the class name to match the new filename.</li>
+        </ol>
+
+        <p>
+          The important distinction is:
+        </p>
+
+        <section class="learning-concept-example">
+          <div class="learning-concept-example__title">Learning Concept Example: logoScreen.cs</div>
+          <div class="learning-concept-example__body">
+            <div class="learning-concept-example__line">logoScreen.cs</div>
+            <div class="learning-concept-example__line indent-level-1">= original / Legacy Input System</div>
+            <div class="learning-concept-example__line">&nbsp;</div>
+            <div class="learning-concept-example__line">logoScreen_NIS.cs</div>
+            <div class="learning-concept-example__line indent-level-1">= duplicate / New Input System</div>
+          </div>
+        </section>
+
+        <p>
+          Do not leave both scripts controlling the same Logo Screen GameObject at the
+          same time.
+        </p>
+
+        <h2>4. Add the New Input System namespace</h2>
+
+        <p>
+          At the top of <code>logoScreen_NIS.cs</code>, add:
+        </p>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">using UnityEngine.InputSystem;</div>
+          </div>
+        </section>
+
+        <p>
+          Your imports should now include:
+        </p>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">using System.Collections;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-1">using System.Collections.Generic;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-1">using UnityEngine;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-1">using UnityEngine.InputSystem;</div>
+          </div>
+        </section>
+
+        <p>
+          The important addition is:
+        </p>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">using UnityEngine.InputSystem;</div>
+          </div>
+        </section>
+
+        <p>
+          This gives the script access to the New Input System classes, including
+          <code>Keyboard</code>.
+        </p>
+
+        <h2>5. New Input System - detect the Space key</h2>
+
+        <p>
+          The old system might use:
+        </p>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">Input.GetKeyDown(KeyCode.Space)</div>
+          </div>
+        </section>
+
+        <p>
+          The equivalent direct New Input System approach is:
+        </p>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">Keyboard.current.spaceKey.wasPressedThisFrame</div>
+          </div>
+        </section>
+
+        <p>
+          <!--       Read this as:
        </p>
 
               <section class="code-panel code-panel--compact" data-code-type="code">
@@ -978,843 +1012,839 @@
         </div>
        </section> -->
 
-       <ul>
+        <ul>
           <li><code>Keyboard</code> = the keyboard device.</li>
           <li><code>current</code> = the currently connected keyboard.</li>
           <li><code>spaceKey</code> = the Space key.</li>
           <li><code>wasPressedThisFrame</code> = true for the frame in which the key was pressed.</li>
-       </ul>
+        </ul>
 
-       <p>
-      This is conceptually similar to the old <code>Input.GetKeyDown()</code>.
-      Unity's Input System migration documentation maps <code>Input.GetKeyDown()</code>
-      to <code>ButtonControl.wasPressedThisFrame</code>.
-       </p>
+        <p>
+          This is conceptually similar to the old <code>Input.GetKeyDown()</code>.
+          Unity's Input System migration documentation maps <code>Input.GetKeyDown()</code>
+          to <code>ButtonControl.wasPressedThisFrame</code>.
+        </p>
 
-       <h2>6. Complete Logo Screen NIS example</h2>
+        <h2>6. Complete Logo Screen NIS example</h2>
 
-       <p>
-      Replace the input section of your duplicated script with the New Input System
-      version.
-       </p>
+        <p>
+          Replace the input section of your duplicated script with the New Input System
+          version.
+        </p>
 
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">using System.Collections;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-1">using System.Collections.Generic;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-1">using UnityEngine;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-1">using UnityEngine.InputSystem;</div>
-         <div class="code-panel__line">&nbsp;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-1">public class logoScreen_NIS : MonoBehaviour</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-2">private Renderer logoRenderer;</div>
-         <div class="code-panel__line">&nbsp;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-2">void Start()</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-2">{</div>
-         <div class="code-panel__line indent-level-3">logoRenderer = GetComponent&lt;Renderer&gt;();</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
-         <div class="code-panel__line">&nbsp;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-2">void Update()</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-2">{</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-3">if (Keyboard.current != null &amp;&amp;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-4">Keyboard.current.spaceKey.wasPressedThisFrame)</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-3">{</div>
-         <div class="code-panel__line indent-level-4">logoRenderer.enabled = !logoRenderer.enabled;</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-3">}</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
-        </div>
-       </section>
-
-       <p>
-      The important New Input System code is:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">if (Keyboard.current != null &amp;&amp;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-2">Keyboard.current.spaceKey.wasPressedThisFrame)</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
-         <div class="code-panel__line indent-level-2">logoRenderer.enabled = !logoRenderer.enabled;</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
-        </div>
-       </section>
-
-       <p>
-      The rest of the script is ordinary Unity/C# code. The New Input System is
-      simply providing the keyboard input.
-       </p>
-
-       <h2>7. Test the Logo Screen</h2>
-
-       <ol>
-      <li>Save the script.</li>
-      <li>Return to Unity.</li>
-      <li>Remove or disable the original <code>logoScreen</code> component from the test copy of the Logo Screen.</li>
-      <li>Add <code>logoScreen_NIS</code> to the duplicate/test Logo Screen object.</li>
-      <li>Enter Play Mode.</li>
-      <li>Press <strong>Space</strong>.</li>
-       </ol>
-
-       <p>
-      The Logo Screen should hide/show in exactly the same way as the original
-      tutorial.
-       </p>
-
-       <p>
-      You have now implemented your first New Input System keyboard interaction
-      <strong>without using an Input Action</strong>.
-       </p>
-
-       <h2>8. Compare the two versions</h2>
-
-       <p><strong>Legacy Input System:</strong></p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">if (Input.GetKeyDown(KeyCode.Space))</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
-         <div class="code-panel__line code-panel__line--comment indent-level-2">// interaction</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
-        </div>
-       </section>
-
-       <p><strong>New Input System:</strong></p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">if (Keyboard.current.spaceKey.wasPressedThisFrame)</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
-         <div class="code-panel__line code-panel__line--comment indent-level-2">// interaction</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
-        </div>
-       </section>
-
-       <p>
-      Both scripts perform the same job.
-      The difference is where the input information comes from.
-       </p>
-
-       <h2>9. Duplicate the Gallery Control script</h2>
-
-       <p>
-      The original Gallery Control exercise uses the Left and Right Arrow keys to
-      cycle through an array of GameObjects.
-       </p>
-
-       <p>
-      The existing tutorial uses keyboard input to:
-       </p>
-
-       <ul>
-      <li>Increase the array counter with the Right Arrow.</li>
-      <li>Decrease the array counter with the Left Arrow.</li>
-      <li>Cycle back to the beginning/end of the array.</li>
-      <li>Display the selected GameObject.</li>
-      <li>Hide the other GameObjects.</li>
-       </ul>
-
-       <p>
-      These concepts do not need to change. We are only changing the way the script
-      reads the keyboard.
-       </p>
-
-       <ol>
-      <li>Duplicate <code>GalleryControl.cs</code>.</li>
-      <li>
-       Rename the duplicate:
-      <ol>
-       <li><code>GalleryControl_NIS.cs</code></li>
-      </ol>
-      </li>
-      <li>Change the class name to <code>GalleryControl_NIS</code>.</li>
-      <li>
-       Add:
-      <ol>
-       <li><code>using UnityEngine.InputSystem;</code></li>
-      </ol>
-      </li>
-       </ol>
-
-       <h2>10. New Input System - Arrow keys</h2>
-
-       <p>
-      The New Input System provides direct access to the individual arrow keys:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">Keyboard.current.rightArrowKey.wasPressedThisFrame</div>
-         <div class="code-panel__line">&nbsp;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-1">Keyboard.current.leftArrowKey.wasPressedThisFrame</div>
-        </div>
-       </section>
-
-       <p>
-      So the old:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">Input.GetKeyDown(KeyCode.RightArrow)</div>
-        </div>
-       </section>
-
-       <p>
-      becomes:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">Keyboard.current.rightArrowKey.wasPressedThisFrame</div>
-        </div>
-       </section>
-
-       <p>
-      And:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">Input.GetKeyDown(KeyCode.LeftArrow)</div>
-        </div>
-       </section>
-
-       <p>
-      becomes:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">Keyboard.current.leftArrowKey.wasPressedThisFrame</div>
-        </div>
-       </section>
-
-       <h2>11. Complete Gallery Control NIS example</h2>
-
-       <p>
-      The following is a basic New Input System version of the existing Gallery
-      Control exercise.
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">using System.Collections;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-1">using System.Collections.Generic;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-1">using UnityEngine;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-1">using UnityEngine.InputSystem;</div>
-         <div class="code-panel__line">&nbsp;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-1">public class GalleryControl_NIS : MonoBehaviour</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-2">public GameObject[] galleryObjects;</div>
-         <div class="code-panel__line">&nbsp;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-2">public int counter = 0;</div>
-         <div class="code-panel__line">&nbsp;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-2">void Start()</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-2">{</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-3">for (int i = 0; i &lt; galleryObjects.Length; i++)</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-3">{</div>
-         <div class="code-panel__line indent-level-4">galleryObjects[i].SetActive(i == counter);</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-3">}</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
-         <div class="code-panel__line">&nbsp;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-2">void Update()</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-2">{</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-3">if (Keyboard.current != null &amp;&amp;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-4">Keyboard.current.rightArrowKey.wasPressedThisFrame)</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-3">{</div>
-         <div class="code-panel__line indent-level-4">counter++;</div>
-         <div class="code-panel__line">&nbsp;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-4">if (counter &gt;= galleryObjects.Length)</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-4">{</div>
-         <div class="code-panel__line indent-level-5">counter = 0;</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-4">}</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-3">}</div>
-         <div class="code-panel__line">&nbsp;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-3">if (Keyboard.current != null &amp;&amp;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-4">Keyboard.current.leftArrowKey.wasPressedThisFrame)</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-3">{</div>
-         <div class="code-panel__line indent-level-4">counter--;</div>
-         <div class="code-panel__line">&nbsp;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-4">if (counter &lt; 0)</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-4">{</div>
-         <div class="code-panel__line indent-level-5">counter = galleryObjects.Length - 1;</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-4">}</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-3">}</div>
-         <div class="code-panel__line">&nbsp;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-3">Debug.Log(&quot;Current gallery object: &quot; + counter);</div>
-         <div class="code-panel__line">&nbsp;</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-3">for (int i = 0; i &lt; galleryObjects.Length; i++)</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-3">{</div>
-         <div class="code-panel__line indent-level-4">galleryObjects[i].SetActive(i == counter);</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-3">}</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
-        </div>
-       </section>
-
-       <p>
-      The important new code is only the keyboard checks:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">Keyboard.current.rightArrowKey.wasPressedThisFrame</div>
-        </div>
-       </section>
-
-       <p>and:</p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">Keyboard.current.leftArrowKey.wasPressedThisFrame</div>
-        </div>
-       </section>
-
-       <p>
-      The array, counter, loop and <code>SetActive()</code> concepts are unchanged.
-       </p>
-
-       <h2>12. Test the Gallery</h2>
-
-       <ol>
-      <li>Disable the original <code>GalleryControl</code> component on your test Gallery object.</li>
-      <li>Add <code>GalleryControl_NIS</code>.</li>
-      <li>Populate the <code>Gallery Objects</code> array in the Inspector exactly as in the original tutorial.</li>
-      <li>Enter Play Mode.</li>
-      <li>Press <strong>Right Arrow</strong>.</li>
-      <li>Press <strong>Left Arrow</strong>.</li>
-      <li>Watch the Console for the current counter value.</li>
-       </ol>
-
-       <p>
-      The gallery should behave in the same way as the original version.
-       </p>
-
-       <h2>13. What has actually changed?</h2>
-
-       <p>
-      Very little of the gameplay code has changed.
-       </p>
-
-       <p>
-      The original system:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">Input.GetKeyDown(KeyCode.RightArrow)</div>
-        </div>
-       </section>
-
-       <p>
-      has been replaced with:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">Keyboard.current.rightArrowKey.wasPressedThisFrame</div>
-        </div>
-       </section>
-
-       <p>
-      The array and GameObject code remains the same.
-       </p>
-
-       <p>
-      This is an important programming concept:
-      <strong>input detection and the interaction caused by the input are separate concerns.</strong>
-       </p>
-
-                <section class="learning-concept-example">
-         <div class="learning-concept-example__title">Learning Concept Example: KEYBOARD INPUT</div>
-         <div class="learning-concept-example__body">
-          <div class="learning-concept-example__line">KEYBOARD INPUT</div>
-          <div class="learning-concept-example__line indent-level-1">-</div>
-          <div class="learning-concept-example__line indent-level-2">New Input System</div>
-          <div class="learning-concept-example__line indent-level-1">-</div>
-          <div class="learning-concept-example__line indent-level-2">&quot;Right Arrow was pressed&quot;</div>
-          <div class="learning-concept-example__line indent-level-1">-</div>
-          <div class="learning-concept-example__line indent-level-2">Gallery code</div>
-          <div class="learning-concept-example__line indent-level-1">-</div>
-          <div class="learning-concept-example__line indent-level-2">counter changes</div>
-          <div class="learning-concept-example__line indent-level-1">-</div>
-          <div class="learning-concept-example__line indent-level-2">GameObjects are displayed/hidden</div>
-         </div>
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">using System.Collections;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-1">using System.Collections.Generic;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-1">using UnityEngine;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-1">using UnityEngine.InputSystem;</div>
+            <div class="code-panel__line">&nbsp;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-1">public class logoScreen_NIS : MonoBehaviour</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-2">private Renderer logoRenderer;</div>
+            <div class="code-panel__line">&nbsp;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-2">void Start()</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-2">{</div>
+            <div class="code-panel__line indent-level-3">logoRenderer = GetComponent&lt;Renderer&gt;();</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
+            <div class="code-panel__line">&nbsp;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-2">void Update()</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-2">{</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-3">if (Keyboard.current != null &amp;&amp;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-4">Keyboard.current.spaceKey.wasPressedThisFrame)</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-3">{</div>
+            <div class="code-panel__line indent-level-4">logoRenderer.enabled = !logoRenderer.enabled;</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-3">}</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+          </div>
         </section>
 
-       <h2>14. Why are we NOT using Input Actions yet?</h2>
+        <p>
+          The important New Input System code is:
+        </p>
 
-       <p>
-      The New Input System has several levels of use.
-      For this stretch target we are starting with the simplest:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">Keyboard.current</div>
-        </div>
-       </section>
-
-       <p>
-      This directly accesses a physical input device.
-       </p>
-
-       <p>
-      Later, Input Actions allow us to create a logical action such as:
-       </p>
-
-                <section class="learning-concept-example">
-         <div class="learning-concept-example__title">Learning Concept Example: Move</div>
-         <div class="learning-concept-example__body">
-          <div class="learning-concept-example__line">Move</div>
-          <div class="learning-concept-example__line indent-level-1">Look</div>
-          <div class="learning-concept-example__line indent-level-1">Jump</div>
-          <div class="learning-concept-example__line indent-level-1">Fire</div>
-          <div class="learning-concept-example__line indent-level-1">Next</div>
-          <div class="learning-concept-example__line indent-level-1">Previous</div>
-         </div>
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">if (Keyboard.current != null &amp;&amp;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-2">Keyboard.current.spaceKey.wasPressedThisFrame)</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+            <div class="code-panel__line indent-level-2">logoRenderer.enabled = !logoRenderer.enabled;</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+          </div>
         </section>
 
-       <p>
-      and then decide which physical controls perform that action.
-       </p>
+        <p>
+          The rest of the script is ordinary Unity/C# code. The New Input System is
+          simply providing the keyboard input.
+        </p>
 
-       <p>
-      For example, later we could define:
-       </p>
+        <h2>7. Test the Logo Screen</h2>
 
-                <section class="learning-concept-example">
-         <div class="learning-concept-example__title">Learning Concept Example: Move</div>
-         <div class="learning-concept-example__body">
-          <div class="learning-concept-example__line">Move</div>
-          <div class="learning-concept-example__line indent-level-1">W</div>
-          <div class="learning-concept-example__line indent-level-1">A</div>
-          <div class="learning-concept-example__line indent-level-1">S</div>
-          <div class="learning-concept-example__line indent-level-1">D</div>
-          <div class="learning-concept-example__line indent-level-1">Arrow Keys</div>
-          <div class="learning-concept-example__line indent-level-1">Gamepad Stick</div>
-         </div>
+        <ol>
+          <li>Save the script.</li>
+          <li>Return to Unity.</li>
+          <li>Remove or disable the original <code>logoScreen</code> component from the test copy of the Logo Screen.</li>
+          <li>Add <code>logoScreen_NIS</code> to the duplicate/test Logo Screen object.</li>
+          <li>Enter Play Mode.</li>
+          <li>Press <strong>Space</strong>.</li>
+        </ol>
+
+        <p>
+          The Logo Screen should hide/show in exactly the same way as the original
+          tutorial.
+        </p>
+
+        <p>
+          You have now implemented your first New Input System keyboard interaction
+          <strong>without using an Input Action</strong>.
+        </p>
+
+        <h2>8. Compare the two versions</h2>
+
+        <p><strong>Legacy Input System:</strong></p>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">if (Input.GetKeyDown(KeyCode.Space))</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+            <div class="code-panel__line code-panel__line--comment indent-level-2">// interaction</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+          </div>
         </section>
 
-       <p>
-      The gameplay script can then ask for the value of <code>Move</code> without
-      needing to know which physical device generated it.
-       </p>
+        <p><strong>New Input System:</strong></p>
 
-       <p>
-      <strong>Input Actions are introduced in Tutorial 02/03.</strong>
-       </p>
-
-       <h2>15. Key concept - device versus action</h2>
-
-       <p>
-      At this stage you are accessing the device directly:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">Keyboard.current.spaceKey</div>
-        </div>
-       </section>
-
-       <p>
-      Think of this as:
-       </p>
-
-                <section class="learning-concept-example">
-         <div class="learning-concept-example__title">Learning Concept Example: PHYSICAL DEVICE</div>
-         <div class="learning-concept-example__body">
-          <div class="learning-concept-example__line">PHYSICAL DEVICE</div>
-          <div class="learning-concept-example__line indent-level-1">-</div>
-          <div class="learning-concept-example__line indent-level-2">KEYBOARD</div>
-          <div class="learning-concept-example__line indent-level-1">-</div>
-          <div class="learning-concept-example__line indent-level-2">SPACE KEY</div>
-          <div class="learning-concept-example__line indent-level-1">-</div>
-          <div class="learning-concept-example__line indent-level-2">wasPressedThisFrame</div>
-         </div>
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">if (Keyboard.current.spaceKey.wasPressedThisFrame)</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+            <div class="code-panel__line code-panel__line--comment indent-level-2">// interaction</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+          </div>
         </section>
 
-       <p>
-      Later, with Input Actions, the structure becomes:
-       </p>
+        <p>
+          Both scripts perform the same job.
+          The difference is where the input information comes from.
+        </p>
 
-                <section class="learning-concept-example">
-         <div class="learning-concept-example__title">Learning Concept Example: PHYSICAL DEVICE</div>
-         <div class="learning-concept-example__body">
-          <div class="learning-concept-example__line">PHYSICAL DEVICE</div>
-          <div class="learning-concept-example__line indent-level-1">-</div>
-          <div class="learning-concept-example__line indent-level-2">BINDING</div>
-          <div class="learning-concept-example__line indent-level-1">-</div>
-          <div class="learning-concept-example__line indent-level-2">INPUT ACTION</div>
-          <div class="learning-concept-example__line indent-level-1">-</div>
-          <div class="learning-concept-example__line indent-level-2">GAMEPLAY</div>
-         </div>
+        <h2>9. Duplicate the Gallery Control script</h2>
+
+        <p>
+          The original Gallery Control exercise uses the Left and Right Arrow keys to
+          cycle through an array of GameObjects.
+        </p>
+
+        <p>
+          The existing tutorial uses keyboard input to:
+        </p>
+
+        <ul>
+          <li>Increase the array counter with the Right Arrow.</li>
+          <li>Decrease the array counter with the Left Arrow.</li>
+          <li>Cycle back to the beginning/end of the array.</li>
+          <li>Display the selected GameObject.</li>
+          <li>Hide the other GameObjects.</li>
+        </ul>
+
+        <p>
+          These concepts do not need to change. We are only changing the way the script
+          reads the keyboard.
+        </p>
+
+        <ol>
+          <li>Duplicate <code>GalleryControl.cs</code>.</li>
+          <li> Rename the duplicate:<code>GalleryControl_NIS.cs</code></li>
+          <li>Change the class name to <code>GalleryControl_NIS</code>.</li>
+          <li> Add:<code>using UnityEngine.InputSystem;</code></li>
+        </ol>
+
+        <h2>10. New Input System - Arrow keys</h2>
+
+        <p>
+          The New Input System provides direct access to the individual arrow keys:
+        </p>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">Keyboard.current.rightArrowKey.wasPressedThisFrame</div>
+            <div class="code-panel__line">&nbsp;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-1">Keyboard.current.leftArrowKey.wasPressedThisFrame</div>
+          </div>
         </section>
 
-       <p>
-      This separation is one of the major advantages of the New Input System.
-       </p>
+        <p>
+          So the old:
+        </p>
 
-       <h2>16. Important: Update() versus FixedUpdate()</h2>
-
-       <p>
-      These keyboard checks are being used for button-like interactions:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line">wasPressedThisFrame</div>
-        </div>
-       </section>
-
-       <p>
-      Therefore, read them in <code>Update()</code>.
-       </p>
-
-       <p>
-      For example:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">void Update()</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
-         <div class="code-panel__line code-panel__line--statement indent-level-2">if (Keyboard.current.spaceKey.wasPressedThisFrame)</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-2">{</div>
-         <div class="code-panel__line code-panel__line--comment indent-level-3">// do something once</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
-         <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
-        </div>
-       </section>
-
-       <p>
-      Later, when using the New Input System to control a Rigidbody with physics,
-      the input and physics operations need to be considered separately. This will
-      be covered in Tutorial 02/03.
-       </p>
-
-       <h2>17. Troubleshooting</h2>
-
-       <h3>Compiler error: Keyboard could not be found</h3>
-
-       <p>
-      Check that your script contains:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">using UnityEngine.InputSystem;</div>
-        </div>
-       </section>
-
-       <p>
-      Also check that the Input System package is installed.
-       </p>
-
-       <h3>Input System code does not work</h3>
-
-       <p>
-      Check:
-       </p>
-
-                <section class="learning-concept-example">
-         <div class="learning-concept-example__title">Learning Concept Example: Edit</div>
-         <div class="learning-concept-example__body">
-          <div class="learning-concept-example__line">Edit</div>
-          <div class="learning-concept-example__line indent-level-1">&gt; Project Settings</div>
-          <div class="learning-concept-example__line indent-level-1">&gt; Player</div>
-          <div class="learning-concept-example__line indent-level-1">&gt; Other Settings</div>
-          <div class="learning-concept-example__line indent-level-1">&gt; Active Input Handling</div>
-         </div>
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">Input.GetKeyDown(KeyCode.RightArrow)</div>
+          </div>
         </section>
 
-       <p>
-      Set this to:
-       </p>
+        <p>
+          becomes:
+        </p>
 
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line">Both</div>
-        </div>
-       </section>
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">Keyboard.current.rightArrowKey.wasPressedThisFrame</div>
+          </div>
+        </section>
 
-       <h3>The old version and new version both respond</h3>
+        <p>
+          And:
+        </p>
 
-       <p>
-      This normally means both scripts are active on the same GameObject.
-      Disable the original script when testing the NIS version.
-       </p>
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">Input.GetKeyDown(KeyCode.LeftArrow)</div>
+          </div>
+        </section>
 
-       <h3>Keyboard.current is null</h3>
+        <p>
+          becomes:
+        </p>
 
-       <p>
-      The example checks for this possibility:
-       </p>
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">Keyboard.current.leftArrowKey.wasPressedThisFrame</div>
+          </div>
+        </section>
 
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">Keyboard.current != null</div>
-        </div>
-       </section>
+        <h2>11. Complete Gallery Control NIS example</h2>
 
-       <p>
-      This prevents the script from trying to access a keyboard that is not currently
-      available.
-       </p>
+        <p>
+          The following is a basic New Input System version of the existing Gallery
+          Control exercise.
+        </p>
 
-       <h2>18. What you should understand before Tutorial 02/03</h2>
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">using System.Collections;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-1">using System.Collections.Generic;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-1">using UnityEngine;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-1">using UnityEngine.InputSystem;</div>
+            <div class="code-panel__line">&nbsp;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-1">public class GalleryControl_NIS : MonoBehaviour</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-2">public GameObject[] galleryObjects;</div>
+            <div class="code-panel__line">&nbsp;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-2">public int counter = 0;</div>
+            <div class="code-panel__line">&nbsp;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-2">void Start()</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-2">{</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-3">for (int i = 0; i &lt; galleryObjects.Length; i++)
+            </div>
+            <div class="code-panel__line code-panel__line--brace indent-level-3">{</div>
+            <div class="code-panel__line indent-level-4">galleryObjects[i].SetActive(i == counter);</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-3">}</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
+            <div class="code-panel__line">&nbsp;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-2">void Update()</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-2">{</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-3">if (Keyboard.current != null &amp;&amp;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-4">Keyboard.current.rightArrowKey.wasPressedThisFrame)
+            </div>
+            <div class="code-panel__line code-panel__line--brace indent-level-3">{</div>
+            <div class="code-panel__line indent-level-4">counter++;</div>
+            <div class="code-panel__line">&nbsp;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-4">if (counter &gt;= galleryObjects.Length)</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-4">{</div>
+            <div class="code-panel__line indent-level-5">counter = 0;</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-4">}</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-3">}</div>
+            <div class="code-panel__line">&nbsp;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-3">if (Keyboard.current != null &amp;&amp;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-4">Keyboard.current.leftArrowKey.wasPressedThisFrame)
+            </div>
+            <div class="code-panel__line code-panel__line--brace indent-level-3">{</div>
+            <div class="code-panel__line indent-level-4">counter--;</div>
+            <div class="code-panel__line">&nbsp;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-4">if (counter &lt; 0)</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-4">{</div>
+            <div class="code-panel__line indent-level-5">counter = galleryObjects.Length - 1;</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-4">}</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-3">}</div>
+            <div class="code-panel__line">&nbsp;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-3">Debug.Log(&quot;Current gallery object: &quot; +
+              counter);</div>
+            <div class="code-panel__line">&nbsp;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-3">for (int i = 0; i &lt; galleryObjects.Length; i++)
+            </div>
+            <div class="code-panel__line code-panel__line--brace indent-level-3">{</div>
+            <div class="code-panel__line indent-level-4">galleryObjects[i].SetActive(i == counter);</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-3">}</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+          </div>
+        </section>
 
-       <p>
-      At the end of this stretch task you should understand that:
-       </p>
+        <p>
+          The important new code is only the keyboard checks:
+        </p>
 
-       <ul>
-      <li>The New Input System is installed as a Unity package.</li>
-      <li>The old and new input systems can operate side by side.</li>
-      <li><code>UnityEngine.InputSystem</code> provides access to the New Input System.</li>
-      <li><code>Keyboard.current</code> provides access to the current keyboard.</li>
-      <li>Individual keys can be accessed such as <code>spaceKey</code>, <code>leftArrowKey</code> and <code>rightArrowKey</code>.</li>
-      <li><code>wasPressedThisFrame</code> detects a key press during the current frame.</li>
-      <li>The input system provides the input; your existing gameplay code performs the interaction.</li>
-      <li>You do not need an Input Actions asset to use the New Input System.</li>
-       </ul>
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">Keyboard.current.rightArrowKey.wasPressedThisFrame</div>
+          </div>
+        </section>
 
-       <p>
-      <strong>Next step:</strong> Tutorial 02/03 introduces Input Actions, where
-      keyboard controls are separated from gameplay actions such as movement,
-      acceleration and looking.
-       </p>
+        <p>and:</p>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">Keyboard.current.leftArrowKey.wasPressedThisFrame</div>
+          </div>
+        </section>
+
+        <p>
+          The array, counter, loop and <code>SetActive()</code> concepts are unchanged.
+        </p>
+
+        <h2>12. Test the Gallery</h2>
+
+        <ol>
+          <li>Disable the original <code>GalleryControl</code> component on your test Gallery object.</li>
+          <li>Add <code>GalleryControl_NIS</code>.</li>
+          <li>Populate the <code>Gallery Objects</code> array in the Inspector exactly as in the original tutorial.</li>
+          <li>Enter Play Mode.</li>
+          <li>Press <strong>Right Arrow</strong>.</li>
+          <li>Press <strong>Left Arrow</strong>.</li>
+          <li>Watch the Console for the current counter value.</li>
+        </ol>
+
+        <p>
+          The gallery should behave in the same way as the original version.
+        </p>
+
+        <h2>13. What has actually changed?</h2>
+
+        <p>
+          Very little of the gameplay code has changed.
+        </p>
+
+        <p>
+          The original system:
+        </p>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">Input.GetKeyDown(KeyCode.RightArrow)</div>
+          </div>
+        </section>
+
+        <p>
+          has been replaced with:
+        </p>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">Keyboard.current.rightArrowKey.wasPressedThisFrame</div>
+          </div>
+        </section>
+
+        <p>
+          The array and GameObject code remains the same.
+        </p>
+
+        <p>
+          This is an important programming concept:
+          <strong>input detection and the interaction caused by the input are separate concerns.</strong>
+        </p>
+
+        <section class="learning-concept-example">
+          <div class="learning-concept-example__title">Learning Concept Example: KEYBOARD INPUT</div>
+          <div class="learning-concept-example__body">
+            <div class="learning-concept-example__line">KEYBOARD INPUT</div>
+            <div class="learning-concept-example__line indent-level-1">-</div>
+            <div class="learning-concept-example__line indent-level-2">New Input System</div>
+            <div class="learning-concept-example__line indent-level-1">-</div>
+            <div class="learning-concept-example__line indent-level-2">&quot;Right Arrow was pressed&quot;</div>
+            <div class="learning-concept-example__line indent-level-1">-</div>
+            <div class="learning-concept-example__line indent-level-2">Gallery code</div>
+            <div class="learning-concept-example__line indent-level-1">-</div>
+            <div class="learning-concept-example__line indent-level-2">counter changes</div>
+            <div class="learning-concept-example__line indent-level-1">-</div>
+            <div class="learning-concept-example__line indent-level-2">GameObjects are displayed/hidden</div>
+          </div>
+        </section>
+
+        <h2>14. Why are we NOT using Input Actions yet?</h2>
+
+        <p>
+          The New Input System has several levels of use.
+          For this stretch target we are starting with the simplest:
+        </p>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">Keyboard.current</div>
+          </div>
+        </section>
+
+        <p>
+          This directly accesses a physical input device.
+        </p>
+
+        <p>
+          Later, Input Actions allow us to create a logical action such as:
+        </p>
+
+        <section class="learning-concept-example">
+          <div class="learning-concept-example__title">Learning Concept Example: Move</div>
+          <div class="learning-concept-example__body">
+            <div class="learning-concept-example__line">Move</div>
+            <div class="learning-concept-example__line indent-level-1">Look</div>
+            <div class="learning-concept-example__line indent-level-1">Jump</div>
+            <div class="learning-concept-example__line indent-level-1">Fire</div>
+            <div class="learning-concept-example__line indent-level-1">Next</div>
+            <div class="learning-concept-example__line indent-level-1">Previous</div>
+          </div>
+        </section>
+
+        <p>
+          and then decide which physical controls perform that action.
+        </p>
+
+        <p>
+          For example, later we could define:
+        </p>
+
+        <section class="learning-concept-example">
+          <div class="learning-concept-example__title">Learning Concept Example: Move</div>
+          <div class="learning-concept-example__body">
+            <div class="learning-concept-example__line">Move</div>
+            <div class="learning-concept-example__line indent-level-1">W</div>
+            <div class="learning-concept-example__line indent-level-1">A</div>
+            <div class="learning-concept-example__line indent-level-1">S</div>
+            <div class="learning-concept-example__line indent-level-1">D</div>
+            <div class="learning-concept-example__line indent-level-1">Arrow Keys</div>
+            <div class="learning-concept-example__line indent-level-1">Gamepad Stick</div>
+          </div>
+        </section>
+
+        <p>
+          The gameplay script can then ask for the value of <code>Move</code> without
+          needing to know which physical device generated it.
+        </p>
+
+        <p>
+          <strong>Input Actions are introduced in Tutorial 02/03.</strong>
+        </p>
+
+        <h2>15. Key concept - device versus action</h2>
+
+        <p>
+          At this stage you are accessing the device directly:
+        </p>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">Keyboard.current.spaceKey</div>
+          </div>
+        </section>
+
+        <p>
+          Think of this as:
+        </p>
+
+        <section class="learning-concept-example">
+          <div class="learning-concept-example__title">Learning Concept Example: PHYSICAL DEVICE</div>
+          <div class="learning-concept-example__body">
+            <div class="learning-concept-example__line">PHYSICAL DEVICE</div>
+            <div class="learning-concept-example__line indent-level-1">-</div>
+            <div class="learning-concept-example__line indent-level-2">KEYBOARD</div>
+            <div class="learning-concept-example__line indent-level-1">-</div>
+            <div class="learning-concept-example__line indent-level-2">SPACE KEY</div>
+            <div class="learning-concept-example__line indent-level-1">-</div>
+            <div class="learning-concept-example__line indent-level-2">wasPressedThisFrame</div>
+          </div>
+        </section>
+
+        <p>
+          Later, with Input Actions, the structure becomes:
+        </p>
+
+        <section class="learning-concept-example">
+          <div class="learning-concept-example__title">Learning Concept Example: PHYSICAL DEVICE</div>
+          <div class="learning-concept-example__body">
+            <div class="learning-concept-example__line">PHYSICAL DEVICE</div>
+            <div class="learning-concept-example__line indent-level-1">-</div>
+            <div class="learning-concept-example__line indent-level-2">BINDING</div>
+            <div class="learning-concept-example__line indent-level-1">-</div>
+            <div class="learning-concept-example__line indent-level-2">INPUT ACTION</div>
+            <div class="learning-concept-example__line indent-level-1">-</div>
+            <div class="learning-concept-example__line indent-level-2">GAMEPLAY</div>
+          </div>
+        </section>
+
+        <p>
+          This separation is one of the major advantages of the New Input System.
+        </p>
+
+        <h2>16. Important: Update() versus FixedUpdate()</h2>
+
+        <p>
+          These keyboard checks are being used for button-like interactions:
+        </p>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line">wasPressedThisFrame</div>
+          </div>
+        </section>
+
+        <p>
+          Therefore, read them in <code>Update()</code>.
+        </p>
+
+        <p>
+          For example:
+        </p>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">void Update()</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-2">if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            </div>
+            <div class="code-panel__line code-panel__line--brace indent-level-2">{</div>
+            <div class="code-panel__line code-panel__line--comment indent-level-3">// do something once</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+          </div>
+        </section>
+
+        <p>
+          Later, when using the New Input System to control a Rigidbody with physics,
+          the input and physics operations need to be considered separately. This will
+          be covered in Tutorial 02/03.
+        </p>
+
+        <h2>17. Troubleshooting</h2>
+
+        <h3>Compiler error: Keyboard could not be found</h3>
+
+        <p>
+          Check that your script contains:
+        </p>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">using UnityEngine.InputSystem;</div>
+          </div>
+        </section>
+
+        <p>
+          Also check that the Input System package is installed.
+        </p>
+
+        <h3>Input System code does not work</h3>
+
+        <p>
+          Check:
+        </p>
+
+        <section class="learning-concept-example">
+          <div class="learning-concept-example__title">Learning Concept Example: Edit</div>
+          <div class="learning-concept-example__body">
+            <div class="learning-concept-example__line">Edit</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Project Settings</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Player</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Other Settings</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Active Input Handling</div>
+          </div>
+        </section>
+
+        <p>
+          Set this to:
+        </p>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line">Both</div>
+          </div>
+        </section>
+
+        <h3>The old version and new version both respond</h3>
+
+        <p>
+          This normally means both scripts are active on the same GameObject.
+          Disable the original script when testing the NIS version.
+        </p>
+
+        <h3>Keyboard.current is null</h3>
+
+        <p>
+          The example checks for this possibility:
+        </p>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">Keyboard.current != null</div>
+          </div>
+        </section>
+
+        <p>
+          This prevents the script from trying to access a keyboard that is not currently
+          available.
+        </p>
+
+        <h2>18. What you should understand before Tutorial 02/03</h2>
+
+        <p>
+          At the end of this stretch task you should understand that:
+        </p>
+
+        <ul>
+          <li>The New Input System is installed as a Unity package.</li>
+          <li>The old and new input systems can operate side by side.</li>
+          <li><code>UnityEngine.InputSystem</code> provides access to the New Input System.</li>
+          <li><code>Keyboard.current</code> provides access to the current keyboard.</li>
+          <li>Individual keys can be accessed such as <code>spaceKey</code>, <code>leftArrowKey</code> and <code>rightArrowKey</code>.</li>
+          <li><code>wasPressedThisFrame</code> detects a key press during the current frame.</li>
+          <li>The input system provides the input; your existing gameplay code performs the interaction.</li>
+          <li>You do not need an Input Actions asset to use the New Input System.</li>
+        </ul>
+
+        <p>
+          <strong>Next step:</strong> Tutorial 02/03 introduces Input Actions, where
+          keyboard controls are separated from gameplay actions such as movement,
+          acceleration and looking.
+        </p>
       </div>
-   </details>
-   <details class="accordion accordion--nested">
-    <summary>
-     Reference links
-    </summary>
-    <div class="accordion-body">
-      <p>
-       <a href="https://uowdigital.padlet.org/fergusj/3DIMDUnityIntro" rel="noopener noreferrer" target="_blank">
-        https://uowdigital.padlet.org/fergusj/3DIMDUnityIntro
-       </a>
-      </p>
-      <p>
-       <a href="https://unity.com/products/unity-student" rel="noopener noreferrer" target="_blank">
-        https://unity.com/products/unity-student
-       </a>
-      </p>
-      <p>
-       <a href="https://store.unity.com/download-nuo" rel="noopener noreferrer" target="_blank">
-        https://store.unity.com/download-nuo
-       </a>
-      </p>
-      <p>
-       <a href="https://unity3d.com/get-unity/download/archive" rel="noopener noreferrer" target="_blank">
-        https://unity3d.com/get-unity/download/archive
-       </a>
-      </p>
-      <p>
-       <a href="https://play.unity.com/how-to" rel="noopener noreferrer" target="_blank">
-        https://play.unity.com/how-to
-       </a>
-      </p>
-      <p>
-       <a href="https://learn.unity.com/mission/real-time-creation-essentials" rel="noopener noreferrer" target="_blank">
-        https://learn.unity.com/mission/real-time-creation-essentials
-       </a>
-      </p>
-      <p>
-       <a href="https://github.com/Unity-Technologies/PostProcessing/wiki" rel="noopener noreferrer" target="_blank">
-        https://github.com/Unity-Technologies/PostProcessing/wiki
-       </a>
-      </p>
-      <p>
-       <a href="https://docs.unity3d.com/Manual/BestPracticeLightingPipelines.html" rel="noopener noreferrer" target="_blank">
-        https://docs.unity3d.com/Manual/BestPracticeLightingPipelines.html
-       </a>
-      </p>
-      <p>
-       <a href="https://www.mecabricks.com/" rel="noopener noreferrer" target="_blank">
-        https://www.mecabricks.com/
-       </a>
-      </p>
-      <p>
-       <a href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/GameObject.html" rel="noopener noreferrer" target="_blank">
-        https://docs.unity3d.com/6000.0/Documentation/ScriptReference/GameObject.html
-       </a>
-      </p>
-    </div>
-   </details>
+    </details>
+    <details class="accordion accordion--nested">
+      <summary>
+        Reference links
+      </summary>
+      <div class="accordion-body">
+        <p>
+          <a href="https://uowdigital.padlet.org/fergusj/3DIMDUnityIntro" rel="noopener noreferrer" target="_blank">
+            https://uowdigital.padlet.org/fergusj/3DIMDUnityIntro
+          </a>
+        </p>
+        <p>
+          <a href="https://unity.com/products/unity-student" rel="noopener noreferrer" target="_blank">
+            https://unity.com/products/unity-student
+          </a>
+        </p>
+        <p>
+          <a href="https://store.unity.com/download-nuo" rel="noopener noreferrer" target="_blank">
+            https://store.unity.com/download-nuo
+          </a>
+        </p>
+        <p>
+          <a href="https://unity3d.com/get-unity/download/archive" rel="noopener noreferrer" target="_blank">
+            https://unity3d.com/get-unity/download/archive
+          </a>
+        </p>
+        <p>
+          <a href="https://play.unity.com/how-to" rel="noopener noreferrer" target="_blank">
+            https://play.unity.com/how-to
+          </a>
+        </p>
+        <p>
+          <a href="https://learn.unity.com/mission/real-time-creation-essentials" rel="noopener noreferrer" target="_blank">
+            https://learn.unity.com/mission/real-time-creation-essentials
+          </a>
+        </p>
+        <p>
+          <a href="https://github.com/Unity-Technologies/PostProcessing/wiki" rel="noopener noreferrer" target="_blank">
+            https://github.com/Unity-Technologies/PostProcessing/wiki
+          </a>
+        </p>
+        <p>
+          <a href="https://docs.unity3d.com/Manual/BestPracticeLightingPipelines.html" rel="noopener noreferrer" target="_blank">
+            https://docs.unity3d.com/Manual/BestPracticeLightingPipelines.html
+          </a>
+        </p>
+        <p>
+          <a href="https://www.mecabricks.com/" rel="noopener noreferrer" target="_blank">
+            https://www.mecabricks.com/
+          </a>
+        </p>
+        <p>
+          <a href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/GameObject.html" rel="noopener noreferrer" target="_blank">
+            https://docs.unity3d.com/6000.0/Documentation/ScriptReference/GameObject.html
+          </a>
+        </p>
+      </div>
+    </details>
   </main>
-      <script src="../assets/js/site.js?v=20260915c">
+  <script src="../assets/js/site.js?v=20260915c">
   </script>
- </body>
-</html>
+</body>
 
+</html>
