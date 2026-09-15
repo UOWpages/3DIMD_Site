@@ -465,6 +465,838 @@
       </ol>
      </div>
     </details>
+
+    <details class="accordion">
+  <summary>
+    Stretch Task: New Input System, Input Actions
+  </summary>
+  <div class="accordion-body media-stack">
+
+    <h2>Stretch Target: New Input System - Input Actions</h2>
+
+    <p>
+      This is an extension to Tutorial 02/03. Tutorial 00/01 introduced the
+      <strong>New Input System</strong> using direct keyboard access.
+      In this tutorial we introduce <strong>Input Actions</strong>.
+    </p>
+
+    <p>
+      Input Actions allow us to separate the physical input device from the
+      gameplay action. Instead of asking the keyboard directly for W, A, S or D,
+      the script can ask for a logical action such as <strong>Move</strong>.
+    </p>
+
+    <p>
+      We will use Input Actions to control the two Tutorial 02/03 character
+      controllers:
+    </p>
+
+    <section class="learning-concept-example">
+      <div class="learning-concept-example__title">Learning Concept Example: What you will learn</div>
+      <div class="learning-concept-example__body">
+        <div class="learning-concept-example__line">What you will learn</div>
+        <div class="learning-concept-example__line indent-level-1">- What an Input Action is.</div>
+        <div class="learning-concept-example__line indent-level-1">- How to create an Input Actions asset.</div>
+        <div class="learning-concept-example__line indent-level-1">- How to create an Action Map.</div>
+        <div class="learning-concept-example__line indent-level-1">- How to create Actions.</div>
+        <div class="learning-concept-example__line indent-level-1">- How to create keyboard bindings.</div>
+        <div class="learning-concept-example__line indent-level-1">- How to use a 2D Vector composite for WASD and Arrow Keys.</div>
+        <div class="learning-concept-example__line indent-level-1">- How to use an InputActionReference in a script.</div>
+        <div class="learning-concept-example__line indent-level-1">- How to read a Vector2 input value.</div>
+        <div class="learning-concept-example__line indent-level-1">- How input can control Transform movement.</div>
+        <div class="learning-concept-example__line indent-level-1">- How input can control Rigidbody physics.</div>
+        <div class="learning-concept-example__line indent-level-1">- Why physics movement uses FixedUpdate().</div>
+        <div class="learning-concept-example__line indent-level-1">- How the same Input System can support different controllers.</div>
+      </div>
+    </section>
+
+
+    <h2>1. Create an Input Actions asset</h2>
+
+    <ol>
+      <ol>
+        <li>In the Project window, create a new folder called <strong>Input</strong>.</li>
+        <li>Right-click inside the folder.</li>
+        <li>Select <strong>Create &gt; Input Actions</strong>.</li>
+        <li>Rename the asset:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Input Actions Asset</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Input Actions Asset">
+            <div class="code-panel__line code-panel__line--statement">PlayerControls</div>
+          </div>
+        </section>
+
+        <li>Double-click <strong>PlayerControls</strong> to open the Input Actions editor.</li>
+      </ol>
+    </ol>
+
+
+    <h2>2. Create the Player Action Map</h2>
+
+    <ol>
+      <ol>
+        <li>In the Input Actions editor, create a new <strong>Action Map</strong>.</li>
+        <li>Name it:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Action Map</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Action Map">
+            <div class="code-panel__line code-panel__line--statement">Player</div>
+          </div>
+        </section>
+
+        <li>An <strong>Action Map</strong> is a collection of related input actions.</li>
+        <li>For this tutorial we will put the player controls into the <strong>Player</strong> map.</li>
+      </ol>
+    </ol>
+
+
+    <section class="learning-concept-example">
+      <div class="learning-concept-example__title">Learning Concept Example: Action Map</div>
+      <div class="learning-concept-example__body">
+        <div class="learning-concept-example__line">Player</div>
+        <div class="learning-concept-example__line indent-level-1">Move</div>
+        <div class="learning-concept-example__line indent-level-1">Accelerate</div>
+        <div class="learning-concept-example__line indent-level-1">Look</div>
+      </div>
+    </section>
+
+
+    <h2>3. Create the WASD Move Action</h2>
+
+    <ol>
+      <ol>
+        <li>Create a new Action inside the <strong>Player</strong> Action Map.</li>
+        <li>Rename it:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Action</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Action">
+            <div class="code-panel__line code-panel__line--statement">Player_WASD_Physics_AddForce_Move</div>
+          </div>
+        </section>
+
+        <li>Set <strong>Action Type</strong> to <strong>Value</strong>.</li>
+        <li>Set <strong>Control Type</strong> to <strong>Vector2</strong>.</li>
+        <li>Add a <strong>2D Vector Composite</strong>.</li>
+        <li>Set the composite bindings to:</li>
+
+        <section class="learning-concept-example">
+          <div class="learning-concept-example__title">Learning Concept Example: WASD</div>
+          <div class="learning-concept-example__body">
+            <div class="learning-concept-example__line">Up = W</div>
+            <div class="learning-concept-example__line">Down = S</div>
+            <div class="learning-concept-example__line">Left = A</div>
+            <div class="learning-concept-example__line">Right = D</div>
+          </div>
+        </section>
+
+        <li>The four keys are combined into one <strong>Vector2</strong>.</li>
+      </ol>
+    </ol>
+
+
+    <h2>4. Create the Arrow Move Action</h2>
+
+    <ol>
+      <ol>
+        <li>Create another Action inside the <strong>Player</strong> Action Map.</li>
+        <li>Rename it:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Action</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Action">
+            <div class="code-panel__line code-panel__line--statement">Player_Arrows_Transform_Rotation_Move</div>
+          </div>
+        </section>
+
+        <li>Set <strong>Action Type</strong> to <strong>Value</strong>.</li>
+        <li>Set <strong>Control Type</strong> to <strong>Vector2</strong>.</li>
+        <li>Add a <strong>2D Vector Composite</strong>.</li>
+        <li>Set the composite bindings to:</li>
+
+        <section class="learning-concept-example">
+          <div class="learning-concept-example__title">Learning Concept Example: Arrow Keys</div>
+          <div class="learning-concept-example__body">
+            <div class="learning-concept-example__line">Up = Up Arrow</div>
+            <div class="learning-concept-example__line">Down = Down Arrow</div>
+            <div class="learning-concept-example__line">Left = Left Arrow</div>
+            <div class="learning-concept-example__line">Right = Right Arrow</div>
+          </div>
+        </section>
+
+        <li>Check carefully that <strong>Right</strong> is bound to <strong>Right Arrow</strong>.</li>
+      </ol>
+    </ol>
+
+
+    <h2>5. Create the Accelerate Action</h2>
+
+    <ol>
+      <ol>
+        <li>Create another Action inside the <strong>Player</strong> Action Map.</li>
+        <li>Rename it:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Action</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Action">
+            <div class="code-panel__line code-panel__line--statement">Accelerate</div>
+          </div>
+        </section>
+
+        <li>Set <strong>Action Type</strong> to <strong>Button</strong>.</li>
+        <li>Add a binding for the <strong>Space</strong> key.</li>
+      </ol>
+    </ol>
+
+
+    <h2>6. Create the Look Action</h2>
+
+    <ol>
+      <ol>
+        <li>Create another Action inside the <strong>Player</strong> Action Map.</li>
+        <li>Rename it:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Action</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Action">
+            <div class="code-panel__line code-panel__line--statement">Look</div>
+          </div>
+        </section>
+
+        <li>Set <strong>Action Type</strong> to <strong>Value</strong>.</li>
+        <li>Set <strong>Control Type</strong> to <strong>Vector2</strong>.</li>
+        <li>Add a binding for <strong>Mouse &gt; Delta</strong>.</li>
+        <li>We will not use the Look action yet.</li>
+        <li>It will be used later when mouse input is introduced more fully.</li>
+      </ol>
+    </ol>
+
+
+    <section class="learning-concept-example">
+      <div class="learning-concept-example__title">Learning Concept Example: Player Actions</div>
+      <div class="learning-concept-example__body">
+        <div class="learning-concept-example__line">Player</div>
+        <div class="learning-concept-example__line indent-level-1">Player_WASD_Physics_AddForce_Move - Vector2</div>
+        <div class="learning-concept-example__line indent-level-1">Player_Arrows_Transform_Rotation_Move - Vector2</div>
+        <div class="learning-concept-example__line indent-level-1">Accelerate - Button</div>
+        <div class="learning-concept-example__line indent-level-1">Look - Vector2</div>
+      </div>
+    </section>
+
+
+    <h2>7. Save the Input Actions asset</h2>
+
+    <ol>
+      <ol>
+        <li>Save the Input Actions asset.</li>
+        <li>Click <strong>Save Asset</strong> in the Input Actions editor if required.</li>
+        <li>Your <strong>PlayerControls</strong> asset now contains the controls for the tutorial.</li>
+      </ol>
+    </ol>
+
+
+    <h2>8. Understand the Input Action</h2>
+
+    <p>
+      An Input Action sits between the physical input and the gameplay code.
+    </p>
+
+    <section class="learning-concept-example">
+      <div class="learning-concept-example__title">Learning Concept Example: Input Flow</div>
+      <div class="learning-concept-example__body">
+        <div class="learning-concept-example__line">Keyboard</div>
+        <div class="learning-concept-example__line indent-level-1">W</div>
+        <div class="learning-concept-example__line indent-level-1">A</div>
+        <div class="learning-concept-example__line indent-level-1">S</div>
+        <div class="learning-concept-example__line indent-level-1">D</div>
+        <div class="learning-concept-example__line">&nbsp;</div>
+        <div class="learning-concept-example__line">Binding</div>
+        <div class="learning-concept-example__line">&nbsp;</div>
+        <div class="learning-concept-example__line">Input Action</div>
+        <div class="learning-concept-example__line indent-level-1">Player_WASD_Physics_AddForce_Move</div>
+        <div class="learning-concept-example__line">&nbsp;</div>
+        <div class="learning-concept-example__line">Gameplay</div>
+        <div class="learning-concept-example__line indent-level-1">Rigidbody.AddForce()</div>
+      </div>
+    </section>
+
+    <p>
+      The important idea is that the gameplay script does not need to ask:
+      <strong>"Is the W key pressed?"</strong>
+    </p>
+
+    <p>
+      Instead, it asks:
+      <strong>"What is the current Move value?"</strong>
+    </p>
+
+
+    <h2>9. Create the WASD Physics Controller script</h2>
+
+    <ol>
+      <ol>
+        <li>Create a new C# script called:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Script</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Script">
+            <div class="code-panel__line code-panel__line--statement">WASD_addForce_PhysicsController_NIS</div>
+          </div>
+        </section>
+
+        <li>Add:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">using UnityEngine.InputSystem;</div>
+          </div>
+        </section>
+
+        <li>Create an <code>InputActionReference</code> variable for the Move action.</li>
+      </ol>
+    </ol>
+
+
+    <h2>10. Complete WASD Physics Controller</h2>
+
+    <section class="code-panel code-panel--compact" data-code-type="code">
+      <div class="code-panel__chrome">
+        <div class="code-panel__dots">
+          <span class="code-panel__dot"></span>
+          <span class="code-panel__dot"></span>
+          <span class="code-panel__dot"></span>
+        </div>
+        <div class="code-panel__title">WASD_addForce_PhysicsController_NIS.cs</div>
+      </div>
+      <div class="code-panel__body" role="region" aria-label="WASD Physics Controller">
+        <div class="code-panel__line code-panel__line--statement">using UnityEngine;</div>
+        <div class="code-panel__line code-panel__line--statement">using UnityEngine.InputSystem;</div>
+        <div class="code-panel__line">&nbsp;</div>
+        <div class="code-panel__line code-panel__line--statement">public class WASD_addForce_PhysicsController_NIS : MonoBehaviour</div>
+        <div class="code-panel__line code-panel__line--brace">{</div>
+        <div class="code-panel__line code-panel__line--statement indent-level-1">[SerializeField] private InputActionReference moveAction;</div>
+        <div class="code-panel__line code-panel__line--statement indent-level-1">[SerializeField] private float moveForce = 10f;</div>
+        <div class="code-panel__line">&nbsp;</div>
+        <div class="code-panel__line code-panel__line--statement indent-level-1">private Rigidbody rb;</div>
+        <div class="code-panel__line">&nbsp;</div>
+        <div class="code-panel__line code-panel__line--statement indent-level-1">void Awake()</div>
+        <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+        <div class="code-panel__line indent-level-2">rb = GetComponent&lt;Rigidbody&gt;();</div>
+        <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+        <div class="code-panel__line">&nbsp;</div>
+        <div class="code-panel__line code-panel__line--statement indent-level-1">void OnEnable()</div>
+        <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+        <div class="code-panel__line indent-level-2">moveAction.action.Enable();</div>
+        <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+        <div class="code-panel__line">&nbsp;</div>
+        <div class="code-panel__line code-panel__line--statement indent-level-1">void OnDisable()</div>
+        <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+        <div class="code-panel__line indent-level-2">moveAction.action.Disable();</div>
+        <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+        <div class="code-panel__line">&nbsp;</div>
+        <div class="code-panel__line code-panel__line--statement indent-level-1">void FixedUpdate()</div>
+        <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+        <div class="code-panel__line indent-level-2">Vector2 input = moveAction.action.ReadValue&lt;Vector2&gt;();</div>
+        <div class="code-panel__line">&nbsp;</div>
+        <div class="code-panel__line indent-level-2">Vector3 force = new Vector3(</div>
+        <div class="code-panel__line indent-level-3">input.x,</div>
+        <div class="code-panel__line indent-level-3">0f,</div>
+        <div class="code-panel__line indent-level-3">input.y</div>
+        <div class="code-panel__line indent-level-2">);</div>
+        <div class="code-panel__line">&nbsp;</div>
+        <div class="code-panel__line indent-level-2">rb.AddForce(force * moveForce);</div>
+        <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+        <div class="code-panel__line code-panel__line--brace">}</div>
+      </div>
+    </section>
+
+
+    <h2>11. Understand the Vector2 input</h2>
+
+    <p>
+      The WASD Action produces a <strong>Vector2</strong>.
+    </p>
+
+    <section class="learning-concept-example">
+      <div class="learning-concept-example__title">Learning Concept Example: Vector2</div>
+      <div class="learning-concept-example__body">
+        <div class="learning-concept-example__line">W = Y +</div>
+        <div class="learning-concept-example__line">S = Y -</div>
+        <div class="learning-concept-example__line">A = X -</div>
+        <div class="learning-concept-example__line">D = X +</div>
+      </div>
+    </section>
+
+    <p>
+      We convert this 2D input into a 3D force:
+    </p>
+
+    <section class="code-panel code-panel--compact" data-code-type="code">
+      <div class="code-panel__chrome">
+        <div class="code-panel__dots">
+          <span class="code-panel__dot"></span>
+          <span class="code-panel__dot"></span>
+          <span class="code-panel__dot"></span>
+        </div>
+        <div class="code-panel__title">Code Example</div>
+      </div>
+      <div class="code-panel__body" role="region" aria-label="Code Example">
+        <div class="code-panel__line code-panel__line--statement">Vector3 force = new Vector3(input.x, 0f, input.y);</div>
+      </div>
+    </section>
+
+    <p>
+      The X value controls world X. The Y value from the Vector2 becomes world Z.
+      The 3D Y value remains zero.
+    </p>
+
+
+    <h2>12. Assign the WASD Input Action</h2>
+
+    <ol>
+      <ol>
+        <li>Select the GameObject containing <strong>WASD_addForce_PhysicsController_NIS</strong>.</li>
+        <li>In the Inspector, find <strong>Move Action</strong>.</li>
+        <li>Drag the <strong>Player_WASD_Physics_AddForce_Move</strong> action from the <strong>PlayerControls</strong> asset into the field.</li>
+        <li>The Inspector should show:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Inspector</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Inspector">
+            <div class="code-panel__line code-panel__line--statement">Move Action</div>
+            <div class="code-panel__line indent-level-1">Player / Player_WASD_Physics_AddForce_Move</div>
+          </div>
+        </section>
+
+        <li>This script now reads only the WASD Move Action.</li>
+        <li>It does not read the Arrow Move Action.</li>
+      </ol>
+    </ol>
+
+
+    <h2>13. Why use FixedUpdate()?</h2>
+
+    <ol>
+      <ol>
+        <li>The WASD controller uses <code>Rigidbody.AddForce()</code>.</li>
+        <li><code>Rigidbody</code> physics should be handled in <code>FixedUpdate()</code>.</li>
+        <li>The input value is read inside <code>FixedUpdate()</code> and then used to apply the force.</li>
+      </ol>
+    </ol>
+
+    <section class="learning-concept-example">
+      <div class="learning-concept-example__title">Learning Concept Example: Physics Input</div>
+      <div class="learning-concept-example__body">
+        <div class="learning-concept-example__line">Input Action</div>
+        <div class="learning-concept-example__line indent-level-1">Vector2</div>
+        <div class="learning-concept-example__line">&nbsp;</div>
+        <div class="learning-concept-example__line">FixedUpdate()</div>
+        <div class="learning-concept-example__line indent-level-1">Convert Vector2 to Vector3</div>
+        <div class="learning-concept-example__line indent-level-1">Rigidbody.AddForce()</div>
+        <div class="learning-concept-example__line">&nbsp;</div>
+        <div class="learning-concept-example__line">Physics</div>
+      </div>
+    </section>
+
+
+    <h2>14. Create the Arrow Transform Controller</h2>
+
+    <ol>
+      <ol>
+        <li>Create a new C# script called:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Script</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Script">
+            <div class="code-panel__line code-panel__line--statement">Arrows_transformRotation_CharController_NIS</div>
+          </div>
+        </section>
+
+        <li>Add:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">using UnityEngine.InputSystem;</div>
+          </div>
+        </section>
+
+        <li>Create an <code>InputActionReference</code> variable for the Arrow Move action.</li>
+      </ol>
+    </ol>
+
+
+    <h2>15. Complete Arrow Transform Controller</h2>
+
+    <section class="code-panel code-panel--compact" data-code-type="code">
+      <div class="code-panel__chrome">
+        <div class="code-panel__dots">
+          <span class="code-panel__dot"></span>
+          <span class="code-panel__dot"></span>
+          <span class="code-panel__dot"></span>
+        </div>
+        <div class="code-panel__title">Arrows_transformRotation_CharController_NIS.cs</div>
+      </div>
+      <div class="code-panel__body" role="region" aria-label="Arrow Transform Controller">
+        <div class="code-panel__line code-panel__line--statement">using UnityEngine;</div>
+        <div class="code-panel__line code-panel__line--statement">using UnityEngine.InputSystem;</div>
+        <div class="code-panel__line">&nbsp;</div>
+        <div class="code-panel__line code-panel__line--statement">public class Arrows_transformRotation_CharController_NIS : MonoBehaviour</div>
+        <div class="code-panel__line code-panel__line--brace">{</div>
+        <div class="code-panel__line code-panel__line--statement indent-level-1">[SerializeField] private InputActionReference moveAction;</div>
+        <div class="code-panel__line code-panel__line--statement indent-level-1">[SerializeField] private float moveSpeed = 5f;</div>
+        <div class="code-panel__line code-panel__line--statement indent-level-1">[SerializeField] private float rotationSpeed = 5f;</div>
+        <div class="code-panel__line">&nbsp;</div>
+        <div class="code-panel__line code-panel__line--statement indent-level-1">void OnEnable()</div>
+        <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+        <div class="code-panel__line indent-level-2">moveAction.action.Enable();</div>
+        <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+        <div class="code-panel__line">&nbsp;</div>
+        <div class="code-panel__line code-panel__line--statement indent-level-1">void OnDisable()</div>
+        <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+        <div class="code-panel__line indent-level-2">moveAction.action.Disable();</div>
+        <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+        <div class="code-panel__line">&nbsp;</div>
+        <div class="code-panel__line code-panel__line--statement indent-level-1">void Update()</div>
+        <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+        <div class="code-panel__line indent-level-2">Vector2 input = moveAction.action.ReadValue&lt;Vector2&gt;();</div>
+        <div class="code-panel__line">&nbsp;</div>
+        <div class="code-panel__line indent-level-2">transform.Translate(</div>
+        <div class="code-panel__line indent-level-3">Vector3.forward * input.y * moveSpeed * Time.deltaTime,</div>
+        <div class="code-panel__line indent-level-3">Space.Self</div>
+        <div class="code-panel__line indent-level-2">);</div>
+        <div class="code-panel__line">&nbsp;</div>
+        <div class="code-panel__line indent-level-2">transform.Rotate(</div>
+        <div class="code-panel__line indent-level-3">0f,</div>
+        <div class="code-panel__line indent-level-3">input.x * rotationSpeed * Time.deltaTime,</div>
+        <div class="code-panel__line indent-level-3">0f</div>
+        <div class="code-panel__line indent-level-2">);</div>
+        <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+        <div class="code-panel__line code-panel__line--brace">}</div>
+      </div>
+    </section>
+
+
+    <h2>16. Assign the Arrow Input Action</h2>
+
+    <ol>
+      <ol>
+        <li>Select the GameObject containing <strong>Arrows_transformRotation_CharController_NIS</strong>.</li>
+        <li>In the Inspector, find <strong>Move Action</strong>.</li>
+        <li>Assign:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Inspector</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Inspector">
+            <div class="code-panel__line code-panel__line--statement">Player / Player_Arrows_Transform_Rotation_Move</div>
+          </div>
+        </section>
+
+        <li>The script now reads only the Arrow Move Action.</li>
+      </ol>
+    </ol>
+
+
+    <h2>17. Test the two controllers</h2>
+
+    <ol>
+      <ol>
+        <li>Make sure the two test GameObjects have their appropriate scripts attached.</li>
+        <li>Make sure each <strong>Move Action</strong> is assigned correctly.</li>
+        <li>Enter Play Mode.</li>
+        <li>Use the <strong>Arrow Keys</strong> to control the Transform-based character.</li>
+        <li>Use <strong>WASD</strong> to control the Rigidbody physics character.</li>
+        <li>The two characters should respond independently.</li>
+      </ol>
+    </ol>
+
+
+    <h2>18. What about Space and Look?</h2>
+
+    <ol>
+      <ol>
+        <li>The <strong>Accelerate</strong> action is already mapped to Space.</li>
+        <li>The <strong>Look</strong> action is already mapped to Mouse Delta.</li>
+        <li>They are not required for the basic movement exercise yet.</li>
+        <li>Do not add extra code simply to use them at this stage.</li>
+        <li>They will be used as the controller exercises become more advanced.</li>
+      </ol>
+    </ol>
+
+
+    <h2>19. InputActionReference</h2>
+
+    <p>
+      The controller scripts use an <code>InputActionReference</code>.
+      This allows a script to reference one particular Action from the
+      Input Actions asset.
+    </p>
+
+    <section class="learning-concept-example">
+      <div class="learning-concept-example__title">Learning Concept Example: InputActionReference</div>
+      <div class="learning-concept-example__body">
+        <div class="learning-concept-example__line">PlayerControls</div>
+        <div class="learning-concept-example__line indent-level-1">Player</div>
+        <div class="learning-concept-example__line indent-level-2">Player_WASD_Physics_AddForce_Move</div>
+        <div class="learning-concept-example__line">&nbsp;</div>
+        <div class="learning-concept-example__line">WASD Physics Script</div>
+        <div class="learning-concept-example__line indent-level-1">moveAction</div>
+        <div class="learning-concept-example__line indent-level-2">Player_WASD_Physics_AddForce_Move</div>
+      </div>
+    </section>
+
+    <p>
+      The important point is that the script does not automatically read every
+      Action in the <strong>Player</strong> Action Map. It reads the Action
+      assigned to its <code>moveAction</code> field.
+    </p>
+
+
+    <h2>20. The basic Input Actions workflow</h2>
+
+    <section class="learning-concept-example">
+      <div class="learning-concept-example__title">Learning Concept Example: INPUT ACTIONS</div>
+      <div class="learning-concept-example__body">
+        <div class="learning-concept-example__line">Physical Device</div>
+        <div class="learning-concept-example__line indent-level-1">Keyboard</div>
+        <div class="learning-concept-example__line">&nbsp;</div>
+        <div class="learning-concept-example__line">Binding</div>
+        <div class="learning-concept-example__line indent-level-1">W</div>
+        <div class="learning-concept-example__line indent-level-1">A</div>
+        <div class="learning-concept-example__line indent-level-1">S</div>
+        <div class="learning-concept-example__line indent-level-1">D</div>
+        <div class="learning-concept-example__line">&nbsp;</div>
+        <div class="learning-concept-example__line">Input Action</div>
+        <div class="learning-concept-example__line indent-level-1">Player_WASD_Physics_AddForce_Move</div>
+        <div class="learning-concept-example__line">&nbsp;</div>
+        <div class="learning-concept-example__line">InputActionReference</div>
+        <div class="learning-concept-example__line">&nbsp;</div>
+        <div class="learning-concept-example__line">Gameplay Script</div>
+        <div class="learning-concept-example__line indent-level-1">Rigidbody.AddForce()</div>
+      </div>
+    </section>
+
+
+    <h2>21. What has changed from Tutorial 00/01?</h2>
+
+    <ol>
+      <ol>
+        <li>In Tutorial 00/01 we accessed the keyboard directly.</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Tutorial 00/01</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Tutorial 00/01">
+            <div class="code-panel__line code-panel__line--statement">Keyboard.current.spaceKey.wasPressedThisFrame</div>
+          </div>
+        </section>
+
+        <li>In Tutorial 02/03 we use an Input Action.</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Tutorial 02/03</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Tutorial 02/03">
+            <div class="code-panel__line code-panel__line--statement">moveAction.action.ReadValue&lt;Vector2&gt;()</div>
+          </div>
+        </section>
+
+        <li>The gameplay code can now work with an abstract input action rather than a specific keyboard key.</li>
+      </ol>
+    </ol>
+
+
+    <h2>22. Troubleshooting</h2>
+
+    <ol>
+      <ol>
+
+        <li><strong>Move Action is empty in the Inspector</strong></li>
+        <ol>
+          <li>Select the GameObject containing the controller script.</li>
+          <li>Assign the correct Action to the <strong>Move Action</strong> field.</li>
+          <li>For the physics controller use:</li>
+
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">WASD Action</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="WASD Action">
+              <div class="code-panel__line code-panel__line--statement">Player / Player_WASD_Physics_AddForce_Move</div>
+            </div>
+          </section>
+
+          <li>For the Transform controller use:</li>
+
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">Arrow Action</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="Arrow Action">
+              <div class="code-panel__line code-panel__line--statement">Player / Player_Arrows_Transform_Rotation_Move</div>
+            </div>
+          </section>
+        </ol>
+
+        <li><strong>WASD does not move the physics object</strong></li>
+        <ol>
+          <li>Check that the object has a <strong>Rigidbody</strong>.</li>
+          <li>Check that the Rigidbody is not Kinematic.</li>
+          <li>Check that the WASD Input Action is assigned.</li>
+          <li>Check that the bindings are W, A, S and D.</li>
+        </ol>
+
+        <li><strong>The Arrow character does not move</strong></li>
+        <ol>
+          <li>Check that the Arrow Input Action is assigned.</li>
+          <li>Check the four Arrow Key bindings.</li>
+          <li>Check that Right is assigned to <strong>Right Arrow</strong>.</li>
+        </ol>
+
+        <li><strong>The wrong character responds to the keys</strong></li>
+        <ol>
+          <li>Check which Input Action is assigned to each controller's <strong>Move Action</strong> field.</li>
+          <li>Each controller should reference its own Move Action.</li>
+        </ol>
+
+      </ol>
+    </ol>
+
+
+    <section class="learning-concept-example">
+      <div class="learning-concept-example__title">23. What you should understand before continuing</div>
+      <div class="learning-concept-example__body">
+        <div class="learning-concept-example__line indent-level-1">An Input Actions asset contains input definitions.</div>
+        <div class="learning-concept-example__line indent-level-1">An Action Map groups related Actions.</div>
+        <div class="learning-concept-example__line indent-level-1">An Action represents a gameplay input such as Move, Look or Accelerate.</div>
+        <div class="learning-concept-example__line indent-level-1">Bindings connect physical controls to Actions.</div>
+        <div class="learning-concept-example__line indent-level-1">A 2D Vector Composite combines four directional controls into a Vector2.</div>
+        <div class="learning-concept-example__line indent-level-1">InputActionReference allows a script to reference a specific Action.</div>
+        <div class="learning-concept-example__line indent-level-1">ReadValue&lt;Vector2&gt;() reads the current value of a Vector2 Action.</div>
+        <div class="learning-concept-example__line indent-level-1">Different scripts can use different Actions from the same Input Actions asset.</div>
+        <div class="learning-concept-example__line indent-level-1">Transform movement can be performed in Update().</div>
+        <div class="learning-concept-example__line indent-level-1">Rigidbody physics is performed in FixedUpdate().</div>
+        <div class="learning-concept-example__line indent-level-1">The input system provides input; the controller script determines what the input does.</div>
+      </div>
+    </section>
+
+    <p>
+      <strong>Next step:</strong> Continue developing the Character Controller,
+      Physics Controller and Mouse Input Controller using the same Input Actions.
+    </p>
+
+  </div>
+</details>
+
    <details class="accordion accordion--nested">
     <summary>
      Reference links
