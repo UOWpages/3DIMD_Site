@@ -1181,6 +1181,45 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p {
   line-height: 1.25;
 }
 
+.code-panel--compact.code-panel--single-line {
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+  margin: 0 0 0.35rem;
+  border-width: 2px;
+  border-radius: 6px;
+  vertical-align: baseline;
+}
+
+.code-panel--compact.code-panel--single-line .code-panel__chrome {
+  display: none;
+}
+
+.code-panel--compact.code-panel--single-line .code-panel__body {
+  padding: 0.18rem 0.45rem;
+}
+
+.code-panel-inline-lead {
+  display: block;
+  margin-right: 0.35rem;
+}
+
+.code-panel-inline-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 0 0.2rem;
+}
+
+.code-panel-inline-row .code-panel-inline-lead {
+  margin: 0;
+}
+
+.code-panel-inline-lead + .code-panel--compact.code-panel--single-line {
+  margin: 0;
+}
+
 .pseudo-panel__chrome,
 .code-panel__chrome {
   display: flex;

@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-    <link href="../assets/css/site.css?v=20260915a" rel="stylesheet" />
+      <link href="../assets/css/site.css?v=20260915c" rel="stylesheet" />
   </head>
   <body class="content-page">
     <main class="content-area content-page-area" id="main-content">
@@ -781,19 +781,22 @@
        <ol>
       <li>Open your existing 3DIMD Unity project.</li>
       <li>
-       Open:
-       <br>
-       <strong>Window &gt; Package Manager</strong>
+      Open:
+      <ol>
+       <li><strong>Window &gt; Package Manager</strong></li>
+      </ol>
       </li>
       <li>
        In Package Manager, select:
-       <br>
-       <strong>Unity Registry</strong>
+      <ol>
+       <li><strong>Unity Registry</strong></li>
+      </ol>
       </li>
       <li>
        Search for:
-       <br>
-       <strong>Input System</strong>
+      <ol>
+       <li><strong>Input System</strong></li>
+      </ol>
       </li>
       <li>Select the Unity <strong>Input System</strong> package.</li>
       <li>Click <strong>Install</strong> if it is not already installed.</li>
@@ -815,61 +818,28 @@
       switch the project completely to the New Input System at this stage.
        </p>
 
-       <p>
+      <ol>
+      <li>
       Go to:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line">Edit &gt; Project Settings &gt; Player</div>
-        </div>
-       </section>
-
-       <p>
+      <ol>
+       <li>Edit &gt; Project Settings &gt; Player</li>
+      </ol>
+      </li>
+      <li>
       Find:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line">Other Settings</div>
-         <div class="code-panel__line indent-level-2">&gt; Configuration</div>
-         <div class="code-panel__line indent-level-3">&gt; Active Input Handling</div>
-        </div>
-       </section>
-
-       <p>
+      <ol>
+                        <li>Other Settings</li>
+                        <li>Configuration</li>
+                        <li>Active Input Handling</li>
+      </ol>
+      </li>
+      <li>
       Set it to:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line">Both</div>
-        </div>
-       </section>
+      <ol>
+       <li>Both</li>
+      </ol>
+      </li>
+      </ol>
 
        <p>
       This allows the old Input Manager and the New Input System to operate side by
@@ -909,8 +879,9 @@
       <li>Duplicate it.</li>
       <li>
        Rename the duplicate:
-       <br>
-       <code>logoScreen_NIS.cs</code>
+      <ol>
+       <li><code>logoScreen_NIS.cs</code></li>
+      </ol>
       </li>
       <li>Open the duplicate in Visual Studio.</li>
       <li>Change the class name to match the new filename.</li>
@@ -1243,14 +1214,16 @@
       <li>Duplicate <code>GalleryControl.cs</code>.</li>
       <li>
        Rename the duplicate:
-       <br>
-       <code>GalleryControl_NIS.cs</code>
+      <ol>
+       <li><code>GalleryControl_NIS.cs</code></li>
+      </ol>
       </li>
       <li>Change the class name to <code>GalleryControl_NIS</code>.</li>
       <li>
        Add:
-       <br>
-       <code>using UnityEngine.InputSystem;</code>
+      <ol>
+       <li><code>using UnityEngine.InputSystem;</code></li>
+      </ol>
       </li>
        </ol>
 
@@ -1941,7 +1914,7 @@
     </div>
    </details>
   </main>
-  <script src="../assets/js/site.js?v=20260915a">
+      <script src="../assets/js/site.js?v=20260915c">
   </script>
  </body>
 </html>

@@ -78,6 +78,34 @@
 
   const clampIndentLevel = (value) => Math.max(0, Math.min(6, value));
 
+  const enhanceSingleLineCodePanels = (rootDocument) => {
+    if (!rootDocument?.querySelectorAll) return;
+
+    rootDocument
+      .querySelectorAll(".code-panel.code-panel--compact")
+      .forEach((panel) => {
+        if (!(panel instanceof HTMLElement)) return;
+
+        const lines = Array.from(panel.querySelectorAll(".code-panel__line"))
+          .filter((line) => normalizeText(line.textContent || "") !== "");
+        const isSingleLine = lines.length === 1;
+        panel.classList.toggle("code-panel--single-line", isSingleLine);
+        if (!isSingleLine) return;
+
+        const previous = panel.previousElementSibling;
+        if (!(previous instanceof HTMLParagraphElement)) return;
+
+        const previousText = normalizeText(previous.textContent || "");
+        if (!/:$/.test(previousText) || previous.closest(".code-panel-inline-row")) return;
+
+        const row = rootDocument.createElement("div");
+        row.className = "code-panel-inline-row";
+        previous.classList.add("code-panel-inline-lead");
+        previous.before(row);
+        row.append(previous, panel);
+      });
+  };
+
   const normalizeYouTubeEmbed = (frame, rootDocument) => {
     const src = frame.getAttribute("src") || "";
     if (!/^https:\/\/www\.youtube\.com\/embed\//i.test(src)) return;
@@ -906,6 +934,7 @@
 
       try {
         enhancePseudoPanels(rootDocument);
+        enhanceSingleLineCodePanels(rootDocument);
       } catch {
         // Continue even if an enhancement fails.
       }
@@ -992,6 +1021,7 @@
   restoreNavScroll();
   closeCollapsibleSections(document);
   enhancePseudoPanels(document);
+  enhanceSingleLineCodePanels(document);
   enableVideoPlaceholders(document);
   enableImageExpand(document);
   normalizeTutorialPage(document);
