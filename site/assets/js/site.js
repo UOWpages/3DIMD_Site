@@ -78,6 +78,25 @@
 
   const clampIndentLevel = (value) => Math.max(0, Math.min(6, value));
 
+  const normalizeYouTubeEmbed = (frame, rootDocument) => {
+    const src = frame.getAttribute("src") || "";
+    if (!/^https:\/\/www\.youtube\.com\/embed\//i.test(src)) return;
+
+    frame.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+
+    const pageOrigin = rootDocument?.defaultView?.location?.origin;
+    if (!pageOrigin || !/^https?:\/\//i.test(pageOrigin)) return;
+
+    try {
+      const embedUrl = new URL(src);
+      if (embedUrl.searchParams.has("origin")) return;
+      embedUrl.searchParams.set("origin", pageOrigin);
+      frame.src = embedUrl.toString();
+    } catch {
+      // Keep the original embed URL if it cannot be parsed.
+    }
+  };
+
   const enableVideoPlaceholders = (rootDocument) => {
     if (!rootDocument?.querySelectorAll) return;
 
@@ -85,6 +104,7 @@
       .querySelectorAll("iframe.panopto-embed, iframe.video-embed")
       .forEach((frame) => {
         if (!(frame instanceof HTMLIFrameElement)) return;
+        normalizeYouTubeEmbed(frame, rootDocument);
         if (frame.closest(".video-frame-wrap")) return;
         const parent = frame.parentElement;
         if (!parent) return;

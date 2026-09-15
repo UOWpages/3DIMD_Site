@@ -397,6 +397,7 @@ html_template += """  </div>
           ? `https://www.youtube.com/embed/${videoId}${query}`
           : `https://${host}/Panopto/Pages/Embed.aspx?id=${videoId}&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all`;
         const iframeClass = youtubeMatch ? 'video-embed' : 'panopto-embed';
+        const iframeReferrerPolicy = youtubeMatch ? ' referrerpolicy="strict-origin-when-cross-origin"' : '';
         const authNote = panoptoMatch
           ? '<p class="video-auth-note">Student Panopto login may be required. If the embedded player does not refresh after sign-in, open the source link in a new or incognito window.</p>'
           : '';
@@ -406,7 +407,7 @@ html_template += """  </div>
           <summary>${context || 'Video'}</summary>
           <div class="accordion-body">
             <article class="embed-card">
-              <iframe class="${iframeClass}" src="${embedUrl}" title="${context || 'Video'}" loading="lazy" allow="autoplay" allowfullscreen></iframe>
+              <iframe class="${iframeClass}" src="${embedUrl}" title="${context || 'Video'}" loading="lazy"${iframeReferrerPolicy} allow="autoplay" allowfullscreen></iframe>
               ${authNote}
               <p><a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Open source link</a></p>
             </article>

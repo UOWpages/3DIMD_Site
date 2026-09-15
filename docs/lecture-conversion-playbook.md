@@ -179,7 +179,7 @@ Step 2 — Polish pass (produces the final lect-01a/01b visual/interaction style
      <summary>Video: <Description or Context from Nearby Text></summary>
      <div class="accordion-body">
        <article class="embed-card">
-         <iframe class="video-embed" src="<EMBED_URL>" title="<Slide/Section Heading> video <N>" loading="lazy" allowfullscreen></iframe>
+             <iframe class="video-embed" src="<EMBED_URL>" title="<Slide/Section Heading> video <N>" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
          <p><a href="<WATCH_URL>" target="_blank" rel="noopener noreferrer">Open source link</a></p>
        </article>
      </div>
@@ -193,6 +193,7 @@ Step 2 — Polish pass (produces the final lect-01a/01b visual/interaction style
    - `<EMBED_URL>` = `https://www.youtube.com/embed/<VIDEO_ID>`
    - `<WATCH_URL>` = original URL (watch or youtu.be)
    - `class="video-embed"`
+   - Add `referrerpolicy="strict-origin-when-cross-origin"` to the YouTube iframe.
    
    **Panopto links:**
    - Extract `<UUID>` from the Panopto URL's `id=` parameter
