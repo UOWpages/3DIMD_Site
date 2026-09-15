@@ -1220,6 +1220,51 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p {
   margin: 0;
 }
 
+.learning-concept-example {
+  margin: 0 0 var(--space-2);
+  border: 3px solid var(--line);
+  border-radius: 18px;
+  background: #e5f3ff;
+  overflow: hidden;
+}
+
+.learning-concept-example__title {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 3px solid var(--line);
+  background: linear-gradient(90deg, #8fd3ff 0%, #5aa9e6 100%);
+  color: #061f33;
+  font-family: "Archivo Black", "Space Grotesk", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.learning-concept-example__body {
+  --learning-concept-indent-step: 1.35rem;
+  padding: 0.7rem 0.8rem 0.8rem;
+  background: linear-gradient(180deg, #f7fcff 0%, #dff1ff 100%);
+  color: #10324a;
+  font-family: "IBM Plex Mono", "Cascadia Code", "Consolas", monospace;
+  line-height: 1.2;
+  overflow-x: auto;
+}
+
+.learning-concept-example__line {
+  min-width: max-content;
+  padding-left: calc(var(--learning-concept-indent-level, 0) * var(--learning-concept-indent-step));
+  font-size: 0.9rem;
+  line-height: 1.25;
+  white-space: normal;
+}
+
+.learning-concept-example__line.indent-level-0 { --learning-concept-indent-level: 0; }
+.learning-concept-example__line.indent-level-1 { --learning-concept-indent-level: 1; }
+.learning-concept-example__line.indent-level-2 { --learning-concept-indent-level: 2; }
+.learning-concept-example__line.indent-level-3 { --learning-concept-indent-level: 3; }
+.learning-concept-example__line.indent-level-4 { --learning-concept-indent-level: 4; }
+.learning-concept-example__line.indent-level-5 { --learning-concept-indent-level: 5; }
+.learning-concept-example__line.indent-level-6 { --learning-concept-indent-level: 6; }
+
 .pseudo-panel__chrome,
 .code-panel__chrome {
   display: flex;
