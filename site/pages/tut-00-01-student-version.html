@@ -773,263 +773,180 @@
 
         <h2>1. Install the New Input System</h2>
         <ol>
-        <ol>
-          <li>Open your existing 3DIMD Unity project.</li>
-          <li>Open:
-            <ol>
-              <li><strong>Window &gt; Package Manager</strong></li>
-            </ol>
-          </li>
-          <li>In Package Manager, select:
-            <ol>
-              <li><strong>Unity Registry</strong></li>
-            </ol>
-          </li>
-          <li>Search for:
-            <ol>
-              <li><strong>Input System</strong></li>
-            </ol>
-          </li>
-          <li>Select the Unity <strong>Input System</strong> package.</li>
-          <li>Click <strong>Install</strong> if it is not already installed.</li>
-        </ol>
-        </ol>
-
-        <p>
-          The Input System is a separate Unity package and must be installed before
-          using the <code>UnityEngine.InputSystem</code> namespace.
-        </p>
-
-        <p>
-          <strong>Do not create an Input Actions asset yet.</strong>
-        </p>
+          <ol>
+            <li>Open your existing 3DIMD Unity project.</li>
+            <li>Open:<strong> Window &gt; Package Manager</strong></li>
+            <li>In Package Manager, select:<strong> Unity Registry</strong></li>
+            <li>Search for: <strong> Input System</strong></li>
+            <li>Select the Unity <strong> Input System</strong> package.</li>
+            <li>Click <strong> Install</strong> if it is not already installed.</li>
+            <li>The Input System is a separate Unity package and must be installed before using the <strong>using UnityEngine.InputSystem;</strong> namespace.</li>
+            <li><strong>Do not create an Input Actions asset yet.</strong></li>
+          </ol>
+        </ol>     
 
         <h2>2. Enable both input systems</h2>
         <ol>
-        <ol>
-          <li>
-            Enable both input systems.
-            <p>
-              Because the original Tutorial 00/01 scripts use the old Input Manager, do not
-              switch the project completely to the New Input System at this stage.
-            </p>
-            <ol>
-              <li> Go to: Edit &gt; Project Settings &gt; Player </li>
-              <li> Find: Other Settings &gt; Configuration &gt; Active Input Handling </li>
-              <li> Set it to: Both </li>
-            </ol>
-          </li>
-        </ol>
-        </ol>
-
-        <p>
-          This allows the old Input Manager and the New Input System to operate side by
-          side. This is useful while learning and migrating an existing project.
-        </p>
-
-        <p>
-          Unity provides three choices: <strong>Input Manager (Old)</strong>,
-          <strong>Input System Package (New)</strong>, and <strong>Both</strong>.
-          The Both option allows the two systems to operate side by side.
-        </p>
-
-        <p>
-          Unity may ask to restart the Editor after changing this setting. Allow Unity
-          to restart.
-        </p>
-
-        <p>
-          <strong>Important:</strong> Do not change the project to New only for this
-          exercise. The original Tutorial 00/01 scripts still use the old system.
-        </p>
+          <ol>
+            <li> Enable both input systems.</li>
+            <li>Because the original Tutorial 00/01 scripts use the old Input Manager, do not switch the project completely to the New Input System at this stage.</li>
+              <ol>
+                <li> Go to: <strong>Edit &gt; Project Settings &gt; Player</strong> </li>
+                <li> Find: <strong>Other Settings &gt; Configuration &gt; Active Input Handling</strong> </li>
+                <li> Set it to: <strong>Both</strong> </li>
+              </ol>
+            <li>This allows the old Input Manager and the New Input System to operate side by side. This is useful while learning and migrating an existing project.</li>
+            <li>Unity provides three choices:</li>
+              <ol>
+                <li><strong>Input Manager (Old)</strong>,</li>
+                <li><strong>Input System Package (New)</strong>, and</li>
+                <li><strong>Both</strong>. The Both option allows the two systems to operate side by side.</li>
+              </ol>
+            <li>Unity may ask to restart the Editor after changing this setting. Allow Unity to restart.</li>
+            <li><strong>Important:</strong> Do not change the project to New only for this exercise. The original Tutorial 00/01 scripts still use the old system.</li>
+          </ol>
+          </ol>
 
         <h2>3. Make a duplicate of the existing Logo Screen script</h2>
-
-        <p>
-          The original tutorial already contains a Logo Screen interaction in which the
-          Space key hides/shows the logo screen.
-        </p>
-        <p>
-          Rather than replacing the original script, make a duplicate so that you can
-          compare the two systems.
-        </p>
         <ol>
-        <ol>
-          <li>Find the existing <code>logoScreen.cs</code> script.</li>
-          <li>Duplicate it.</li>
-          <li>
-            Rename the duplicate:
-            <ol>
-              <li><code>logoScreen_NIS.cs</code></li>
-            </ol>
-          </li>
-          <li>Open the duplicate in Visual Studio.</li>
-          <li>Change the class name to match the new filename.</li>
+          <ol>
+            <li>The original tutorial already contains a Logo Screen interaction in which the Space key hides/shows the logo screen.</li>
+            <li>Rather than replacing the original script, make a duplicate so that you can compare the two systems.</li>
+            <li>Find the existing <strong>logoScreen.cs</strong> script.</li>
+            <li>Duplicate it.</li>
+            <li> Rename the duplicate:<strong>logoScreen_NIS.cs</strong></li>
+            <li>Open the duplicate in Visual Studio.</li>
+            <li>Change the class name to match the new filename.</li>
+            <li>The important distinction is:</li>
+            <section class="learning-concept-example">
+              <div class="learning-concept-example__title">Learning Concept Example: logoScreen.cs</div>
+              <div class="learning-concept-example__body">
+                <div class="learning-concept-example__line">logoScreen.cs</div>
+                <div class="learning-concept-example__line indent-level-1">= original / Legacy Input System</div>
+                <div class="learning-concept-example__line">&nbsp;</div>
+                <div class="learning-concept-example__line">logoScreen_NIS.cs</div>
+                <div class="learning-concept-example__line indent-level-1">= duplicate / New Input System</div>
+              </div>
+            </section>
+          </ol>
         </ol>
-        </ol>
-        <p>
-          The important distinction is:
-        </p>
-
-        <section class="learning-concept-example">
-          <div class="learning-concept-example__title">Learning Concept Example: logoScreen.cs</div>
-          <div class="learning-concept-example__body">
-            <div class="learning-concept-example__line">logoScreen.cs</div>
-            <div class="learning-concept-example__line indent-level-1">= original / Legacy Input System</div>
-            <div class="learning-concept-example__line">&nbsp;</div>
-            <div class="learning-concept-example__line">logoScreen_NIS.cs</div>
-            <div class="learning-concept-example__line indent-level-1">= duplicate / New Input System</div>
-          </div>
-        </section>
-
-        <p>
-          Do not leave both scripts controlling the same Logo Screen GameObject at the
-          same time.
-        </p>
+        <p><strong>Important:</strong> Do not leave both scripts controlling the same Logo Screen GameObject at the same time.</p>
 
         <h2>4. Add the New Input System namespace</h2>
-
-        <p>
-          At the top of <code>logoScreen_NIS.cs</code>, add:
-        </p>
-
-        <section class="code-panel code-panel--compact" data-code-type="code">
-          <div class="code-panel__chrome">
-            <div class="code-panel__dots">
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-            </div>
-            <div class="code-panel__title">Code Example</div>
-          </div>
-          <div class="code-panel__body" role="region" aria-label="Code Example">
-            <div class="code-panel__line code-panel__line--statement">using UnityEngine.InputSystem;</div>
-          </div>
-        </section>
-
-        <p>
-          Your imports should now include:
-        </p>
-
-        <section class="code-panel code-panel--compact" data-code-type="code">
-          <div class="code-panel__chrome">
-            <div class="code-panel__dots">
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-            </div>
-            <div class="code-panel__title">Code Example</div>
-          </div>
-          <div class="code-panel__body" role="region" aria-label="Code Example">
-            <div class="code-panel__line code-panel__line--statement">using System.Collections;</div>
-            <div class="code-panel__line code-panel__line--statement indent-level-1">using System.Collections.Generic;</div>
-            <div class="code-panel__line code-panel__line--statement indent-level-1">using UnityEngine;</div>
-            <div class="code-panel__line code-panel__line--statement indent-level-1">using UnityEngine.InputSystem;</div>
-          </div>
-        </section>
-
-        <p>
-          The important addition is:
-        </p>
-
-        <section class="code-panel code-panel--compact" data-code-type="code">
-          <div class="code-panel__chrome">
-            <div class="code-panel__dots">
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-            </div>
-            <div class="code-panel__title">Code Example</div>
-          </div>
-          <div class="code-panel__body" role="region" aria-label="Code Example">
-            <div class="code-panel__line code-panel__line--statement">using UnityEngine.InputSystem;</div>
-          </div>
-        </section>
-
-        <p>
-          This gives the script access to the New Input System classes, including
-          <code>Keyboard</code>.
-        </p>
+        <ol>
+          <ol>
+            <li>At the top of <code>logoScreen_NIS.cs</code>, add:</li>
+            <section class="code-panel code-panel--compact" data-code-type="code">
+              <div class="code-panel__chrome">
+                <div class="code-panel__dots">
+                  <span class="code-panel__dot"></span>
+                  <span class="code-panel__dot"></span>
+                  <span class="code-panel__dot"></span>
+                </div>
+                <div class="code-panel__title">Code Example</div>
+              </div>
+              <div class="code-panel__body" role="region" aria-label="Code Example">
+                <div class="code-panel__line code-panel__line--statement">using UnityEngine.InputSystem;</div>
+              </div>
+            </section>
+            <li>Your imports should now include:</li>
+            <section class="code-panel code-panel--compact" data-code-type="code">
+              <div class="code-panel__chrome">
+                <div class="code-panel__dots">
+                  <span class="code-panel__dot"></span>
+                  <span class="code-panel__dot"></span>
+                  <span class="code-panel__dot"></span>
+                </div>
+                <div class="code-panel__title">Code Example</div>
+              </div>
+              <div class="code-panel__body" role="region" aria-label="Code Example">
+                <div class="code-panel__line code-panel__line--statement">using System.Collections;</div>
+                <div class="code-panel__line code-panel__line--statement indent-level-1">using System.Collections.Generic;</div>
+                <div class="code-panel__line code-panel__line--statement indent-level-1">using UnityEngine;</div>
+                <div class="code-panel__line code-panel__line--statement indent-level-1">using UnityEngine.InputSystem;</div>
+              </div>
+            </section>
+            <li>The important addition is:</li>
+            <section class="code-panel code-panel--compact" data-code-type="code">
+              <div class="code-panel__chrome">
+                <div class="code-panel__dots">
+                  <span class="code-panel__dot"></span>
+                  <span class="code-panel__dot"></span>
+                  <span class="code-panel__dot"></span>
+                </div>
+                <div class="code-panel__title">Code Example</div>
+              </div>
+              <div class="code-panel__body" role="region" aria-label="Code Example">
+                <div class="code-panel__line code-panel__line--statement">using UnityEngine.InputSystem;</div>
+              </div>
+            </section>
+            <li>This gives the script access to the New Input System classes, including<code>Keyboard</code>.</li>
+          </ol>
+        </ol>
 
         <h2>5. New Input System - detect the Space key</h2>
-
-        <p>
-          The old system might use:
-        </p>
-
+        <ol>
+          <ol>
+          <li>The old system might use:</li>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">Code Example</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="Code Example">
+              <div class="code-panel__line code-panel__line--statement">Input.GetKeyDown(KeyCode.Space)</div>
+            </div>
+          </section>
+          <li>The equivalent direct New Input System approach is:</li>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">Code Example</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="Code Example">
+              <div class="code-panel__line code-panel__line--statement">Keyboard.current.spaceKey.wasPressedThisFrame</div>
+            </div>
+          </section>
+            <ol>
+              <ul>
+                <li><code>Keyboard</code> = the keyboard device.</li>
+                <li><code>current</code> = the currently connected keyboard.</li>
+                <li><code>spaceKey</code> = the Space key.</li>
+                <li><code>wasPressedThisFrame</code> = true for the frame in which the key was pressed.</li>
+              </ul>
+            </ol>
+            <li>This is conceptually similar to the old <code>Input.GetKeyDown()</code>. Unity's Input System migration documentation maps <code>Input.GetKeyDown()</code>to <code>ButtonControl.wasPressedThisFrame</code>.</li>
+          </ol>
+        </ol>   
+        <!--
+        <p>Read this as:</p>
         <section class="code-panel code-panel--compact" data-code-type="code">
           <div class="code-panel__chrome">
-            <div class="code-panel__dots">
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-            </div>
-            <div class="code-panel__title">Code Example</div>
+          <div class="code-panel__dots">
+            <span class="code-panel__dot"></span>
+            <span class="code-panel__dot"></span>
+            <span class="code-panel__dot"></span>
+          </div>
+          <div class="code-panel__title">Code Example</div>
           </div>
           <div class="code-panel__body" role="region" aria-label="Code Example">
-            <div class="code-panel__line code-panel__line--statement">Input.GetKeyDown(KeyCode.Space)</div>
+          <div class="code-panel__line code-panel__line--statement">Keyboard</div>
+          <div class="code-panel__line indent-level-2">.current</div>
+          <div class="code-panel__line indent-level-3">.spaceKey</div>
+          <div class="code-panel__line indent-level-4">.wasPressedThisFrame</div>
           </div>
-        </section>
-
-        <p>
-          The equivalent direct New Input System approach is:
-        </p>
-
-        <section class="code-panel code-panel--compact" data-code-type="code">
-          <div class="code-panel__chrome">
-            <div class="code-panel__dots">
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-            </div>
-            <div class="code-panel__title">Code Example</div>
-          </div>
-          <div class="code-panel__body" role="region" aria-label="Code Example">
-            <div class="code-panel__line code-panel__line--statement">Keyboard.current.spaceKey.wasPressedThisFrame</div>
-          </div>
-        </section>
-
-        <p>
-          <!--       Read this as:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">Keyboard</div>
-         <div class="code-panel__line indent-level-2">.current</div>
-         <div class="code-panel__line indent-level-3">.spaceKey</div>
-         <div class="code-panel__line indent-level-4">.wasPressedThisFrame</div>
-        </div>
        </section> -->
 
-        <ul>
-          <li><code>Keyboard</code> = the keyboard device.</li>
-          <li><code>current</code> = the currently connected keyboard.</li>
-          <li><code>spaceKey</code> = the Space key.</li>
-          <li><code>wasPressedThisFrame</code> = true for the frame in which the key was pressed.</li>
-        </ul>
-
-        <p>
-          This is conceptually similar to the old <code>Input.GetKeyDown()</code>.
-          Unity's Input System migration documentation maps <code>Input.GetKeyDown()</code>
-          to <code>ButtonControl.wasPressedThisFrame</code>.
-        </p>
-
         <h2>6. Complete Logo Screen NIS example</h2>
-
-        <p>
-          Replace the input section of your duplicated script with the New Input System
-          version.
-        </p>
-
+        <p>Replace the input section of your duplicated script with the New Input System version.</p>
         <section class="code-panel code-panel--compact" data-code-type="code">
           <div class="code-panel__chrome">
             <div class="code-panel__dots">
@@ -1065,11 +982,7 @@
             <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
           </div>
         </section>
-
-        <p>
-          The important New Input System code is:
-        </p>
-
+        <p>The important New Input System code is:</p>
         <section class="code-panel code-panel--compact" data-code-type="code">
           <div class="code-panel__chrome">
             <div class="code-panel__dots">
@@ -1087,37 +1000,24 @@
             <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
           </div>
         </section>
-
-        <p>
-          The rest of the script is ordinary Unity/C# code. The New Input System is
-          simply providing the keyboard input.
-        </p>
+        <p>The rest of the script is ordinary Unity/C# code. The New Input System is simply providing the keyboard input.</p>
 
         <h2>7. Test the Logo Screen</h2>
         <ol>
-        <ol>
-          <li>Save the script.</li>
-          <li>Return to Unity.</li>
-          <li>Remove or disable the original <code>logoScreen</code> component from the test copy of the Logo Screen.</li>
-          <li>Add <code>logoScreen_NIS</code> to the duplicate/test Logo Screen object.</li>
-          <li>Enter Play Mode.</li>
-          <li>Press <strong>Space</strong>.</li>
+          <ol>
+            <li>Save the script.</li>
+            <li>Return to Unity.</li>
+            <li>Remove or disable the original <code>logoScreen</code> component from the test copy of the Logo Screen.</li>
+            <li>Add <code>logoScreen_NIS</code> to the duplicate/test Logo Screen object.</li>
+            <li>Enter Play Mode.</li>
+            <li>Press <strong>Space</strong>.</li>
+            <li>The Logo Screen should hide/show in exactly the same way as the originaltutorial.</li>
+            <li>You have now implemented your first New Input System keyboard interaction<strong>without using an Input Action</strong>.</li>
+          </ol>
         </ol>
-        </ol>
-        <p>
-          The Logo Screen should hide/show in exactly the same way as the original
-          tutorial.
-        </p>
-
-        <p>
-          You have now implemented your first New Input System keyboard interaction
-          <strong>without using an Input Action</strong>.
-        </p>
 
         <h2>8. Compare the two versions</h2>
-
         <p><strong>Legacy Input System:</strong></p>
-
         <section class="code-panel code-panel--compact" data-code-type="code">
           <div class="code-panel__chrome">
             <div class="code-panel__dots">
@@ -1134,9 +1034,7 @@
             <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
           </div>
         </section>
-
         <p><strong>New Input System:</strong></p>
-
         <section class="code-panel code-panel--compact" data-code-type="code">
           <div class="code-panel__chrome">
             <div class="code-panel__dots">
@@ -1153,49 +1051,33 @@
             <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
           </div>
         </section>
-
-        <p>
-          Both scripts perform the same job.
-          The difference is where the input information comes from.
-        </p>
+        <p> Both scripts perform the same job. The difference is where the input information comes from.</p>
 
         <h2>9. Duplicate the Gallery Control script</h2>
-
-        <p>
-          The original Gallery Control exercise uses the Left and Right Arrow keys to
-          cycle through an array of GameObjects.
-        </p>
-
-        <p>
-          The existing tutorial uses keyboard input to:
-        </p>
-
-        <ul>
-          <li>Increase the array counter with the Right Arrow.</li>
-          <li>Decrease the array counter with the Left Arrow.</li>
-          <li>Cycle back to the beginning/end of the array.</li>
-          <li>Display the selected GameObject.</li>
-          <li>Hide the other GameObjects.</li>
-        </ul>
-
-        <p>
-          These concepts do not need to change. We are only changing the way the script
-          reads the keyboard.
-        </p>
         <ol>
-        <ol>
-          <li>Duplicate <code>GalleryControl.cs</code>.</li>
-          <li> Rename the duplicate:<code>GalleryControl_NIS.cs</code></li>
-          <li>Change the class name to <code>GalleryControl_NIS</code>.</li>
-          <li> Add:<code>using UnityEngine.InputSystem;</code></li>
-        </ol>
+          <ol>
+            <li>The original Gallery Control exercise uses the Left and Right Arrow keys to cycle through an array of GameObjects.</li>
+            <li>The existing tutorial uses keyboard input to:</li>
+            <ol>
+              <ul>
+                <li>Increase the array counter with the Right Arrow.</li>
+                <li>Decrease the array counter with the Left Arrow.</li>
+                <li>Cycle back to the beginning/end of the array.</li>
+                <li>Display the selected GameObject.</li>
+                <li>Hide the other GameObjects.</li>
+              </ul>
+            </ol>
+            <li> These concepts do not need to change. We are only changing the way the script reads the keyboard.</li>
+            <ol>
+              <li>Duplicate <code>GalleryControl.cs</code>.</li>
+              <li> Rename the duplicate:<code>GalleryControl_NIS.cs</code></li>
+              <li>Change the class name to <code>GalleryControl_NIS</code>.</li>
+              <li> Add:<code>using UnityEngine.InputSystem;</code></li>
+            </ol>
+          </ol>
         </ol>
         <h2>10. New Input System - Arrow keys</h2>
-
-        <p>
-          The New Input System provides direct access to the individual arrow keys:
-        </p>
-
+        <p>The New Input System provides direct access to the individual arrow keys:</p>
         <section class="code-panel code-panel--compact" data-code-type="code">
           <div class="code-panel__chrome">
             <div class="code-panel__dots">
@@ -1211,86 +1093,102 @@
             <div class="code-panel__line code-panel__line--statement indent-level-1">Keyboard.current.leftArrowKey.wasPressedThisFrame</div>
           </div>
         </section>
-
-        <p>
-          So the old:
-        </p>
-
-        <section class="code-panel code-panel--compact" data-code-type="code">
-          <div class="code-panel__chrome">
-            <div class="code-panel__dots">
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
+        <ol>
+        <ol>
+          <li>So the old:</li>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">Code Example</div>
             </div>
-            <div class="code-panel__title">Code Example</div>
-          </div>
-          <div class="code-panel__body" role="region" aria-label="Code Example">
-            <div class="code-panel__line code-panel__line--statement">Input.GetKeyDown(KeyCode.RightArrow)</div>
-          </div>
-        </section>
-
-        <p>
-          becomes:
-        </p>
-
-        <section class="code-panel code-panel--compact" data-code-type="code">
-          <div class="code-panel__chrome">
-            <div class="code-panel__dots">
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
+            <div class="code-panel__body" role="region" aria-label="Code Example">
+              <div class="code-panel__line code-panel__line--statement">Input.GetKeyDown(KeyCode.RightArrow)</div>
             </div>
-            <div class="code-panel__title">Code Example</div>
-          </div>
-          <div class="code-panel__body" role="region" aria-label="Code Example">
-            <div class="code-panel__line code-panel__line--statement">Keyboard.current.rightArrowKey.wasPressedThisFrame</div>
-          </div>
-        </section>
-
-        <p>
-          And:
-        </p>
-
-        <section class="code-panel code-panel--compact" data-code-type="code">
-          <div class="code-panel__chrome">
-            <div class="code-panel__dots">
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
+          </section>
+          <li>becomes:</li>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">Code Example</div>
             </div>
-            <div class="code-panel__title">Code Example</div>
-          </div>
-          <div class="code-panel__body" role="region" aria-label="Code Example">
-            <div class="code-panel__line code-panel__line--statement">Input.GetKeyDown(KeyCode.LeftArrow)</div>
-          </div>
-        </section>
-
-        <p>
-          becomes:
-        </p>
-
-        <section class="code-panel code-panel--compact" data-code-type="code">
-          <div class="code-panel__chrome">
-            <div class="code-panel__dots">
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
+            <div class="code-panel__body" role="region" aria-label="Code Example">
+              <div class="code-panel__line code-panel__line--statement">Keyboard.current.rightArrowKey.wasPressedThisFrame</div>
             </div>
-            <div class="code-panel__title">Code Example</div>
-          </div>
-          <div class="code-panel__body" role="region" aria-label="Code Example">
-            <div class="code-panel__line code-panel__line--statement">Keyboard.current.leftArrowKey.wasPressedThisFrame</div>
-          </div>
-        </section>
+          </section>
+          <li>And:</li>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">Code Example</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="Code Example">
+              <div class="code-panel__line code-panel__line--statement">Input.GetKeyDown(KeyCode.LeftArrow)</div>
+            </div>
+          </section>
+          <li>becomes:</li>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">Code Example</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="Code Example">
+              <div class="code-panel__line code-panel__line--statement">Keyboard.current.leftArrowKey.wasPressedThisFrame</div>
+            </div>
+          </section>
+        </ol>
+        </ol>
 
         <h2>11. Complete Gallery Control NIS example</h2>
-
-        <p>
-          The following is a basic New Input System version of the existing Gallery
-          Control exercise.
-        </p>
-
+        <ol>
+          <ol>
+            <li>The following is a basic New Input System version of the existing GalleryControl exercise.</li>
+            <li>The important new code is only the keyboard checks:</li>
+            <section class="code-panel code-panel--compact" data-code-type="code">
+              <div class="code-panel__chrome">
+                <div class="code-panel__dots">
+                  <span class="code-panel__dot"></span>
+                  <span class="code-panel__dot"></span>
+                  <span class="code-panel__dot"></span>
+                </div>
+                <div class="code-panel__title">Code Example</div>
+              </div>
+              <div class="code-panel__body" role="region" aria-label="Code Example">
+                <div class="code-panel__line code-panel__line--statement">Keyboard.current.rightArrowKey.wasPressedThisFrame</div>
+              </div>
+            </section>
+            <li>and:</li>
+            <section class="code-panel code-panel--compact" data-code-type="code">
+              <div class="code-panel__chrome">
+                <div class="code-panel__dots">
+                  <span class="code-panel__dot"></span>
+                  <span class="code-panel__dot"></span>
+                  <span class="code-panel__dot"></span>
+                </div>
+                <div class="code-panel__title">Code Example</div>
+              </div>
+              <div class="code-panel__body" role="region" aria-label="Code Example">
+                <div class="code-panel__line code-panel__line--statement">Keyboard.current.leftArrowKey.wasPressedThisFrame</div>
+              </div>
+            </section>
+            <li>The array, counter, loop and <code>SetActive()</code> concepts are unchanged.</li>
+          </ol>
+        </ol>
         <section class="code-panel code-panel--compact" data-code-type="code">
           <div class="code-panel__chrome">
             <div class="code-panel__dots">
@@ -1360,111 +1258,56 @@
           </div>
         </section>
 
-        <p>
-          The important new code is only the keyboard checks:
-        </p>
-
-        <section class="code-panel code-panel--compact" data-code-type="code">
-          <div class="code-panel__chrome">
-            <div class="code-panel__dots">
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-            </div>
-            <div class="code-panel__title">Code Example</div>
-          </div>
-          <div class="code-panel__body" role="region" aria-label="Code Example">
-            <div class="code-panel__line code-panel__line--statement">Keyboard.current.rightArrowKey.wasPressedThisFrame</div>
-          </div>
-        </section>
-
-        <p>and:</p>
-
-        <section class="code-panel code-panel--compact" data-code-type="code">
-          <div class="code-panel__chrome">
-            <div class="code-panel__dots">
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-            </div>
-            <div class="code-panel__title">Code Example</div>
-          </div>
-          <div class="code-panel__body" role="region" aria-label="Code Example">
-            <div class="code-panel__line code-panel__line--statement">Keyboard.current.leftArrowKey.wasPressedThisFrame</div>
-          </div>
-        </section>
-
-        <p>
-          The array, counter, loop and <code>SetActive()</code> concepts are unchanged.
-        </p>
-
         <h2>12. Test the Gallery</h2>
         <ol>  
-        <ol>
-          <li>Disable the original <code>GalleryControl</code> component on your test Gallery object.</li>
-          <li>Add <code>GalleryControl_NIS</code>.</li>
-          <li>Populate the <code>Gallery Objects</code> array in the Inspector exactly as in the original tutorial.</li>
-          <li>Enter Play Mode.</li>
-          <li>Press <strong>Right Arrow</strong>.</li>
-          <li>Press <strong>Left Arrow</strong>.</li>
-          <li>Watch the Console for the current counter value.</li>
+          <ol>
+            <li>Disable the original <strong>GalleryControl</strong> component on your test Gallery object.</li>
+            <li>Add <strong>GalleryControl_NIS</strong>.</li>
+            <li>Populate the <code>Gallery Objects</code> array in the Inspector exactly as in the original tutorial.</li>
+            <li>Enter Play Mode.</li>
+            <li>Press <strong>Right Arrow</strong>.</li>
+            <li>Press <strong>Left Arrow</strong>.</li>
+            <li>Watch the Console for the current counter value.</li>
+            <li>The gallery should behave in the same way as the original version.</li>
+          </ol>
         </ol>
-        </ol>
-        <p>
-          The gallery should behave in the same way as the original version.
-        </p>
 
         <h2>13. What has actually changed?</h2>
-
-        <p>
-          Very little of the gameplay code has changed.
-        </p>
-
-        <p>
-          The original system:
-        </p>
-
-        <section class="code-panel code-panel--compact" data-code-type="code">
-          <div class="code-panel__chrome">
-            <div class="code-panel__dots">
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-            </div>
-            <div class="code-panel__title">Code Example</div>
-          </div>
-          <div class="code-panel__body" role="region" aria-label="Code Example">
-            <div class="code-panel__line code-panel__line--statement">Input.GetKeyDown(KeyCode.RightArrow)</div>
-          </div>
-        </section>
-
-        <p>
-          has been replaced with:
-        </p>
-
-        <section class="code-panel code-panel--compact" data-code-type="code">
-          <div class="code-panel__chrome">
-            <div class="code-panel__dots">
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-            </div>
-            <div class="code-panel__title">Code Example</div>
-          </div>
-          <div class="code-panel__body" role="region" aria-label="Code Example">
-            <div class="code-panel__line code-panel__line--statement">Keyboard.current.rightArrowKey.wasPressedThisFrame</div>
-          </div>
-        </section>
-
-        <p>
-          The array and GameObject code remains the same.
-        </p>
-
-        <p>
-          This is an important programming concept:
-          <strong>input detection and the interaction caused by the input are separate concerns.</strong>
-        </p>
-
+        <ol>
+          <ol>
+            <li> Very little of the gameplay code has changed.</li>
+            <li> The original system:</li>
+            <section class="code-panel code-panel--compact" data-code-type="code">
+              <div class="code-panel__chrome">
+                <div class="code-panel__dots">
+                  <span class="code-panel__dot"></span>
+                  <span class="code-panel__dot"></span>
+                  <span class="code-panel__dot"></span>
+                </div>
+                <div class="code-panel__title">Code Example</div>
+              </div>
+              <div class="code-panel__body" role="region" aria-label="Code Example">
+                <div class="code-panel__line code-panel__line--statement">Input.GetKeyDown(KeyCode.RightArrow)</div>
+              </div>
+            </section>
+            <li> has been replaced with:</li>
+            <section class="code-panel code-panel--compact" data-code-type="code">
+              <div class="code-panel__chrome">
+                <div class="code-panel__dots">
+                  <span class="code-panel__dot"></span>
+                  <span class="code-panel__dot"></span>
+                  <span class="code-panel__dot"></span>
+                </div>
+                <div class="code-panel__title">Code Example</div>
+              </div>
+              <div class="code-panel__body" role="region" aria-label="Code Example">
+                <div class="code-panel__line code-panel__line--statement">Keyboard.current.rightArrowKey.wasPressedThisFrame</div>
+              </div>
+            </section>
+            <li>The array and GameObject code remains the same.</li>
+            <li>This is an important programming concept:<strong>input detection and the interaction caused by the input are separate concerns.</strong></li>
+          </ol>
+        </ol>
         <section class="learning-concept-example">
           <div class="learning-concept-example__title">Learning Concept Example: KEYBOARD INPUT</div>
           <div class="learning-concept-example__body">
@@ -1478,182 +1321,137 @@
         </section>
 
         <h2>14. Why are we NOT using Input Actions yet?</h2>
-
-        <p>
-          The New Input System has several levels of use.
-          For this stretch target we are starting with the simplest:
-        </p>
-
-        <section class="code-panel code-panel--compact" data-code-type="code">
-          <div class="code-panel__chrome">
-            <div class="code-panel__dots">
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
+        <ol>
+        <ol>
+          <li>The New Input System has several levels of use. For this stretch target we are starting with the simplest:</li>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">Code Example</div>
             </div>
-            <div class="code-panel__title">Code Example</div>
-          </div>
-          <div class="code-panel__body" role="region" aria-label="Code Example">
-            <div class="code-panel__line code-panel__line--statement">Keyboard.current</div>
-          </div>
-        </section>
-
-        <p>
-          This directly accesses a physical input device.
-        </p>
-
-        <p>
-          Later, Input Actions allow us to create a logical action such as:
-        </p>
-
-        <section class="learning-concept-example">
-          <div class="learning-concept-example__title">Learning Concept Example: Move</div>
-          <div class="learning-concept-example__body">
-            <div class="learning-concept-example__line">Move</div>
-            <div class="learning-concept-example__line indent-level-1">Look</div>
-            <div class="learning-concept-example__line indent-level-1">Jump</div>
-            <div class="learning-concept-example__line indent-level-1">Fire</div>
-            <div class="learning-concept-example__line indent-level-1">Next</div>
-            <div class="learning-concept-example__line indent-level-1">Previous</div>
-          </div>
-        </section>
-
-        <p>
-          and then decide which physical controls perform that action.
-        </p>
-
-        <p>
-          For example, later we could define:
-        </p>
-
-        <section class="learning-concept-example">
-          <div class="learning-concept-example__title">Learning Concept Example: Move</div>
-          <div class="learning-concept-example__body">
-            <div class="learning-concept-example__line">Move</div>
-            <div class="learning-concept-example__line indent-level-1">W</div>
-            <div class="learning-concept-example__line indent-level-1">A</div>
-            <div class="learning-concept-example__line indent-level-1">S</div>
-            <div class="learning-concept-example__line indent-level-1">D</div>
-            <div class="learning-concept-example__line indent-level-1">Arrow Keys</div>
-            <div class="learning-concept-example__line indent-level-1">Gamepad Stick</div>
-          </div>
-        </section>
-
-        <p>
-          The gameplay script can then ask for the value of <code>Move</code> without
-          needing to know which physical device generated it.
-        </p>
-
-        <p>
-          <strong>Input Actions are introduced in Tutorial 02/03.</strong>
-        </p>
+            <div class="code-panel__body" role="region" aria-label="Code Example">
+              <div class="code-panel__line code-panel__line--statement">Keyboard.current</div>
+            </div>
+          </section>
+          <li>This directly accesses a physical input device.</li>
+          <li>Later, Input Actions allow us to create a logical action such as:</li>
+          <section class="learning-concept-example">
+            <div class="learning-concept-example__title">Learning Concept Example: Move</div>
+            <div class="learning-concept-example__body">
+              <div class="learning-concept-example__line">Move</div>
+              <div class="learning-concept-example__line indent-level-1">Look</div>
+              <div class="learning-concept-example__line indent-level-1">Jump</div>
+              <div class="learning-concept-example__line indent-level-1">Fire</div>
+              <div class="learning-concept-example__line indent-level-1">Next</div>
+              <div class="learning-concept-example__line indent-level-1">Previous</div>
+            </div>
+          </section>
+          <li>and then decide which physical controls perform that action.</li>
+          <li>For example, later we could define:</li>
+          <section class="learning-concept-example">
+            <div class="learning-concept-example__title">Learning Concept Example: Move</div>
+            <div class="learning-concept-example__body">
+              <div class="learning-concept-example__line">Move</div>
+              <div class="learning-concept-example__line indent-level-1">W</div>
+              <div class="learning-concept-example__line indent-level-1">A</div>
+              <div class="learning-concept-example__line indent-level-1">S</div>
+              <div class="learning-concept-example__line indent-level-1">D</div>
+              <div class="learning-concept-example__line indent-level-1">Arrow Keys</div>
+              <div class="learning-concept-example__line indent-level-1">Gamepad Stick</div>
+            </div>
+          </section>
+          <li>The gameplay script can then ask for the value of <code>Move</code> without needing to know which physical device generated it.</li>
+          <li><strong>Input Actions are introduced in Tutorial 02/03.</strong></li>
+        </ol>
+        </ol>
 
         <h2>15. Key concept - device versus action</h2>
-
-        <p>
-          At this stage you are accessing the device directly:
-        </p>
-
-        <section class="code-panel code-panel--compact" data-code-type="code">
-          <div class="code-panel__chrome">
-            <div class="code-panel__dots">
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-            </div>
-            <div class="code-panel__title">Code Example</div>
-          </div>
-          <div class="code-panel__body" role="region" aria-label="Code Example">
-            <div class="code-panel__line code-panel__line--statement">Keyboard.current.spaceKey</div>
-          </div>
-        </section>
-
-        <p>
-          Think of this as:
-        </p>
-
-        <section class="learning-concept-example">
-          <div class="learning-concept-example__title">Learning Concept Example: PHYSICAL DEVICE</div>
-          <div class="learning-concept-example__body">
-            <div class="learning-concept-example__line">PHYSICAL DEVICE</div>
-            <div class="learning-concept-example__line indent-level-2">KEYBOARD</div>
-            <div class="learning-concept-example__line indent-level-2">SPACE KEY</div>
-            <div class="learning-concept-example__line indent-level-2">wasPressedThisFrame</div>
-          </div>
-        </section>
-
-        <p>
-          Later, with Input Actions, the structure becomes:
-        </p>
-
-        <section class="learning-concept-example">
-          <div class="learning-concept-example__title">Learning Concept Example: PHYSICAL DEVICE</div>
-          <div class="learning-concept-example__body">
-            <div class="learning-concept-example__line">PHYSICAL DEVICE</div>
-            <div class="learning-concept-example__line indent-level-2">BINDING</div>
-            <div class="learning-concept-example__line indent-level-2">INPUT ACTION</div>
-            <div class="learning-concept-example__line indent-level-2">GAMEPLAY</div>
-          </div>
-        </section>
-
-        <p>
-          This separation is one of the major advantages of the New Input System.
-        </p>
+        <ol>
+          <ol>
+            <li>At this stage you are accessing the device directly:</li>
+            <section class="code-panel code-panel--compact" data-code-type="code">
+              <div class="code-panel__chrome">
+                <div class="code-panel__dots">
+                  <span class="code-panel__dot"></span>
+                  <span class="code-panel__dot"></span>
+                  <span class="code-panel__dot"></span>
+                </div>
+                <div class="code-panel__title">Code Example</div>
+              </div>
+              <div class="code-panel__body" role="region" aria-label="Code Example">
+                <div class="code-panel__line code-panel__line--statement">Keyboard.current.spaceKey</div>
+              </div>
+            </section>
+            <li>Think of this as:</li>
+            <section class="learning-concept-example">
+              <div class="learning-concept-example__title">Learning Concept Example: PHYSICAL DEVICE</div>
+              <div class="learning-concept-example__body">
+                <div class="learning-concept-example__line">PHYSICAL DEVICE</div>
+                <div class="learning-concept-example__line indent-level-2">KEYBOARD</div>
+                <div class="learning-concept-example__line indent-level-2">SPACE KEY</div>
+                <div class="learning-concept-example__line indent-level-2">wasPressedThisFrame</div>
+              </div>
+            </section>
+            <li>Later, with Input Actions, the structure becomes:</li>
+            <section class="learning-concept-example">
+              <div class="learning-concept-example__title">Learning Concept Example: PHYSICAL DEVICE</div>
+              <div class="learning-concept-example__body">
+                <div class="learning-concept-example__line">PHYSICAL DEVICE</div>
+                <div class="learning-concept-example__line indent-level-2">BINDING</div>
+                <div class="learning-concept-example__line indent-level-2">INPUT ACTION</div>
+                <div class="learning-concept-example__line indent-level-2">GAMEPLAY</div>
+              </div>
+            </section>
+            <li>This separation is one of the major advantages of the New Input System.</li>
+          </ol>
+        </ol>
 
         <h2>16. Important: Update() versus FixedUpdate()</h2>
-
-        <p>
-          These keyboard checks are being used for button-like interactions:
-        </p>
-
-        <section class="code-panel code-panel--compact" data-code-type="code">
-          <div class="code-panel__chrome">
-            <div class="code-panel__dots">
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
+        <ol>
+          <ol>
+          <li>These keyboard checks are being used for button-like interactions:</li>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">Code Example</div>
             </div>
-            <div class="code-panel__title">Code Example</div>
-          </div>
-          <div class="code-panel__body" role="region" aria-label="Code Example">
-            <div class="code-panel__line">wasPressedThisFrame</div>
-          </div>
-        </section>
-
-        <p>
-          Therefore, read them in <code>Update()</code>.
-        </p>
-
-        <p>
-          For example:
-        </p>
-
-        <section class="code-panel code-panel--compact" data-code-type="code">
-          <div class="code-panel__chrome">
-            <div class="code-panel__dots">
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
-              <span class="code-panel__dot"></span>
+            <div class="code-panel__body" role="region" aria-label="Code Example">
+              <div class="code-panel__line">wasPressedThisFrame</div>
             </div>
-            <div class="code-panel__title">Code Example</div>
-          </div>
-          <div class="code-panel__body" role="region" aria-label="Code Example">
-            <div class="code-panel__line code-panel__line--statement">void Update()</div>
-            <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
-            <div class="code-panel__line code-panel__line--statement indent-level-2">if (Keyboard.current.spaceKey.wasPressedThisFrame)
+          </section>
+          <li>Therefore, read them in <code>Update()</code>.</li>
+          <li>For example:</li>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">Code Example</div>
             </div>
-            <div class="code-panel__line code-panel__line--brace indent-level-2">{</div>
-            <div class="code-panel__line code-panel__line--comment indent-level-3">// do something once</div>
-            <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
-            <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
-          </div>
-        </section>
-
-        <p>
-          Later, when using the New Input System to control a Rigidbody with physics,
-          the input and physics operations need to be considered separately. This will
-          be covered in Tutorial 02/03.
-        </p>
+            <div class="code-panel__body" role="region" aria-label="Code Example">
+              <div class="code-panel__line code-panel__line--statement">void Update()</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-2">if (Keyboard.current.spaceKey.wasPressedThisFrame)
+              </div>
+              <div class="code-panel__line code-panel__line--brace indent-level-2">{</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-3">// do something once</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+            </div>
+          </section>
+          <li>Later, when using the New Input System to control a Rigidbody with physics, the input and physics operations need to be considered separately. This willbe covered in Tutorial 02/03.</li>
+          </ol>
+        </ol>
 
         <h2>17. Troubleshooting</h2>
         <ol>
