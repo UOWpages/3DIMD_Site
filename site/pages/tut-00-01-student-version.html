@@ -706,77 +706,38 @@
       They will be introduced in Tutorial 02/03.
        </p>
 
-       <h3>What you will learn</h3>
-
-       <ul>
-      <li>What the New Input System is.</li>
-      <li>How to install the Input System package.</li>
-      <li>How to enable the New Input System while keeping the old Input System available.</li>
-      <li>How to access a keyboard directly using <code>Keyboard.current</code>.</li>
-      <li>How to detect a key being pressed this frame using <code>wasPressedThisFrame</code>.</li>
-      <li>How the New Input System differs from <code>Input.GetKeyDown()</code>.</li>
-      <li>Why Input Actions will be useful later.</li>
-       </ul>
-
-       <h2>1. New Input System - What is it?</h2>
-
-       <p>
-      Unity has two input systems:
-       </p>
-
-       <ul>
-      <li><strong>Input Manager / Legacy Input System</strong> - the system used in the main Tutorial 00/01 exercises.</li>
-      <li><strong>Input System Package / New Input System</strong> - Unity's newer, more extensible input system.</li>
-       </ul>
-
-       <p>
-      The old system commonly uses code such as:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">Input.GetKeyDown(KeyCode.Space)</div>
+       <section class="learning-concept-example">
+        <div class="learning-concept-example__title">Learning Concept Example: What you will learn</div>
+        <div class="learning-concept-example__body">
+         <div class="learning-concept-example__line">What you will learn</div>
+         <div class="learning-concept-example__line indent-level-1">- What the New Input System is.</div>
+         <div class="learning-concept-example__line indent-level-1">- How to install the Input System package.</div>
+         <div class="learning-concept-example__line indent-level-1">- How to enable the New Input System while keeping the old Input System available.</div>
+         <div class="learning-concept-example__line indent-level-1">- How to access a keyboard directly using Keyboard.current.</div>
+         <div class="learning-concept-example__line indent-level-1">- How to detect a key being pressed this frame using wasPressedThisFrame.</div>
+         <div class="learning-concept-example__line indent-level-1">- How the New Input System differs from Input.GetKeyDown().</div>
+         <div class="learning-concept-example__line indent-level-1">- Why Input Actions will be useful later.</div>
         </div>
        </section>
 
-       <p>
-      The New Input System can access the keyboard directly:
-       </p>
-
-              <section class="code-panel code-panel--compact" data-code-type="code">
-        <div class="code-panel__chrome">
-         <div class="code-panel__dots">
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-          <span class="code-panel__dot"></span>
-         </div>
-         <div class="code-panel__title">Code Example</div>
-        </div>
-        <div class="code-panel__body" role="region" aria-label="Code Example">
-         <div class="code-panel__line code-panel__line--statement">Keyboard.current.spaceKey.wasPressedThisFrame</div>
+       <section class="learning-concept-example">
+        <div class="learning-concept-example__title">Learning Concept Example: New Input System - What is it?</div>
+        <div class="learning-concept-example__body">
+         <div class="learning-concept-example__line">New Input System - What is it?</div>
+         <div class="learning-concept-example__line indent-level-1">Unity has two input systems:</div>
+         <div class="learning-concept-example__line indent-level-2">- Input Manager / Legacy Input System - the system used in the main Tutorial 00/01 exercises.</div>
+         <div class="learning-concept-example__line indent-level-2">- Input System Package / New Input System - Unity's newer, more extensible input system.</div>
+         <div class="learning-concept-example__line indent-level-1">The old system commonly uses code such as:</div>
+         <div class="learning-concept-example__line indent-level-2">Input.GetKeyDown(KeyCode.Space)</div>
+         <div class="learning-concept-example__line indent-level-1">The New Input System can access the keyboard directly:</div>
+         <div class="learning-concept-example__line indent-level-2">Keyboard.current.spaceKey.wasPressedThisFrame</div>
+         <div class="learning-concept-example__line indent-level-1">The New Input System can eventually provide a much more flexible way of separating the physical device from the gameplay action.</div>
+         <div class="learning-concept-example__line indent-level-1">This will be covered using Input Actions in Tutorial 02/03.</div>
+         <div class="learning-concept-example__line indent-level-1">For this stretch target, we are deliberately using the simpler direct keyboard approach first.</div>
         </div>
        </section>
 
-       <p>
-      The New Input System can eventually provide a much more flexible way of
-      separating the physical device from the gameplay action. This will be covered
-      using <strong>Input Actions</strong> in Tutorial 02/03.
-       </p>
-
-       <p>
-      For this stretch target, we are deliberately using the simpler direct keyboard
-      approach first.
-       </p>
-
-       <h2>2. Install the New Input System</h2>
+       <h2>1. Install the New Input System</h2>
 
        <ol>
       <li>Open your existing 3DIMD Unity project.</li>
@@ -811,33 +772,22 @@
       <strong>Do not create an Input Actions asset yet.</strong>
        </p>
 
-       <h2>3. Enable both input systems</h2>
+          <h2>2. Enable both input systems</h2>
 
-       <p>
-      Because the original Tutorial 00/01 scripts use the old Input Manager, do not
-      switch the project completely to the New Input System at this stage.
-       </p>
-
-      <ol>
-      <li>
-      Go to:
-      <ol>
-       <li>Edit &gt; Project Settings &gt; Player</li>
-      </ol>
-      </li>
-      <li>
-      Find:
-      <ol>
-          <li>Other Settings &gt; Configuration &gt; Active Input Handling</li>
-      </ol>
-      </li>
-      <li>
-      Set it to:
-      <ol>
-       <li>Both</li>
-      </ol>
-      </li>
-      </ol>
+          <ol>
+            <li>
+              Enable both input systems.
+              <p>
+                  Because the original Tutorial 00/01 scripts use the old Input Manager, do not
+                  switch the project completely to the New Input System at this stage.
+              </p>
+              <ol>
+                  <li> Go to: Edit &gt; Project Settings &gt; Player </li>
+                  <li> Find: Other Settings &gt; Configuration &gt; Active Input Handling </li>
+                  <li> Set it to: Both </li>
+              </ol>
+            </li>
+          </ol>
 
        <p>
       This allows the old Input Manager and the New Input System to operate side by
@@ -860,7 +810,7 @@
       exercise. The original Tutorial 00/01 scripts still use the old system.
        </p>
 
-       <h2>4. Make a duplicate of the existing Logo Screen script</h2>
+       <h2>3. Make a duplicate of the existing Logo Screen script</h2>
 
        <p>
       The original tutorial already contains a Logo Screen interaction in which the
@@ -905,7 +855,7 @@
       same time.
        </p>
 
-       <h2>5. Add the New Input System namespace</h2>
+       <h2>4. Add the New Input System namespace</h2>
 
        <p>
       At the top of <code>logoScreen_NIS.cs</code>, add:
@@ -969,7 +919,7 @@
       <code>Keyboard</code>.
        </p>
 
-       <h2>6. New Input System - detect the Space key</h2>
+       <h2>5. New Input System - detect the Space key</h2>
 
        <p>
       The old system might use:
@@ -1041,7 +991,7 @@
       to <code>ButtonControl.wasPressedThisFrame</code>.
        </p>
 
-       <h2>7. Complete Logo Screen NIS example</h2>
+       <h2>6. Complete Logo Screen NIS example</h2>
 
        <p>
       Replace the input section of your duplicated script with the New Input System
@@ -1111,7 +1061,7 @@
       simply providing the keyboard input.
        </p>
 
-       <h2>8. Test the Logo Screen</h2>
+       <h2>7. Test the Logo Screen</h2>
 
        <ol>
       <li>Save the script.</li>
@@ -1132,7 +1082,7 @@
       <strong>without using an Input Action</strong>.
        </p>
 
-       <h2>9. Compare the two versions</h2>
+       <h2>8. Compare the two versions</h2>
 
        <p><strong>Legacy Input System:</strong></p>
 
@@ -1177,7 +1127,7 @@
       The difference is where the input information comes from.
        </p>
 
-       <h2>10. Duplicate the Gallery Control script</h2>
+       <h2>9. Duplicate the Gallery Control script</h2>
 
        <p>
       The original Gallery Control exercise uses the Left and Right Arrow keys to
@@ -1218,7 +1168,7 @@
       </li>
        </ol>
 
-       <h2>11. New Input System - Arrow keys</h2>
+       <h2>10. New Input System - Arrow keys</h2>
 
        <p>
       The New Input System provides direct access to the individual arrow keys:
@@ -1312,7 +1262,7 @@
         </div>
        </section>
 
-       <h2>12. Complete Gallery Control NIS example</h2>
+       <h2>11. Complete Gallery Control NIS example</h2>
 
        <p>
       The following is a basic New Input System version of the existing Gallery
@@ -1421,7 +1371,7 @@
       The array, counter, loop and <code>SetActive()</code> concepts are unchanged.
        </p>
 
-       <h2>13. Test the Gallery</h2>
+       <h2>12. Test the Gallery</h2>
 
        <ol>
       <li>Disable the original <code>GalleryControl</code> component on your test Gallery object.</li>
@@ -1437,7 +1387,7 @@
       The gallery should behave in the same way as the original version.
        </p>
 
-       <h2>14. What has actually changed?</h2>
+       <h2>13. What has actually changed?</h2>
 
        <p>
       Very little of the gameplay code has changed.
@@ -1505,7 +1455,7 @@
          </div>
         </section>
 
-       <h2>15. Why are we NOT using Input Actions yet?</h2>
+       <h2>14. Why are we NOT using Input Actions yet?</h2>
 
        <p>
       The New Input System has several levels of use.
@@ -1576,7 +1526,7 @@
       <strong>Input Actions are introduced in Tutorial 02/03.</strong>
        </p>
 
-       <h2>16. Key concept - device versus action</h2>
+       <h2>15. Key concept - device versus action</h2>
 
        <p>
       At this stage you are accessing the device directly:
@@ -1634,7 +1584,7 @@
       This separation is one of the major advantages of the New Input System.
        </p>
 
-       <h2>17. Important: Update() versus FixedUpdate()</h2>
+       <h2>16. Important: Update() versus FixedUpdate()</h2>
 
        <p>
       These keyboard checks are being used for button-like interactions:
@@ -1688,7 +1638,7 @@
       be covered in Tutorial 02/03.
        </p>
 
-       <h2>18. Troubleshooting</h2>
+       <h2>17. Troubleshooting</h2>
 
        <h3>Compiler error: Keyboard could not be found</h3>
 
@@ -1781,7 +1731,7 @@
       available.
        </p>
 
-       <h2>19. What you should understand before Tutorial 02/03</h2>
+       <h2>18. What you should understand before Tutorial 02/03</h2>
 
        <p>
       At the end of this stretch task you should understand that:
