@@ -276,6 +276,502 @@
        <h3>}</h3>
     </div>
    </details>
+
+   <details class="accordion">
+  <summary>
+    Stretch Task: New Input System - Task 4.1
+  </summary>
+
+  <div class="accordion-body media-stack">
+
+    <h2>Stretch Target 4.1: New Input System</h2>
+
+    <p>
+      This is an optional extension to Tutorial 04 Task 1. It introduces the
+      <strong>New Input System (NIS)</strong> using the same keyboard input as
+      the original task.
+    </p>
+
+    <p>
+      This stretch target has two stages. First, you will access the keyboard
+      directly using the New Input System. You will then implement the same
+      key using an <strong>Input Action</strong>.
+    </p>
+
+    <section class="learning-concept-example">
+      <div class="learning-concept-example__title">Learning Concept Example: What you will learn</div>
+      <div class="learning-concept-example__body">
+        <div class="learning-concept-example__line">What you will learn</div>
+        <div class="learning-concept-example__line indent-level-1">- How to use the New Input System to read a keyboard key.</div>
+        <div class="learning-concept-example__line indent-level-1">- How <code>Keyboard.current</code> accesses the keyboard.</div>
+        <div class="learning-concept-example__line indent-level-1">- How <code>wasPressedThisFrame</code> detects a key press.</div>
+        <div class="learning-concept-example__line indent-level-1">- How to create a simple Input Action.</div>
+        <div class="learning-concept-example__line indent-level-1">- How to connect an Input Action to a keyboard key.</div>
+        <div class="learning-concept-example__line indent-level-1">- The difference between direct keyboard input and an Input Action.</div>
+      </div>
+    </section>
+
+
+    <h2>Stretch Target 4.1a: Basic New Input System Key Input</h2>
+
+    <p>
+      In this first version, the script accesses the keyboard directly.
+      <strong>No Input Actions are used yet.</strong>
+    </p>
+
+    <section class="learning-concept-example">
+      <div class="learning-concept-example__title">Learning Concept Example: Direct Keyboard Input</div>
+      <div class="learning-concept-example__body">
+        <div class="learning-concept-example__line">Keyboard</div>
+        <div class="learning-concept-example__line indent-level-1">Key</div>
+        <div class="learning-concept-example__line indent-level-1">wasPressedThisFrame</div>
+        <div class="learning-concept-example__line indent-level-1">Your existing Tutorial 04 interaction</div>
+      </div>
+    </section>
+
+
+    <h2>1. Check the New Input System</h2>
+
+    <ol>
+      <ol>
+        <li>Open your existing 3DIMD Unity project.</li>
+        <li>Open <strong>Window &gt; Package Manager</strong>.</li>
+        <li>Select <strong>Unity Registry</strong>.</li>
+        <li>Search for <strong>Input System</strong>.</li>
+        <li>Make sure the Unity <strong>Input System</strong> package is installed.</li>
+        <li>If it is not installed, click <strong>Install</strong>.</li>
+      </ol>
+    </ol>
+
+
+    <h2>2. Enable Both Input Systems</h2>
+
+    <ol>
+      <ol>
+        <li>Go to <strong>Edit &gt; Project Settings &gt; Player</strong>.</li>
+        <li>Find <strong>Other Settings &gt; Configuration &gt; Active Input Handling</strong>.</li>
+        <li>Set <strong>Active Input Handling</strong> to <strong>Both</strong>.</li>
+        <li>Unity may ask you to restart the Editor. Allow Unity to restart.</li>
+        <li>Using <strong>Both</strong> allows the existing Tutorial 04 input code and the New Input System code to operate during the transition.</li>
+      </ol>
+    </ol>
+
+
+    <h2>3. Add the New Input System Namespace</h2>
+
+    <ol>
+      <ol>
+        <li>Open the script you are using for Tutorial 04 Task 1.</li>
+        <li>Add the following line at the top of the script:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">using UnityEngine.InputSystem;</div>
+          </div>
+        </section>
+
+        <li>This gives the script access to the New Input System classes, including <code>Keyboard</code>.</li>
+      </ol>
+    </ol>
+
+
+    <h2>4. Detect the Tutorial 04 Key</h2>
+
+    <ol>
+      <ol>
+        <li>The original version of the task uses the keyboard input from the older Input System.</li>
+        <li>The New Input System can access the same key directly.</li>
+        <li>For example, if the task uses the <strong>Space</strong> key, the New Input System code is:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">Keyboard.current.spaceKey.wasPressedThisFrame</div>
+          </div>
+        </section>
+
+        <li><code>Keyboard</code> = the keyboard device.</li>
+        <li><code>current</code> = the currently connected keyboard.</li>
+        <li><code>spaceKey</code> = the Space key.</li>
+        <li><code>wasPressedThisFrame</code> = true during the frame in which the key was pressed.</li>
+      </ol>
+    </ol>
+
+
+    <h2>5. Replace the Old Key Check</h2>
+
+    <ol>
+      <ol>
+        <li>The original code may use:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Legacy Input System</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Legacy Input System">
+            <div class="code-panel__line code-panel__line--statement">if (Input.GetKeyDown(KeyCode.Space))</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+            <div class="code-panel__line indent-level-2">// Tutorial 04 interaction</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+          </div>
+        </section>
+
+        <li>The New Input System version is:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">New Input System</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="New Input System">
+            <div class="code-panel__line code-panel__line--statement">if (Keyboard.current != null &amp;&amp;</div>
+            <div class="code-panel__line code-panel__line--statement indent-level-2">Keyboard.current.spaceKey.wasPressedThisFrame)</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+            <div class="code-panel__line indent-level-2">// Tutorial 04 interaction</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+          </div>
+        </section>
+
+        <li>The gameplay code inside the <code>if</code> statement does not need to change.</li>
+        <li>Only the way the key press is detected has changed.</li>
+      </ol>
+    </ol>
+
+
+    <h2>6. Test Stretch Target 4.1a</h2>
+
+    <ol>
+      <ol>
+        <li>Save the script.</li>
+        <li>Return to Unity.</li>
+        <li>Enter Play Mode.</li>
+        <li>Press the same key used by the original Tutorial 04 task.</li>
+        <li>The same interaction should occur.</li>
+        <li>You have now implemented the Tutorial 04 key input using the New Input System without using an Input Action.</li>
+      </ol>
+    </ol>
+
+
+    <section class="learning-concept-example">
+      <div class="learning-concept-example__title">Learning Concept Example: 4.1a</div>
+      <div class="learning-concept-example__body">
+        <div class="learning-concept-example__line">KEYBOARD</div>
+        <div class="learning-concept-example__line indent-level-1">SPACE KEY</div>
+        <div class="learning-concept-example__line indent-level-1">wasPressedThisFrame</div>
+        <div class="learning-concept-example__line indent-level-1">Tutorial 04 interaction</div>
+      </div>
+    </section>
+
+
+    <h2>Stretch Target 4.1b: Input Action Using the Same Key</h2>
+
+    <p>
+      Now implement exactly the same interaction using an
+      <strong>Input Action</strong>.
+    </p>
+
+    <p>
+      The important difference is that the gameplay script no longer needs
+      to access the keyboard directly.
+    </p>
+
+
+    <h2>7. Create an Input Actions Asset</h2>
+
+    <ol>
+      <ol>
+        <li>In the Unity Project window, create an Input Actions asset.</li>
+        <li>Right-click in the Project window.</li>
+        <li>Select <strong>Create &gt; Input Actions</strong>.</li>
+        <li>Name the asset <strong>PlayerControls</strong>.</li>
+        <li>Double-click the asset to open the Input Actions editor.</li>
+      </ol>
+    </ol>
+
+
+    <h2>8. Create an Action Map</h2>
+
+    <ol>
+      <ol>
+        <li>Create an Action Map called <strong>Player</strong>.</li>
+        <li>The Action Map groups the input actions used by the player.</li>
+      </ol>
+    </ol>
+
+
+    <h2>9. Create the Input Action</h2>
+
+    <ol>
+      <ol>
+        <li>Create a new Action inside the <strong>Player</strong> Action Map.</li>
+        <li>Name the Action <strong>Task41</strong>.</li>
+        <li>Set the Action type to <strong>Button</strong>.</li>
+        <li>Add a keyboard binding.</li>
+        <li>Set the binding to the <strong>same key</strong> used in Stretch Target 4.1a.</li>
+      </ol>
+    </ol>
+
+
+    <section class="learning-concept-example">
+      <div class="learning-concept-example__title">Learning Concept Example: Input Action</div>
+      <div class="learning-concept-example__body">
+        <div class="learning-concept-example__line">Task41</div>
+        <div class="learning-concept-example__line indent-level-1">Keyboard</div>
+        <div class="learning-concept-example__line indent-level-1">Same key as 4.1a</div>
+        <div class="learning-concept-example__line indent-level-1">Button</div>
+      </div>
+    </section>
+
+
+    <h2>10. Save the Input Actions Asset</h2>
+
+    <ol>
+      <ol>
+        <li>Save the Input Actions asset.</li>
+        <li>The input action now provides a logical name for the key press.</li>
+        <li>The gameplay code can use <code>Task41</code> instead of directly accessing the keyboard.</li>
+      </ol>
+    </ol>
+
+
+    <h2>11. Create an InputActionReference</h2>
+
+    <ol>
+      <ol>
+        <li>Return to the Tutorial 04 script.</li>
+        <li>Add the New Input System namespace if it is not already present:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">using UnityEngine.InputSystem;</div>
+          </div>
+        </section>
+
+        <li>Add an Input Action Reference:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">[SerializeField] private InputActionReference taskAction;</div>
+          </div>
+        </section>
+
+        <li>This creates a field that can reference the <code>Task41</code> Input Action in the Inspector.</li>
+      </ol>
+    </ol>
+
+
+    <h2>12. Enable and Disable the Input Action</h2>
+
+    <ol>
+      <ol>
+        <li>The Input Action must be enabled before it can be read.</li>
+        <li>Add:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">void OnEnable()</div>
+            <div class="code-panel__line code-panel__line--brace">{</div>
+            <div class="code-panel__line indent-level-1">taskAction.action.Enable();</div>
+            <div class="code-panel__line code-panel__line--brace">}</div>
+            <div class="code-panel__line">&nbsp;</div>
+            <div class="code-panel__line code-panel__line--statement">void OnDisable()</div>
+            <div class="code-panel__line code-panel__line--brace">{</div>
+            <div class="code-panel__line indent-level-1">taskAction.action.Disable();</div>
+            <div class="code-panel__line code-panel__line--brace">}</div>
+          </div>
+        </section>
+      </ol>
+    </ol>
+
+
+    <h2>13. Read the Input Action</h2>
+
+    <ol>
+      <ol>
+        <li>Instead of checking <code>Keyboard.current</code>, check the Input Action.</li>
+        <li>For a Button action, use <code>WasPressedThisFrame()</code>:</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Code Example</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Code Example">
+            <div class="code-panel__line code-panel__line--statement">if (taskAction.action.WasPressedThisFrame())</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+            <div class="code-panel__line indent-level-2">// Tutorial 04 interaction</div>
+            <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+          </div>
+        </section>
+
+        <li>The interaction inside the <code>if</code> statement remains the same.</li>
+      </ol>
+    </ol>
+
+
+    <h2>14. Assign the Input Action in the Inspector</h2>
+
+    <ol>
+      <ol>
+        <li>Select the GameObject containing your Tutorial 04 script.</li>
+        <li>Find the <strong>Task Action</strong> field in the Inspector.</li>
+        <li>Drag the <strong>Task41</strong> action from the Input Actions asset into the field.</li>
+        <li>Alternatively, use the object picker to select the action.</li>
+        <li>Make sure the correct action is assigned before testing.</li>
+      </ol>
+    </ol>
+
+
+    <h2>15. Test Stretch Target 4.1b</h2>
+
+    <ol>
+      <ol>
+        <li>Save the script.</li>
+        <li>Return to Unity.</li>
+        <li>Enter Play Mode.</li>
+        <li>Press the same key used in Stretch Target 4.1a.</li>
+        <li>The same Tutorial 04 interaction should occur.</li>
+        <li>The important difference is that the script is now reading the <strong>Input Action</strong>, rather than reading the keyboard directly.</li>
+      </ol>
+    </ol>
+
+
+    <section class="learning-concept-example">
+      <div class="learning-concept-example__title">Learning Concept Example: 4.1a versus 4.1b</div>
+      <div class="learning-concept-example__body">
+        <div class="learning-concept-example__line">4.1a - Direct Keyboard Input</div>
+        <div class="learning-concept-example__line indent-level-1">Keyboard</div>
+        <div class="learning-concept-example__line indent-level-1">Key</div>
+        <div class="learning-concept-example__line indent-level-1">wasPressedThisFrame</div>
+        <div class="learning-concept-example__line indent-level-1">Tutorial 04 interaction</div>
+        <div class="learning-concept-example__line">&nbsp;</div>
+        <div class="learning-concept-example__line">4.1b - Input Action</div>
+        <div class="learning-concept-example__line indent-level-1">Keyboard</div>
+        <div class="learning-concept-example__line indent-level-1">Binding</div>
+        <div class="learning-concept-example__line indent-level-1">Input Action</div>
+        <div class="learning-concept-example__line indent-level-1">Tutorial 04 interaction</div>
+      </div>
+    </section>
+
+
+    <h2>16. The Important Difference</h2>
+
+    <ol>
+      <ol>
+        <li>In <strong>Stretch Target 4.1a</strong>, the script knows that the input comes from a keyboard key.</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Direct Keyboard</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Direct Keyboard">
+            <div class="code-panel__line code-panel__line--statement">Keyboard.current.spaceKey.wasPressedThisFrame</div>
+          </div>
+        </section>
+
+        <li>In <strong>Stretch Target 4.1b</strong>, the script knows about the action, but does not need to know which physical key performs it.</li>
+
+        <section class="code-panel code-panel--compact" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots">
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+              <span class="code-panel__dot"></span>
+            </div>
+            <div class="code-panel__title">Input Action</div>
+          </div>
+          <div class="code-panel__body" role="region" aria-label="Input Action">
+            <div class="code-panel__line code-panel__line--statement">taskAction.action.WasPressedThisFrame()</div>
+          </div>
+        </section>
+
+        <li>The Input Action separates the <strong>physical control</strong> from the <strong>gameplay action</strong>.</li>
+      </ol>
+    </ol>
+
+
+    <h2>17. What you should understand</h2>
+
+    <section class="learning-concept-example">
+      <div class="learning-concept-example__title">Learning Concept Example: New Input System</div>
+      <div class="learning-concept-example__body">
+        <div class="learning-concept-example__line indent-level-1">The New Input System can read keyboard input directly.</div>
+        <div class="learning-concept-example__line indent-level-1"><code>Keyboard.current</code> provides access to the current keyboard.</div>
+        <div class="learning-concept-example__line indent-level-1"><code>wasPressedThisFrame</code> detects a direct key press.</div>
+        <div class="learning-concept-example__line indent-level-1">An Input Action provides a logical name for an input.</div>
+        <div class="learning-concept-example__line indent-level-1">An Input Action can be bound to a keyboard key.</div>
+        <div class="learning-concept-example__line indent-level-1"><code>InputActionReference</code> allows a script to reference an Input Action.</div>
+        <div class="learning-concept-example__line indent-level-1"><code>WasPressedThisFrame()</code> detects a Button action being pressed.</div>
+        <div class="learning-concept-example__line indent-level-1">The gameplay interaction can remain the same while the input method changes.</div>
+      </div>
+    </section>
+
+    <p>
+      <strong>Key idea:</strong> Stretch Target 4.1a accesses the physical
+      keyboard directly. Stretch Target 4.1b introduces the separation between
+      the physical key and the gameplay action using an Input Action.
+    </p>
+
+  </div>
+</details>
+
   </main>
   <script src="../assets/js/site.js?v=20260915a">
   </script>
