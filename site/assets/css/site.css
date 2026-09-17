@@ -640,6 +640,10 @@ body.overview-page .accordion-body .h3-detail > p,
 body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p {
   margin-left: 1.35rem;
 }
+body.overview-page .accordion-body .h3-detail > h3,
+body.lecture-fullbleed .slide-content .accordion-body .h3-detail > h3 {
+  color:white;
+}
 
 .section-card {
   background: var(--surface);
