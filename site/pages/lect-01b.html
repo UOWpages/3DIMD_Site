@@ -621,32 +621,30 @@
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content slide-content-accordion">
-    <h2>Basic Architecture (Scripts, Classes)</h2>
+    <h2>Basic Architecture</h2>
     <div class="accordion-scroll">
       <details class="accordion" open>
-        <summary>Scripts and Classes</summary>
+        <summary>MonoBehaviour, Scripts, Classes, Namespaces</summary>
         <div class="accordion-body">
-          <p>MonoBehaviour is the base class every script derives from.</p>
-          <p>Using Javascript every script automatically derives from MonoBehaviour.</p>
-          <p>When using C# or Boo you have to explicitly derive from MonoBehaviour.</p>
-          <p>Classes - derived from monobehaviour, which unity is built on. MonoBehaviour is the base class every script derives from. Using Javascript every script automatically derives from MonoBehaviour. When using C# or Boo you have to explicitly derive from MonoBehaviour.</p>
-        </div>
-      </details>
-      <details class="accordion">
-        <summary>Monobehaviour and Unity Structure</summary>
-        <div class="accordion-body">
-          <p>https://docs.unity3d.com/uploads/Main/monobehaviour_flowchart.svg</p>
-        </div>
-      </details>
-      <details class="accordion">
-        <summary>Namespaces</summary>
-        <div class="accordion-body">
-          <p>Libraries of Classes provided by Unity, third parties, or yourself.</p>
-          <div class="h3-detail">
-            <h3>Typical:</h3>
-            <p>using UnityEngine;</p>
-            <p>using System.Collections;</p>
-          </div>
+          <div class="accordion-content-with-image">
+            <div class="h3-detail">
+              <h3>Monobehaviour and Unity Structure:</h3>
+                <p>MonoBehaviour is the base class for all scripts in Unity.</p>
+                <p>When using C#, you must explicitly derive from MonoBehaviour.</p>
+                <p>Classes derived from the Script via MonoBehaviour, which unity is built on. </p>
+              <h3>NameSpaces:</h3>
+                <p>Libraries of Classes provided by Unity, third parties, or yourself.</p>
+                <p>For Example:</p>
+                <p>using UnityEngine;</p>
+                <p>using System.Collections;</p>
+              </div>
+              <div class="accordion-images" style="--accordion-images-width: 50%;">
+                <img src="https://docs.unity3d.com/uploads/Main/monobehaviour_flowchart.svg"
+                  class="accordion-image"
+                  style="--accordion-image-width: 100%; background-color: white;"
+                  alt="Unity New Project window" />
+              </div>
+            </div>
         </div>
       </details>
     </div>
