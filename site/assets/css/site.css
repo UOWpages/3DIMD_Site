@@ -1876,4 +1876,31 @@ body.overview-page .content-page-area .accordion > .accordion-body > .accordion-
     font-size: 0.9rem;
   }
 }
+.accordion-content-with-image {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.accordion-content-with-image .accordion-text {
+  flex: 1;
+}
+
+.accordion-content-with-image .accordion-image {
+  width: 35%;
+  max-width: 450px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+@media (max-width: 700px) {
+  .accordion-content-with-image {
+    flex-direction: column;
+  }
+
+  .accordion-content-with-image .accordion-image {
+    width: 100%;
+    max-width: 450px;
+  }
+}
 
