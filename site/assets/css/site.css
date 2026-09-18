@@ -645,6 +645,15 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > h3 {
   color:white;
 }
 
+body.overview-page .accordion-body .h3-detail > p::before,
+body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p::before {
+  content: "• ";
+}
+
+body.overview-page .accordion-body .h3-detail > p:empty::before,
+body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p:empty::before {
+  content: none;
+}
 .section-card {
   background: var(--surface);
   border: 3px solid var(--line);
