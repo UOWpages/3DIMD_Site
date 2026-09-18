@@ -313,10 +313,15 @@
         <div class="accordion-content-with-image">
           <div class="h3-detail">
             <h3>Creating Project:</h3>
+            <p>&nbsp;</p>
             <p>You are prompted to create 2D or 3D.</p>
+            <p>&nbsp;</p>
             <p>3D Contains 2D elements as well - images, textures, sprites.</p>
+            <p>&nbsp;</p>
             <p>You can swap 2D and 3D at any time.</p>
+            <p>&nbsp;</p>
             <p>For 2.5D, select 3D and set camera and scene view to orthographic</p>
+            <p>&nbsp;</p>
             <p>There is Physics and Physics 2D settings you can adjust in edit/preferences.</p>
           </div>
           <div class="accordion-images" style="--accordion-images-width: 50%;">
@@ -338,8 +343,11 @@
           <div class="accordion-content-with-image">
             <div class="h3-detail">
               <p>Projects - projects are hierarchal folders created by Unity that contain all the assets of a work.</p>
+              <p>&nbsp;</p>
               <p>Assets may include Scripts, Data files, Animations, 3D Mesh Objects, Fonts, Plugins, Materials, Textures,...</p>
+              <p>&nbsp;</p>
               <p>The Project File on Disk has Assets Folder, which displays all the items above, as well as other folders for Library items, Project Settings, Temp files, Builds, other data, and other operational items.</p>
+              <p>&nbsp;</p>
               <p>They may contain Visual Studio or VSCode files if these are used as an IDE.</p>
             </div>
             <div class="accordion-images" style="--accordion-images-width: 60%;">
@@ -354,37 +362,75 @@
       <details class="accordion">
         <summary>Project Window Linkages/Dependencies</summary>
         <div class="accordion-body">
-          <p>Project Window in Unity</p>
-          <p>You may move or organise your files or folders in any way you see fit in the Unity Project Window within the Unity UI.</p>
-          <p>If you do it here, Unity keeps track of your files and will create all necessary linkages without any work on your part.</p>
-          <p>Do Not move files within the project in the windows interface, as this will break the linkages above.</p>
-          <p>The Project Window may also contain shortcuts for certain files at the top.</p>
+          <div class="accordion-content-with-image">
+            <div class="h3-detail">
+              <p>Project Window in Unity.</p>
+              <p>&nbsp;</p>
+              <p>You may move or organise your files or folders in any way you see fit in the Unity Project Window within the Unity UI.</p>
+              <p>&nbsp;</p>
+              <p>If you do it here, Unity keeps track of your files and will create all necessary linkages without any work on your part.</p>
+              <p>&nbsp;</p>
+              <p>Do Not move files within the project in the windows interface, as this will break the linkages above.</p>
+              <p>&nbsp;</p>
+              <p>The Project Window may also contain shortcuts for certain files at the top.</p>
+            </div>
+            <div class="accordion-images" style="--accordion-images-width: 60%;">
+              <img src="images/Lect_01b_06_Linkages.png"
+                   class="accordion-image"
+                   style="--accordion-image-width: 100%;"
+                   alt="Unity Project Window linkages" />
+            </div>
+          </div>
         </div>
       </details>
       <details class="accordion">
         <summary>Scenes, Builds</summary>
         <div class="accordion-body">
-          <p>Scenes - these double up in Unity as Levels, and are sometimesreferred to as such. There is a SceneManager class you can use if desired.</p>
-          <p>Scenes are saved in the Assets Folder and appear in the project Window.</p>
-          <p>Builds - in build Settings you can select scenes (levels) to add to the export.</p>
-          <p>It will play the first scene unless scripts otherwise specify. You may export to any Platform that is loaded. Install any platforms required at install stage or now, as these are all optional, apart from a PC build.</p>
-          <p>Build Platforms include: Webplayer (deprecated, now WebGL/GPU), Standalone (exe), Android, iOS, tvOS, Tizen, Xbox, PS, Windows Store, and Samsung TV</p>
+          <div class="accordion-content-with-image">
+              <div class="h3-detail">
+                <p>Scenes - these double up in Unity as Levels, and are sometimesreferred to as such. There is a SceneManager class you can use if desired.</p>
+                <p>&nbsp;</p>
+                <p>Scenes are saved in the Assets Folder and appear in the project Window.</p>
+                <p>&nbsp;</p>
+                <p>Builds - in build Settings you can select scenes (levels) to add to the export.</p>
+                <p>&nbsp;</p>
+                <p>It will play the first scene unless scripts otherwise specify. You may export to any Platform that is loaded. Install any platforms required at install stage or now, as these are all optional, apart from a PC build.</p>
+                <p>&nbsp;</p>
+                <p>Build Platforms include: Webplayer (deprecated, now WebGL/GPU), Standalone (exe), Android, iOS, tvOS, Tizen, Xbox, PS, Windows Store, and Samsung TV.</p>
+              </div>
+              <div class="accordion-images" style="--accordion-images-width: 60%;">
+                <img src="images/Lect_01b_06_NewProject_Scenes_Builds.png"
+                    class="accordion-image"
+                    style="--accordion-image-width: 100%;"
+                    alt="Unity Scenes and Builds" />
+            </div>
+          </div>
         </div>
       </details>
       <details class="accordion">
         <summary>Top Menu (Functions and Tools)</summary>
         <div class="accordion-body">
-          <p>Edit - These are a very basic set of functions and preferences</p>
-          <div class="h3-detail">
-            <h3>Preferences/External Tools:</h3>
-            <p>IDE (Integrated Development Environment)- You can change IDE from Monodevelop to Visual Studio or VS Code in Preferences/External Tools. We will use Visual Studio.</p>
-            <p>Image Editing Program Options - Open by Individual File</p>
-            <p>Android SDK - Also has the android SDK link to set up if you have that installed.</p>
-          </div>
-          <div class="h3-detail">
-            <h3>Version Control:</h3>
-            <p>Visual Studio and Github Web - This is seamless and straightforward for linking with Unity. You will have to setup Github accounts, and it may be a good idea to have a Group github account that all have a password for. From anywhere you work you can pull down projects, work on them, and push changes back up to the account as separate commits.</p>
-          </div>
+          <div class="accordion-content-with-image">
+              <div class="h3-detail">
+                <h3>Preferences/External Tools:</h3>
+                  <p>From Edit Top Menu - These are a very basic set of functions and preferences.</p>
+                  <p>IDE (Integrated Development Environment)</p>
+                  <p>You can change IDE from Monodevelop to Visual Studio or VS Code in Preferences/External Tools.</p> 
+                  <p>We will use Visual Studio.</p>
+                  <p>Image Editing Program Options: Open by Individual File</p>
+                  <p>Android SDK: Also has the android SDK link to set up if you have that installed.</p>
+                <h3>Version Control:</h3>
+                  <p>Visual Studio and Github Web - This is seamless and straightforward for linking with Unity.</p>
+                  <p>You will have to setup Github accounts, and it may be a good idea to have a Group github account where you all have the password.</p>
+                  <p>You work from anywhere,you can pull down projects, work on them, and push changes back up to the account as separate commits.</p>
+              </div>
+                <div class="accordion-images" style="--accordion-images-width: 50%;">
+                  <img src="images/Lect_01b_06_TopMenu.png"
+                      class="accordion-image"
+                      style="--accordion-image-width: 100%;"
+                      alt="Unity Top Menu Functions and Tools" />
+                </div>
+            </div>
         </div>
       </details>
       <details class="accordion">
