@@ -643,6 +643,12 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p {
 body.overview-page .accordion-body .h3-detail > h3,
 body.lecture-fullbleed .slide-content .accordion-body .h3-detail > h3 {
   color:white;
+  margin-bottom: 1rem;
+}
+
+body.overview-page .accordion-body .h3-detail > p + h3,
+body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p + h3 {
+  margin-top: 1.5rem;
 }
 
 body.overview-page .accordion-body .h3-detail > p::before,

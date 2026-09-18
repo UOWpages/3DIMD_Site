@@ -487,48 +487,55 @@
       <div class="slide-content slide-content-accordion">
     <h2>Basic Architecture (GameObjects and Components)</h2>
     <div class="accordion-scroll">
-      <details class="accordion" open>
+<!--       <details class="accordion" open>
         <summary>GameObjects</summary>
         <div class="accordion-body">
-          <p>GameObjects are the fundamental objects in Unity that represent characters, props, and scenery.</p>
-          <p>They do not accomplish much in themselves, but they act as containers for Components(Scripts), which implement the real functionality.</p>
+          
         </div>
-      </details>
+      </details> -->
       <details class="accordion">
-        <summary>GameObjects and Components</summary>
+        <summary>GameObjects</summary>
         <div class="accordion-body">
           <div class="h3-detail">
-            <h3>GameObjects and Components:</h3>
-            <p>Base GameObject has name, tag, layer, and transform component</p>
-            <p>Scripts Are Components and define the empty GameObject</p>
-            <p>GameObjects and Components(Scripts) are Initialised and run when play is pressed</p>
-            <p>Scripts must be attached to a GameObject in order for scripts to run (more later).</p>
-            <p>Scripts can be attached to an Empty gameObject.</p>
-            <p>All GameObjects Components and Scripts in scene(s) in build</p>
-            <p>Are available to run if accessed and visible.</p>
-            <p>GameObjects will have variable and references that can be modified.</p>
-            <p>References can be to any Components, GameObjects, or Assets.</p>
+            <h3>GameObjects:</h3>
+              <p>GameObjects are the fundamental objects in Unity that represent characters, props, and scenery.</p>
+              <p>They do not accomplish much in themselves, but they act as containers for Components(Scripts), which implement the real functionality.</p>
+              <p>Base GameObject has name, tag, layer, and transform component</p>
+              <p>Scripts Are Components and define the empty GameObject</p>
+              <p>GameObjects and Components(Scripts) are Initialised and run when play is pressed</p>
+              <p>Scripts must be attached to a GameObject in order for scripts to run (more later).</p>
+              <p>Scripts can be attached to an Empty gameObject.</p>
+              <p>All GameObjects Components and Scripts in scene(s) in build</p>
+              <p>Are available to run if accessed and visible.</p>
+              <p>GameObjects will have variable and references that can be modified.</p>
+              <p>References can be to any Components, GameObjects, or Assets.</p>
+              <p>https://docs.unity3d.com/Manual/class-GameObject.html</p>
           </div>
-        </div>
-      </details>
-      <details class="accordion">
-        <summary>Minimum Requirements</summary>
-        <div class="accordion-body">
-          <p>https://docs.unity3d.com/Manual/class-GameObject.html</p>
-          <p>Minimum Requirements:</p>
-          <p>Unity is initialised and run from the Main Camera object.</p>
-          <p>This is the minimum requirement in order to build and run a scene/level.</p>
-          <p>Could create all elements from empty GO</p>
         </div>
       </details>
       <details class="accordion">
         <summary>Components</summary>
         <div class="accordion-body">
-          <p>Components are scripts, either pre-defined library or user defined</p>
-          <p>GameObjects will come with default Components(scripts) depending on</p>
-          <p>Type, and these define the blank GameObject.</p>
-          <p>The Transform Component is the basic GameObject Component,</p>
-          <p>Along with name, tag, and layer.</p>
+          <div class="h3-detail">
+          <h3>Components:</h3>
+            <p>Components are scripts, either pre-defined library or user defined</p>
+            <p>GameObjects will come with default Components(scripts) depending on</p>
+            <p>Type, and these define the blank GameObject.</p>
+            <p>The Transform Component is the basic GameObject Component,</p>
+            <p>Along with name, tag, and layer.</p>
+            <p>https://docs.unity3d.com/Manual/unity-components.html</p>
+          </div>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Minimum Scene Requirements</summary>
+        <div class="accordion-body">
+          <div class="h3-detail">
+          <h3>Minimum Scene Requirements (Game Objects and Components): </h3>
+          <p>Unity is initialised and run from the Main Camera object.</p>
+          <p>This is the minimum requirement in order to build and run a scene/level.</p>
+          <p>Could create all elements from empty G.O. (Game Object)</p>
+          </div>
         </div>
       </details>
     </div>
