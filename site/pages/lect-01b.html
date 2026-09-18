@@ -628,15 +628,43 @@
         <div class="accordion-body">
           <div class="accordion-content-with-image">
             <div class="h3-detail">
-              <h3>Monobehaviour and Unity Structure:</h3>
-                <p>MonoBehaviour is the base class for all scripts in Unity.</p>
+              <h3>Classes - Monobehaviour and Unity Structure:</h3>
+                <p>MonoBehaviour is the base class for all scripts in the UnityEngine Namespace.</p>
                 <p>When using C#, you must explicitly derive from MonoBehaviour.</p>
-                <p>Classes derived from the Script via MonoBehaviour, which unity is built on. </p>
+                <p>Classes are derived from the Script via MonoBehaviour, which Unity is built on. </p>
               <h3>NameSpaces:</h3>
+                <p>Namespace: A logical container used to group related classes, structs, and enums so they don’t clash with other code.</p>
+                <p>Namespaces are used to organize classes and avoid naming conflicts.</p>
+                <p>MonoBehaviour is a class in the Namespace: UnityEngine. </p>
+                <p>For Example:</p>
+                <p>using UnityEngine; </p>
+                <p>using System.Collections; </p>
+                <p>Other namespaces may exist, but they do not define classes directly.</p>
+                <p>Others are not Class Definitions.</p>
+              <h3>Dependencies:</h3>
                 <p>Libraries of Classes provided by Unity, third parties, or yourself.</p>
                 <p>For Example:</p>
-                <p>using UnityEngine;</p>
-                <p>using System.Collections;</p>
+                <p>using UnityEngine; is a code-level dependency that allows access to Unity's core classes and functions.</p>
+                <p>using System.Collections; is a code-level dependency that allows access to collection classes like ArrayList, Hashtable, etc.</p>
+                <p>Dependencies are important because they allow your scripts to access and use functionality provided by other libraries and frameworks.</p>
+                <p>With Dependencies, Unity provides a framework so that you don't have to work out input handling, graphics instance setup, game loop, game object handling, physics, rendering, lighting etc yourself.</p>
+              <h3>Scripts:</h3>
+                <p>Scripts are used to define the behavior of GameObjects in Unity.</p>
+                <p>They are written in C# and derive from the MonoBehaviour class.</p>
+                <p>Scripts contain methods(functions) like Start() and Update() that define the behavior of the GameObject they are attached to.</p>
+                <p>These methods are called by the Unity engine at specific points in the game loop.</p>
+                <p>Common methods include:</p>
+                <ul>
+                  <li><strong>Start():</strong> Called before the first frame update.</li>
+                  <li><strong>Update():</strong> Called once per frame.</li>
+                  <li><strong>Awake():</strong> Called when the script instance is being loaded.</li>
+                  <li><strong>OnDestroy():</strong> Called when the MonoBehaviour will be destroyed.</li>
+                </ul>
+                <p>These are some of the most commonly used methods in Unity scripts, but there are many others available depending on the specific needs of your game.</p>
+                <p>It's important to understand the lifecycle of these methods to effectively control the behavior of your GameObjects.</p>
+                <p>The Start() function will be run only once at the start of the program. So any logic and data initializations that you need or want to do can be placed in the Start() function.</p>
+                <p>The Update() function is where most of the magic happens. This is the function that gets called continuously throughout the life of your game or simulation. This is the function where you will update your game objects. In short it is the function which will be called each frame before rendering the scene.</p>
+
               </div>
               <div class="accordion-images" style="--accordion-images-width: 50%;">
                 <img src="https://docs.unity3d.com/uploads/Main/monobehaviour_flowchart.svg"
