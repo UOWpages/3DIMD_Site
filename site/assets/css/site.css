@@ -1425,10 +1425,18 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p:empty::befo
   font-size: 0.92rem;
 }
 
+/* Quiz question background only */
+.lecture-quiz .question > h3 {
+    background-color: #0e3e5c;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+}
+
 .quiz-container .question {
+  background-color: #24a0ed;
   border: 2px solid var(--line);
   border-radius: 10px;
-  background: #fff;
+  /* background: #fff; */
   padding: var(--space-2);
   margin-bottom: var(--space-2);
 }
@@ -1453,7 +1461,7 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p:empty::befo
 }
 
 .quiz-container .option.selected {
-  background: #dff1ff;
+  background: #bedff7;
 }
 
 .controls {
@@ -1497,11 +1505,11 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p:empty::befo
 }
 
 .feedback.correct {
-  background: #d7f2dd;
+  background: #c0f4cb;
 }
 
 .feedback.incorrect {
-  background: #ffe0db;
+  background: #f6cdc6;
 }
 
 #results {
@@ -1926,6 +1934,7 @@ body.overview-page .content-page-area .accordion > .accordion-body > .accordion-
     width: 100%;
   }
 }
+
 
   /* .accordion-content-with-image .accordion-image {
     width: 100%;
