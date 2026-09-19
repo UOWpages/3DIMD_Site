@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Lecture 01b - Unity Intro and Concepts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260909b" />
+  <link rel="stylesheet" href="../assets/css/slideshow.css?v=20260913a" />
+</head>
+<body class="lecture-fullbleed">
+  <div class="slideshow-container">
+    <!-- Slide 1 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Lecture Tutorial 01b</h2>
+        <div class="accordion-scroll">
+            <details class="accordion" open>
+              <summary>Unity Reference Links</summary>
+              <div class="accordion-body">
+                <div class="h3-detail">
+                  <h3>Unity3D Install, Hub, Tutorials and Resources</h3>
+                  <p></p>
+                  <p><a href="https://learn.unity.com/tutorial/set-up-the-unity-editor" target="_blank" rel="noopener noreferrer">Set Up the Unity Editor</a></p>
+                  <p><a href="https://learn.unity.com/tutorial/explore-the-unity-hub" target="_blank" rel="noopener noreferrer">Explore the Unity Hub</a></p>
+                  <p><a href="https://learn.unity.com/tutorial/get-started-with-unity-in-editor-tutorial" target="_blank" rel="noopener noreferrer">Get Started with Unity in Editor Tutorial</a></p>
+                  <p></p>
+                  <h3>Unity UI, Basics, and Unity Learn.</h3>
+                    <p><a href="https://learn.unity.com/" target="_blank" rel="noopener noreferrer">Unity Learn Resources (Also in Unity Hub)</a></p>
+                    <p><a href="https://unity3d.com/learn/tutorials/topics/user-interface-ui" target="_blank" rel="noopener noreferrer">Unity UI tutorials</a></p>
+                  <p></p>
+                  <h3>Further Tutorials</h3>
+                    <p><a href="https://learn.unity.com/course/roll-a-ball" target="_blank" rel="noopener noreferrer">Roll-a-Ball Tutorial</a></p>
+                    <p><a href="https://learn.unity.com/course/6939c19d4ddfcae2b10bad21" target="_blank" rel="noopener noreferrer">Collaborate with Github Desktop</a></p>
+                  <p></p>
+                  <h3>Unity Manuals and Resources</h3>
+                    <p><a href="https://docs.unity3d.com/6000.3/Documentation/Manual/index.html" target="_blank" rel="noopener noreferrer">Unity Manual</a></p>
+                    <p><a href="https://docs.unity3d.com/6000.3/Documentation/ScriptReference/index.html" target="_blank" rel="noopener noreferrer">Unity Script Reference</a></p>
+                    <p><a href="https://unity.com/resources" target="_blank" rel="noopener noreferrer">Unity Resources</a></p>
+                  <p></p>
+                  <h3>Unity for Employment</h3>
+                    <p><a href="https://learn.unity.com/course/job-seeker-s-guide-to-learning-unity" target="_blank" rel="noopener noreferrer">Job Seeker's Guide to Learning Unity</a></p>
+                    <p><a href="https://learn.unity.com/course/elevateprogram" target="_blank" rel="noopener noreferrer">Unity Elevate Program</a></p>
+                  <p></p>
+                  <h3>Advanced Unity Tools</h3>
+                    <p><a href="https://learn.unity.com/tutorial/introduction-to-unity-cli" target="_blank" rel="noopener noreferrer">Introduction to Unity CLI</a></p>
+                    <p><a href="https://unity.com/blog/meet-the-unity-cli" target="_blank" rel="noopener noreferrer">Meet the Unity CLI</a></p>
+                    <p><a href="https://unity.com/resources/what-is-unity-ai" target="_blank" rel="noopener noreferrer">What is Unity AI</a></p>
+                </div>
+              </div>
+            </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1" disabled> &larr; Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">21</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity3D</h2>
+        <div class="accordion-scroll">
+          <details class="accordion" open>
+            <summary>Professional Game Engines (3D to 2D)</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>All have free versions with commercial options</h3>
+                <p>Unity3D</p>
+                <p>Unreal Engine 5+</p>
+                <p>Godot</p>
+                <p>CryEngine</p>
+                <p>Lumberyard</p>
+                <p>Monogame</p>
+                <p>Marmalade</p>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Unity3D 6+</summary>
+            <div class="accordion-body">
+              <p>Flexible GameObject and Component Architecture on top of Monodevelop</p>
+              <p></p>
+              <div class="h3-detail">
+                <h3>Pros</h3>
+                  <p>C# or Visual Scripting</p>
+                  <p>VR Friendly - engine of choice for many VR hardware manufacturers</p>
+                  <p>Some automatic optimisation</p>
+                  <p>Multiple platform builds</p>
+                  <p>Large Support Community and tutorials</p>
+                  <p>Wide range of free and paid assets</p>
+                  <p>Now has real time Global Illumination system</p>
+                  <p>Very fast for prototyping</p>
+                <h3>Cons</h3>
+                  <p>Not as powerful as UE6</p>
+                  <p>WebGL code will be larger - there are options such as Needle Tools to build</p>
+                  <p>Shader, Lighting systems lagging behind UE5</p>
+                  <p>Has a more entry level feel - limited modelling and building</p>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Unreal Engine 5+, 6+</summary>
+            <div class="accordion-body">
+              <p>C++ in Unreal's Blueprint visual scripting system. Unreal's Blueprint visual scripting system is being deprecated in 6 for Verse. Verse is aligned with Fortnite and AI friendly</p>
+              <div class="h3-detail">
+                <p></p>
+                <h3>Pros</h3>
+                  <p>Complete game development toolset</p>
+                  <p>Professional engine choice</p>
+                  <p>Powerful and expandable</p>
+                  <p>C++ blueprint base</p>
+                  <p>High end dynamic real time Lighting and Shading</p>
+                  <p>High number of particles</p>
+                <h3>Cons</h3>
+                  <p>Steeper Learning Curve than other engines</p>
+                  <p>Slower to support VR</p>
+                  <p>Heavier to run and not always ideal for mobile games</p>
+                </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Overview</summary>
+            <div class="accordion-body">
+              <p>Unreal tended to be the market standard, but Unity has seemed to surpass it in mobile and indie development. It offers modular assets that cover any weak spots in the program, PhysX, a new GI PBR based system, and is the engine of choice for many new VR hardware manufacturers.</p>
+              <p></p>
+              <p>https://unity3d.com/public-relations</p>
+              <p></p>
+              <div class="h3-detail">
+                <h3>Why Unity?</h3>
+                  <p>Just good enough</p>
+                  <p>Flexible marketplace additions = developer opportunity</p>
+                  <p>Decreases code complexity (C#)</p>
+                  <p>Large code library</p>
+                  <p>Workflow is very streamlined - Iteration is fast</p>
+                  <p>Multiple platforms</p>
+                  <p>Solid and reliable - comfortable</p>
+                  <p>Large support community</p>
+                  <p>Overall strategy of inclusiveness</p>
+                  <p>With Unity AI, MCP and CLI now directly integrated, they are meeting AI demand</p>
+                  <p>https://www.quora.com/Why-is-Unity-Game-Engine-so-successful</p>
+              </div>
+            </div>
+          </details>
+        </div>
+          </div>
+          <div class="slide-controls">
+            <button class="slide-button" data-slide-step="-1"> &larr; Previous</button>
+            <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+            <button class="slide-button" data-slide-step="1">Next &rarr; </button>
+            <div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">21</span></div>
+          </div>
+          <div class="keyboard-hint">
+            Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide">
+          <div class="slide-title">3D Interactive Media Development</div>
+          <div class="slide-content slide-content-accordion">
+        <h2>3D Web Game Engines/Frameworks</h2>
+        <div class="accordion-scroll">
+          <details class="accordion" open>
+            <summary>3D Web Game Engines/Frameworks Ecosystem</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+              <h3>3D/XR Frameworks - JS, WebGL, WebGPU</h3>
+                <p>Three.js Resources - https://threejsresources.com/</p>
+                <p>Three.js - https://threejs.org/</p>
+                <p>PlayCanvas - https://playcanvas.com/</p>
+                <p>Babylon.js - http://www.babylonjs.com/</p>
+                <p>Spatial - https://www.spatial.io/categories/webgl</p>
+                <p>WebGPU - https://www.webgpu.com/tag/game/</p>
+                <p>Aframe - https://aframe.io/aframe-school/#/</p>
+                <p>Immersive Web, WebXR - https://immersiveweb.dev/</p>
+                <p>ViVerse - https://threejsresources.com/tool/viverse</p>
+              <h3>2D Game Frameworks (Some Overlap)</h3>
+                <p>HTML5 Game Engines - https://html5gameengine.com/</p>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Unity for WebGL, WebGPU, Web3D</summary>
+            <div class="accordion-body">
+              <p>MetaCampus with 3D augmentation</p>
+              <details class="accordion accordion--nested video-accordion">
+                <summary>Video: MetaCampus with 3D augmentation</summary>
+                <div class="accordion-body">
+                  <article class="embed-card">
+                    <iframe class="video-embed" src="https://www.youtube.com/embed/XLMv_qEXJO0?t=18s" title="MetaCampus with 3D augmentation video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <p><a href="https://www.youtube.com/watch?v=XLMv_qEXJO0&t=18s" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+                  </article>
+                </div>
+              </details>
+              <div class="h3-detail">
+              <h3>Why use Unity for this?</h3>
+                <p>Builds to WebGL</p>
+                <p>Fairly Optimised</p>
+                <p>Good Entry to WebGL, Web3D, WebVR</p>
+                <p>Affords Powerful and Simple Scripting Tools compared to Three.js and its ecosystem</p>
+                <p>WebGPU in Experimental mode - https://docs.unity3d.com/6000.1/Documentation/Manual/WebGPU.html</p>
+                </div>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> &larr; Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">21</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+        <div class="slide-content slide-content-accordion">
+          <h2>Unity3D Install</h2>
+          <div class="accordion-scroll">
+            <details class="accordion" open>
+              <summary>Unity Start</summary>
+                <div class="accordion-body">
+                  <div class="h3-detail">
+                    <h3>See "Overview:Software Required" and "Tutorials: Tutorial 00-01" for Unity Install and Start</h3>
+                    <p></p>
+                      <p>Must have personal or student account - free for our purposes</p>
+                      <p>Can have multiple versions installed - Via Unity Hub - Some Unity Hub and Learn Tutorials are in older versions</p>
+                      <p>Module Uses 6000.3.19f1 </p>
+                      <p>It is the only version supported for the duration of the module in order to minimise issues</p>
+                      <p>Projects must be openedin correct versions</p>
+                      <p>Can work online or offline - login helps consolidate projects andHub DesktopSettings between machines</p>
+                    </div>
+                  </div>
+              </details>
+          </div>
+          <div class="slide-controls">
+            <button class="slide-button" data-slide-step="-1"> &larr; Previous</button>
+            <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+            <button class="slide-button" data-slide-step="1">Next &rarr; </button>
+            <div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">21</span></div>
+          </div>
+          <div class="keyboard-hint">
+            Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+          </div>
+        </div>
+      </div>
+
+    <!-- Slide 5 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+    <h2>This week covers:</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>This week covers</summary>
+        <div class="accordion-body">
+          <div class="accordion-content-with-image">
+            <div class="accordion-text">
+                <p>Basic Architecture</p>
+                <p>User Interface</p>
+                <p>Concepts</p>
+                <p>Next Week: Basic Scripting in C#</p>
+            </div>
+            <img src="images/BasicArchitectureUnity_01b_05.png" class="accordion-image" style="--accordion-image-width: 75%;" alt="Accordion Image" />
+          </div>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Basic Architecture</summary>
+        <div class="accordion-body">
+          <p>If familiar, please work on brainstorming on:</p>
+          <p><a href="https://padlet.com/university_of_westminster/3dimd-brainstorm-2026-s023mqy8pkycthu16zq2" target="_blank" rel="noopener noreferrer">https://padlet.com/university_of_westminster/3dimd-brainstorm-2026-s023mqy8pkycthu16zq2</a></p>
+          <article class="embed-card">
+            <iframe src="https://padlet.com/university_of_westminster/3dimd-brainstorm-2026-s023mqy8pkycthu16zq2" title="3DIMD Brainstorm Padlet" loading="lazy" allow="clipboard-read; clipboard-write"></iframe>
+          </article>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> &larr; Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">21</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 6 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+    <h2>Basic Architecture (File in Top Menu)</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>Creating Project</summary>
+        <div class="accordion-body">
+        <div class="accordion-content-with-image">
+          <div class="h3-detail">
+            <h3>Creating Project:</h3>
+            <p></p>
+            <p>You are prompted to create 2D or 3D.</p>
+            <p></p>
+            <p>3D Contains 2D elements as well - images, textures, sprites.</p>
+            <p></p>
+            <p>You can swap 2D and 3D at any time.</p>
+            <p></p>
+            <p>For 2.5D, select 3D and set camera and scene view to orthographic</p>
+            <p></p>
+            <p>There is Physics and Physics 2D settings you can adjust in edit/preferences.</p>
+          </div>
+          <div class="accordion-images" style="--accordion-images-width: 50%;">
+              <img src="images/Lect_01b_06_NewProject.png"
+                   class="accordion-image"
+                   style="--accordion-image-width: 100%;"
+                   alt="Unity New Project window" />
+              <img src="images/Lect_01b_06_NewProject_Universal3Dnamed.png"
+                   class="accordion-image"
+                   style="--accordion-image-width: 100%;"
+                   alt="Unity Universal 3D project window" />
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Project Window</summary>
+        <div class="accordion-body">
+          <div class="accordion-content-with-image">
+            <div class="h3-detail">
+              <h3>Projects</h3>
+              <p>Projects are hierarchal folders created by Unity that contain all the assets of a work.</p>
+              <h3>Assets</h3>
+              <p>Assets may include Scripts, Data files, Animations, 3D Mesh Objects, Fonts, Plugins, Materials, Textures,...</p>
+              <h3>Project Folder on Disk</h3>
+              <p>The Project Folder on Disk has Assets Folder, which displays all the items above, as well as other folders for Library items, Project Settings, Temp files, Builds, other data, and other operational items.</p>
+              <p>They may contain Visual Studio or VSCode files if these are used as an IDE.</p>
+              <h3>Project Window in Unity UI</h3>
+              <p>The Project Window in Unity UI displays all the assets and folders of the project, allowing you to manage and organize them efficiently.</p>
+            </div>
+            <div class="accordion-images" style="--accordion-images-width: 60%;">
+              <img src="images/Lect_01b_06_NewProject_Windows.png"
+                   class="accordion-image"
+                   style="--accordion-image-width: 100%;"
+                   alt="Unity New Project window" />
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Project Window Linkages/Dependencies</summary>
+        <div class="accordion-body">
+          <div class="accordion-content-with-image">
+            <div class="h3-detail">
+              <h3>Project Window in Unity.</h3>
+              <p>You may move or organise your files or folders in any way you see fit in the Unity Project Window within the Unity UI.</p>
+              <p>If you do it here, Unity keeps track of your files and will create all necessary linkages without any work on your part.</p>
+              <p>Do Not move files within the project in the windows interface, as this will break the linkages above.</p>
+              <p>The Project Window may also contain shortcuts for certain files at the top.</p>
+            </div>
+            <div class="accordion-images" style="--accordion-images-width: 60%;">
+              <img src="images/Lect_01b_06_Linkages.png"
+                   class="accordion-image"
+                   style="--accordion-image-width: 100%;"
+                   alt="Unity Project Window linkages" />
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Scenes, Builds</summary>
+        <div class="accordion-body">
+          <div class="accordion-content-with-image">
+              <div class="h3-detail">
+                <h3>Scenes:</h3>
+                <p>These double up in Unity as Levels, and are sometimesreferred to as such. There is a SceneManager class you can use if desired.</p>
+                <p>Scenes are saved in the Assets Folder and appear in the project Window.</p>
+                <p></p>
+                <h3>Builds:</h3>
+                  <p>In build Settings you can select scenes (levels) to add to the export.</p>
+                  <p>The order of scenes in the build settings determines the sequence in which they are loaded during the game.</p>
+                  <p>It will play the first scene unless scripts otherwise specify. You may export to any Platform that is loaded. Install any platforms required at install stage or now, as these are all optional, apart from a PC build.</p>
+                <h3>Build Platforms include:</h3>
+                  <p>Webplayer (deprecated, now WebGL/GPU), Standalone (exe), Android, iOS, tvOS, Tizen, Xbox, PS, Windows Store, and Samsung TV.</p>
+              </div>
+              <div class="accordion-images" style="--accordion-images-width: 60%;">
+                <img src="images/Lect_01b_06_NewProject_Scenes_Builds.png"
+                    class="accordion-image"
+                    style="--accordion-image-width: 100%;"
+                    alt="Unity Scenes and Builds" />
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Top Menu (Functions and Tools)</summary>
+        <div class="accordion-body">
+          <div class="accordion-content-with-image">
+              <div class="h3-detail">
+                <h3>Preferences/External Tools:</h3>
+                  <p>From Edit Top Menu</p>
+                  <p>These are a very basic set of functions and preferences.</p>
+                <h3>IDE (Integrated Development Environment):</h3>
+                  <p>You can change IDE from Monodevelop to Visual Studio or VS Code in Preferences/External Tools.</p> 
+                  <p>We will use Visual Studio.</p>
+                <h3>Image Editing Program Options:</h3>
+                  <p>Open by Individual File</p>
+                <h3>Android SDK:</h3>
+                  <p>Also has the android SDK link to set up if you have that installed.</p>
+                <h3>Version Control:</h3>
+                  <p>Visual Studio and Github Web - This is seamless and straightforward for linking with Unity.</p>
+                  <p>You will have to setup Github accounts, and it may be a good idea to have a Group github account where you all have the password.</p>
+                  <p>You work from anywhere,you can pull down projects, work on them, and push changes back up to the account as separate commits.</p>
+                  <p>Unity does provide a version control in the cloud, but it may not be as flexible as using GitHub for collaborative projects.</p>
+                <h3>Summary:</h3>
+                  <p>The Top Menu provides access to essential functions, tools, and preferences for managing your Unity project efficiently.</p>
+              </div>
+                <div class="accordion-images" style="--accordion-images-width: 60%;">
+                  <img src="images/Lect_01b_06_TopMenu.png"
+                      class="accordion-image"
+                      style="--accordion-image-width: 100%;"
+                      alt="Unity Top Menu Functions and Tools" />
+                </div>
+            </div>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Top Menu (Editor and Components)</summary>
+        <div class="accordion-body">
+          <div class="h3-detail">
+            <h3>Edit:</h3>
+              <p>These are a very basic set of functions, build modules and preferences.</p>
+            <h3>Assets:</h3>
+              <p>All standard Assets packages from the Unity library can be created here, or downloaded or custom packages installed.</p>
+            <h3>GameObject (Empty Node):</h3>
+              <p>This is the basic node used in Unity and is generic. From here you can create all library GameObjects from Unity</p>
+            <h3>Component (Script):</h3>
+              <p>This is a drop down menu of all Unity Components. This mirrors the Add Component button in the Inspector Window</p>
+            <h3>Window:</h3>
+              <p>Typical windows besides the default to use are Game, Animator,and Lighting.</p>
+                <p>The Window menu also provides access to the asset store. </p>
+                <p>Typically you will purchase and load packages directly through this window into Unity</p>
+          </div>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Hierarchy Window</summary>
+        <div class="accordion-body">
+          <div class="h3-detail">
+            <h3>Hierarchy Window:</h3>
+              <p>This is your working directory - List of Game Objects in Scene.</p>
+              <p>Drag items from Projects window into here or Scene View.</p>
+              <p>Re-Order by dragging up and down.</p>
+              <p>Can drag to other GameObjects to make child/parent.</p>
+            <h3>Inspector Window:</h3>
+              <p>This window shows the properties and components of the currently selected GameObject.</p>
+              <p>You can add, remove, and configure components here.</p>
+              <p>Changes made in the Inspector Window are immediately reflected in the Scene View.</p>
+          </div>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> &larr; Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">21</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 7 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+    <h2>Basic Architecture (GameObjects and Components)</h2>
+    <div class="accordion-scroll">
+<!--       <details class="accordion" open>
+        <summary>GameObjects</summary>
+        <div class="accordion-body">
+          
+        </div>
+      </details> -->
+      <details class="accordion">
+        <summary>GameObjects</summary>
+        <div class="accordion-body">
+          <div class="h3-detail">
+            <h3>GameObjects:</h3>
+              <p>GameObjects are the fundamental objects in Unity that represent characters, props, and scenery.</p>
+              <p>They do not accomplish much in themselves, but they act as containers for Components(Scripts), which implement the real functionality.</p>
+              <p>Base GameObject has name, tag, layer, and transform component</p>
+              <p>Scripts Are Components and define the empty GameObject</p>
+              <p>GameObjects and Components(Scripts) are Initialised and run when play is pressed</p>
+              <p>Scripts must be attached to a GameObject in order for scripts to run (more later).</p>
+              <p>Scripts can be attached to an Empty gameObject.</p>
+              <p>All GameObjects Components and Scripts in scene(s) in build</p>
+              <p>Are available to run if accessed and visible.</p>
+              <p>GameObjects will have variable and references that can be modified.</p>
+              <p>References can be to any Components, GameObjects, or Assets.</p>
+              <p>https://docs.unity3d.com/Manual/class-GameObject.html</p>
+          </div>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Components</summary>
+        <div class="accordion-body">
+          <div class="h3-detail">
+          <h3>Components:</h3>
+            <p>Components are scripts, either pre-defined library or user defined</p>
+            <p>GameObjects will come with default Components(scripts) depending on</p>
+            <p>Type, and these define the blank GameObject.</p>
+            <p>The Transform Component is the basic GameObject Component,</p>
+            <p>Along with name, tag, and layer.</p>
+            <p>https://docs.unity3d.com/Manual/unity-components.html</p>
+          </div>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>Minimum Scene Requirements</summary>
+        <div class="accordion-body">
+          <div class="h3-detail">
+          <h3>Minimum Scene Requirements (Game Objects and Components): </h3>
+          <p>Unity is initialised and run from the Main Camera object.</p>
+          <p>This is the minimum requirement in order to build and run a scene/level.</p>
+          <p>Could create all elements from empty G.O. (Game Object)</p>
+          </div>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> &larr; Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">21</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 8 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+        <div class="slide-content slide-content-accordion">
+          <h2>Basic Architecture (Inspector Window)</h2>
+          <div class="accordion-scroll">
+            <details class="accordion" open>
+              <summary>Inspector Window</summary>
+              <div class="accordion-body">
+                <div class="accordion-content-with-image">
+                  <div class="h3-detail">
+                    <h3>Inspector Window Overview</h3>
+                    <p>GameObjects, Scripts, and other assets are available for review and change in the Inspector Window. </p>
+                    <p>This exposes the individual components attached. You can add, remove, toggle active mode, or change and add/subtract parameters that are exposed.</p>
+                    <p>Public script variables declared are exposed here for value input or links to other game objects by drag and drop.</p>
+                    <p>References to data files or other GameObjects may be exposed by the script and available here.</p>
+                    <p>Components are added at the bottom.</p>
+                </div>
+                <div class="accordion-images" style="--accordion-images-width: 50%;">
+                  <img src="images/Lect_01b_06_InspectorWindow01.png"
+                    class="accordion-image"
+                    style="--accordion-image-width: 100%;"
+                    alt="Unity New Project window" />
+                </div>
+              </div>
+              </div>
+            </details>
+            <details class="accordion">
+              <summary>Default and Added Components</summary>
+              <div class="accordion-body">
+                <div class="accordion-content-with-image">
+                  <div class="h3-detail">
+                      <h3>Some default and possible library/added components include:</h3>
+                        <p>Name</p>
+                        <p>Visibility - Turns object on and off. Simple.</p>
+                        <p>Static - Game information Precomputed for non moving object</p>
+                        <p>Tag - Allows naming for scripts to access (Collisions)</p>
+                        <p>Layer - Cameras, Lights, can render certain layers, Raycasting can ignore</p>
+                        <p>(Camera Culling Mask, Raycast Layermask)</p>
+                        <p>Transform - translation, rotation, scaling</p>
+                        <p>Mesh - has rendering options, materials</p>
+                        <p>Collider</p>
+                  </div>
+                  <div class="accordion-images" style="--accordion-images-width: 50%;">
+                    <img src="images/Lect_01b_06_InspectorWindow02.png"
+                      class="accordion-image"
+                      style="--accordion-image-width: 100%;"
+                      alt="Unity New Project window" />
+                  </div>
+                </div>
+                </div>
+            </details>
+          </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> &larr; Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">21</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 9 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+    <h2>Basic Architecture</h2>
+    <div class="accordion-scroll">
+      <details class="accordion" open>
+        <summary>MonoBehaviour, Scripts, Classes, Namespaces</summary>
+        <div class="accordion-body">
+          <div class="accordion-content-with-image">
+            <div class="h3-detail">
+              <h3>Classes - Monobehaviour and Unity Structure:</h3>
+                <p>MonoBehaviour is the base class for all scripts in the UnityEngine Namespace.</p>
+                <p>When using C#, you must explicitly derive from MonoBehaviour.</p>
+                <p>Classes are derived from the Script via MonoBehaviour, which Unity is built on. </p>
+              <h3>NameSpaces:</h3>
+                <p>Namespace: A logical container used to group related classes, structs, and enums so they don’t clash with other code.</p>
+                <p>Namespaces are used to organize classes and avoid naming conflicts.</p>
+                <p>MonoBehaviour is a class in the Namespace: UnityEngine. </p>
+                <p>For Example:</p>
+                <p>using UnityEngine; </p>
+                <p>using System.Collections; </p>
+                <p>Other namespaces may exist, but they do not define classes directly.</p>
+                <p>Others are not Class Definitions.</p>
+              <h3>Dependencies:</h3>
+                <p>Libraries of Classes provided by Unity, third parties, or yourself.</p>
+                <p>For Example:</p>
+                <p>using UnityEngine; is a code-level dependency that allows access to Unity's core classes and functions.</p>
+                <p>using System.Collections; is a code-level dependency that allows access to collection classes like ArrayList, Hashtable, etc.</p>
+                <p>Dependencies are important because they allow your scripts to access and use functionality provided by other libraries and frameworks.</p>
+                <p>With Dependencies, Unity provides a framework so that you don't have to work out input handling, graphics instance setup, game loop, game object handling, physics, rendering, lighting etc yourself.</p>
+              <h3>Scripts:</h3>
+                <p>Scripts are used to define the behavior of GameObjects in Unity.</p>
+                <p>They are written in C# and derive from the MonoBehaviour class.</p>
+                <p>Scripts contain methods(functions) like Start() and Update() that define the behavior of the GameObject they are attached to.</p>
+                <p>These methods are called by the Unity engine at specific points in the game loop.</p>
+                <p>Common methods include:</p>
+                <ul>
+                  <li><strong>Start():</strong> Called before the first frame update.</li>
+                  <li><strong>Update():</strong> Called once per frame.</li>
+                  <li><strong>Awake():</strong> Called when the script instance is being loaded.</li>
+                  <li><strong>OnDestroy():</strong> Called when the MonoBehaviour will be destroyed.</li>
+                </ul>
+                <p>These are some of the most commonly used methods in Unity scripts, but there are many others available depending on the specific needs of your game.</p>
+                <p>It's important to understand the lifecycle of these methods to effectively control the behavior of your GameObjects.</p>
+                <p>The Start() function will be run only once at the start of the program. So any logic and data initializations that you need or want to do can be placed in the Start() function.</p>
+                <p>The Update() function is where most of the magic happens. This is the function that gets called continuously throughout the life of your game or simulation. This is the function where you will update your game objects. In short it is the function which will be called each frame before rendering the scene.</p>
+
+              </div>
+              <div class="accordion-images" style="--accordion-images-width: 50%;">
+                <img src="https://docs.unity3d.com/uploads/Main/monobehaviour_flowchart.svg"
+                  class="accordion-image"
+                  style="--accordion-image-width: 100%; background-color: white;"
+                  alt="Unity New Project window" />
+              </div>
+            </div>
+        </div>
+      </details>
+    </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> &larr; Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">21</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 10 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Basic Architecture (Scenes, Views and Cameras)</h2>
+        <div class="accordion-scroll">
+          <details class="accordion" open>
+            <summary>Scene and Game Views</summary>
+            <div class="accordion-body">
+              <div class="accordion-content-with-image">
+                <div class="h3-detail">
+                  <h3>Scene View</h3>
+                  <p>The Scene view is the editor workspace where you build and inspect a scene.</p>
+                  <p>You can move around the scene, select GameObjects, and use the Transform tools to position, rotate, and scale them.</p>
+                  <p>The Scene view is an editor view; it is not necessarily what the player sees.</p>
+                  <h3>Game View</h3>
+                  <p>The Game view shows the scene from the active Camera while the project is running.</p>
+                </div>
+                <div class="accordion-images" style="--accordion-images-width: 50%;">
+                  <img src="images/Lect_01b_06_NewProject_Windows.png" class="accordion-image" style="--accordion-image-width: 100%;" alt="Unity editor windows" />
+                </div>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Main Camera and Lighting</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Main Camera</h3>
+                <p>A Camera defines a view into the scene. A basic scene needs a camera if you want to see the scene through the Game view.</p>
+                <p>The camera can be positioned and configured like other GameObjects through its Transform and Camera components.</p>
+                <h3>Lighting</h3>
+                <p>A new scene commonly includes a Directional Light. Lighting determines how visible surfaces appear in the rendered scene.</p>
+                <p>More advanced cameras and lighting approaches will be introduced later in the module.</p>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Scene as a Working Unit</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>A useful mental model</h3>
+                <p>A Scene is a collection of GameObjects.</p>
+                <p>GameObjects contain Components.</p>
+                <p>Components provide data and behaviour.</p>
+                <p>The Inspector is used to configure those objects and components.</p>
+                <p>The Camera provides a view of the scene when it runs.</p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> &larr; Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">20</span></div>
+      </div>
+      <div class="keyboard-hint">Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate</div>
+    </div>
+
+    <!-- Slide 11 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Basic Architecture (Assets, Packages and Prefabs)</h2>
+        <div class="accordion-scroll">
+          <details class="accordion" open>
+            <summary>Assets and Packages</summary>
+            <div class="accordion-body">
+              <div class="accordion-content-with-image">
+                <div class="h3-detail">
+                  <h3>Assets</h3>
+                  <p>Assets are project resources such as models, textures, materials, audio, scripts, scenes and other data.</p>
+                  <p>They can be created inside Unity or imported from external files.</p>
+                  <h3>Packages</h3>
+                  <p>Packages group related Unity or third-party functionality so that it can be added to a project as a unit.</p>
+                  <p>The Package Manager is used to manage packages and their versions.</p>
+                  <p>This modular approach lets a project use the functionality it needs without every project being structured identically.</p>
+                </div>
+                <div class="accordion-images" style="--accordion-images-width: 50%;">
+                  <img src="images/Lect_01b_06_TopMenu.png" class="accordion-image" style="--accordion-image-width: 100%;" alt="Unity top menu" />
+                </div>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Prefabs</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Prefab as a reusable GameObject setup</h3>
+                <p>A Prefab is a reusable asset that stores a GameObject and its configured components and child objects.</p>
+                <p>Prefabs are useful when the same object needs to appear repeatedly or needs to be instantiated at runtime.</p>
+                <p>Changing the Prefab can update its instances, subject to any instance-level overrides.</p>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Prefab Instantiation</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Editor and runtime use</h3>
+                <p>A Prefab can be placed into a Scene in the editor, or instantiated by a script at runtime.</p>
+                <p>This separates the design of an object from the code that decides when and where it appears.</p>
+                <h3>Example</h3>
+                <p>An enemy, projectile, vehicle or repeated environmental object can be designed once as a Prefab and then reused many times.</p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> &larr; Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-11">11</span> / <span id="total-slides">20</span></div>
+      </div>
+      <div class="keyboard-hint">Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate</div>
+    </div>
+
+    <!-- Slide 12 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Basic Architecture (Components and Controllers)</h2>
+        <div class="accordion-scroll">
+          <details class="accordion" open>
+            <summary>Components</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>GameObjects are built from Components</h3>
+                <p>Components provide the data and behaviour attached to a GameObject.</p>
+                <p>The Transform component is fundamental because it describes position, rotation and scale.</p>
+                <p>Other common components include Mesh Renderer, Collider, Rigidbody, Camera, Light, Animator and user-created scripts.</p>
+                <p>Different GameObjects can therefore be assembled from different combinations of components.</p>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Controllers</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Behaviour can be provided by different controller systems</h3>
+                <p>Scripts can implement custom behaviour and respond to input, physics, collisions, timers and other events.</p>
+                <p>Animator provides a visual system for controlling animation states and transitions.</p>
+                <p>Character and navigation systems can provide higher-level movement and animation behaviour.</p>
+                <p>These systems are components or packages that work within the wider GameObject and Component architecture.</p>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Architecture in Practice</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>From object to behaviour</h3>
+                <p>Choose or create a GameObject.</p>
+                <p>Add the Components required to describe it.</p>
+                <p>Configure those Components in the Inspector.</p>
+                <p>Add a script when custom behaviour is required.</p>
+                <p>This component-based approach is one of the central ideas students will use throughout the module.</p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> &larr; Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-12">12</span> / <span id="total-slides">20</span></div>
+      </div>
+      <div class="keyboard-hint">Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate</div>
+    </div>
+
+    <!-- Slide 13 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Basic Architecture (Scripts and the Unity Lifecycle)</h2>
+        <div class="accordion-scroll">
+          <details class="accordion" open>
+            <summary>Scripts as Components</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Scripts add behaviour</h3>
+                <p>A C# script that derives from MonoBehaviour can be attached to a GameObject as a Component.</p>
+                <p>Its variables can expose data or references in the Inspector, while its methods define behaviour.</p>
+                <p>Unity calls specific lifecycle methods at appropriate points while the object is loaded and running.</p>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Basic C# Script</summary>
+            <div class="accordion-body">
+              <section class="code-panel code-panel--compact" data-code-type="code">
+                <div class="code-panel__chrome">
+                  <div class="code-panel__dots">
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                  </div>
+                  <div class="code-panel__title">Basic Unity C# Script</div>
+                </div>
+                <div class="code-panel__body" role="region" aria-label="Basic Unity C Sharp Script">
+                  <div class="code-panel__line code-panel__line--code indent-level-0">using UnityEngine;</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">public class ExampleBehaviour : MonoBehaviour {</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-1">void Start () {</div>
+                  <div class="code-panel__line code-panel__line--comment indent-level-2">// Initialisation happens here</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-1">void Update () {</div>
+                  <div class="code-panel__line code-panel__line--comment indent-level-2">// Per-frame behaviour happens here</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+                </div>
+              </section>
+              <div class="h3-detail">
+                <h3>What this shows</h3>
+                <p><strong>using UnityEngine;</strong> gives access to Unity's core classes.</p>
+                <p><strong>MonoBehaviour</strong> makes the class usable as a Unity Component.</p>
+                <p><strong>Start()</strong> is commonly used for initialisation.</p>
+                <p><strong>Update()</strong> is called once per frame while the behaviour is enabled.</p>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Lifecycle and Execution Order</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Common methods</h3>
+                <p><strong>Awake()</strong> is used for initialisation when the script instance is loaded.</p>
+                <p><strong>OnEnable()</strong> is called when the component becomes enabled.</p>
+                <p><strong>Start()</strong> is called before the first frame update when the component is enabled.</p>
+                <p><strong>Update()</strong> runs once per frame.</p>
+                <p><strong>OnDestroy()</strong> is called when the object or component is destroyed.</p>
+                <p>Script execution order can be configured when a project requires particular scripts to run before others. Do not assume that unrelated scripts execute in the order they appear in the Project window.</p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> &larr; Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-13">13</span> / <span id="total-slides">20</span></div>
+      </div>
+      <div class="keyboard-hint">Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate</div>
+    </div>
+
+    <!-- Slide 14 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Working in Unity (Editor, Toolbar and Play Mode)</h2>
+        <div class="accordion-scroll">
+          <details class="accordion" open>
+            <summary>Editor Workflow</summary>
+            <div class="accordion-body">
+              <div class="accordion-content-with-image">
+                <div class="h3-detail">
+                  <h3>Build, inspect, test, repeat</h3>
+                  <p>Unity is an interactive development environment as well as a runtime engine.</p>
+                  <p>The main workflow is to create or import assets, assemble GameObjects in a Scene, configure Components in the Inspector, and then test the result in Play mode.</p>
+                  <p>The Console is used to inspect errors, warnings and diagnostic messages.</p>
+                </div>
+                <div class="accordion-images" style="--accordion-images-width: 50%;">
+                  <img src="images/Lect_01b_06_NewProject_Windows.png" class="accordion-image" style="--accordion-image-width: 100%;" alt="Unity editor window layout" />
+                </div>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Scene Toolbar and Transform Gizmos</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Basic Scene controls</h3>
+                <p>The Scene toolbar provides tools for selecting, moving, rotating and scaling objects.</p>
+                <p>Transform tools can work in local or global coordinates.</p>
+                <p>Pivot and centre modes affect where a transform operation is applied.</p>
+                <p>These controls are essential for positioning objects before scripting or runtime behaviour is introduced.</p>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Play Mode</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Testing the running scene</h3>
+                <p>Play mode runs the current project using the Scene configuration.</p>
+                <p>Values can be changed during Play mode to experiment and debug.</p>
+                <p>Changes made to scene objects during Play mode are not normally retained when Play mode stops.</p>
+                <p>This makes Play mode a safe place to test behaviour without permanently changing the project.</p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> &larr; Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-14">14</span> / <span id="total-slides">20</span></div>
+      </div>
+      <div class="keyboard-hint">Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate</div>
+    </div>
+
+    <!-- Slide 15 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Basic Architecture (Shading and Lighting)</h2>
+        <div class="accordion-scroll">
+          <details class="accordion" open>
+            <summary>Materials, Shaders and Rendering</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>How a surface becomes an image</h3>
+                <p>A Mesh provides geometry. A Renderer uses that geometry with a Material to produce a visible surface.</p>
+                <p>A Material uses a Shader to determine how the surface is rendered, including properties such as colour, texture and response to light.</p>
+                <p>Lighting then affects how the material appears in the scene.</p>
+                <p>These ideas will be developed in more depth later in the module.</p>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Skybox and Environment</summary>
+            <div class="accordion-body">
+              <div class="accordion-content-with-image">
+                <div class="h3-detail">
+                  <h3>Skybox</h3>
+                  <p>A Skybox provides an environmental background around the scene and can contribute to the visual sense of lighting and space.</p>
+                  <p>It is configured through the scene's lighting/environment settings rather than being ordinary scene geometry.</p>
+                  <h3>Demo</h3>
+                  <p>Create or select a suitable Material and inspect its Shader settings. The exact workflow depends on the rendering pipeline used by the project.</p>
+                </div>
+                <div class="accordion-images" style="--accordion-images-width: 50%;">
+                  <img src="images/BasicArchitectureUnity_01b_05.png" class="accordion-image" style="--accordion-image-width: 100%;" alt="Unity basic architecture reference image" />
+                </div>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Rendering Pipeline</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Keep the concept simple for now</h3>
+                <p>Unity projects use a rendering pipeline that determines how cameras, lights, materials and shaders are processed.</p>
+                <p>Students do not need to master the rendering pipeline in this lecture. The important idea is that visible results are produced by several connected systems rather than by a Mesh alone.</p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> &larr; Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-15">15</span> / <span id="total-slides">20</span></div>
+      </div>
+      <div class="keyboard-hint">Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate</div>
+    </div>
+
+    <!-- Slide 16 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Working in Unity (IDE and Development Tools)</h2>
+        <div class="accordion-scroll">
+          <details class="accordion" open>
+            <summary>IDE Choices</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Visual Studio</h3>
+                <p>Visual Studio is the primary IDE used in this module for editing and debugging C# scripts.</p>
+                <h3>VS Code</h3>
+                <p>VS Code can also be used and is a lighter editor, but additional setup may be required for the full Unity/C# development experience.</p>
+                <h3>MonoDevelop</h3>
+                <p>MonoDevelop was used in older Unity workflows but is deprecated and is not the development environment used for this module.</p>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Unity and the IDE</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Two connected environments</h3>
+                <p>Unity provides the editor, project structure, GameObject and Component systems, scene tools and runtime.</p>
+                <p>The IDE provides a richer environment for writing, navigating, analysing and debugging C# code.</p>
+                <p>Students will move between the Unity Editor and the IDE as scripting becomes a larger part of the module.</p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> &larr; Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-16">16</span> / <span id="total-slides">20</span></div>
+      </div>
+      <div class="keyboard-hint">Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate</div>
+    </div>
+
+    <!-- Slide 17 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity (C#) Concepts: Classes, Namespaces and Dependencies</h2>
+        <div class="accordion-scroll">
+          <details class="accordion" open>
+            <summary>C# Classes in Unity</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Classes</h3>
+                <p>A class defines a type that can contain data and methods.</p>
+                <p>Unity uses classes extensively: GameObjects, Components and many systems are represented through classes in the Unity API.</p>
+                <p>A script such as <strong>ExampleBehaviour</strong> defines a class that derives from <strong>MonoBehaviour</strong>.</p>
+                <h3>MonoBehaviour</h3>
+                <p>MonoBehaviour is the Unity base class that allows a C# class to function as a component attached to a GameObject.</p>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Namespaces</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Organising code</h3>
+                <p>A namespace groups related types and helps prevent naming conflicts.</p>
+                <p><strong>UnityEngine</strong> is a namespace containing many of Unity's core classes.</p>
+                <p>The statement <strong>using UnityEngine;</strong> allows those types to be referred to without repeatedly writing the namespace.</p>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Dependencies</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Using existing frameworks</h3>
+                <p>A dependency is functionality that your code relies on but does not implement itself.</p>
+                <p>Unity provides frameworks for areas such as scenes, GameObjects, components, rendering, physics and input.</p>
+                <p>This is one of the main reasons an engine can support rapid development: students can use established systems rather than implementing an entire runtime from scratch.</p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> &larr; Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-17">17</span> / <span id="total-slides">20</span></div>
+      </div>
+      <div class="keyboard-hint">Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate</div>
+    </div>
+
+    <!-- Slide 18 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity (C#) Concepts: Unity Framework vs General C#</h2>
+        <div class="accordion-scroll">
+          <details class="accordion" open>
+            <summary>What Unity Adds to C#</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>C# is still C#</h3>
+                <p>Unity uses C# as its scripting language, but scripts operate inside the Unity framework and lifecycle.</p>
+                <p>Unity provides APIs and systems for GameObjects, Components, scenes, rendering, physics, input and many other areas.</p>
+                <p>This means students are learning general programming concepts while also learning how those concepts are used within an engine.</p>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Constructors and MonoBehaviour</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Why Unity scripts use a different pattern</h3>
+                <p>In general C#, constructors are commonly used to initialise objects when they are created.</p>
+                <p>MonoBehaviour components are created and managed by Unity, so students should not treat a MonoBehaviour constructor as the normal place for Unity component initialisation.</p>
+                <p>For this module, use Unity lifecycle methods such as <strong>Awake()</strong> and <strong>Start()</strong> for initialisation, as appropriate.</p>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>General Programming Still Matters</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>The computer science connection</h3>
+                <p>Classes, objects, methods, variables, types, control flow, abstraction and data structures remain C# programming concepts.</p>
+                <p>Unity adds an application framework around those concepts rather than replacing them.</p>
+                <p>This distinction becomes increasingly important as projects become more complex.</p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> &larr; Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-18">18</span> / <span id="total-slides">20</span></div>
+      </div>
+      <div class="keyboard-hint">Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate</div>
+    </div>
+
+    <!-- Slide 19 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Putting the Architecture Together</h2>
+        <div class="accordion-scroll">
+          <details class="accordion" open>
+            <summary>From Project to Behaviour</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>The Unity development model</h3>
+                <p><strong>Project</strong> contains Scenes, Assets, Packages and scripts.</p>
+                <p><strong>Scene</strong> contains GameObjects.</p>
+                <p><strong>GameObject</strong> contains Components.</p>
+                <p><strong>Component</strong> provides data or behaviour.</p>
+                <p><strong>Script</strong> is a C# Component that can define custom behaviour.</p>
+                <p><strong>Inspector</strong> exposes configuration and references.</p>
+                <p><strong>Play Mode</strong> runs the assembled system so that it can be tested and iterated.</p>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Where the Next Lectures Go</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>From architecture to interaction</h3>
+                <p>The next lectures move from understanding the Unity architecture into practical C# scripting and interactive behaviour.</p>
+                <p>Input, variables, methods, references, physics, movement and other systems will be introduced progressively through the tutorials.</p>
+                <p>The aim is to understand both <strong>how Unity is organised</strong> and <strong>how a computer science approach can be used to control it</strong>.</p>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Demo / Tutorial: Gallery</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Apply the architecture</h3>
+                <p>Use the Gallery tutorial to connect the ideas introduced in this lecture: GameObjects, Components, the Inspector, a C# script, and runtime behaviour.</p>
+                <p>The tutorial becomes the practical bridge into the next lecture's scripting work.</p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> &larr; Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1" disabled>Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-19">19</span> / <span id="total-slides">20</span></div>
+      </div>
+      <div class="keyboard-hint">Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate</div>
+    </div>
+
+    <!-- Slide 20 -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Demo Tutorial: Gallery</h2>
+        <div class="accordion-scroll">
+          <details class="accordion" open>
+            <summary>Gallery Task</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Practical application</h3>
+                <p>Complete or review the Gallery tutorial and identify the Unity concepts being used.</p>
+                <p>Look for the relationship between the GameObject, its Component, the Inspector values, the C# script and the runtime scene.</p>
+                <p>The scripting details will be developed further in the next lecture.</p>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>Key Ideas to Take Forward</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Remember</h3>
+                <p>Unity is an engine and development environment built from interacting systems.</p>
+                <p>GameObjects are containers for Components.</p>
+                <p>Scripts are C# Components that add custom behaviour.</p>
+                <p>The Inspector connects project data and configuration to those Components.</p>
+                <p>Scenes, Assets, Packages and Prefabs provide the project structure around the runtime objects.</p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> &larr; Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1" disabled>Next &rarr; </button>
+        <div class="slide-counter"><span id="current-slide-20">20</span> / <span id="total-slides">20</span></div>
+      </div>
+      <div class="keyboard-hint">Use <kbd>&rarr;</kbd> <kbd>&larr;</kbd> or click buttons to navigate</div>
+    </div>
+
+  <script src="../assets/js/site.js?v=20260915a"></script>
+  <script>
+    const isLecturePage = /\/lect-[^/]+\.html$/i.test(window.location.pathname);
+    if (isLecturePage && document.body) {
+      document.body.classList.add('lecture-fullbleed');
+    }
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function normalizeSlideStructure(slide) {
+      if (slide.querySelector('.slide-frame')) return;
+
+      const title = slide.querySelector('.slide-title');
+      const controls = slide.querySelector('.slide-controls');
+      const body = slide.querySelector('.slide-content');
+      if (!title || !controls || !body) return;
+
+      const frame = document.createElement('div');
+      frame.className = 'slide-frame';
+      frame.appendChild(title);
+      frame.appendChild(body);
+      frame.appendChild(controls);
+      slide.appendChild(frame);
+    }
+
+    function linkifyText(element) {
+      const urlPattern = /(https?:\/\/[^\s]+)/g;
+      const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+      );
+
+      const nodesToReplace = [];
+      let node;
+
+      while (node = walker.nextNode()) {
+        if (urlPattern.test(node.textContent)) {
+          nodesToReplace.push(node);
+        }
+      }
+
+      urlPattern.lastIndex = 0;
+
+      nodesToReplace.forEach((textNode) => {
+        const span = document.createElement('span');
+        span.innerHTML = textNode.textContent.replace(
+          /(https?:\/\/[^\s]+)/g,
+          '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
+        textNode.parentNode.replaceChild(span, textNode);
+      });
+    }
+
+    function getAccordionLabels(titleText) {
+      const title = (titleText || '').toLowerCase();
+
+      if (title.includes('workflow')) {
+        return { overview: 'Workflow Steps', resources: 'Diagrams and Media' };
+      }
+
+      if (title.includes('references') || title.includes('reading')) {
+        return { overview: 'Reading Notes', resources: 'References and Media' };
+      }
+
+      if (title.includes('group') || title.includes('activity')) {
+        return { overview: 'Guidance', resources: 'Resources' };
+      }
+
+      return { overview: 'Overview', resources: 'Resources and Media' };
+    }
+
+    function normalizeAccordionLabel(text) {
+      const cleaned = (text || '').replace(/\s+/g, ' ').replace(/[:\-]+$/, '').trim();
+      if (!cleaned) return '';
+
+      const lowered = cleaned.toLowerCase();
+      if (lowered === 'overview' || lowered === 'resources' || lowered === 'resources and media') {
+        return '';
+      }
+
+      return cleaned;
+    }
+
+    function inferOverviewLabel(body, h2) {
+      const headingCandidates = Array.from(body.querySelectorAll(':scope > h3, :scope > .section-label'));
+      for (const node of headingCandidates) {
+        const candidate = normalizeAccordionLabel(node.textContent);
+        if (candidate) return candidate;
+      }
+
+      const headingText = (h2 ? h2.textContent : '').replace(/\s+/g, ' ').trim();
+      const parenthetical = headingText.match(/\(([^)]+)\)/);
+      if (parenthetical) {
+        const candidate = normalizeAccordionLabel(parenthetical[1]);
+        if (candidate) return candidate;
+      }
+
+      const firstParagraph = body.querySelector(':scope > p');
+      if (firstParagraph) {
+        const paragraphText = (firstParagraph.textContent || '').replace(/\s+/g, ' ').trim();
+        const wordCount = paragraphText.split(/\s+/).filter(Boolean).length;
+        const looksLikeLabel = !/[.!?]$/.test(paragraphText) && !/^https?:\/\//i.test(paragraphText);
+        if (wordCount > 0 && wordCount <= 6 && looksLikeLabel) {
+          const candidate = normalizeAccordionLabel(paragraphText);
+          if (candidate) return candidate;
+        }
+      }
+
+      return '';
+    }
+
+    function convertLegacySlideToAccordion(slide) {
+      const body = slide.querySelector('.slide-content');
+      if (!body || body.classList.contains('slide-content-accordion')) return;
+
+      const h2 = body.querySelector(':scope > h2');
+      const labels = getAccordionLabels(h2 ? h2.textContent : '');
+      const inferredOverviewLabel = inferOverviewLabel(body, h2);
+      const customOverviewLabel = body.getAttribute('data-overview-label');
+      const customResourcesLabel = body.getAttribute('data-resources-label');
+      if (inferredOverviewLabel) {
+        labels.overview = inferredOverviewLabel;
+      }
+      if (customOverviewLabel) {
+        labels.overview = customOverviewLabel;
+      }
+      if (customResourcesLabel) {
+        labels.resources = customResourcesLabel;
+      }
+      const children = Array.from(body.children).filter((node) => node !== h2);
+      if (!children.length) return;
+
+      const overviewItems = [];
+      const resourcesItems = [];
+
+      children.forEach((node) => {
+        const tag = node.tagName ? node.tagName.toLowerCase() : '';
+        const text = (node.textContent || '').trim();
+        const hasUrl = /https?:\/\//i.test(text);
+        const isImage = tag === 'img';
+        const hasLink = Boolean(node.querySelector && node.querySelector('a'));
+
+        if (isImage || hasUrl || hasLink) {
+          resourcesItems.push(node);
+        } else {
+          overviewItems.push(node);
+        }
+      });
+
+      body.classList.add('slide-content-accordion');
+      body.innerHTML = '';
+      if (h2) body.appendChild(h2);
+
+      const scroll = document.createElement('div');
+      scroll.className = 'accordion-scroll';
+
+      if (overviewItems.length) {
+        const overview = document.createElement('details');
+        overview.className = 'accordion';
+        overview.open = true;
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.overview;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        overviewItems.forEach((node) => content.appendChild(node));
+
+        overview.appendChild(summary);
+        overview.appendChild(content);
+        scroll.appendChild(overview);
+      }
+
+      if (resourcesItems.length) {
+        const resources = document.createElement('details');
+        resources.className = 'accordion';
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.resources;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        resourcesItems.forEach((node) => content.appendChild(node));
+
+        resources.appendChild(summary);
+        resources.appendChild(content);
+        scroll.appendChild(resources);
+      }
+
+      body.appendChild(scroll);
+    }
+
+    function syncSlideTitles() {
+      slides.forEach((slide) => {
+        const title = slide.querySelector('.slide-title');
+        const heading = slide.querySelector('.slide-content h2');
+        if (!title || !heading) return;
+
+        const headingText = (heading.textContent || '').replace(/\s+/g, ' ').trim();
+        if (headingText) {
+          title.textContent = headingText;
+          heading.remove();
+        }
+      });
+    }
+
+    function announceActiveSlideTitle() {
+      const activeSlide = slides[currentSlide];
+      if (!activeSlide) return;
+
+      const titleNode = activeSlide.querySelector('.slide-title');
+      const titleText = (titleNode ? titleNode.textContent : '').replace(/\s+/g, ' ').trim();
+      if (!titleText) return;
+
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({
+          type: 'lecture-slide-title',
+          title: titleText
+        }, '*');
+      }
+    }
+
+    slides.forEach((slide, index) => {
+      normalizeSlideStructure(slide);
+      if (index >= 3) {
+        convertLegacySlideToAccordion(slide);
+      }
+      linkifyText(slide.querySelector('.slide-content') || slide);
+    });
+
+    syncSlideTitles();
+
+    function updateCounters() {
+      slides.forEach((slide, index) => {
+        const counter = slide.querySelector('.slide-counter');
+        if (counter) {
+          counter.textContent = `${index + 1} / ${totalSlides}`;
+        }
+      });
+    }
+
+    function showSlide(n) {
+      slides.forEach((slide) => slide.classList.remove('active'));
+      slides[currentSlide].classList.add('active');
+
+      const allButtons = document.querySelectorAll('.slide-button');
+      const isFirstSlide = currentSlide === 0;
+      const isLastSlide = currentSlide === totalSlides - 1;
+
+      allButtons.forEach((btn) => {
+        if (btn.textContent.includes('Previous')) {
+          btn.disabled = isFirstSlide;
+        } else if (btn.textContent.includes('Next')) {
+          btn.disabled = isLastSlide;
+        }
+      });
+
+      updateCounters();
+      announceActiveSlideTitle();
+    }
+
+    function changeSlide(n) {
+      currentSlide += n;
+      if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+      if (currentSlide < 0) currentSlide = 0;
+      showSlide(currentSlide);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+    });
+
+    showSlide(currentSlide);
+    document.body.classList.add('lecture-ready');
+  </script>
+</body>
+</html>
