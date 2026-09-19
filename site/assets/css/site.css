@@ -1935,6 +1935,54 @@ body.overview-page .content-page-area .accordion > .accordion-body > .accordion-
   }
 }
 
+.accordion-images--horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.accordion-images--horizontal img {
+  flex: 1 1 0;
+  min-width: 0;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Text above, horizontal image row below */
+.accordion-content-images-below {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+
+.accordion-content-images-below .accordion-images--horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* .accordion-content-images-below .accordion-images--horizontal img {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 30%;
+  height: auto;
+  object-fit: contain;
+} */
+
+.accordion-content-images-below .accordion-images--horizontal img {
+  flex: 0 1 var(--accordion-images--horizontal-width, 30%);
+  min-width: 0;
+  max-width: var(--accordion-images--horizontal-width, 30%);
+  height: auto;
+  object-fit: contain;
+}
 
   /* .accordion-content-with-image .accordion-image {
     width: 100%;

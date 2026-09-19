@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>3DIMD | Lecture 02a - 3D and 3DUI</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/site.css?v=20260909b" rel="stylesheet"/>
+<link href="../assets/css/slideshow.css?v=20260913a" rel="stylesheet"/>
+</head>
+<body class="lecture-fullbleed">
+<div class="slideshow-container">
+<!-- Slide 1 -->
+<div class="slide active">
+  <div class="slide-title">3D Interactive Media Development</div>
+  <div class="slide-content slide-content-accordion">
+    <h2>5MMCS001W Lecture 02a — 3D and 3D User Interfaces</h2>
+    <div class="accordion-scroll"><details class="accordion" open><summary>Lecture Question</summary><div class="accordion-body"><div class="h3-detail"><h3>How do we represent a 3D environment, and how does a human interact with it?</h3><p>This lecture connects the 3D world represented by software with the interface through which a user perceives and changes that world.</p><p>Progression: Virtual Environment → Human–Computer Interaction → 3DUI → Input → Interaction → Spatial Representation → 3D Objects → Unity → Coursework application.</p></div></div></details><details class="accordion"><summary>Starting Examples</summary><div class="accordion-body"><div class="h3-detail"><h3>Interactive 3D examples</h3><p>PlayCanvas example: https://playcanv.as/p/sAsiDvtC/</p><p>Three.js: https://threejs.org/</p><p>Saydnaya interactive environment: https://saydnaya.amnesty.org/</p></div></div></details></div>
+  </div>
+  <div class="slide-controls">
+    <button class="slide-button" data-slide-step="-1" disabled> ← Previous</button>
+    <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+    <button class="slide-button" data-slide-step="1">Next → </button>
+    <div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">15</span></div>
+  </div>
+  <div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide">
+  <div class="slide-title">3D Interactive Media Development</div>
+  <div class="slide-content slide-content-accordion">
+    <h2>From Virtual Environments to 3DUI</h2>
+    <div class="accordion-scroll"><details class="accordion" open><summary>Virtual Environment, Input and Output</summary><div class="accordion-body"><div class="accordion-content-with-image"><div class="h3-detail"><h3>A basic interaction loop</h3><p>To work with a Virtual Environment (VE), we need input and output to the system.</p><p>On a desktop PC, keyboard and mouse provide input; the screen provides visual output.</p><p>Other VEs may use tracked controllers, head-mounted displays, cameras, sensors, touch, audio and haptics.</p><p>The interface is the connection between human action and the state of the virtual environment.</p></div><div class="accordion-images" style="--accordion-images-width: 45%;"><img src="images/lect-02a-3D-3DUI_slide6_image0.jpeg" class="accordion-image" style="--accordion-image-width: 100%;" alt="Lecture illustration" /><img src="images/lect-02a-3D-3DUI_slide6_image1.jpeg" class="accordion-image" style="--accordion-image-width: 100%;" alt="Lecture illustration" /></div></div></div></details><details class="accordion"><summary>A Production Workflow</summary><div class="accordion-body"><div class="h3-detail"><h3>3DUI for an interactive VE</h3><p>Asset creation and modelling → texturing/materials → interchange format such as FBX → Unity → shaders/lighting → C# interaction/navigation/system state → deployment such as WebGL.</p><p>The workflow combines content, rendering and interaction. 3DUI is not a separate layer added at the end; it is part of how the user operates the environment.</p></div></div></details></div>
+  </div>
+  <div class="slide-controls">
+    <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+    <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+    <button class="slide-button" data-slide-step="1">Next → </button>
+    <div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">15</span></div>
+  </div>
+  <div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide">
+  <div class="slide-title">3D Interactive Media Development</div>
+  <div class="slide-content slide-content-accordion">
+    <h2>From 2D Interfaces to Spatial Interfaces</h2>
+    <div class="accordion-scroll"><details class="accordion" open><summary>The Desktop and WIMP</summary><div class="accordion-body"><div class="accordion-content-with-image"><div class="h3-detail"><h3>A mature 2D interaction paradigm</h3><p>Xerox PARC and systems such as the Xerox Alto helped establish the graphical desktop paradigm.</p><p>WIMP: Windows, Icons, Menus and Pointer. Typical input devices are mouse and keyboard; output is primarily the monitor.</p><p>Established techniques include pointing, clicking, dragging and dropping, menus and graphical widgets.</p></div><div class="accordion-images" style="--accordion-images-width: 45%;"><img src="images/lect-02a-3D-3DUI_slide13_image0.jpeg" class="accordion-image" style="--accordion-image-width: 100%;" alt="Lecture illustration" /><img src="images/lect-02a-3D-3DUI_slide14_image0.png" class="accordion-image" style="--accordion-image-width: 100%;" alt="Lecture illustration" /></div></div></div></details><details class="accordion"><summary>Moving Off the Desktop</summary><div class="accordion-body"><div class="h3-detail"><h3>Why the third dimension changes the problem</h3><p>Some desktop concepts remain useful, but spatial environments introduce depth, movement, scale, viewpoint and additional degrees of freedom.</p><p>New environments may therefore need new devices, new interaction metaphors and new mappings between user action and system behaviour.</p><p>This is where HCI becomes central: interface design must account for perception, cognition, spatial understanding, task/control mapping and multimodal feedback.</p></div></div></details></div>
+  </div>
+  <div class="slide-controls">
+    <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+    <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+    <button class="slide-button" data-slide-step="1">Next → </button>
+    <div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">15</span></div>
+  </div>
+  <div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div>
+</div>
+
+<!-- Slide 4 -->
+<div class="slide">
+  <div class="slide-title">3D Interactive Media Development</div>
+  <div class="slide-content slide-content-accordion">
+    <h2>What is a 3D User Interface?</h2>
+    <div class="accordion-scroll"><details class="accordion" open><summary>Core Definitions</summary><div class="accordion-body"><div class="accordion-content-with-image"><div class="h3-detail"><h3>3D Interaction</h3><p>Human–Computer Interaction where the user’s tasks are carried out in a 3D spatial context, using 3D input devices or 2D input devices with mappings to 3D.</p></div><div class="h3-detail"><h3>3D User Interface</h3><p>A user interface that involves 3D interaction.</p></div><div class="h3-detail"><h3>3D Interaction Technique</h3><p>A method using hardware and software that allows a user to accomplish a task through a 3DUI.</p></div><div class="accordion-images" style="--accordion-images-width: 45%;"><img src="images/lect-02a-3D-3DUI_slide31_image0.jpeg" class="accordion-image" style="--accordion-image-width: 100%;" alt="Lecture illustration" /></div></div></div></details><details class="accordion"><summary>HCI, UI and Interaction Technique</summary><div class="accordion-body"><div class="h3-detail"><h3>From communication to action</h3><p>Human–Computer Interaction concerns communication between humans and computational systems.</p><p>The User Interface is the medium through which that communication occurs.</p><p>An interaction technique includes both hardware and software: input data is mapped to an action in the system, and system output is mapped to a form the user can perceive.</p></div></div></details></div>
+  </div>
+  <div class="slide-controls">
+    <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+    <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+    <button class="slide-button" data-slide-step="1">Next → </button>
+    <div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">15</span></div>
+  </div>
+  <div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div>
+</div>
+
+<!-- Slide 5 -->
+<div class="slide">
+  <div class="slide-title">3D Interactive Media Development</div>
+  <div class="slide-content slide-content-accordion">
+    <h2>Why 3D Interaction?</h2>
+    <div class="accordion-scroll"><details class="accordion" open><summary>Potential Advantages</summary><div class="accordion-body"><div class="h3-detail"><h3>When the task itself is spatial</h3><p>3D interaction can be relevant to real-world tasks because a VE can preserve spatial context and support a sense of presence.</p><p>Natural skills may transfer into the virtual task when the mapping is appropriate.</p><p>Potential benefits include scenario context, information layout, immersion/presence, immediacy of feedback and richer communication bandwidth.</p></div></div></details><details class="accordion"><summary>Enabling Technology</summary><div class="accordion-body"><div class="h3-detail"><h3>Why it is increasingly practical</h3><p>Mobile processing, fast networks and web-based 3D platforms have expanded access.</p><p>Sensors, HMDs, computer vision, tracking, spatial/binaural audio and haptics increase the forms of input and output available.</p><p>The existence of the technology does not automatically make an interface effective: design remains the central problem.</p></div></div></details></div>
+  </div>
+  <div class="slide-controls">
+    <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+    <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+    <button class="slide-button" data-slide-step="1">Next → </button>
+    <div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">15</span></div>
+  </div>
+  <div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div>
+</div>
+
+<!-- Slide 6 -->
+<div class="slide">
+  <div class="slide-title">3D Interactive Media Development</div>
+  <div class="slide-content slide-content-accordion">
+    <h2>Why 3D Interaction is Difficult</h2>
+    <div class="accordion-scroll"><details class="accordion" open><summary>The Cost of the Extra Dimension</summary><div class="accordion-body"><div class="h3-detail"><h3>More freedom also means more design problems</h3><p>3DUI may require simultaneous operations and more degrees of freedom than conventional 2D interaction.</p><p>Coordinate-space alignment, scale and registration can become significant issues.</p><p>The input device, virtual environment and output display may each operate in different spaces and at different scales.</p><p>AR/MR can make this particularly visible because real and virtual coordinate systems must correspond.</p></div></div></details><details class="accordion"><summary>2D UI is Already Mature</summary><div class="accordion-body"><div class="h3-detail"><h3>3D is not automatically better</h3><p>Conventional 2D interfaces are fast, mature and familiar.</p><p>A 3D application should therefore justify its spatial interaction rather than simply reproduce a 2D interface in three dimensions.</p><p>Useful goals include performance, usability and usefulness while reducing cognitive load and avoiding tiring or poorly mapped interaction.</p></div></div></details><details class="accordion"><summary>Design Response</summary><div class="accordion-body"><div class="h3-detail"><h3>Design the mapping deliberately</h3><p>Novel 3DUI may draw on real-world metaphors, established interaction conventions or new techniques.</p><p>The design problem spans HCI, psychology, hardware and software.</p><p>Good 3DUI allows the user to focus on the task rather than on operating the interface.</p></div></div></details></div>
+  </div>
+  <div class="slide-controls">
+    <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+    <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+    <button class="slide-button" data-slide-step="1">Next → </button>
+    <div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">15</span></div>
+  </div>
+  <div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div>
+</div>
+
+<!-- Slide 7 -->
+<div class="slide">
+  <div class="slide-title">3D Interactive Media Development</div>
+  <div class="slide-content slide-content-accordion">
+    <h2>Input: Devices, Data and Degrees of Freedom</h2>
+    <div class="accordion-scroll"><details class="accordion" open><summary>Degrees of Freedom</summary><div class="accordion-body"><div class="h3-detail"><h3>How many independent values can the user control?</h3><p>A conventional mouse commonly supplies two continuous movement dimensions plus buttons; other devices can expose additional axes.</p><p>Tracked devices can provide position and/or orientation, allowing 3DOF or 6DOF interaction.</p><p>The number of available degrees of freedom should be considered in relation to the task the user needs to perform.</p></div></div></details><details class="accordion"><summary>Input Data</summary><div class="accordion-body"><div class="h3-detail"><h3>Different devices produce different kinds of information</h3><p>Electronics: digital or analog.</p><p>Reported values: discrete, continuous or hybrid.</p><p>Programming data: Boolean, integer, floating-point and vector-like values.</p><p>Frame of reference: relative or absolute.</p><p>Properties can include position, motion, orientation and force.</p></div></div></details><details class="accordion"><summary>Input Device Families</summary><div class="accordion-body"><div class="h3-detail"><h3>From desktop to direct human input</h3><p>Desktop devices</p><p>Tracking devices</p><p>3D mice/controllers</p><p>Special-purpose devices</p><p>Direct human input and natural interaction using sensing/computer vision</p></div></div></details></div>
+  </div>
+  <div class="slide-controls">
+    <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+    <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+    <button class="slide-button" data-slide-step="1">Next → </button>
+    <div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">15</span></div>
+  </div>
+  <div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div>
+</div>
+
+<!-- Slide 8 -->
+<div class="slide">
+  <div class="slide-title">3D Interactive Media Development</div>
+  <div class="slide-content slide-content-accordion">
+    <h2>Natural Interaction, Mapping and Usability</h2>
+    <div class="accordion-scroll"><details class="accordion" open><summary>From Device Data to Player Intent</summary><div class="accordion-body"><div class="h3-detail"><h3>Interaction is a mapping problem</h3><p>An interaction technique maps information from an input device into an action within the system.</p><p>The mapping can be integral or separable depending on whether dimensions are controlled together or independently.</p><p>A natural-looking device does not guarantee a natural interaction; the control-to-task mapping must still make sense.</p></div></div></details><details class="accordion"><summary>Natural and Perceptual Input</summary><div class="accordion-body"><div class="h3-detail"><h3>Examples</h3><p>Perceptual User Interfaces and computer vision can derive interaction from the user directly.</p><p>Techniques include natural-feature tracking, fiducial/marker tracking, infrared sensing, laser patterns and time-of-flight sensing.</p></div></div></details><details class="accordion"><summary>Usability</summary><div class="accordion-body"><div class="h3-detail"><h3>Evaluate the result</h3><p>Usability concerns characteristics affecting efficacy, ease, comfort and performance.</p><p>Consider cognitive load, spatial knowledge, motor coordination, fatigue, feedback and whether the interface supports the actual task.</p></div></div></details></div>
+  </div>
+  <div class="slide-controls">
+    <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+    <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+    <button class="slide-button" data-slide-step="1">Next → </button>
+    <div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">15</span></div>
+  </div>
+  <div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div>
+</div>
+
+<!-- Slide 9 -->
+<div class="slide">
+  <div class="slide-title">3D Interactive Media Development</div>
+  <div class="slide-content slide-content-accordion">
+    <h2>3DUI in Practice: Analyse the Interaction</h2>
+    <div class="accordion-scroll"><details class="accordion" open><summary>Research and Platform Examples</summary><div class="accordion-body"><div class="h3-detail"><h3>Examples from the original lecture</h3><p>Put That There</p><p>Mixed Reality research</p><p>Desktop AR/MR examples</p><p>PlayCanvas, Three.js, Babylon.js and A-Frame</p><p>WebXR and the wider Web3D ecosystem</p></div></div></details><details class="accordion"><summary>Use the Same Questions for Every Example</summary><div class="accordion-body"><div class="h3-detail"><h3>Analysis framework</h3><p>What is the virtual environment?</p><p>What does the user need to accomplish?</p><p>What input device is used?</p><p>What data does it provide?</p><p>How is that data mapped to an interaction technique?</p><p>What output or feedback tells the user what happened?</p></div></div></details><details class="accordion"><summary>Web Resources</summary><div class="accordion-body"><div class="h3-detail"><h3>Starting points</h3><p>Three.js: https://threejs.org/</p><p>A-Frame: https://aframe.io/</p><p>WebGL frameworks: https://en.wikipedia.org/wiki/List_of_WebGL_frameworks</p><p>Module Web3D/Web ecosystem resource: https://uowdigital.padlet.org/fergusj/web-web3d-and-web3-ecosystem-9xv91ovkasaaviua</p></div></div></details></div>
+  </div>
+  <div class="slide-controls">
+    <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+    <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+    <button class="slide-button" data-slide-step="1">Next → </button>
+    <div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">15</span></div>
+  </div>
+  <div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div>
+</div>
+
+<!-- Slide 10 -->
+<div class="slide">
+  <div class="slide-title">3D Interactive Media Development</div>
+  <div class="slide-content slide-content-accordion">
+    <h2>Representing a 3D World: Scalars, Points and Vectors</h2>
+    <div class="accordion-scroll"><details class="accordion" open><summary>Three Useful Building Blocks</summary><div class="accordion-body"><div class="h3-detail"><h3>Scalar</h3><p>A single magnitude or amount represented by a real number.</p></div><div class="h3-detail"><h3>Point</h3><p>A location in space. A point has position but no physical size and is normally described relative to a coordinate system.</p></div><div class="h3-detail"><h3>Vector</h3><p>A quantity with direction and magnitude. Vectors can represent concepts such as direction, velocity and force.</p></div></div></details><details class="accordion"><summary>Connection to Programming</summary><div class="accordion-body"><div class="h3-detail"><h3>From geometry to data</h3><p>A 3D program stores geometric information numerically.</p><p>In Unity, Vector3 is commonly used to represent 3D positions and directions.</p><p>The meaning of the numbers depends on the coordinate space in which they are interpreted.</p></div></div></details></div>
+  </div>
+  <div class="slide-controls">
+    <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+    <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+    <button class="slide-button" data-slide-step="1">Next → </button>
+    <div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">15</span></div>
+  </div>
+  <div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div>
+</div>
+
+<!-- Slide 11 -->
+<div class="slide">
+  <div class="slide-title">3D Interactive Media Development</div>
+  <div class="slide-content slide-content-accordion">
+    <h2>Coordinate Spaces and Transformations</h2>
+    <div class="accordion-scroll"><details class="accordion" open><summary>Cartesian and World Space</summary><div class="accordion-body"><div class="accordion-content-with-image"><div class="h3-detail"><h3>A coordinate system gives positions a reference</h3><p>3D Cartesian space uses X, Y and Z axes and an origin.</p><p>World coordinates describe values relative to the virtual world origin.</p><p>Different software can use different axis conventions, so the meaning of ‘up’ and ‘forward’ must be understood in context.</p></div><div class="accordion-images" style="--accordion-images-width: 45%;"><img src="images/lect-02a-3D-3DUI_slide52_image0.png" class="accordion-image" style="--accordion-image-width: 100%;" alt="Lecture illustration" /><img src="images/lect-02a-3D-3DUI_slide52_image1.png" class="accordion-image" style="--accordion-image-width: 100%;" alt="Lecture illustration" /></div></div></div></details><details class="accordion"><summary>Local, Camera and Screen Space</summary><div class="accordion-body"><div class="accordion-content-with-image"><div class="h3-detail"><h3>The same object can be described in several spaces</h3><p>Local/object space describes values relative to an object’s own pivot/origin.</p><p>Camera/view space describes the world from a particular point of view.</p><p>Screen space is the 2D display space produced by rendering.</p><p>Tracking and AR systems may add real-world coordinate spaces that need calibration and registration with virtual space.</p></div><div class="accordion-images" style="--accordion-images-width: 45%;"><img src="images/lect-02a-3D-3DUI_slide55_image0.png" class="accordion-image" style="--accordion-image-width: 100%;" alt="Lecture illustration" /><img src="images/lect-02a-3D-3DUI_slide57_image0.png" class="accordion-image" style="--accordion-image-width: 100%;" alt="Lecture illustration" /></div></div></div></details><details class="accordion"><summary>Transform</summary><div class="accordion-body"><div class="h3-detail"><h3>Position, orientation and scale</h3><p>A 3D object has a Transform describing position, orientation and scale.</p><p>Transformations can be interpreted in local or world space.</p><p>This distinction becomes important when programming movement and rotation in Unity.</p></div></div></details></div>
+  </div>
+  <div class="slide-controls">
+    <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+    <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+    <button class="slide-button" data-slide-step="1">Next → </button>
+    <div class="slide-counter"><span id="current-slide-11">11</span> / <span id="total-slides">15</span></div>
+  </div>
+  <div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div>
+</div>
+
+<!-- Slide 12 -->
+<div class="slide">
+  <div class="slide-title">3D Interactive Media Development</div>
+  <div class="slide-content slide-content-accordion">
+    <h2>From Points to Meshes</h2>
+    <div class="accordion-scroll"><details class="accordion" open><summary>Geometry Vocabulary</summary><div class="accordion-body"><div class="h3-detail"><h3>Vertex → Triangle → Mesh</h3><p>Vertex: a point in the 3D world.</p><p>Vertices: multiple vertex points.</p><p>Triangle: the minimum polygonal face used by common real-time rendering pipelines.</p><p>Mesh: a 3D object represented by connected polygonal faces, commonly triangles.</p><p>Wireframe: a view of the mesh structure without its normal shaded surface appearance.</p></div></div></details><details class="accordion"><summary>Primitive Cube</summary><div class="accordion-body"><div class="h3-detail"><h3>A simple worked model</h3><p>A cube has 8 corner vertices.</p><p>Its six square sides can be represented as two triangles each, giving 12 triangles in total.</p><p>This illustrates how apparently solid objects can be represented as a surface mesh rather than as filled physical matter.</p></div></div></details><details class="accordion"><summary>Polygon Shell</summary><div class="accordion-body"><div class="h3-detail"><h3>Boundary representation</h3><p>Real-time graphics commonly represent the exterior boundary of an object as a polygon mesh.</p><p>The visible surface can then be shaded, textured and transformed efficiently.</p></div></div></details></div>
+  </div>
+  <div class="slide-controls">
+    <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+    <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+    <button class="slide-button" data-slide-step="1">Next → </button>
+    <div class="slide-counter"><span id="current-slide-12">12</span> / <span id="total-slides">15</span></div>
+  </div>
+  <div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div>
+</div>
+
+<!-- Slide 13 -->
+<div class="slide">
+  <div class="slide-title">3D Interactive Media Development</div>
+  <div class="slide-content slide-content-accordion">
+    <h2>Mesh Resolution: Tessellation and Subdivision</h2>
+    <div class="accordion-scroll"><details class="accordion" open><summary>Tessellation</summary><div class="accordion-body"><div class="h3-detail"><h3>Convert a representation into polygons</h3><p>Tessellation is the process of breaking a surface or abstract shape representation into polygonal elements suitable for polygon-based rendering.</p><p>Modelling tools can convert parametric primitives into editable polygon meshes.</p></div></div></details><details class="accordion"><summary>Subdivision</summary><div class="accordion-body"><div class="h3-detail"><h3>Derive a smoother surface from a coarse mesh</h3><p>Subdivision creates a smoother surface by recursively refining polygon faces.</p><p>Tools such as subdivision, MeshSmooth or TurboSmooth increase geometric detail from a coarser control mesh.</p><p>More geometric detail can improve shape quality but also increases the amount of geometry that must be stored and processed.</p></div></div></details></div>
+  </div>
+  <div class="slide-controls">
+    <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+    <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+    <button class="slide-button" data-slide-step="1">Next → </button>
+    <div class="slide-counter"><span id="current-slide-13">13</span> / <span id="total-slides">15</span></div>
+  </div>
+  <div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div>
+</div>
+
+<!-- Slide 14 -->
+<div class="slide">
+  <div class="slide-title">3D Interactive Media Development</div>
+  <div class="slide-content slide-content-accordion">
+    <h2>3D Objects as Data and Assets</h2>
+    <div class="accordion-scroll"><details class="accordion" open><summary>What a 3D Asset Can Contain</summary><div class="accordion-body"><div class="h3-detail"><h3>More than geometry</h3><p>A 3D file format can describe geometry as well as materials, textures, texture coordinates, cameras, lighting and other scene information.</p><p>The exact information available depends on the file format and the application exporting it.</p></div></div></details><details class="accordion"><summary>FBX as an Interchange Format</summary><div class="accordion-body"><div class="h3-detail"><h3>Typical content</h3><p>FBX can carry geometry, materials, textures, lights, cameras, animation, deformations, hierarchical rigs/relationships and inverse-kinematics data.</p><p>In the module workflow, an interchange format connects asset creation tools to Unity.</p></div></div></details><details class="accordion"><summary>Asset Creation Resources from the Original Lecture</summary><div class="accordion-body"><div class="h3-detail"><h3>Examples</h3><p>MecaBricks: https://www.mecabricks.com/en/workshop</p><p>LeoCAD: http://www.leocad.org/download.html</p><p>The important principle is the pipeline: create or obtain an asset → export/import it → use its data in the real-time environment.</p></div></div></details></div>
+  </div>
+  <div class="slide-controls">
+    <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+    <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+    <button class="slide-button" data-slide-step="1">Next → </button>
+    <div class="slide-counter"><span id="current-slide-14">14</span> / <span id="total-slides">15</span></div>
+  </div>
+  <div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div>
+</div>
+
+<!-- Slide 15 -->
+<div class="slide">
+  <div class="slide-title">3D Interactive Media Development</div>
+  <div class="slide-content slide-content-accordion">
+    <h2>From 3D Asset to Unity — and the Coursework</h2>
+    <div class="accordion-scroll"><details class="accordion" open><summary>Unity Adds a Higher-Level Object Model</summary><div class="accordion-body"><div class="h3-detail"><h3>From geometry to GameObject</h3><p>In Unity, the higher-level scene abstraction is the GameObject.</p><p>A GameObject may represent visible geometry, but it can also be an empty organisational or control node.</p><p>Functionality is supplied through Components.</p><p>Transform stores position, rotation and scale; rendering components display meshes/materials; Colliders and Rigidbodies participate in physics; scripts add custom behaviour.</p></div></div></details><details class="accordion"><summary>Apply the Lecture to Coursework</summary><div class="accordion-body"><div class="h3-detail"><h3>Analyse an idea before implementing it</h3><p>What virtual environment are you proposing?</p><p>What must the user accomplish?</p><p>What input and output channels are available?</p><p>Which interaction techniques map those inputs to the task?</p><p>Which coordinate spaces and 3D assets are involved?</p><p>Which Unity GameObjects and Components will represent the system?</p></div></div></details><details class="accordion"><summary>Previous Work and Brainstorm</summary><div class="accordion-body"><div class="h3-detail"><h3>Use examples as evidence, not templates</h3><p>Previous student work: https://uowdigital.padlet.org/fergusj/3dimd-cw-samples-2025-1f4w3m19lc80m9cf</p><p>Compare examples using the questions above, then identify the smallest interaction loop your group could prototype first.</p><p>This lecture now leads directly into the programming material: 02b explains how C# and Unity Components implement the behaviour described here.</p></div></div></details></div>
+  </div>
+  <div class="slide-controls">
+    <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+    <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+    <button class="slide-button" data-slide-step="1" disabled>Next → </button>
+    <div class="slide-counter"><span id="current-slide-15">15</span> / <span id="total-slides">15</span></div>
+  </div>
+  <div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div>
+</div>
+</div>
+<script src="../assets/js/site.js?v=20260915a"></script>
+<script>
+    const isLecturePage = /\/lect-[^/]+\.html$/i.test(window.location.pathname);
+    if (isLecturePage && document.body) {
+      document.body.classList.add('lecture-fullbleed');
+    }
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function normalizeSlideStructure(slide) {
+      if (slide.querySelector('.slide-frame')) return;
+
+      const title = slide.querySelector('.slide-title');
+      const controls = slide.querySelector('.slide-controls');
+      const body = slide.querySelector('.slide-content');
+      if (!title || !controls || !body) return;
+
+      const frame = document.createElement('div');
+      frame.className = 'slide-frame';
+      frame.appendChild(title);
+      frame.appendChild(body);
+      frame.appendChild(controls);
+      slide.appendChild(frame);
+    }
+
+    function linkifyText(element) {
+      const urlPattern = /(https?:\/\/[^\s]+)/g;
+      const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+      );
+
+      const nodesToReplace = [];
+      let node;
+
+      while (node = walker.nextNode()) {
+        if (urlPattern.test(node.textContent)) {
+          nodesToReplace.push(node);
+        }
+      }
+
+      urlPattern.lastIndex = 0;
+
+      nodesToReplace.forEach((textNode) => {
+        const span = document.createElement('span');
+        span.innerHTML = textNode.textContent.replace(
+          /(https?:\/\/[^\s]+)/g,
+          '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
+        textNode.parentNode.replaceChild(span, textNode);
+      });
+    }
+
+    function getAccordionLabels(titleText) {
+      const title = (titleText || '').toLowerCase();
+
+      if (title.includes('workflow')) {
+        return { overview: 'Workflow Steps', resources: 'Diagrams and Media' };
+      }
+
+      if (title.includes('references') || title.includes('reading')) {
+        return { overview: 'Reading Notes', resources: 'References and Media' };
+      }
+
+      if (title.includes('group') || title.includes('activity')) {
+        return { overview: 'Guidance', resources: 'Resources' };
+      }
+
+      return { overview: 'Overview', resources: 'Resources and Media' };
+    }
+
+    function normalizeAccordionLabel(text) {
+      const cleaned = (text || '').replace(/\s+/g, ' ').replace(/[:\-]+$/, '').trim();
+      if (!cleaned) return '';
+
+      const lowered = cleaned.toLowerCase();
+      if (lowered === 'overview' || lowered === 'resources' || lowered === 'resources and media') {
+        return '';
+      }
+
+      return cleaned;
+    }
+
+    function inferOverviewLabel(body, h2) {
+      const headingCandidates = Array.from(body.querySelectorAll(':scope > h3, :scope > .section-label'));
+      for (const node of headingCandidates) {
+        const candidate = normalizeAccordionLabel(node.textContent);
+        if (candidate) return candidate;
+      }
+
+      const headingText = (h2 ? h2.textContent : '').replace(/\s+/g, ' ').trim();
+      const parenthetical = headingText.match(/\(([^)]+)\)/);
+      if (parenthetical) {
+        const candidate = normalizeAccordionLabel(parenthetical[1]);
+        if (candidate) return candidate;
+      }
+
+      const firstParagraph = body.querySelector(':scope > p');
+      if (firstParagraph) {
+        const paragraphText = (firstParagraph.textContent || '').replace(/\s+/g, ' ').trim();
+        const wordCount = paragraphText.split(/\s+/).filter(Boolean).length;
+        const looksLikeLabel = !/[.!?]$/.test(paragraphText) && !/^https?:\/\//i.test(paragraphText);
+        if (wordCount > 0 && wordCount <= 6 && looksLikeLabel) {
+          const candidate = normalizeAccordionLabel(paragraphText);
+          if (candidate) return candidate;
+        }
+      }
+
+      return '';
+    }
+
+    function convertLegacySlideToAccordion(slide) {
+      const body = slide.querySelector('.slide-content');
+      if (!body || body.classList.contains('slide-content-accordion')) return;
+
+      const h2 = body.querySelector(':scope > h2');
+      const labels = getAccordionLabels(h2 ? h2.textContent : '');
+      const inferredOverviewLabel = inferOverviewLabel(body, h2);
+      const customOverviewLabel = body.getAttribute('data-overview-label');
+      const customResourcesLabel = body.getAttribute('data-resources-label');
+      if (inferredOverviewLabel) {
+        labels.overview = inferredOverviewLabel;
+      }
+      if (customOverviewLabel) {
+        labels.overview = customOverviewLabel;
+      }
+      if (customResourcesLabel) {
+        labels.resources = customResourcesLabel;
+      }
+      const children = Array.from(body.children).filter((node) => node !== h2);
+      if (!children.length) return;
+
+      const overviewItems = [];
+      const resourcesItems = [];
+
+      children.forEach((node) => {
+        const tag = node.tagName ? node.tagName.toLowerCase() : '';
+        const text = (node.textContent || '').trim();
+        const hasUrl = /https?:\/\//i.test(text);
+        const isImage = tag === 'img';
+        const hasLink = Boolean(node.querySelector && node.querySelector('a'));
+
+        if (isImage || hasUrl || hasLink) {
+          resourcesItems.push(node);
+        } else {
+          overviewItems.push(node);
+        }
+      });
+
+      body.classList.add('slide-content-accordion');
+      body.innerHTML = '';
+      if (h2) body.appendChild(h2);
+
+      const scroll = document.createElement('div');
+      scroll.className = 'accordion-scroll';
+
+      if (overviewItems.length) {
+        const overview = document.createElement('details');
+        overview.className = 'accordion';
+        overview.open = true;
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.overview;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        overviewItems.forEach((node) => content.appendChild(node));
+
+        overview.appendChild(summary);
+        overview.appendChild(content);
+        scroll.appendChild(overview);
+      }
+
+      if (resourcesItems.length) {
+        const resources = document.createElement('details');
+        resources.className = 'accordion';
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.resources;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        resourcesItems.forEach((node) => content.appendChild(node));
+
+        resources.appendChild(summary);
+        resources.appendChild(content);
+        scroll.appendChild(resources);
+      }
+
+      body.appendChild(scroll);
+    }
+
+    function syncSlideTitles() {
+      slides.forEach((slide) => {
+        const title = slide.querySelector('.slide-title');
+        const heading = slide.querySelector('.slide-content h2');
+        if (!title || !heading) return;
+
+        const headingText = (heading.textContent || '').replace(/\s+/g, ' ').trim();
+        if (headingText) {
+          title.textContent = headingText;
+          heading.remove();
+        }
+      });
+    }
+
+    function announceActiveSlideTitle() {
+      const activeSlide = slides[currentSlide];
+      if (!activeSlide) return;
+
+      const titleNode = activeSlide.querySelector('.slide-title');
+      const titleText = (titleNode ? titleNode.textContent : '').replace(/\s+/g, ' ').trim();
+      if (!titleText) return;
+
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({
+          type: 'lecture-slide-title',
+          title: titleText
+        }, '*');
+      }
+    }
+
+    slides.forEach((slide, index) => {
+      normalizeSlideStructure(slide);
+      if (index >= 3) {
+        convertLegacySlideToAccordion(slide);
+      }
+      linkifyText(slide.querySelector('.slide-content') || slide);
+    });
+
+    syncSlideTitles();
+
+    function updateCounters() {
+      slides.forEach((slide, index) => {
+        const counter = slide.querySelector('.slide-counter');
+        if (counter) {
+          counter.textContent = `${index + 1} / ${totalSlides}`;
+        }
+      });
+    }
+
+    function showSlide(n) {
+      slides.forEach((slide) => slide.classList.remove('active'));
+      slides[currentSlide].classList.add('active');
+
+      const allButtons = document.querySelectorAll('.slide-button');
+      const isFirstSlide = currentSlide === 0;
+      const isLastSlide = currentSlide === totalSlides - 1;
+
+      allButtons.forEach((btn) => {
+        if (btn.textContent.includes('Previous')) {
+          btn.disabled = isFirstSlide;
+        } else if (btn.textContent.includes('Next')) {
+          btn.disabled = isLastSlide;
+        }
+      });
+
+      updateCounters();
+      announceActiveSlideTitle();
+    }
+
+    function changeSlide(n) {
+      currentSlide += n;
+      if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+      if (currentSlide < 0) currentSlide = 0;
+      showSlide(currentSlide);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+    });
+
+    showSlide(currentSlide);
+    document.body.classList.add('lecture-ready');
+  </script>
+</body>
+</html>
