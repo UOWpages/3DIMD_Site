@@ -495,18 +495,33 @@
           <li>
             Scripting: Logo screen hide with key press
             <ol>
-              <li>Create a C#Script by right clicking in the Project window panel, select Create &gt; C# Script. </li>
+              <li>Create a C#Script by right clicking in the Project window panel, select Create &gt; Empty C# Script. </li>
               <li>Name it "logoScreen.cs"</li>
               <li>Double click new script to open it in the code editor</li>
+            </ol>
+            <figure class="image-figure inline">
+                    <img alt="preview" loading="lazy" src="images/VisualStudioStart.png" />
+                  <figcaption class="image-caption">
+                    preview (click image to expand) > Attach to Unity to get VS Debugging (more later as needed).
+                  </figcaption>
+            </figure>
+            <ol>
               <li>Copy and attach this script content into the script in the code editor, deleting existing code</li>
               <li>Attach the script to the logo screen plane by drag and drop</li>
               <li>Write code from pseudo code cues, referenceing the Unity manual as needed</li>
+              <li>make sure both the old and new input systems are active: Edit &gt; Project Settings &gt; Player &gt; Other Settings &gt; Active Input Handling &gt; Both</li>
               <li>Test the script by pressing the assigned key in Play mode</li>
               <li>Try with public renderer and also "this."</li>
               <li>Teaches: Input by key, renderer, enabled, getComponent, this, Boolean switch</li>
               <li>Try with both GetComponent and -this-</li>
             </ol>
           </li>
+            <figure class="image-figure inline">
+                    <img alt="preview" loading="lazy" src="images/InputBoth.png" />
+                  <figcaption class="image-caption">
+                    preview (click image to expand).
+                  </figcaption>
+            </figure>
           <!-- </ol> -->
           </li>
           <!-- </ol> -->
@@ -576,6 +591,7 @@
         <!-- <h3>
       GalleryControl.cs
      </h3> -->
+
         <ol>
           <li>Cycle Objects - hide and unhide with code (both ways)</li>
           <li>Create Gallery GameObject Plane below Mecabrick models - scale to 15,1,15</li>
