@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | GitHub Version Control with Visual Studio 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="../assets/css/site.css?v=20260915d" rel="stylesheet" />
+  <style>
+    /* Temporary placeholders only. Remove this block when real images are inserted. */
+    .image-placeholder {
+      width: 100%;
+      min-height: 12rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: 2rem;
+      border: 2px dashed currentColor;
+      text-align: center;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body class="content-page">
+  <main class="content-area content-page-area" id="main-content">
+    <h1 class="page-title">GitHub Version Control with Visual Studio 2026 (Windows Only)</h1>
+
+    <details class="accordion" open>
+      <summary>1. Before You Start</summary>
+      <div class="accordion-body media-stack">
+        <div class="h3-detail">
+          <h3>Versions used in this tutorial</h3>
+          <p>Unity Editor: <strong>6000.3.19f1</strong>.</p>
+          <p>IDE: <strong>Visual Studio Community 2026</strong> on Windows.</p>
+          <p>This tutorial uses C# scripting in Visual Studio. Unity <strong>Visual Scripting</strong> is a separate node-based system and is not required for this workflow.</p>
+          <h3>Requirements</h3>
+          <p>Have your Unity Project on a Local Drive – C:Temp in University.</p>
+          <p>Ensure Visual Studio Community 2026 is installed with the <strong>Game development with Unity</strong> workload. This workload includes Visual Studio Tools for Unity.</p>
+        </div>
+
+        <h3>Reference</h3>
+        <p><a href="https://learn.microsoft.com/en-us/visualstudio/gamedev/unity/get-started/getting-started-with-visual-studio-tools-for-unity?pivots=windows" rel="noopener noreferrer" target="_blank">Visual Studio Tools for Unity — Microsoft Learn</a></p>
+
+        <h3>At Install</h3>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="Visual Studio Installer — Game Development with Unity workload">IMAGE PLACEHOLDER — Visual Studio Installer — Game Development with Unity workload</div>
+          <figcaption class="image-caption">Visual Studio Installer — Game Development with Unity workload — replace with tutorial image.</figcaption>
+        </figure>
+
+        <h3>After Install</h3>
+        <p>Check the relevant settings in Debug/Options and Tools/Options.</p>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="Visual Studio 2026 options after installation">IMAGE PLACEHOLDER — Visual Studio 2026 options after installation</div>
+          <figcaption class="image-caption">Visual Studio 2026 options after installation — replace with tutorial image.</figcaption>
+          <p><a href="https://gyazo.com/7362979f16628cdf87a64dccdedb6832" rel="noopener noreferrer" target="_blank">https://gyazo.com/7362979f16628cdf87a64dccdedb6832</a></p>
+        </figure>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>2. Visual Studio, GitHub and Unity Project Setup</summary>
+      <div class="accordion-body media-stack">
+        <h3>Open Visual Studio 2026</h3>
+        <ol>
+          <li>From the splash screen you can:
+            <ol>
+              <li>Clone a repository from GitHub — for example, your group's Unity Project on Git.</li>
+              <li>Open a Local folder — a Unity project; this will create the Visual Studio framework.</li>
+              <li>Open a Visual Studio Project — a Unity Project with an existing Visual Studio framework, such as a <code>.sln</code> solution file.</li>
+              <li>You can also open a script in Unity; this will open in Visual Studio and create a project.</li>
+            </ol>
+          </li>
+        </ol>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="Visual Studio 2026 start screen">IMAGE PLACEHOLDER — Visual Studio 2026 start screen</div>
+          <figcaption class="image-caption">Visual Studio 2026 start screen — replace with tutorial image.</figcaption>
+          <p><a href="https://gyazo.com/f409c0c9c4fd38b6ab535769d498f2e0" rel="noopener noreferrer" target="_blank">https://gyazo.com/f409c0c9c4fd38b6ab535769d498f2e0</a></p>
+        </figure>
+
+        <h3>Create the accounts and project</h3>
+        <ol start="2">
+          <li>Create a GitHub login if you do not have one — use your University student email account: <a href="https://github.com/" rel="noopener noreferrer" target="_blank">GitHub</a>.</li>
+          <li>Open Unity Hub and log in with your Unity Account.</li>
+          <li>Create the project in <strong>C:Temp</strong> on University hard drives; other folders may have issues with the network.
+            <ol>
+              <li>Universal 3D Template (URP – Universal Render Pipeline).</li>
+              <li><strong>DO NOT CREATE ON H DRIVE.</strong></li>
+              <li><strong>DO NOT CREATE ON AN ATTACHED USB DRIVE.</strong></li>
+              <li><strong>CREATE PROJECT WITH NO SPACES IN NAME.</strong></li>
+            </ol>
+          </li>
+        </ol>
+
+        <h3>In Unity</h3>
+        <ol start="5">
+          <li>In Unity 6000.3.19f1, open <strong>Window &gt; Package Manager</strong> and confirm that the <strong>Visual Studio Editor</strong> package (<code>com.unity.ide.visualstudio</code>) is installed. Use the current package version offered for this Unity Editor rather than requiring the older 2.0.23 version.</li>
+        </ol>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="Unity Package Manager — Visual Studio Editor 2.0.23">IMAGE PLACEHOLDER — Unity Package Manager — Visual Studio Editor 2.0.23</div>
+          <figcaption class="image-caption">Unity Package Manager — Visual Studio Editor 2.0.23 — replace with tutorial image.</figcaption>
+          <p><a href="https://gyazo.com/a6f07dd1fe2acf0d8719134baabc509c" rel="noopener noreferrer" target="_blank">https://gyazo.com/a6f07dd1fe2acf0d8719134baabc509c</a></p>
+        </figure>
+
+        <ol start="6">
+          <li>In <strong>Edit &gt; Preferences &gt; External Tools</strong>, set <strong>External Script Editor</strong> to <strong>Visual Studio 2026</strong>. If it is not listed, use <strong>Browse...</strong> and select the Visual Studio <code>devenv.exe</code>.</li>
+        </ol>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="Unity Preferences — External Tools">IMAGE PLACEHOLDER — Unity Preferences — External Tools</div>
+          <figcaption class="image-caption">Unity Preferences — External Tools — replace with tutorial image.</figcaption>
+          <p><a href="https://gyazo.com/b0e51f43c1ebcc56a844808ca740702a" rel="noopener noreferrer" target="_blank">https://gyazo.com/b0e51f43c1ebcc56a844808ca740702a</a></p>
+        </figure>
+
+        <ol start="7">
+          <li>Create a cube and attach a test C# MonoBehaviour script to it.</li>
+          <li>Double-click the script in Unity; it should open in Visual Studio 2026. You can also use <strong>Assets &gt; Open C# Project</strong> to open the generated Unity C# project.</li>
+        </ol>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="Unity test script / Visual Studio connection">IMAGE PLACEHOLDER — Unity test script / Visual Studio connection</div>
+          <figcaption class="image-caption">Unity test script / Visual Studio connection — replace with tutorial image.</figcaption>
+          <p><a href="https://gyazo.com/b8f96cfa791bfc9daa2556c6be10bd02" rel="noopener noreferrer" target="_blank">https://gyazo.com/b8f96cfa791bfc9daa2556c6be10bd02</a></p>
+        </figure>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>3. Create the Git Repository from the Unity Project</summary>
+      <div class="accordion-body media-stack">
+        <h3>Unity Project First Setup: Visual Studio 2026, Git and Unity</h3>
+        <ol>
+          <li>With the Unity project open in Visual Studio 2026, select <strong>Git &gt; Create Git Repository</strong>.</li>
+          <li>In <strong>Push to a new remote</strong>, choose <strong>GitHub</strong> and sign in if required.</li>
+          <li>Configure the repository:
+            <ol>
+              <li>Check the local path points to the Unity project.</li>
+              <li>Choose the GitHub account/owner and repository name.</li>
+              <li>Choose the required repository visibility.</li>
+              <li>Select the <strong>Unity</strong> <code>.gitignore</code> template so generated Unity folders such as <code>Library</code> are not committed.</li>
+              <li>Add a README if required.</li>
+              <li>Select <strong>Create and Push</strong>.</li>
+            </ol>
+          </li>
+        </ol>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="Visual Studio 2026 — Git > Create Git Repository">IMAGE PLACEHOLDER — Visual Studio 2026 — Git > Create Git Repository</div>
+          <figcaption class="image-caption">Visual Studio 2026 — Git > Create Git Repository — replace with tutorial image.</figcaption>
+        </figure>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="Visual Studio 2026 — Create a Git repository / GitHub remote">IMAGE PLACEHOLDER — Visual Studio 2026 — Create a Git repository / GitHub remote</div>
+          <figcaption class="image-caption">Visual Studio 2026 — Create a Git repository / GitHub remote — replace with tutorial image.</figcaption>
+          <p><a href="https://gyazo.com/052fd8150ec101268d59dbddc531d946" rel="noopener noreferrer" target="_blank">https://gyazo.com/052fd8150ec101268d59dbddc531d946</a></p>
+        </figure>
+
+        <ol start="4">
+          <li>For debugging, use the Visual Studio debug target <strong>Attach to Unity</strong> (or press <strong>F5</strong>), then return to Unity and enter Play mode.</li>
+        </ol>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="Visual Studio — Attach to Unity">IMAGE PLACEHOLDER — Visual Studio — Attach to Unity</div>
+          <figcaption class="image-caption">Visual Studio — Attach to Unity — replace with tutorial image.</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>4. Git Workflow: Modify, Stage, Commit and Push</summary>
+      <div class="accordion-body media-stack">
+        <div class="h3-detail">
+          <h3>Workflow</h3>
+          <p>Visual Studio provides a Git menu and a right-side panel with Solution Explorer and Git Changes tabs. These are used to manage Git versioning on your local hard drive and the remote repository on the GitHub website.</p>
+          <p>You can create a repository from a local Unity Project, or clone one already on the GitHub website when you are logged in.</p>
+          <p>From here you can check which files are modified, stage changes, commit a local version update, and push or publish that update to the remote GitHub repository.</p>
+          <p>Fetch checks the remote for commits without changing your working files. Pull incorporates remote changes into your current local branch. Push sends your local commits to the remote. For this tutorial, use the explicit <strong>Pull</strong> and <strong>Push</strong> commands so the direction of each operation remains clear.</p>
+        </div>
+
+        <h3>Actions</h3>
+        <p><a href="https://learn.microsoft.com/en-us/visualstudio/version-control/git-make-commit?view=visualstudio" rel="noopener noreferrer" target="_blank">Microsoft Learn — Make a Git commit in Visual Studio</a></p>
+        <ol>
+          <li><strong>Modified Files</strong>
+            <ol><li>Seen in the Git Changes sidebar.</li></ol>
+          </li>
+          <li><strong>Staged Files / Staged Changes</strong>
+            <ol>
+              <li>Select individually with <strong>+</strong> next to each file in the Git Changes sidebar.</li>
+              <li>Select all with <strong>+</strong> at the top of the Changes section.</li>
+            </ol>
+          </li>
+          <li><strong>Commits</strong>
+            <ol>
+              <li>Add a title/comments.</li>
+              <li>You can choose to amend the previous commit or create a new one.</li>
+              <li>You can choose Commit, or Commit and Push.</li>
+              <li><strong>Do not tick the “Amend” box!</strong></li>
+            </ol>
+          </li>
+          <li><strong>Push (Publish)</strong>
+            <ol>
+              <li>Sends the local commit to remote/origin, if configured this way.</li>
+              <li><a href="https://learn.microsoft.com/en-us/visualstudio/version-control/git-push-remote?view=visualstudio" rel="noopener noreferrer" target="_blank">Microsoft Learn — Push to a remote</a>.</li>
+              <li>[SIMPLE] How to push Visual Studio Project to GitHub.</li>
+            </ol>
+          </li>
+          <li><strong>Fetch, Pull and Push</strong>
+            <ol>
+              <li>Fetch checks for remote commits without merging them into your current branch.</li>
+              <li>Pull incorporates remote changes into your current local branch.</li>
+              <li>Before pushing collaborative work, check for incoming changes and Pull when required.</li>
+              <li>Push sends your committed local changes to the remote repository.</li>
+              <li><a href="https://learn.microsoft.com/en-us/visualstudio/version-control/git-fetch-pull-sync?view=visualstudio" rel="noopener noreferrer" target="_blank">Microsoft Learn — Fetch, Pull and Sync</a>.</li>
+            </ol>
+          </li>
+          <li><strong>Stashing</strong>
+            <ol>
+              <li>This allows you to stash your own changes temporarily, pull down group changes, then re-stage yours: <a href="https://medium.com/@jacobnarayan/try-this-simple-hack-to-avoid-git-conflicts-3238656d4ebe" rel="noopener noreferrer" target="_blank">source link</a>.</li>
+              <li>Right-click on stashes to re-apply or pop. Pop removes the stash after re-applying; Apply preserves it: <a href="https://stackoverflow.com/questions/15286075/difference-between-git-stash-pop-and-git-stash-apply" rel="noopener noreferrer" target="_blank">source link</a>.</li>
+            </ol>
+          </li>
+        </ol>
+
+        <section class="learning-concept-example">
+          <div class="learning-concept-example__title">Basic Git Cycle</div>
+          <div class="learning-concept-example__body">
+            <div class="learning-concept-example__line">Modify files</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Stage changes</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Commit locally</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Fetch / Pull remote changes when required</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Push to remote/origin</div>
+          </div>
+        </section>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>5. Debugging Unity from Visual Studio</summary>
+      <div class="accordion-body media-stack">
+        <h3>Debug.Log — Basic</h3>
+        <ol>
+          <li>Can be added in code to display live feedback.</li>
+        </ol>
+
+        <h3>Breakpoints — Professional</h3>
+        <ol>
+          <li>Steps through code.</li>
+          <li>Add a breakpoint where issues are inferred.</li>
+          <li>In Visual Studio select <strong>Attach to Unity</strong> (or press <strong>F5</strong>), then switch to Unity and enter Play mode.</li>
+          <li>When Unity reaches a breakpoint, execution pauses and Visual Studio shows the line that triggered it.</li>
+          <li>Windows open with data on objects and interactions:
+            <ol>
+              <li>Objects.</li>
+              <li>Call stack.</li>
+            </ol>
+          </li>
+          <li>Inspect values.</li>
+          <li>Click through the next lines and hover over variables.</li>
+          <li>Use Help / Unity API reference for specific help.</li>
+        </ol>
+        <p>The source document also references videos titled <strong>Visual Studio &amp; Unity: Debugging Your Game</strong> and <strong>Quick and Easy Unity Debugging Basics</strong>; no URLs are supplied in the document text.</p>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>6. GitHub Group Work: Repository and Collaborators</summary>
+      <div class="accordion-body media-stack">
+        <h3>Group repository</h3>
+        <ol>
+          <li>Each group member should use their own GitHub account. Create one shared repository and grant access through collaborators or a GitHub Organization/Team; do not share a GitHub password.</li>
+          <li>Separate student accounts can access a public repository and make changes.</li>
+          <li>After the original GitHub repository is uploaded, it will look similar to the placeholder below.</li>
+        </ol>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="GitHub repository page">IMAGE PLACEHOLDER — GitHub repository page</div>
+          <figcaption class="image-caption">GitHub repository page — replace with tutorial image.</figcaption>
+        </figure>
+
+        <h3>Change visibility if needed to “public”</h3>
+        <ol>
+          <li>On GitHub.com, navigate to the main page of the repository.</li>
+          <li>Under the repository name, click <strong>Settings</strong>. If you cannot see the Settings tab, use the dropdown menu and then click Settings.</li>
+          <li>Scroll to the bottom to see the <strong>Danger Zone</strong>.</li>
+          <li>Click change visibility to make it public.</li>
+        </ol>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="GitHub repository Settings">IMAGE PLACEHOLDER — GitHub repository Settings</div>
+          <figcaption class="image-caption">GitHub repository Settings — replace with tutorial image.</figcaption>
+        </figure>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="GitHub Danger Zone — Change repository visibility">IMAGE PLACEHOLDER — GitHub Danger Zone — Change repository visibility</div>
+          <figcaption class="image-caption">GitHub Danger Zone — Change repository visibility — replace with tutorial image.</figcaption>
+        </figure>
+
+        <h3>Add collaborators</h3>
+        <ol>
+          <li>Ask for the username of the person you are inviting. If they do not have a username yet, they can sign up for GitHub.</li>
+          <li>Navigate to the main page of the group repository.</li>
+          <li>Click <strong>Settings</strong>.</li>
+          <li>If you have an Organisation:
+            <ol>
+              <li>Click <strong>Collaborators and Teams</strong>.</li>
+              <li>Click <strong>Add People</strong> or <strong>Add Teams</strong>.</li>
+            </ol>
+          </li>
+          <li>If you do not have an organisation:
+            <ol>
+              <li>Click <strong>Collaborators</strong>.</li>
+              <li>Click <strong>Add People</strong>.</li>
+            </ol>
+          </li>
+        </ol>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="GitHub — Collaborators / Manage access">IMAGE PLACEHOLDER — GitHub — Collaborators / Manage access</div>
+          <figcaption class="image-caption">GitHub — Collaborators / Manage access — replace with tutorial image.</figcaption>
+          <p><a href="https://gyazo.com/61be0321e75cae1380cae4ce4446953c" rel="noopener noreferrer" target="_blank">https://gyazo.com/61be0321e75cae1380cae4ce4446953c</a></p>
+        </figure>
+
+        <ol start="6">
+          <li>In the search field, start typing the name of the person you want to invite, then select a name from the matches.</li>
+          <li>Click <strong>Add NAME to REPOSITORY</strong>.</li>
+          <li>The user receives an email invitation. Once accepted, they have collaborator access.</li>
+          <li>Send each member the URL to the GitHub repository if they do not already have it.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>7. Optional: GitHub Organizations and Teams</summary>
+      <div class="accordion-body media-stack">
+        <div class="h3-detail">
+          <h3>More control and security</h3>
+          <p>The source document presents collaborators as the simpler workflow, with an Organization and Teams as an alternative when more control is required.</p>
+        </div>
+
+        <h3>Create an Organization on GitHub.com</h3>
+        <ol>
+          <li>Go to the top-right profile menu.</li>
+          <li>Select <strong>Your Organisations</strong>.</li>
+          <li>Create a new organisation.</li>
+          <li>Select the Free option.</li>
+          <li>Set up with email and verify.</li>
+        </ol>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="GitHub profile menu — Your organizations">IMAGE PLACEHOLDER — GitHub profile menu — Your organizations</div>
+          <figcaption class="image-caption">GitHub profile menu — Your organizations — replace with tutorial image.</figcaption>
+          <p><a href="https://gyazo.com/8933b8d292cfe1e094742ddd17d812ce" rel="noopener noreferrer" target="_blank">https://gyazo.com/8933b8d292cfe1e094742ddd17d812ce</a></p>
+        </figure>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="GitHub — Create new organization">IMAGE PLACEHOLDER — GitHub — Create new organization</div>
+          <figcaption class="image-caption">GitHub — Create new organization — replace with tutorial image.</figcaption>
+          <p><a href="https://gyazo.com/d3003c30283e9d2b5acaf1e4925786f7" rel="noopener noreferrer" target="_blank">https://gyazo.com/d3003c30283e9d2b5acaf1e4925786f7</a></p>
+        </figure>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="GitHub organization — Free plan">IMAGE PLACEHOLDER — GitHub organization — Free plan</div>
+          <figcaption class="image-caption">GitHub organization — Free plan — replace with tutorial image.</figcaption>
+          <p><a href="https://gyazo.com/350d5bb686cb4123f2677c5ce2a82b88" rel="noopener noreferrer" target="_blank">https://gyazo.com/350d5bb686cb4123f2677c5ce2a82b88</a></p>
+        </figure>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="GitHub organization — Setup and verify">IMAGE PLACEHOLDER — GitHub organization — Setup and verify</div>
+          <figcaption class="image-caption">GitHub organization — Setup and verify — replace with tutorial image.</figcaption>
+          <p><a href="https://gyazo.com/4d99248090bfdbd877e6771935c07a3b" rel="noopener noreferrer" target="_blank">https://gyazo.com/4d99248090bfdbd877e6771935c07a3b</a></p>
+        </figure>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="GitHub organization — Created organization">IMAGE PLACEHOLDER — GitHub organization — Created organization</div>
+          <figcaption class="image-caption">GitHub organization — Created organization — replace with tutorial image.</figcaption>
+          <p><a href="https://gyazo.com/7bdbad326c29a3650c53f032d516516c" rel="noopener noreferrer" target="_blank">https://gyazo.com/7bdbad326c29a3650c53f032d516516c</a></p>
+        </figure>
+
+        <h3>Create and manage a Team</h3>
+        <ol>
+          <li>On the Organization page top menu, select <strong>Teams</strong>.</li>
+          <li>Create and edit Teams in your organisation: <a href="https://docs.github.com/en/organizations/organizing-members-into-teams/creating-a-team" rel="noopener noreferrer" target="_blank">GitHub Docs — Creating a team</a>.</li>
+        </ol>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="GitHub Organization — Teams">IMAGE PLACEHOLDER — GitHub Organization — Teams</div>
+          <figcaption class="image-caption">GitHub Organization — Teams — replace with tutorial image.</figcaption>
+          <p><a href="https://gyazo.com/52a87e1dac50b980b84faedb465f5cd0" rel="noopener noreferrer" target="_blank">https://gyazo.com/52a87e1dac50b980b84faedb465f5cd0</a></p>
+        </figure>
+
+        <h3>Manage team access</h3>
+        <p><a href="https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository" rel="noopener noreferrer" target="_blank">GitHub Docs — Managing team access to an organization repository</a></p>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="GitHub — Team invitation / access">IMAGE PLACEHOLDER — GitHub — Team invitation / access</div>
+          <figcaption class="image-caption">GitHub — Team invitation / access — replace with tutorial image.</figcaption>
+          <p><a href="https://gyazo.com/4ebb465c6882e6aef58db6d167cfe422" rel="noopener noreferrer" target="_blank">https://gyazo.com/4ebb465c6882e6aef58db6d167cfe422</a></p>
+        </figure>
+
+        <h3>Invite teams or people</h3>
+        <p><a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person" rel="noopener noreferrer" target="_blank">GitHub Docs — Inviting a team or person</a></p>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>8. Join an Existing Unity Project Repository</summary>
+      <div class="accordion-body media-stack">
+        <div class="h3-detail">
+          <h3>Clone the repository</h3>
+          <p>Whether using collaborators or Teams, each individual group member clones the repository to their PC or laptop to work on it.</p>
+        </div>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="Visual Studio — Clone a repository">IMAGE PLACEHOLDER — Visual Studio — Clone a repository</div>
+          <figcaption class="image-caption">Visual Studio — Clone a repository — replace with tutorial image.</figcaption>
+          <p><a href="https://gyazo.com/7467489205d08b62a3540d0c6656b567" rel="noopener noreferrer" target="_blank">https://gyazo.com/7467489205d08b62a3540d0c6656b567</a></p>
+        </figure>
+
+        <ol>
+          <li>This creates a version on your desktop and allows you to open the project in Unity and Visual Studio, and commit changes to GitHub using Visual Studio.</li>
+          <li>After you are added as a collaborator, select the Git menu and <strong>Clone Repository</strong>.</li>
+          <li>Give it a local path that is <strong>NOT</strong> the H: Drive, your student network drive, or an attached USB drive. The source document specifies <strong>C:Temp</strong> at University.</li>
+          <li>Once the repository is cloned, open Unity Hub, navigate to the project location on your machine, and open the project/repository in Unity.</li>
+          <li>Work with the project as normal, using Visual Studio for scripting.</li>
+          <li>Commit changes to the local repository/project using Visual Studio Git: stage, commit staged changes, and push to the remote repository. Agree on a naming convention to track group-member contributions and versions.</li>
+        </ol>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="Visual Studio — Git Changes / commit message">IMAGE PLACEHOLDER — Visual Studio — Git Changes / commit message</div>
+          <figcaption class="image-caption">Visual Studio — Git Changes / commit message — replace with tutorial image.</figcaption>
+          <p><a href="https://gyazo.com/54f9a9b5c41c7f01a0f4cb5ca660c845" rel="noopener noreferrer" target="_blank">https://gyazo.com/54f9a9b5c41c7f01a0f4cb5ca660c845</a></p>
+        </figure>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="Visual Studio — Staged changes">IMAGE PLACEHOLDER — Visual Studio — Staged changes</div>
+          <figcaption class="image-caption">Visual Studio — Staged changes — replace with tutorial image.</figcaption>
+          <p><a href="https://gyazo.com/5b41d043e7fbf377382d55ffda32cfe2" rel="noopener noreferrer" target="_blank">https://gyazo.com/5b41d043e7fbf377382d55ffda32cfe2</a></p>
+        </figure>
+
+        <ol start="7">
+          <li>When you have changes that should be on the group repository at GitHub.com, select <strong>Push to Origin</strong>.</li>
+        </ol>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="Visual Studio — Push to Origin">IMAGE PLACEHOLDER — Visual Studio — Push to Origin</div>
+          <figcaption class="image-caption">Visual Studio — Push to Origin — replace with tutorial image.</figcaption>
+          <p><a href="https://gyazo.com/dd87b5c090eec65e92d2f627a0531637" rel="noopener noreferrer" target="_blank">https://gyazo.com/dd87b5c090eec65e92d2f627a0531637</a></p>
+        </figure>
+
+        <ol start="8">
+          <li>The source document recommends having one person coordinate versions and contributions, including naming versions, contributors, and when to push to the origin repository.</li>
+          <li>To inspect versions in Visual Studio 2026, open <strong>View &gt; Git Repository</strong> (or use <strong>Git &gt; View Branch History</strong>). GitHub.com can also be used to inspect the repository commit history.</li>
+          <li>The Git Repository / branch history view shows commits and allows you to inspect the files changed by each commit.</li>
+          <li>For normal student work, stay on a branch and inspect earlier commits rather than casually checking out old commits. If you need to restore work, first identify the required commit in the Git history and use an appropriate Git operation such as revert or create a branch from that commit.</li>
+        </ol>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="GitHub — Repository history / versions">IMAGE PLACEHOLDER — GitHub — Repository history / versions</div>
+          <figcaption class="image-caption">GitHub — Repository history / versions — replace with tutorial image.</figcaption>
+        </figure>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="GitHub Desktop — History / Checkout version">IMAGE PLACEHOLDER — GitHub Desktop — History / Checkout version</div>
+          <figcaption class="image-caption">GitHub Desktop — History / Checkout version — replace with tutorial image.</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details class="accordion accordion--nested">
+      <summary>Reference Links</summary>
+      <div class="accordion-body">
+        <p><a href="https://learn.microsoft.com/en-us/visualstudio/gamedev/unity/get-started/getting-started-with-visual-studio-tools-for-unity?pivots=windows" rel="noopener noreferrer" target="_blank">Visual Studio Tools for Unity</a></p>
+        <p><a href="https://github.com/" rel="noopener noreferrer" target="_blank">GitHub</a></p>
+        <p><a href="https://learn.microsoft.com/en-us/visualstudio/version-control/git-create-repository?view=visualstudio" rel="noopener noreferrer" target="_blank">Create a Git repository from Visual Studio</a></p>
+        <p><a href="https://learn.microsoft.com/en-us/visualstudio/version-control/git-make-commit?view=visualstudio" rel="noopener noreferrer" target="_blank">Make a Git commit in Visual Studio</a></p>
+        <p><a href="https://learn.microsoft.com/en-us/visualstudio/version-control/git-push-remote?view=visualstudio" rel="noopener noreferrer" target="_blank">Push to a remote</a></p>
+        <p><a href="https://learn.microsoft.com/en-us/visualstudio/version-control/git-fetch-pull-sync?view=visualstudio" rel="noopener noreferrer" target="_blank">Fetch, Pull and Sync</a></p>
+        <p><a href="https://docs.github.com/en/organizations/organizing-members-into-teams/creating-a-team" rel="noopener noreferrer" target="_blank">GitHub Docs — Creating a team</a></p>
+        <p><a href="https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository" rel="noopener noreferrer" target="_blank">GitHub Docs — Managing team access</a></p>
+        <p><a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person" rel="noopener noreferrer" target="_blank">GitHub Docs — Inviting a team or person</a></p>
+      </div>
+    </details>
+  </main>
+
+  <script src="../assets/js/site.js?v=20260915c"></script>
+</body>
+
+</html>
