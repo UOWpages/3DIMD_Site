@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | GitHub Version Control with VS Code 2026 on macOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="../assets/css/site.css?v=20260915d" rel="stylesheet" />
+  <style>
+    /* Temporary placeholders only. Remove this block when real images are inserted. */
+    .image-placeholder {
+      width: 100%;
+      min-height: 12rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: 2rem;
+      border: 2px dashed currentColor;
+      text-align: center;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body class="content-page">
+  <main class="content-area content-page-area" id="main-content">
+    <h1 class="page-title">GitHub Version Control with VS Code 2026 (Apple Mac)</h1>
+
+    <details class="accordion" open>
+      <summary>1. Before You Start</summary>
+      <div class="accordion-body media-stack">
+        <div class="h3-detail">
+          <h3>Versions used in this tutorial</h3>
+          <p>Unity Editor: <strong>6000.3.19f1</strong>.</p>
+          <p>IDE: <strong>Visual Studio Code</strong> on macOS, using Microsoft's <strong>Unity</strong> extension.</p>
+          <p>Version control: VS Code's built-in Git support and GitHub integration. GitHub Desktop is optional and is not required for this workflow.</p>
+          <h3>Requirements</h3>
+          <p>Keep the Unity project on the Mac's <strong>local internal drive</strong>. Do not develop the live Unity project directly inside iCloud Drive, OneDrive, a network-mounted folder, or an external/removable drive.</p>
+          <p>Install Visual Studio Code, Git, and the Microsoft <strong>Unity</strong> extension for VS Code. The Unity extension installs its C# tooling dependencies, including C# Dev Kit.</p>
+        </div>
+
+        <h3>References</h3>
+        <p><a href="https://code.visualstudio.com/docs/other/unity" rel="noopener noreferrer" target="_blank">VS Code — Unity Development</a></p>
+        <p><a href="https://code.visualstudio.com/docs/sourcecontrol/overview" rel="noopener noreferrer" target="_blank">VS Code — Source Control</a></p>
+        <p><a href="https://code.visualstudio.com/docs/sourcecontrol/github" rel="noopener noreferrer" target="_blank">VS Code — Working with GitHub</a></p>
+
+        <h3>Check Git on the Mac</h3>
+        <p>In VS Code choose <strong>Terminal &gt; New Terminal</strong> and enter:</p>
+        <section class="code-panel" data-code-type="code">
+          <div class="code-panel__chrome">
+            <div class="code-panel__dots"><span></span><span></span><span></span></div>
+            <div class="code-panel__title">Terminal</div>
+          </div>
+          <div class="code-panel__body">
+            <div class="code-panel__line code-panel__line--code indent-level-0">git --version</div>
+          </div>
+        </section>
+        <p>If macOS reports that developer tools are required, follow the macOS prompt to install the required command-line developer tools, then restart VS Code and run the command again.</p>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="VS Code on macOS — Unity extension installed">IMAGE PLACEHOLDER — VS Code on macOS — Unity extension installed</div>
+          <figcaption class="image-caption">VS Code on macOS — Unity extension installed — replace with current macOS / VS Code tutorial image.</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>2. VS Code, GitHub and Unity Project Setup</summary>
+      <div class="accordion-body media-stack">
+        <h3>Create the accounts and project</h3>
+        <ol>
+          <li>Create a GitHub login if you do not already have one — use your University student email account.</li>
+          <li>Open Unity Hub and log in with your Unity account.</li>
+          <li>Create the Unity project on the Mac's local internal drive, for example in a dedicated <code>UnityProjects</code> folder inside your home folder.
+            <ol>
+              <li>Use the required 3D / URP project template for the module.</li>
+              <li><strong>DO NOT</strong> put the working project in iCloud Drive, OneDrive, a network share, or an external/removable drive.</li>
+              <li>Use a simple project name with <strong>no spaces</strong>.</li>
+            </ol>
+          </li>
+        </ol>
+
+        <h3>Configure Unity 6000.3.19f1 for VS Code</h3>
+        <ol start="4">
+          <li>Open <strong>Window &gt; Package Manager</strong> and confirm that the <strong>Visual Studio Editor</strong> package (<code>com.unity.ide.visualstudio</code>) is installed and current for this Unity version.</li>
+          <li>Do <strong>not</strong> install or rely on Unity's old <strong>Visual Studio Code Editor</strong> package. That package is legacy and is no longer maintained.</li>
+          <li>Open <strong>Unity &gt; Settings/Preferences &gt; External Tools</strong> and set <strong>External Script Editor</strong> to <strong>Visual Studio Code</strong>.</li>
+          <li>Create a cube and attach a test C# MonoBehaviour script.</li>
+          <li>Double-click the script. It should open in VS Code with the Unity project loaded.</li>
+        </ol>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="Unity Package Manager — Visual Studio Editor package">IMAGE PLACEHOLDER — Unity Package Manager — Visual Studio Editor package</div>
+          <figcaption class="image-caption">Unity Package Manager — Visual Studio Editor package — replace with current macOS / VS Code tutorial image.</figcaption>
+        </figure>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="Unity on macOS — External Tools with Visual Studio Code selected">IMAGE PLACEHOLDER — Unity on macOS — External Tools with Visual Studio Code selected</div>
+          <figcaption class="image-caption">Unity on macOS — External Tools with Visual Studio Code selected — replace with current macOS / VS Code tutorial image.</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>3. Create and Publish the Git Repository from VS Code</summary>
+      <div class="accordion-body media-stack">
+        <div class="h3-detail">
+          <h3>Open the Unity project folder in VS Code</h3>
+          <p>VS Code's Git interface works with the repository on your local Mac. GitHub is the remote copy used for backup and collaboration.</p>
+        </div>
+        <ol>
+          <li>In VS Code choose <strong>File &gt; Open Folder...</strong> and open the root Unity project folder — the folder containing <code>Assets</code>, <code>Packages</code> and <code>ProjectSettings</code>.</li>
+          <li>Open <strong>Source Control</strong> using the branch/source-control icon in the Activity Bar. On macOS you can also use <strong>Control+Shift+G</strong>.</li>
+          <li>Select <strong>Initialize Repository</strong>. This creates the local Git repository.</li>
+          <li>Before the first commit, create a Unity <code>.gitignore</code> in the project root. It must exclude generated Unity folders such as <code>Library</code>, <code>Temp</code>, <code>Logs</code> and <code>obj</code>. Do not commit the Unity <code>Library</code> folder.</li>
+          <li>Review the files shown under <strong>Changes</strong>. Your Unity source assets, <code>Packages</code> and <code>ProjectSettings</code> should be included; generated folders covered by <code>.gitignore</code> should not appear.</li>
+          <li>Stage the files with the <strong>+</strong> button, enter a commit message such as <strong>Initial Unity project</strong>, and select <strong>Commit</strong>.</li>
+          <li>Select <strong>Publish to GitHub</strong>. Sign into GitHub in the browser when prompted, return to VS Code, choose the repository name and visibility, and publish it.</li>
+        </ol>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="VS Code Source Control — Initialize Repository">IMAGE PLACEHOLDER — VS Code Source Control — Initialize Repository</div>
+          <figcaption class="image-caption">VS Code Source Control — Initialize Repository — replace with current macOS / VS Code tutorial image.</figcaption>
+        </figure>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="VS Code Source Control — first staged Unity commit">IMAGE PLACEHOLDER — VS Code Source Control — first staged Unity commit</div>
+          <figcaption class="image-caption">VS Code Source Control — first staged Unity commit — replace with current macOS / VS Code tutorial image.</figcaption>
+        </figure>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="VS Code — Publish to GitHub">IMAGE PLACEHOLDER — VS Code — Publish to GitHub</div>
+          <figcaption class="image-caption">VS Code — Publish to GitHub — replace with current macOS / VS Code tutorial image.</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>4. Git Workflow: Modify, Stage, Commit and Push</summary>
+      <div class="accordion-body media-stack">
+        <div class="h3-detail">
+          <h3>Workflow</h3>
+          <p>VS Code has built-in Git support. Use the <strong>Source Control</strong> view to review changed files, stage changes and create commits.</p>
+          <p><strong>Fetch</strong> checks the remote for commits without changing your working files. <strong>Pull</strong> incorporates remote changes. <strong>Push</strong> uploads your local commits. <strong>Sync Changes</strong> performs a pull followed by a push.</p>
+          <p>For teaching purposes, use explicit Fetch/Pull/Push while learning what each direction means. In group work, check for incoming changes before pushing your own work.</p>
+        </div>
+
+        <h3>Actions</h3>
+        <ol>
+          <li><strong>Modified files:</strong> save your Unity/C# work. Changed files appear under <strong>Changes</strong>.</li>
+          <li><strong>Review:</strong> select a changed file to see the diff before committing it.</li>
+          <li><strong>Stage:</strong> select the <strong>+</strong> beside a file, or stage all required changes. Staged files move to <strong>Staged Changes</strong>.</li>
+          <li><strong>Commit:</strong> enter a concise commit message and select <strong>Commit</strong>.</li>
+          <li><strong>Fetch/Pull:</strong> use the Source Control <strong>...</strong> menu to check for and incorporate remote work when collaborating.</li>
+          <li><strong>Push:</strong> after committing, choose <strong>...</strong> &gt; <strong>Push</strong> to upload local commits to GitHub.</li>
+          <li><strong>Sync Changes:</strong> once you understand Pull and Push, VS Code can combine them with <strong>Sync Changes</strong>.</li>
+          <li><strong>Stash:</strong> if you need to temporarily put aside unfinished local edits before incorporating someone else's work, use Git's stash commands from the Source Control menu or terminal.</li>
+          <li><strong>Do not use Force Push</strong> for normal module group work.</li>
+          <li><strong>Editing the repository directly in GitHub/Copilot can create a branch or Pull Request workflow.</strong> For this tutorial, work on the local Unity project and use the normal Git workflow unless your group deliberately adopts Pull Requests.</li>
+        </ol>
+
+        <section class="learning-concept-example">
+          <div class="learning-concept-example__title">Basic Git Cycle</div>
+          <div class="learning-concept-example__body">
+            <div class="learning-concept-example__line">Modify and save files</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Review changes</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Stage changes</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Commit locally</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Fetch / Pull remote changes when required</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Push to GitHub</div>
+          </div>
+        </section>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="VS Code Source Control — Changes and Staged Changes">IMAGE PLACEHOLDER — VS Code Source Control — Changes and Staged Changes</div>
+          <figcaption class="image-caption">VS Code Source Control — Changes and Staged Changes — replace with current macOS / VS Code tutorial image.</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>5. Debugging Unity from VS Code</summary>
+      <div class="accordion-body media-stack">
+        <h3>Debug.Log — Basic</h3>
+        <ol>
+          <li>Add <code>Debug.Log()</code> statements to C# code to display runtime information in the Unity Console.</li>
+        </ol>
+
+        <h3>Breakpoints — Debugger</h3>
+        <ol>
+          <li>Open the C# script in VS Code.</li>
+          <li>Click in the gutter beside a line of code to add a breakpoint.</li>
+          <li>Press <strong>F5</strong> to start the Unity debugger. The Unity extension normally provides a configuration that attaches to the Unity Editor for the open project.</li>
+          <li>Return to Unity and enter Play mode.</li>
+          <li>When Unity reaches the breakpoint, execution pauses in VS Code.</li>
+          <li>Use the debugger views to inspect variables, the call stack and current execution state.</li>
+          <li>Continue or step through the code using the debugger controls.</li>
+        </ol>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="VS Code — Unity breakpoint and debugger">IMAGE PLACEHOLDER — VS Code — Unity breakpoint and debugger</div>
+          <figcaption class="image-caption">VS Code — Unity breakpoint and debugger — replace with current macOS / VS Code tutorial image.</figcaption>
+        </figure>
+      </div>
+    </details>
+
+<details class="accordion">
+<summary>6. GitHub Group Work: Repository and Collaborators</summary>
+<div class="accordion-body media-stack">
+<h3>Group repository</h3>
+<ol>
+<li>Each group member should use their own GitHub account. Create one shared repository and grant access through collaborators or a GitHub Organization/Team; do not share a GitHub password.</li>
+<li>Separate student accounts can access a public repository and make changes.</li>
+<li>After the original GitHub repository is uploaded, it will look similar to the placeholder below.</li>
+</ol>
+<figure class="image-figure gyazo-inline">
+<div aria-label="GitHub repository page" class="image-placeholder" role="img">IMAGE PLACEHOLDER — GitHub repository page</div>
+<figcaption class="image-caption">GitHub repository page — replace with tutorial image.</figcaption>
+</figure>
+<h3>Change visibility if needed to “public”</h3>
+<ol>
+<li>On GitHub.com, navigate to the main page of the repository.</li>
+<li>Under the repository name, click <strong>Settings</strong>. If you cannot see the Settings tab, use the dropdown menu and then click Settings.</li>
+<li>Scroll to the bottom to see the <strong>Danger Zone</strong>.</li>
+<li>Click change visibility to make it public.</li>
+</ol>
+<figure class="image-figure gyazo-inline">
+<div aria-label="GitHub repository Settings" class="image-placeholder" role="img">IMAGE PLACEHOLDER — GitHub repository Settings</div>
+<figcaption class="image-caption">GitHub repository Settings — replace with tutorial image.</figcaption>
+</figure>
+<figure class="image-figure gyazo-inline">
+<div aria-label="GitHub Danger Zone — Change repository visibility" class="image-placeholder" role="img">IMAGE PLACEHOLDER — GitHub Danger Zone — Change repository visibility</div>
+<figcaption class="image-caption">GitHub Danger Zone — Change repository visibility — replace with tutorial image.</figcaption>
+</figure>
+<h3>Add collaborators</h3>
+<ol>
+<li>To Add Collaborators from the Group GitHub.com account, Invite the other members to collaborate:</li>
+<li>Ask for the username of the person you are inviting. If they do not have a username yet, they can sign up for GitHub.</li>
+<li>Navigate to the main page of the group repository.</li>
+<li>Click <strong>Settings</strong>.</li>
+<li>If you have an Organisation:
+            <ol>
+<li>Click <strong>Collaborators and Teams</strong>.</li>
+<li>Click <strong>Add People</strong> or <strong>Add Teams</strong>.</li>
+</ol>
+</li>
+<li>If you do not have an organisation:
+            <ol>
+<li>Click <strong>Collaborators</strong>.</li>
+<li>Click <strong>Add People</strong>.</li>
+</ol>
+</li>
+</ol>
+<figure class="image-figure gyazo-inline">
+<div aria-label="GitHub — Collaborators / Manage access" class="image-placeholder" role="img">IMAGE PLACEHOLDER — GitHub — Collaborators / Manage access</div>
+<figcaption class="image-caption">GitHub — Collaborators / Manage access — replace with tutorial image.</figcaption>
+<p><a href="https://gyazo.com/61be0321e75cae1380cae4ce4446953c" rel="noopener noreferrer" target="_blank">https://gyazo.com/61be0321e75cae1380cae4ce4446953c</a></p>
+</figure>
+<ol start="6">
+<li>In the search field, start typing the name of the person you want to invite, then select a name from the matches.</li>
+<li>Click <strong>Add NAME to REPOSITORY</strong>.</li>
+<li>The user receives an email invitation. Once accepted, they have collaborator access.</li>
+<li>Send each member the URL to the GitHub repository if they do not already have it.</li>
+<li>You can work like this, just adding collaborators, or for more control and security you can create first an Organization and then Teams:</li>
+</ol>
+</div>
+</details>
+
+<details class="accordion">
+<summary>7. Optional: GitHub Organizations and Teams</summary>
+<div class="accordion-body media-stack">
+<div class="h3-detail">
+<h3>More control and security</h3>
+<p>The source document presents collaborators as the simpler workflow, with an Organization and Teams as an alternative when more control is required.</p>
+</div>
+<h3>Create an Organization on GitHub.com</h3>
+<ol>
+<li>Go to the top-right profile menu.</li>
+<li>Select <strong>Your Organisations</strong>.</li>
+<li>Create a new organisation.</li>
+<li>Select the Free option.</li>
+<li>Set up with email and verify.</li>
+</ol>
+<figure class="image-figure gyazo-inline">
+<div aria-label="GitHub profile menu — Your organizations" class="image-placeholder" role="img">IMAGE PLACEHOLDER — GitHub profile menu — Your organizations</div>
+<figcaption class="image-caption">GitHub profile menu — Your organizations — replace with tutorial image.</figcaption>
+<p><a href="https://gyazo.com/8933b8d292cfe1e094742ddd17d812ce" rel="noopener noreferrer" target="_blank">https://gyazo.com/8933b8d292cfe1e094742ddd17d812ce</a></p>
+</figure>
+<figure class="image-figure gyazo-inline">
+<div aria-label="GitHub — Create new organization" class="image-placeholder" role="img">IMAGE PLACEHOLDER — GitHub — Create new organization</div>
+<figcaption class="image-caption">GitHub — Create new organization — replace with tutorial image.</figcaption>
+<p><a href="https://gyazo.com/d3003c30283e9d2b5acaf1e4925786f7" rel="noopener noreferrer" target="_blank">https://gyazo.com/d3003c30283e9d2b5acaf1e4925786f7</a></p>
+</figure>
+<figure class="image-figure gyazo-inline">
+<div aria-label="GitHub organization — Free plan" class="image-placeholder" role="img">IMAGE PLACEHOLDER — GitHub organization — Free plan</div>
+<figcaption class="image-caption">GitHub organization — Free plan — replace with tutorial image.</figcaption>
+<p><a href="https://gyazo.com/350d5bb686cb4123f2677c5ce2a82b88" rel="noopener noreferrer" target="_blank">https://gyazo.com/350d5bb686cb4123f2677c5ce2a82b88</a></p>
+</figure>
+<figure class="image-figure gyazo-inline">
+<div aria-label="GitHub organization — Setup and verify" class="image-placeholder" role="img">IMAGE PLACEHOLDER — GitHub organization — Setup and verify</div>
+<figcaption class="image-caption">GitHub organization — Setup and verify — replace with tutorial image.</figcaption>
+<p><a href="https://gyazo.com/4d99248090bfdbd877e6771935c07a3b" rel="noopener noreferrer" target="_blank">https://gyazo.com/4d99248090bfdbd877e6771935c07a3b</a></p>
+</figure>
+<figure class="image-figure gyazo-inline">
+<div aria-label="GitHub organization — Created organization" class="image-placeholder" role="img">IMAGE PLACEHOLDER — GitHub organization — Created organization</div>
+<figcaption class="image-caption">GitHub organization — Created organization — replace with tutorial image.</figcaption>
+<p><a href="https://gyazo.com/7bdbad326c29a3650c53f032d516516c" rel="noopener noreferrer" target="_blank">https://gyazo.com/7bdbad326c29a3650c53f032d516516c</a></p>
+</figure>
+<h3>Create and manage a Team</h3>
+<ol>
+<li>On the Organization page top menu, select <strong>Teams</strong>.</li>
+<li>Create and edit Teams in your organisation: <a href="https://docs.github.com/en/organizations/organizing-members-into-teams/creating-a-team" rel="noopener noreferrer" target="_blank">GitHub Docs — Creating a team</a>.</li>
+</ol>
+<figure class="image-figure gyazo-inline">
+<div aria-label="GitHub Organization — Teams" class="image-placeholder" role="img">IMAGE PLACEHOLDER — GitHub Organization — Teams</div>
+<figcaption class="image-caption">GitHub Organization — Teams — replace with tutorial image.</figcaption>
+<p><a href="https://gyazo.com/52a87e1dac50b980b84faedb465f5cd0" rel="noopener noreferrer" target="_blank">https://gyazo.com/52a87e1dac50b980b84faedb465f5cd0</a></p>
+</figure>
+<h3>Manage team access</h3>
+<p><a href="https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository" rel="noopener noreferrer" target="_blank">GitHub Docs — Managing team access to an organization repository</a></p>
+<figure class="image-figure gyazo-inline">
+<div aria-label="GitHub — Team invitation / access" class="image-placeholder" role="img">IMAGE PLACEHOLDER — GitHub — Team invitation / access</div>
+<figcaption class="image-caption">GitHub — Team invitation / access — replace with tutorial image.</figcaption>
+<p><a href="https://gyazo.com/4ebb465c6882e6aef58db6d167cfe422" rel="noopener noreferrer" target="_blank">https://gyazo.com/4ebb465c6882e6aef58db6d167cfe422</a></p>
+</figure>
+<h3>Invite teams or people</h3>
+<p><a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person" rel="noopener noreferrer" target="_blank">GitHub Docs — Inviting a team or person</a></p>
+</div>
+</details>
+
+    <details class="accordion">
+      <summary>8. Join an Existing Unity Project Repository</summary>
+      <div class="accordion-body media-stack">
+        <div class="h3-detail">
+          <h3>Clone the repository to the Mac</h3>
+          <p>Each group member works from their own local clone. Do not work directly from a ZIP download if you intend to contribute commits, because a ZIP does not contain the Git repository history/configuration.</p>
+        </div>
+        <ol>
+          <li>Accept the GitHub collaborator or Organization invitation first.</li>
+          <li>In VS Code open the Command Palette with <strong>Shift+Command+P</strong> and run <strong>Git: Clone</strong>, or use <strong>Clone Repository</strong> from the Source Control view.</li>
+          <li>Select <strong>Clone from GitHub</strong>, sign in if prompted, and choose the group repository.</li>
+          <li>Choose a folder on the Mac's <strong>local internal drive</strong>. Avoid iCloud Drive, OneDrive, network-mounted folders and removable drives for the active Unity project.</li>
+          <li>Open the cloned folder in VS Code and confirm that the Source Control view shows the repository and current branch.</li>
+          <li>Open Unity Hub, select <strong>Add/Open project from disk</strong>, and choose the cloned Unity project folder.</li>
+          <li>Unity regenerates ignored/generated data such as the <code>Library</code> folder. The first opening can therefore take longer.</li>
+          <li>Work normally in Unity and VS Code. Save, review, stage and commit your changes locally.</li>
+          <li>Before pushing group work, Fetch/Pull incoming changes as required and resolve any conflicts. Then Push your commits to <code>origin</code>.</li>
+        </ol>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="VS Code on macOS — Git: Clone / Clone Repository">IMAGE PLACEHOLDER — VS Code on macOS — Git: Clone / Clone Repository</div>
+          <figcaption class="image-caption">VS Code on macOS — Git: Clone / Clone Repository — replace with current macOS / VS Code tutorial image.</figcaption>
+        </figure>
+        <figure class="image-figure gyazo-inline">
+          <div class="image-placeholder" role="img" aria-label="VS Code — cloned Unity repository Source Control">IMAGE PLACEHOLDER — VS Code — cloned Unity repository Source Control</div>
+          <figcaption class="image-caption">VS Code — cloned Unity repository Source Control — replace with current macOS / VS Code tutorial image.</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>9. Troubleshooting Git, VS Code and Unity on macOS</summary>
+      <div class="accordion-body media-stack">
+        <div class="h3-detail">
+          <h3>Commit is unavailable or nothing happens</h3>
+          <p>Work through these checks in order.</p>
+        </div>
+        <ol>
+          <li><strong>Is this a Git repository?</strong> Open Source Control. If you see <strong>Initialize Repository</strong>, initialize the Unity project root or open the correct folder.</li>
+          <li><strong>Is Git installed?</strong> In the VS Code terminal run <code>git --version</code>.</li>
+          <li><strong>Did you actually save a change?</strong> Save the edited file with <strong>Command+S</strong> and check that it appears under Changes.</li>
+          <li><strong>Did you stage the change?</strong> Select <strong>+</strong> so it appears under Staged Changes.</li>
+          <li><strong>Did you enter a commit message?</strong> Enter a short description before selecting Commit.</li>
+          <li><strong>Is your Git author identity configured?</strong> Git requires a user name and email for commits. In the terminal you can check/configure them with:
+            <section class="code-panel" data-code-type="code">
+              <div class="code-panel__chrome">
+                <div class="code-panel__dots"><span></span><span></span><span></span></div>
+                <div class="code-panel__title">Terminal</div>
+              </div>
+              <div class="code-panel__body">
+                <div class="code-panel__line code-panel__line--code indent-level-0">git config --global user.name "Your Name"</div>
+                <div class="code-panel__line code-panel__line--code indent-level-0">git config --global user.email "your.email@example.com"</div>
+              </div>
+            </section>
+          </li>
+          <li><strong>Push/Pull/Sync unavailable?</strong> A local repository needs a remote. Use <strong>Publish to GitHub</strong>, or confirm that the cloned repository has an <code>origin</code> remote.</li>
+          <li><strong>Repeated GitHub sign-in prompts?</strong> Complete the browser authentication and return to VS Code. Check the Git output if authentication continues to fail.</li>
+          <li><strong>Unity script does not open in VS Code?</strong> Recheck <strong>Unity &gt; Settings/Preferences &gt; External Tools</strong>, the Microsoft Unity extension, and the Unity <strong>Visual Studio Editor</strong> package.</li>
+          <li><strong>Unity project has thousands of generated changes?</strong> Check the Unity <code>.gitignore</code>. The <code>Library</code> folder and other generated folders should not be committed.</li>
+        </ol>
+
+        <section class="learning-concept-example">
+          <div class="learning-concept-example__title">Commit Checklist</div>
+          <div class="learning-concept-example__body">
+            <div class="learning-concept-example__line">Correct Unity project folder open</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Git repository active</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Edit and save a file</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Stage the change (+)</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Enter a commit message</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Commit locally</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Fetch / Pull when required</div>
+            <div class="learning-concept-example__line indent-level-1">&gt; Push to GitHub</div>
+          </div>
+        </section>
+      </div>
+    </details>
+
+    <details class="accordion accordion--nested">
+      <summary>Reference Links</summary>
+      <div class="accordion-body">
+        <p><a href="https://code.visualstudio.com/docs/other/unity" rel="noopener noreferrer" target="_blank">VS Code — Unity Development</a></p>
+        <p><a href="https://code.visualstudio.com/docs/sourcecontrol/overview" rel="noopener noreferrer" target="_blank">VS Code — Source Control overview</a></p>
+        <p><a href="https://code.visualstudio.com/docs/sourcecontrol/quickstart" rel="noopener noreferrer" target="_blank">VS Code — Source Control quickstart</a></p>
+        <p><a href="https://code.visualstudio.com/docs/sourcecontrol/github" rel="noopener noreferrer" target="_blank">VS Code — Work with GitHub</a></p>
+        <p><a href="https://code.visualstudio.com/docs/sourcecontrol/repos-remotes" rel="noopener noreferrer" target="_blank">VS Code — Repositories and remotes</a></p>
+        <p><a href="https://code.visualstudio.com/docs/sourcecontrol/troubleshooting" rel="noopener noreferrer" target="_blank">VS Code — Source Control troubleshooting</a></p>
+        <p><a href="https://github.com/" rel="noopener noreferrer" target="_blank">GitHub</a></p>
+        <p><a href="https://docs.github.com/en/organizations/organizing-members-into-teams/creating-a-team" rel="noopener noreferrer" target="_blank">GitHub Docs — Creating a team</a></p>
+        <p><a href="https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository" rel="noopener noreferrer" target="_blank">GitHub Docs — Managing team access</a></p>
+      </div>
+    </details>
+  </main>
+
+  <script src="../assets/js/site.js?v=20260915c"></script>
+</body>
+
+</html>
