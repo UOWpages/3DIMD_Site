@@ -28,7 +28,7 @@
 
 <body class="content-page">
   <main class="content-area content-page-area" id="main-content">
-    <h1 class="page-title">GitHub Version Control with VS Code 2026 (Apple Mac)</h1>
+    <h1 class="page-title">GitHub Version Control with VS Code 2026 and Github Desktop(Apple Mac)</h1>
 
     <details class="accordion" open>
       <summary>1. Before You Start</summary>
@@ -49,20 +49,36 @@
         <p><a href="https://code.visualstudio.com/docs/sourcecontrol/github" rel="noopener noreferrer" target="_blank">VS Code — Working with GitHub</a></p>
 
         <h3>Check Git on the Mac</h3>
-        <p>In VS Code choose <strong>Terminal &gt; New Terminal</strong> and enter:</p>
-        <section class="code-panel" data-code-type="code">
-          <div class="code-panel__chrome">
-            <div class="code-panel__dots"><span></span><span></span><span></span></div>
-            <div class="code-panel__title">Terminal</div>
-          </div>
-          <div class="code-panel__body">
-            <div class="code-panel__line code-panel__line--code indent-level-0">git --version</div>
-          </div>
-        </section>
-        <p>If macOS reports that developer tools are required, follow the macOS prompt to install the required command-line developer tools, then restart VS Code and run the command again.</p>
+        <ol>
+          <li>Open VS Code.</li>
+          <li>Go to the Terminal menu and select New Terminal.</li>
+          <li>In the terminal, type <code>git --version</code> and press Enter.</li>
+          <li>In VS Code choose <strong>Terminal &gt; New Terminal</strong> and enter:</li>
+<!--           <section class="code-panel" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots"><span></span><span></span><span></span></div>
+              <div class="code-panel__title">Terminal</div>
+            </div>
+            <div class="code-panel__body">
+              <div class="code-panel__line code-panel__line--code indent-level-0">git --version</div>
+            </div>
+          </section> -->
+          <li>If macOS reports that developer tools are required, follow the macOS prompt to install the required command-line developer tools, then restart VS Code and run the command again.</li>
+        </ol>
+
+        <h3>Install Unity Extension in VS Code</h3>
+        <ol>
+          <li>Make sure Unity for VS Code is installed and enabled in VS Code.</li>
+          <li><a href="https://code.visualstudio.com/docs/other/unity" rel="noopener noreferrer" target="_blank">VS Code — Unity Development</a></li>
+          <li>Open VS Code.</li>
+          <li>Go to the Extensions view by clicking the Extensions icon in the Activity Bar on the side of the window.</li>
+          <li>Search for "Unity" in the Extensions Marketplace.</li>
+          <li>Click "Install" on the "Unity Development" extension.</li>
+        </ol>
         <figure class="image-figure gyazo-inline">
-          <div class="image-placeholder" role="img" aria-label="VS Code on macOS — Unity extension installed">IMAGE PLACEHOLDER — VS Code on macOS — Unity extension installed</div>
-          <figcaption class="image-caption">VS Code on macOS — Unity extension installed — replace with current macOS / VS Code tutorial image.</figcaption>
+            <figcaption class="image-caption">VSCode Unity Extension installed.</figcaption>
+            <img alt="preview" loading="lazy" src="images/GithubMacVSCodeUnityExtension.png" />
+            <figcaption class="image-caption">preview (click image to expand).</figcaption>
         </figure>
       </div>
     </details>
@@ -92,45 +108,78 @@
           <li>Double-click the script. It should open in VS Code with the Unity project loaded.</li>
         </ol>
         <figure class="image-figure gyazo-inline">
-          <div class="image-placeholder" role="img" aria-label="Unity Package Manager — Visual Studio Editor package">IMAGE PLACEHOLDER — Unity Package Manager — Visual Studio Editor package</div>
-          <figcaption class="image-caption">Unity Package Manager — Visual Studio Editor package — replace with current macOS / VS Code tutorial image.</figcaption>
+          <figcaption class="image-caption">Unity Package manager - Visual Studio Editor Unity Package.</figcaption>
+          <img alt="preview" loading="lazy" src="images/GithubWinVSEditorUnityPackage.png" />
+          <figcaption class="image-caption">preview (click image to expand).</figcaption>
         </figure>
         <figure class="image-figure gyazo-inline">
-          <div class="image-placeholder" role="img" aria-label="Unity on macOS — External Tools with Visual Studio Code selected">IMAGE PLACEHOLDER — Unity on macOS — External Tools with Visual Studio Code selected</div>
-          <figcaption class="image-caption">Unity on macOS — External Tools with Visual Studio Code selected — replace with current macOS / VS Code tutorial image.</figcaption>
+          <figcaption class="image-caption">Unity on macOS — Edit &gt; Preferences &gt; External Tools with Visual Studio Code selected.</figcaption>
+          <img alt="preview" loading="lazy" src="images/GithubUnityPrefExternalVSCode.png" />
+          <figcaption class="image-caption">preview (click image to expand).</figcaption>
         </figure>
       </div>
     </details>
 
     <details class="accordion">
-      <summary>3. Create and Publish the Git Repository from VS Code</summary>
+      <summary>3. Create and Publish the Git Repository from Github Desktop or VS Code</summary>
       <div class="accordion-body media-stack">
-        <div class="h3-detail">
-          <h3>Open the Unity project folder in VS Code</h3>
-          <p>VS Code's Git interface works with the repository on your local Mac. GitHub is the remote copy used for backup and collaboration.</p>
+        <div class="h3-detail"></div>
+          <h3>Option 1:Create and Publish the Git Repository from GitHub Desktop</h3>
+            <ol>
+              <li>Go to Github Desktop on Uni PC, Mac, or install: <a href="https://desktop.github.com/" rel="noopener noreferrer" target="_blank">https://desktop.github.com/</a></li>
+              <li>Login to Github Desktop with Github ID</li>
+              <li>Click “Create New Repository” on “Get Started” page</li>
+              <figure class="image-figure gyazo-inline">
+                <figcaption class="image-caption">VS Code Source Control — Initialize Repository.</figcaption>
+                <img alt="preview" loading="lazy" src="images/GithubMacDesktopCreate.png" />
+                <figcaption class="image-caption">preview (click image to expand).</figcaption>
+              </figure>
+              <figure class="image-figure gyazo-inline">
+                <figcaption class="image-caption">VS Code Source Control — Create Repository.</figcaption>
+                <img alt="preview" loading="lazy" src="images/GithubMacDesktopCreate1.png" />
+                <figcaption class="image-caption">preview (click image to expand).</figcaption>
+              </figure>
+                  <figure class="image-figure gyazo-inline">
+                <figcaption class="image-caption">VS Code Source Control — Publish Repository.</figcaption>
+                <img alt="preview" loading="lazy" src="images/GithubMacDesktopCreate2.png" />
+                <figcaption class="image-caption">preview (click image to expand).</figcaption>
+              </figure>
+            </ol>
+
+          <h3>Open the Unity project folder or Clone Remote Repository in VS Code</h3>
+          <p>VS Code's Git interface works with the repository on your local Mac. GitHub is the remote copy used for backup and collaboration.</p>   
+            <figure class="image-figure gyazo-inline">
+              <figcaption class="image-caption">VS Code Source Control — Start Options - Open Folder, Clone Remote Repository.</figcaption>
+              <img alt="preview" loading="lazy" src="images/GithubMacVSCodeStart.png" />
+              <figcaption class="image-caption">preview (click image to expand).</figcaption>
+            </figure>
+            <figure class="image-figure gyazo-inline">
+              <figcaption class="image-caption">VS Code Source Control — Initialize Repository.</figcaption>
+              <img alt="preview" loading="lazy" src="images/GithubMacVSCodeGit.png" />
+              <figcaption class="image-caption">preview (click image to expand).</figcaption>
+            </figure>
+            <ol>
+              <li>In VS Code choose <strong>File &gt; Open Folder...</strong> and open the root Unity project folder — the folder containing <code>Assets</code>, <code>Packages</code> and <code>ProjectSettings</code>.</li>
+              <li>Open <strong>Source Control</strong> using the branch/source-control icon in the Activity Bar. On macOS you can also use <strong>Control+Shift+G</strong>.</li>
+              <li>Select <strong>Initialize Repository</strong>. This creates the local Git repository.</li>
+              <li>Before the first commit, create a Unity <code>.gitignore</code> in the project root. It must exclude generated Unity folders such as <code>Library</code>, <code>Temp</code>, <code>Logs</code> and <code>obj</code>. Do not commit the Unity <code>Library</code> folder.</li>
+              <li>Review the files shown under <strong>Changes</strong>. Your Unity source assets, <code>Packages</code> and <code>ProjectSettings</code> should be included; generated folders covered by <code>.gitignore</code> should not appear.</li>
+              <li>Stage the files with the <strong>+</strong> button, enter a commit message such as <strong>Initial Unity project</strong>, and select <strong>Commit</strong>.</li>
+              <li>Select <strong>Publish to GitHub</strong>. Sign into GitHub in the browser when prompted, return to VS Code, choose the repository name and visibility, and publish it.</li>
+            </ol>
+            <figure class="image-figure gyazo-inline">
+              <div class="image-placeholder" role="img" aria-label="VS Code Source Control — Initialize Repository">IMAGE PLACEHOLDER — VS Code Source Control — Initialize Repository</div>
+              <figcaption class="image-caption">VS Code Source Control — Initialize Repository — replace with current macOS / VS Code tutorial image.</figcaption>
+            </figure>
+            <figure class="image-figure gyazo-inline">
+              <div class="image-placeholder" role="img" aria-label="VS Code Source Control — first staged Unity commit">IMAGE PLACEHOLDER — VS Code Source Control — first staged Unity commit</div>
+              <figcaption class="image-caption">VS Code Source Control — first staged Unity commit — replace with current macOS / VS Code tutorial image.</figcaption>
+            </figure>
+            <figure class="image-figure gyazo-inline">
+              <div class="image-placeholder" role="img" aria-label="VS Code — Publish to GitHub">IMAGE PLACEHOLDER — VS Code — Publish to GitHub</div>
+              <figcaption class="image-caption">VS Code — Publish to GitHub — replace with current macOS / VS Code tutorial image.</figcaption>
+            </figure>
         </div>
-        <ol>
-          <li>In VS Code choose <strong>File &gt; Open Folder...</strong> and open the root Unity project folder — the folder containing <code>Assets</code>, <code>Packages</code> and <code>ProjectSettings</code>.</li>
-          <li>Open <strong>Source Control</strong> using the branch/source-control icon in the Activity Bar. On macOS you can also use <strong>Control+Shift+G</strong>.</li>
-          <li>Select <strong>Initialize Repository</strong>. This creates the local Git repository.</li>
-          <li>Before the first commit, create a Unity <code>.gitignore</code> in the project root. It must exclude generated Unity folders such as <code>Library</code>, <code>Temp</code>, <code>Logs</code> and <code>obj</code>. Do not commit the Unity <code>Library</code> folder.</li>
-          <li>Review the files shown under <strong>Changes</strong>. Your Unity source assets, <code>Packages</code> and <code>ProjectSettings</code> should be included; generated folders covered by <code>.gitignore</code> should not appear.</li>
-          <li>Stage the files with the <strong>+</strong> button, enter a commit message such as <strong>Initial Unity project</strong>, and select <strong>Commit</strong>.</li>
-          <li>Select <strong>Publish to GitHub</strong>. Sign into GitHub in the browser when prompted, return to VS Code, choose the repository name and visibility, and publish it.</li>
-        </ol>
-        <figure class="image-figure gyazo-inline">
-          <div class="image-placeholder" role="img" aria-label="VS Code Source Control — Initialize Repository">IMAGE PLACEHOLDER — VS Code Source Control — Initialize Repository</div>
-          <figcaption class="image-caption">VS Code Source Control — Initialize Repository — replace with current macOS / VS Code tutorial image.</figcaption>
-        </figure>
-        <figure class="image-figure gyazo-inline">
-          <div class="image-placeholder" role="img" aria-label="VS Code Source Control — first staged Unity commit">IMAGE PLACEHOLDER — VS Code Source Control — first staged Unity commit</div>
-          <figcaption class="image-caption">VS Code Source Control — first staged Unity commit — replace with current macOS / VS Code tutorial image.</figcaption>
-        </figure>
-        <figure class="image-figure gyazo-inline">
-          <div class="image-placeholder" role="img" aria-label="VS Code — Publish to GitHub">IMAGE PLACEHOLDER — VS Code — Publish to GitHub</div>
-          <figcaption class="image-caption">VS Code — Publish to GitHub — replace with current macOS / VS Code tutorial image.</figcaption>
-        </figure>
-      </div>
     </details>
 
     <details class="accordion">
