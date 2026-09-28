@@ -92,7 +92,7 @@
        <div class="accordion-body">
         <div class="h3-detail">
          <h3>3DUI for an interactive VE</h3>
-         <p>Asset creation and modelling → texturing/materials → interchange format such as FBX → Unity → shaders/lighting → C# interaction/navigation/system state → deployment such as WebGL.</p>
+         <p>Asset creation and modelling → texturing/materials → interchange format such as FBX → Unity → shaders/lighting → C# interaction/navigation/system state → deployment such as WebGL or WebGPU.</p>
          <p>The workflow combines content, rendering and interaction.</p>
          <p>3DUI is not a separate layer added at the end; it is part of how the user operates the environment.</p>
         </div>
@@ -163,6 +163,7 @@
           </div>
          <div class="accordion-images" style="--accordion-images-width: 60%;">
           <img alt="Lecture illustration" class="accordion-image" src="images/lect-02a-3D-3DUI_slide16_image0.png" style="--accordion-image-width: 100%;"/>
+          </div>
       </details>
       <details class="accordion">
        <summary>Moving Off the Desktop</summary>
@@ -296,9 +297,18 @@
        <div class="accordion-body">
         <div class="h3-detail">
          <h3>When the task itself is spatial</h3>
-         <p>3D interaction can be relevant to real-world tasks because a VE can preserve spatial context and support a sense of presence.</p>
-         <p>Natural skills may transfer into the virtual task when the mapping is appropriate.</p>
-         <p>Potential benefits include scenario context, information layout, immersion/presence, immediacy of feedback and richer communication bandwidth.</p>
+          <p>3D interaction can be relevant to real-world tasks because a VE can preserve spatial context and support a sense of presence.</p>
+          <p>VEs operate in a similar way to the real world, allowing users to leverage their existing spatial understanding and skills.</p>
+          <p>This alignment between virtual and real-world spatial understanding can enhance learning and performance in 3D tasks.</p>
+          <p>Effective 3D interaction design takes advantage of this spatial alignment to create intuitive and efficient user experiences.</p>
+          <p>Designers should consider how virtual and real-world spatial cues align to maximize user performance and comfort.</p>
+          <p>VEs provide an immersive presence, This allows use of natural interaction</p>
+          <p>Natural skills may transfer into the virtual task when the mapping is appropriate.</p>
+          <p>Potential benefits include scenario context, information layout, immersion/presence, immediacy of feedback and richer communication bandwidth.</p>
+         <h3>A more natural as opposed to abstracted interaction can: </h3>
+          <p>Lower Cognitive Load by improving intuition</p>
+          <p>Provide better information transfer</p>
+          <p>Higher Bandwidth for better quality communication</p>
         </div>
        </div>
       </details>
@@ -306,10 +316,11 @@
        <summary>Enabling Technology</summary>
        <div class="accordion-body">
         <div class="h3-detail">
-         <h3>Why it is increasingly practical</h3>
-         <p>Mobile processing, fast networks and web-based 3D platforms have expanded access.</p>
-         <p>Sensors, HMDs, computer vision, tracking, spatial/binaural audio and haptics increase the forms of input and output available.</p>
-         <p>The existence of the technology does not automatically make an interface effective: design remains the central problem.</p>
+          <h3>Why it is increasingly practical?</h3>
+            <p>Hardware and Software is mature</p>
+            <p>Mobile processing, fast broadband networks and web-based open 3D platforms have expanded access.</p>
+            <p>Sensors, HMDs, computer vision, tracking, spatial/binaural audio and haptics increase the forms of input and output available.</p>
+          <h3>The existence of the technology does not automatically make an interface effective: design remains the central problem.</h3>
         </div>
        </div>
       </details>
@@ -352,6 +363,43 @@
         </div>
        </div>
       </details>
+      <details class="accordion" open>
+       <summary>Problems with 3DUI</summary>
+       <div class="accordion-body">
+        <div class="h3-detail">
+         <h3>The VE is abstracted and relies on HCI, so…</h3>
+          <p>Less opportunities than real world interaction.</p>
+          <p>Less intuitive than real world interaction.</p>
+          <p>Less Communication bandwidth than real world interaction.</p>
+          <h3>More chance of:</h3>
+            <p>Information loss</p>
+            <p>Time Lag</p>
+            <p>Corruption</p>
+            <p>Tiring</p>
+            <p>Perceptual Mismatch</p>
+            <p>Frustration</p>
+        </div>
+       </div>
+      </details>
+      <details class="accordion" open>
+       <summary>Issues with the Extra Dimension</summary>
+       <div class="accordion-body">
+        <div class="h3-detail">
+         <h3>3DUI needs Simultaneous Operations</h3>
+          <p>Simultaneous operations in 3DUI can be challenging due to the need to coordinate multiple degrees of freedom at once.</p>
+          <p>The new Dimension brings freedom of movement that must be managed and designed carefully to avoid confusion and inefficiency.</p>
+        <h3>Coordinate Space Alignment</h3>
+          <p>Scale, Registration, and Alignment</p>
+          <p>Input < > VE < > Output</p>
+          <p>Especially Problematic in AR.</p>
+          <p>VE has Virtual Camera</p>
+          <p>Input has Real World POV + Scale</p>
+          <p>Output is varied and usually 2D</p>
+          <p>Tablet//Phone has In/Out Plane the same.</p>
+          <p>2D into 3D VE</p>
+        </div>
+       </div>
+      </details>
       <details class="accordion">
        <summary>2D UI is Already Mature</summary>
        <div class="accordion-body">
@@ -371,6 +419,60 @@
          <p>Novel 3DUI may draw on real-world metaphors, established interaction conventions or new techniques.</p>
          <p>The design problem spans HCI, psychology, hardware and software.</p>
          <p>Good 3DUI allows the user to focus on the task rather than on operating the interface.</p>
+        </div>
+       </div>
+      </details>
+      <details class="accordion">
+       <summary>Why go on? 3DUI Advantages</summary>
+       <div class="accordion-body">
+        <div class="h3-detail">
+          <h3>3D Applications should be useful - They can provide:</h3>
+          <h3>Scenario Context:</h3>
+            <p>Gives added information layout.</p>
+          <h3>Immersion/Presence</h3>
+            <p>Immersion: What surrounds the user's senses, creating a sense of presence.</p> 
+            <p>Presence: You minds reaction to the virtual environment. The illusion of Being There.</p>
+          <h3>Natural Skills</h3>
+            <p>User has knowledge of world and interactions that are complex, these can be directly transferred.</p>
+          <h3>Immediacy</h3>
+            <p>Action to feedback has short distance.</p>
+          <h3>Bandwidth</h3>
+            <p>Action to feedback has rich information.</p>
+        </div>
+       </div>
+      </details>
+      <details class="accordion">
+       <summary>Solution</summary>
+       <div class="accordion-body">
+        <div class="h3-detail">
+          <h3>Novel 3DUI Design</h3>
+            <p>Based on Real World or other metaphor</p>
+            <p>Based on popular use - touch, etc.</p>
+          <h3>Complexity of options and the VE themselves requires innovation in various areas:</h3>
+            <p>Psychology</p>
+            <p>HCI</p>
+            <p>Hardware</p>
+            <p>Software</p>
+            <p>Gamification</p>
+          <h3>We must focus on the design of UI with input from various disciplines – simple ones work, more complex will require time and study (or Computer Vision advances)</h3>
+        </div>
+       </div>
+      </details>
+      <details class="accordion">
+       <summary>Goals</summary>
+       <div class="accordion-body">
+        <div class="h3-detail">
+          <h3>Goals</h3>
+            <p>Performance - efficient, accurate, productive.</p>
+            <p>Usability - Ease of use, learning, comfort.</p>
+            <p>Usefulness - Meets goals, transparent so can focus on task.</p>
+          <h3>Acheived by:</h3>
+          <h3>Reducing Users Cognitive Load (Control to Task Mapping)</h3>
+            <p>Natural Interaction</p>
+          <h3>Enhancing Spatial Knowledge (Perceptual Structure)</h3>
+            <p>Gives Extra Information - Higher Bandwidth and Quality</p>
+            <p>Gives Presence - Immersive</p>
+          <h3>Ease of Use (Motor Coordination, Tiring or Clash)</h3>
         </div>
        </div>
       </details>
@@ -438,6 +540,33 @@
         </div>
        </div>
       </details>
+      <details class="accordion">
+       <summary>3D Interaction</summary>
+       <div class="accordion-body">
+        <div class="h3-detail">
+         <h3>HCI with tasks directly in 3D space, can use:</h3>
+          <p>3D Input Devices such as 3D mice, motion controllers, and VR gloves.</p>
+          <p>2D input devices with direct mappings to 3D space, such as a mouse controlling a 3D cursor.</p>
+          <p>The meaning of the numbers depends on the coordinate space in which they are interpreted.</p>
+          <h3>Integrated vs. Seperable Interaction</h3>
+            <p>Integrated interaction involves combining multiple input modalities into a single, cohesive experience.</p>
+            <p>Separable interaction treats each input modality independently, allowing users to switch between them as needed.</p>
+            <p>Choosing between integrated and separable interaction depends on the specific application and user needs.</p>
+            <p>Examples of integrated interaction include using a VR headset with hand tracking and voice commands simultaneously.</p>
+            <p>Examples of separable interaction include using a mouse for navigation in X,Y and the mouse scroll wheel for Z in a 3D environment.</p>
+            <p>Jacob and Sibert - Integrated vs separable - both real world inputs and virtual control systems accepting them….
+            <p>https://dl.acm.org/citation.cfm?id=142792</p>
+        </div>
+         <details class="accordion accordion--nested video-accordion">
+            <summary>Improov3D</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/watch?v=tfU1yLwDdak" title="Improov3D Video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=tfU1yLwDdak" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+        </details>
      </div>
     </div>
     <div class="slide-controls">
@@ -469,10 +598,15 @@
        <summary>From Device Data to Player Intent</summary>
        <div class="accordion-body">
         <div class="h3-detail">
-         <h3>Interaction is a mapping problem</h3>
-         <p>An interaction technique maps information from an input device into an action within the system.</p>
-         <p>The mapping can be integral or separable depending on whether dimensions are controlled together or independently.</p>
-         <p>A natural-looking device does not guarantee a natural interaction; the control-to-task mapping must still make sense.</p>
+         <h3>Interaction Technique: Interaction is a mapping problem</h3>
+          <p>A method allowing the user to accomplish a task via the UI...</p>
+          <p>An Interaction Technique maps information from an input device into an action within the system.</p>
+          <p>An Interaction Technique includes both hardware (I/O Devices) and software components.</p>
+          <p>The Interaction Technique's software component interprets input from the hardware and translates it into actions within the system.</p>
+          <p>Finally it handles Mapping the output of the system to a form that can be displayed by the output device(s).</p>
+         <h3>Integral vs Separable</h3>
+          <p>The mapping can be integral or separable depending on whether dimensions are controlled together or independently.</p>
+          <p>A natural-looking device does not guarantee a natural interaction; the control-to-task mapping must still make sense.</p>
         </div>
        </div>
       </details>
@@ -590,7 +724,7 @@
      <h2>Representing a 3D World: Scalars, Points and Vectors</h2>
      <div class="accordion-scroll">
       <details class="accordion" open>
-       <summary>Three Useful Building Blocks</summary>
+       <summary>Three Useful 3D Building Blocks</summary>
        <div class="accordion-body">
         <div class="h3-detail">
          <h3>Scalar</h3>
@@ -607,7 +741,7 @@
        </div>
       </details>
       <details class="accordion">
-       <summary>Connection to Programming</summary>
+       <summary>Connection to 3D Programming</summary>
        <div class="accordion-body">
         <div class="h3-detail">
          <h3>From geometry to data</h3>
@@ -617,7 +751,7 @@
         </div>
        </div>
       </details>
-     </div>
+       </div>
     </div>
     <div class="slide-controls">
      <button class="slide-button" data-slide-step="-1">← Previous</button>
@@ -654,9 +788,9 @@
           <p>World coordinates describe values relative to the virtual world origin.</p>
           <p>Different software can use different axis conventions, so the meaning of 'up' and 'forward' must be understood in context.</p>
          </div>
-         <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 50%;">
-          <img alt="Lecture illustration" class="accordion-image" src="images/lect-02a-3D-3DUI_slide52_image0.png" style="--accordion-image-width: 100%;"/>
-          <img alt="Lecture illustration" class="accordion-image" src="images/lect-02a-3D-3DUI_slide52_image1.png" style="--accordion-image-width: 100%;"/>
+         <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 70%;">
+          <img alt="Lecture illustration" class="accordion-image" src="images/lect-02a-3D-3DUI_slide52_image0.png" style="--accordion-image-width: 45%;"/>
+          <img alt="Lecture illustration" class="accordion-image" src="images/lect-02a-3D-3DUI_slide52_image1.png" style="--accordion-image-width: 55%;"/>
          </div>
         </div>
        </div>
@@ -672,9 +806,9 @@
           <p>Screen space is the 2D display space produced by rendering.</p>
           <p>Tracking and AR systems may add real-world coordinate spaces that need calibration and registration with virtual space.</p>
          </div>
-         <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 50%;">
-          <img alt="Lecture illustration" class="accordion-image" src="images/lect-02a-3D-3DUI_slide55_image0.png" style="--accordion-image-width: 100%;"/>
-          <img alt="Lecture illustration" class="accordion-image" src="images/lect-02a-3D-3DUI_slide57_image0.png" style="--accordion-image-width: 100%;"/>
+         <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 70%;">
+          <img alt="Lecture illustration" class="accordion-image" src="images/lect-02a-3D-3DUI_slide55_image0.png" style="--accordion-image-width: 60%;"/>
+          <img alt="Lecture illustration" class="accordion-image" src="images/lect-02a-3D-3DUI_slide57_image0.png" style="--accordion-image-width: 45%;"/>
          </div>
         </div>
        </div>
