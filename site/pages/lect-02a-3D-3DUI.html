@@ -508,9 +508,15 @@
        <div class="accordion-body">
         <div class="h3-detail">
          <h3>How many independent values can the user control?</h3>
-         <p>A conventional mouse commonly supplies two continuous movement dimensions plus buttons; other devices can expose additional axes.</p>
-         <p>Tracked devices can provide position and/or orientation, allowing 3DOF or 6DOF interaction.</p>
-         <p>The number of available degrees of freedom should be considered in relation to the task the user needs to perform.</p>
+            <p>A conventional mouse commonly supplies two continuous movement dimensions plus buttons; other devices can expose additional axes.</p>
+            <p>Tracked devices can provide position and/or orientation, allowing 3DOF or 6DOF interaction.</p>
+            <p>The number of available degrees of freedom should be considered in relation to the task the user needs to perform.</p>
+          <h3>DOF (Degrees of Freedom): 1,2,3,6 - Integral/Seperable</h3>
+            <p>2 dof- Mouse</p>
+            <p>3 dof - Mouse with Seperable scroll wheel or keyboard (e.g., for Z-axis control)</p>
+            <p>3 dof - 3D Mouse or Space Mouse</p>
+            <p>3 dof - orientation tracker, gyroscope, or IMU (Inertial Measurement Unit)</p>
+            <p>6 dof - Full 3D tracking systems (e.g., VR controllers, motion capture systems, computer vision-based tracking)</p>
         </div>
        </div>
       </details>
@@ -519,11 +525,14 @@
        <div class="accordion-body">
         <div class="h3-detail">
          <h3>Different devices produce different kinds of information</h3>
-         <p>Electronics: digital or analog.</p>
-         <p>Reported values: discrete, continuous or hybrid.</p>
-         <p>Programming data: Boolean, integer, floating-point and vector-like values.</p>
-         <p>Frame of reference: relative or absolute.</p>
-         <p>Properties can include position, motion, orientation and force.</p>
+          <p>Electronics: digital or analog.</p>
+          <p>Reported values: discrete, continuous or hybrid.</p>
+          <p>Programming data: Boolean, integer, floating-point and vector-like values.</p>
+          <p>User Action - Active, Passive, Hybrid</p>
+          <p>Information Provision - Push, Pull</p>
+          <p>Use - Locator, Valuator, Choice</p>
+          <p>Frame of reference: Relative or Absolute.</p>
+          <p>Properties can include Position, Motion, Orientation and Force.</p>
         </div>
        </div>
       </details>
@@ -532,11 +541,20 @@
        <div class="accordion-body">
         <div class="h3-detail">
          <h3>From desktop to direct human input</h3>
-         <p>Desktop devices</p>
-         <p>Tracking devices</p>
-         <p>3D mice/controllers</p>
-         <p>Special-purpose devices</p>
-         <p>Direct human input and natural interaction using sensing/computer vision</p>
+          <p>Desktop devices</p>
+          <p>Tracking devices</p>
+          <p>3D mice/controllers</p>
+          <p>Special-purpose devices</p>
+          <p>Direct human input and natural interaction using sensing/computer vision</p>
+        <h3>For Natural interaction using sensing/computer vision</h3>
+          <p>Examples include gesture recognition, eye tracking, and voice commands.</p>
+            <p>PUI - Perceptual User Interface</p>
+            <p>CV - Computer Vision - Webcam tracking</p>
+            <p>Natural Feature Tracking</p>
+            <p>Marker Tracking - Active, Passive, Fiducial</p>
+            <p>Time of Flight</p>
+            <p>Infrared</p>
+            <p>Laser Pattern</p>
         </div>
        </div>
       </details>
@@ -567,6 +585,30 @@
             </div>
           </details>
         </details>
+<!--         <details class="accordion">
+        <summary>DOF (Degrees of Freedom): 1,2,3,6</summary>
+        <div class="accordion-body">
+          <div class="h3-detail">
+
+          </div>
+        </div>
+        </details> -->
+<!--         <details class="accordion">
+          <summary>Input Range of Types and Data</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Integral/Seperable</h3>
+                  <p>Electronics - Digital, Analog</p>
+                  <p>Reported Values - Discrete, Continuous, Hybrid</p>
+                  <p>Data Type - Boolean, Integer, Floating Point</p>
+                  <p>User Action - Active, Passive, Hybrid</p>
+                  <p>Information Provision - Push, Pull</p>
+                  <p>Use - Locator, Valuator, Choice</p>
+                  <p>Frame of Reference -  Relative, Absolute (Gyroscopic)</p>
+                  <p>Properties - Position, Motion, Force</p>
+              </div>
+            </div>
+        </details> -->
      </div>
     </div>
     <div class="slide-controls">
