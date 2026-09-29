@@ -124,11 +124,13 @@
       <summary>3. Create and Publish the Git Repository from Github Desktop or VS Code</summary>
       <div class="accordion-body media-stack">
         <div class="h3-detail"></div>
-          <h3>Option 1:Create and Publish the Git Repository from GitHub Desktop</h3>
+          <h3>Create and Publish the Git Repository from GitHub Desktop</h3>
+          <h3><i>Note: This is the best method for beginners. This is ideal for creating Repositories from your original work on your local machine. Once your repository is created, you can publish it to GitHub, and manage the versioning locally or remotely. Then you can download, or "clone" the repository to work on it locally if you are away from your machine, saving updates. When back at your own machine, you can pull the latest changes from the remote repository to keep your local copy up to date.</i></h3>
             <ol>
               <li>Go to Github Desktop on Uni PC, Mac, or install: <a href="https://desktop.github.com/" rel="noopener noreferrer" target="_blank">https://desktop.github.com/</a></li>
               <li>Login to Github Desktop with Github ID</li>
               <li>Click “Create New Repository” on “Get Started” page</li>
+              <p></p>
               <figure class="image-figure gyazo-inline">
                 <figcaption class="image-caption">VS Code Source Control — Initialize Repository.</figcaption>
                 <img alt="preview" loading="lazy" src="images/GithubMacDesktopCreate.png" />
@@ -147,8 +149,17 @@
             </ol>
 
           <h3>Open the Unity project folder or Clone Remote Repository in VS Code</h3>
-          <p>VS Code's Git interface works with the repository on your local Mac. GitHub is the remote copy used for backup and collaboration.</p>   
-            <figure class="image-figure gyazo-inline">
+          <h3><i>Note: VS Code's Git interface works with the repository on your local Mac. GitHub is the remote copy used for backup and collaboration. You can always continue to work in VScode to manage your Git repository and collaborate on your Unity project, but always start with Github Desktop if creating a new project for ease of use and management.</i></h3>
+           <ol>
+            <li>Create a new Repository in Github Desktop.</li>
+            <li>Clone the remote repository if it already exists</li>
+            <li>For name use the exact Unity Project Name.</li>
+            <li>For Local Path, choose the location path to your project on your mac, leaving out the project name.</li>
+            <li>Write a description and click ReadMe to add a note.</li>
+            <li>Under GitIgnore, select Unity.</li>
+            <li>Under License, select None.</li>
+           </ol>
+          <figure class="image-figure gyazo-inline">
               <figcaption class="image-caption">VS Code Source Control — Start Options - Open Folder, Clone Remote Repository.</figcaption>
               <img alt="preview" loading="lazy" src="images/GithubMacVSCodeStart.png" />
               <figcaption class="image-caption">preview (click image to expand).</figcaption>
@@ -158,11 +169,21 @@
               <img alt="preview" loading="lazy" src="images/GithubMacVSCodeGit.png" />
               <figcaption class="image-caption">preview (click image to expand).</figcaption>
             </figure>
+            <p></p>
+            <h3><i>Note: Use the below only if you are working directly in VS Code without starting from GitHub Desktop, for example when accessing a group project</i></h3>
             <ol>
               <li>In VS Code choose <strong>File &gt; Open Folder...</strong> and open the root Unity project folder — the folder containing <code>Assets</code>, <code>Packages</code> and <code>ProjectSettings</code>.</li>
               <li>Open <strong>Source Control</strong> using the branch/source-control icon in the Activity Bar. On macOS you can also use <strong>Control+Shift+G</strong>.</li>
+              <li>Sign into GitHub if prompted, and choose the repository name and visibility.</li>
+              <li>Ensure that your local repository is correctly linked to the remote repository on GitHub.</li>
+              <li>Verify that the repository settings, such as branch protection rules and collaborators, are correctly configured on GitHub.</li>
+            </ol>
+            <p></p>
+            <h3><i>More advanced: If you are starting a new project directly in VS Code, and not using Github Desktop (Not recommended for beginners)....</i></h3>
+            <ol>
+              <li>Open VS Code and navigate to the root folder of your new Unity project.</li>
               <li>Select <strong>Initialize Repository</strong>. This creates the local Git repository.</li>
-              <li>Before the first commit, create a Unity <code>.gitignore</code> in the project root. It must exclude generated Unity folders such as <code>Library</code>, <code>Temp</code>, <code>Logs</code> and <code>obj</code>. Do not commit the Unity <code>Library</code> folder.</li>
+              <li>Before the first commit, if it is missing, create a Unity <code>.gitignore</code> in the project root. It must exclude generated Unity folders such as <code>Library</code>, <code>Temp</code>, <code>Logs</code> and <code>obj</code>. Do not commit the Unity <code>Library</code> folder.</li>
               <li>Review the files shown under <strong>Changes</strong>. Your Unity source assets, <code>Packages</code> and <code>ProjectSettings</code> should be included; generated folders covered by <code>.gitignore</code> should not appear.</li>
               <li>Stage the files with the <strong>+</strong> button, enter a commit message such as <strong>Initial Unity project</strong>, and select <strong>Commit</strong>.</li>
               <li>Select <strong>Publish to GitHub</strong>. Sign into GitHub in the browser when prompted, return to VS Code, choose the repository name and visibility, and publish it.</li>
