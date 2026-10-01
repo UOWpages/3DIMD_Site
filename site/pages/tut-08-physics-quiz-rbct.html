@@ -13,7 +13,7 @@
   <main class="content-area content-page-area" id="main-content">
     <h1 class="page-title">Unity3D Physics Quiz: Rigidbody, Collider &amp; Trigger Matrix (Basic)</h1>
 <section class="section-card">
-  <p class="meta-line">10 random beginner questions from a reusable question pool.</p>
+  <p class="meta-line">10 random beginner questions from a reusable question pool. The answer choices are also shuffled each time.</p>
   <div class="quiz-container">
     <div id="quiz"></div>
     <div class="controls">
@@ -137,14 +137,22 @@
             return String(text).replace(/[&<>"']/g, m => map[m]);
         }
 
-        // Random selection: choose count unique random questions from the pool
-        function pickRandomQuestions(pool, count) {
-            const arr = pool.slice();
-            for (let i = arr.length - 1; i > 0; i--) {
+        // Random selection: choose count unique random questions from the pool, with options shuffled
+        function shuffleArray(items) {
+            const copy = items.slice();
+            for (let i = copy.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
-                [arr[i], arr[j]] = [arr[j], arr[i]];
+                [copy[i], copy[j]] = [copy[j], copy[i]];
             }
-            return arr.slice(0, count);
+            return copy;
+        }
+
+        function pickRandomQuestions(pool, count) {
+            return shuffleArray(pool).slice(0, count).map(q => {
+                const correctText = q.options[q.answer];
+                const options = shuffleArray(q.options);
+                return { ...q, options, answer: options.indexOf(correctText) };
+            });
         }
 
         // selectedQuestions is mutable so Refresh can replace it
