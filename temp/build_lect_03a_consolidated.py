@@ -81,6 +81,88 @@ MOUSE_ORBIT_BODY = """\
         </div>""".split("\n")
 
 
+def nested_embed(label, embed_url, watch_url, title, frame=True):
+    """Nested video-accordion block; frame=False omits the iframe for un-framable sources."""
+    esc = html.escape(title, quote=True)
+    out = [
+        '        <details class="accordion accordion--nested video-accordion">',
+        f"          <summary>{html.escape(label)}</summary>",
+        '          <div class="accordion-body">',
+        '            <article class="embed-card">',
+    ]
+    if frame:
+        out.append(
+            f'              <iframe class="video-embed" src="{html.escape(embed_url, quote=True)}" title="{esc}"'
+            ' loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+        )
+    out += [
+        f'              <p><a href="{html.escape(watch_url, quote=True)}" target="_blank" rel="noopener noreferrer">Open source link</a></p>',
+        "            </article>",
+        "          </div>",
+        "        </details>",
+    ]
+    return out
+
+
+def nested_video(label, vid):
+    return nested_embed(label, f"https://www.youtube.com/embed/{vid}",
+                        f"https://www.youtube.com/watch?v={vid}", label)
+
+
+def nested_site(label, url, frame=True):
+    return nested_embed(label, url, url, label, frame=frame)
+
+
+QUAKE_BODY = (
+    ["        <p>Quake 3 Web (js)</p>"]
+    + nested_site("Link: Quake 3 Web (js) demo", "https://media.tojicode.com/q3bsp/")
+    + [
+        "        <p>Mouse Look - Cursor Lock</p>",
+        "        <p>Mouse Selection  - State Switch from Cursor Lock</p>",
+        "        <p>WASD Keyboard Navigation</p>",
+        "        <p>Keyboard Interaction \u2013 State Changes</p>",
+    ]
+)
+
+# rleonardi.com has an invalid TLS certificate, so it is linked rather than framed.
+CV_BODY = (
+    [
+        "        <p>3DUI Interaction Practical examples - extras</p>",
+        "        <p>Interactive 2D CV</p>",
+    ]
+    + nested_site("Link: Interactive 2D CV", "http://www.rleonardi.com/interactive-resume/", frame=False)
+    + [
+        "        <p>Narrative controlled by Mouse or Keyboard \u2013 Camera timeline</p>",
+        "        <p>2D Diorama/Game Level</p>",
+        "        <p>Collisions/timeline trigger animations</p>",
+        "        <p>Web Links</p>",
+        "        <p>Could be 3D with camera controls, object selection</p>",
+    ]
+)
+
+PRACTICAL_BODY = (
+    [
+        '        <div class="h3-detail">',
+        "          <h3>Practical Examples:</h3>",
+        "        </div>",
+        "        <p>Exploded view</p>",
+    ]
+    + nested_site("Link: Exploded View (paper, PDF)", "https://www.wilmotli.com/pubs/li08exview3D.pdf")
+    + nested_video("Video: Exploded View", "NL2QFLiM_mY")
+    + ["        <p>Exploded View \u2013 Car (Advanced)</p>"]
+    + nested_video("Video: Exploded View \u2013 Car (Advanced)", "_i5RkAxGiwQ")
+    + ["        <p>Diorama Fragments</p>"]
+    + [
+        line
+        for i, vid in enumerate(
+            ["Ty_hqTtvHdI", "5zmqZZshdfs", "U09hwnsUkY8", "iPEfHOCUVMI",
+             "XmTRQml4Js0", "ErqpzWrQHAY", "meieYpHYTVU"], start=1
+        )
+        for line in nested_video(f"Video: Diorama Fragments {i}", vid)
+    ]
+)
+
+
 # new slide: dict(h2=..., sections=[...], cls=optional extra .slide class, empty=True)
 # section: dict(s=summary, t=[(slide, start, end)], img=[(slide, index, width)], raw=[html lines])
 PLAN = [
@@ -89,10 +171,10 @@ PLAN = [
          "video": ("gwYjnWCcw18", "Example of an immersive 3D UI")},
     ]},
     {"h2": "3DUI Interaction Practical Examples", "sections": [
-        {"s": "Quake 3 Web (js)", "t": [(2, 0, 6)]},
+        {"s": "Quake 3 Web (js)", "raw": QUAKE_BODY},
         {"s": "3D Mouse Orbit Example", "raw": MOUSE_ORBIT_BODY},
-        {"s": "Extras — Interactive 2D CV", "t": [(4, 0, 8)]},
-        {"s": "Practical Examples", "t": [(5, 0, 14)]},
+        {"s": "Extras — Interactive 2D CV", "raw": CV_BODY},
+        {"s": "Practical Examples", "raw": PRACTICAL_BODY},
     ]},
     {"h2": "Terminology — IVR, VR/VE, AR", "sections": [
         {"s": "IVR", "t": [(6, 0, 3)]},
