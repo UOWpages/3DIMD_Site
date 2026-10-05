@@ -56,6 +56,67 @@ Keep all future additions normalized, semantic, and compatible with the shared s
 7. Caption wording for Gyazo previews: use "Gyazo preview (click image to expand)."
 8. External links should include `target="_blank"` and `rel="noopener noreferrer"` together when they point off-site.
 
+## Website Cards
+
+Use the existing `.embed-card` styling for website references. Place the card
+inside the relevant existing accordion body; do not add tutorial wrappers or
+change lecture assets just to embed a website. These patterns are for websites,
+not a replacement for the video-specific components above.
+
+### Option 1: Embedded Website With a Fallback Link
+
+Use this when the destination permits iframe embedding. Prefer the provider's
+official embed URL when one is available. Replace both URLs and the iframe title
+with the intended destination and a descriptive name.
+
+```html
+<article class="embed-card">
+  <iframe
+    src="https://example.com/"
+    title="Website presentation"
+    loading="lazy">
+  </iframe>
+  <p>
+    <a href="https://example.com/"
+       target="_blank"
+       rel="noopener noreferrer">
+      Open website in a new tab
+    </a>
+  </p>
+</article>
+```
+
+Keep the fallback link visible even when embedding works. Add iframe permissions
+only when required by the provider; no additional CSS is needed for this pattern.
+Test the iframe on the hosted site, not only from a local file.
+
+### Option 2: Link-Only Website Card
+
+Use this when the destination blocks embedding, requires a normal browser window,
+or has no suitable embed endpoint. Remove the iframe and retain the card and link.
+
+```html
+<article class="embed-card">
+  <p>
+    <a href="https://example.com/"
+       target="_blank"
+       rel="noopener noreferrer">
+      Open website in a new tab
+    </a>
+  </p>
+</article>
+```
+
+A "refused to connect" message can indicate that the destination restricts
+embedding through `X-Frame-Options` or CSP `frame-ancestors`. For example,
+`blaurel.medium.com` returned `X-Frame-Options: SAMEORIGIN`, preventing this
+site from embedding its article. HTML, CSS, iframe permissions, and hosting
+changes on this site cannot override the destination's restriction.
+
+The link-only card is a manual authoring alternative, not an automatic fallback:
+an iframe `load` event does not reliably prove that a cross-origin website
+rendered successfully. Verify the external link independently.
+
 ## QA Checklist
 
 1. No style="..." attributes in generated page HTML.
