@@ -1,0 +1,8 @@
+# Protect your private API keys
+.env
+
+# Double-guard your Python environment from the root
+.venv/
+
+# Block local Node dependencies (if you install any later)
+node_modules/
