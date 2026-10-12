@@ -16,12 +16,17 @@
     <div class="slide active">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
-    <h2>5MMCS001W Lecture 04b</h2>
+    <h2>Access Other GameObjects and Scripts</h2>
     <div class="accordion-scroll">
       <details class="accordion" open>
-        <summary>5MMCS001W Lecture 04b</summary>
+        <summary>Access Other GameObjects and Scripts</summary>
         <div class="accordion-body">
-    <p>C# in Unity and OOP, Triggering Animations, Basic Movement and Input, Leading to Unity UI</p>
+          <div class="h3-detail">
+            <h3>C# in Unity and OOP</h3>
+            <h3>Triggering Animations</h3>
+            <h3>Basic Movement and Input</h3>
+            <h3>Leading to Unity UI</h3>
+          </div>
         </div>
       </details>
     </div>
@@ -757,15 +762,52 @@
 
       const target = slides[1];
       const targetScroll = target?.querySelector('.accordion-scroll');
-      if (!targetScroll || target.dataset.sectionsConsolidated === 'true') return;
+      const targetSection = targetScroll?.querySelector(':scope > .accordion');
+      const targetSummary = targetSection?.querySelector(':scope > summary');
+      const targetBody = targetSection?.querySelector(':scope > .accordion-body');
+      if (!targetScroll || !targetSummary || !targetBody || target.dataset.sectionsConsolidated === 'true') return;
 
       slides.slice(2, 10).forEach((sourceSlide) => {
         sourceSlide.querySelectorAll('.accordion-scroll > .accordion').forEach((section) => {
-          targetScroll.appendChild(section);
+          const sourceBody = section.querySelector(':scope > .accordion-body');
+          if (sourceBody) {
+            while (sourceBody.firstChild) {
+              targetBody.appendChild(sourceBody.firstChild);
+            }
+          }
         });
         sourceSlide.remove();
       });
 
+      targetSummary.textContent = 'Unity Examples – Access to Other Variables, Methods, Game Objects and Scripts';
+      target.dataset.sectionsConsolidated = 'true';
+      slides = Array.from(document.querySelectorAll('.slide'));
+      totalSlides = slides.length;
+    }
+
+    function consolidateAdvancedSections() {
+      if (slides.length < 7 || slides[1]?.dataset.sectionsConsolidated !== 'true') return;
+
+      const target = slides[2];
+      const targetScroll = target?.querySelector('.accordion-scroll');
+      const targetSection = targetScroll?.querySelector(':scope > .accordion');
+      const targetSummary = targetSection?.querySelector(':scope > summary');
+      const targetBody = targetSection?.querySelector(':scope > .accordion-body');
+      if (!targetScroll || !targetSummary || !targetBody || target.dataset.sectionsConsolidated === 'true') return;
+
+      slides.slice(3, 7).forEach((sourceSlide) => {
+        sourceSlide.querySelectorAll('.accordion-scroll > .accordion').forEach((section) => {
+          const sourceBody = section.querySelector(':scope > .accordion-body');
+          if (sourceBody) {
+            while (sourceBody.firstChild) {
+              targetBody.appendChild(sourceBody.firstChild);
+            }
+          }
+        });
+        sourceSlide.remove();
+      });
+
+      targetSummary.textContent = 'Unity Examples Basic to More Advanced';
       target.dataset.sectionsConsolidated = 'true';
       slides = Array.from(document.querySelectorAll('.slide'));
       totalSlides = slides.length;
@@ -802,6 +844,7 @@
     }
 
     consolidateAccessSections();
+    consolidateAdvancedSections();
 
     slides.forEach((slide) => {
       normalizeSlideStructure(slide);

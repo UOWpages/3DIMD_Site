@@ -11,7 +11,6 @@
   const contentShell = document.querySelector(".content-shell");
   let currentPageKey = "home";
   let currentPageLabel = "Home";
-  let currentSlideTitle = "";
   let currentTutorialTitle = "";
   let currentSourcePageKey = "home";
   let currentOverviewTarget = "";
@@ -596,34 +595,7 @@
     prefix.className = "content-meta-prefix";
     prefix.textContent = `${currentPageLabel}:`;
     meta.append(prefix);
-
-    const slideTitle = normalizeText(currentSlideTitle || "");
-    if (!slideTitle) return;
-
-    const spacer = document.createTextNode(" ");
-    const suffix = document.createElement("span");
-    suffix.className = "content-meta-slide";
-    suffix.textContent = slideTitle;
-    meta.append(spacer, suffix);
     fitContentMeta();
-  };
-
-  const setLectureMeta = (slideTitle) => {
-    if (!meta || !isLecturePageKey(currentPageKey)) return;
-    meta.classList.add("content-meta--lecture");
-    const normalizedTitle = normalizeText(slideTitle || "");
-    if (normalizedTitle) {
-      currentSlideTitle = normalizedTitle;
-    }
-    renderLectureMeta();
-  };
-
-  const getActiveLectureSlideTitle = (rootDocument) => {
-    const activeSlide = rootDocument?.querySelector(".slide.active");
-    if (!activeSlide) return "";
-
-    const titleNode = activeSlide.querySelector(".slide-title");
-    return normalizeText(titleNode?.textContent || "");
   };
 
   const getTutorialPageTitle = (rootDocument) => {
@@ -726,7 +698,6 @@
     const { updateUrl = false, replaceUrl = false } = options;
     currentPageKey = "home";
     currentPageLabel = "Home";
-    currentSlideTitle = "";
     currentTutorialTitle = "";
     currentSourcePageKey = "home";
     currentOverviewTarget = "";
@@ -759,7 +730,6 @@
     const label = getLinkLabel(link);
     currentPageKey = pageKey;
     currentPageLabel = getSidebarLabelForPageKey(pageKey) || label;
-    currentSlideTitle = "";
     currentTutorialTitle = "";
     currentSourcePageKey = link.dataset.sourcePage || pageKey;
     currentOverviewTarget = link.dataset.overviewTarget || "";
@@ -907,9 +877,7 @@
       const data = event.data;
       if (event.source !== frame.contentWindow) return;
       if (!data) return;
-      if (data.type === "lecture-slide-title") {
-        setLectureMeta(data.title);
-      } else if (data.type === "tutorial-page-title" && typeof data.title === "string") {
+      if (data.type === "tutorial-page-title" && typeof data.title === "string") {
         setTutorialMeta(data.title);
       }
     });
@@ -963,23 +931,6 @@
         normalizeTutorialPage(rootDocument);
       } catch {
         // Continue even if tutorial layout normalization fails.
-      }
-
-      if (isLecturePageKey(currentPageKey)) {
-        const syncLectureTitle = () => {
-          const activeTitle = getActiveLectureSlideTitle(rootDocument);
-          if (activeTitle) {
-            setLectureMeta(activeTitle);
-            return true;
-          }
-          return false;
-        };
-
-        if (!syncLectureTitle()) {
-          requestAnimationFrame(() => {
-            syncLectureTitle();
-          });
-        }
       }
 
       if (isTutorialPageKey(currentPageKey)) {

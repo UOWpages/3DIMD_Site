@@ -132,29 +132,43 @@
      <p>
       (I've left the scripts in, as they are simple, and the rest may be tricky to set up correctly. Please do type them in though, for muscle memory and comprehension, then try some stretch targets)
      </p>
-      <h3>Code Example: Task 4.1 - Trigger Animations in Animator: AnimatorTrigger</h3>
-       <h3>using System.Collections;</h3>
-       <h3>using System.Collections.Generic;</h3>
-       <h3>using UnityEngine;</h3>
-       <h3>public class AnimatorTrigger : MonoBehaviour</h3>
-       <h3>{</h3>
-       <h3>// Start is called before the first frame update</h3>
-       <h3>void Start()</h3>
-       <h3>{</h3>
-       <h3>}</h3>
-       <h3>// Update is called once per frame</h3>
-       <h3>void Update()</h3>
-       <h3>{</h3>
-       <h3>if (Input.GetKeyDown("1"))</h3>
-       <h3>{</h3>
-       <h3>this.GetComponent&lt;Animator&gt;().Play("AnimX");</h3>
-       <h3>}</h3>
-       <h3>}</h3>
-       <h3>void OnMouseDown()</h3>
-       <h3>{</h3>
-       <h3>this.GetComponent&lt;Animator&gt;().Play("AnimX");</h3>
-       <h3>}</h3>
-       <h3>}</h3>
+     <section class="code-panel" data-code-type="code">
+      <div class="code-panel__chrome">
+       <div class="code-panel__dots">
+        <span class="code-panel__dot"></span>
+        <span class="code-panel__dot"></span>
+        <span class="code-panel__dot"></span>
+       </div>
+       <div class="code-panel__title">Code Example: Task 4.1 - Trigger Animations in Animator: AnimatorTrigger</div>
+      </div>
+      <div class="code-panel__body" role="region" aria-label="AnimatorTrigger code example">
+       <div class="code-panel__line code-panel__line--statement">using System.Collections;</div>
+       <div class="code-panel__line code-panel__line--statement">using System.Collections.Generic;</div>
+       <div class="code-panel__line code-panel__line--statement">using UnityEngine;</div>
+       <div class="code-panel__line">&nbsp;</div>
+       <div class="code-panel__line code-panel__line--statement">public class AnimatorTrigger : MonoBehaviour</div>
+       <div class="code-panel__line code-panel__line--brace">{</div>
+       <div class="code-panel__line code-panel__line--comment indent-level-1">// Start is called before the first frame update</div>
+       <div class="code-panel__line indent-level-1">void Start()</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+       <div class="code-panel__line">&nbsp;</div>
+       <div class="code-panel__line code-panel__line--comment indent-level-1">// Update is called once per frame</div>
+       <div class="code-panel__line indent-level-1">void Update()</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+       <div class="code-panel__line indent-level-2">if (Input.GetKeyDown("1"))</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-2">{</div>
+       <div class="code-panel__line indent-level-3">this.GetComponent&lt;Animator&gt;().Play("AnimX");</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+       <div class="code-panel__line">&nbsp;</div>
+       <div class="code-panel__line indent-level-1">void OnMouseDown()</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+       <div class="code-panel__line indent-level-2">this.GetComponent&lt;Animator&gt;().Play("AnimX");</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+       <div class="code-panel__line code-panel__line--brace">}</div>
+      </div>
+     </section>
        <h3>Stretch Tasks:</h3>
        <ol>
         <li>Using New Input System Key access</li>
@@ -232,7 +246,7 @@
      <p>
       (I've left the scripts in, as they are simple, and the rest may be tricky to set up correctly. Please do type them in though, or muscle memory and comprehension, then try some stretch targets)
      </p>
-       <h3>Pseudo Code: Task 4.2 -Brick Array anims controlled by other bricks: BrickTriggerExplode</h3>
+       <h3>Code Example: Task 4.2 -Brick Array anims controlled by other bricks: BrickTriggerExplode</h3>
        <h3>BrickTriggerExplode</h3>
        <h3>using System.Collections;</h3>
        <h3>using System.Collections.Generic;</h3>
