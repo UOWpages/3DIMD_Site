@@ -387,7 +387,11 @@
   };
 
   const isLecturePageKey = (pageKey) => /^pages\/lect-[^/]+\.html$/i.test(normalizePageKey(pageKey || ""));
-  const isTutorialPageKey = (pageKey) => /^pages\/tut-[^/]+\.html$/i.test(normalizePageKey(pageKey || ""));
+  const isTutorialPageKey = (pageKey) => {
+    const normalizedKey = normalizePageKey(pageKey || "");
+    return /^pages\/tut-[^/]+\.html$/i.test(normalizedKey) ||
+      normalizedKey === "pages/downloads.html";
+  };
   const isOverviewPageKey = (pageKey) => /^pages\/overview-[^/]+\.html$/i.test(normalizePageKey(pageKey || ""));
 
   const getNavGroupForPageKey = (pageKey) => {
@@ -901,9 +905,13 @@
   if (frame) {
     window.addEventListener("message", (event) => {
       const data = event.data;
-      if (!data || data.type !== "lecture-slide-title") return;
       if (event.source !== frame.contentWindow) return;
-      setLectureMeta(data.title);
+      if (!data) return;
+      if (data.type === "lecture-slide-title") {
+        setLectureMeta(data.title);
+      } else if (data.type === "tutorial-page-title" && typeof data.title === "string") {
+        setTutorialMeta(data.title);
+      }
     });
 
     frame.addEventListener("load", () => {
@@ -1025,6 +1033,14 @@
   enableVideoPlaceholders(document);
   enableImageExpand(document);
   normalizeTutorialPage(document);
+  if (window.parent !== window) {
+    const tutorialTitle = normalizeText(
+      document.querySelector(".content-page-area .page-title")?.textContent || ""
+    );
+    if (tutorialTitle) {
+      window.parent.postMessage({ type: "tutorial-page-title", title: tutorialTitle }, "*");
+    }
+  }
   if (frame && home) {
     restoreActiveState();
   }
