@@ -167,7 +167,7 @@ Step 2 — Polish pass (produces the final lect-01a/01b visual/interaction style
    already-wrapped/already-accordion-ized content.
 4. Manual pass — embed video links: after accordionizing, find any bare video URL
    paragraphs left in an accordion body and replace them in place with embedded
-   videos wrapped in nested collapsible `video-accordion` sections. Each video gets
+   videos wrapped in nested collapsible `embed-accordion` sections. Each video gets
    its own collapsible accordion for a clean, browsable presentation. Keep other
    surrounding `<p>` lines untouched; only the raw video URL lines are replaced.
    Number videos sequentially per slide when a slide has more than one.
@@ -175,7 +175,7 @@ Step 2 — Polish pass (produces the final lect-01a/01b visual/interaction style
    **All video types** (YouTube, youtu.be, Panopto, Vimeo, etc.) use this nested
    collapsible pattern:
    ```html
-   <details class="accordion accordion--nested video-accordion">
+   <details class="accordion accordion--nested embed-accordion">
      <summary>Video: <Description or Context from Nearby Text></summary>
      <div class="accordion-body">
        <article class="embed-card">

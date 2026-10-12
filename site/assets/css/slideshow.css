@@ -511,6 +511,11 @@ body.lecture-fullbleed .slide-content .code-panel * {
   box-shadow: none;
 }
 
+.slide-content .slide-image-column img.mvc-diagram {
+  width: auto;
+  background-color: #fff2b3;
+}
+
 .slide.slide--image-large .slide-text-column:empty {
   display: none;
 }
@@ -565,6 +570,7 @@ body.lecture-fullbleed .slide-content .code-panel * {
   display: block;
 }
 
+.slide-content .embed-accordion .embed-card,
 .slide-content .video-accordion .embed-card {
   margin: 0;
   border: 0;
@@ -574,6 +580,8 @@ body.lecture-fullbleed .slide-content .code-panel * {
   padding: 0;
 }
 
+.slide-content .embed-accordion .video-embed,
+.slide-content .embed-accordion .panopto-embed,
 .slide-content .video-accordion .video-embed,
 .slide-content .video-accordion .panopto-embed {
   border: 3px solid var(--line);

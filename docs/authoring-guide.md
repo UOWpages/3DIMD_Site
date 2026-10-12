@@ -23,7 +23,8 @@ Keep all future additions normalized, semantic, and compatible with the shared s
 
 - Notes: note, note--important, note--tip
 - Accordions: accordion with summary and accordion-body
-- Embeds: video-embed for YouTube/Vimeo, panopto-embed for Panopto
+- Embed accordions: embed-accordion
+- Embedded content: video-embed for YouTube/Vimeo, panopto-embed for Panopto, website-embed for websites
 - Media links: media-list and link-card
 - Images: image-figure with image-caption
 
@@ -38,17 +39,17 @@ Keep all future additions normalized, semantic, and compatible with the shared s
 ## Media Handling Rules
 
 1. **YouTube/youtu.be links:** convert to an embed iframe wrapped in a nested
-   collapsible `<details class="accordion accordion--nested video-accordion">` section
+   collapsible `<details class="accordion accordion--nested embed-accordion">` section
    with `class="video-embed"` on the iframe, `loading="lazy"` and `allowfullscreen` attributes.
    Each video gets its own collapsible accordion with a descriptive summary label.
-2. **Panopto links:** convert to an embed iframe with the same nested video-accordion
+2. **Panopto links:** convert to an embed iframe with the same nested embed-accordion
    collapsible pattern, using `class="panopto-embed"` on the iframe, with
    `/Panopto/Pages/Embed.aspx?id=<UUID>&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all`
    embed URL and `/Viewer.aspx?id=<UUID>` fallback watch link.
    Student authentication may require opening the Viewer fallback in a normal or
    incognito browser window.
 3. **Other video hosts (Vimeo, etc.):** use the host's standard embed URL with the same
-   nested video-accordion collapsible pattern, `class="video-embed"`, `loading="lazy"`,
+   nested embed-accordion collapsible pattern, `class="video-embed"`, `loading="lazy"`,
    and `allowfullscreen` attributes.
 4. Other media links: use link-card entries in a media-list.
 5. Gyazo links: use preview image when possible, with a clickable fallback link.
@@ -58,10 +59,12 @@ Keep all future additions normalized, semantic, and compatible with the shared s
 
 ## Website Cards
 
-Use the existing `.embed-card` styling for website references. Place the card
-inside the relevant existing accordion body; do not add tutorial wrappers or
-change lecture assets just to embed a website. These patterns are for websites,
-not a replacement for the video-specific components above.
+Use the existing `.embed-card` styling for website references. Mark website
+iframes with `class="website-embed"` and place the card inside a nested
+`details.accordion.accordion--nested.embed-accordion` section. Do not add
+tutorial wrappers or change lecture assets just to embed a website. These
+patterns are for websites, not a replacement for the video-specific iframe
+classes above.
 
 ### Option 1: Embedded Website With a Fallback Link
 
@@ -70,20 +73,26 @@ official embed URL when one is available. Replace both URLs and the iframe title
 with the intended destination and a descriptive name.
 
 ```html
-<article class="embed-card">
-  <iframe
-    src="https://example.com/"
-    title="Website presentation"
-    loading="lazy">
-  </iframe>
-  <p>
-    <a href="https://example.com/"
-       target="_blank"
-       rel="noopener noreferrer">
-      Open website in a new tab
-    </a>
-  </p>
-</article>
+<details class="accordion accordion--nested embed-accordion">
+  <summary>Website: Example</summary>
+  <div class="accordion-body">
+    <article class="embed-card">
+      <iframe
+        class="website-embed"
+        src="https://example.com/"
+        title="Example website"
+        loading="lazy">
+      </iframe>
+      <p>
+        <a href="https://example.com/"
+           target="_blank"
+           rel="noopener noreferrer">
+          Open website in a new tab
+        </a>
+      </p>
+    </article>
+  </div>
+</details>
 ```
 
 Keep the fallback link visible even when embedding works. Add iframe permissions
@@ -96,15 +105,20 @@ Use this when the destination blocks embedding, requires a normal browser window
 or has no suitable embed endpoint. Remove the iframe and retain the card and link.
 
 ```html
-<article class="embed-card">
-  <p>
-    <a href="https://example.com/"
-       target="_blank"
-       rel="noopener noreferrer">
-      Open website in a new tab
-    </a>
-  </p>
-</article>
+<details class="accordion accordion--nested embed-accordion">
+  <summary>Website: Example</summary>
+  <div class="accordion-body">
+    <article class="embed-card">
+      <p>
+        <a href="https://example.com/"
+           target="_blank"
+           rel="noopener noreferrer">
+          Open website in a new tab
+        </a>
+      </p>
+    </article>
+  </div>
+</details>
 ```
 
 A "refused to connect" message can indicate that the destination restricts

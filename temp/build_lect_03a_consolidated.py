@@ -35,7 +35,7 @@ def image(num, idx):
 
 MOUSE_ORBIT_BODY = """\
         <p>3D Mouse Orbit Examples</p>
-        <details class="accordion accordion--nested video-accordion">
+        <details class="accordion accordion--nested embed-accordion">
           <summary>Video: 3D Mouse Orbit Parallax Menu</summary>
           <div class="accordion-body">
             <article class="embed-card">
@@ -44,16 +44,16 @@ MOUSE_ORBIT_BODY = """\
             </article>
           </div>
         </details>
-        <details class="accordion accordion--nested video-accordion">
+        <details class="accordion accordion--nested embed-accordion">
           <summary>Link: 3D Mouse Orbit Trading Card</summary>
           <div class="accordion-body">
             <article class="embed-card">
-              <iframe class="video-embed" src="https://ameye.dev/notes/holographic-card-shader/" title="Holographic Card Shader" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe class="website-embed" src="https://ameye.dev/notes/holographic-card-shader/" title="Holographic Card Shader" loading="lazy"></iframe>
               <p><a href="https://ameye.dev/notes/holographic-card-shader/" target="_blank" rel="noopener noreferrer">Open source link</a></p>
             </article>
           </div>
         </details>
-        <details class="accordion accordion--nested video-accordion">
+        <details class="accordion accordion--nested embed-accordion">
           <summary>Video: 3D Mouse Object Follow Cursor</summary>
           <div class="accordion-body">
             <article class="embed-card">
@@ -81,20 +81,23 @@ MOUSE_ORBIT_BODY = """\
         </div>""".split("\n")
 
 
-def nested_embed(label, embed_url, watch_url, title, frame=True):
-    """Nested video-accordion block; frame=False omits the iframe for un-framable sources."""
+def nested_embed(label, embed_url, watch_url, title, frame=True, iframe_class="video-embed"):
+    """Nested embed-accordion block; frame=False omits the iframe for un-framable sources."""
     esc = html.escape(title, quote=True)
     out = [
-        '        <details class="accordion accordion--nested video-accordion">',
+        '        <details class="accordion accordion--nested embed-accordion">',
         f"          <summary>{html.escape(label)}</summary>",
         '          <div class="accordion-body">',
         '            <article class="embed-card">',
     ]
     if frame:
-        out.append(
-            f'              <iframe class="video-embed" src="{html.escape(embed_url, quote=True)}" title="{esc}"'
-            ' loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+        iframe = (
+            f'              <iframe class="{iframe_class}" src="{html.escape(embed_url, quote=True)}" title="{esc}"'
+            ' loading="lazy"'
         )
+        if iframe_class == "video-embed":
+            iframe += ' referrerpolicy="strict-origin-when-cross-origin" allowfullscreen'
+        out.append(iframe + "></iframe>")
     out += [
         f'              <p><a href="{html.escape(watch_url, quote=True)}" target="_blank" rel="noopener noreferrer">Open source link</a></p>',
         "            </article>",
@@ -110,7 +113,7 @@ def nested_video(label, vid):
 
 
 def nested_site(label, url, frame=True):
-    return nested_embed(label, url, url, label, frame=frame)
+    return nested_embed(label, url, url, label, frame=frame, iframe_class="website-embed")
 
 
 QUAKE_BODY = (
@@ -397,8 +400,8 @@ doc = [
     '  <link rel="preconnect" href="https://fonts.googleapis.com" />',
     '  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />',
     '  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />',
-    '  <link rel="stylesheet" href="../assets/css/site.css?v=20261001a" />',
-    '  <link rel="stylesheet" href="../assets/css/slideshow.css?v=20261001a" />',
+    '  <link rel="stylesheet" href="../assets/css/site.css?v=20261007a" />',
+    '  <link rel="stylesheet" href="../assets/css/slideshow.css?v=20261007a" />',
     "</head>",
     '<body class="lecture-fullbleed">',
     '  <div class="slideshow-container">',

@@ -245,8 +245,8 @@ html_template = """<!DOCTYPE html>
   <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />
   <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />
   <link href=\"https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap\" rel=\"stylesheet\" />
-    <link rel=\"stylesheet\" href=\"../assets/css/site.css?v=20260909b\" />
-      <link rel=\"stylesheet\" href=\"../assets/css/slideshow.css?v=20260909b\" />
+    <link rel=\"stylesheet\" href=\"../assets/css/site.css?v=20261007a\" />
+      <link rel=\"stylesheet\" href=\"../assets/css/slideshow.css?v=20261007a\" />
 </head>
 <body class=\"__BODY_CLASS__\">
   <div class=\"slideshow-container\">
@@ -402,7 +402,7 @@ html_template += """  </div>
           ? '<p class="video-auth-note">Student Panopto login may be required. If the embedded player does not refresh after sign-in, open the source link in a new or incognito window.</p>'
           : '';
         const details = document.createElement('details');
-        details.className = 'accordion accordion--nested video-accordion';
+        details.className = 'accordion accordion--nested embed-accordion';
         details.innerHTML = `
           <summary>${context || 'Video'}</summary>
           <div class="accordion-body">

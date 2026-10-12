@@ -608,6 +608,7 @@ body.content-page .page-title {
   padding: 0.6rem;
 }
 
+.content-page-area .embed-accordion .accordion-body,
 .content-page-area .video-accordion .accordion-body {
   padding: 0.7rem 0.8rem 0.85rem;
 }
@@ -903,6 +904,7 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p:empty::befo
   gap: 0.55rem;
 }
 
+.embed-accordion .embed-card,
 .video-accordion .embed-card {
   margin: 0;
   border: 0;
@@ -912,6 +914,7 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p:empty::befo
   padding: 0;
 }
 
+.embed-accordion,
 .video-accordion {
   margin: 0.85rem 0;
   border: 3px solid var(--line);
@@ -921,6 +924,7 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p:empty::befo
   overflow: hidden;
 }
 
+.embed-accordion > summary,
 .video-accordion > summary {
   border: 0;
   border-bottom: 2px solid var(--line);
@@ -933,10 +937,12 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p:empty::befo
   text-transform: uppercase;
 }
 
+.embed-accordion > summary::before,
 .video-accordion > summary::before {
   border-left-color: #111111;
 }
 
+.embed-accordion > summary::after,
 .video-accordion > summary::after {
   content: "";
   width: 0.78rem;
@@ -952,12 +958,15 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p:empty::befo
     -2.3rem 0 0 0.12rem #111111;
 }
 
+.embed-accordion .accordion-body,
 .video-accordion .accordion-body {
   border-top: 0;
   padding: 0.7rem 0.8rem 0.85rem;
   background: #ffffff;
 }
 
+.embed-accordion .panopto-embed,
+.embed-accordion .video-embed,
 .video-accordion .panopto-embed,
 .video-accordion .video-embed {
   border: 3px solid var(--line);
@@ -1000,6 +1009,10 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p:empty::befo
   border: 2px solid var(--line);
   border-radius: 8px;
   background: #f1f5f9;
+}
+
+.website-embed {
+  aspect-ratio: auto;
 }
 
 .video-frame-wrap {
@@ -1554,6 +1567,7 @@ body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p:empty::befo
 
   .accordion > summary,
   .accordion--nested > summary,
+  .embed-accordion > summary,
   .video-accordion > summary {
     padding: 0.38rem 0.75rem;
     font-size: clamp(0.95rem, 1.4vw + 0.35rem, 1.2rem);
@@ -2022,4 +2036,3 @@ body.overview-page .content-page-area .accordion > .accordion-body > .accordion-
     max-width: 450px;
   }
 } */
-

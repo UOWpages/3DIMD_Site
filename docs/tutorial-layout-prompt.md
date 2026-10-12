@@ -17,7 +17,7 @@ Before finishing, report PASS/FAIL for:
 - Content wrapper
 - Separate Video Resources accordion
 - Raw video links left unembedded
-- Raw article.embed-card outside nested video accordions
+- Raw article.embed-card outside nested embed accordions
 - Pseudo-code rendered as pre/code or markdown fences
 - Pseudo-code styling matches Tut 00 01 line-by-line h3/p
 - Pseudo-code panel is not wrapped in a collapsible details/summary accordion
@@ -51,9 +51,9 @@ Follow these rules exactly:
 2b. When a page includes Core Principles content, place that content in its own top-level `details.accordion` section.
 3. Do not add a `Content` wrapper, a nested `Content` section, or any extra `section-card` wrapper around the page body.
 4. Keep nested headings and ordered lists structured so numbering renders naturally.
-5. When a video link appears in the content, replace it at that exact content location with the exact Tut 00 01 video component pattern: a nested `details.accordion.accordion--nested.video-accordion`, with the embed inside its `accordion-body`.
+5. When a video link appears in the content, replace it at that exact content location with the exact Tut 00 01 embed component pattern: a nested `details.accordion.accordion--nested.embed-accordion`, with the embed inside its `accordion-body`.
 6. Apply that same exact nested video component pattern to both Panopto links and YouTube links.
-7. Do not place a raw `article.embed-card` directly in the page flow; it must sit inside the nested video accordion component.
+7. Do not place a raw `article.embed-card` directly in the page flow; it must sit inside the nested embed accordion component.
 8. Do not create a separate Video Resources block if the videos already appear in their content locations.
 9. Keep only page-specific content and links; remove duplicate media listings or redundant wrappers.
 10. For pseudo-code content, match Tut 00 01 style exactly: line-by-line `h3`/`p` pseudo-code formatting, not Markdown code fences and not `pre`/`code` blocks.
@@ -81,7 +81,7 @@ Before finishing, run this mandatory PASS/FAIL checklist and report each line ex
 - Major numbered task sections are present as top-level accordions where applicable: PASS/FAIL
 - Separate Video Resources accordion: PASS/FAIL
 - Raw video links left unembedded: PASS/FAIL
-- Raw `article.embed-card` outside nested video accordions: PASS/FAIL
+- Raw `article.embed-card` outside nested embed accordions: PASS/FAIL
 - Pseudo-code rendered as `pre`/`code` or Markdown fences: PASS/FAIL
 - Pseudo-code styling matches Tut 00 01 line-by-line `h3`/`p`: PASS/FAIL
 - Pseudo-code panel is not wrapped in a collapsible `details`/`summary` accordion: PASS/FAIL

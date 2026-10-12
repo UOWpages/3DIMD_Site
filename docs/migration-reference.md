@@ -28,10 +28,15 @@
 - Note/callout: note, note--important, note--tip
 - Section card: section-card
 - Accordion: accordion, accordion-body
+- Embed accordion: embed-accordion
 - Video embed: video-embed
 - Panopto embed: panopto-embed
+- Website embed: website-embed
 - Image figure and caption: image-figure, image-caption
 - Link card and media list: link-card, media-list
+
+Use `embed-accordion` for new collapsible video or website embeds. The legacy
+`video-accordion` class remains supported for older pages during migration.
 
 ## Content Inventory
 

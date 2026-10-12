@@ -804,7 +804,7 @@ function Convert-MediaToHtml {
       $embed = Escape-Html $video.Embed
       $source = Escape-Html $video.Source
 
-      $html.Add('<details class="accordion accordion--nested video-accordion">')
+      $html.Add('<details class="accordion accordion--nested embed-accordion">')
       $html.Add(('<summary>Video {0}</summary>' -f $videoIndex))
       $html.Add('<div class="accordion-body">')
       $html.Add('<article class="embed-card">')
@@ -920,7 +920,7 @@ function Build-ShellPage {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="${StylesheetPath}?v=20260805d" />
+  <link rel="stylesheet" href="${StylesheetPath}?v=20261007a" />
 </head>
 <body>
   <header class="module-header">
@@ -966,7 +966,7 @@ function Build-ContentPage {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="${StylesheetPath}?v=20260805l" />
+  <link rel="stylesheet" href="${StylesheetPath}?v=20261007a" />
 </head>
 <body class="content-page">
   <main class="content-area content-page-area" id="main-content">
@@ -1549,7 +1549,8 @@ Keep all future additions normalized, semantic, and compatible with the shared s
 
 - Notes: note, note--important, note--tip
 - Accordions: accordion with summary and accordion-body
-- Embeds: video-embed for YouTube, panopto-embed for Panopto
+- Embed accordions: embed-accordion
+- Embeds: video-embed for YouTube, panopto-embed for Panopto, website-embed for websites
 - Media links: media-list and link-card
 - Images: image-figure with image-caption
 

@@ -113,7 +113,7 @@ Release gate policy:
 2. Any accepted exception must be documented with rationale.
 
 ## 9. Common Failure Patterns and Fix Guidance
-1. Incorrect video embedding structure: replace with canonical nested video accordion component in-place.
+1. Incorrect video or website embedding structure: replace with the canonical nested embed accordion component in-place.
 2. Invalid nested list semantics: reattach nested ordered lists under correct parent list item.
 3. Pseudo-code rendered in forbidden tags: replace with canonical line-by-line pseudo layout.
 3a. Pseudo-code wrapped in a collapsible details/summary accordion: unwrap it so the panel renders inline, appending the wrapper's section name to the trigger heading if meaningful.

@@ -72,7 +72,7 @@ Forbidden structure patterns:
    logoScreen.cs (attached to logo screen plane, which is child of camera)`).
 
 ### 4.4 Video and Embed Contract
-1. Video links in content must be converted using the canonical nested video accordion component.
+1. Video and website embeds in content must use the canonical nested embed accordion component (`embed-accordion`).
 2. Raw media cards must not appear outside the approved nested video wrapper.
 3. Avoid duplicate video or media blocks.
 
@@ -117,7 +117,7 @@ Report every line as PASS/FAIL:
 2. Major numbered task sections are top-level accordions where applicable.
 3. No separate video resources block when videos are in context.
 4. No raw unembedded video links where embedding is required.
-5. No raw media cards outside nested video accordion wrappers.
+5. No raw media cards outside nested embed accordion wrappers.
 6. Pseudo-code is not rendered as pre/code or markdown fences.
 7. Pseudo-code visual style matches canonical line-by-line pattern.
 7a. Pseudo-code panels are not wrapped in a collapsible details/summary accordion.
