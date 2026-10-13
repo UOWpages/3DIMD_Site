@@ -384,23 +384,26 @@
       <details class="accordion">
         <summary>1980s on…</summary>
         <div class="accordion-body">
-        <p>Tracking and Mocap</p>
-        <p>Computer vision</p>
-        <p>Haptics</p>
-        <p>HMDs – Stereoscopy, FOV, FOR, Resolution and Refresh rate improved</p>
+          <div class="h3-detail">
+          <p>Tracking and Mocap</p>
+          <p>Computer vision</p>
+          <p>Haptics</p>
+          <p>HMDs – Stereoscopy, FOV, FOR, Resolution and Refresh rate improved</p>
         </div>
       </details>
       <details class="accordion">
         <summary>1990s on…</summary>
         <div class="accordion-body">
         <div class="accordion-content-images-below">
-          <p>Web Browsers – VRML</p>
-          <p>Games – PC Graphics cards and GPUs drove development</p>
-          <p>Commercial and Military flight simulators</p>
-          <p>Augmented Reality from 2000 onwards</p>
-          <p>Mobile processor development</p>
-          <p>Smart Phone/ Tablet development - GPS, WiFi, Touch Controls, Front and Back mounted cameras, high speed processors</p>
-          <p>Arcade VR</p>
+          <div class="h3-detail">
+            <p>Web Browsers – VRML</p>
+            <p>Games – PC Graphics cards and GPUs drove development</p>
+            <p>Commercial and Military flight simulators</p>
+            <p>Augmented Reality from 2000 onwards</p>
+            <p>Mobile processor development</p>
+            <p>Smart Phone/ Tablet development - GPS, WiFi, Touch Controls, Front and Back mounted cameras, high speed processors</p>
+            <p>Arcade VR</p>
+          </div>
           <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
             <img src="images/lect-03a-3DUI-theory-practice_slide14_image0.gif" class="accordion-image" alt="Lecture illustration" style="--accordion-image-width: 48%;" />
             <img src="images/lect-03a-3DUI-theory-practice_slide14_image1.jpeg" class="accordion-image" alt="Lecture illustration" style="--accordion-image-width: 48%;" />
@@ -412,11 +415,13 @@
         <summary>2000s on…</summary>
         <div class="accordion-body">
         <div class="accordion-content-images-below">
-          <p>Commercial VR</p>
-          <p>Spatial Games Controllers</p>
-          <p>Wii</p>
-          <p>Sony eyeToy</p>
-          <p>Kinect</p>
+          <div class="h3-detail">
+            <p>Commercial VR</p>
+            <p>Spatial Games Controllers</p>
+            <p>Wii</p>
+            <p>Sony eyeToy</p>
+            <p>Kinect</p>
+          </div>
           <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
             <img src="images/lect-03a-3DUI-theory-practice_slide15_image0.jpeg" class="accordion-image" alt="Lecture illustration" style="--accordion-image-width: 48%;" />
             <img src="images/lect-03a-3DUI-theory-practice_slide15_image1.jpeg" class="accordion-image" alt="Lecture illustration" style="--accordion-image-width: 48%;" />
@@ -473,20 +478,22 @@
         <summary>3D Motion Tracking</summary>
         <div class="accordion-body">
         <div class="accordion-content-images-below">
-          <p>3D Motion Tracking – Input Devices</p>
-          <p>Razer Hydra – facebook VR</p>
-          <p>Haptic Pen - Botox</p>
-          <p>Magnetic sensors</p>
-          <p>3D Mouse - 3D Spacemouse – 6dof, no tracking</p>
-          <p>3D Motion Capture – Full Body or Part Body</p>
-          <p>Waldo</p>
-          <p>Gloves</p>
-          <p>Synertial</p>
-          <p>Cyberglove</p>
-          <p>Haptic Body Device</p>
-          <p>Cyber grasp</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-03a-3DUI-theory-practice_slide17_image0.jpg" class="accordion-image" alt="Lecture illustration" style="--accordion-image-width: 100%;" />
+          <div class="h3-detail">
+            <h3>3D Motion Tracking – Input Devices</h3>
+              <p>Razer Hydra – facebook VR</p>
+              <p>Haptic Pen - Botox</p>
+              <p>Magnetic sensors</p>
+            <h3>3D Mouse - 3D Spacemouse – 6dof, no tracking</h3>
+            <h3>3D Motion Capture – Full Body or Part Body</h3>
+              <p>Waldo</p>
+              <p>Gloves</p>
+              <p>Synertial</p>
+              <p>Cyberglove</p>
+              <p>Haptic Body Device</p>
+              <p>Cyber grasp</p>
+            <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 70%;">
+              <img src="images/lect-03a-3DUI-theory-practice_slide17_image0.jpg" class="accordion-image" alt="Lecture illustration" style="--accordion-image-width: 100%;" />
+            </div>
           </div>
         </div>
         </div>
@@ -1244,6 +1251,24 @@
       });
     }
 
+    function ensureVideoAccordions(slide) {
+      slide.querySelectorAll('iframe.video-embed').forEach((frame) => {
+        if (frame.closest('details.embed-accordion')) return;
+
+        const content = frame.closest('article.embed-card') || frame;
+        const details = document.createElement('details');
+        details.className = 'accordion accordion--nested embed-accordion';
+        const summary = document.createElement('summary');
+        summary.textContent = frame.title || 'Video';
+        const body = document.createElement('div');
+        body.className = 'accordion-body';
+
+        content.before(details);
+        details.append(summary, body);
+        body.appendChild(content);
+      });
+    }
+
     function enhanceLectureImageLayouts(slide) {
       slide.querySelectorAll('.accordion-body').forEach((body) => {
         const images = Array.from(body.children).filter((child) => child.tagName === 'IMG');
@@ -1441,6 +1466,7 @@
         convertLegacySlideToAccordion(slide);
       }
       enhanceLectureVideos(slide);
+      ensureVideoAccordions(slide);
       enhanceLectureImageLayouts(slide);
       linkifyText(slide.querySelector('.slide-content') || slide);
     });
