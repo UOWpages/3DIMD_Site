@@ -1016,8 +1016,8 @@
     }
 
     let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const totalSlides = slides.length;
+    let slides = document.querySelectorAll('.slide');
+    let totalSlides = slides.length;
 
     function normalizeSlideStructure(slide) {
       if (slide.querySelector('.slide-frame')) return;
@@ -1119,9 +1119,305 @@
           else textColumn.appendChild(child);
         });
 
+        if (images.length === 1) {
+          layout.style.gridTemplateColumns = 'minmax(0, 1fr) minmax(320px, 1.2fr)';
+          imageColumn.style.gridTemplateColumns = 'minmax(0, 1fr)';
+          images[0].style.maxHeight = '70vh';
+          images[0].classList.add('image-expandable');
+        }
+
         layout.append(textColumn, imageColumn);
         body.appendChild(layout);
       });
+    }
+
+    function wrapSectionInH3Detail(section, title) {
+      const body = section.querySelector(':scope > .accordion-body');
+      if (!body || body.querySelector(':scope > .h3-detail')) return;
+
+      const detail = document.createElement('div');
+      detail.className = 'h3-detail';
+      const heading = document.createElement('h3');
+      heading.textContent = title;
+      detail.appendChild(heading);
+      while (body.firstChild) {
+        detail.appendChild(body.firstChild);
+      }
+      body.appendChild(detail);
+    }
+
+    function groupGameHudContent(section) {
+      const body = section.querySelector(':scope > .accordion-body');
+      if (!body) return;
+
+      const labels = new Set(['Readouts', 'Health Bar', 'Timer', 'Collection Bar', 'Score/Info']);
+      const children = Array.from(body.children);
+      const groups = [];
+
+      children.forEach((child, index) => {
+        if (child.tagName === 'P' && labels.has(child.textContent.trim())) {
+          groups.push({ label: child.textContent.trim(), start: index });
+        }
+      });
+
+      groups.forEach((group, index) => {
+        const nextGroup = groups[index + 1];
+        const end = nextGroup ? nextGroup.start : children.length;
+        const detail = document.createElement('div');
+        detail.className = 'h3-detail';
+        const heading = document.createElement('h3');
+        heading.textContent = group.label;
+        detail.appendChild(heading);
+        const marker = children[group.start];
+        marker.replaceWith(detail);
+        for (let childIndex = group.start + 1; childIndex < end; childIndex += 1) {
+          detail.appendChild(children[childIndex]);
+        }
+      });
+    }
+
+    function replaceNoorReferenceLinks() {
+      const references = {
+        4: {
+          url: 'https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDlfyn-TwZlSrtdyrZwVWk6AaUZfBaI8mAqxAwrV2yWUY0?e=BPtDrb',
+          label: 'Noorcon Inc. - Unity 3D Game Programming Part 4 - Vahe Karamian (PDF)'
+        },
+        6: {
+          url: 'https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDL7ziFEPxRRbOrjE77YOwsAYFjqNQw-kV8MTRphxhgToA?e=YwNsEk',
+          label: 'Noorcon Inc. - Unity 3D Game Programming Part 6 - Vahe Karamian (PDF)'
+        },
+        9: {
+          url: 'https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDyd8ffCVnBRZq2D95pOVReAVhNyLORYnrS7k9CuQzQYW8?e=oR4KtY',
+          label: 'Noorcon Inc. - Unity 3D Game Programming Part 9 - Vahe Karamian (PDF)'
+        }
+      };
+
+      document.querySelectorAll('a[href*="noorcon.com"]').forEach((link) => {
+        const match = link.href.match(/Part_(4|6|9)\.html$/i);
+        const reference = match && references[match[1]];
+        if (!reference) {
+          throw new Error(`No replacement PDF was provided for Noorcon link: ${link.href}`);
+        }
+        link.href = reference.url;
+        link.textContent = reference.label;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+      });
+    }
+
+    function consolidateLectureSlides() {
+      const sourceSlides = Array.from(slides);
+      const groups = [
+        { title: 'Unity Setup and Troubleshooting', slides: [0, 1] },
+        { title: 'Unity Input Manager', slides: [2, 3, 4, 5] },
+        { title: 'Movement and Animator Scripting', slides: [6, 7] },
+        { title: 'Unity UI Architecture', slides: [8, 9, 10, 11, 12, 13, 14, 15] },
+        { title: 'Core UI Tutorials', slides: [16, 17, 18, 19] },
+        { title: 'Additional UI Tutorials', slides: [20, 21] },
+        { title: 'UI Examples and References', slides: [22, 23, 24, 25] }
+      ];
+      const h3DetailTitles = {
+        '2:1': 'Input Sources and the Input Manager',
+        '10:0': 'Canvas, Render Modes and UI Hierarchy',
+        '11:0': 'Event System and Input Modules',
+        '12:0': 'UI Events and Event Triggers',
+        '13:0': 'Text UI Elements and Readouts',
+        '14:0': 'Buttons and Interaction',
+        '15:0': 'Unity UI Architecture Reference',
+        '15:1': 'HUD and Button Basics'
+      };
+      const subsectionTitles = {
+        0: ['3D Dairy Plant Example'],
+        1: ['Troubleshooting'],
+        2: ['Input Overview', 'Input Sources'],
+        3: ['Input Manager Settings'],
+        4: ['Horizontal Axis Properties'],
+        5: ['Keyboard Input and Rotation'],
+        6: ['Movement Scripting'],
+        7: ['Animator Scripting'],
+        9: ['UI Components and Architecture'],
+        10: ['Canvas and Render Modes'],
+        11: ['Event System and Input Modules'],
+        12: ['UI Event Triggers and OnClick'],
+        13: ['Text'],
+        14: ['Buttons'],
+        15: ['UI Architecture References', 'Basics and Example Links'],
+        16: ['HUD Tutorial Overview'],
+        17: ['HUD Tutorial Code'],
+        18: ['Initialize Game Objects'],
+        20: ['Animated UI Button'],
+        21: ['Score Readout'],
+        22: ['General Interface'],
+        23: ['Game HUD Elements'],
+        24: ['Levels and Minimaps'],
+        25: ['UI Widgets']
+      };
+      const dairyPlantUrl = 'https://www.blend4web.com/apps/dairy_plant/dairy_plant.html?v=93906d9bd04fe610df690c519724295f';
+
+      groups.forEach((group, groupIndex) => {
+        const masterSlide = sourceSlides[group.slides[0]];
+        const masterContent = masterSlide.querySelector('.slide-content');
+        if (!masterContent) {
+          throw new Error(`Cannot consolidate "${group.title}": slide content is missing.`);
+        }
+        const sourceSectionsBySlide = new Map();
+        group.slides.forEach((slideIndex) => {
+          const sourceContent = sourceSlides[slideIndex].querySelector('.slide-content');
+          const sourceScroll = sourceContent && sourceContent.querySelector(':scope > .accordion-scroll');
+          sourceSectionsBySlide.set(slideIndex, sourceScroll
+            ? Array.from(sourceScroll.querySelectorAll(':scope > details.accordion'))
+            : []);
+        });
+        const transitionHeading = group.slides.includes(19)
+          ? sourceSlides[19].querySelector('.slide-content > h2')
+          : null;
+
+        masterContent.classList.add('slide-content-accordion');
+        masterContent.replaceChildren();
+
+        const heading = document.createElement('h2');
+        heading.textContent = group.title;
+        masterContent.appendChild(heading);
+
+        const scroll = document.createElement('div');
+        scroll.className = 'accordion-scroll';
+        masterContent.appendChild(scroll);
+
+        const topic = document.createElement('details');
+        topic.className = 'accordion';
+        topic.open = groupIndex === 0;
+        const topicSummary = document.createElement('summary');
+        topicSummary.textContent = group.title;
+        const topicBody = document.createElement('div');
+        topicBody.className = 'accordion-body';
+        topic.append(topicSummary, topicBody);
+        scroll.appendChild(topic);
+
+        group.slides.forEach((slideIndex) => {
+          const sourceSlide = sourceSlides[slideIndex];
+          const sourceContent = sourceSlide.querySelector('.slide-content');
+          const sourceSections = sourceSectionsBySlide.get(slideIndex) || [];
+
+          sourceSections.forEach((section, sectionIndex) => {
+            const title = subsectionTitles[slideIndex] && subsectionTitles[slideIndex][sectionIndex];
+            if (title) {
+              const summary = section.querySelector(':scope > summary');
+              if (summary) summary.textContent = title;
+              if (title === 'Horizontal Axis Properties') {
+                const image = section.querySelector('.slide-image-column img');
+                if (image) image.style.maxHeight = '85vh';
+              }
+              if (title === 'Animated UI Button') {
+                const layout = section.querySelector('.slide-media-layout');
+                const textColumn = layout && layout.querySelector(':scope > .slide-text-column');
+                const imageColumn = layout && layout.querySelector(':scope > .slide-image-column');
+                const videoAccordion = textColumn && textColumn.querySelector('.embed-accordion');
+                if (layout && textColumn && imageColumn && videoAccordion) {
+                  layout.style.gridTemplateColumns = 'minmax(0, 1fr)';
+                  imageColumn.style.width = '100%';
+                  const image = imageColumn.querySelector('img');
+                  if (image) image.style.maxHeight = '70vh';
+                  textColumn.insertBefore(imageColumn, videoAccordion);
+                  const videoBody = videoAccordion.querySelector(':scope > .accordion-body');
+                  if (videoBody) videoBody.style.padding = '0';
+                }
+              }
+            }
+            section.classList.add('accordion--nested');
+
+            if (slideIndex === 0) {
+              const urlParagraph = section.querySelector('.accordion-body > p');
+              if (urlParagraph && urlParagraph.textContent.trim() === dairyPlantUrl) {
+                const card = document.createElement('article');
+                card.className = 'embed-card';
+                const frame = document.createElement('iframe');
+                frame.className = 'website-embed';
+                frame.src = dairyPlantUrl;
+                frame.title = 'Dairy Plant 3D Example';
+                frame.loading = 'lazy';
+                frame.setAttribute('allow', 'clipboard-read; clipboard-write');
+                const linkParagraph = document.createElement('p');
+                const link = document.createElement('a');
+                link.href = dairyPlantUrl;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.textContent = 'Open Dairy Plant 3D Example';
+                linkParagraph.appendChild(link);
+                card.append(frame, linkParagraph);
+                urlParagraph.replaceWith(card);
+              }
+            }
+
+            if (slideIndex === 3) {
+              const body = section.querySelector(':scope > .accordion-body');
+              const layout = body && body.querySelector(':scope > .slide-media-layout');
+              const imageColumn = layout && layout.querySelector(':scope > .slide-image-column');
+              if (body && layout && imageColumn) {
+                const imageRow = document.createElement('div');
+                imageRow.className = 'accordion-images--horizontal';
+                imageRow.style.setProperty('--accordion-images--horizontal-width', '100%');
+                Array.from(imageColumn.querySelectorAll('img')).forEach((image) => {
+                  image.classList.add('accordion-image');
+                  imageRow.appendChild(image);
+                });
+                const textColumn = layout.querySelector(':scope > .slide-text-column');
+                if (textColumn) {
+                  while (textColumn.firstChild) {
+                    body.insertBefore(textColumn.firstChild, layout);
+                  }
+                }
+                layout.replaceWith(imageRow);
+              }
+            }
+
+            const detailTitle = h3DetailTitles[`${slideIndex}:${sectionIndex}`];
+            if (detailTitle) {
+              wrapSectionInH3Detail(section, detailTitle);
+            } else if (slideIndex === 23) {
+              groupGameHudContent(section);
+            }
+
+            topicBody.appendChild(section);
+          });
+
+          if (slideIndex === 5) {
+            const tutorialSection = document.createElement('details');
+            tutorialSection.className = 'accordion accordion--nested';
+            const tutorialSummary = document.createElement('summary');
+            tutorialSummary.textContent = 'Related Input Tutorials and Stretch Tasks';
+            const tutorialBody = document.createElement('div');
+            tutorialBody.className = 'accordion-body';
+            tutorialBody.innerHTML = `
+              <p><a href="tut-02-03-students.html">Tutorials 02–03: Input concepts, exercises and stretch tasks</a></p>
+              <p>Review input, Transform and Rigidbody control, mouse input, Input Actions, and the related controller exercises and stretch tasks.</p>
+              <p><a href="tut-04-students.html">Tutorial 04: Input-triggered animation and New Input System stretch tasks</a></p>
+              <p>Extend key-triggered animation with direct New Input System keyboard input and Input Actions.</p>`;
+            tutorialSection.append(tutorialSummary, tutorialBody);
+            topicBody.appendChild(tutorialSection);
+          }
+
+          if (slideIndex === 19) {
+            if (transitionHeading) {
+              const transition = document.createElement('details');
+              transition.className = 'accordion accordion--nested';
+              const summary = document.createElement('summary');
+              summary.textContent = 'Next Tutorials';
+              const body = document.createElement('div');
+              body.className = 'accordion-body';
+              const paragraph = document.createElement('p');
+              paragraph.textContent = transitionHeading.textContent.trim();
+              body.appendChild(paragraph);
+              transition.append(summary, body);
+              topicBody.appendChild(transition);
+            }
+          }
+        });
+
+        group.slides.slice(1).forEach((slideIndex) => sourceSlides[slideIndex].remove());
+      });
+
+      slides = document.querySelectorAll('.slide');
+      totalSlides = slides.length;
     }
 
     function getAccordionLabels(titleText) {
@@ -1303,6 +1599,8 @@
       linkifyText(slide.querySelector('.slide-content') || slide);
     });
 
+    consolidateLectureSlides();
+    replaceNoorReferenceLinks();
     syncSlideTitles();
 
     function updateCounters() {

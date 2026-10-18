@@ -214,9 +214,14 @@
       const target = event.target;
       if (!(target instanceof Element)) return;
 
-      const image = target.closest(".content-page-area img, .home-content img");
+      const image = target.closest(
+        ".content-page-area img, .home-content img, .lecture-fullbleed .slide-image-column img"
+      );
       if (!(image instanceof HTMLImageElement)) return;
       if (image.closest(".image-lightbox")) return;
+
+      const imageColumn = image.closest(".lecture-fullbleed .slide-image-column");
+      if (imageColumn && imageColumn.querySelectorAll("img").length !== 1) return;
 
       const link = image.closest("a[href]");
       if (link) {

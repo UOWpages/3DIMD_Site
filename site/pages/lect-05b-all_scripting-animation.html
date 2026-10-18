@@ -512,8 +512,8 @@
     }
 
     let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const totalSlides = slides.length;
+    let slides = Array.from(document.querySelectorAll('.slide'));
+    let totalSlides = slides.length;
 
     function normalizeSlideStructure(slide) {
       if (slide.querySelector('.slide-frame')) return;
@@ -575,6 +575,146 @@
       });
     }
 
+    function consolidateLectureSlides() {
+      const sourceSlides = slides.slice();
+      const groups = [
+        {
+          title: '5MMCS001W Lecture Introduction and Animation Overview',
+          slideIndexes: [0, 1],
+          sectionTitles: {
+            '0:0': 'Intermission',
+            '1:0': 'Max Export Lego Walk to Unity Demo'
+          }
+        },
+        {
+          title: 'Unity Animation Systems and Workflows',
+          slideIndexes: [2, 3, 4, 5, 6],
+          sectionTitles: {
+            '2:0': 'Basic Animator Architecture',
+            '3:0': 'Animator System Capabilities',
+            '4:0': 'Animator Controller',
+            '4:1': 'Controller Variables and State Machine',
+            '5:0': 'Animator Workflow',
+            '5:1': 'Animator Component Setup',
+            '6:0': 'Legacy Animation Demo and Overview'
+          }
+        },
+        {
+          title: 'Export Lego Walk to Unity',
+          slideIndexes: [7, 8, 9],
+          sectionTitles: {
+            '8:0': 'Importing the FBX',
+            '8:1': 'FBX Inspector Tabs',
+            '9:0': 'Animation Window'
+          }
+        },
+        {
+          title: 'Unity Animation Tutorial Resources',
+          slideIndexes: [10, 11],
+          sectionTitles: {
+            '10:0': 'Animation Tutorial Sequence and Videos',
+            '11:1': 'Editing Read-Only Animation Clips'
+          },
+          skippedSections: new Set(['11:0'])
+        },
+        {
+          title: 'Input and Movement Tutorials',
+          slideIndexes: [12],
+          sectionTitles: {
+            '12:0': 'Input and Movement (Later Sheets)'
+          }
+        },
+        {
+          title: 'Project Files and Extensions',
+          slideIndexes: [13, 14],
+          sectionTitles: {
+            '13:0': 'Available Project Files',
+            '14:0': 'Wall-Building Extensions'
+          }
+        }
+      ];
+      const consolidatedSlides = [];
+
+      groups.forEach((group) => {
+        const masterSlide = sourceSlides[group.slideIndexes[0]];
+        const masterContent = masterSlide.querySelector('.slide-content');
+        if (!masterContent) {
+          throw new Error(`Cannot consolidate "${group.title}": slide content is missing.`);
+        }
+        const sourceSectionsBySlide = new Map();
+        group.slideIndexes.forEach((slideIndex) => {
+          const sourceContent = sourceSlides[slideIndex].querySelector('.slide-content');
+          const sourceScroll = sourceContent && sourceContent.querySelector(':scope > .accordion-scroll');
+          sourceSectionsBySlide.set(slideIndex, sourceScroll
+            ? Array.from(sourceScroll.querySelectorAll(':scope > details.accordion'))
+            : []);
+        });
+
+        masterContent.classList.add('slide-content-accordion');
+        masterContent.replaceChildren();
+
+        const heading = document.createElement('h2');
+        heading.textContent = group.title;
+        masterContent.appendChild(heading);
+
+        const scroll = document.createElement('div');
+        scroll.className = 'accordion-scroll';
+        masterContent.appendChild(scroll);
+
+        const topic = document.createElement('details');
+        topic.className = 'accordion';
+        topic.open = true;
+        const topicSummary = document.createElement('summary');
+        topicSummary.textContent = group.title;
+        const topicBody = document.createElement('div');
+        topicBody.className = 'accordion-body';
+        topic.append(topicSummary, topicBody);
+        scroll.appendChild(topic);
+
+        group.slideIndexes.forEach((slideIndex) => {
+          const sections = sourceSectionsBySlide.get(slideIndex) || [];
+
+          sections.forEach((section, sectionIndex) => {
+            const sectionKey = `${slideIndex}:${sectionIndex}`;
+            if (group.skippedSections && group.skippedSections.has(sectionKey)) return;
+
+            const title = group.sectionTitles[sectionKey];
+            if (title) {
+              const summary = section.querySelector(':scope > summary');
+              if (summary) summary.textContent = title;
+            }
+
+            if (slideIndex === 13 && sectionIndex === 0) {
+              const firstFile = Array.from(section.querySelectorAll('.accordion-body > p'))
+                .find((paragraph) => paragraph.textContent.trim() === 'Lego Brick and Lego Walk 3DSMax file');
+              if (firstFile) firstFile.textContent = 'Lego Brick and Lego Walk 3DSMax file to download';
+            }
+
+            if (slideIndex === 14 && sectionIndex === 0) {
+              Array.from(section.querySelectorAll('.accordion-body > p'))
+                .filter((paragraph) => /^Lego Brick and Lego Walk 3DSMax file(?: to download)?$/i.test(paragraph.textContent.trim()))
+                .forEach((paragraph) => paragraph.remove());
+            }
+
+            section.classList.add('accordion--nested');
+            topicBody.appendChild(section);
+          });
+        });
+
+        consolidatedSlides.push(masterSlide);
+      });
+
+      sourceSlides.forEach((slide) => {
+        if (!consolidatedSlides.includes(slide)) slide.remove();
+        slide.classList.remove('active');
+      });
+
+      slides = consolidatedSlides;
+      totalSlides = slides.length;
+      slides[0].classList.add('active');
+      currentSlide = 0;
+    }
+
     function announceActiveSlideTitle() {
       const activeSlide = slides[currentSlide];
       if (!activeSlide) return;
@@ -596,6 +736,7 @@
       linkifyText(slide.querySelector('.slide-content') || slide);
     });
 
+    consolidateLectureSlides();
     syncSlideTitles();
 
     function updateCounters() {
