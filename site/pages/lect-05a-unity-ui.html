@@ -12,12 +12,13 @@
 </head>
 <body class="lecture-fullbleed">
   <div class="slideshow-container">
-    <!-- Slide 1 -->
+    <!-- Slide page 1: Unity Setup and Troubleshooting (source slides 1-2) -->
     <div class="slide active">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>5MMCS001W                Lecture 05a</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 1.1: 3D Dairy Plant Example (source slide 1) -->
       <details class="accordion" open>
         <summary>5MMCS001W                Lecture 05a</summary>
         <div class="accordion-body">
@@ -37,24 +38,28 @@
       </div>
     </div>
 
-    <!-- Slide 2 -->
+    <!-- Source slide 2: Troubleshooting (continues slide page 1) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Troubleshooting</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 1.2: Troubleshooting (source slide 2) -->
       <details class="accordion" open>
         <summary>Troubleshooting</summary>
         <div class="accordion-body">
-    <p>Use</p>
-    <p>Github Desktop/VS Code for Versioning on Apple Mac,</p>
-    <p>Github website and Visual Studio on Windows</p>
-    <p>Play/Play-Pause Buttons selected in Unity</p>
-    <p>You lose all adjustments made while these are on</p>
-    <p>Do not work off Network, H Drive or USB drive!!!</p>
-    <p>Your scene will get errors and get corrupted !!!</p>
-    <p>Instead, save work on google drive or onedrive as a zip, copy over to C:Temp at start of tutorial, and save scenes, save project, exit Unity, then zip up whole project and copy back to cloud drive at the end of tutorial. Or you can use Unity Collaborate in top right when signed in - sheet on that later.</p>
-    <p>CW1 will be Blackboard/Google Drive Link submission</p>
+          <div class="h3-detail">
+          <h3>Use</h3>
+            <p>Github Desktop/VS Code for Versioning on Apple Mac,</p>
+            <p>Github website and Visual Studio on Windows</p>
+          <h3>Play/Play-Pause Buttons selected in Unity</h3>
+            <p>You lose all adjustments made while these are on</p>
+          <h3>Do not work off Network, H Drive or USB drive!!!</h3>
+            <p>Your scene will get errors and get corrupted !!!</p>
+            <p>Instead at worst, save work on google drive or onedrive as a zip, copy over to C:Temp at start of tutorial, and save scenes, save project, exit Unity, then zip up whole project and copy back to cloud drive at the end of tutorial. </p>
+            <p>Ideally use Github, following the tutorial sheets.</p>
+            <p>CW1 will be Blackboard/Github Link and Video File submission</p>
+          </div>
         </div>
       </details>
     </div>
@@ -70,18 +75,20 @@
       </div>
     </div>
 
-    <!-- Slide 3 -->
+    <!-- Slide page 2: Unity Input Manager (source slides 3-6) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Unity Input Manager</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 2.1: Input Overview (source slide 3) -->
       <details class="accordion" open>
         <summary>Unity Input Manager</summary>
         <div class="accordion-body">
     <p>Each program you write, whether the program is a phone application, a web application, a game or an embedded system, needs some sort of an input. In general every program needs some sort of an input and some sort of an output. The output is what the users sees, and the input is what the user enters or gives to the program to generate the output based on some algorithm.</p>
         </div>
       </details>
+      <!-- Nested section 2.2: Input Sources (source slide 3) -->
       <details class="accordion">
         <summary>Unity 3D is no different. The game engine needs to be able to process inputs from different sources</summary>
         <div class="accordion-body">
@@ -117,15 +124,17 @@
       </div>
     </div>
 
-    <!-- Slide 4 -->
+    <!-- Source slide 4: Input Manager Settings (continues slide page 2) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Input Manager</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 2.3: Input Manager Settings (source slide 4) -->
       <details class="accordion" open>
         <summary>Input Manager</summary>
         <div class="accordion-body">
+    <p>Configure the Horizontal and Vertical Input Axes</p>
     <img src="images/lect-05a-unity-ui_slide4_image0.png" alt="Slide 4 image" />
     <img src="images/lect-05a-unity-ui_slide4_image1.png" alt="Slide 4 image" />
     <img src="images/lect-05a-unity-ui_slide4_image2.png" alt="Slide 4 image" />
@@ -144,23 +153,34 @@
       </div>
     </div>
 
-    <!-- Slide 5 -->
+    <!-- Source slide 5: Horizontal Axis Properties (continues slide page 2) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Unity Input Manager</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 2.4: Horizontal Axis Properties (source slide 5) -->
       <details class="accordion" open>
-        <summary>Figure 1 lists all of the out of the box Input configurations defined in the game engine. Let’s go ahead and expand the first Input Definition called Horizontal. Looking at Figure 2, you will notice the attributes that are defined under the Horizontal Axis input configuration. The following are the properties of the input configuration that are important to take a note of</summary>
+        <summary>Figure 1 lists all of the out of the box Input configurations defined in the game engine. Let’s go ahead and expand the first Input Definition called Horizontal. Looking at Figure 2, you will notice the attributes that are defined under the Horizontal Axis input configuration. The following are the properties of the input configuration that are important to take a note of:</summary>
         <div class="accordion-body">
-    <h3>Figure 1 lists all of the out of the box Input configurations defined in the game engine. Let’s go ahead and expand the first Input Definition called Horizontal. Looking at Figure 2, you will notice the attributes that are defined under the Horizontal Axis input configuration. The following are the properties of the input configuration that are important to take a note of:</h3>
-    <p>Name: the name of the axis as defines in the Input Manager. This is the name that you can refer to in your C# code for to detect and perform an operation as desired.</p>
-    <p>Positive Button: defines the primary button that will provide the positive direction / force.</p>
-    <p>Negative Button: defines the primary button that will provide the negative direction / force.</p>
-    <p>Alt. Positive Button: same as the positive button, but defines a secondary input intake.</p>
-    <p>Alt. Negative Button: same as the negative button, but defines a secondary input intake.</p>
-    <p>Type: defines where the input source is coming from; (Keyboard/Mouse/Joystick).</p>
-    <p>Axis: which axis in the world should the force be applied to.</p>
+          <div class="h3-detail">
+              <h3>Figure 1 lists all of the out of the box Input configurations defined in the game engine.</h3> 
+                <p>Let’s go ahead and expand the first Input Definition called Horizontal. Looking at Figure 2, you will notice the attributes that are defined under the Horizontal Axis input configuration. The following are the properties of the input configuration that are important to take a note of:</p>
+              <h3>Name:</h3>
+                <p>the name of the axis as defines in the Input Manager. This is the name that you can refer to in your C# code for to detect and perform an operation as desired.</p>
+              <h3>Positive Button:</h3>
+                <p>defines the primary button that will provide the positive direction / force.</p>
+              <h3>Negative Button:</h3>
+                <p>defines the primary button that will provide the negative direction / force.</p>
+              <h3>Alt. Positive Button:</h3>
+                <p>same as the positive button, but defines a secondary input intake.</p>
+              <h3>Alt. Negative Button:</h3>
+                <p>same as the negative button, but defines a secondary input intake.</p>
+              <h3>Type:</h3>
+                <p>defines where the input source is coming from; (Keyboard/Mouse/Joystick).</p>
+              <h3>Axis:</h3>
+                <p>which axis in the world should the force be applied to.</p>
+            </div>
     <img src="images/lect-05a-unity-ui_slide4_image1.png" alt="Slide 5 image" />
         </div>
       </details>
@@ -177,21 +197,36 @@
       </div>
     </div>
 
-    <!-- Slide 6 -->
+    <!-- Source slide 6: Keyboard Input and Rotation (continues slide page 2) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Unity Input Manager</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 2.5: Keyboard Input and Rotation (source slide 6) -->
       <details class="accordion" open>
         <summary>Input key values to handle the rotation for the dynamically created primitives in the following order</summary>
         <div class="accordion-body">
-    <h3>Input key values to handle the rotation for the dynamically created primitives in the following order:</h3>
-    <p>Key A will be responsible to rotate Cube1’ on the Y-Axis.</p>
-    <p>Key B will be responsible to rotate Cube2’ on the X-Axis.</p>
-    <p>Key C will be responsible to rotate Cube3’ on the Z-Axis.</p>
-    <p>Notice, that the Update() function is where you place the logic to perform your Input and Output. The code checks to see if the primitives have been initialized, and if true, then it will check for input from the user. Based on the key value it will apply the appropriate rotation to the Game Object.</p>
-    <p>Each primitive will rotate independently only when the specific key associated to its rotation is pressed. For instance, if you press the A key, Cube1’ will continuously rotate until you stop pressing it. It will stop at the last rotation angle where you lifted your finger from the key.</p>
+          <div class="h3-detail">
+              <h3>Input key values to handle the rotation for the dynamically created primitives in the following order:</h3>
+                <p>Key A will be responsible to rotate Cube1’ on the Y-Axis.</p>
+                <p>Key B will be responsible to rotate Cube2’ on the X-Axis.</p>
+                <p>Key C will be responsible to rotate Cube3’ on the Z-Axis.</p>
+              <h3>Notice, that the Update() function is where you place the logic to perform your Input and Output.</h3>
+                <p>The code checks to see if the primitives have been initialized, and if true, then it will check for input from the user. Based on the key value it will apply the appropriate rotation to the Game Object.</p>
+              <h3>Each primitive will rotate independently only when the specific key associated to its rotation is pressed.</h3>
+                <p>For instance, if you press the A key, Cube1’ will continuously rotate until you stop pressing it. It will stop at the last rotation angle where you lifted your finger from the key.</p>
+          </div>
+        </div>
+      </details>
+      <!-- Nested section 2.6: Related Input Tutorials and Stretch Tasks -->
+      <details class="accordion accordion--nested">
+        <summary>Related Input Tutorials and Stretch Tasks</summary>
+        <div class="accordion-body">
+          <p><a href="../index.html?page=pages/tut-02-03-students.html" target="_top">Tutorials 02–03: Input concepts, exercises and stretch tasks</a></p>
+          <p>Review input, Transform and Rigidbody control, mouse input, Input Actions, and the related controller exercises and stretch tasks.</p>
+          <p><a href="../index.html?page=pages/tut-04-students.html" target="_top">Tutorial 04: Input-triggered animation and New Input System stretch tasks</a></p>
+          <p>Extend key-triggered animation with direct New Input System keyboard input and Input Actions.</p>
         </div>
       </details>
     </div>
@@ -207,12 +242,13 @@
       </div>
     </div>
 
-    <!-- Slide 7 -->
+    <!-- Slide page 3: Movement and Animator Scripting (source slides 7-8) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Unity Input Manager/Movement Scripting</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 3.1: Movement Scripting (source slide 7) -->
       <details class="accordion" open>
         <summary>Unity Input Manager/Movement Scripting</summary>
         <div class="accordion-body">
@@ -256,12 +292,13 @@
       </div>
     </div>
 
-    <!-- Slide 8 -->
+    <!-- Source slide 8: Animator Scripting (continues slide page 3) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Unity Animator Scripting</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 3.2: Animator Scripting (source slide 8) -->
       <details class="accordion" open>
         <summary>Unity Animator Scripting</summary>
         <div class="accordion-body">
@@ -272,6 +309,7 @@
     <p>Set up Animator</p>
     <p>Script for Input</p>
     <p>Video</p>
+    <!-- Subsection 3.2.1: Animator Scripting Video (embedded during enhancement) -->
     <p>https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=22ba15c1-b106-4f12-a65f-b09f010dc569</p>
         </div>
       </details>
@@ -288,7 +326,7 @@
       </div>
     </div>
 
-    <!-- Slide 9 -->
+    <!-- Slide page 4: Unity UI Architecture (source slides 9-16; source slide 9 provides the page shell only) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
@@ -305,12 +343,13 @@
       </div>
     </div>
 
-    <!-- Slide 10 -->
+    <!-- Source slide 10: UI Components and Architecture (continues slide page 4) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Unity UI Architecture</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 4.1: UI Components and Architecture (source slide 10) -->
       <details class="accordion" open>
         <summary>Unity UI Architecture</summary>
         <div class="accordion-body">
@@ -348,12 +387,13 @@
       </div>
     </div>
 
-    <!-- Slide 11 -->
+    <!-- Source slide 11: Canvas and Render Modes (continues slide page 4) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Unity UI Architecture</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 4.2: Canvas, Render Modes and UI Hierarchy (source slide 11) -->
       <details class="accordion" open>
         <summary>Unity UI Architecture</summary>
         <div class="accordion-body">
@@ -395,12 +435,13 @@
       </div>
     </div>
 
-    <!-- Slide 12 -->
+    <!-- Source slide 12: Event System and Input Modules (continues slide page 4) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Unity UI Architecture</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 4.3: Event System and Input Modules (source slide 12) -->
       <details class="accordion" open>
         <summary>Unity UI Architecture</summary>
         <div class="accordion-body">
@@ -444,12 +485,13 @@
       </div>
     </div>
 
-    <!-- Slide 13 -->
+    <!-- Source slide 13: UI Events and Event Triggers (continues slide page 4) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Unity UI Architecture</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 4.4: UI Events and Event Triggers (source slide 13) -->
       <details class="accordion" open>
         <summary>Unity UI Architecture</summary>
         <div class="accordion-body">
@@ -492,12 +534,13 @@
       </div>
     </div>
 
-    <!-- Slide 14 -->
+    <!-- Source slide 14: Text UI Elements and Readouts (continues slide page 4) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Unity UI Architecture</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 4.5: Text UI Elements and Readouts (source slide 14) -->
       <details class="accordion" open>
         <summary>Unity UI Architecture</summary>
         <div class="accordion-body">
@@ -527,12 +570,13 @@
       </div>
     </div>
 
-    <!-- Slide 15 -->
+    <!-- Source slide 15: Buttons and Interaction (continues slide page 4) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Unity UI Architecture</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 4.6: Buttons and Interaction (source slide 15) -->
       <details class="accordion" open>
         <summary>Unity UI Architecture</summary>
         <div class="accordion-body">
@@ -565,18 +609,20 @@
       </div>
     </div>
 
-    <!-- Slide 16 -->
+    <!-- Source slide 16: UI Architecture References and Basics (continues slide page 4) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Unity UI Architecture</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 4.7: Unity UI Architecture Reference (source slide 16) -->
       <details class="accordion" open>
         <summary>Unity UI Architecture</summary>
         <div class="accordion-body">
     <p>http://www.noorcon.com/articles/Unity3D_Game_Programming_Part_4.html</p>
         </div>
       </details>
+      <!-- Nested section 4.8: HUD and Button Basics (source slide 16) -->
       <details class="accordion">
         <summary>Basics</summary>
         <div class="accordion-body">
@@ -602,12 +648,13 @@
       </div>
     </div>
 
-    <!-- Slide 17 -->
+    <!-- Slide page 5: Core UI Tutorials (source slides 17-20) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Tutorial 1. Unity UI HUD</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 5.1: HUD Tutorial Overview (source slide 17) -->
       <details class="accordion" open>
         <summary>Tutorial 1. Unity UI HUD</summary>
         <div class="accordion-body">
@@ -630,12 +677,13 @@
       </div>
     </div>
 
-    <!-- Slide 18 -->
+    <!-- Source slide 18: HUD Tutorial Code (continues slide page 5) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Tutorial 1. Unity UI HUD</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 5.2: HUD Tutorial Code (source slide 18) -->
       <details class="accordion" open>
         <summary>Tutorial 1. Unity UI HUD</summary>
         <div class="accordion-body">
@@ -706,12 +754,13 @@
       </div>
     </div>
 
-    <!-- Slide 19 -->
+    <!-- Source slide 19: Initialize Game Objects (continues slide page 5) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Tutorial 1. Unity UI Initialize Game Objects</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 5.3: Initialize Game Objects (source slide 19) -->
       <details class="accordion" open>
         <summary>Overview</summary>
         <div class="accordion-body">
@@ -761,7 +810,7 @@
       </div>
     </div>
 
-    <!-- Slide 20 -->
+    <!-- Source slide 20: Next Tutorials transition (continues slide page 5; section created during consolidation) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content">
@@ -778,17 +827,19 @@
       </div>
     </div>
 
-    <!-- Slide 21 -->
+    <!-- Slide page 6: Additional UI Tutorials (source slides 21-22) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Extra</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 6.1: Animated UI Button (source slide 21) -->
       <details class="accordion" open>
         <summary>Extra</summary>
         <div class="accordion-body">
     <p>Extra - Tutorial 2. Animate UI Button</p>
-    <p>https://youtu.be/mgaUKk8hfjg</p>
+    <!-- Subsection 6.1.1: Animated UI Button Video (embedded during enhancement) -->
+    <p>https://www.youtube.com/watch?v=afgt9EnHba0</p>
     <img src="images/lect-05a-unity-ui_slide21_image0.png" alt="Slide 21 image" />
         </div>
       </details>
@@ -805,12 +856,13 @@
       </div>
     </div>
 
-    <!-- Slide 22 -->
+    <!-- Source slide 22: Score Readout (continues slide page 6) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Extra</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 6.2: Score Readout (source slide 22) -->
       <details class="accordion" open>
         <summary>Extra</summary>
         <div class="accordion-body">
@@ -886,12 +938,13 @@
       </div>
     </div>
 
-    <!-- Slide 23 -->
+    <!-- Slide page 7: UI Examples and References (source slides 23-26) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Unity UI Tutorials General Interface</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 7.1: General Interface (source slide 23) -->
       <details class="accordion" open>
         <summary>Unity UI Tutorials General Interface</summary>
         <div class="accordion-body">
@@ -912,12 +965,13 @@
       </div>
     </div>
 
-    <!-- Slide 24 -->
+    <!-- Source slide 24: Game HUD Elements (continues slide page 7) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Unity UI HUD Various (Games)</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 7.2: Game HUD Elements (source slide 24) -->
       <details class="accordion" open>
         <summary>Games</summary>
         <div class="accordion-body">
@@ -949,16 +1003,18 @@
       </div>
     </div>
 
-    <!-- Slide 25 -->
+    <!-- Source slide 25: Levels and Minimaps (continues slide page 7) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Unity UI Levels</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 7.3: Levels and Minimaps (source slide 25) -->
       <details class="accordion" open>
         <summary>Unity UI Levels</summary>
         <div class="accordion-body">
     <p>Scene/Level selection</p>
+    <!-- Subsection 7.3.1: Scene/Level Selection Video (embedded during enhancement) -->
     <p>https://www.youtube.com/watch?v=FIa7qxGaRZo&index=86&list=PLX2vGYjWbI0Tg4eS9w29PPqg0Fx4sIL7p</p>
     <p>Minimaps</p>
     <p>https://www.packtpub.com/mapt/book/Game%20Development/9781785885822</p>
@@ -978,18 +1034,21 @@
       </div>
     </div>
 
-    <!-- Slide 26 -->
+    <!-- Source slide 26: UI Widgets (continues slide page 7) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
     <div class="slide-content slide-content-accordion">
     <h2>Unity UI Widgets</h2>
     <div class="accordion-scroll">
+      <!-- Nested section 7.4: UI Widgets (source slide 26) -->
       <details class="accordion" open>
         <summary>Unity UI Widgets</summary>
         <div class="accordion-body">
     <p>Player Control</p>
+    <!-- Subsection 7.4.1: Player Control Video (embedded during enhancement) -->
     <p>https://www.youtube.com/watch?v=nGYObojmkO4</p>
     <p>Shop UI with ScrollLists</p>
+    <!-- Subsection 7.4.2: Shop UI with ScrollLists Video (embedded during enhancement) -->
     <p>https://www.youtube.com/watch?v=TAJCr3_kfEc</p>
         </div>
       </details>
@@ -1087,6 +1146,7 @@
         const authNote = panoptoMatch
           ? '<p class="video-auth-note">Student Panopto login may be required. If the embedded player does not refresh after sign-in, open the source link in a new or incognito window.</p>'
           : '';
+        // Video subsections are generated inside their numbered parent section using the preceding text as their label.
         const details = document.createElement('details');
         details.className = 'accordion accordion--nested embed-accordion';
         details.innerHTML = `
@@ -1150,6 +1210,8 @@
       const body = section.querySelector(':scope > .accordion-body');
       if (!body) return;
 
+      // Slide page 7 subsections: 7.2.1 Readouts; 7.2.2 Health Bar; 7.2.3 Timer;
+      // 7.2.4 Collection Bar; 7.2.5 Score/Info.
       const labels = new Set(['Readouts', 'Health Bar', 'Timer', 'Collection Bar', 'Score/Info']);
       const children = Array.from(body.children);
       const groups = [];
@@ -1217,6 +1279,9 @@
         { title: 'UI Examples and References', slides: [22, 23, 24, 25] }
       ];
       const h3DetailTitles = {
+        // H3 subsections: 2.2.1 Input Sources and the Input Manager; 4.2.1 Canvas, Render Modes and UI Hierarchy;
+        // 4.3.1 Event System and Input Modules; 4.4.1 UI Events and Event Triggers; 4.5.1 Text UI Elements and Readouts;
+        // 4.6.1 Buttons and Interaction; 4.7.1 Unity UI Architecture Reference; 4.8.1 HUD and Button Basics.
         '2:1': 'Input Sources and the Input Manager',
         '10:0': 'Canvas, Render Modes and UI Hierarchy',
         '11:0': 'Event System and Input Modules',
@@ -1305,7 +1370,13 @@
               if (summary) summary.textContent = title;
               if (title === 'Horizontal Axis Properties') {
                 const image = section.querySelector('.slide-image-column img');
-                if (image) image.style.maxHeight = '85vh';
+                if (image) {
+                  masterSlide.classList.add('slide--image-large');
+                  image.style.height = 'min(85vh, 700px)';
+                  image.style.width = 'auto';
+                  image.style.maxWidth = '100%';
+                  image.style.maxHeight = 'min(85vh, 700px)';
+                }
               }
               if (title === 'Animated UI Button') {
                 const layout = section.querySelector('.slide-media-layout');
@@ -1380,7 +1451,9 @@
             topicBody.appendChild(section);
           });
 
+          /*
           if (slideIndex === 5) {
+            // Nested section 2.6: Related Input Tutorials and Stretch Tasks.
             const tutorialSection = document.createElement('details');
             tutorialSection.className = 'accordion accordion--nested';
             const tutorialSummary = document.createElement('summary');
@@ -1388,16 +1461,18 @@
             const tutorialBody = document.createElement('div');
             tutorialBody.className = 'accordion-body';
             tutorialBody.innerHTML = `
-              <p><a href="tut-02-03-students.html">Tutorials 02–03: Input concepts, exercises and stretch tasks</a></p>
+              <p><a href="../index.html?page=pages/tut-02-03-students.html" target="_top">Tutorials 02–03: Input concepts, exercises and stretch tasks</a></p>
               <p>Review input, Transform and Rigidbody control, mouse input, Input Actions, and the related controller exercises and stretch tasks.</p>
-              <p><a href="tut-04-students.html">Tutorial 04: Input-triggered animation and New Input System stretch tasks</a></p>
+              <p><a href="../index.html?page=pages/tut-04-students.html" target="_top">Tutorial 04: Input-triggered animation and New Input System stretch tasks</a></p>
               <p>Extend key-triggered animation with direct New Input System keyboard input and Input Actions.</p>`;
             tutorialSection.append(tutorialSummary, tutorialBody);
             topicBody.appendChild(tutorialSection);
           }
+          */
 
           if (slideIndex === 19) {
             if (transitionHeading) {
+              // Nested section 5.4: Next Tutorials.
               const transition = document.createElement('details');
               transition.className = 'accordion accordion--nested';
               const summary = document.createElement('summary');
