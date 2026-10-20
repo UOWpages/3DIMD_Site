@@ -129,6 +129,7 @@
       </li>
      </ol>
      <h3>Code:</h3>
+     <h3><italic>Make sure the Active Input Handling in Edit &gt; Project Settings &gt; Player is set to "Both" to enable Interaction !!!</italic></h3>
      <p>
       (I've left the scripts in, as they are simple, and the rest may be tricky to set up correctly. Please do type them in though, for muscle memory and comprehension, then try some stretch targets)
      </p>
@@ -246,48 +247,77 @@
      <p>
       (I've left the scripts in, as they are simple, and the rest may be tricky to set up correctly. Please do type them in though, or muscle memory and comprehension, then try some stretch targets)
      </p>
-       <h3>Code Example: Task 4.2 -Brick Array anims controlled by other bricks: BrickTriggerExplode</h3>
-       <h3>BrickTriggerExplode</h3>
-       <h3>using System.Collections;</h3>
-       <h3>using System.Collections.Generic;</h3>
-       <h3>using UnityEngine;</h3>
-       <h3>public class BrickTriggerExplode : MonoBehaviour</h3>
-       <h3>{</h3>
-       <h3>public GameObject brickArray;</h3>
-       <h3>// Use this for initialization</h3>
-       <h3>void Start()</h3>
-       <h3>{</h3>
-       <h3>}</h3>
-       <h3>// Update is called once per frame</h3>
-       <h3>void Update()</h3>
-       <h3>{</h3>
-       <h3>}</h3>
-       <h3>public void OnMouseDown()</h3>
-       <h3>{</h3>
-       <h3>brickArray.GetComponent&lt;Animator&gt;().Play("Explode");</h3>
-       <h3>}</h3>
-       <h3>}</h3>
-       <h3>BrickTriggerImplode</h3>
-       <h3>using System.Collections;</h3>
-       <h3>using System.Collections.Generic;</h3>
-       <h3>using UnityEngine;</h3>
-       <h3>public class BrickTriggerImplode : MonoBehaviour</h3>
-       <h3>{</h3>
-       <h3>private GameObject brickArrayT;</h3>
-       <h3>// Use this for initialization</h3>
-       <h3>void Start()</h3>
-       <h3>{</h3>
-       <h3>brickArrayT = GameObject.FindGameObjectWithTag("BrickArrayTag");</h3>
-       <h3>}</h3>
-       <h3>// Update is called once per frame</h3>
-       <h3>void Update()</h3>
-       <h3>{</h3>
-       <h3>}</h3>
-       <h3>public void OnMouseDown()</h3>
-       <h3>{</h3>
-       <h3>brickArrayT.GetComponent&lt;Animator&gt;().Play("Implode");</h3>
-       <h3>}</h3>
-       <h3>}</h3>
+     <section class="code-panel" data-code-type="code">
+      <div class="code-panel__chrome">
+       <div class="code-panel__dots">
+        <span class="code-panel__dot"></span>
+        <span class="code-panel__dot"></span>
+        <span class="code-panel__dot"></span>
+       </div>
+       <div class="code-panel__title">Code Example: Task 4.2 -Brick Array anims controlled by other bricks: BrickTriggerExplode</div>
+      </div>
+      <div class="code-panel__body" role="region" aria-label="BrickTriggerExplode code example">
+       <div class="code-panel__line code-panel__line--statement">using System.Collections;</div>
+       <div class="code-panel__line code-panel__line--statement">using System.Collections.Generic;</div>
+       <div class="code-panel__line code-panel__line--statement">using UnityEngine;</div>
+       <div class="code-panel__line">&nbsp;</div>
+       <div class="code-panel__line code-panel__line--statement">public class BrickTriggerExplode : MonoBehaviour</div>
+       <div class="code-panel__line code-panel__line--brace">{</div>
+       <div class="code-panel__line indent-level-1">public GameObject brickArray;</div>
+       <div class="code-panel__line">&nbsp;</div>
+       <div class="code-panel__line code-panel__line--comment indent-level-1">// Use this for initialization</div>
+       <div class="code-panel__line indent-level-1">void Start()</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+       <div class="code-panel__line">&nbsp;</div>
+       <div class="code-panel__line code-panel__line--comment indent-level-1">// Update is called once per frame</div>
+       <div class="code-panel__line indent-level-1">void Update()</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+       <div class="code-panel__line">&nbsp;</div>
+       <div class="code-panel__line indent-level-1">public void OnMouseDown()</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+       <div class="code-panel__line indent-level-2">brickArray.GetComponent&lt;Animator&gt;().Play("Explode");</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+       <div class="code-panel__line code-panel__line--brace">}</div>
+      </div>
+     </section>
+     <section class="code-panel" data-code-type="code">
+      <div class="code-panel__chrome">
+       <div class="code-panel__dots">
+        <span class="code-panel__dot"></span>
+        <span class="code-panel__dot"></span>
+        <span class="code-panel__dot"></span>
+       </div>
+       <div class="code-panel__title">BrickTriggerImplode</div>
+      </div>
+      <div class="code-panel__body" role="region" aria-label="BrickTriggerImplode code example">
+       <div class="code-panel__line code-panel__line--statement">using System.Collections;</div>
+       <div class="code-panel__line code-panel__line--statement">using System.Collections.Generic;</div>
+       <div class="code-panel__line code-panel__line--statement">using UnityEngine;</div>
+       <div class="code-panel__line">&nbsp;</div>
+       <div class="code-panel__line code-panel__line--statement">public class BrickTriggerImplode : MonoBehaviour</div>
+       <div class="code-panel__line code-panel__line--brace">{</div>
+       <div class="code-panel__line indent-level-1">private GameObject brickArrayT;</div>
+       <div class="code-panel__line">&nbsp;</div>
+       <div class="code-panel__line code-panel__line--comment indent-level-1">// Use this for initialization</div>
+       <div class="code-panel__line indent-level-1">void Start()</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+       <div class="code-panel__line indent-level-2">brickArrayT = GameObject.FindGameObjectWithTag("BrickArrayTag");</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+       <div class="code-panel__line">&nbsp;</div>
+       <div class="code-panel__line code-panel__line--comment indent-level-1">// Update is called once per frame</div>
+       <div class="code-panel__line indent-level-1">void Update()</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+       <div class="code-panel__line">&nbsp;</div>
+       <div class="code-panel__line indent-level-1">public void OnMouseDown()</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+       <div class="code-panel__line indent-level-2">brickArrayT.GetComponent&lt;Animator&gt;().Play("Implode");</div>
+       <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+       <div class="code-panel__line code-panel__line--brace">}</div>
+      </div>
+     </section>
     </div>
    </details>
 
