@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Lecture 11 - Cameras and Lerp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20261007a" />
+  <link rel="stylesheet" href="../assets/css/slideshow.css?v=20261007a" />
+</head>
+<body class="lecture-fullbleed">
+  <div class="slideshow-container">
+    <!-- Slide 1: 5MMCS001W Lecture 11 - Cameras and Lerp (source slides 1-4) -->
+    <div class="slide active">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>5MMCS001W Lecture 11 - Cameras and Lerp</h2>
+        <div class="accordion-scroll">
+      <!-- Section 1.1: Lecture Overview (source slide 1, 2) -->
+      <details class="accordion" open>
+        <summary>Lecture Overview</summary>
+        <div class="accordion-body">
+          <p>5MMCS001W Lecture 11</p>
+          <p>Unity Camera Prefabs</p>
+        </div>
+      </details>
+      <!-- Section 1.2: Unity Camera Prefabs - Prefab: (source slide 3) -->
+      <details class="accordion">
+        <summary>Unity Camera Prefabs - Prefab:</summary>
+        <div class="accordion-body">
+          <p>Prefab is a collection of assets and custom scripts that acts as a complete Game Object.It is also useful for using and editing multiple objects.</p>
+          <p>Just right click to create a Prefab Variant, or drag into Hierarchy, then back for an Original Prefab. You can open and edit Prefabs in the top of the Inspector Window. Note: it is not necessary to create new prefabs for this CW, though it could be an extra.</p>
+        </div>
+      </details>
+      <!-- Section 1.3: Camera Prefabs Folder (source slide 4) -->
+      <details class="accordion">
+        <summary>Camera Prefabs Folder</summary>
+        <div class="accordion-body">
+          <p>In the Camera Prefabs folder are a few Camera Rigs, explained below.</p>
+          <p>To use them, simply drop one into your scene, and set the target field on the root of the camera rig.</p>
+          <p>If your player is tagged "Player", you don't even have to assign the target, as by default the cameras will automatically target the first object they find tagged "Player". You can uncheck this option if you don't want it.</p>
+          <p>After adding one to your scene, you will also probably want to delete the default "Main Camera" that was in your scene already, since the camera rigs contain their own cameras. Note: some of these scenes are just scripts attached to the main camera….</p>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-11-cameras-lerp_slide4_image0.png" class="accordion-image" alt="Unity Project window: Assets &gt; Prefabs with Camera Align with View, Camera RTS and Main Camera prefabs" style="--accordion-image-width: 45%;" />
+            <img src="images/lect-11-cameras-lerp_slide4_image1.png" class="accordion-image" alt="Unity Project window: Standard Assets &gt; Cameras &gt; Prefabs with CctvCamera, FreeLookCameraRig, HandheldCamera and MultipurposeCameraRig" style="--accordion-image-width: 45%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 1.4: Related Tutorials (source slide added cross-reference) -->
+      <details class="accordion">
+        <summary>Related Tutorials</summary>
+        <div class="accordion-body">
+          <p><a href="../index.html?page=pages/tut-02-03-students.html" target="_top">Tutorial 02-03: Unity Intro - Interaction Scripting</a></p>
+          <p><a href="../index.html?page=pages/tut-04-students.html" target="_top">Tutorial 04: Unity Animation and Animation Import Overview</a></p>
+          <p><a href="../index.html?page=pages/tut-08-character-troubleshooting-bb.html" target="_top">Tutorial 08: Unity - 3 types of character controllers</a></p>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1" disabled> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">14</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 2: Camera and Character Controller Prefabs (source slides 5-9) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Camera and Character Controller Prefabs</h2>
+        <div class="accordion-scroll">
+      <!-- Section 2.1: Unity Camera Controllers – 3PC, FPC, Other Camera Prefabs (source slide 5) -->
+      <details class="accordion" open>
+        <summary>Unity Camera Controllers – 3PC, FPC, Other Camera Prefabs</summary>
+        <div class="accordion-body">
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Unity 3D Tutorial Third Person Shooter part 2 The Aiming [Outdated]</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/z_mJ_BjFqlU" title="Unity 3D Tutorial Third Person Shooter part 2 The Aiming [Outdated] video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=z_mJ_BjFqlU" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <p>Unity Project Scenes - Standard Assets: 3PC, FPC, Others</p>
+          <p>This will be used more for the mouse orbit and waypoint navigation model, if at all.</p>
+          <p>Comes with Freelook, MouseLook and Mouse Orbit Improved (MOI) scripts.</p>
+          <p>I include these in Camera Demos SA Project so you do not have to do the complex import.</p>
+          <p>The FPC and 3PC is advanced and more suited for games (uses Cinemachine as well).</p>
+          <p>It also comes in a complex range of URP and Non-URP, Standard Assets (old), and Starter Assets (new)</p>
+        </div>
+      </details>
+      <!-- Section 2.2: Unity Character Controller Prefabs (with Cameras) (source slide 6) -->
+      <details class="accordion">
+        <summary>Unity Character Controller Prefabs (with Cameras)</summary>
+        <div class="accordion-body">
+          <p>Unity Project Scenes – Starter/Standard Assets: 3PC, FPC</p>
+          <p>Starter Is new and comes only in URP</p>
+          <p>https://assetstore.unity.com/search#q=starter%20asset</p>
+          <p>Standard is old and did come in URP and Non URP</p>
+          <p>https://jimmyvegas.itch.io/first-person-controller-starter-asset</p>
+        </div>
+      </details>
+      <!-- Section 2.3: Unity Camera (Character) Controllers (source slide 7) -->
+      <details class="accordion">
+        <summary>Unity Camera (Character) Controllers</summary>
+        <div class="accordion-body">
+          <p>Unity Project Scenes – Starter/Standard Assets: 3PC, FPC</p>
+          <p>The character in a first- or third-person game will often need some collision-based physics so that it doesn’t fall through the floor or walk through walls. Usually, though, the character’s acceleration and movement will not be physically realistic, so it may be able to accelerate, brake and change direction almost instantly without being affected by momentum.</p>
+          <p>In 3D physics, this type of behaviour can be created using a Character Controller. This component gives the character a simple, capsule-shaped collider that is always upright. The controller has its own special functions to set the object’s speed and direction but unlike true colliders, a rigidbody is not needed and the momentum effects are not realistic.</p>
+          <p>A character controller cannot walk through static colliders in a scene, and so will follow floors and be obstructed by walls. It can push rigidbody objects aside while moving but will not be accelerated by incoming collisions. This means that you can use the standard 3D colliders to create a scene around which the controller will walk but you are not limited by realistic physical behaviour on the character itself.</p>
+        </div>
+      </details>
+      <!-- Section 2.4: Unity Camera (Character) Controllers (source slide 8) -->
+      <details class="accordion">
+        <summary>Unity Camera (Character) Controllers</summary>
+        <div class="accordion-body">
+          <p>Unity Project Scenes - Standard Assets: 3PC, FPC</p>
+          <ul>
+          <li>3PC – Third Person Character Controller
+          </li>
+          <li>FPC – First Person Controller
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 2.5: Unity Camera Prefabs - Unity Starter Assets (source slide 9) -->
+      <details class="accordion">
+        <summary>Unity Camera Prefabs - Unity Starter Assets</summary>
+        <div class="accordion-body">
+          <p>Prefabs are already used in the demo Unity project, but Starter Asset Package is not there</p>
+          <p>If you want to use it:</p>
+          <p>Import Unity Starter Assets packages:</p>
+          <ul>
+          <li>https://assetstore.unity.com/packages/essentials/starter-assets-thirdperson-updates-in-new-charactercontroller-pa-196526
+          </li>
+          <li>https://assetstore.unity.com/packages/essentials/starterassets-firstperson-updates-in-new-charactercontroller-pac-196525
+          </li></ul>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-11-cameras-lerp_slide9_image0.png" class="accordion-image" alt="Unity Asset Store page: Starter Assets - ThirdPerson, Updates in new CharacterController package" style="--accordion-image-width: 48%;" />
+            <img src="images/lect-11-cameras-lerp_slide9_image1.png" class="accordion-image" alt="Unity Asset Store page: Starter Assets - FirstPerson, Updates in new CharacterController package" style="--accordion-image-width: 48%;" />
+          </div>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">14</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 3: Unity Camera Controllers – 3PC, FPC (source slides 10-12) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity Camera Controllers – 3PC, FPC</h2>
+        <div class="accordion-scroll">
+      <!-- Section 3.1: Unity Project Scenes - Standard Assets non URP: 3PC, FPC (source slide 10) -->
+      <details class="accordion" open>
+        <summary>Unity Project Scenes - Standard Assets non URP: 3PC, FPC</summary>
+        <div class="accordion-body">
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Third Person Character Controller Setup in Unity</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/dXzF-S9tVrM" title="Third Person Character Controller Setup in Unity video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=dXzF-S9tVrM" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <ul>
+          <li>1. Create new scene
+          </li>
+          <li>2. Import Unity Standard Assets package/Characters from https://jimmyvegas.itch.io/standard-assets
+            <ul>
+            <li>Assets/Import Package/Custom Package/select downloaded “Standard Assets for Unity 20184.unitypackage”
+            </li>
+            <li>You may need to change “UI.Text” to “UnityEngine.UI.Text” in 1 or 2 scripts with an error message
+            </li></ul>
+          </li>
+          <li>3. Import all
+          </li>
+          <li>4. In Project window go to:
+            <ul>
+            <li>Standard Assets/Characters/Third Person Character/Prefabs/ThirdPersonController or FirstPersonController
+            </li></ul>
+          </li>
+          <li>5. Drag into hierarchy
+          </li>
+          <li>6. Create and zero out plane - Run and use mouselook and arrows to navigate
+            <ul>
+            <li>Create GameObject/3D Object/Plane
+            </li>
+            <li>3PC or FPC character: Drag down below prefab - 0,0,0
+            </li></ul>
+          </li>
+          <li>7. When Creating your own 3PC or FPC:
+            <ul>
+            <li>Position Main Camera to frame target/player
+            </li>
+            <li>Drag Main Camera into 3PC or FPC as Child
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 3.2: Unity Project Scenes - Starter Assets URP: 3PC, FPC (source slide 11) -->
+      <details class="accordion">
+        <summary>Unity Project Scenes - Starter Assets URP: 3PC, FPC</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>1. Create new scene
+          </li>
+          <li>2. Import Unity Standard Assets package/Characters from https://assetstore.unity.com/packages/package/267961
+          </li>
+          <li>3. Import all
+          </li>
+          <li>4. In Scene drag in Prefabs from Package:
+            <ul>
+            <li>FPC: NestedParent_Unpack Prefab in scene
+            </li>
+            <li>3PC: Tool menu at top: reset player armature, controller capsule
+            </li></ul>
+          </li>
+          <li>5. URP is Basic, will need to set up post processing volume (tutorial sheet next week)
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 3.3: Unity Camera Controllers - 3PC (source slide 12) -->
+      <details class="accordion">
+        <summary>Unity Camera Controllers - 3PC</summary>
+        <div class="accordion-body">
+          <p>Unity Project Scenes – Starter Assets: 3PC, FPC</p>
+          <ul>
+          <li>Has:
+            <ul>
+            <li>Navmesh AI (uneeded)
+            </li>
+            <li>Rigidbody
+            </li>
+            <li>Capsule Collider
+            </li>
+            <li>3 Person Control
+            </li>
+            <li>Character with animator
+            </li></ul>
+          </li>
+          <li>Must Add Camera:
+            <ul>
+            <li>Adjust view
+            </li>
+            <li>Parent camera to 3PC
+            </li></ul>
+          </li>
+          <li>Add colliders around desired scene to limit the navigation:
+            <ul>
+            <li>(Setting up Play Area)
+            </li>
+            <li>https://unity3d.com/learn/tutorials/projects/roll-ball-tutorial/setting-play-area?playlist=17141
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">14</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 4: Camera Controllers - Other Scripts and SmoothFollow (source slides 13-14) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Camera Controllers - Other Scripts and SmoothFollow</h2>
+        <div class="accordion-scroll">
+      <!-- Section 4.1: Unity Camera Controllers – Other Scripts (source slide 13) -->
+      <details class="accordion" open>
+        <summary>Unity Camera Controllers – Other Scripts</summary>
+        <div class="accordion-body">
+          <p>Unity Project Scenes:</p>
+          <ul>
+          <li>SmoothFollow
+          </li>
+          <li>Freelook
+          </li>
+          <li>Waypoint with Mouse Orbit
+          </li>
+          <li>RTS - Real Time Strategy Camera Controllers
+          </li>
+          <li>Diorama (follows player in 2.5D)
+          </li>
+          <li>Camera Switcher
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 4.2: Exercise: Unity SmoothFollow and SmoothDamp Camera (source slide 14) -->
+      <details class="accordion">
+        <summary>Exercise: Unity SmoothFollow and SmoothDamp Camera</summary>
+        <div class="accordion-body">
+          <p>(Good for following Player Character from behind)</p>
+          <p>https://docs.unity3d.com/ScriptReference/Vector3.SmoothDamp.html</p>
+          <p>New 3D Scene, Add Cube and Plane, Add camera code to camera, use cube as target</p>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">EcameraSmoothFollow.cs</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="EcameraSmoothFollow.cs">
+              <div class="code-panel__line code-panel__line--statement indent-level-0">public class EcameraSmoothFollow : MonoBehaviour</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">public Transform target;</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">public float smoothTime = 0.3F;</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">private Vector3 velocity = Vector3.zero;</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">void Update()</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-2">// Define a target position above and behind the target transform</div>
+              <div class="code-panel__line code-panel__line--code indent-level-2">Vector3 targetPosition = target.TransformPoint(new Vector3(0, 1, -10));</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-2">// Smoothly move the camera towards that target position</div>
+              <div class="code-panel__line code-panel__line--code indent-level-2">transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+            </div>
+          </section>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">14</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 5: Unity Camera Prefabs - FreeLook (source slides 15-16) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity Camera Prefabs - FreeLook</h2>
+        <div class="accordion-scroll">
+      <!-- Section 5.1: Unity Camera Prefabs – FreeLook (Similar to Whitevoid) (source slide 15) -->
+      <details class="accordion" open>
+        <summary>Unity Camera Prefabs – FreeLook (Similar to Whitevoid)</summary>
+        <div class="accordion-body">
+          <p>http://www.whitevoid.com/#/main</p>
+          <p>Unity Project Scenes - Starter Assets: 3PC, FPC, FreeLook</p>
+          <ul>
+          <li>In Project window go to:
+            <ul>
+            <li>Standard Assets/Cameras/Prefabs/FreeLookCameraRig
+            </li></ul>
+          </li>
+          <li>Drag into hierarchy
+          </li>
+          <li>Create GameObject/3D Object/Cube/
+          </li>
+          <li>Tag as Player
+          </li>
+          <li>Delete Main Camera
+          </li></ul>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-11-cameras-lerp_slide15_image0.png" class="accordion-image" alt="Unity Project window: Standard Assets &gt; Cameras &gt; Prefabs showing FreeLookCameraRig" style="--accordion-image-width: 45%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 5.2: Unity Camera Prefabs – FreeLook (Like Web mouse rotation) (source slide 16) -->
+      <details class="accordion">
+        <summary>Unity Camera Prefabs – FreeLook (Like Web mouse rotation)</summary>
+        <div class="accordion-body">
+          <p>Unity Project Scenes – Starter/Standard Assets: 3PC, FPC, FreeLook</p>
+          <p>The "Free Look" camera is designed to follow a target's position, while allowing the user to rotate the angle of the camera with the mouse (or a touch gesture). With the "Free Look" camera, the rig is designed so the root object of the rig should always look towards the target's position. The camera offset is specified by the height (the Y value) of the "Pivot" object, and the forward offset of the final "Camera" object. The camera lerps to the view position.</p>
+          <p>A typical set up for this would be to have the Y positional value of the Pivot set to 2 (for 2 meters above the target), and the Z positional value of the Camera set to -6 (for 6 meters behind the pivot).</p>
+          <p>If you wanted to adjust the camera to be to one side of the target (eg, for a closer over-shoulder third person view), you should adjust the X position value of the Pivot object.</p>
+          <ul>
+          <li>Camera Rig&lt;- position will move towards target.
+            <ul>
+            <li>Pivot&lt;- adjust Y position for height, X position for horizontal offset
+              <ul>
+              <li>Camera&lt;- adjust Z position for distance away from target
+              </li></ul>
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">14</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 6: Unity Camera Controllers - Waypoint and MouseOrbit (source slides 17-19) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity Camera Controllers - Waypoint and MouseOrbit</h2>
+        <div class="accordion-scroll">
+      <!-- Section 6.1: Unity Project Scenes: Waypoint with Mouse Orbit (source slide 17, 18) -->
+      <details class="accordion" open>
+        <summary>Unity Project Scenes: Waypoint with Mouse Orbit</summary>
+        <div class="accordion-body">
+          <p>Unity Project Scenes:</p>
+          <p>Waypoint with Mouse Orbit</p>
+          <ul>
+          <li>Object Selection – Waypoints
+          </li>
+          <li>Mouse Orbit – Around Waypoints with Focus
+          </li>
+          <li>Focus – Camera Focus on GameObject
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 6.2: Camera Waypoint Examples (source slide 19) -->
+      <details class="accordion">
+        <summary>Camera Waypoint Examples</summary>
+        <div class="accordion-body">
+          <p>Unity Camera Controllers</p>
+          <p>Unity Project Scenes: Waypoint with Mouse Orbit</p>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: 3D Menu + Camera Waypoints</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/8HALMRhbpGI" title="3D Menu + Camera Waypoints video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=8HALMRhbpGI" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <p>http://forum.unity3d.com/threads/camera-frame-selected-how-to.7308/</p>
+          <p>Transform look at</p>
+          <p>https://docs.unity3d.com/2020.1/Documentation/ScriptReference/Transform.LookAt.html</p>
+          <p>http://answers.unity3d.com/questions/891120/framing-an-object-bounds-encapsulating.html</p>
+          <p>Selection.activeGameObject = yourObject; SceneView.FrameLastActiveSceneView();</p>
+          <p>Maybe Camera.WorldToViewportPoint andCamera.ViewportToScreenPoint will come in handy.</p>
+          <p>Simple scripts</p>
+          <details class="accordion accordion--nested">
+            <summary>Camera documentation links</summary>
+            <div class="accordion-body">
+              <ul>
+                <li><a href="http://docs.unity3d.com/ScriptReference/Camera.WorldToViewportPoint.html" target="_blank" rel="noopener noreferrer">Camera.WorldToViewportPoint</a></li>
+                <li><a href="http://docs.unity3d.com/ScriptReference/Camera.ViewportToScreenPoint.html" target="_blank" rel="noopener noreferrer">Camera.ViewportToScreenPoint</a></li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">14</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 7: Unity Camera Controllers – Some basic Scripts to try (source slides 20-22) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity Camera Controllers – Some basic Scripts to try</h2>
+        <div class="accordion-scroll">
+      <!-- Section 7.1: Camera Waypoint Script - On your main camera (source slide 20) -->
+      <details class="accordion" open>
+        <summary>Camera Waypoint Script - On your main camera</summary>
+        <div class="accordion-body">
+          <p>Unity Project Scenes: Waypoint with Mouse Orbit</p>
+          <p>Camera Waypoint Script</p>
+          <p>Pasted from &lt;<span>http://answers.unity3d.com/questions/891120/framing-an-object-bounds-encapsulating.html</span>&gt;</p>
+          <p>On your main camera:</p>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">FocusScript.cs - Focus()</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="FocusScript.cs - Focus()">
+              <div class="code-panel__line code-panel__line--statement indent-level-0">public void Focus(Transform target, float offset)</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">Vector3 direction = transform.position - target.position;</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">direction = offset * direction.normalized;</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">Vector3 moveTo = target.position + direction;</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">transform.position = new Vector3(moveTo.x, 3f, moveTo.z);</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">transform.LookAt(target);</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+            </div>
+          </section>
+        </div>
+      </details>
+      <!-- Section 7.2: Camera Waypoint Script - On your GameObject (source slide 21) -->
+      <details class="accordion">
+        <summary>Camera Waypoint Script - On your GameObject</summary>
+        <div class="accordion-body">
+          <p>On your GameObject:</p>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">OnMouseOver() on the GameObject</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="OnMouseOver() on the GameObject">
+              <div class="code-panel__line code-panel__line--code indent-level-0">float offset = 4.24264f</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-0">void OnMouseOver()</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">if (Input.GetMouseButtonDown(0))</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+              <div class="code-panel__line code-panel__line--code indent-level-2">Camera.main.GetComponent&lt;FocusScript&gt;().Focus(transform, offset);</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+            </div>
+          </section>
+        </div>
+      </details>
+      <!-- Section 7.3: Mouse Camera Orbit Improved (MOI) Examples: (source slide 22) -->
+      <details class="accordion">
+        <summary>Mouse Camera Orbit Improved (MOI) Examples:</summary>
+        <div class="accordion-body">
+          <p>Unity Project Scenes: Waypoint with Mouse Orbit</p>
+          <p>Camera rotates around object selected and mouse orbited</p>
+          <p>http://stackoverflow.com/questions/34117591/c-sharp-with-unity-3d-how-do-i-make-a-camera-move-around-an-object-when-user-mo</p>
+          <p>Mouse Orbit</p>
+          <p>http://wiki.unity3d.com/index.php?title=MouseOrbitImproved#Code_C.23</p>
+          <p>Mouse Orbit Zoom</p>
+          <p>http://wiki.unity3d.com/index.php/MouseOrbitZoom</p>
+          <p>Cursor Lock</p>
+          <p>Press key to turn mouse orbit on and off - modify</p>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">14</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 8: Unity Camera Controllers - RTS Camera Movement (source slides 23-30) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity Camera Controllers - RTS Camera Movement</h2>
+        <div class="accordion-scroll">
+      <!-- Section 8.1: Unity Camera Controllers – RTS Camera Movement (source slide 23) -->
+      <details class="accordion" open>
+        <summary>Unity Camera Controllers – RTS Camera Movement</summary>
+        <div class="accordion-body">
+          <p>Unity Project Scenes: Real Time Strategy Cameras</p>
+          <p>Mouse input movement similar to real time strategy games.</p>
+          <p>The input translates the mouse 2D screen position into 2.5D or 3D camera movement.</p>
+          <p>See Unity Project (Camera Demos SA) Scene and Code</p>
+        </div>
+      </details>
+      <!-- Section 8.2: Mouse RTS Position – Basic with RMB (RightMouseButton) (source slide 24, 25) -->
+      <details class="accordion">
+        <summary>Mouse RTS Position – Basic with RMB (RightMouseButton)</summary>
+        <div class="accordion-body">
+          <p>Unity Camera Controllers – RTS Position</p>
+          <p>Unity Project Scenes: Real Time Strategy Cameras</p>
+          <p>http://coffeebreakcodes.com/camera-movement-with-mouse-unity3d-c/</p>
+          <p>Mouse screen position translates camera when RMB pressed</p>
+          <p>Inside screen</p>
+          <p>Very basic</p>
+          <ul>
+          <li>Uses principles we looked at above and in previous lectures and tutorials
+            <ul>
+            <li>Input.GetMouse Button
+            </li>
+            <li>Input.GetAxis
+            </li>
+            <li>Transform
+            </li>
+            <li>Vector3
+            </li>
+            <li>Time.DeltaTime
+            </li></ul>
+          </li></ul>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">RTS Position - Basic with RMB</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="RTS Position - Basic with RMB">
+              <div class="code-panel__line code-panel__line--statement indent-level-0">if (Input.GetMouseButton (1)) {</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">if (Input.GetAxis ("Mouse X") &gt; 0) {</div>
+              <div class="code-panel__line code-panel__line--code indent-level-2">transform.position += new Vector3 (Input.GetAxisRaw ("Mouse X") * Time.deltaTime * speed, 0.0f, Input.GetAxisRaw ("Mouse Y") * Time.deltaTime * speed);</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">else if (Input.GetAxis ("Mouse X") &lt; 0) {</div>
+              <div class="code-panel__line code-panel__line--code indent-level-2">transform.position += new Vector3 (Input.GetAxisRaw ("Mouse X") * Time.deltaTime * speed, 0.0f, Input.GetAxisRaw ("Mouse Y") * Time.deltaTime * speed);</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+            </div>
+          </section>
+        </div>
+      </details>
+      <!-- Section 8.3: Mouse RTS Position – Mouse 2D Out Screen Drag (source slide 26, 27) -->
+      <details class="accordion">
+        <summary>Mouse RTS Position – Mouse 2D Out Screen Drag</summary>
+        <div class="accordion-body">
+          <p>Unity Camera Controllers– RTS Position</p>
+          <p>Unity Project Scenes: Real Time Strategy Cameras</p>
+          <p>http://coffeebreakcodes.com/camera-movement-with-mouse-unity3d-c/</p>
+          <p>Mouse screen position translates camera – Script on Camera</p>
+          <p>Outside screen</p>
+          <p>Inside screen (1/2 code)</p>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">RTS Position - Mouse 2D Out Screen Drag (script on Camera)</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="RTS Position - Mouse 2D Out Screen Drag (script on Camera)">
+              <div class="code-panel__line code-panel__line--code indent-level-0">float speed = 10.0f;</div>
+              <div class="code-panel__line code-panel__line--code indent-level-0">int boundary = 1;</div>
+              <div class="code-panel__line code-panel__line--code indent-level-0">int width;</div>
+              <div class="code-panel__line code-panel__line--code indent-level-0">int height;</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-0">void Start ()</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">width = Screen.width;</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">height = Screen.height;</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-0">void Update ()</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">if (Input.mousePosition.x &gt; width - boundary)</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">{ transform.position -= new Vector3 (Input.GetAxisRaw ("Mouse X") * Time.deltaTime * speed, 0.0f, 0.0f); }</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">if (Input.mousePosition.x &lt; 0 + boundary)</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">{ transform.position -= new Vector3 (Input.GetAxisRaw ("Mouse X") * Time.deltaTime * speed, 0.0f, 0.0f); }</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">if (Input.mousePosition.y &gt; height - boundary)</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">{ transform.position -= new Vector3 (0.0f, 0.0f, Input.GetAxisRaw ("Mouse Y") * Time.deltaTime * speed); }</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">if (Input.mousePosition.y &lt; 0 + boundary)</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">{ transform.position -= new Vector3 (0.0f, 0.0f, Input.GetAxisRaw ("Mouse Y") * Time.deltaTime * speed); }</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+            </div>
+          </section>
+        </div>
+      </details>
+      <!-- Section 8.4: Mouse RTS Position – Mouse 2D In Screen Drag (source slide 28, 29) -->
+      <details class="accordion">
+        <summary>Mouse RTS Position – Mouse 2D In Screen Drag</summary>
+        <div class="accordion-body">
+          <p>Unity Camera Controllers– RTS Position Live Input</p>
+          <p>Unity Project Scenes: Real Time Strategy Cameras</p>
+          <p>http://coffeebreakcodes.com/camera-movement-with-mouse-unity3d-c/</p>
+          <p>Mouse screen position translates camera – Script on Camera</p>
+          <p>Outside screen</p>
+          <p>Inside screen (½ code)</p>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">RTS Position - Mouse 2D In Screen Drag (script on Camera)</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="RTS Position - Mouse 2D In Screen Drag (script on Camera)">
+              <div class="code-panel__line code-panel__line--code indent-level-0">float speed = 10.0f;</div>
+              <div class="code-panel__line code-panel__line--code indent-level-0">int boundary = 1;</div>
+              <div class="code-panel__line code-panel__line--code indent-level-0">int width;</div>
+              <div class="code-panel__line code-panel__line--code indent-level-0">int height;</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-0">void Start ()</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">width = Screen.width;</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">height = Screen.height;</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-0">void Update ()</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">if (Input.mousePosition.x &gt; (width/2) )</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">{ transform.position -= new Vector3 (Input.GetAxisRaw ("Mouse X") * Time.deltaTime * speed, 0.0f, 0.0f); }</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">if (Input.mousePosition.x &lt; (width/2) )</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">{ transform.position -= new Vector3 (Input.GetAxisRaw ("Mouse X") * Time.deltaTime * speed, 0.0f, 0.0f); }</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">if (Input.mousePosition.y &gt; (height/2) )</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">{ transform.position -= new Vector3 (0.0f, 0.0f, Input.GetAxisRaw ("Mouse Y") * Time.deltaTime * speed); }</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">if (Input.mousePosition.y &lt; (height/2) )</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">{ transform.position -= new Vector3 (0.0f, 0.0f, Input.GetAxisRaw ("Mouse Y") * Time.deltaTime * speed); }</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+            </div>
+          </section>
+        </div>
+      </details>
+      <!-- Section 8.5: Unity Camera Controllers – RTS Rotation Live Input (source slide 30) -->
+      <details class="accordion">
+        <summary>Unity Camera Controllers – RTS Rotation Live Input</summary>
+        <div class="accordion-body">
+          <p>Mouse RTS Rotation</p>
+          <p>Mouse screen position rotates camera</p>
+          <p>This does not have focus for target, we will use other code instead.</p>
+          <p>Mouse Orbit and waypoint</p>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">14</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 9: Unity Camera Controllers - 2.5D Diorama Style (source slides 31-36) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity Camera Controllers - 2.5D Diorama Style</h2>
+        <div class="accordion-scroll">
+      <!-- Section 9.1: Unity 2.5D Camera – Diorama (source slide 31, 32) -->
+      <details class="accordion" open>
+        <summary>Unity 2.5D Camera – Diorama</summary>
+        <div class="accordion-body">
+          <p>Unity Project Scenes - Noor5 and Rollerball</p>
+          <p>Unity Project Scenes: Diorama - Noor5 and Rollerball</p>
+          <p>Example: https://www.youtube.com/watch?v=CvEMvYUXxaE</p>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Testing a dynamic 2.5D camera on Unity 3D engine</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/CvEMvYUXxaE" title="Testing a dynamic 2.5D camera on Unity 3D engine video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=CvEMvYUXxaE" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <p>https://learn.unity.com/project/roll-a-ball</p>
+          <p><a href="https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/EYneh4DsN09JrpgJO040U64B0j2ChZPEx1XezbrDF5r1hA?e=RhlZ4c" target="_blank" rel="noopener noreferrer">Noorcon Inc. - Unity 3D Game Programming Part 5 - Vahe Karamian</a></p>
+          <ul>
+          <li>Camera with transparent player controlled by input keys
+            <ul>
+            <li>(Parented, constrained by script, or constrained by Unity “Align with View”)
+            </li></ul>
+          </li>
+          <li>Collider boxes for lockdown
+          </li>
+          <li>Similar to Rollerball tutorial
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 9.2: Unity 2.5D Camera – Diorama Tutorial with Player object and Aligned Camera (source slide 33) -->
+      <details class="accordion">
+        <summary>Unity 2.5D Camera – Diorama Tutorial with Player object and Aligned Camera</summary>
+        <div class="accordion-body">
+          <p>Create Gameobject (Player):</p>
+          <ul>
+          <li>Add Rigidbody (Physics, Gravity)
+          </li>
+          <li>Freeze rotation on X and Z
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 9.3: Diorama Tutorial - playerInput Script (source slide 34) -->
+      <details class="accordion">
+        <summary>Diorama Tutorial - playerInput Script</summary>
+        <div class="accordion-body">
+          <p>Add Script to Player GameObject:</p>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">playerInput.cs</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="playerInput.cs">
+              <div class="code-panel__line code-panel__line--statement indent-level-0">using UnityEngine;</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-0">using System.Collections;</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-0">public class playerInput : MonoBehaviour {</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-1">// Use this for initialization</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">void Start () {</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-1">// Update is called once per frame</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">void Update () {</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-2">// code for the movement of player (CP) forward</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-2">if(Input.GetKey(KeyCode.UpArrow)){</div>
+              <div class="code-panel__line code-panel__line--code indent-level-3">this.transform.Translate(Vector3.forward * Time.deltaTime);</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-2">// code for the movement of player (CP) backward</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-2">if(Input.GetKey(KeyCode.DownArrow)){</div>
+              <div class="code-panel__line code-panel__line--code indent-level-3">this.transform.Translate(Vector3.back * Time.deltaTime);</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-2">// code for the movement of player (CP) left</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-2">if(Input.GetKey(KeyCode.LeftArrow)){</div>
+              <div class="code-panel__line code-panel__line--code indent-level-3">this.transform.Translate(Vector3.right, -5);</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-2">// code for the movement of player (CP) right</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-2">if(Input.GetKey(KeyCode.RightArrow)){</div>
+              <div class="code-panel__line code-panel__line--code indent-level-3">this.transform.Translate(Vector3.right, 5);</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+            </div>
+          </section>
+        </div>
+      </details>
+      <!-- Section 9.4: Diorama Tutorial - Scene Setup and Align With View (source slide 35) -->
+      <details class="accordion">
+        <summary>Diorama Tutorial - Scene Setup and Align With View</summary>
+        <div class="accordion-body">
+          <p>In Scene Window:</p>
+          <ul>
+          <li>Create GameObject/3D Object/Plane
+          </li>
+          <li>Drag down below prefab in Scene – this is so the Player Controller does not drop through the scene.
+          </li>
+          <li>Position Main Camera to frame object and scene
+          </li>
+          <li>Make sure your boundaries (Planes? Lego?) have colliders on
+          </li></ul>
+          <p>In Scene Window:</p>
+          <p>In the scene window, use your mouse to position your view in the behind the Player. When you are satisfied with what you see in the Scene Window, select the Main CameraObject. From the main menu, select GameObject-&gt; Align With View. This will move the Main Camera GameObject, or the current selected GameObject, to be aligned with the view in the scene</p>
+          <p>Run with Play key at top and use key input to move about and see result</p>
+        </div>
+      </details>
+      <!-- Section 9.5: Diorama Tutorial - Static Colliders and Camera Alignment (source slide 36) -->
+      <details class="accordion">
+        <summary>Diorama Tutorial - Static Colliders and Camera Alignment</summary>
+        <div class="accordion-body">
+          <p>Add Static Colliders:</p>
+          <ul>
+          <li>Make sure walls or lego cubes constraining diorama have colliders to stop object
+          </li></ul>
+          <p>Make Player Controller Transparent or Small</p>
+          <p>In the scene, use your mouse to position your view behind the CP, the Sphere. When you are satisfied with what you see in the Scene Window, select the MainCamera object. From the main menu, select GameObject-&gt;Alighn With View. This will move the Main Camera GameObject, or the current selected GameObject, to be aligned with the view in the scene!</p>
+          <p>Adjust as needed, Run with Play key at top and use key input to move about and see result</p>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">14</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 10: Camera Switcher and Camera Exercises (source slides 37-41) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Camera Switcher and Camera Exercises</h2>
+        <div class="accordion-scroll">
+      <!-- Section 10.1: Unity 2.5D Camera – Camera Switcher (source slide 37) -->
+      <details class="accordion" open>
+        <summary>Unity 2.5D Camera – Camera Switcher</summary>
+        <div class="accordion-body">
+          <p>Unity Project Scenes: Camera Switcher</p>
+          <p>Works with all previous cameras!</p>
+          <p>Try this and experiment – move objects with cameras attached and switch to them, use triggered animations and lerps….</p>
+        </div>
+      </details>
+      <!-- Section 10.2: Exercise: Unity 3D Camera - Waypoints and Mouse Orbits (source slide 38) -->
+      <details class="accordion">
+        <summary>Exercise: Unity 3D Camera - Waypoints and Mouse Orbits</summary>
+        <div class="accordion-body">
+          <p>Exercise: Unity 3D Camera- Waypoints and mouse orbits Example: 100,000 Stars http://stars.chromeexperiments.com/</p>
+          <p>In Camera Demos Unity Project</p>
+          <ul>
+          <li>Has mouse orbit with no limits
+          </li>
+          <li>Can have Boolean for game object framed
+          </li>
+          <li>Right Mouse Button goes Back to Start Object
+          </li>
+          <li>Esc key deactivates Mouse orbit deactivate
+            <ul>
+            <li>(for easier mouse cursor selection)
+            </li></ul>
+          </li></ul>
+          <details class="accordion accordion--nested">
+            <summary>Speaker notes links</summary>
+            <div class="accordion-body">
+              <ul>
+                <li><a href="https://www.youtube.com/watch?v=-5RiMoILHTA" target="_blank" rel="noopener noreferrer">YouTube video -5RiMoILHTA (currently unavailable)</a></li>
+                <li><a href="https://forum.unity3d.com/threads/fly-move-camera-object-to-waypoint-with-button-click.46988/" target="_blank" rel="noopener noreferrer">Unity forum: Fly/move camera object to waypoint with button click</a></li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </details>
+      <!-- Section 10.3: Exercise: Unity 2.5D Camera – FreeLook Camera (source slide 39) -->
+      <details class="accordion">
+        <summary>Exercise: Unity 2.5D Camera – FreeLook Camera</summary>
+        <div class="accordion-body">
+          <p>(Limited mouse orbit – Whitevoid – Outside In)</p>
+          <ul>
+          <li>Freelook in Camera Demos Unity Project – Add camera moves
+          </li>
+          <li>Mouse orbit by 2D screen mapping
+            <ul>
+            <li>(adjust limits)
+            </li></ul>
+          </li>
+          <li>2. Add Camera Focus to GameObject
+            <ul>
+            <li>(try swapping targets)
+            </li></ul>
+          </li>
+          <li>3. Or use Lerp, Movetowards, Translate, or Animations triggered
+            <ul>
+            <li>(move camera, script settings, or new focus as above)
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 10.4: Exercise: Animation Trigger Waypoints (source slide 40) -->
+      <details class="accordion">
+        <summary>Exercise: Animation Trigger Waypoints</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Position Changes (Animated)
+            <ul>
+            <li>Camera Animations for movement
+            </li></ul>
+          </li>
+          <li>Rotation (Inside Out)
+            <ul>
+            <li>Camera MouseLook Script or RTS Middledrag (rotation)
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 10.5: Exercise: Movement Scripted Free Waypoints (source slide 41) -->
+      <details class="accordion">
+        <summary>Exercise: Movement Scripted Free Waypoints</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Position Changes (Scripted)
+            <ul>
+            <li>Code from Lego Bricks Tutorial 03
+            </li>
+            <li>Try some more advanced code – Vector3, movetowards, Lerp
+            </li></ul>
+          </li>
+          <li>Rotation (Inside Out)
+            <ul>
+            <li>Camera MouseLook Script or RTS Middledrag (rotation)
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">14</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 11: LERP Reference (source slides 42-47) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>LERP Reference</h2>
+        <div class="accordion-scroll">
+      <!-- Section 11.1: LERP and Coroutine References (source slide 42) -->
+      <details class="accordion" open>
+        <summary>LERP and Coroutine References</summary>
+        <div class="accordion-body">
+          <p>https://gamedevbeginner.com/the-right-way-to-lerp-in-unity-with-examples/</p>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: The right way to Lerp in Unity</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/RNccTrsgO9g" title="The right way to Lerp in Unity video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://youtu.be/RNccTrsgO9g" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <p>https://gamedevbeginner.com/coroutines-in-unity-when-and-how-to-use-them/</p>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Coroutines in Unity (how &amp; when to use them)</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/kUP6OK36nrM" title="Coroutines in Unity (how &amp; when to use them) video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://youtu.be/kUP6OK36nrM" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+        </div>
+      </details>
+      <!-- Section 11.2: Good: Linear Move "from – to" in period of time (source slide 43) -->
+      <details class="accordion">
+        <summary>Good: Linear Move "from – to" in period of time</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>1. Defined start end and duration
+          </li>
+          <li>2. Elapsed time divided by duration
+          </li>
+          <li>3. Checks for elapsed=duration to snap to end
+          </li>
+          <li>4. Usually put in a coroutine
+          </li></ul>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-11-cameras-lerp_slide43_image0.png" class="accordion-image" alt="Lerp in Update: lerpedValue from start to end over duration using timeElapsed / duration" style="--accordion-image-width: 48%;" />
+            <img src="images/lect-11-cameras-lerp_slide43_image1.png" class="accordion-image" alt="Lerp in a coroutine: IEnumerator LerpValue(start, end) started from Start()" style="--accordion-image-width: 48%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 11.3: "Bad": Dynamic easing method (source slide 44) -->
+      <details class="accordion">
+        <summary>"Bad": Dynamic easing method</summary>
+        <div class="accordion-body">
+          <p>"Bad": Dynamic easing method - constantly moved to changing target</p>
+          <ul>
+          <li>1. Use current target as minimum lerp value
+          </li>
+          <li>2. Maximum lerp is moving target (passed in)
+          </li>
+          <li>3. T = Time.deltaTime
+          </li>
+          <li>4. Constantly update as fractionally closer to target.
+          </li>
+          <li>5. Change gets smaller - incorrect ease - can snap though
+          </li>
+          <li>6. Also rate of change is not scaled
+          </li></ul>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-11-cameras-lerp_slide44_image0.png" class="accordion-image" alt="Dynamic easing: lerpedValue = Mathf.Lerp(lerpedValue, end, Time.deltaTime) in Update" style="--accordion-image-width: 55%;" />
+            <img src="images/lect-11-cameras-lerp_slide44_image1.png" class="accordion-image" alt="Square easing towards the mouse cursor: position = Vector2.Lerp(position, target, time)" style="--accordion-image-width: 40%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 11.4: SmoothDamp is preferred (source slide 45) -->
+      <details class="accordion">
+        <summary>SmoothDamp is preferred</summary>
+        <div class="accordion-body">
+          <p>Smoothly move towards a dynamic target over approx amount of time.</p>
+          <ul>
+          <li>Beginning and end will be slowed
+          </li>
+          <li>Clamped?
+          </li>
+          <li>Good for follow camera
+            <ul>
+            <li>Current velocity
+            </li>
+            <li>How fast changing
+            </li>
+            <li>Remaining distance to target
+            </li>
+            <li>In CameraSmoothFloow Example in "Camera Demos SA" Project
+            </li></ul>
+          </li></ul>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-11-cameras-lerp_slide45_image0.png" class="accordion-image" alt="Mathf.SmoothDamp(target, velocity, smooth time)" style="--accordion-image-width: 50%;" />
+            <img src="images/lect-11-cameras-lerp_slide45_image1.png" class="accordion-image" alt="SmoothDamp in Update: lerpedValue = Mathf.SmoothDamp(lerpedValue, 1, ref velocity, duration)" style="--accordion-image-width: 60%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 11.5: Lerp with fixed time scale and curve (source slide 46) -->
+      <details class="accordion">
+        <summary>Lerp with fixed time scale and curve</summary>
+        <div class="accordion-body">
+          <p>(ease in and out)</p>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-11-cameras-lerp_slide46_image0.png" class="accordion-image" alt="Lerp coroutine with ease in and out: t = t * t * (3f - 2f * t)" style="--accordion-image-width: 50%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 11.6: Or pass in normalised animation curve (source slide 47) -->
+      <details class="accordion">
+        <summary>Or pass in normalised animation curve</summary>
+        <div class="accordion-body">
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-11-cameras-lerp_slide47_image0.png" class="accordion-image" alt="Unity animation curve editor with an ease curve" style="--accordion-image-width: 45%;" />
+            <img src="images/lect-11-cameras-lerp_slide47_image1.png" class="accordion-image" alt="Lerp coroutine using t = animCurve.Evaluate(t) from a public AnimationCurve" style="--accordion-image-width: 50%;" />
+          </div>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-11">11</span> / <span id="total-slides">14</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 12: ClickLerp: New Camera Position by Keypress and Mouse (source slides 48-49) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>ClickLerp: New Camera Position by Keypress and Mouse</h2>
+        <div class="accordion-scroll">
+      <!-- Section 12.1: ClickLerp: New camera position by keypress, Mouse click (source slide 48) -->
+      <details class="accordion" open>
+        <summary>ClickLerp: New camera position by keypress, Mouse click</summary>
+        <div class="accordion-body">
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">OnMouseEnter()</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="OnMouseEnter()">
+              <div class="code-panel__line code-panel__line--code indent-level-0">function OnMouseEnter() {</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">transform.position = Vector3.Lerp(this.transform.position, new Vector3(0.0512155,0.5632893,5.466473), 0.2);</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+            </div>
+          </section>
+          <p>The parameters that Vector3.Lerp as also the Vector3.MoveTowards require are the following:</p>
+          <ul>
+          <li>1 parameter is the actual position
+          </li>
+          <li>2 parameter is the position that you want to move to
+          </li>
+          <li>3 parameter is the time to move from the actual position to the final position.
+          </li></ul>
+          <p>Easier to Animate Camera!</p>
+        </div>
+      </details>
+      <!-- Section 12.2: ClickLerp: New camera position by keypress, Mouse (source slide 49) -->
+      <details class="accordion">
+        <summary>ClickLerp: New camera position by keypress, Mouse</summary>
+        <div class="accordion-body">
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">ClickLerp.cs</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="ClickLerp.cs">
+              <div class="code-panel__line code-panel__line--statement indent-level-0">public class ClickLerp : MonoBehaviour {</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-1">//Code From: https://answers.unity.com/questions/1613407/how-to-use-smoothly-move-camera-to-position-using.html</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">public Transform camPos;</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">public float CamMoveSpeed = 5f;</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">Vector3 camNewPos;</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">private void Start() {camNewPos = camPos.position;}</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">private void Update() {</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-2">if (Input.GetMouseButton(0)) {</div>
+              <div class="code-panel__line code-panel__line--code indent-level-3">float xinput = Input.GetAxisRaw("Mouse X");</div>
+              <div class="code-panel__line code-panel__line--code indent-level-3">float zinput = Input.GetAxisRaw("Mouse Y");</div>
+              <div class="code-panel__line code-panel__line--code indent-level-3">float x = camPos.position.x;</div>
+              <div class="code-panel__line code-panel__line--code indent-level-3">float z = camPos.position.z;</div>
+              <div class="code-panel__line code-panel__line--code indent-level-3">float y = camPos.position.y;</div>
+              <div class="code-panel__line code-panel__line--code indent-level-3">camNewPos = new Vector3(x + xinput, y, z + zinput);}</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-2">//camPos.position = Vector3.MoveTowards(camPos.position, camNewPos, CamMoveSpeed * Time.deltaTime);</div>
+              <div class="code-panel__line code-panel__line--code indent-level-2">camPos.position = Vector3.Lerp(camPos.position, camNewPos, CamMoveSpeed * Time.deltaTime);</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+            </div>
+          </section>
+        </div>
+      </details>
+      <!-- Section 12.3: Speaker notes link (slides 48-54) (source slide added cross-reference) -->
+      <details class="accordion">
+        <summary>Speaker notes link (slides 48-54)</summary>
+        <div class="accordion-body">
+          <p><a href="https://stackoverflow.com/questions/61417584/unity-player-controller-not-moving-toward-mouse-cursor" target="_blank" rel="noopener noreferrer">Stack Overflow: Unity player controller not moving toward mouse cursor</a></p>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-12">12</span> / <span id="total-slides">14</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 13: Lego Museum Camera System (source slides 50-54) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Lego Museum Camera System</h2>
+        <div class="accordion-scroll">
+      <!-- Section 13.1: Player Game Object - PlayerMovement.cs (source slide 50) -->
+      <details class="accordion" open>
+        <summary>Player Game Object - PlayerMovement.cs</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Player Game Object
+            <ul>
+            <li>PlayerMovement.cs
+            </li></ul>
+          </li></ul>
+          <p>1.Creates public variable type Transform called Orientation</p>
+          <ul>
+          <li>Populates with the Orientation Game Object which is its child
+          </li>
+          <li>PlayerCam.cs updates the Orientation, which is used by this script
+          </li></ul>
+          <p>2. Takes in Horizontal and Vertical Input:</p>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">PlayerMovement.cs - input</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="PlayerMovement.cs - input">
+              <div class="code-panel__line code-panel__line--code indent-level-0">horizontalInput = Input.GetAxisRaw("Horizontal");</div>
+              <div class="code-panel__line code-panel__line--code indent-level-0">verticalInput = Input.GetAxisRaw("Vertical");</div>
+            </div>
+          </section>
+          <p>3. Performs FixedUpdate on RigidBody on Player Game Object with position and orientation input</p>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">PlayerMovement.cs - FixedUpdate movement</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="PlayerMovement.cs - FixedUpdate movement">
+              <div class="code-panel__line code-panel__line--comment indent-level-0">//movement based on orientation which in specific object</div>
+              <div class="code-panel__line code-panel__line--code indent-level-0">moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;</div>
+              <div class="code-panel__line code-panel__line--code indent-level-0">rb.linearDamping = (speed / maxSpeed); //used to be drag, not sure if it has an impact</div>
+              <div class="code-panel__line code-panel__line--code indent-level-0">rb.AddForce(moveDirection.normalized * speed, ForceMode.Force);</div>
+            </div>
+          </section>
+          <p>https://gyazo.com/dbe0b0326cae37bb7fc7c1eda36fc6eb</p>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-11-cameras-lerp_slide50_image0.png" class="accordion-image" alt="Unity Inspector for the Player GameObject with Rigidbody, Capsule Collider and PlayerMovement script" style="--accordion-image-width: 40%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 13.2: Player Game Object - Orientation Game Object (source slide 51) -->
+      <details class="accordion">
+        <summary>Player Game Object - Orientation Game Object</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Player Game Object
+            <ul>
+            <li>Orientation Game Object
+            </li></ul>
+          </li></ul>
+          <p>https://gyazo.com/11999acc16880e7cb1a5f0cd6a9d42c9</p>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-11-cameras-lerp_slide51_image0.png" class="accordion-image" alt="Unity Hierarchy and Inspector with the Orientation GameObject selected under Player" style="--accordion-image-width: 45%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 13.3: Player Game Object - Camera Position Game Object (source slide 52) -->
+      <details class="accordion">
+        <summary>Player Game Object - Camera Position Game Object</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Player Game Object
+            <ul>
+            <li>Camera Position Game Object
+            </li></ul>
+          </li></ul>
+          <p>https://gyazo.com/ce67e7808baddeecad77d55ef3ea2ad2</p>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-11-cameras-lerp_slide52_image0.png" class="accordion-image" alt="Unity Hierarchy and Inspector with the CameraPosition GameObject selected under Player" style="--accordion-image-width: 45%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 13.4: Camera Holder Game Object - CameraMove.cs (source slide 53) -->
+      <details class="accordion">
+        <summary>Camera Holder Game Object - CameraMove.cs</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Camera Holder Game Object
+            <ul>
+            <li>CameraMove.cs
+            </li></ul>
+          </li></ul>
+          <p>1.CameraPosition GameObject child of Player GameObject is followed for transform position</p>
+          <p>2. This handles the position via PlayerGO/PlayerMovement.cs RigidBody controller script</p>
+          <p>3. This allows the PlayerCam.cs on the PlayerCamera GO to handle the orientation</p>
+          <p>https://gyazo.com/e1810339c3985cc0e137597b4569f9b2</p>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-11-cameras-lerp_slide53_image0.png" class="accordion-image" alt="Unity Inspector for the CameraHolder GameObject with the CameraMove script" style="--accordion-image-width: 40%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 13.5: Camera Holder Game Object - PlayerCamera - PlayerCam.cs (source slide 54) -->
+      <details class="accordion">
+        <summary>Camera Holder Game Object - PlayerCamera - PlayerCam.cs</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Camera Holder Game Object
+            <ul>
+            <li>PlayerCamera Game Object
+              <ul>
+              <li>PlayerCam.cs
+              </li></ul>
+            </li></ul>
+          </li></ul>
+          <p>1.Mouse-look controller - Reads mouse X/Y, applies sensitivities and Time.deltaTime, clamps pitch, updates camera rotation.</p>
+          <p>2. Writes yaw to a public Transform variable called "orientation" which Updates the Orientation GO child of the Player GO (orientation.rotation = Quaternion.Euler(0, yrotation, 0)) so movement aligns with camera yaw.</p>
+          <p>Note: its cursor-locking startup code is commented out; cursor state is handled elsewhere.</p>
+          <p>https://gyazo.com/ce67e7808baddeecad77d55ef3ea2ad2</p>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-11-cameras-lerp_slide54_image0.png" class="accordion-image" alt="Unity Inspector for the PlayerCamera GameObject with Camera, Audio Listener and PlayerCam script" style="--accordion-image-width: 40%;" />
+          </div>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-13">13</span> / <span id="total-slides">14</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 14: Unity 2.5D Camera - Position State Changes (source slides 55) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity 2.5D Camera - Position State Changes</h2>
+        <div class="accordion-scroll">
+      <!-- Section 14.1: Case 04 Unity 2.5D Camera – Position State Changes (source slide 55) -->
+      <details class="accordion" open>
+        <summary>Case 04 Unity 2.5D Camera – Position State Changes</summary>
+        <div class="accordion-body">
+          <p>(Tap to move camera – TGC, Krak, Sniper(FPS) )</p>
+          <p>New camera position by keypress</p>
+          <ul>
+          <li>Move Camera to new Vector3 Postion, Keep Orbit Options (Code to Come)
+          </li>
+          <li>Sniper (complex with FPS, at 12:00 on)
+          </li></ul>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Unity 3D Tutorial Third Person Shooter part 2 The Aiming [Outdated]</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/z_mJ_BjFqlU?start=720" title="Unity 3D Tutorial Third Person Shooter part 2 The Aiming [Outdated] video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=z_mJ_BjFqlU" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <ul>
+          <li>New camera position by screen tap
+            <ul>
+            <li>Raycast and Lerp (Complex with 3PC, TGC)
+            </li></ul>
+          </li></ul>
+          <p>http://www.thegamecontriver.com/2014/10/move-to-mouse-click-touch-position-unity.html</p>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">Speaker notes code: DOMove to clicked position</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="Speaker notes code: DOMove to clicked position">
+              <div class="code-panel__line code-panel__line--statement indent-level-0">private Vector2 destination;</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-0">public float MoveSpeed;</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-0">void Update()</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">if (Input.GetMouseButtonDown(0))</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+              <div class="code-panel__line code-panel__line--code indent-level-2">destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);</div>
+              <div class="code-panel__line code-panel__line--code indent-level-2">transform.DOMove(destination, MoveSpeed).SetEase(Ease.Linear);</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+            </div>
+          </section>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1" disabled>Next → </button>
+        <div class="slide-counter"><span id="current-slide-14">14</span> / <span id="total-slides">14</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../assets/js/site.js?v=20260915a"></script>
+  <script>
+    const isLecturePage = /\/lect-[^/]+\.html$/i.test(window.location.pathname);
+    if (isLecturePage && document.body) {
+      document.body.classList.add('lecture-fullbleed');
+    }
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function normalizeSlideStructure(slide) {
+      if (slide.querySelector('.slide-frame')) return;
+
+      const title = slide.querySelector('.slide-title');
+      const controls = slide.querySelector('.slide-controls');
+      const body = slide.querySelector('.slide-content');
+      if (!title || !controls || !body) return;
+
+      const frame = document.createElement('div');
+      frame.className = 'slide-frame';
+      frame.appendChild(title);
+      frame.appendChild(body);
+      frame.appendChild(controls);
+      slide.appendChild(frame);
+    }
+
+    function linkifyText(element) {
+      const urlPattern = /(https?:\/\/[^\s]+)/g;
+      const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+      );
+
+      const nodesToReplace = [];
+      let node;
+
+      while (node = walker.nextNode()) {
+        if (urlPattern.test(node.textContent)) {
+          nodesToReplace.push(node);
+        }
+      }
+
+      urlPattern.lastIndex = 0;
+
+      nodesToReplace.forEach((textNode) => {
+        const span = document.createElement('span');
+        span.innerHTML = textNode.textContent.replace(
+          /(https?:\/\/[^\s]+)/g,
+          '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
+        textNode.parentNode.replaceChild(span, textNode);
+      });
+    }
+
+    function enhanceLectureVideos(slide) {
+      const videoPattern = /^https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([^\s&?]+)(.*)$/i;
+      slide.querySelectorAll('.accordion-body > p').forEach((paragraph) => {
+        const match = paragraph.textContent.trim().match(videoPattern);
+        if (!match) return;
+
+        const sourceUrl = match[0];
+        const videoId = match[1];
+        const query = match[2] || '';
+        const previous = paragraph.previousElementSibling;
+        const context = previous ? previous.textContent.replace(/\s+/g, ' ').trim() : '';
+        const details = document.createElement('details');
+        details.className = 'accordion accordion--nested embed-accordion';
+        details.innerHTML = `
+          <summary>${context || 'Video'}</summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <iframe class="video-embed" src="https://www.youtube.com/embed/${videoId}${query}" title="${context || 'Video'}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <p><a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+            </article>
+          </div>`;
+        paragraph.replaceWith(details);
+      });
+    }
+
+    function enhanceLectureImageLayouts(slide) {
+      slide.querySelectorAll('.accordion-body').forEach((body) => {
+        const images = Array.from(body.children).filter((child) => child.tagName === 'IMG');
+        if (!images.length || body.querySelector(':scope > .slide-media-layout')) return;
+
+        const layout = document.createElement('div');
+        layout.className = 'slide-media-layout';
+        const textColumn = document.createElement('div');
+        textColumn.className = 'slide-text-column';
+        const imageColumn = document.createElement('div');
+        imageColumn.className = 'slide-image-column';
+
+        Array.from(body.children).forEach((child) => {
+          if (child.tagName === 'IMG') imageColumn.appendChild(child);
+          else textColumn.appendChild(child);
+        });
+
+        layout.append(textColumn, imageColumn);
+        body.appendChild(layout);
+      });
+    }
+
+    function getAccordionLabels(titleText) {
+      const title = (titleText || '').toLowerCase();
+
+      if (title.includes('workflow')) {
+        return { overview: 'Workflow Steps', resources: 'Diagrams and Media' };
+      }
+
+      if (title.includes('references') || title.includes('reading')) {
+        return { overview: 'Reading Notes', resources: 'References and Media' };
+      }
+
+      if (title.includes('group') || title.includes('activity')) {
+        return { overview: 'Guidance', resources: 'Resources' };
+      }
+
+      return { overview: 'Overview', resources: 'Resources and Media' };
+    }
+
+    function normalizeAccordionLabel(text) {
+      const cleaned = (text || '').replace(/\s+/g, ' ').replace(/[:\-]+$/, '').trim();
+      if (!cleaned) return '';
+
+      const lowered = cleaned.toLowerCase();
+      if (lowered === 'overview' || lowered === 'resources' || lowered === 'resources and media') {
+        return '';
+      }
+
+      return cleaned;
+    }
+
+    function inferOverviewLabel(body, h2) {
+      const headingCandidates = Array.from(body.querySelectorAll(':scope > h3, :scope > .section-label'));
+      for (const node of headingCandidates) {
+        const candidate = normalizeAccordionLabel(node.textContent);
+        if (candidate) return candidate;
+      }
+
+      const headingText = (h2 ? h2.textContent : '').replace(/\s+/g, ' ').trim();
+      const parenthetical = headingText.match(/\(([^)]+)\)/);
+      if (parenthetical) {
+        const candidate = normalizeAccordionLabel(parenthetical[1]);
+        if (candidate) return candidate;
+      }
+
+      const firstParagraph = body.querySelector(':scope > p');
+      if (firstParagraph) {
+        const paragraphText = (firstParagraph.textContent || '').replace(/\s+/g, ' ').trim();
+        const wordCount = paragraphText.split(/\s+/).filter(Boolean).length;
+        const looksLikeLabel = !/[.!?]$/.test(paragraphText) && !/^https?:\/\//i.test(paragraphText);
+        if (wordCount > 0 && wordCount <= 6 && looksLikeLabel) {
+          const candidate = normalizeAccordionLabel(paragraphText);
+          if (candidate) return candidate;
+        }
+      }
+
+      return '';
+    }
+
+    function convertLegacySlideToAccordion(slide) {
+      const body = slide.querySelector('.slide-content');
+      if (!body || body.classList.contains('slide-content-accordion')) return;
+
+      const h2 = body.querySelector(':scope > h2');
+      const labels = getAccordionLabels(h2 ? h2.textContent : '');
+      const inferredOverviewLabel = inferOverviewLabel(body, h2);
+      const customOverviewLabel = body.getAttribute('data-overview-label');
+      const customResourcesLabel = body.getAttribute('data-resources-label');
+      if (inferredOverviewLabel) {
+        labels.overview = inferredOverviewLabel;
+      }
+      if (customOverviewLabel) {
+        labels.overview = customOverviewLabel;
+      }
+      if (customResourcesLabel) {
+        labels.resources = customResourcesLabel;
+      }
+      const children = Array.from(body.children).filter((node) => node !== h2);
+      if (!children.length) return;
+
+      const overviewItems = [];
+      const resourcesItems = [];
+
+      children.forEach((node) => {
+        const tag = node.tagName ? node.tagName.toLowerCase() : '';
+        const text = (node.textContent || '').trim();
+        const hasUrl = /https?:\/\//i.test(text);
+        const isImage = tag === 'img';
+        const hasLink = Boolean(node.querySelector && node.querySelector('a'));
+
+        if (isImage || hasUrl || hasLink) {
+          resourcesItems.push(node);
+        } else {
+          overviewItems.push(node);
+        }
+      });
+
+      body.classList.add('slide-content-accordion');
+      body.innerHTML = '';
+      if (h2) body.appendChild(h2);
+
+      const scroll = document.createElement('div');
+      scroll.className = 'accordion-scroll';
+
+      if (overviewItems.length) {
+        const overview = document.createElement('details');
+        overview.className = 'accordion';
+        overview.open = true;
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.overview;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        overviewItems.forEach((node) => content.appendChild(node));
+
+        overview.appendChild(summary);
+        overview.appendChild(content);
+        scroll.appendChild(overview);
+      }
+
+      if (resourcesItems.length) {
+        const resources = document.createElement('details');
+        resources.className = 'accordion';
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.resources;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        resourcesItems.forEach((node) => content.appendChild(node));
+
+        resources.appendChild(summary);
+        resources.appendChild(content);
+        scroll.appendChild(resources);
+      }
+
+      body.appendChild(scroll);
+    }
+
+    function syncSlideTitles() {
+      slides.forEach((slide) => {
+        const title = slide.querySelector('.slide-title');
+        const heading = slide.querySelector('.slide-content h2');
+        if (!title || !heading) return;
+
+        const headingText = (heading.textContent || '').replace(/\s+/g, ' ').trim();
+        if (headingText) {
+          title.textContent = headingText;
+          heading.remove();
+        }
+      });
+    }
+
+    function announceActiveSlideTitle() {
+      const activeSlide = slides[currentSlide];
+      if (!activeSlide) return;
+
+      const titleNode = activeSlide.querySelector('.slide-title');
+      const titleText = (titleNode ? titleNode.textContent : '').replace(/\s+/g, ' ').trim();
+      if (!titleText) return;
+
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({
+          type: 'lecture-slide-title',
+          title: titleText
+        }, '*');
+      }
+    }
+
+    slides.forEach((slide, index) => {
+      normalizeSlideStructure(slide);
+      if (index >= 3) {
+        convertLegacySlideToAccordion(slide);
+      }
+      enhanceLectureVideos(slide);
+      enhanceLectureImageLayouts(slide);
+      linkifyText(slide.querySelector('.slide-content') || slide);
+    });
+
+    syncSlideTitles();
+
+    function updateCounters() {
+      slides.forEach((slide, index) => {
+        const counter = slide.querySelector('.slide-counter');
+        if (counter) {
+          counter.textContent = `${index + 1} / ${totalSlides}`;
+        }
+      });
+    }
+
+    function showSlide(n) {
+      slides.forEach((slide) => slide.classList.remove('active'));
+      slides[currentSlide].classList.add('active');
+
+      const allButtons = document.querySelectorAll('.slide-button');
+      const isFirstSlide = currentSlide === 0;
+      const isLastSlide = currentSlide === totalSlides - 1;
+
+      allButtons.forEach((btn) => {
+        if (btn.textContent.includes('Previous')) {
+          btn.disabled = isFirstSlide;
+        } else if (btn.textContent.includes('Next')) {
+          btn.disabled = isLastSlide;
+        }
+      });
+
+      updateCounters();
+      announceActiveSlideTitle();
+    }
+
+    function changeSlide(n) {
+      currentSlide += n;
+      if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+      if (currentSlide < 0) currentSlide = 0;
+      showSlide(currentSlide);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+    });
+
+    showSlide(currentSlide);
+    document.body.classList.add('lecture-ready');
+  </script>
+</body>
+</html>

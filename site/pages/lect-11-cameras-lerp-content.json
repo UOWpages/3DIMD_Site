@@ -1,0 +1,587 @@
+[
+  {
+    "slide_number": 1,
+    "title": "3D Interactive Media Development",
+    "section_title": "5MMCS001W\t\t\t\t\t\tLecture 11",
+    "content": [],
+    "images": []
+  },
+  {
+    "slide_number": 2,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Prefabs",
+    "content": [],
+    "images": []
+  },
+  {
+    "slide_number": 3,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Prefabs",
+    "content": [
+      "\nPrefab:\nPrefab is a collection of assets and custom scripts that acts as a complete Game Object.It is also useful for using and editing multiple objects.\n\nJust right click to create a Prefab Variant, or drag into Hierarchy, then back for an Original Prefab. You can open and edit Prefabs in the top of the Inspector Window. Note: it is not necessary to create new prefabs for this CW, though it could be an extra."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 4,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Prefabs",
+    "content": [
+      "\n\nIn the Camera Prefabs folder are a few Camera Rigs, explained below.\n\nTo use them, simply drop one into your scene, and set the target field on the root of the camera rig.\n\nIf your player is tagged \"Player\", you don't even have to assign the target, as by default the cameras will automatically target the first object they find tagged \"Player\". You can uncheck this option if you don't want it.\n\nAfter adding one to your scene, you will also probably want to delete the default \"Main Camera\" that was in your scene already, since the camera rigs contain their own cameras. Note: some of these scenes are just scripts attached to the main camera…."
+    ],
+    "images": [
+      {
+        "filename": "lect-11-cameras-lerp_slide4_image0.png",
+        "path": "images/lect-11-cameras-lerp_slide4_image0.png"
+      },
+      {
+        "filename": "lect-11-cameras-lerp_slide4_image1.png",
+        "path": "images/lect-11-cameras-lerp_slide4_image1.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 5,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Controllers",
+    "content": [
+      "Unity Camera Controllers – 3PC, FPC, Other Camera Prefabs\nhttps://www.youtube.com/watch?v=z_mJ_BjFqlU\nUnity Project Scenes - Standard Assets: 3PC, FPC, Others\n\nThis will be used more for the mouse orbit and waypoint navigation model, if at all. \n\nComes with Freelook, MouseLook and Mouse Orbit Improved (MOI) scripts. \nI include these in  Camera Demos SA Project so you do not have to do the complex import. \n\nThe FPC and 3PC is advanced and more suited for games (uses Cinemachine as well).\n\nIt also comes in a complex range of URP and Non-URP, Standard Assets (old), and Starter Assets (new)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 6,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Character Controller Prefabs (with Cameras)",
+    "content": [
+      "Unity Project Scenes – Starter/Standard Assets: 3PC, FPC\n\nStarter Is new and comes only in URP\nhttps://assetstore.unity.com/search#q=starter%20asset \n\nStandard is old and did come in URP and Non URP\nhttps://jimmyvegas.itch.io/first-person-controller-starter-asset"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 7,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera (Character) Controllers",
+    "content": [
+      "Unity Project Scenes – Starter/Standard Assets: 3PC, FPC\nThe character in a first- or third-person game will often need some collision-based physics so that it doesn’t fall through the floor or walk through walls. Usually, though, the character’s acceleration and movement will not be physically realistic, so it may be able to accelerate, brake and change direction almost instantly without being affected by momentum.\n\nIn 3D physics, this type of behaviour can be created using a Character Controller. This component gives the character a simple, capsule-shaped collider that is always upright. The controller has its own special functions to set the object’s speed and direction but unlike true colliders, a rigidbody is not needed and the momentum effects are not realistic.\n\nA character controller cannot walk through static colliders in a scene, and so will follow floors and be obstructed by walls. It can push rigidbody objects aside while moving but will not be accelerated by incoming collisions. This means that you can use the standard 3D colliders to create a scene around which the controller will walk but you are not limited by realistic physical behaviour on the character itself."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 8,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera (Character) Controllers",
+    "content": [
+      "Unity Project Scenes - Standard Assets: 3PC, FPC\n\n3PC – Third Person Character Controller\n\nFPC – First Person Controller"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 9,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Prefabs",
+    "content": [
+      "Unity Camera Prefabs - Unity Starter Assets\nPrefabs are already used in the demo Unity project, but Starter Asset Package is not there\n\nIf you want to use it:\nImport Unity Starter Assets packages: \nhttps://assetstore.unity.com/packages/essentials/starter-assets-thirdperson-updates-in-new-charactercontroller-pa-196526\nhttps://assetstore.unity.com/packages/essentials/starterassets-firstperson-updates-in-new-charactercontroller-pac-196525"
+    ],
+    "images": [
+      {
+        "filename": "lect-11-cameras-lerp_slide9_image0.png",
+        "path": "images/lect-11-cameras-lerp_slide9_image0.png"
+      },
+      {
+        "filename": "lect-11-cameras-lerp_slide9_image1.png",
+        "path": "images/lect-11-cameras-lerp_slide9_image1.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 10,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Controllers",
+    "content": [
+      "Unity Camera Controllers – 3PC, FPC\nhttps://www.youtube.com/watch?v=dXzF-S9tVrM\nUnity Project Scenes - Standard Assets non URP: 3PC, FPC\n1. Create new scene\n2. Import Unity Standard Assets package/Characters from https://jimmyvegas.itch.io/standard-assets\nAssets/Import Package/Custom Package/select downloaded “Standard Assets for Unity 20184.unitypackage”\nYou may need to change “UI.Text” to “UnityEngine.UI.Text” in 1 or 2 scripts with an error message\n3. Import all\n4. In Project window go to:\nStandard Assets/Characters/Third Person Character/Prefabs/ThirdPersonController or FirstPersonController\n5. Drag into hierarchy\n6. Create and zero out plane - Run and use mouselook and arrows to navigate\nCreate GameObject/3D Object/Plane\n3PC or FPC character: Drag down below prefab - 0,0,0\n7. When Creating your own 3PC or FPC:\nPosition Main Camera to frame target/player\nDrag Main Camera into 3PC or FPC as Child"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 11,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Controllers",
+    "content": [
+      "Unity Camera Controllers – 3PC, FPC\nhttps://www.youtube.com/watch?v=dXzF-S9tVrM\nUnity Project Scenes - Starter Assets URP: 3PC, FPC\n1. Create new scene\n2. Import Unity Standard Assets package/Characters from https://assetstore.unity.com/packages/package/267961 \n3. Import all\n4. In Scene drag in Prefabs from Package:\n  FPC: NestedParent_Unpack Prefab in scene\n  3PC: Tool menu at top: reset player armature, controller capsule\n5. URP is Basic, will need to set up post processing volume (tutorial sheet next week)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 12,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Controllers",
+    "content": [
+      "Unity Camera Controllers - 3PC\nhttps://www.youtube.com/watch?v=dXzF-S9tVrM\nUnity Project Scenes – Starter Assets: 3PC, FPC\nHas:\n\tNavmesh AI (uneeded)\n\tRigidbody\n\tCapsule Collider\n\t3 Person Control\n\tCharacter with animator\nMust Add Camera:\n\tAdjust view\n\tParent camera to 3PC\nAdd colliders around desired scene to limit the navigation:\n\t(Setting up Play Area)\n\t https://unity3d.com/learn/tutorials/projects/roll-ball-tutorial/setting-play-area?playlist=17141"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 13,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Controllers",
+    "content": [
+      "Unity Camera Controllers – Other Scripts\n\nUnity Project Scenes:\nSmoothFollow\nFreelook\nWaypoint with Mouse Orbit\nRTS - Real Time Strategy Camera Controllers\nDiorama (follows player in 2.5D)\nCamera Switcher"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 14,
+    "title": "3D Interactive Media Development",
+    "section_title": "Exercise: Unity SmoothFollow and SmoothDamp Camera",
+    "content": [
+      "(Good for following Player Character from behind)\nhttps://docs.unity3d.com/ScriptReference/Vector3.SmoothDamp.html\nNew 3D Scene, Add Cube and Plane, Add camera code to camera, use cube as target\npublic class EcameraSmoothFollow : MonoBehaviour\n{\n    public Transform target;\n    public float smoothTime = 0.3F;\n    private Vector3 velocity = Vector3.zero;\n    void Update()\n    {\n        // Define a target position above and behind the target transform\n        Vector3 targetPosition = target.TransformPoint(new Vector3(0, 1, -10));\n\n        // Smoothly move the camera towards that target position\n        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);\n    }\n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 15,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Prefabs",
+    "content": [
+      "Unity Camera Prefabs – FreeLook (Similar to Whitevoid)\nhttp://www.whitevoid.com/#/main\nUnity Project Scenes - Starter Assets: 3PC, FPC, FreeLook\n\n\nIn Project window go to:\nStandard Assets/Cameras/Prefabs/FreeLookCameraRig\n\nDrag into hierarchy\nCreate GameObject/3D Object/Cube/\nTag as Player\nDelete Main Camera"
+    ],
+    "images": [
+      {
+        "filename": "lect-11-cameras-lerp_slide15_image0.png",
+        "path": "images/lect-11-cameras-lerp_slide15_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 16,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Prefabs",
+    "content": [
+      "Unity Camera Prefabs – FreeLook (Like Web mouse rotation)\n\nUnity Project Scenes – Starter/Standard Assets: 3PC, FPC, FreeLook\nThe \"Free Look\" camera is designed to follow a target's position, while allowing the user to rotate the angle of the camera with the mouse (or a touch gesture). With the \"Free Look\" camera, the rig is designed so the root object of the rig should always look towards the target's position. The camera offset is specified by the height (the Y value) of the \"Pivot\" object, and the forward offset of the final \"Camera\" object. The camera lerps to the view position.\n\nA typical set up for this would be to have the Y positional value of the Pivot set to 2 (for 2 meters above the target), and the Z positional value of the Camera set to -6 (for 6 meters behind the pivot).\n\nIf you wanted to adjust the camera to be to one side of the target (eg, for a closer over-shoulder third person view), you should adjust the X position value of the Pivot object. \nCamera Rig<- position will move towards target.\nPivot<- adjust Y position for height, X position for horizontal offset\nCamera<- adjust Z position for distance away from target"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 17,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Controllers",
+    "content": [
+      "Unity Camera Controllers - Waypoint and MouseOrbit\n\nUnity Project Scenes:\nWaypoint with Mouse Orbit"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 18,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Controllers",
+    "content": [
+      "Unity Camera Controllers - Waypoint and MouseOrbit\nUnity Project Scenes: Waypoint with Mouse Orbit\n\nObject Selection – Waypoints\n\nMouse Orbit – Around Waypoints with Focus\n\nFocus – Camera Focus on GameObject"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 19,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Controllers",
+    "content": [
+      "Unity Project Scenes: Waypoint with Mouse Orbit\n\nCamera Waypoint Examples\nhttps://www.youtube.com/watch?v=8HALMRhbpGI\nhttp://forum.unity3d.com/threads/camera-frame-selected-how-to.7308/\n\nTransform look at\nhttps://docs.unity3d.com/2020.1/Documentation/ScriptReference/Transform.LookAt.html\n\nhttp://answers.unity3d.com/questions/891120/framing-an-object-bounds-encapsulating.html\n\nSelection.activeGameObject = yourObject; SceneView.FrameLastActiveSceneView();\nMaybe Camera.WorldToViewportPoint andCamera.ViewportToScreenPoint will come in handy.\nSimple scripts"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 20,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Controllers",
+    "content": [
+      "Unity Camera Controllers – Some basic Scripts to try\nUnity Project Scenes: Waypoint with Mouse Orbit\nCamera Waypoint Script\nPasted from <http://answers.unity3d.com/questions/891120/framing-an-object-bounds-encapsulating.html> \n\nOn your main camera:\n\npublic void Focus(Transform target, float offset)\n{\nVector3 direction = transform.position - target.position;\ndirection = offset * direction.normalized;\nVector3 moveTo = target.position + direction;\ntransform.position = new Vector3(moveTo.x, 3f, moveTo.z);\ntransform.LookAt(target);\n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 21,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Controllers",
+    "content": [
+      "Unity Camera Controllers – Some basic Scripts to try\nUnity Project Scenes: Waypoint with Mouse Orbit\nCamera Waypoint Script\nPasted from <http://answers.unity3d.com/questions/891120/framing-an-object-bounds-encapsulating.html> \n\nOn your GameObject:\n\nfloat offset = 4.24264f\nvoid OnMouseOver()\n{\nif (Input.GetMouseButtonDown(0))\n{\nCamera.main.GetComponent<FocusScript>().Focus(transform, offset);\n}\n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 22,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Controllers",
+    "content": [
+      "Unity Camera Controllers – Some basic Scripts to try\nUnity Project Scenes: Waypoint with Mouse Orbit\nMouse Camera Orbit Improved (MOI) Examples:\nCamera rotates around object selected and mouse orbited\nhttp://stackoverflow.com/questions/34117591/c-sharp-with-unity-3d-how-do-i-make-a-camera-move-around-an-object-when-user-mo\n\nMouse Orbit\nhttp://wiki.unity3d.com/index.php?title=MouseOrbitImproved#Code_C.23\n\nMouse Orbit Zoom\nhttp://wiki.unity3d.com/index.php/MouseOrbitZoom\n\nCursor Lock\nPress key to turn mouse orbit on and off - modify"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 23,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Controllers",
+    "content": [
+      "Unity Camera Controllers – RTS Camera Movement\nUnity Project Scenes: Real Time Strategy Cameras\n\nMouse input movement similar to real time strategy games. \n\nThe input translates the mouse 2D screen position into 2.5D or 3D camera movement.\n\nSee Unity Project (Camera Demos SA) Scene and Code"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 24,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Controllers",
+    "content": [
+      "Unity Camera Controllers – RTS Position\nUnity Project Scenes: Real Time Strategy Cameras\nMouse RTS Position – Basic with RMB (RightMouseButton)\nhttp://coffeebreakcodes.com/camera-movement-with-mouse-unity3d-c/\nMouse screen position translates camera when RMB pressed\nInside screen\nVery basic\nUses principles we looked at above and in previous lectures and tutorials\nInput.GetMouse Button\nInput.GetAxis\nTransform\nVector3\nTime.DeltaTime"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 25,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Controllers",
+    "content": [
+      "Unity Camera Controllers – RTS Position\nUnity Project Scenes: Real Time Strategy Cameras\nMouse RTS Position – Basic with RMB (RightMouseButton)\nhttp://coffeebreakcodes.com/camera-movement-with-mouse-unity3d-c/\nif (Input.GetMouseButton (1)) {\n\tif (Input.GetAxis (\"Mouse X\") > 0) {\n\t\ttransform.position += new Vector3 (Input.GetAxisRaw (\"Mouse X\") * Time.deltaTime * speed, \n                                   0.0f, Input.GetAxisRaw (\"Mouse Y\") * Time.deltaTime * speed);\n\t}\n\n\telse if (Input.GetAxis (\"Mouse X\") < 0) {\n\t\ttransform.position += new Vector3 (Input.GetAxisRaw (\"Mouse X\") * Time.deltaTime * speed, \n                                   0.0f, Input.GetAxisRaw (\"Mouse Y\") * Time.deltaTime * speed);\n\t}\n\t}\n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 26,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Controllers– RTS Position",
+    "content": [
+      "Unity Project Scenes: Real Time Strategy Cameras\nMouse RTS Position – Mouse 2D Out Screen Drag\nhttp://coffeebreakcodes.com/camera-movement-with-mouse-unity3d-c/\n\nMouse screen position translates camera – Script on Camera\nOutside screen\nInside screen (1/2 code)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 27,
+    "title": "3D Interactive Media Development",
+    "section_title": "float speed = 10.0f;",
+    "content": [
+      "int boundary = 1;\nint width;\nint height;\n\nvoid Start () \n{\n\twidth = Screen.width;\n\theight = Screen.height;\n\t\n}\nvoid Update () \n{\n\tif (Input.mousePosition.x > width - boundary)\n\t\t{ transform.position -= new Vector3 (Input.GetAxisRaw (\"Mouse X\") * Time.deltaTime * speed, 0.0f, 0.0f); }\n\tif (Input.mousePosition.x < 0 + boundary)\n\t\t{ transform.position -= new Vector3 (Input.GetAxisRaw (\"Mouse X\") * Time.deltaTime * speed, 0.0f, 0.0f); }\n\tif (Input.mousePosition.y > height - boundary)\n\t\t{ transform.position -= new Vector3 (0.0f, 0.0f, Input.GetAxisRaw (\"Mouse Y\") * Time.deltaTime * speed); }\n \tif (Input.mousePosition.y < 0 + boundary)\n\t\t{ transform.position -= new Vector3 (0.0f, 0.0f, Input.GetAxisRaw (\"Mouse Y\") * Time.deltaTime * speed); }\n\n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 28,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Controllers– RTS Position Live Input",
+    "content": [
+      "Unity Project Scenes: Real Time Strategy Cameras\nMouse RTS Position – Mouse 2D In Screen Drag\nhttp://coffeebreakcodes.com/camera-movement-with-mouse-unity3d-c/\n\nMouse screen position translates camera – Script on Camera\nOutside screen\nInside screen (½ code)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 29,
+    "title": "3D Interactive Media Development",
+    "section_title": "float speed = 10.0f;",
+    "content": [
+      "int boundary = 1;\nint width;\nint height;\n\nvoid Start () \n{\n\twidth = Screen.width;\n\theight = Screen.height;\n\t\n}\nvoid Update () \n{\n\tif (Input.mousePosition.x > (width/2) )\n\t\t{ transform.position -= new Vector3 (Input.GetAxisRaw (\"Mouse X\") * Time.deltaTime * speed, 0.0f, 0.0f); }\n\tif (Input.mousePosition.x < (width/2) )\n\t\t{ transform.position -= new Vector3 (Input.GetAxisRaw (\"Mouse X\") * Time.deltaTime * speed, 0.0f, 0.0f); }\n\tif (Input.mousePosition.y > (height/2) )\n\t\t{ transform.position -= new Vector3 (0.0f, 0.0f, Input.GetAxisRaw (\"Mouse Y\") * Time.deltaTime * speed); }\n \tif (Input.mousePosition.y < (height/2) )\n\t\t{ transform.position -= new Vector3 (0.0f, 0.0f, Input.GetAxisRaw (\"Mouse Y\") * Time.deltaTime * speed); }\n\n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 30,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Controllers",
+    "content": [
+      "Unity Camera Controllers – RTS Rotation Live Input\n\nMouse RTS Rotation\n\nMouse screen position rotates camera\n\nThis does not have focus for target, we will use other code instead.\n\nMouse Orbit and waypoint"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 31,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Camera Controllers",
+    "content": [
+      "Unity Camera Controllers - 2.5D Diorama Style \nUnity Project Scenes - Noor5 and Rollerball"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 32,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity 2.5D Camera",
+    "content": [
+      "Unity 2.5D Camera – Diorama\nUnity Project Scenes: Diorama - Noor5 and Rollerball\nExample: https://www.youtube.com/watch?v=CvEMvYUXxaE\nhttps://learn.unity.com/project/roll-a-ball \nNoorcon Inc. - Unity 3D Game Programming Part 5 - Vahe Karamian\n\nCamera with transparent player controlled by input keys\n(Parented, constrained by script, or constrained by Unity “Align with View”)\nCollider boxes for lockdown\nSimilar to Rollerball tutorial"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 33,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity 2.5D Camera",
+    "content": [
+      "Unity 2.5D Camera – Diorama Tutorial with Player object and Aligned Camera\nUnity Project Scenes: Diorama - Noor5 and Rollerball\nNoorcon Inc. - Unity 3D Game Programming Part 5 - Vahe Karamian\n\n\nCreate Gameobject (Player):\n\tAdd Rigidbody (Physics, Gravity)\n\tFreeze rotation on X and Z\n\n\nUnity Project Scenes - Noor5 and Rollerball"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 34,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity 2.5D Camera",
+    "content": [
+      "Unity 2.5D Camera – Diorama Tutorial with Player object and Aligned Camera\nNoorcon Inc. - Unity 3D Game Programming Part 5 - Vahe Karamian\nAdd Script to Player GameObject:\nusing UnityEngine;\nusing System.Collections;\npublic class playerInput : MonoBehaviour {\n// Use this for initialization\n void Start () {\n }\n // Update is called once per frame\n void Update () {\n  // code for the movement of player (CP) forward\n  if(Input.GetKey(KeyCode.UpArrow)){\n   this.transform.Translate(Vector3.forward * Time.deltaTime);\n  }\n  // code for the movement of player (CP) backward\n  if(Input.GetKey(KeyCode.DownArrow)){\n   this.transform.Translate(Vector3.back * Time.deltaTime);\n  }\n  // code for the movement of player (CP) left\n  if(Input.GetKey(KeyCode.LeftArrow)){\n   this.transform.Translate(Vector3.right, -5);\n  }\n  // code for the movement of player (CP) right\n  if(Input.GetKey(KeyCode.RightArrow)){\n   this.transform.Translate(Vector3.right, 5);\n  } \n }"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 35,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity 2.5D Camera",
+    "content": [
+      "Unity 2.5D Camera – Diorama Tutorial with Player object and Aligned Camera\nUnity Project Scenes: Diorama - Noor5 and Rollerball\nNoorcon Inc. - Unity 3D Game Programming Part 5 - Vahe Karamian\nIn Scene Window:\n\tCreate GameObject/3D Object/Plane\n\tDrag down below prefab in Scene – this is so the Player Controller does not drop through the scene.\n\tPosition Main Camera to frame object and scene\n\tMake sure your boundaries (Planes? Lego?) have colliders on\nIn Scene Window:\nIn the scene window, use your mouse to position your view in the behind the Player. When you are satisfied with what you see in the Scene Window, select the Main CameraObject. From the main menu, select GameObject-> Align With View. This will move the Main Camera GameObject, or the current selected GameObject, to be aligned with the view in the scene\nRun with Play key at top and use key input to move about and see result"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 36,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity 2.5D Camera",
+    "content": [
+      "Unity 2.5D Camera – Diorama Tutorial with Player object and Aligned Camera\nUnity Project Scenes: Diorama - Noor5 and Rollerball\nNoorcon Inc. - Unity 3D Game Programming Part 5 - Vahe Karamian\n\nAdd Static Colliders:\n\tMake sure walls or lego cubes constraining diorama have colliders to stop object\nMake Player Controller Transparent or Small\n\nIn the scene, use your mouse to position your view behind the CP, the Sphere. When you are satisfied with what you see in the Scene Window, select the MainCamera object. From the main menu, select GameObject->Alighn With View. This will move the Main Camera GameObject, or the current selected GameObject, to be aligned with the view in the scene!\n\nAdjust as needed, Run with Play key at top and use key input to move about and see result"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 37,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity 2.5D Camera",
+    "content": [
+      "Unity 2.5D Camera – Camera Switcher\nUnity Project Scenes: Camera Switcher\n\nWorks with all previous cameras!\n\nTry this and experiment – move objects with cameras attached and switch to them, use triggered animations and lerps…."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 38,
+    "title": "3D Interactive Media Development",
+    "section_title": "Exercise: Unity 3D Camera- Waypoints and mouse orbits Example: 100,000 Stars http://stars.chromeexperiments.com/",
+    "content": [
+      "In Camera Demos Unity Project\n\nHas mouse orbit with no limits\nCan have Boolean for game object framed\nRight Mouse Button goes Back to Start Object\nEsc key deactivates Mouse orbit deactivate \n\t(for easier mouse cursor selection)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 39,
+    "title": "3D Interactive Media Development",
+    "section_title": "Exercise: Unity 2.5D Camera",
+    "content": [
+      "Exercise: Unity 2.5D Camera – FreeLook Camera \n(Limited mouse orbit – Whitevoid – Outside In)\nFreelook in Camera Demos Unity Project – Add camera moves\n\nMouse orbit by 2D screen mapping\n\t(adjust limits)\n2.\tAdd Camera Focus to GameObject \n\t(try swapping targets)\n3.\tOr use Lerp, Movetowards, Translate, or Animations triggered\n\t(move camera, script settings, or new focus as above)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 40,
+    "title": "3D Interactive Media Development",
+    "section_title": "Exercise: Animation Trigger Waypoints",
+    "content": [
+      "\nPosition Changes (Animated)\nCamera Animations for movement\nRotation (Inside Out)\nCamera MouseLook Script or RTS Middledrag (rotation)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 41,
+    "title": "3D Interactive Media Development",
+    "section_title": "Exercise: Movement Scripted Free Waypoints",
+    "content": [
+      "\nPosition Changes (Scripted)\nCode from Lego Bricks Tutorial 03\nTry some more advanced code – Vector3, movetowards, Lerp\nRotation (Inside Out)\nCamera MouseLook Script or RTS Middledrag (rotation)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 42,
+    "title": "3D Interactive Media Development",
+    "section_title": "LERP Reference",
+    "content": [
+      "\nhttps://gamedevbeginner.com/the-right-way-to-lerp-in-unity-with-examples/\nhttps://youtu.be/RNccTrsgO9g\n\n\nhttps://gamedevbeginner.com/coroutines-in-unity-when-and-how-to-use-them/\nhttps://youtu.be/kUP6OK36nrM"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 43,
+    "title": "3D Interactive Media Development",
+    "section_title": "LERP Reference",
+    "content": [
+      "\nGood: Linear Move \"from – to\" in period of time\n1. Defined start end and duration\n2. Elapsed time divided by duration\n3. Checks for elapsed=duration to snap to end\n4. Usually put in a coroutine"
+    ],
+    "images": [
+      {
+        "filename": "lect-11-cameras-lerp_slide43_image0.png",
+        "path": "images/lect-11-cameras-lerp_slide43_image0.png"
+      },
+      {
+        "filename": "lect-11-cameras-lerp_slide43_image1.png",
+        "path": "images/lect-11-cameras-lerp_slide43_image1.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 44,
+    "title": "3D Interactive Media Development",
+    "section_title": "LERP Reference",
+    "content": [
+      "\n\"Bad\": Dynamic easing method - \nconstantly moved to changing target\n\n 1. Use current target as minimum lerp value\n 2. Maximum lerp is moving target (passed in)\n 3. T = Time.deltaTime\n 4. Constantly update as fractionally closer to target.\n 5. Change gets smaller - incorrect ease - can snap though\n 6. Also rate of change is not scaled"
+    ],
+    "images": [
+      {
+        "filename": "lect-11-cameras-lerp_slide44_image0.png",
+        "path": "images/lect-11-cameras-lerp_slide44_image0.png"
+      },
+      {
+        "filename": "lect-11-cameras-lerp_slide44_image1.png",
+        "path": "images/lect-11-cameras-lerp_slide44_image1.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 45,
+    "title": "3D Interactive Media Development",
+    "section_title": "LERP Reference",
+    "content": [
+      "\nSmoothDamp is preferred\n\nSmoothly move towards a dynamic target \nover approx amount of time.\nBeginning and end will be slowed\nClamped?\nGood for follow camera\nCurrent velocity\nHow fast changing\nRemaining distance to target\n\n\nIn CameraSmoothFloow Example in \"Camera Demos SA\" Project"
+    ],
+    "images": [
+      {
+        "filename": "lect-11-cameras-lerp_slide45_image0.png",
+        "path": "images/lect-11-cameras-lerp_slide45_image0.png"
+      },
+      {
+        "filename": "lect-11-cameras-lerp_slide45_image1.png",
+        "path": "images/lect-11-cameras-lerp_slide45_image1.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 46,
+    "title": "3D Interactive Media Development",
+    "section_title": "LERP Reference",
+    "content": [
+      "\nLerp with fixed time scale and curve \n(ease in and out)"
+    ],
+    "images": [
+      {
+        "filename": "lect-11-cameras-lerp_slide46_image0.png",
+        "path": "images/lect-11-cameras-lerp_slide46_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 47,
+    "title": "3D Interactive Media Development",
+    "section_title": "LERP Reference",
+    "content": [
+      "\nOr pass in normalised animation curve"
+    ],
+    "images": [
+      {
+        "filename": "lect-11-cameras-lerp_slide47_image0.png",
+        "path": "images/lect-11-cameras-lerp_slide47_image0.png"
+      },
+      {
+        "filename": "lect-11-cameras-lerp_slide47_image1.png",
+        "path": "images/lect-11-cameras-lerp_slide47_image1.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 48,
+    "title": "3D Interactive Media Development",
+    "section_title": "ClickLerp: New camera position by keypress, Mouse click",
+    "content": [
+      "\nfunction OnMouseEnter() {\n\ttransform.position = Vector3.Lerp(this.transform.position, new Vector3(0.0512155,0.5632893,5.466473), 0.2);\n}\nThe parameters that Vector3.Lerp as also the Vector3.MoveTowards require are the following:\n1 parameter is the actual position \n2 parameter is the position that you want to move to\n3 parameter is the time to move from the actual position to the final position.\n\nEasier to Animate Camera!"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 49,
+    "title": "3D Interactive Media Development",
+    "section_title": "ClickLerp: New camera position by keypress, Mouse",
+    "content": [
+      "public class ClickLerp : MonoBehaviour {\n//Code From: https://answers.unity.com/questions/1613407/how-to-use-smoothly-move-camera-to-position-using.html\npublic Transform camPos;\npublic float CamMoveSpeed = 5f;\nVector3 camNewPos;\nprivate void Start() {camNewPos = camPos.position;}\nprivate void Update() {\n        if (Input.GetMouseButton(0)) {\n            float xinput = Input.GetAxisRaw(\"Mouse X\");\n            float zinput = Input.GetAxisRaw(\"Mouse Y\");\n            float x = camPos.position.x;\n            float z = camPos.position.z;\n            float y = camPos.position.y;\n            camNewPos = new Vector3(x + xinput, y, z + zinput);}\n        //camPos.position = Vector3.MoveTowards(camPos.position, camNewPos, CamMoveSpeed * Time.deltaTime);\n        camPos.position = Vector3.Lerp(camPos.position, camNewPos, CamMoveSpeed * Time.deltaTime);\n    }\n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 50,
+    "title": "3D Interactive Media Development",
+    "section_title": "Lego Museum Camera System",
+    "content": [
+      "Player Game Object\n PlayerMovement.cs\n\n1.Creates public variable type Transform called Orientation\n  Populates with the Orientation Game Object which is its child\n  PlayerCam.cs updates the Orientation, which is used by this script\n2. Takes in Horizontal and Vertical Input:\n        horizontalInput = Input.GetAxisRaw(\"Horizontal\");\n        verticalInput = Input.GetAxisRaw(\"Vertical\");\n3. Performs FixedUpdate on RigidBody on Player Game Object with \nposition and orientation input\n        //movement based on orientation which in specific object\n        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;\n\n        rb.linearDamping = (speed / maxSpeed); //used to be drag, not sure if it has an impact\n        rb.AddForce(moveDirection.normalized * speed, ForceMode.Force);",
+      "https://gyazo.com/dbe0b0326cae37bb7fc7c1eda36fc6eb"
+    ],
+    "images": [
+      {
+        "filename": "lect-11-cameras-lerp_slide50_image0.png",
+        "path": "images/lect-11-cameras-lerp_slide50_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 51,
+    "title": "3D Interactive Media Development",
+    "section_title": "Lego Museum Camera System",
+    "content": [
+      "Player Game Object\n Orientation Game Object",
+      "https://gyazo.com/11999acc16880e7cb1a5f0cd6a9d42c9"
+    ],
+    "images": [
+      {
+        "filename": "lect-11-cameras-lerp_slide51_image0.png",
+        "path": "images/lect-11-cameras-lerp_slide51_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 52,
+    "title": "3D Interactive Media Development",
+    "section_title": "Lego Museum Camera System",
+    "content": [
+      "Player Game Object\n Camera Position Game Object",
+      "https://gyazo.com/ce67e7808baddeecad77d55ef3ea2ad2"
+    ],
+    "images": [
+      {
+        "filename": "lect-11-cameras-lerp_slide52_image0.png",
+        "path": "images/lect-11-cameras-lerp_slide52_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 53,
+    "title": "3D Interactive Media Development",
+    "section_title": "Lego Museum Camera System",
+    "content": [
+      "Camera Holder Game Object\n CameraMove.cs\n\n1.CameraPosition GameObject child of Player GameObject is followed \nfor transform position\n\n2. This handles the position via PlayerGO/PlayerMovement.cs RigidBody\n controller script\n\n3. This allows the PlayerCam.cs on the PlayerCamera GO to handle the \norientation",
+      "https://gyazo.com/e1810339c3985cc0e137597b4569f9b2"
+    ],
+    "images": [
+      {
+        "filename": "lect-11-cameras-lerp_slide53_image0.png",
+        "path": "images/lect-11-cameras-lerp_slide53_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 54,
+    "title": "3D Interactive Media Development",
+    "section_title": "Lego Museum Camera System",
+    "content": [
+      "Camera Holder Game Object\n PlayerCamera Game Object \n  PlayerCam.cs\n\n1.Mouse-look controller - Reads mouse X/Y, \n applies sensitivities and Time.deltaTime, \n clamps pitch, updates camera rotation.\n2. Writes yaw to a public Transform variable called \"orientation\" which \nUpdates the Orientation GO child of the Player GO \n (orientation.rotation = Quaternion.Euler(0, yrotation, 0)) \n so movement aligns with camera yaw.\n\n\nNote: its cursor-locking startup code is commented out; \ncursor state is handled elsewhere.",
+      "https://gyazo.com/ce67e7808baddeecad77d55ef3ea2ad2"
+    ],
+    "images": [
+      {
+        "filename": "lect-11-cameras-lerp_slide54_image0.png",
+        "path": "images/lect-11-cameras-lerp_slide54_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 55,
+    "title": "3D Interactive Media Development",
+    "section_title": "Case 04 Unity 2.5D Camera",
+    "content": [
+      "Case 04 Unity 2.5D Camera – Position State Changes\n(Tap to move camera – TGC, Krak, Sniper(FPS) )\n\nNew camera position by keypress\nMove Camera to new Vector3 Postion, Keep Orbit Options (Code to Come)\nSniper (complex with FPS, at 12:00 on)\nUnity 3D Tutorial Third Person Shooter part 2 The Aiming [Outdated]\nNew camera position by screen tap\nRaycast and Lerp (Complex with 3PC, TGC)\nhttp://www.thegamecontriver.com/2014/10/move-to-mouse-click-touch-position-unity.html"
+    ],
+    "images": []
+  }
+]
