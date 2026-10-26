@@ -1,0 +1,539 @@
+[
+  {
+    "slide_number": 1,
+    "title": "3D Interactive Media Development",
+    "section_title": "5MMCS001W\t\t\t\t\t\t\t\t\t\t\t\tLecture Tutorial",
+    "content": [
+      "\n\nInput Manager (Again), Scripted Movement, Collisions"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 2,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Input Manager Continued",
+    "content": [],
+    "images": []
+  },
+  {
+    "slide_number": 3,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Input Manager",
+    "content": [
+      "\n\nEach program you write, whether the program is a phone application, a web application, a game or an embedded system, needs some sort of an input. In general every program needs some sort of an input and some sort of an output. The output is what the users sees, and the input is what the user enters or gives to the program to generate the output based on some algorithm.\nUnity 3D is no different. The game engine needs to be able to process inputs from different sources:\n\nKeyboard\nMouse\nJoystick(s)\n\nUnity 3D manages its inputs through the Input Manager. The Input Manage is accessible by selecting Edit->Project Settings->Input from the main menu bar."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 4,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Input Manager Continued",
+    "content": [
+      "\n\n\nLego Brick tutorial is animation triggers for playback\n\nOr object transform can be adjusted directly:\n\nUnity Scripted Movement (Not Animation Trigger)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 5,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Input Manager– Movement Scripting",
+    "content": [
+      "Unity Input Manager– Movement Scripting - Rotate\n\nInput key values to handle the rotation for the dynamically created primitives in the following order:\n\nKey A will be responsible to rotate Cube1’ on the Y-Axis.\nKey B will be responsible to rotate Cube2’ on the X-Axis.\nKey C will be responsible to rotate Cube3’ on the Z-Axis.\n\nNotice, that the Update() function is where you place the logic to perform your Input and Output. The code checks to see if the primitives have been initialized, and if true, then it will check for input from the user. Based on the key value it will apply the appropriate rotation to the Game Object.\n\nEach primitive will rotate independently only when the specific key associated to its rotation is pressed. For instance, if you press the A key, Cube1’ will continuously rotate until you stop pressing it. It will stop at the last rotation angle where you lifted your finger from the key."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 6,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Input Manager",
+    "content": [
+      "Unity Input Manager – Movement Scripting - Rotate\n\nCreatePrimitivesFromImport.cs – on Main Camera, Can access all Cube Game Objects \n\nRotate:\nif(Input.GetKey(KeyCode.A)){\n    this.cube1.transform.Rotate(new Vector3(0,1,0), 1);\n   }\n   \n   // apply the x-axis transform to Cube2'\n   if(Input.GetKey(KeyCode.B)){\n    this.cube2.transform.Rotate(new Vector3(1,0,0), 1);\n   }\n   // apply the z-axis transform to Cube3'\n   if(Input.GetKey(KeyCode.C)){\n    this.cube3.transform.Rotate(new Vector3(0,0,1), 1);\n   }"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 7,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Input Manager– Movement Scripting",
+    "content": [
+      "Unity Input Manager– Movement Scripting – Get Axis\nhttps://unity3d.com/learn/tutorials/topics/scripting/getaxis?playlist=17117\n\nGet Axis:\n\nUnlike Get Key and GetButton, (Bool)\nReturns float value between -1 and 1\nSetting is Input Manager – edit/Project Settings/Input/\n\nHorizontal and Vertical are the standard.\nKeys can be set in input manager…"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 8,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Input Manager",
+    "content": [
+      "Unity Input Manager – in Project Settings"
+    ],
+    "images": [
+      {
+        "filename": "lect-08-input-movement-collision_slide8_image0.png",
+        "path": "images/lect-08-input-movement-collision_slide8_image0.png"
+      },
+      {
+        "filename": "lect-08-input-movement-collision_slide8_image1.png",
+        "path": "images/lect-08-input-movement-collision_slide8_image1.png"
+      },
+      {
+        "filename": "lect-08-input-movement-collision_slide8_image2.png",
+        "path": "images/lect-08-input-movement-collision_slide8_image2.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 9,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Input Manager",
+    "content": [
+      "\nFigure 1 lists all of the out of the box Input configurations defined in the game engine. Let’s go ahead and expand the first Input Definition called Horizontal. Looking at Figure 2, you will notice the attributes that are defined under the Horizontal Axis input configuration. The following are the properties of the input configuration that are important to take a note of:\nName: the name of the axis as defines in the Input Manager. This is the name that you can refer to in your C# code for to detect and perform an operation as desired.\nPositive Button: defines the primary button that will provide the positive direction / force.\nNegative Button: defines the primary button that will provide the negative direction / force.\nAlt. Positive Button: same as the positive button, but defines a secondary input intake.\nAlt. Negative Button: same as the negative button, but defines a secondary input intake.\nType: defines where the input source is coming from; (Keyboard/Mouse/Joystick).\nAxis: which axis in the world should the force be applied to."
+    ],
+    "images": [
+      {
+        "filename": "lect-08-input-movement-collision_slide9_image0.png",
+        "path": "images/lect-08-input-movement-collision_slide9_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 10,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Scripted Movement (Not Animation Trigger)",
+    "content": [
+      "\nDirect Input - Moving by setting transform.position or GetAxis from Update.\n if (Input.GetKey(KeyCode.B)){\n    \t\tthis.cube2.transform.Rotate(new Vector3(1,0,0), 1);\n   \t}\nSpace Relative To:  \n1, Space.Self \n2. Space.World\nPhysics - Moving by calling rigidbody.MovePosition from FixedUpdate\n\n(isKinematic)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 11,
+    "title": "3D Interactive Media Development",
+    "section_title": "More C# and Unity3D",
+    "content": [
+      "More C# and Unity3D – Scalar, Points, Vector Recap",
+      "Scalars, Points, Vectors\n\nThree Basic types of entities to define geometric objects.\n\nDefined from mathematical, programming and geometric perspective."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 12,
+    "title": "3D Interactive Media Development",
+    "section_title": "More C# and Unity3D",
+    "content": [
+      "More C# and Unity3D – Scalar, Vector, Points",
+      "Points\n\nIn 3D geometric systems, a point is a location in space\n\nOnly location, no size\n\nBest to use a reference or coordinate system to define"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 13,
+    "title": "3D Interactive Media Development",
+    "section_title": "More C# and Unity3D",
+    "content": [
+      "More C# and Unity3D – Scalar, Vector, Points",
+      "Vectors (Lines)\nConnect points with Line Segments\nAlso called vectors (direction and magnitude – velocity, force, length)\nHave Scalar (magnitude) values – real number\n\nVector3\nThis structure is used throughout Unity to pass 3D positions and directions around. \nIt also contains functions for doing common vector operations."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 14,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Scripted Movement (Not Animation Trigger)",
+    "content": [
+      "https://unity3d.com/learn/tutorials/topics/scripting/translate-and-rotate?playlist=17117\n\nVector3\nRepresentation of 3D vectors and points.\n\nThis structure is used throughout Unity to pass 3D positions and directions around. It also contains functions for doing common vector operations.\n\n\nfor (float i = 0 ; i < blockX; i++)\n{\n   Vector3 rowX = new Vector3 (i,0,0); \n   Rigidbody instance = Instantiate (block, rowX, 0 ); \n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 15,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Scripted Movement (Not Animation Trigger)",
+    "content": [
+      "https://unity3d.com/learn/tutorials/topics/scripting/translate-and-rotate?playlist=17117\n\nTransform -  Update, Translate, Rotate, Scale\nPosition, rotation and scale of an object.\n\nEvery object in a scene has a Transform. It's used to store and manipulate the position, rotation and scale of the object. \n\nEvery Transform can have a parent, which allows you to apply position, rotation and scale hierarchically. This is the hierarchy seen in the Hierarchy pane. \n\nRigid Body:\nAdding a Rigidbody component to an object will put its motion under the control of Unity's physics engine. Even without adding any code, a Rigidbody object will be pulled downward by gravity and will react to collisions with incoming objects if the right Collider component is also present."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 16,
+    "title": "3D Interactive Media Development",
+    "section_title": "More C# and Unity3D:",
+    "content": [
+      "Update vs. Fixed Update, Forces and Physics, Colliders and Gravity https://www.youtube.com/watch?v=rXYjB0kdf-U \n\n                Mesh\n\t\tPolygon mesh for rendering, rasterising, display\n\tCollider\n\t\tSimple invisible mesh to represent object in Physics Engine – can be box, wholes mesh\n\tRigidBody\n\t\tUnder Unity’s Physics engine, Affected by Gravity\n\t\tReacts to collisions with other objects that have colliders\n\t\tIf Collider but no Rigid Body, is a Static Collider\n\tKinematic RigidBody\n                            Does not move unless by animation or script control. \n                            Other objects with rigid bodies will react  to it if  both have colliiders\n\tTriggers\n                            Animation can be played"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 17,
+    "title": "3D Interactive Media Development",
+    "section_title": "RigidBody:",
+    "content": [
+      "Update vs. Fixed Update, Forces and Physics, Colliders and Gravity\n\nRigidbody\n\nA Rigidbody is the main component that enables physical behavior for an object. With a Rigidbody attached, the \nobject will immediately respond to gravity. If one or more Collider components are also added, then the object will be moved by incoming collisions.\n\nRigidbodies also allow your GameObjects to act under control of the physics engine. This opens the gateway to realistic collisions, varied types of joints, and other very cool behaviours. Manipulating your GameObject by adding forces to the Rigidbody creates a very different behavior than adjusting the Transform component directly. As a good rule of thumb, you shouldn’t manipulate the Rigidbody and the Transform of the same GameObject, only one or the other."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 18,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Scripted Movement (Not Animation Trigger)",
+    "content": [
+      "https://unity3d.com/learn/tutorials/topics/scripting/translate-and-rotate?playlist=17117\n\nThe Body Type. Can be:\n\nDynamic \n(the body moves under simulation and is affected by forces like gravity), \n\nKinematic \n(the body moves under simulation, but isn't affected by forces like gravity, unless coded) \nor \nStatic (the body doesn't move under simulation).\n\nTutorial 02-03 is Dynamic (Rigid Body)  but not Kinematic – Allows Collisions, Gravity, but direct control"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 19,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Scripted Movement (Not Animation Trigger)",
+    "content": [],
+    "images": []
+  },
+  {
+    "slide_number": 20,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Scripted Movement (Not Animation Trigger)",
+    "content": [
+      "Chart – non-RB, RB vs Dynamic, Kinematic and Static"
+    ],
+    "images": [
+      {
+        "filename": "lect-08-input-movement-collision_slide20_image0.png",
+        "path": "images/lect-08-input-movement-collision_slide20_image0.png"
+      },
+      {
+        "filename": "lect-08-input-movement-collision_slide20_image1.png",
+        "path": "images/lect-08-input-movement-collision_slide20_image1.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 21,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Scripted Movement (Not Animation Trigger)",
+    "content": [
+      "https://unity3d.com/learn/tutorials/topics/scripting/translate-and-rotate?playlist=17117\n\n\nTutorial 02-03 is Dynamic (Rigid Body)  but not Kinematic – Allows Collisions, Gravity, but direct control\n\nControls whether physics affects the rigidbody.\n\nIf isKinematic is enabled, Forces, collisions or joints will not affect the rigidbody anymore. The rigidbody will be under full control of animation or script control by changing transform.position. Kinematic rigidbodies will affect the motion of other rigidbodies through collisions if they can be affected."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 22,
+    "title": "3D Interactive Media Development",
+    "section_title": "Tutorial 02-03: Translate, Rotate to move: Basic transform, rigid body, not kinematic, collider is used to affect rigid body wall",
+    "content": [
+      "\nusing UnityEngine;\nusing System.Collections;\npublic class TransformFunctions : MonoBehaviour\n{\n    public float moveSpeed = 10f;\n    public float turnSpeed = 50f;\n    \n    \n    void Update ()\n    {\n        if(Input.GetKey(KeyCode.UpArrow))\n            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);\n        \n        if(Input.GetKey(KeyCode.DownArrow))\n            transform.Translate(-Vector3.forward * moveSpeed * Time.deltaTime);\n        \n        if(Input.GetKey(KeyCode.LeftArrow))\n            transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);\n        \n        if(Input.GetKey(KeyCode.RightArrow))\n            transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);\n    }\n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 23,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Scripted Movement (Not Animation Trigger)",
+    "content": [
+      "https://unity3d.com/learn/tutorials/topics/scripting/translate-and-rotate?playlist=17117\n\nTime Delta Time \na float value for the amount of time (in ms) since the last frame was drawn to the screen. By knowing this, you have an exact reading for how far each object in the game should have moved since the frame was presented.\nMultiplying all movement values by Time.DeltaTime smooths out any inconsistencies. \nWhat it's for:\nChanging values to be based on seconds rather than based on frames.\nMultiply by Speed variable to alter it programmatically\n//Move right by the value of \"speed\" every frame\ntransform.position += Vector3.right * speed;\n//Move right by the value of \"speed\" every second\ntransform.position += Vector3.right * speed * Time.deltaTime;\nIn general, you probably want to set things up based on time rather than frames, as time is constant and framerates are not. If you drop frames, it won't affect timing of elements."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 24,
+    "title": "3D Interactive Media Development",
+    "section_title": "More C# and Unity3D",
+    "content": [
+      "Update vs. Fixed Update, Forces and Physics, Colliders and Gravity\n\nUpdate\nUpdate is called once per frame, so if the game is running at 24 fps, then this will be called 24 times in a second.\nAs we know game never run at constant frame rate because of several reason, so update will not be called on a \nregular timeline, means the time between update calls may be different.\nUpdate is used for moving non physics objects.\nUpdate is used for receiving Input.\nUpdate is used for simple timer.\n\nFixedUpdate\nAs it name suggests this will be called after fixed time duration, so time duration between two consecutive calls is \nalways same unlike of Update where this may vary.\n\nThis is commonly used for performing physics related task, like applying force on rigidbody."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 25,
+    "title": "3D Interactive Media Development",
+    "section_title": "TimeDeltaTime, Speed, Velocity:",
+    "content": [
+      "\nTime.deltaTime (dynamic and kinematic rigidbodies)\nKinematic rigidbodies are unaffected by physics, so they cannot have a velocity because that is in the realm of physics. Use transform.Translate instead.\n\ntransform.Translate(0, 0, 5 * Time.deltaTime);\ntransform.Translate(Vector3.forward * Time.deltaTime*5, Space.World);\ntransform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime);\nhttps://chicounity3d.wordpress.com/2014/05/23/how-to-lerp-like-a-pro/\n\nYou must always use Time.deltaTime when moving objects over time (same speed whatever framerate), \nBut you must never use Time.deltaTime for input that's already framerate-independent, such as mouse movement. \n\nVelocity (non-kinematic Rigidbodies)\nrigidbody.velocity = Vector3(0,0,5);"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 26,
+    "title": "3D Interactive Media Development",
+    "section_title": "Forces and Physics:",
+    "content": [
+      "Moving by calling rigidbody.MovePosition or rigidbody.AddForce, both via FixedUpdate\n\nRigidbody.MovePosition/Fixedupdate/LateUpdate/Update What its for:\nMoving a Kinematic rigidbody object not affected by physics, that will be interacting with physics objects\n-or-\nMoving a Non–Kinematic Dynamic rigidbody object affected by physics, that will be interacting with physics objects\nYou could increase the mass of the NKD rigidbody high so it won’t be pushed (Not ideal, use Kinematic).\nvoid Update() { rigidbody.MovePosition(transform.position + speed * Time.deltaTime); }\nhttp://answers.unity3d.com/questions/279815/how-to-move-a-kinematic-rigidbody-smoothly.html\n\nAddForce/Fixedupdate/LateUpdate What its for:\nMoving a Non–Kinematic Dynamic rigidbody, affected by physics, that will be interacting with physics objects\nAs it name suggests this will be called after fixed time duration, so time duration between two consecutive calls is always the same unlike that of Update where this may vary. Mass Dependent, unless you use Addforce(ForceMode.Acceleration) or Addforce(ForceMode.VelocityChange)\nhttps://www.reddit.com/r/Unity3D/comments/2b6uet/what_is_deltatime_and_where_is_it_useful/"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 27,
+    "title": "3D Interactive Media Development",
+    "section_title": "Forces and Physics:",
+    "content": [
+      "Moving by calling rigidbody.MovePosition or rigidbody.AddForce, both via FixedUpdate\n\nWith a Character:\n\nhttps://forum.unity.com/threads/collision-detection-for-kinematic-rigidbodies.885778/\n\nhttps://answers.unity.com/questions/1753152/kinematic-rigidbody-does-not-collide-with-wall-whe.html\n\nKinematic Rigidbodies will always go through other Kinematic Rigidbodies or Static colliders without effect (not affected by forces or momentum). It Will detect collision and triggers with a non kinematic (Dynamic) Rigid Body. \n\nIf you need an object to collide with other objects, but not be affected by the forces of physics, you could either use an existing Character Controller, or use a kinematic rigidbody and code a custom collision resolution for it.\n\nA physics based controller is not usually ideal for a character controller, as seen by this weeks Unity example."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 28,
+    "title": "3D Interactive Media Development",
+    "section_title": "Dynamic Rigidbody (non‑kinematic) Controllers:",
+    "content": [
+      "Physics‑driven objects. Movement via forces/impulses/velocity. Fully simulated by the physics engine; realistic reactions to collisions, gravity, stacking.\n\nKinematic Rigidbody Controllers: \nScript‑driven motion with a Rigidbody present but not simulated by forces. It can move other dynamic bodies but is not itself pushed by physics. Use for predictable moving objects that still need physical interactions.\n\nNon‑Rigidbody Controllers: \nMovement via Transform, CharacterController, or NavMeshAgent. Not physics‑simulated. Good for precise control, pathing, or decorative movement; requires special handling to interact with physics."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 29,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Controller Matrix Project and sheet in BB",
+    "content": [
+      "Static\nStatic Collider – Collider, no Rigidbody\nThis is a GameObject that has a collider but no Rigidbody. Static colliders are used for level geometry which always stays at the same place and never moves around. Incoming rigidbody objects will collide with the static collider but will not move it.\n\nDynamic RigidBody Controllers\nRigidbody Collider – Collider, (Dynamic) Non-Kinematic Rigidbody – Tut 02-03 control objects\nThis is a GameObject with a collider and a normal, non-kinematic Rigidbody attached. Rigidbody colliders are fully simulated by the physics engine and can react to collisions and forces applied from a script. They can collide with other objects, including static colliders, and are the most commonly used collider configuration in games that use Physics. \n\nKinematic RigidBody Controllers\nRigidbody Collider – Collider, Kinematic Rigidbody -  best practice control objects, physics controlled\nThis is a GameObject with a collider and a normal, kinematic Rigidbody attached. They can be controlled by animation and scripted transforms, They can collide with other objects (other objects get affected), including static colliders (with some adjustment)\n\nNon RigidBody Controllers - Custom and Unity Controllers\nNo Rigidbody Collider: Custom control code and wrapper for physics and gravity\n\nhttps://www.youtube.com/watch?v=rXYjB0kdf-U"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 30,
+    "title": "3D Interactive Media Development",
+    "section_title": "More C# and Unity3D:",
+    "content": [
+      "Update vs. Fixed Update, Forces and Physics, Colliders and Gravity\n\nCollider Interactions\nColliders interact with each other differently depending on how their Rigidbody components have been configured.\n\nStatic Collider – Collider, no Rigidbody\nThis is a GameObject that has a collider but no Rigidbody. Static colliders are used for level geometry which always stays at the same place and never moves around. Incoming rigidbody objects will collide with the static collider but will not move it.\n\nRigidbody Collider – Collider, (Dynamic) Non-Kinematic Rigidbody – Tut 02-03 control objects\nThis is a GameObject with a collider and a normal, non-kinematic Rigidbody attached. Rigidbody colliders are fully simulated by the physics engine and can react to collisions and forces applied from a script. They can collide with other objects, including static colliders, and are the most commonly used collider configuration in games that use Physics. \n\nRigidbody Collider – Collider, Kinematic Rigidbody -  best practice control objects, physics controlled\nThis is a GameObject with a collider and a normal, kinematic Rigidbody attached. They can be controlled by animation and scripted transforms, They can collide with other objects (other objects get affected), including static colliders (with some adjustment)\n\n\nhttps://www.youtube.com/watch?v=rXYjB0kdf-U"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 31,
+    "title": "3D Interactive Media Development",
+    "section_title": "More C# and Unity3D:",
+    "content": [
+      "Update vs. Fixed Update, Forces and Physics, Colliders and Gravity\nCollider, Kinematic Rigidbody, Transform, .Translate, .Rotate, .MoveTowards, .LookAt, FixedUpdate \n(not Best Practice, but works – like Tut 02-03, should use physics)\n\nThis is a GameObject with a collider and a kinematic Rigidbody attached, the IsKinematic property of the Rigidbody \nis enabled. You can move a kinematic rigidbody object from a script by modifying its Transform component but it will \nnot respond to collision and forces like a non-kinematic rigidbody. \n\nKinematic rigidbodies should be used for colliders that can be moved or disabled/enabled occasionally but that should \notherwise behave like static colliders. The best example to illustrate this concept would be a sliding door. \nThe door should normally act as an immovable physical obstacle but can be opened when necessary. \n\nUnlike a static collider, a moving kinematic rigidbody will apply friction to other objects and will “wake up” other \nrigidbodies when they make contact.\n\nhttps://docs.unity3d.com/Manual/CollidersOverview.html#:~:text=Kinematic%20rigidbodies%20should%20be%20used,can%20be%20opened%20when%20necessary"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 32,
+    "title": "3D Interactive Media Development",
+    "section_title": "Static, Kinematic, Rigid Body, Collision Trigger Table:",
+    "content": [],
+    "images": [
+      {
+        "filename": "lect-08-input-movement-collision_slide32_image0.png",
+        "path": "images/lect-08-input-movement-collision_slide32_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 33,
+    "title": "3D Interactive Media Development",
+    "section_title": "Static, Kinematic, Rigid Body, Collision Trigger Table:",
+    "content": [],
+    "images": [
+      {
+        "filename": "lect-08-input-movement-collision_slide33_image0.jpeg",
+        "path": "images/lect-08-input-movement-collision_slide33_image0.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 34,
+    "title": "3D Interactive Media Development",
+    "section_title": "More C# and Unity3D:",
+    "content": [
+      "Update vs. Fixed Update, Forces and Physics, Colliders and Gravity\n\nTriggers - Script Actions on Collision\n\nWhen collisions occur, the physics engine calls functions with specific names on any scripts attached to the objects involved. You will need to implement the code logic in these functions to respond to the collision event.\n\nOn the first physics update where the collision is detected, the OnCollisionEnter() function is called. \nDuring updates where contact is maintained, OnCollisionStay() function is called and finally, OnCollisionExit() function is called indicating that the contact has been broken. \n\nSimilarly, trigger colliders call the analogous OnTriggerEnter() function, OnTriggerStay() function and the \nOnTriggerExit() functions.\n\nhttps://www.youtube.com/watch?v=-osaSS9L-fs"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 35,
+    "title": "3D Interactive Media Development",
+    "section_title": "More C# and Unity3D:",
+    "content": [
+      "Update vs. Fixed Update, Forces and Physics, Colliders and Gravity\nCollider, non-Kinematic Rigidbody, RigidBody.AddForce, .MovePosition, .MoveRotation - FixedUpdate\n(not Best Practice, but works – like Tut 02-03, should use physics)\n>\nIf you need your moving colliders to cause physically correct effects on other objects:\nConfigure \"Project Settings > Physics > Contacts Pair Mode\" to \"Enable All Contacts\"\nMove your kinematic bodies using Rigidbody.MovePosition and Rigidbody.MoveRotation from FixedUpdate.\nNow the collision events (OnCollisionEnter, etc) will happen normally as with standard rigidbodies. https://www.youtube.com/watch?v=-osaSS9L-fs \n>\n\nUse FixedUpdate to get correct physics collisions, whether they move the object or not\nUse Rigidbody.AddForce or Rigidbody.MovePosition and Rigidbody.MoveRotation within FixedUpdate  https://answers.unity.com/questions/1730904/object-doesnt-collide-with-wall-using-transformtra.html"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 36,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Collisions and Triggers",
+    "content": [],
+    "images": []
+  },
+  {
+    "slide_number": 37,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Collisions and Triggers",
+    "content": [
+      "\nCollider hitting Rigid Body/Collider (for Collision Detection) \nThis is true Collision Detection, not Triggering  in slide above\n\nCollision and Physics: OnCollisonEnter(Collision col)\nRigidBody enables a collision - Solid\nTrue RB - should only move by forces - ideal situation\nIsKinematic RB, or No RB can use movement scripting\nIsTrigger Off enables a collision - Solid"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 38,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Collisions and Triggers",
+    "content": [
+      "\nCollider hitting Rigid Body/Collider (for Collision Detection) \nThis is true Collision Detection, not Triggering  in slide above\nCollision and Physics: OnCollisonEnter(Collision col) for scripting\nRigidBody, Collision\nGravity On - Will fall\nGravity Off, IsKinematic Off\nActs as Static, but forces affect\nIsKinematic on\nMay be moved, but not affected by forces\nCompare to Static collider: SC Is not calculated for - optimised\nGravity On, IsKinematic On\nIs Kinematic cancels out Gravity\nGravity Off, Is Kinematic On\nActs as static, but is real collision"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 39,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Collisions and Triggers",
+    "content": [
+      "\nCollider hitting Rigid Body/Collider (for Collision Detection) \nThis is true Collision Detection, not Triggering \n\nCollision and Physics: SHORTCUT\nShortcut\nKinematic RB Trigger Colliders - transformed to move\nTrue RB - Addforce\nMovement Scripting"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 40,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Collisions and Triggers",
+    "content": [],
+    "images": [
+      {
+        "filename": "lect-08-input-movement-collision_slide40_image0.jpg",
+        "path": "images/lect-08-input-movement-collision_slide40_image0.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 41,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Static vs. Kinematic Best Practice (not Tuts 02-03)",
+    "content": [
+      "\nCaveat: Static vs. Kinematic just affects how Unity handles Physics optimisation\n\nYou should ideally be moving rigidbodies as:\n1. Non-Kinematic (dynamic) – RigidBody Addforce, Addtorque\n2. Kinematic - MovePosition, MoveRotation, \n3. All from FixedUpdate!\n\nNon- RigidBodies: Transform.Translate and Rotate from Update"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 42,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Collisions and Triggers Unity Test Project in BB",
+    "content": [
+      "https://www.youtube.com/watch?v=WFkbqdo2OI4"
+    ],
+    "images": [
+      {
+        "filename": "lect-08-input-movement-collision_slide42_image0.png",
+        "path": "images/lect-08-input-movement-collision_slide42_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 43,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Collisions and Triggers Unity Test Project in BB",
+    "content": [
+      "https://www.youtube.com/watch?v=WFkbqdo2OI4 \n\nDemo:\nMake Cube and Sphere - have colliders - play - nothing, can move, but is bad (unoptimised) essentially static, even if not ticked\nRB on ball - real and physical - gravity and Collision with cube - physics engine - may just need trigger\nAdd script to both - 90% just need triggers\nCollision or trigger notifies both objects\nCollision: When True RB hits collider (not trigger)\nTry box with and without IsTrigger and look at console\nTurn box non-static (RB) - add RB, has gravity, will fall - turn off gravity - then collision moves it\nTurn Box into IsKinematic - Box not moved - IsKinematic (may be moved - no Physics) vs Static (will never move - 0ptimised)\nTurn Sphere to IsKinematic - no movement, but dragging  - they do not affect each other\nIsKinematic RB with IsTrigger"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 44,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Scripted Movement (Can be Animation Trigger)",
+    "content": [
+      "\nWidgets (Android 2d joystick)\n2D widgets for 2D and 3D\nhttps://software.intel.com/en-us/articles/unity-3d-touch-gui-widgets\nFull 3d widget with rotate, trans (and scale?) This is advanced….\n\n2D Touch Joystick\nhttps://www.youtube.com/watch?v=nGYObojmkO4&t=3s\n\nGimbals\n3d Gimbal - Simple version can be buttons or sliders in 3D World with Objects"
+    ],
+    "images": [
+      {
+        "filename": "lect-08-input-movement-collision_slide44_image0.jpeg",
+        "path": "images/lect-08-input-movement-collision_slide44_image0.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 45,
+    "title": "3D Interactive Media Development",
+    "section_title": "CW1",
+    "content": [
+      "Unity scene with all student work via github or package  import/export\nExtras assets and interactions towards CW2\nAll 3 video files\nIndividual reports\nGroup report\nAny group planning material\nFOLLOW NAMING CONVENTION\nTutorial\nControllers Project Example\nRigidbody Matrix Project Example\nMap out your CW2 Interaction needs"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 46,
+    "title": "3D Interactive Media Development",
+    "section_title": "",
+    "content": [],
+    "images": []
+  },
+  {
+    "slide_number": 47,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Scripted Movement (Not Animation Trigger)",
+    "content": [
+      "\nRaycast/Linecast:\n\nTracks the mouse in 2D screen so we can have 3D transforms that relate."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 48,
+    "title": "3D Interactive Media Development",
+    "section_title": "More C# and Unity3D",
+    "content": [
+      "More C# and Unity3D – Raycasting (tutorial 2)\n\nCasts a ray, from point origin, in direction direction, of length maxDistance, against all colliders in the scene.\nYou may optionally provide a LayerMask, to filter out any Colliders you aren't interested in generating collisions with. \nSpecifying queryTriggerInteraction allows you to control whether or not Trigger colliders generate a hit, or \nwhether to use the global Physics.queriesHitTriggers setting.\nThis example creates a simple Raycast, projecting forwards from the position of the object's current position, \nextending for 10 units.\n\nusing UnityEngine;\npublic class ExampleClass : MonoBehaviour \n{\n    void FixedUpdate() \n    {\n        Vector3 fwd = transform.TransformDirection(Vector3.forward);\n \nif (Physics.Raycast(transform.position, fwd, 10)) \n            print(\"There is something in front of the object!\");\n    }\n}\nUnity has raycasting as part of some libraries for input and selection."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 49,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Scripted Movement (Not Animation Trigger)",
+    "content": [
+      "\nLerps – Linear increments\nhttps://gamedevbeginner.com/the-right-way-to-lerp-in-unity-with-examples/ \nhttps://chicounity3d.wordpress.com/2014/05/23/how-to-lerp-like-a-pro/\n\nEases – Lerps can ease\n\nMoveTowards\nhttps://www.youtube.com/watch?v=oXKyqAltCgI\nAll use Transform, Vector3, speed float, and timedeltatime\nCan wire up to UI Buttons\nMore when we look at camera controls"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 50,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Scripted Movement (Not Animation Trigger)",
+    "content": [
+      "\nLerp\nLinearly interpolates between two vectors.\n\nInterpolates between the vectors a and b by the interpolant t. The parameter t is clamped to the range [0, 1]. This is most commonly used to find a point some fraction of the way along a line between two endpoints (e.g. to move an object gradually between those points).\n \nWhen t = 0 returns a. When t = 1 returns b. When t = 0.5 returns the point midway between a and b.\n\nThis is the definitive lerp and easing reference:\nhttps://gamedevbeginner.com/the-right-way-to-lerp-in-unity-with-examples/ \nhttps://chicounity3d.wordpress.com/2014/05/23/how-to-lerp-like-a-pro/"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 51,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Scripted Movement (Not Animation Trigger)",
+    "content": [
+      "\nLerp Practical Example:\n \nTap to Move:\n\nVector3 from = new Vector3 (1f, 2f, 3f);\nVector3 to = new Vector3 (5f, 6f, 7f);\n\n// Here result = (4, 5, 6)\nVector3 result = Vector3.Lerp (from, to, 0.75f);"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 52,
+    "title": "3D Interactive Media Development",
+    "section_title": "public class Lerping : MonoBehaviour",
+    "content": [
+      "{\n    float lerpTime = 1f;\n    float currentLerpTime;\n\n    float moveDistance = 1f;\n\n    Vector3 startPos;\n    Vector3 endPos;\n\n    protected void Start()\n    {\n        startPos = transform.position;\n        endPos = transform.position + transform.up * moveDistance;\n    }\n\n    protected void Update()\n    {\n        //reset when we press spacebar\n        if (Input.GetKeyDown(KeyCode.Space))\n        {\n            currentLerpTime = 0f;\n        }\n\n        //increment timer once per frame\n        currentLerpTime += Time.deltaTime;\n        if (currentLerpTime > lerpTime)\n        {\n            currentLerpTime = lerpTime;\n        }\n\n        //lerp!\n        float perc = currentLerpTime / lerpTime;\n        transform.position = Vector3.Lerp(startPos, endPos, perc);\n    }\n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 53,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Scripted Movement (Not Animation Trigger)",
+    "content": [
+      "\nMoveTowards\nMoves a point current in a straight line towards a target point.\n\nThe value returned by this function is a point maxDistanceDelta units closer to a target/ point along a line between current and target. If the target is closer than maxDistanceDelta/ then the returned value will be equal to target (ie, the movement will not overshoot the target). Negative values of maxDistanceDelta can be used to push the point away from the target.\n\nhttps://www.youtube.com/watch?v=oXKyqAltCgI\nhttps://docs.unity3d.com/ScriptReference/Vector3.MoveTowards.html"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 54,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Scripted Movement (Not Animation Trigger)",
+    "content": [
+      "\nLook At\n\nHandles rotation orientation and camera interest animation to object\n\nhttps://unity3d.com/learn/tutorials/topics/scripting/look?playlist=17117\nhttps://docs.unity3d.com/ScriptReference/Transform.LookAt.html\nhttps://docs.unity3d.com/ScriptReference/Vector3.Distance.html\n\n\nWill be useful in Waypoint Cameras with swapped out targets"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 55,
+    "title": "",
+    "section_title": "Unity Input and Movement",
+    "content": [
+      "\nInput and Movement – Seen with Week 2 and Noor tutorials – week 7\n\nTry adding Animation Movement Scripting:\n\nUnity UI and movement scripting\n\tLerp\n\tMovetowards\n\tEases\n\tLook At\n\t\nNavigation – Prefabs 3PC, FPC, Animator for player\n\tTGC\n\tOther\n\tWe will cover camera coding in a future lecture",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  }
+]
