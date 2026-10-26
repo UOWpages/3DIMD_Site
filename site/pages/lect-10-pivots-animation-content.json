@@ -1,0 +1,620 @@
+[
+  {
+    "slide_number": 1,
+    "title": "3D Interactive Media Development",
+    "section_title": "5MMCS001W\t\t\t\t\tLecture 10",
+    "content": [
+      "\n\nUnits, Scale, Pivots, Groups, Working with Assets\nAnimation in 3DS Max and Blender"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 2,
+    "title": "3D Interactive Media Development",
+    "section_title": "This week:",
+    "content": [
+      "\nLecture\nUnits, Scale, Pivots, Procedural Working \n3D Animation Basic Concepts\nGame Assets – cleanup, pivots, materials and textures\nCW1 Planning\n\nTutorial\nPivots, Groups, Links\n3D Animation in Max\nhttps://uowdigital.padlet.org/fergusj/3ds-max-modelling-q7fnmx04ci0we6zk"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 3,
+    "title": "3D Interactive Media Development",
+    "section_title": "Units and Scale",
+    "content": [
+      "\nObjects\nEach object has its own state. Its state is the values that the attributes are set to, \nwhich can be different from other objects of the same type.\n\nWe get objects to do things by calling their methods in Unity, which affects their state.\n\nTo do that, we should have consistent units and scaling so there are no nasty surprises.\n\nhttp://ogrehead.com/2015/05/exporting-meshes-with-correct-unit-setup-from-3ds-max-to-unity/"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 4,
+    "title": "3D Interactive Media Development",
+    "section_title": "Units and Scale",
+    "content": [
+      "\ni. Meters and Centimeters\n\ta. Max  Customise/Units Setup/System Unit setup  Meters\n\tb. Max  Customise/Units Setup/Display Unit Scale Centimeters\n\tc. Max – Tools/Grid and Snap Settings/Home Grid/ Gridspacing 100 cm, All viewports\n\td. Save as Start File – loading prompts Setting Acceptance.\n\tc. Unity – is Meters, Cannot adjust Grids\n\nii. Export to Unity\n\ta. Affect Pivot only\n\tb. Rotate 90,0,0\n\tc. Fbx Export Y-up, Meters, 2020\n\td. Unity transform rotate object 0,0,0\n\nScale in Sub-Object Element, not overall object!"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 5,
+    "title": "3D Interactive Media Development",
+    "section_title": "Offsets: Demo Project",
+    "content": [
+      "    1. do not do translation keys\n    2. do transforms in project\n    3. zero out\n    4. use EGO as parent to zero out"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 6,
+    "title": "3D Interactive Media Development",
+    "section_title": "Pivots in Objects",
+    "content": [
+      "http://www.aclockworkberry.com/world-coordinate-systems-in-3ds-max-unity-and-unreal-engine/"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide6_image0.png",
+        "path": "images/lect-10-pivots-animation_slide6_image0.png"
+      },
+      {
+        "filename": "lect-10-pivots-animation_slide6_image1.png",
+        "path": "images/lect-10-pivots-animation_slide6_image1.png"
+      },
+      {
+        "filename": "lect-10-pivots-animation_slide6_image2.png",
+        "path": "images/lect-10-pivots-animation_slide6_image2.png"
+      },
+      {
+        "filename": "lect-10-pivots-animation_slide6_image3.png",
+        "path": "images/lect-10-pivots-animation_slide6_image3.png"
+      },
+      {
+        "filename": "lect-10-pivots-animation_slide6_image4.png",
+        "path": "images/lect-10-pivots-animation_slide6_image4.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 7,
+    "title": "3D Interactive Media Development",
+    "section_title": "Pivots in Objects",
+    "content": [
+      "\n3ds Max World Coordinate System\n\n3ds Max uses a right handed, z-up world coordinate system. Below you can see a test scene with the standard teapot and a textured quad (pivot shown in world coordinates). The front view has the Y direction pointing inside the screen.\n\n\nhttp://www.aclockworkberry.com/world-coordinate-systems-in-3ds-max-unity-and-unreal-engine/"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide7_image0.jpeg",
+        "path": "images/lect-10-pivots-animation_slide7_image0.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 8,
+    "title": "3D Interactive Media Development",
+    "section_title": "Pivots in Objects",
+    "content": [
+      "\nUnity 3D World Coordinate System\n\nUnity 3D uses a left-handed, y-up world coordinate system. As you can see in the image below, when you import a mesh from 3ds Max, what you get is a very different orientation. There is a 90 degrees rotation around the X axis, which has an opposite direction compared to 3ds Max.\n\n\nhttp://www.aclockworkberry.com/world-coordinate-systems-in-3ds-max-unity-and-unreal-engine/"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide8_image0.jpeg",
+        "path": "images/lect-10-pivots-animation_slide8_image0.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 9,
+    "title": "3D Interactive Media Development",
+    "section_title": "Pivots in Objects",
+    "content": [
+      "\nBelow you can see the axis conventions for Unity 3D:\nForward direction: Z axis\nRight direction: X axis\nUp direction: Y axis\n\n\nhttp://www.aclockworkberry.com/world-coordinate-systems-in-3ds-max-unity-and-unreal-engine/"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide9_image0.jpeg",
+        "path": "images/lect-10-pivots-animation_slide9_image0.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 10,
+    "title": "3D Interactive Media Development",
+    "section_title": "Pivots in Objects",
+    "content": [
+      "\nFixing orientation from 3ds Max to Unity 3D\nWhen you put into the scene the teapot imported from Max, Unity auto sets a 90 degrees x-axis rotation for the game object, in order to compensate the coordinates change. the result was the same for z-up or y-up in the export dialog.\n\nThis 90 degrees rotation makes the object look correctly oriented, but it’s actually useless. If you try to use the object this way and you want to control its position and rotation via scripting, you will face a lot of problems dealing with mismatching vector orientations: your forward vector will be the local Z, which actually points up, while your actual forward vector is -X. To avoid all these direction mismatches you could parent your game object to another game object and control the latter, but there’s a better solution.\nThe easy way to export your 3ds Max meshes to Unity 3D is rotating the mesh pivot. You have to just rotate your pivot, making the Z axis point forward, Y axis up and X axis left. Look at the picture next to see an example.\n\nhttp://www.aclockworkberry.com/world-coordinate-systems-in-3ds-max-unity-and-unreal-engine/"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide10_image0.jpeg",
+        "path": "images/lect-10-pivots-animation_slide10_image0.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 11,
+    "title": "3D Interactive Media Development",
+    "section_title": "Pivots in Objects",
+    "content": [
+      "\nFixing orientation from 3ds Max to Unity 3D\n\nAs you can see, by turning your pivot in Max, the imported mesh in Unity is correctly oriented. The X axis is flipped. In Max it points to the left, in Unity to the right, but the box attached to the right side of the teapot remains on the right. Notice also how the texture mapping alignment remained the same.\n\nhttp://www.aclockworkberry.com/world-coordinate-systems-in-3ds-max-unity-and-unreal-engine/"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide11_image0.jpeg",
+        "path": "images/lect-10-pivots-animation_slide11_image0.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 12,
+    "title": "3D Interactive Media Development",
+    "section_title": "Pivots, Max/Blender, and Unity",
+    "content": [
+      "\nStudents will Familiarise themselves with good practice for using pivots on individual objects for use in Unity.\n\nhttps://www.lynda.com/3ds-Max-tutorials/Animating-Unity-3D-3ds-Max/143342-2.html?\nutm_campaign=qHrsgt79cg0&utm_medium=viral&utm_source=youtube\n\nTask: Export Lego Brick from Max/Blender and Import to Unity with Z up and then Y up, \nRepeat after adjusting Pivot to Y up in Max.\n\ni. Fbx export model from Max– do not change Y up options\n\tii. Import, Check model  in Unity import for transforms\n\ti. Fbx export model from Max – change Y up options\n\tii. Import, Check model  in Unity import for transforms\n\tiii. Adjust model pivot in Max Hierarchies Panel using Snap Rotate to Y up\n\tiv. Re-export and check in Unity"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 13,
+    "title": "3D Interactive Media Development",
+    "section_title": "Pivots Blender and Unity Strategy 1",
+    "content": [
+      "\nRotate Mesh in edit mode so there is 90 rotation along the X axis\n\nSelect Object\n\nEdit Mode – Press 1 and select all vertices \n\n\nPress R for Rotate, X to lock on axis, and hold CTRL while rotating 90 so the Blue is in the –Y axis and the Green is in the +Z axis. Red side should remain in +X axis."
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide13_image0.png",
+        "path": "images/lect-10-pivots-animation_slide13_image0.png"
+      },
+      {
+        "filename": "lect-10-pivots-animation_slide13_image1.png",
+        "path": "images/lect-10-pivots-animation_slide13_image1.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 14,
+    "title": "3D Interactive Media Development",
+    "section_title": "Pivots Blender and Unity Strategy 2",
+    "content": [
+      "\nMove origin to center of object or as needed.\n\nSelect transform Pivot Point Menu – will be next to Global/Local selection\n\nDefault is Median Point – Select 3D Cursor\n\nIn an orthographic view, click and drag the axis you want to move\n- hold CTRL to move in Units"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide14_image0.png",
+        "path": "images/lect-10-pivots-animation_slide14_image0.png"
+      },
+      {
+        "filename": "lect-10-pivots-animation_slide14_image1.png",
+        "path": "images/lect-10-pivots-animation_slide14_image1.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 15,
+    "title": "3D Interactive Media Development",
+    "section_title": "Pivots Blender and Unity Strategy 3",
+    "content": [
+      "Pivots Blender and Unity Strategy 3 – FBX Export Settings\n\nExport FBX with settings below:\n To Embed textures: \n         For Path Mode at top, choose Copy from drop down menu.  \n         Select icon on right (Embed Textures) \n Object Types – Mesh only \n To fix axis in Transform:  \n         Scale: 1.00 \n         Apply Scalings: All Local \n         Forward: -Z Forward \n         Up: Y Up \n         Apply Unit Ticked \n         Use Space Transform Ticked \n         Apply Transform Ticked \n Geometry \n         Apply Modifiers Ticked \n Keep all other defaults"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 16,
+    "title": "3D Interactive Media Development",
+    "section_title": "Pivots Max and Unity Strategy 1",
+    "content": [
+      "\nRotate Pivot in Hierarchy Tab/ Affect Pivot Only so there is +90 rotation along the X axis\n\nIn Modifier Tab, add editable mesh or poly modifier if not there\n\nSelect Element level in Modifier and rotate that 90 degrees in YZ so the Blue is in the –Y axis and the Green is in the +Z axis. Red side should remain in +X axis."
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide16_image0.png",
+        "path": "images/lect-10-pivots-animation_slide16_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 17,
+    "title": "3D Interactive Media Development",
+    "section_title": "Pivots Max and Unity Strategy 2",
+    "content": [
+      "\nMove origin to center of object or as needed in Hierarchy Tab/ Affect Pivot Only"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide17_image0.png",
+        "path": "images/lect-10-pivots-animation_slide17_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 18,
+    "title": "3D Interactive Media Development",
+    "section_title": "Max/Blender Normalizing",
+    "content": [
+      "\nMax: Hierarchy/Pivot/Adjust Transform/Reset:Transform,Scale\n\n\nBlender – CTRL+A/Apply Transforms (Select needed or all)"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide18_image0.png",
+        "path": "images/lect-10-pivots-animation_slide18_image0.png"
+      },
+      {
+        "filename": "lect-10-pivots-animation_slide18_image1.jpeg",
+        "path": "images/lect-10-pivots-animation_slide18_image1.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 19,
+    "title": "3D Interactive Media Development",
+    "section_title": "Pivots, Grouping, Linking, Hierarchy",
+    "content": [
+      "\nLego Minifig for Animation\n\n1. Group multiple objects into needed arms, legs, body and head objects\n2. Adjust the pivot of the grouped objects to the correct spot\n3. select link button and drag each limb object in turn to the body to make them children:\nhttps://knowledge.autodesk.com/support/3ds-max/learn-explore/caas/CloudHelp/cloudhelp/2015/\nENU/3DSMax/files/GUID-4115DE9B-D636-4A42-904E-71259A843E0A-htm.html\n\nDemo Lego Minifig with Animation, Grouping, Hierarchy\n3DIMD tutorials\nMy Video"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 20,
+    "title": "3D Interactive Media Development",
+    "section_title": "Pivots, Grouping, Linking, Hierarchy",
+    "content": [
+      "\nSome techniques useful to master:\n· Rotating/Moving pivot points. (in modifier tab for max)\n· Linking or Grouping (and the importance of NOT scaling in hierarchies).\n· Null-objects, including cameras and targets and paths.\n\nLinking / creating hierarches for animation\nHere is the Max-help page: \nhttps://knowledge.autodesk.com/support/3ds-max/learn-explore/caas/CloudHelp/cloudhelp/2016/ENU/3DSMax/\nfiles/GUID-4115DE9B-D636-4A42-904E-71259A843E0A-htm.html\n\nThe importance of being careful when scaling is particularly important when creating hierarches for animation\nfor those of you who may have scaled a model (not in in sub-object mode) and need a fix,"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 21,
+    "title": "3D Interactive Media Development",
+    "section_title": "Max/Blender To Unity Basic Minifig Procedure",
+    "content": [
+      "\nFBX\n\nIn Lecture Demo basic pivot adjustment and grouping to make arm and leg joints that animate properly.\n\n\nIn Lecture Demo basic export and Unity import with Brick, Lego figure, or combination scenes.\n\n\n\n\nReference:\nhttp://www.digitaltutors.com/tutorial/2080-Getting-Started-with-Procedural-Generation-for-Game-Artists-in-3ds-Max#play-49466\n\nhttp://www.aclockworkberry.com/world-coordinate-systems-in-3ds-max-unity-and-unreal-engine/"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 22,
+    "title": "3D Interactive Media Development",
+    "section_title": "Max/Blender To Unity Basic Minifig Procedure",
+    "content": [
+      "\n\nRoot Between Feet – Arrow\nWaist Center of Gravity – Waist or Body\nWaist or Body is Parent of rest\n Arms pivot at Shoulder\n Legs Pivot at hips\n Arms, Head is child of Body \n Legs child of Waist or Body as setup"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide22_image0.png",
+        "path": "images/lect-10-pivots-animation_slide22_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 23,
+    "title": "3D Interactive Media Development",
+    "section_title": "Using Online Game Assets",
+    "content": [
+      "\nFBX\n\n90% of model assets in the final CW2 can be from online or other sources such as lego building software or the links in the reading list.\n\nBe sure to credit your sources and import and adjust the models properly.\n\nAdjust to your scene for pivot, unit scale, and material and texture consistency.\n\nPart of your marks will be for how well you source and incorporate elements."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 24,
+    "title": "3D Interactive Media Development",
+    "section_title": "Animation",
+    "content": [],
+    "images": []
+  },
+  {
+    "slide_number": 25,
+    "title": "3D Interactive Media Development",
+    "section_title": "Animation Principles",
+    "content": [
+      "1. Squash and Stretch - defining the rigidity and mass of an object by distorting its shape during an action\n\n2. Timing and Motion - spacing actions to define the weight and size of objects and the personality of characters\n\n3.  Anticipation - the preparation for an action\n\n4. Staging - presenting an idea so that it is unmistakably clear\n\n5. Follow Through and Overlapping Action - the termination of an action and establishing its relationship to the next action"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 26,
+    "title": "3D Interactive Media Development",
+    "section_title": "Animation Principles",
+    "content": [
+      "6. Straight Ahead Action and Pose-to-Pose Action - The two contrasting approaches to the creation of movement\n\n7. Slow In and Out - the spacing of the in-between frames to achieve subtlety of timing and movement\n\n8. Arcs - the visual path of action for natural movement\nExaggeration - Accentuating the essence of an idea via the design and the action\n\n9. Secondary Action - the action of an object resulting from another action\n\n10. Appeal - creating a design or an action that the audience enjoys watching"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 27,
+    "title": "1. Squash and Stretch - defining the rigidity and mass of an object by distorting its shape during an action",
+    "section_title": "3D Interactive Media Development",
+    "content": [],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide27_image0.png",
+        "path": "images/lect-10-pivots-animation_slide27_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 28,
+    "title": "2. Timing and Motion - spacing actions to define the weight and size of objects and the personality of characters",
+    "section_title": "3D Interactive Media Development",
+    "content": [],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide28_image0.png",
+        "path": "images/lect-10-pivots-animation_slide28_image0.png"
+      },
+      {
+        "filename": "lect-10-pivots-animation_slide28_image1.png",
+        "path": "images/lect-10-pivots-animation_slide28_image1.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 29,
+    "title": "",
+    "section_title": "Anticipation",
+    "content": [
+      "Anticipation - the preparation for an action\nan action occurs in three parts:\n\tthe preparation for the action - this is anticipation\n\tthe action\n\tthe termination of the action\nAnticipation can be the anatomical preparation for the action, e.g., retracting a foot before kicking a ball. It can also be a device to attract the viewer's attention to the proper screen area and to prepare them for the action, e.g., raising the arms and staring at something before picking it up, or staring off-screen at something and then reacting to it before the action moves on-screen.",
+      "3D Interactive Media Development"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide29_image0.png",
+        "path": "images/lect-10-pivots-animation_slide29_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 30,
+    "title": "",
+    "section_title": "4. Staging",
+    "content": [
+      "4. Staging - presenting an idea so that it is unmistakably clear.  A very general principle.\n\nEven with modern color 3D graphics, silhouette actions are more clearly delineated and thus to be preferred. over frontal action. An example would be a character waking up and scratching its side, it is easier to understand what it is doing than if it scratched its stomach.",
+      "3D Interactive Media Development"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide30_image0.png",
+        "path": "images/lect-10-pivots-animation_slide30_image0.png"
+      },
+      {
+        "filename": "lect-10-pivots-animation_slide30_image1.jpeg",
+        "path": "images/lect-10-pivots-animation_slide30_image1.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 31,
+    "title": "",
+    "section_title": "5. Follow Through and Overlapping Action",
+    "content": [
+      "5. Follow Through and Overlapping Action - the termination of an action and establishing its relationship to the next action\n\nFollow through – Delayed Secondary Action, Inertia, Physics – also double pendulum to describe the sort of animation a hand and arm has when it is in a walk cycle.\n\n\n\n\n\n\n \nOverlapping - Keep things moving, your character knows what he is going to do next.",
+      "3D Interactive Media Development"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide31_image0.png",
+        "path": "images/lect-10-pivots-animation_slide31_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 32,
+    "title": "",
+    "section_title": "6. Straight Ahead Action and Pose-to-Pose Action",
+    "content": [
+      "6. Straight Ahead Action and Pose-to-Pose Action - The two contrasting approaches to the creation of movement\n\nPose-to Pose – is when the animator carefully plans out the animation, draws a sequence of poses, i.e., the initial, some in-between, and the final poses and then draws all the in-between frames (or another artist or the computer draws the in-between frames). This is used when the scene requires more thought and the poses and timing are important.",
+      "3D Interactive Media Development"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide32_image0.png",
+        "path": "images/lect-10-pivots-animation_slide32_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 33,
+    "title": "",
+    "section_title": "6. Straight Ahead Action and Pose-to-Pose Action",
+    "content": [
+      "6. Straight Ahead Action and Pose-to-Pose Action - The two contrasting approaches to the creation of movement\n\nStraight  Ahead– in hand drawn animation is when the animator starts at the first drawing in a scene and then draws all of the subsequent frames until he reaches the end of the scene. This creates very spontaneous and zany looking animation and is used for wild, scrambling action.",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 34,
+    "title": "",
+    "section_title": "8. Arcs",
+    "content": [
+      "8. Arcs - the visual path of action for natural movement – arcs are seen in computer animation as the function curve of object transformation. The more you know about traditional animation,  the more you can ‘read’ the curves – a good example is the bouncing ball.",
+      "3D Interactive Media Development"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide34_image0.png",
+        "path": "images/lect-10-pivots-animation_slide34_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 35,
+    "title": "7. Slow In and Out - the spacing of the in-between frames to achieve subtlety of timing and movement",
+    "section_title": "3D Interactive Media Development",
+    "content": [],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide35_image0.png",
+        "path": "images/lect-10-pivots-animation_slide35_image0.png"
+      },
+      {
+        "filename": "lect-10-pivots-animation_slide35_image1.png",
+        "path": "images/lect-10-pivots-animation_slide35_image1.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 36,
+    "title": "9. Exaggeration - Accentuating the essence of an idea via the design and the action",
+    "section_title": "3D Interactive Media Development",
+    "content": [],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide36_image0.jpeg",
+        "path": "images/lect-10-pivots-animation_slide36_image0.jpeg"
+      },
+      {
+        "filename": "lect-10-pivots-animation_slide36_image1.png",
+        "path": "images/lect-10-pivots-animation_slide36_image1.png"
+      },
+      {
+        "filename": "lect-10-pivots-animation_slide36_image2.png",
+        "path": "images/lect-10-pivots-animation_slide36_image2.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 37,
+    "title": "",
+    "section_title": "10. Secondary Action",
+    "content": [
+      "10. Secondary Action - the action of an object resulting from another action – sometimes follow through actions delayed, as in Hair, a Tail, Whip, Wave or a Cape.",
+      "3D Interactive Media Development"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide37_image0.png",
+        "path": "images/lect-10-pivots-animation_slide37_image0.png"
+      },
+      {
+        "filename": "lect-10-pivots-animation_slide37_image1.png",
+        "path": "images/lect-10-pivots-animation_slide37_image1.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 38,
+    "title": "",
+    "section_title": "12. Solid Drawing",
+    "content": [
+      "12. Solid Drawing - The Early animator’s choice of body breakdown that resembles the rigid bodies within motion capture used for error correction of markers and kinematic skeletons. (Spheres and cubes)",
+      "3D Interactive Media Development"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide38_image0.png",
+        "path": "images/lect-10-pivots-animation_slide38_image0.png"
+      },
+      {
+        "filename": "lect-10-pivots-animation_slide38_image1.png",
+        "path": "images/lect-10-pivots-animation_slide38_image1.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 39,
+    "title": "",
+    "section_title": "12. Solid Drawing",
+    "content": [
+      "12. Solid Drawing - The Early animator’s choice of body breakdown that resembles the rigid bodies within motion capture used for error correction of markers and kinematic skeletons. (Spheres and cubes)",
+      "3D Interactive Media Development"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide39_image0.png",
+        "path": "images/lect-10-pivots-animation_slide39_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 40,
+    "title": "",
+    "section_title": "12. Solid Drawing",
+    "content": [
+      "12. Solid Drawing - The Early animators also seemed to use skeleton rigs to keep a view on the bones and rigid bodies of the characters they drew, anticipating the easier time we would have of it with computers.",
+      "3D Interactive Media Development"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide40_image0.png",
+        "path": "images/lect-10-pivots-animation_slide40_image0.png"
+      },
+      {
+        "filename": "lect-10-pivots-animation_slide40_image1.png",
+        "path": "images/lect-10-pivots-animation_slide40_image1.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 41,
+    "title": "",
+    "section_title": "A Character Will Never Be Perfectly Still!",
+    "content": [
+      "Work from the inside out – Hips (COG)\nAfter the broad strokes for main animation then:\nUse overlapping\nAnticipation\nEmotion\nThought\nDelayed action",
+      "Tips",
+      "Flipping and Onion Skin to traditional Animators is Scrubbing and Preview to CG Animators",
+      "3D Interactive Media Development"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 42,
+    "title": "Tips",
+    "section_title": "Line of Beauty",
+    "content": [
+      "Line of Beauty – Line of Action",
+      "3D Interactive Media Development"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide42_image0.png",
+        "path": "images/lect-10-pivots-animation_slide42_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 43,
+    "title": "Tips",
+    "section_title": "Balance and Mass",
+    "content": [
+      "3D Interactive Media Development"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide43_image0.png",
+        "path": "images/lect-10-pivots-animation_slide43_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 44,
+    "title": "Tips",
+    "section_title": "Tilt and Asymmetry",
+    "content": [
+      "3D Interactive Media Development"
+    ],
+    "images": [
+      {
+        "filename": "lect-10-pivots-animation_slide44_image0.png",
+        "path": "images/lect-10-pivots-animation_slide44_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 45,
+    "title": "3D Interactive Media Development",
+    "section_title": "Tutorial Demos as needed",
+    "content": [
+      "\n1. Scale, Units\n\n2. Pivots and linking/grouping\n\n3. Unity Animation 101\n\n4. Unity Animation Triggers"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 46,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Animation",
+    "content": [
+      "https://www.youtube.com/watch?v=ts24UWC0mY4\nhttps://www.youtube.com/watch?v=QN3joSQyzQQ"
+    ],
+    "images": []
+  }
+]

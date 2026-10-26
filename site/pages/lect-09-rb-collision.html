@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Lecture 09 - Unity Rigidbodies, Physics and Collision</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20261007a" />
+  <link rel="stylesheet" href="../assets/css/slideshow.css?v=20261007a" />
+</head>
+<body class="lecture-fullbleed">
+  <div class="slideshow-container">
+    <!-- Slide 1: Lecture 09 - Unity Physics / Collision (source slides 1-2) -->
+    <div class="slide active">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Lecture 09 - Unity Physics / Collision</h2>
+        <div class="accordion-scroll">
+      <!-- Section 1.1: Lecture Overview (source slide 1, 2) -->
+      <details class="accordion" open>
+        <summary>Lecture Overview</summary>
+        <div class="accordion-body">
+          <p>3DIMD and XR Multimodal Interaction</p>
+          <p>5MMCS007W/5CCGD013W Lecture 10</p>
+          <p>Unity Physics /Collision</p>
+          <p>Unity UI Physics, Collision and Triggering</p>
+        </div>
+      </details>
+      <!-- Section 1.2: Interactive Examples (source slide 1) -->
+      <details class="accordion">
+        <summary>Interactive Examples</summary>
+        <div class="accordion-body">
+          <p>https://www.blend4web.com/apps/dairy_plant/dairy_plant.html?v=93906d9bd04fe610df690c519724295f</p>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Immerse Framework for Unity3D</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/gwYjnWCcw18" title="Immerse Framework for Unity3D video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=gwYjnWCcw18" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+        </div>
+      </details>
+      <!-- Section 1.3: Related Tutorials (source slide added cross-reference) -->
+      <details class="accordion">
+        <summary>Related Tutorials</summary>
+        <div class="accordion-body">
+          <p><a href="../index.html?page=pages/tut-02-03-students.html" target="_top">Tutorials 02–03: Input, movement and collision exercises</a></p>
+          <p><a href="../index.html?page=pages/tut-08-physics-quiz-rbct.html" target="_top">Tutorial 08 Quiz: Rigidbodies, colliders and triggers</a></p>
+          <p><a href="../index.html?page=pages/tut-08-character-troubleshooting-bb.html" target="_top">Tutorial 08: Character controllers and troubleshooting</a></p>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1" disabled> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">8</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 2: GameObject Dynamics Options - Static, Kinematic and Dynamic (source slides 3-4, 14) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>GameObject Dynamics Options - Static, Kinematic and Dynamic</h2>
+        <div class="accordion-scroll">
+      <!-- Section 2.1: GameObject Dynamics Options (source slide 3) -->
+      <details class="accordion" open>
+        <summary>GameObject Dynamics Options</summary>
+        <div class="accordion-body">
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Unity Physics: Static, Kinematic, Dynamic</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/xp37Hz1t1Q8" title="Unity Physics: Static, Kinematic, Dynamic video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=xp37Hz1t1Q8" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+        </div>
+      </details>
+      <!-- Section 2.2: Static, Kinematic RigidBody and Dynamic RigidBody (source slide 4) -->
+      <details class="accordion">
+        <summary>Static, Kinematic RigidBody and Dynamic RigidBody</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Static - No Movement, no Effects (Static ticked)
+          </li>
+          <li>Kinematic RigidBody (RigidBody, IsKinematic, Static Not ticked)
+            <ul>
+            <li>Can be moved, no forces affect it
+            </li>
+            <li>It can affect Dynamic RigidBody Game Objects
+            </li>
+            <li>Unity Transform (Translate, Rotate, etc.) to move it
+            </li></ul>
+          </li>
+          <li>Dynamic RigidBody (RigidBody, No IsKinematic, Static Not ticked)
+            <ul>
+            <li>All forces affect it and other Game Objects
+            </li>
+            <li>Unity Physics (addForce) to move it
+            </li></ul>
+          </li>
+          <li>Gravity (can be on or off)
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 2.3: Unity Collisions Dynamics Options (source slide 14) -->
+      <details class="accordion">
+        <summary>Unity Collisions Dynamics Options</summary>
+        <div class="accordion-body">
+          <h3>Game Objects with RigidBody, Collision:</h3>
+          <ul>
+          <li>Static – no movement, no effects
+          </li>
+          <li>Gravity On - Will fall
+          </li>
+          <li>Gravity Off, IsKinematic Off
+            <ul>
+            <li>Acts as Static, but forces affect
+            </li></ul>
+          </li>
+          <li>Kinematic: IsKinematic on, Gravity on
+            <ul>
+            <li>May be moved, but not affected by forces
+            </li>
+            <li>Compare to Static collider: SC Is not calculated for – optimised
+            </li>
+            <li>Is Kinematic cancels out Gravity
+            </li></ul>
+          </li>
+          <li>Kinematic: IsKinematic On, Gravity Off
+            <ul>
+            <li>Acts as static, but is real collision
+            </li></ul>
+          </li>
+          <li>Dynamic: IsKinematic Off, Gravity On or Off
+            <ul>
+            <li>Uses Forces
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">8</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 3: Unity Collisions and Triggers (source slides 5-8) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity Collisions and Triggers</h2>
+        <div class="accordion-scroll">
+      <!-- Section 3.1: Unity Collisions and Triggers (source slide 5, 6) -->
+      <details class="accordion" open>
+        <summary>Unity Collisions and Triggers</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Collision Detection - Needs:
+            <ul>
+            <li>Collider Shape – can be edited to taste
+            </li>
+            <li>IsTrigger in Collider Off
+            </li>
+            <li>OnCollisionEnter(Collision Col)
+            </li></ul>
+          </li>
+          <li>Trigger Detection – Needs
+            <ul>
+            <li>Collider Shape – can be edited to taste
+            </li>
+            <li>IsTrigger in Collider On
+            </li>
+            <li>OnTriggerEnter(Collider Other)
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 3.2: Unity Collider and Trigger Matrix (source slide 7, 8) -->
+      <details class="accordion">
+        <summary>Unity Collider and Trigger Matrix</summary>
+        <div class="accordion-body">
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-09-rb-collision_slide8_image0.png" class="accordion-image" alt="Unity collider and trigger matrix: which collider combinations produce collision or trigger messages" style="--accordion-image-width: 100%;" />
+          </div>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">8</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 4: Unity Collisions for Triggers (source slides 9-10) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity Collisions for Triggers</h2>
+        <div class="accordion-scroll">
+      <!-- Section 4.1: Unity Collisions for Triggers (source slide 9, 10) -->
+      <details class="accordion" open>
+        <summary>Unity Collisions for Triggers</summary>
+        <div class="accordion-body">
+          <p>Unity Collisions for Triggers Does not "Collide", detects intersection for trigger</p>
+          <ul>
+          <li>Needs: Collider Shape and Script for Trigger Detection - OnTriggerEnter(Collider other)
+            <ul>
+            <li>Dynamics: Objects can be Static or Non Static (Animated, Scripted Movement, no Physics)
+              <ul>
+              <li>Static Collider – cannot have two!
+              </li>
+              <li>Static Trigger Collider
+              </li>
+              <li>Collider
+              </li>
+              <li>Trigger Collider
+              </li></ul>
+            </li>
+            <li>Trigger Collider
+              <ul>
+              <li>IsTrigger On = Objects Now Pass through, needs overlap, not collision !
+              </li>
+              <li>Detects if another collider entered
+              </li>
+              <li>IsKinematic RB Collider to IsKinematic RB Collider do not need IsTrigger On
+              </li></ul>
+            </li>
+            <li>Moving a static object will give unwanted results
+            </li>
+            <li>Script: Use OnTriggerEnter(Collider other) to perform functions upon detection
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">8</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 5: Unity Collisions - True Collision Detection (source slides 11-13, 18) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity Collisions - True Collision Detection</h2>
+        <div class="accordion-scroll">
+      <!-- Section 5.1: Unity Collisions again (source slide 11, 12) -->
+      <details class="accordion" open>
+        <summary>Unity Collisions again</summary>
+        <div class="accordion-body">
+          <h3>Unity Collisions</h3>
+          <p>Collider hitting Rigid Body/Collider (for Collision Detection)</p>
+          <p>This is true Collision Detection, not Triggering in slide above</p>
+          <ul>
+          <li>Collision and Physics: OnCollisonEnter(Collision col)
+            <ul>
+            <li>RigidBody enables a collision - Solid
+              <ul>
+              <li>True RB - should only move by forces - ideal situation
+              </li>
+              <li>IsKinematic RB, or No RB can use movement scripting
+              </li></ul>
+            </li>
+            <li>IsTrigger Off enables a collision - Solid
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 5.2: Gravity, Static, IsKinematic and Dynamic (source slide 13) -->
+      <details class="accordion">
+        <summary>Gravity, Static, IsKinematic and Dynamic</summary>
+        <div class="accordion-body">
+          <p>Collider hitting Rigid Body/Collider (Collision Detection)</p>
+          <ul>
+          <li>Gravity - on off
+          </li>
+          <li>Static - No Movement, no effects
+          </li>
+          <li>Is Kinematic - Can be moved, no forces affect - on off
+            <ul>
+            <li>IsKinematic On - Use Transform
+            </li></ul>
+          </li>
+          <li>Dynamic - Physics, Rigid Body - all forces affect it and others
+            <ul>
+            <li>Controls whether physics affects the rigidbody.
+            </li>
+            <li>IsKinematic off - Use forces
+            </li></ul>
+          </li>
+          <li>Collision and Physics:
+          </li></ul>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Unity Explained - Colliders - Beginner Tutorial</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/S0MXZ6AXzTE" title="Unity Explained - Colliders - Beginner Tutorial video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=S0MXZ6AXzTE" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+        </div>
+      </details>
+      <!-- Section 5.3: Collision and Physics: SHORTCUT (source slide 18) -->
+      <details class="accordion">
+        <summary>Collision and Physics: SHORTCUT</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Shortcut
+            <ul>
+            <li>Kinematic RB Trigger Colliders - transformed to move
+            </li>
+            <li>True RB - Addforce
+            </li></ul>
+          </li>
+          <li>Movement Scripting
+          </li></ul>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">8</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 6: Linking Rigidbodies to the XR Interaction Toolkit (XRIT) (source slides 15-17) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Linking Rigidbodies to the XR Interaction Toolkit (XRIT)</h2>
+        <div class="accordion-scroll">
+      <!-- Section 6.1: Linking it to XRIT… (source slide 15, 17) -->
+      <details class="accordion" open>
+        <summary>Linking it to XRIT…</summary>
+        <div class="accordion-body">
+          <p>A Rigidbody is required for an object to be grabbable using the Unity XR Interaction Toolkit (XRIT) XRGrabInteractable component.</p>
+          <p>Automatic Addition: When you add an XRGrabInteractable component to a GameObject, Unity will automatically add a Rigidbody component if one is not already present.</p>
+          <p>Purpose: The Rigidbody handles physics simulation (gravity, falling, collisions) when the object is released or thrown.</p>
+          <p>Kinematic Handling: While grabbed, the XRGrabInteractable often sets the Rigidbody to be Kinematic (i.e., isKinematic = true). This tells the physics engine that the object's movement is driven by the VR controller's position, not by forces like gravity.</p>
+          <p>Alternatives: If you use the "Instantaneous" movement type, the object follows the hand transform directly, but it generally still requires a Rigidbody to interact properly with the XR interaction system's collision detection.</p>
+        </div>
+      </details>
+      <!-- Section 6.2: Key Movement Types for XRIT Rigidbody Handling… (source slide 16) -->
+      <details class="accordion">
+        <summary>Key Movement Types for XRIT Rigidbody Handling…</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>XRGrabInteractible: Rigidbody behavior during interaction
+            <ul>
+            <li>Instantaneous
+              <ul>
+              <li>Direct movement by setting transform each frame
+              </li></ul>
+            </li>
+            <li>Kinematic
+              <ul>
+              <li>isKinematic while grabbing, moving via Rigidbody.MovePosition
+              </li></ul>
+            </li>
+            <li>Velocity Tracking
+              <ul>
+              <li>Calculates velocity/angular velocity to move the object via physics – can push other objects without lagging behind the hand
+              </li></ul>
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 6.3: Essential Setup for Grabbable Objects: (source slide 17) -->
+      <details class="accordion">
+        <summary>Essential Setup for Grabbable Objects:</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Collider: To define the collision boundary and allow interaction.
+          </li>
+          <li>Rigidbody: For physics behavior.
+          </li>
+          <li>XR Grab Interactable: To handle the grabbing logic.
+          </li></ul>
+          <p>It is highly recommended to ensure the Collider is not set to "Is Trigger" unless you have a specific reason to do so, as this affects collision detection.</p>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">8</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 7: Unity Collisions and Triggers Test Project (source slides 19-21) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity Collisions and Triggers Test Project</h2>
+        <div class="accordion-scroll">
+      <!-- Section 7.1: Unity Collisions and Triggers (source slide 19) -->
+      <details class="accordion" open>
+        <summary>Unity Collisions and Triggers</summary>
+        <div class="accordion-body">
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Unity 3d: Collisions, Triggers, Rigidbodies, and Kinematics</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/WFkbqdo2OI4" title="Unity 3d: Collisions, Triggers, Rigidbodies, and Kinematics video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=WFkbqdo2OI4" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+        </div>
+      </details>
+      <!-- Section 7.2: Unity Collisions and Triggers Test Project (source slide 20) -->
+      <details class="accordion">
+        <summary>Unity Collisions and Triggers Test Project</summary>
+        <div class="accordion-body">
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-09-rb-collision_slide20_image0.png" class="accordion-image" alt="CollisionTester script with OnCollisionEnter, OnTriggerEnter and FixedUpdate movement" style="--accordion-image-width: 70%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 7.3: Demo: (source slide 21) -->
+      <details class="accordion">
+        <summary>Demo:</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Make Cube and Sphere - have colliders - play - nothing, can move, but is bad (unoptimised) essentially static, even if not ticked
+          </li>
+          <li>RB on ball - real and physical - gravity and Collision with cube - physics engine - may just need trigger
+          </li>
+          <li>Add script to both - 90% just need triggers
+          </li>
+          <li>Collision or trigger notifies both objects
+          </li>
+          <li>Collision: When True RB hits collider (not trigger)
+          </li>
+          <li>Try box with and without IsTrigger and look at console
+          </li>
+          <li>Turn box non-static (RB) - add RB, has gravity, will fall - turn off gravity - then collision moves it
+          </li>
+          <li>Turn Box into IsKinematic - Box not moved - IsKinematic (may be moved - no Physics) vs Static (will never move - 0ptimised)
+          </li>
+          <li>Turn Sphere to IsKinematic - no movement, but dragging - they do not affect each other
+          </li>
+          <li>IsKinematic RB with IsTrigger
+          </li></ul>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">8</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 8: Character Controllers and Next Steps (source slides 22-23) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Character Controllers and Next Steps</h2>
+        <div class="accordion-scroll">
+      <!-- Section 8.1: Character Controller Overview (Extra) (source slide 22) -->
+      <details class="accordion" open>
+        <summary>Character Controller Overview (Extra)</summary>
+        <div class="accordion-body">
+          <h3>3 Options</h3>
+          <ul>
+          <li>Non-RB custom (Unity CC) - not good with physics
+          </li>
+          <li>Dynamic RB
+          </li>
+          <li>Kinematic RB
+          </li></ul>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: How to Move Characters In Unity 3D | Character Controllers Explained</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/e94KggaEAr4" title="How to Move Characters In Unity 3D | Character Controllers Explained video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=e94KggaEAr4" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <p>https://discussions.unity.com/t/character-controller-vs-rigidbody/909343/5</p>
+        </div>
+      </details>
+      <!-- Section 8.2: Physics (dynamic or kinematic RB) (source slide 22) -->
+      <details class="accordion">
+        <summary>Physics (dynamic or kinematic RB)</summary>
+        <div class="accordion-body">
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Making A Physics Based Character Controller In Unity (for Very Very Valet)</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/qdskE8PJy6Q?start=9" title="Making A Physics Based Character Controller In Unity (for Very Very Valet) video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=qdskE8PJy6Q&amp;t=9s" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <p>https://discussions.unity.com/t/rigidbody-3d-platformer-controller-condfused/847979</p>
+        </div>
+      </details>
+      <!-- Section 8.3: Platforms: (source slide 22) -->
+      <details class="accordion">
+        <summary>Platforms:</summary>
+        <div class="accordion-body">
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Simple Moving Platform Setup Rigidbody/Character Controller - Unity Bolt Tutorial |Visual Scripting</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/2MkNoaWJWf4" title="Simple Moving Platform Setup Rigidbody/Character Controller - Unity Bolt Tutorial |Visual Scripting video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=2MkNoaWJWf4" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <p>After more than 4 hours stuck with this video + Character controller, I will only say this: Edit -&gt; Project Settings -&gt; Physics (or Physics 2d) -&gt; Auto Sync Transforms</p>
+          <p>From &lt;<span>https://www.youtube.com/watch?v=2MkNoaWJWf4</span>&gt;</p>
+          <p>the trigger must not intersect main collider on the platform.</p>
+          <p>From &lt;<span>https://www.youtube.com/watch?v=2MkNoaWJWf4</span>&gt;</p>
+          <p>Basic: parent character transform to new platform when platform collider triggered</p>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: How to Create 3D Moving Platforms (Unity Tutorial)</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/ly9mK0TGJJo" title="How to Create 3D Moving Platforms (Unity Tutorial) video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=ly9mK0TGJJo" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <p>https://discussions.unity.com/t/charactercontroller-on-a-moving-platform/684563/7</p>
+          <p>https://discussions.unity.com/t/how-to-get-a-character-to-move-with-a-moving-platform/1720</p>
+        </div>
+      </details>
+      <!-- Section 8.4: Software Architecture (source slide 23) -->
+      <details class="accordion">
+        <summary>Software Architecture</summary>
+        <div class="accordion-body">
+          <p>Forefront</p>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1" disabled>Next → </button>
+        <div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">8</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../assets/js/site.js?v=20260915a"></script>
+  <script>
+    const isLecturePage = /\/lect-[^/]+\.html$/i.test(window.location.pathname);
+    if (isLecturePage && document.body) {
+      document.body.classList.add('lecture-fullbleed');
+    }
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function normalizeSlideStructure(slide) {
+      if (slide.querySelector('.slide-frame')) return;
+
+      const title = slide.querySelector('.slide-title');
+      const controls = slide.querySelector('.slide-controls');
+      const body = slide.querySelector('.slide-content');
+      if (!title || !controls || !body) return;
+
+      const frame = document.createElement('div');
+      frame.className = 'slide-frame';
+      frame.appendChild(title);
+      frame.appendChild(body);
+      frame.appendChild(controls);
+      slide.appendChild(frame);
+    }
+
+    function linkifyText(element) {
+      const urlPattern = /(https?:\/\/[^\s]+)/g;
+      const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+      );
+
+      const nodesToReplace = [];
+      let node;
+
+      while (node = walker.nextNode()) {
+        if (urlPattern.test(node.textContent)) {
+          nodesToReplace.push(node);
+        }
+      }
+
+      urlPattern.lastIndex = 0;
+
+      nodesToReplace.forEach((textNode) => {
+        const span = document.createElement('span');
+        span.innerHTML = textNode.textContent.replace(
+          /(https?:\/\/[^\s]+)/g,
+          '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
+        textNode.parentNode.replaceChild(span, textNode);
+      });
+    }
+
+    function enhanceLectureVideos(slide) {
+      const videoPattern = /^https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([^\s&?]+)(.*)$/i;
+      slide.querySelectorAll('.accordion-body > p').forEach((paragraph) => {
+        const match = paragraph.textContent.trim().match(videoPattern);
+        if (!match) return;
+
+        const sourceUrl = match[0];
+        const videoId = match[1];
+        const query = match[2] || '';
+        const previous = paragraph.previousElementSibling;
+        const context = previous ? previous.textContent.replace(/\s+/g, ' ').trim() : '';
+        const details = document.createElement('details');
+        details.className = 'accordion accordion--nested embed-accordion';
+        details.innerHTML = `
+          <summary>${context || 'Video'}</summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <iframe class="video-embed" src="https://www.youtube.com/embed/${videoId}${query}" title="${context || 'Video'}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <p><a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+            </article>
+          </div>`;
+        paragraph.replaceWith(details);
+      });
+    }
+
+    function enhanceLectureImageLayouts(slide) {
+      slide.querySelectorAll('.accordion-body').forEach((body) => {
+        const images = Array.from(body.children).filter((child) => child.tagName === 'IMG');
+        if (!images.length || body.querySelector(':scope > .slide-media-layout')) return;
+
+        const layout = document.createElement('div');
+        layout.className = 'slide-media-layout';
+        const textColumn = document.createElement('div');
+        textColumn.className = 'slide-text-column';
+        const imageColumn = document.createElement('div');
+        imageColumn.className = 'slide-image-column';
+
+        Array.from(body.children).forEach((child) => {
+          if (child.tagName === 'IMG') imageColumn.appendChild(child);
+          else textColumn.appendChild(child);
+        });
+
+        layout.append(textColumn, imageColumn);
+        body.appendChild(layout);
+      });
+    }
+
+    function getAccordionLabels(titleText) {
+      const title = (titleText || '').toLowerCase();
+
+      if (title.includes('workflow')) {
+        return { overview: 'Workflow Steps', resources: 'Diagrams and Media' };
+      }
+
+      if (title.includes('references') || title.includes('reading')) {
+        return { overview: 'Reading Notes', resources: 'References and Media' };
+      }
+
+      if (title.includes('group') || title.includes('activity')) {
+        return { overview: 'Guidance', resources: 'Resources' };
+      }
+
+      return { overview: 'Overview', resources: 'Resources and Media' };
+    }
+
+    function normalizeAccordionLabel(text) {
+      const cleaned = (text || '').replace(/\s+/g, ' ').replace(/[:\-]+$/, '').trim();
+      if (!cleaned) return '';
+
+      const lowered = cleaned.toLowerCase();
+      if (lowered === 'overview' || lowered === 'resources' || lowered === 'resources and media') {
+        return '';
+      }
+
+      return cleaned;
+    }
+
+    function inferOverviewLabel(body, h2) {
+      const headingCandidates = Array.from(body.querySelectorAll(':scope > h3, :scope > .section-label'));
+      for (const node of headingCandidates) {
+        const candidate = normalizeAccordionLabel(node.textContent);
+        if (candidate) return candidate;
+      }
+
+      const headingText = (h2 ? h2.textContent : '').replace(/\s+/g, ' ').trim();
+      const parenthetical = headingText.match(/\(([^)]+)\)/);
+      if (parenthetical) {
+        const candidate = normalizeAccordionLabel(parenthetical[1]);
+        if (candidate) return candidate;
+      }
+
+      const firstParagraph = body.querySelector(':scope > p');
+      if (firstParagraph) {
+        const paragraphText = (firstParagraph.textContent || '').replace(/\s+/g, ' ').trim();
+        const wordCount = paragraphText.split(/\s+/).filter(Boolean).length;
+        const looksLikeLabel = !/[.!?]$/.test(paragraphText) && !/^https?:\/\//i.test(paragraphText);
+        if (wordCount > 0 && wordCount <= 6 && looksLikeLabel) {
+          const candidate = normalizeAccordionLabel(paragraphText);
+          if (candidate) return candidate;
+        }
+      }
+
+      return '';
+    }
+
+    function convertLegacySlideToAccordion(slide) {
+      const body = slide.querySelector('.slide-content');
+      if (!body || body.classList.contains('slide-content-accordion')) return;
+
+      const h2 = body.querySelector(':scope > h2');
+      const labels = getAccordionLabels(h2 ? h2.textContent : '');
+      const inferredOverviewLabel = inferOverviewLabel(body, h2);
+      const customOverviewLabel = body.getAttribute('data-overview-label');
+      const customResourcesLabel = body.getAttribute('data-resources-label');
+      if (inferredOverviewLabel) {
+        labels.overview = inferredOverviewLabel;
+      }
+      if (customOverviewLabel) {
+        labels.overview = customOverviewLabel;
+      }
+      if (customResourcesLabel) {
+        labels.resources = customResourcesLabel;
+      }
+      const children = Array.from(body.children).filter((node) => node !== h2);
+      if (!children.length) return;
+
+      const overviewItems = [];
+      const resourcesItems = [];
+
+      children.forEach((node) => {
+        const tag = node.tagName ? node.tagName.toLowerCase() : '';
+        const text = (node.textContent || '').trim();
+        const hasUrl = /https?:\/\//i.test(text);
+        const isImage = tag === 'img';
+        const hasLink = Boolean(node.querySelector && node.querySelector('a'));
+
+        if (isImage || hasUrl || hasLink) {
+          resourcesItems.push(node);
+        } else {
+          overviewItems.push(node);
+        }
+      });
+
+      body.classList.add('slide-content-accordion');
+      body.innerHTML = '';
+      if (h2) body.appendChild(h2);
+
+      const scroll = document.createElement('div');
+      scroll.className = 'accordion-scroll';
+
+      if (overviewItems.length) {
+        const overview = document.createElement('details');
+        overview.className = 'accordion';
+        overview.open = true;
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.overview;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        overviewItems.forEach((node) => content.appendChild(node));
+
+        overview.appendChild(summary);
+        overview.appendChild(content);
+        scroll.appendChild(overview);
+      }
+
+      if (resourcesItems.length) {
+        const resources = document.createElement('details');
+        resources.className = 'accordion';
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.resources;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        resourcesItems.forEach((node) => content.appendChild(node));
+
+        resources.appendChild(summary);
+        resources.appendChild(content);
+        scroll.appendChild(resources);
+      }
+
+      body.appendChild(scroll);
+    }
+
+    function syncSlideTitles() {
+      slides.forEach((slide) => {
+        const title = slide.querySelector('.slide-title');
+        const heading = slide.querySelector('.slide-content h2');
+        if (!title || !heading) return;
+
+        const headingText = (heading.textContent || '').replace(/\s+/g, ' ').trim();
+        if (headingText) {
+          title.textContent = headingText;
+          heading.remove();
+        }
+      });
+    }
+
+    function announceActiveSlideTitle() {
+      const activeSlide = slides[currentSlide];
+      if (!activeSlide) return;
+
+      const titleNode = activeSlide.querySelector('.slide-title');
+      const titleText = (titleNode ? titleNode.textContent : '').replace(/\s+/g, ' ').trim();
+      if (!titleText) return;
+
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({
+          type: 'lecture-slide-title',
+          title: titleText
+        }, '*');
+      }
+    }
+
+    slides.forEach((slide, index) => {
+      normalizeSlideStructure(slide);
+      if (index >= 3) {
+        convertLegacySlideToAccordion(slide);
+      }
+      enhanceLectureVideos(slide);
+      enhanceLectureImageLayouts(slide);
+      linkifyText(slide.querySelector('.slide-content') || slide);
+    });
+
+    syncSlideTitles();
+
+    function updateCounters() {
+      slides.forEach((slide, index) => {
+        const counter = slide.querySelector('.slide-counter');
+        if (counter) {
+          counter.textContent = `${index + 1} / ${totalSlides}`;
+        }
+      });
+    }
+
+    function showSlide(n) {
+      slides.forEach((slide) => slide.classList.remove('active'));
+      slides[currentSlide].classList.add('active');
+
+      const allButtons = document.querySelectorAll('.slide-button');
+      const isFirstSlide = currentSlide === 0;
+      const isLastSlide = currentSlide === totalSlides - 1;
+
+      allButtons.forEach((btn) => {
+        if (btn.textContent.includes('Previous')) {
+          btn.disabled = isFirstSlide;
+        } else if (btn.textContent.includes('Next')) {
+          btn.disabled = isLastSlide;
+        }
+      });
+
+      updateCounters();
+      announceActiveSlideTitle();
+    }
+
+    function changeSlide(n) {
+      currentSlide += n;
+      if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+      if (currentSlide < 0) currentSlide = 0;
+      showSlide(currentSlide);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+    });
+
+    showSlide(currentSlide);
+    document.body.classList.add('lecture-ready');
+  </script>
+</body>
+</html>

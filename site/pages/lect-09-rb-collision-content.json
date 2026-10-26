@@ -1,0 +1,210 @@
+[
+  {
+    "slide_number": 1,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "5MMCS007W/5CCGD013W\t\t\t\t\t Lecture 10",
+    "content": [
+      "\t\nUnity Physics /Collision\n\nhttps://www.blend4web.com/apps/dairy_plant/dairy_plant.html?v=93906d9bd04fe610df690c519724295f\nhttps://www.youtube.com/watch?v=gwYjnWCcw18"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 2,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "Unity UI Physics, Collision and Triggering",
+    "content": [],
+    "images": []
+  },
+  {
+    "slide_number": 3,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "GameObject Dynamics Options",
+    "content": [
+      "https://www.youtube.com/watch?v=xp37Hz1t1Q8"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 4,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "Static",
+    "content": [
+      "Static - No Movement, no Effects (Static ticked)\n\nKinematic RigidBody (RigidBody, IsKinematic, Static Not ticked)\nCan be moved, no forces affect it \nIt can affect Dynamic RigidBody Game Objects\nUnity Transform (Translate, Rotate, etc.) to move it\n\nDynamic RigidBody (RigidBody, No IsKinematic, Static Not ticked)\nAll forces affect it and other Game Objects \nUnity Physics (addForce) to move it\n\nGravity (can be on or off)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 5,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "Unity Collisions and Triggers",
+    "content": [],
+    "images": []
+  },
+  {
+    "slide_number": 6,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "Unity Collisions and Triggers",
+    "content": [
+      "\n\nCollision Detection - Needs:\nCollider Shape – can be edited to taste\nIsTrigger in Collider Off\nOnCollisionEnter(Collision Col)\n\nTrigger Detection – Needs\nCollider Shape – can be edited to taste\nIsTrigger in Collider On\nOnTriggerEnter(Collider Other)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 7,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "Unity Collider and Trigger Matrix",
+    "content": [],
+    "images": []
+  },
+  {
+    "slide_number": 8,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "",
+    "content": [],
+    "images": [
+      {
+        "filename": "lect-09-rb-collision_slide8_image0.png",
+        "path": "images/lect-09-rb-collision_slide8_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 9,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "Unity Collisions for Triggers",
+    "content": [],
+    "images": []
+  },
+  {
+    "slide_number": 10,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "Unity Collisions for Triggers Does not \"Collide\", detects intersection for trigger",
+    "content": [
+      "Needs: Collider Shape and Script for Trigger Detection - OnTriggerEnter(Collider other)\nDynamics: Objects can be Static or Non Static (Animated, Scripted Movement, no Physics)\nStatic Collider – cannot have two!\nStatic Trigger Collider\nCollider\nTrigger Collider\nTrigger Collider\nIsTrigger On = Objects Now Pass through, needs overlap, not collision !\nDetects if another collider entered\nIsKinematic RB Collider to IsKinematic RB Collider do not need IsTrigger On\nMoving a static object will give unwanted results\nScript: Use OnTriggerEnter(Collider other) to perform functions upon detection"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 11,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "Unity Collisions again",
+    "content": [],
+    "images": []
+  },
+  {
+    "slide_number": 12,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "Unity Collisions",
+    "content": [
+      "\nCollider hitting Rigid Body/Collider (for Collision Detection) \nThis is true Collision Detection, not Triggering  in slide above\n\nCollision and Physics: OnCollisonEnter(Collision col)\nRigidBody enables a collision - Solid\nTrue RB - should only move by forces - ideal situation\nIsKinematic RB, or No RB can use movement scripting\nIsTrigger Off enables a collision - Solid"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 13,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "Unity Collisions",
+    "content": [
+      "\nCollider hitting Rigid Body/Collider (Collision Detection) \nThis is true Collision Detection, not Triggering  in slide above\nGravity - on off\nStatic - No Movement, no effects\nIs Kinematic - Can be moved, no forces affect - on off\n\tIsKinematic On - Use Transform\nDynamic - Physics, Rigid Body - all forces affect it and others\nControls whether physics affects the rigidbody.\nIsKinematic off - Use forces\nCollision and Physics:\n\thttps://www.youtube.com/watch?v=S0MXZ6AXzTE"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 14,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "Unity Collisions Dynamics Options",
+    "content": [
+      "Game Objects with RigidBody, Collision:\nStatic – no movement, no effects\nGravity On - Will fall\nGravity Off, IsKinematic Off\nActs as Static, but forces affect\nKinematic: IsKinematic on, Gravity on\nMay be moved, but not affected by forces\nCompare to Static collider: SC Is not calculated for – optimised\nIs Kinematic cancels out Gravity\nKinematic: IsKinematic On, Gravity Off\nActs as static, but is real collision\nDynamic: IsKinematic Off, Gravity On or Off\nUses Forces"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 15,
+    "title": "XR Multimodal Interaction",
+    "section_title": "Linking it to XRIT…",
+    "content": [
+      "\nA Rigidbody is required for an object to be grabbable using the Unity XR Interaction Toolkit (XRIT) XRGrabInteractable component. \n\nAutomatic Addition: When you add an XRGrabInteractable component to a GameObject, Unity will automatically add a Rigidbody component if one is not already present."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 16,
+    "title": "XR Multimodal Interaction",
+    "section_title": "Key Movement Types for XRIT Rigidbody Handling…",
+    "content": [
+      "\nXRGrabInteractible: Rigidbody behavior during interaction\n\nInstantaneous\nDirect movement by setting transform each frame\n\nKinematic\nisKinematic while grabbing, moving via Rigidbody.MovePosition\n\nVelocity Tracking\nCalculates velocity/angular velocity to move the object via physics – can push other objects without lagging behind the hand"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 17,
+    "title": "XR Multimodal Interaction",
+    "section_title": "Linking it to XRIT…",
+    "content": [
+      "\nPurpose: The Rigidbody handles physics simulation (gravity, falling, collisions) when the object is released or thrown. \nKinematic Handling: While grabbed, the XRGrabInteractable often sets the Rigidbody to be Kinematic (i.e., isKinematic = true). This tells the physics engine that the object's movement is driven by the VR controller's position, not by forces like gravity. \nAlternatives: If you use the \"Instantaneous\" movement type, the object follows the hand transform directly, but it generally still requires a Rigidbody to interact properly with the XR interaction system's collision detection. \n\nEssential Setup for Grabbable Objects:\nCollider: To define the collision boundary and allow interaction.\nRigidbody: For physics behavior.\nXR Grab Interactable: To handle the grabbing logic. \nIt is highly recommended to ensure the Collider is not set to \"Is Trigger\" unless you have a specific reason to do so, as this affects collision detection."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 18,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "Unity Collisions",
+    "content": [
+      "\nCollider hitting Rigid Body/Collider (for Collision Detection) \nThis is true Collision Detection, not Triggering  in slide above\n\nCollision and Physics: SHORTCUT\nShortcut\nKinematic RB Trigger Colliders - transformed to move\nTrue RB - Addforce\nMovement Scripting"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 19,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "Unity Collisions and Triggers",
+    "content": [],
+    "images": [
+      {
+        "filename": "lect-09-rb-collision_slide19_image0.jpeg",
+        "path": "images/lect-09-rb-collision_slide19_image0.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 20,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "Unity Collisions and Triggers Test Project",
+    "content": [
+      "https://www.youtube.com/watch?v=WFkbqdo2OI4"
+    ],
+    "images": [
+      {
+        "filename": "lect-09-rb-collision_slide20_image0.png",
+        "path": "images/lect-09-rb-collision_slide20_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 21,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "Unity Collisions and Triggers Test Project",
+    "content": [
+      "https://www.youtube.com/watch?v=WFkbqdo2OI4 \n\nDemo:\nMake Cube and Sphere - have colliders - play - nothing, can move, but is bad (unoptimised) essentially static, even if not ticked\nRB on ball - real and physical - gravity and Collision with cube - physics engine - may just need trigger\nAdd script to both - 90% just need triggers\nCollision or trigger notifies both objects\nCollision: When True RB hits collider (not trigger)\nTry box with and without IsTrigger and look at console\nTurn box non-static (RB) - add RB, has gravity, will fall - turn off gravity - then collision moves it\nTurn Box into IsKinematic - Box not moved - IsKinematic (may be moved - no Physics) vs Static (will never move - 0ptimised)\nTurn Sphere to IsKinematic - no movement, but dragging  - they do not affect each other\nIsKinematic RB with IsTrigger"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 22,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "Character Controller Overview (Extra)",
+    "content": [
+      "3 Options\nHow to Move Characters In Unity 3D | Character Controllers Explained\nhttps://discussions.unity.com/t/character-controller-vs-rigidbody/909343/5\nNon-RB custom (Unity CC) - not good with physics\nDynamic RB\nKinematic RB\n\nPhysics (dynamic or kinematic RB)\nMaking A Physics Based Character Controller In Unity (for Very Very Valet)\nhttps://discussions.unity.com/t/rigidbody-3d-platformer-controller-condfused/847979\n\nPlatforms:\nSimple Moving Platform Setup Rigidbody/Character Controller - Unity Bolt Tutorial |Visual Scripting\nAfter more than 4 hours stuck with this video + Character controller, I will only say this: Edit -> Project Settings -> Physics (or Physics 2d) -> Auto Sync Transforms\nFrom <https://www.youtube.com/watch?v=2MkNoaWJWf4> \n the trigger must not intersect main collider on the platform.\nFrom <https://www.youtube.com/watch?v=2MkNoaWJWf4> \nBasic: parent character transform to new platform when platform collider triggered\nHow to Create 3D Moving Platforms (Unity Tutorial)\nhttps://discussions.unity.com/t/charactercontroller-on-a-moving-platform/684563/7\nhttps://discussions.unity.com/t/how-to-get-a-character-to-move-with-a-moving-platform/1720"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 23,
+    "title": "3DIMD and XR Multimodal Interaction",
+    "section_title": "Software Architecture",
+    "content": [
+      "\nForefront"
+    ],
+    "images": []
+  }
+]
