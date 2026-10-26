@@ -1,0 +1,674 @@
+[
+  {
+    "slide_number": 1,
+    "title": "Unity Lighting",
+    "section_title": "5MMCS001W\t\t\t\t\t\t\t\t\t\t                 Lecture 12",
+    "content": [
+      "\n\nUnity Lighting and Shaders"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 2,
+    "title": "Unity Lighting",
+    "section_title": "Unity Lighting, Shaders",
+    "content": [],
+    "images": []
+  },
+  {
+    "slide_number": 3,
+    "title": "Unity Lighting",
+    "section_title": "Unity Lighting, Shaders",
+    "content": [
+      "\n\nCheck Smoothness on Model:\n\tSmoothing group exports in Max Fbx Export\n\tCalculate Normals and Tangents in Unity \n\t(Import Setting window with object selected in Project)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 4,
+    "title": "Unity Lighting",
+    "section_title": "Unity Lighting",
+    "content": [
+      "Unity Lighting – 3 Types\n\n1. Direct – RealTime\n2. Baked Global Illumination (Lightmaps)\n3. Precomputed Realtime Global Illumination"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 5,
+    "title": "Unity Lighting",
+    "section_title": "Unity Lighting",
+    "content": [
+      "Unity Lighting - Real Time Lighting in Scene\nLights in Unity by default are Realtime and Direct\n\nFeatures of Direct Lighting\n\t1. Shadows are Black\n\t2. Active Objects Lit\n\t3. Light Rays do not bounce\n\t4. Fast Calculations\n\t5. Real Time"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 6,
+    "title": "Unity Lighting",
+    "section_title": "Unity Lighting",
+    "content": [
+      "Unity Lighting - Real Time Lighting in Scene\nLights in Unity by default are Realtime and Direct\n\nLight Component:\n\t1. Directional – parallel, non-diverging light source, rotational only\n\t2. Spot – cone of light in +Z direction\n\t3. Point – point sphere light is emitted in all directions\n\t4. Area – soft light in all directions from one side of plane (Baked only)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 7,
+    "title": "Unity Lighting",
+    "section_title": "Unity Lighting",
+    "content": [
+      "Unity Lighting - Real Time Lighting in Scene\nLights in Unity by default are Realtime and Direct\n\nOthers:\n\t1. Ambient\n\t2. Emissive\n\t3. Probes"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 8,
+    "title": "Unity Lighting",
+    "section_title": "Unity Lighting",
+    "content": [
+      "Unity Lighting – Precomputed Lighting\n\n\nOffers light bouncing on top of  basic Direct lighting:\n\t1. Soft Shadows\n\t2. Colour bleed\n\t3. Light Bouncing – for LightMap or RealTime"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 9,
+    "title": "Unity Lighting",
+    "section_title": "Unity Lighting",
+    "content": [
+      "Unity Lighting – Baked Global Illumination (Lightmaps)\nUnity can calculate complex static lighting effects (using a technique called global illumination, or GI) and store them in a reference texture map called a lightmap. This calculation process is referred to as baking.\n\nWhen baking a lightmap, the effects of light sources on static objects in the scene are calculated and the results are written to textures which are overlaid on top of scene geometry to create the effect of lighting.\nFeatures\n\t1. Direct and Indirect Light\n\t2. Work with Objects’ Shader Information (Color and normals)\n\t3. Static – no moving objects\n\t4. Cannot react to changes in lighting, movement\n\t5. Low performance impact\nWith baked lighting, these light textures (lightmaps) cannot change during gameplay and so are referred to as ‘static’. Realtime lights can be overlaid and used additively on top of a lightmapped scene but cannot interactively change the lightmaps themselves."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 10,
+    "title": "Unity Lighting",
+    "section_title": "Unity Lighting",
+    "content": [
+      "Unity Lighting – Precomputed Realtime Global Illumination\n\nWhilst static lightmaps are unable to react to changes in lighting conditions within the scene, precomputed realtime GI does offer us a technique for updating complex scene lighting interactively.\n\nWith this approach it is possible to create lit environments featuring rich global illumination with bounced light which responds, in realtime, to lighting changes. A good example of this would be a time of day system - where the position and color of the light source changes over time. With traditional baked lighting, this is not possible.\n\nIn order to deliver these effects at playable framerates, we need to shift some of the lengthy number-crunching from being a realtime process to one which is precomputed.\n\nPrecomputing shifts the burden of calculating complex light behaviour from something that happens during gameplay, to something which can be calculated when time is no longer so critical. We refer to this as an ‘offline’ process."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 11,
+    "title": "Unity Lighting",
+    "section_title": "Unity Lighting",
+    "content": [
+      "Unity Lighting – Precomputed Realtime Global Illumination- Geometrics Enlighten System\nhttp://www.geomerics.com/enlighten/"
+    ],
+    "images": [
+      {
+        "filename": "lect-12-shaders-lighting_slide11_image0.jpg",
+        "path": "images/lect-12-shaders-lighting_slide11_image0.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 12,
+    "title": "Unity Lighting",
+    "section_title": "Unity Lighting",
+    "content": [
+      "Unity Lighting – Precomputed Realtime Global Illumination\n\nFeatures\n\t1. Direct and Indirect Light\n\t2. Work with Objects’ Shader Information (Color and normals)\n\t3. Dynamic for Object and Lights\n\t4. Reacts to changes in lighting, movement\n\t5. Some performance impact in Runtime rendering\n\t6. Using Baked and Precomputed at same time gives double performance impact"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 13,
+    "title": "Unity Lighting",
+    "section_title": "Global Illumination",
+    "content": [
+      "Global Illumination – GI Concepts\nGlobal Illumination (GI) is a system that models how light is bounced off of surfaces onto other surfaces (indirect light) rather than being limited to just the light that hits a surface directly from a light source (direct light). Modelling indirect lighting allows for effects that make the virtual world seem more realistic and connected, since objects affect each other’s appearance. One classic example is ‘color bleeding’ where, for example, sunlight hitting a red sofa will cause red light to be bounced onto the wall behind it. Another is when sunlight hits the floor at the opening of a cave and bounces around inside so the inner parts of the cave are illuminated too.\n\nDirect Lighting – Faster Calculations, Real Time\nIndirect Lighting – Slower calculations\n\tOffline - Baked - Precalculated\n\tFor Static Objects\n\tCorrect at Runtime\n\tNot Dynamic\n\tResults in Realtime Soft Shadows and Indirect light"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 14,
+    "title": "Unity Lighting",
+    "section_title": "Unity GI",
+    "content": [
+      "Unity GI - Precomputed Realtime GI\nhttps://docs.unity3d.com/Manual/GIIntro.html\n\nPrecomputes all possible light bounces and encodes this information for use at runtime.\n\n \n1. Real time GI and baking light maps\n\tAll lights affect with direct and indirect\n\tBounces and takes colours\n2. Physically based rendering – PBR\n\tLight is modelled and imitated\n3. Standard shader\n\tPBR - easy to access"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 15,
+    "title": "Unity Lighting",
+    "section_title": "Unity Lighting Setup Overview",
+    "content": [
+      "https://unity3d.com/learn/tutorials/topics/graphics/unity-5-lighting-overview?playlist=17102\nAmbient Light, Reflections and Light sources, working with materials created with the standard Shader are drawn using Physical Based Rendering with Global Illumination to calculate the Indirect Light\n\n1. Real Time (Scene) for basic work only – Real Time, Direct, Dynamic\n2. Dynamic (RealTime GI) – Precomputed Direct and Indirect, Dynamic\n3. Baked (Static GI) – Precomputed Direct and Indirect, Static\n\tCan have Real Time Emissive Probes for Dynamic objects\nCan have mix of lights if desired, but usually best to stick with one system (baked) for mobile.\n\nAmbient Light and Physical Based Rendering takes these and shaders for rendering with light settings."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 16,
+    "title": "Unity Lighting",
+    "section_title": "Lighting Panel",
+    "content": [
+      "Lighting Panel - Ambient\n\nDirectional Light tick box at top turns off ambient light\n\nAmbient is Skybox, Gradient, or Colour\n\nObject, Scene, Lightmap Tabs\n\nSkybox Tutorial"
+    ],
+    "images": [
+      {
+        "filename": "lect-12-shaders-lighting_slide16_image0.jpg",
+        "path": "images/lect-12-shaders-lighting_slide16_image0.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 17,
+    "title": "Unity Lighting",
+    "section_title": "Lighting Panel",
+    "content": [
+      "Lighting Panel – RealTime, Baked, Mixed\nPrecomputed Realtime GI and Baked GI both Enabled in Lighting Panel \nby Default. Can Chose Realtime GI or Baked GI for each light if this is true\nIndirect Intensity and Bounce can be adjusted here.\n\nBest to chose one or other and untick one globally here.\nAll Baked more appropriate for mobile devices\n\n\n\n\n\nContinuous (Auto checkbox ticked)\nOn Demand (Auto checkbox unticked, click Build)"
+    ],
+    "images": [
+      {
+        "filename": "lect-12-shaders-lighting_slide17_image0.jpg",
+        "path": "images/lect-12-shaders-lighting_slide17_image0.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 18,
+    "title": "Unity Lighting",
+    "section_title": "Light Panel",
+    "content": [
+      "Light Panel – RealTime, Baked, Mixed\nhttps://unity3d.com/learn/tutorials/topics/graphics/unity-5-lighting-overview?playlist=17102\n\nBaking - Select in Lights on per light basis\n\nReal Time\nBaked\nMixed\n\nLight Mapping system - Lighting tab>Scene\n\tContinuous Baking\n\tOn-Demand Baking"
+    ],
+    "images": [
+      {
+        "filename": "lect-12-shaders-lighting_slide18_image0.jpg",
+        "path": "images/lect-12-shaders-lighting_slide18_image0.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 19,
+    "title": "Unity Lighting",
+    "section_title": "Unity Lighting Setup",
+    "content": [
+      "Unity Lighting Setup - Linear\n\nPBR works best in Linear colour Space in Player Settings\n\nSet color space to linear - default - CHECK\n\nMost software use gamma\nhttps://docs.unity3d.com/Manual/LinearLighting.html\nhttps://renderman.pixar.com/view/LinearWorkflow"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 20,
+    "title": "Unity Lighting",
+    "section_title": "Ambient Light",
+    "content": [
+      "Light Objects – Directional Light is default in Scene\nAmbient Light – Skybox is default in Scene, Also Gradient or Single Colour\nEmissive Light\n\nDefault Scene\n1. Directional Light\n2. Skybox / Ambient light - default\n\tLighting panel\n\tCreated with Skybox, gradient, or single color\n\tAll objects receive unless 0 and/or black\n\tAll objects reflect - receive from skybox or custom cube map\n\tDelete to remove all reflections\n\nFor full lighting control, set to black and delete."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 21,
+    "title": "Unity Lighting",
+    "section_title": "Unity Lighting Setup",
+    "content": [
+      "Unity Lighting Setup - Skybox\nhttps://www.youtube.com/watch?v=vJ6IS2iIiQg\n\nSkybox - new system – \nEnlighten - Image based lighting \nChanges color, procedural skybox\naccurate sun\n\nSkybox - update\nHDRI instead - for atmosphere - beyond white\nCubic map or 6-sided\nSkybox is ambience"
+    ],
+    "images": [
+      {
+        "filename": "lect-12-shaders-lighting_slide21_image0.jpg",
+        "path": "images/lect-12-shaders-lighting_slide21_image0.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 22,
+    "title": "Unity Lighting",
+    "section_title": "Light Objects Beyond Basic (Sources)",
+    "content": [
+      "Ambient (All)\nSkybox (Default), Custom Cube\nGradient\nColor\nArea (Baked GI)\nRectangle emitting soft light from one side, all directions\nNot Precomputed Realtime GI (use Emissive)\nEmissive surfaces (Precomputed GI)\nAct as indirect light sources \nUse shader Emission property\nRealtime light mapping - Can be dynamic, scripted\nProbes (All)\nLight Probes - Sample scene to light dynamically at lower cost than realtime GI\nReflection Probes (1 default in every scene for skybox reflection)\nReflection reference – cube map\nReflective objects in space can reference"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 23,
+    "title": "Unity Lighting",
+    "section_title": "Unity Lighting Setup",
+    "content": [
+      "Unity Lighting Setup – Render Mode for Dynamic Lights\n\nRENDER MODE PER LIGHT - component for Dynamic Lights!\n\t\tImportant - per pixel\n\t\tNot important - per vertex\n\nVertex Lighting – fastest (Not Important)\n\t\tCalculates at vertices of mesh\n\t\tLighting is interpolated over surface\n\nPer Pixel Lighting – expensive (Important)\n\t\tAt every screen pixel\n\t\tMore advanced effects - normal, cookies, rt shadows\n\t\tBetter effects - spotlight shapes,  specular highlights\n\t\tPixel light count property - quality setting"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 24,
+    "title": "Unity Lighting",
+    "section_title": "Unity Lighting Setup",
+    "content": [
+      "Unity Lighting Setup – Light Effects\n\nCookie - pattern, alpha texture, \n\tNot area\n\tBaked - spot only\nShadows\n\tHard - efficient\n\tSoft - costly\n\t\tStrength\n\t\tResolution - quality\n\t\tBias - distance\n\t\tDirectional - softness and fade\nFlares\n\t\tSimilar to halo\n\t\tLens flare - attached to GO\n\t\tFlare layer attached to camera\nHalo"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 25,
+    "title": "Unity Lighting",
+    "section_title": "Unity Lighting Setup",
+    "content": [
+      "Unity Lighting Setup - Emissive\nArea lights do not support Precomputed Realtime GI, this is a similar effect over surface of material. Can be dynamic. Property of Standard Shader\n\n‘Emission’ is a property of the Standard Shader which allows static objects in our scene to emit light. By default the value of ‘Emission’ is set to zero. This means no light will be emitted by objects assigned materials using the Standard Shader. The HDR color picker can be used to select colors with intensities beyond the 0-1 range in order to create bright light effects similar to those of Area Lights.\n\nThere is no range value for emissive materials but light emitted will again falloff at a quadratic rate. Emission will only be received by objects marked as ‘Static’ or “Lightmap Static’ from the Inspector. Similarly, emissive materials applied to non-static, or dynamic geometry such as characters will not contribute to scene lighting.\n\nHowever, materials with an emission above zero will still appear to glow brightly on-screen even if they are not contributing to scene lighting. This effect can also be produced by selecting ‘None’ from the Standard Shader’s ‘Global Illumination’ Inspector property. Self-illuminating materials like these are a useful way to create effects such as neons or other visible light sources."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 26,
+    "title": "Unity Lighting",
+    "section_title": "Unity Lighting Setup",
+    "content": [
+      "Unity Lighting Setup - Emissive\n\nEmissive materials only directly affect static geometry in your scene. If you need dynamic, or non-static geometry - such as characters, to pick up light from emissive materials, Light Probes must be used. Changing emission values at gameplay will update Light Probes interactively and the results will be visible on any objects presently receiving light from those probes."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 27,
+    "title": "Unity Lighting",
+    "section_title": "Unity Lighting Setup",
+    "content": [
+      "Unity Lighting Setup - Probes\n\nProbes\n\nLighting - for dynamic characters in Baked Lightmap - low-cost\nReflection - HDRI, cuboid boundaries, box projection\nCube map is reference\nDefault  - uses skybox for basic\nShould add more"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 28,
+    "title": "Unity Lighting",
+    "section_title": "Unity Standard Shader",
+    "content": [
+      "https://www.youtube.com/watch?v=fD_ho_ofY6A"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 29,
+    "title": "Unity Lighting",
+    "section_title": "Unity Standard Shader",
+    "content": [
+      "https://www.youtube.com/watch?v=fD_ho_ofY6A\n\nObjects in scene rendered with Standard Shader\nPhysically Based Shader\nMimics physical conditions of light transmission\n\nSpecularity = Metalness\nReflections\n\t1. Skybox/Cubemap – 6 sided box derived from sky\n\t2. Reflection Probe – renders environment from point, overrides Skybox\nBlended with other lighting and surface data by Material’s Shader"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 30,
+    "title": "Unity Lighting",
+    "section_title": "Unity Standard Shader",
+    "content": [
+      "Standard can be used for all - all default mesh, all new\n\nStandard (metallic, not just metal, describes metallness, or Smoothness)\n\t\nMetallic\n\tBy texture or value\n\tBlack – non\n\tWhite – completely\n\tTexture will vary\n\tAlpha can define smoothness map\n\nSmoothness controls micro surface detail\n\tdiffuse or sharper reflections"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 31,
+    "title": "Unity Lighting",
+    "section_title": "Unity Standard Shader",
+    "content": [
+      "Standard can be used for all - all default mesh, all new\nTwo Choices:\n\tStandard - Metallic (metallic, not just metal, describes metalness)\n\tStandard Specular - Specular (describes specularity, or Reflectivity)\n\n\n\n\n\n\n\n\n\n\n\nMetalness vs Specular."
+    ],
+    "images": [
+      {
+        "filename": "lect-12-shaders-lighting_slide31_image0.jpg",
+        "path": "images/lect-12-shaders-lighting_slide31_image0.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 32,
+    "title": "Unity Lighting",
+    "section_title": "Both Metallic and Specular have smoothness.",
+    "content": [
+      "\nThis defines sharpness of light reflection.\n\nIn Metallic, the colour value is derived from the Albedo (Diffuse) Colour\n\nIn Specular, it is separated out, so can be adjusted."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 33,
+    "title": "Unity Lighting",
+    "section_title": "Metallic",
+    "content": [
+      "Metallic - means that one channel defines whether a thing reacts as metallic or non-metallic. Simplified speaking metallic means that the reflected light takes on the colour of the underlying surface because metallic absorbs wavelengths from the light. \n\nNon metallic means that the colour is reflected the same way it hit the surface. So if a christmas tree is reflected from a shiny plastic surface you can still make out the green and all the different colors of the ornaments reflected. Being reflected from a gold surface things could look different.\n\nThe smoothness defines (separately) how blurry things get reflected from the surface - no matter if it's metallic or not. A plastic toy can be really shiny or rough - as can metal."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 34,
+    "title": "Unity Lighting",
+    "section_title": "Specular",
+    "content": [
+      "Specular - in the specular texture map you define the colour value of your reflection. So metallic surfaces from Specular Shaders need to have a coloured setting while plastic surfaces don't have a colour value. Opposed to metallic workflow where the colour value is derived from the Albedo. \n\nIn the specular setting you define a metallic look from the specular RGB channels. \n\nThe colour value defines the reflectance colour (absorption) - not the Albedo. The brightness defines how much is reflected, the colour defines in which color. Additionally there still is a smoothness value because surfaces are defined by being metallic/non-metallic, the color and the roughness. \n\nBUT in specular you have more control over the colour mixing."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 35,
+    "title": "Unity Lighting",
+    "section_title": "Unity Standard Shader",
+    "content": [
+      "Standard can be used for all - all default mesh, all new\n\nPhysical based Shading should follow realistic settings:\n\nTable\nhttps://docs.unity3d.com/Manual/StandardShaderMaterialCharts.html"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 36,
+    "title": "",
+    "section_title": "",
+    "content": [],
+    "images": [
+      {
+        "filename": "lect-12-shaders-lighting_slide36_image0.png",
+        "path": "images/lect-12-shaders-lighting_slide36_image0.png"
+      },
+      {
+        "filename": "lect-12-shaders-lighting_slide36_image1.png",
+        "path": "images/lect-12-shaders-lighting_slide36_image1.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 37,
+    "title": "Unity Lighting",
+    "section_title": "Unity Standard Shader",
+    "content": [
+      "Standard can be used for all - all default mesh, all new\n\nBoth have…\nAlbedo\n\tIf No texture, tinted by colour\n\tOptional Texture and Colour (white does not affect texture)\nNormal Map\n\tbumpiness of surface\nHeight Map\n\tSlider for strength\nOcclusion\n\tAmbient Occlusion to darken in hidden areas\nEmission\n\tValue\n\tShape – Map, B+W or Colour\n\tBaked or Realtime\nSecondary Map - Microdetail"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 38,
+    "title": "Unity Lighting",
+    "section_title": "Unity Standard Shader",
+    "content": [
+      "Standard can be used for all - all default mesh, all new\n\nStandard (metallic, not just metal, describes metallness, or Smoothness)\n\t\nRendering Mode:\n\tOpaque\n\tCutout\n\t\tAlpha on Diffuse image masks \n\t\t(If gradient - slider available)\n\tFade\n\t\tSimilar to transparent\n\t\tAll effects transparent\n\t\tFades out game object on screen\n\tTransparent – glass\n\t\tAlpha on diffuse color - level of trans\n\t\tStill reflects - Effects non transparent - see Fade above"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 39,
+    "title": "Unity Lighting",
+    "section_title": "Unity Standard Shader",
+    "content": [
+      "Standard can be used for all - all default mesh, all new\n\nStandard (Metals with Metallic workflow)\n\nSpecular has smoothness as well, very similar\n\tTexture or Color value\n\tDefines reflectivity\n\tMaps usually dark gray\n\tWith no map, set with slider – 0 is porcelain, 1 is mirror\n\tdiffusion of surface"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 40,
+    "title": "Unity Lighting",
+    "section_title": "Unity Materials and Shaders",
+    "content": [
+      "\nMaterial - Asset that ties shader to a GameObject\n\n1. Right Click and Create material\n2. Drag to Object\n3. Is assigned to Mesh Renderer in Material Slot\n4. Mesh renderer Also has Light, Reflection Probe Slots"
+    ],
+    "images": [
+      {
+        "filename": "lect-12-shaders-lighting_slide40_image0.jpg",
+        "path": "images/lect-12-shaders-lighting_slide40_image0.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 41,
+    "title": "Unity Lighting",
+    "section_title": "Unity Materials and Shaders",
+    "content": [
+      "\nMaterial - Asset that ties shader to a GameObject\n\n1. Right Click and Create material\n2. Drag to Object\n3. Is assigned to Mesh Renderer in Material Slot\n4. Mesh renderer Also has Light, Reflection Probe Slots"
+    ],
+    "images": [
+      {
+        "filename": "lect-12-shaders-lighting_slide41_image0.png",
+        "path": "images/lect-12-shaders-lighting_slide41_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 42,
+    "title": "Unity Lighting",
+    "section_title": "Tutorial",
+    "content": [
+      "Tutorial – Standard Shader in Unity\n\n\n\n\n\n\n\n\nhttps://www.youtube.com/watch?v=fD_ho_ofY6A"
+    ],
+    "images": [
+      {
+        "filename": "lect-12-shaders-lighting_slide42_image0.jpg",
+        "path": "images/lect-12-shaders-lighting_slide42_image0.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 43,
+    "title": "Unity Lighting",
+    "section_title": "Tutorial",
+    "content": [
+      "Tutorial – Skybox GI in Unity\n\n\n\n\n\n\n\n\nhttps://www.youtube.com/watch?v=vJ6IS2iIiQg"
+    ],
+    "images": [
+      {
+        "filename": "lect-12-shaders-lighting_slide43_image0.jpg",
+        "path": "images/lect-12-shaders-lighting_slide43_image0.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 44,
+    "title": "Unity Lighting",
+    "section_title": "Tutorial",
+    "content": [
+      "Tutorial – Basic Lighting in Unity - Entire Process\n\nhttps://learn.unity.com/tutorial/introduction-to-lighting-and-rendering-2019-3 \n\n\n\n\nOlder:\nhttps://unity3d.com/learn/tutorials/topics/graphics/unity-5-lighting-and-rendering?playlist=17102\nhttps://www.youtube.com/watch?v=fD_ho_ofY6A"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 45,
+    "title": "Unity Lighting",
+    "section_title": "Tutorial",
+    "content": [
+      "Tutorial – Advanced GI in Unity 5 – Probes, Emissive\n\n\n\n\n\n\n\n\nhttps://www.youtube.com/watch?v=Ukkiqe_75d0\nhttps://www.youtube.com/watch?v=h5GFoI38DOg"
+    ],
+    "images": [
+      {
+        "filename": "lect-12-shaders-lighting_slide45_image0.jpg",
+        "path": "images/lect-12-shaders-lighting_slide45_image0.jpg"
+      }
+    ]
+  },
+  {
+    "slide_number": 46,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\nQuick summary of main steps\n1. Backup Project\n2. Install URP package.\n3. Create a URP Pipeline Asset and Forward Renderer.\n4-5. Assign the URP Pipeline Asset in Project Settings and Quality settings.\n6. Upgrade built-in materials (project/scene) to URP materials.\n7. Re-Bake Lighting\n8. Quick Check\n9. Fixes"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 47,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n1. Backup your project\n- Commit to version control or copy the project folder.\n\n2. Install URP\n- Window > Package Manager\n- In Package Manager: select \"Unity Registry\", search \"Universal RP\" (or \"Universal Render Pipeline\") → select it → Install.\n\n3. Check URP Asset is created and used\n- Edit > Project Settings... > Graphics\n- In Project Settings > Graphics: Scriptable Render Pipeline Settings → drag the Pipeline Asset here."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 48,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n4. If not created, Create URP Pipeline Asset (and Forward Renderer)\n- Assets > Create > Rendering > Universal Render Pipeline > Pipeline Asset (Forward Renderer)\n- This creates a Pipeline Asset (and a Forward Renderer asset).\n\n5. (Optional) Assign to Quality levels\n- Edit > Project Settings... > Quality\n- For each quality level: Render Pipeline Asset column → drag the Pipeline Asset."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 49,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n6. Upgrade built-in materials\n- Edit > Render Pipeline > Universal Render Pipeline > Upgrade Project Materials to URP Materials\n- (Or) Edit > Render Pipeline > Universal Render Pipeline > Upgrade Scene Materials to URP Materials\n\n7. Re-bake lighting (after upgrades)\n- Window > Rendering > Lighting\n- In Lighting window: click \"Generate Lighting\" (or \"Bake\") or toggle \"Auto Generate\" if you prefer automatic baking."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 50,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n8. Quick check\n- Select main Directional Light in Hierarchy → Inspector: ensure Shadows is not \"None\".\n- Play scene in Editor and visually confirm lighting.\n\n9. If visuals look off (common quick fixes)\n- Check Camera exposure/post-processing volumes.\n- Check converted Material inspector: Shader should show \"Universal Render Pipeline/Lit\" and Emission or Transparency settings may need re-enabling.\n- Re-bake lighting if materials changed."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 51,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\nQuick summary of main steps\n1. Install URP package.\n2. Create a URP Pipeline Asset and Forward Renderer.\n3. Assign the URP Pipeline Asset in Project Settings and Quality settings.\n4. Upgrade built-in materials (project/scene) to URP materials.\n5. Migrate custom shaders (Surface Shaders → Shader Graph / URP HLSL).\n6. Validate lights, shadows, GI, reflection/light probes; re-bake lighting.\n7. Tune Renderer Features, SRP Batcher, and performance settings.\n8. Test on target platforms; fix visual mismatches."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 52,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n1) Install URP package\n- Menu: Window > Package Manager\n  - Select \"Unity Registry\" (top-left dropdown).\n  - Search for \"Universal RP\" or \"Universal Render Pipeline\".\n  - Select the package item \"Universal RP\" or \"Universal Render Pipeline\".\n  - Click the Install button.\n  - If you see versions, choose the URP version that matches your Unity LTS compatibility (consult Unity docs)."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 53,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n2) Create URP Pipeline Asset and Renderer\n- Menu: Assets > Create > Rendering > Universal Render Pipeline > Pipeline Asset (Forward Renderer)\n  - Creates two or more assets: a Pipeline Asset (UniversalRenderPipelineAsset) and a Forward Renderer (UniversalRendererAsset) depending on Unity version.\n  - If prompted, pick the \"Pipeline Asset (Forward Renderer)\" variant (or create both the Pipeline Asset and a Forward Renderer separately).\n\n- Alternative: Assets > Create > Rendering > Universal Render Pipeline > Forward Renderer\n  - Use this to create a named Forward Renderer asset to be referenced by a Pipeline Asset."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 54,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n3) Assign URP asset to project & quality levels\n- Assign globally:\n  - Menu: Edit > Project Settings... > Graphics\n    - Field: Scriptable Render Pipeline Settings (or Scriptable Render Pipeline Asset)\n    - Drag the Pipeline Asset (UniversalRenderPipelineAsset) into this field."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 55,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n- Assign per-quality:\n  - Menu: Edit > Project Settings... > Quality\n    - For each Quality level you use, in the \"Render Pipeline Asset\" (or \"Scriptable Render Pipeline Settings\") column, drag the same UniversalRenderPipelineAsset.\n    - Note: Many projects assign it to all quality levels."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 56,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n4) Use the Material Upgrade utility\n- Menu: Edit > Render Pipeline > Universal Render Pipeline\n  - Options you will see (depending on version):\n    - Upgrade Project Materials to URP Materials\n    - Upgrade Scene Materials to URP Materials\n  - Actions:\n    - Click \"Upgrade Project Materials to URP Materials\" to convert built-in materials across the project (recommended, but ensure VCS backup).\n    - Optionally click \"Upgrade Scene Materials to URP Materials\" for an immediate scene-only conversion, if you want staged migration."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 57,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\nWhat the upgrade does:\n- Converts Standard shader materials to URP Lit or URP Simple Lit equivalents.\n- Converts many built-in shader references to URP equivalents.\n- It does NOT convert custom shaders (Surface Shader / custom CG/HLSL) — you must convert those manually."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 58,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n5) Convert custom shaders and Surface Shaders\n- Surface Shaders are not supported by URP. Options:\n  - Recreate shaders in Shader Graph:\n    - Menu: Assets > Create > Shader > Universal Render Pipeline > Lit Shader Graph (or \"Shader Graph\" > \"URP Lit\")\n    - Create a new Material from the Shader Graph:\n      - Right-click ShaderGraph asset > Create > Material OR create new material and assign the Shader Graph under Shader dropdown.\n    - Replicate inputs (Albedo, Normal, Metallic, Smoothness, Emission, etc.) in the graph."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 59,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n5) Convert custom shaders and Surface Shaders\n\n    - For advanced HLSL, place code into a Custom Function node or author a custom HLSL include and use Shader Graph's Custom Function nodes.\n  - Reauthor as URP HLSL/Shader (hand-written):\n    - Create an unlit/lit URP-compatible shader using URP shader includes.\n    - Use the URP shader include files (e.g., \"Packages/com.unity.render-pipelines.universal/ShaderLibrary/...\") — exact include paths vary by version.\n  - Use automated conversion tools (rarely perfect). Always test visuals after conversion."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 60,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n6) URP-specific renderer settings (Pipeline Asset & Forward Renderer)\n- Open the Pipeline Asset by selecting it in Project window.\n  - Inspector fields you should review / toggle:\n    - \"General\" or \"Rendering\" group (names vary): supports \"SRP Batcher\" (checkbox) — enable SRP Batcher for CPU performance.\n    - \"Supports Camera Depth Texture\" / \"Supports Opaque Texture\" (toggle) — enable if post-processing or effects require them."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 61,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n6) URP-specific renderer settings (Pipeline Asset & Forward Renderer)\n    - \"Shadow\" group:\n      - \"Main Light Shadows\" (toggle)\n      - \"Additional Lights Shadows\" (toggle)\n      - \"Shadow Distance\" (numeric)\n      - \"Directional Light Cascades\" or \"Cascade Count\" (dropdown)\n      - \"Shadow Atlas Resolution\" (dropdown)\n    - \"Lighting\" group:\n      - \"Support Runtime/Realtime Global Illumination\" options vary by version.\n    - \"MSAA\" setting: may be under Pipeline Asset or per-Renderer. If present, set per your target hardware.\n    - \"Render Scale\" or \"Render Scale (Dynamic Resolution)\" (if available).\n  - Enable SRP Batcher: check \"SRP Batcher\" (or \"Use SRP Batcher\")."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 62,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n6) URP-specific renderer settings (Pipeline Asset & Forward Renderer)\n    - \"Shadow\" group:\n      - \"Main Light Shadows\" (toggle)\n      - \"Additional Lights Shadows\" (toggle)\n      - \"Shadow Distance\" (numeric)\n      - \"Directional Light Cascades\" or \"Cascade Count\" (dropdown)\n      - \"Shadow Atlas Resolution\" (dropdown)\n    - \"Lighting\" group:\n      - \"Support Runtime/Realtime Global Illumination\" options vary by version.\n    - \"MSAA\" setting: may be under Pipeline Asset or per-Renderer. If present, set per your target hardware.\n    - \"Render Scale\" or \"Render Scale (Dynamic Resolution)\" (if available).\n  - Enable SRP Batcher: check \"SRP Batcher\" (or \"Use SRP Batcher\")."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 63,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n- Open the Forward Renderer asset (select it):\n  - Inspector fields:\n    - Toggles: \"Depth Texture\" / \"Opaque Texture\" / \"MSAA\" / \"HDR\" (names may vary: e.g., \"Depth Texture (Enabled)\", \"Opaque Texture\")\n    - \"Add Renderer Feature\" button: click this to add features like:\n      - Screen Space Ambient Occlusion (if supported)\n      - Decal\n      - Render Objects (to render specific objects with a specific material or shader pass)\n      - Blit, Full-screen passes, Custom Post-processing\n    - Use the \"Add Renderer Feature\" button to attach custom passes or decals/SSR/etc."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 64,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n7) Per-Light settings (Light component)\n- Select a Light in the Scene / Hierarchy.\n  - Inspector — Light component:\n    - Type: Directional, Point, Spot, Area (Area lights are baked only)\n    - Mode: Realtime / Mixed / Baked\n    - Color, Intensity (lux/lumen vs Unity intensity units differ; URP expects standard units but double-check)\n    - Range (for Point and Spot)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 65,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n7) Per-Light settings (Light component)\n    - Shadows:\n      - Shadow Type: None / Hard Shadows / Soft Shadows (or \"Cast Shadows\" + dropdown)\n      - \"Shadow Resolution\" (Per-light override in some versions)\n      - \"Bias\" and \"Normal Bias\" (to reduce acne)\n      - \"Shadow Strength\" (opacity)\n    - Render Mode: Auto / Important / Not Important (affects additional lights performance)\n- For main directional light you intend to represent the sun:\n  - Ensure it is set as \"Main Light\" for Lightmapper optimization (URP often treats the brightest directional light as main light; check the URP lighting documentation for \"Main Light\" selection methods)."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 66,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n7) Per-Light settings (Light component)\n    - Shadows:\n      - Shadow Type: None / Hard Shadows / Soft Shadows (or \"Cast Shadows\" + dropdown)\n      - \"Shadow Resolution\" (Per-light override in some versions)\n      - \"Bias\" and \"Normal Bias\" (to reduce acne)\n      - \"Shadow Strength\" (opacity)\n    - Render Mode: Auto / Important / Not Important (affects additional lights performance)\n- For main directional light you intend to represent the sun:\n  - Ensure it is set as \"Main Light\" for Lightmapper optimization (URP often treats the brightest directional light as main light; check the URP lighting documentation for \"Main Light\" selection methods)."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 67,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n8) Shadows: URP-specific controls & performance\n- Pipeline Asset / Forward Renderer control global shadow toggles, shadow distance, cascade settings and atlas size (see step 6).\n- Per-light shadow toggles remain on the Light component.\n- Performance tips (menu buttons not required):\n  - Lower \"Shadow Distance\" (Project Settings > Quality or URP Pipeline Asset) to reduce number of shadow casters.\n  - Reduce \"Directional Cascades\" count (in Pipeline Asset).\n  - Reduce \"Shadow Atlas Resolution\" or per-light shadow resolution.\n  - Disable additional light shadows (in Pipeline Asset) if you only need main directional shadows."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 68,
+    "title": "Unity Lighting",
+    "section_title": "URP Updates, Conversions",
+    "content": [
+      "\n8) Shadows: URP-specific controls & performance\n- Pipeline Asset / Forward Renderer control global shadow toggles, shadow distance, cascade settings and atlas size (see step 6).\n- Per-light shadow toggles remain on the Light component.\n- Performance tips (menu buttons not required):\n  - Lower \"Shadow Distance\" (Project Settings > Quality or URP Pipeline Asset) to reduce number of shadow casters.\n  - Reduce \"Directional Cascades\" count (in Pipeline Asset).\n  - Reduce \"Shadow Atlas Resolution\" or per-light shadow resolution.\n  - Disable additional light shadows (in Pipeline Asset) if you only need main directional shadows."
+    ],
+    "images": []
+  }
+]

@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Lecture 12 - Unity Lighting and Shaders</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20261007a" />
+  <link rel="stylesheet" href="../assets/css/slideshow.css?v=20261007a" />
+</head>
+<body class="lecture-fullbleed">
+  <div class="slideshow-container">
+    <!-- Slide 1: 5MMCS001W Lecture 12 - Unity Lighting and Shaders (source slides 1-4) -->
+    <div class="slide active">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>5MMCS001W Lecture 12 - Unity Lighting and Shaders</h2>
+        <div class="accordion-scroll">
+      <!-- Section 1.1: Lecture Overview (source slide 1, 2) -->
+      <details class="accordion" open>
+        <summary>Lecture Overview</summary>
+        <div class="accordion-body">
+          <p>Unity Lighting</p>
+          <p>5MMCS001W Lecture 12</p>
+          <p>Unity Lighting and Shaders</p>
+          <p>Unity Lighting, Shaders</p>
+        </div>
+      </details>
+      <!-- Section 1.2: Check Smoothness on Model (source slide 3) -->
+      <details class="accordion">
+        <summary>Check Smoothness on Model</summary>
+        <div class="accordion-body">
+          <p>Check Smoothness on Model:</p>
+          <ul>
+          <li>Smoothing group exports in Max Fbx Export
+          </li>
+          <li>Calculate Normals and Tangents in Unity
+          </li>
+          <li>(Import Setting window with object selected in Project)
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 1.3: Unity Lighting – 3 Types (source slide 4) -->
+      <details class="accordion">
+        <summary>Unity Lighting – 3 Types</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>1. Direct – RealTime
+          </li>
+          <li>2. Baked Global Illumination (Lightmaps)
+          </li>
+          <li>3. Precomputed Realtime Global Illumination
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 1.4: Related Tutorials (source slide added cross-reference) -->
+      <details class="accordion">
+        <summary>Related Tutorials</summary>
+        <div class="accordion-body">
+          <p><a href="../index.html?page=pages/tut-12-urp-lighting-2026.html" target="_top">Tutorial 12: URP Lighting with Café Model</a></p>
+          <p><a href="../index.html?page=pages/tut-11-01-blender-materials-and-texturing.html" target="_top">Tutorial 11-01: Blender Materials and Texturing</a></p>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1" disabled> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 2: Unity Lighting - Real Time Lighting in Scene (source slides 5-7) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity Lighting - Real Time Lighting in Scene</h2>
+        <div class="accordion-scroll">
+      <!-- Section 2.1: Features of Direct Lighting (source slide 5) -->
+      <details class="accordion" open>
+        <summary>Features of Direct Lighting</summary>
+        <div class="accordion-body">
+          <p>Lights in Unity by default are Realtime and Direct</p>
+          <ul>
+          <li>Features of Direct Lighting
+            <ul>
+            <li>1. Shadows are Black
+            </li>
+            <li>2. Active Objects Lit
+            </li>
+            <li>3. Light Rays do not bounce
+            </li>
+            <li>4. Fast Calculations
+            </li>
+            <li>5. Real Time
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 2.2: Light Component Types (source slide 6) -->
+      <details class="accordion">
+        <summary>Light Component Types</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Light Component:
+            <ul>
+            <li>1. Directional – parallel, non-diverging light source, rotational only
+            </li>
+            <li>2. Spot – cone of light in +Z direction
+            </li>
+            <li>3. Point – point sphere light is emitted in all directions
+            </li>
+            <li>4. Area – soft light in all directions from one side of plane (Baked only)
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 2.3: Other Light Sources (source slide 7) -->
+      <details class="accordion">
+        <summary>Other Light Sources</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Others:
+            <ul>
+            <li>1. Ambient
+            </li>
+            <li>2. Emissive
+            </li>
+            <li>3. Probes
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 3: Precomputed and Baked Global Illumination (source slides 8-12) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Precomputed and Baked Global Illumination</h2>
+        <div class="accordion-scroll">
+      <!-- Section 3.1: Unity Lighting – Precomputed Lighting (source slide 8) -->
+      <details class="accordion" open>
+        <summary>Unity Lighting – Precomputed Lighting</summary>
+        <div class="accordion-body">
+          <p>Offers light bouncing on top of basic Direct lighting:</p>
+          <ul>
+          <li>1. Soft Shadows
+          </li>
+          <li>2. Colour bleed
+          </li>
+          <li>3. Light Bouncing – for LightMap or RealTime
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 3.2: Unity Lighting – Baked Global Illumination (Lightmaps) (source slide 9) -->
+      <details class="accordion">
+        <summary>Unity Lighting – Baked Global Illumination (Lightmaps)</summary>
+        <div class="accordion-body">
+          <p>Unity can calculate complex static lighting effects (using a technique called global illumination, or GI) and store them in a reference texture map called a lightmap. This calculation process is referred to as baking.</p>
+          <p>When baking a lightmap, the effects of light sources on static objects in the scene are calculated and the results are written to textures which are overlaid on top of scene geometry to create the effect of lighting.</p>
+          <ul>
+          <li>Features
+            <ul>
+            <li>1. Direct and Indirect Light
+            </li>
+            <li>2. Work with Objects’ Shader Information (Color and normals)
+            </li>
+            <li>3. Static – no moving objects
+            </li>
+            <li>4. Cannot react to changes in lighting, movement
+            </li>
+            <li>5. Low performance impact
+            </li></ul>
+          </li></ul>
+          <p>With baked lighting, these light textures (lightmaps) cannot change during gameplay and so are referred to as ‘static’. Realtime lights can be overlaid and used additively on top of a lightmapped scene but cannot interactively change the lightmaps themselves.</p>
+        </div>
+      </details>
+      <!-- Section 3.3: Unity Lighting – Precomputed Realtime Global Illumination (source slide 10) -->
+      <details class="accordion">
+        <summary>Unity Lighting – Precomputed Realtime Global Illumination</summary>
+        <div class="accordion-body">
+          <p>Whilst static lightmaps are unable to react to changes in lighting conditions within the scene, precomputed realtime GI does offer us a technique for updating complex scene lighting interactively.</p>
+          <p>With this approach it is possible to create lit environments featuring rich global illumination with bounced light which responds, in realtime, to lighting changes. A good example of this would be a time of day system - where the position and color of the light source changes over time. With traditional baked lighting, this is not possible.</p>
+          <p>In order to deliver these effects at playable framerates, we need to shift some of the lengthy number-crunching from being a realtime process to one which is precomputed.</p>
+          <p>Precomputing shifts the burden of calculating complex light behaviour from something that happens during gameplay, to something which can be calculated when time is no longer so critical. We refer to this as an ‘offline’ process.</p>
+        </div>
+      </details>
+      <!-- Section 3.4: Geomerics Enlighten System (source slide 11) -->
+      <details class="accordion">
+        <summary>Geomerics Enlighten System</summary>
+        <div class="accordion-body">
+          <p>Unity Lighting – Precomputed Realtime Global Illumination- Geometrics Enlighten System</p>
+          <p>http://www.geomerics.com/enlighten/</p>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-12-shaders-lighting_slide11_image0.jpg" class="accordion-image" alt="Enlighten ON versus Enlighten OFF comparison of the same interior scene" style="--accordion-image-width: 80%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 3.5: Precomputed Realtime GI - Features (source slide 12) -->
+      <details class="accordion">
+        <summary>Precomputed Realtime GI - Features</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Features
+            <ul>
+            <li>1. Direct and Indirect Light
+            </li>
+            <li>2. Work with Objects’ Shader Information (Color and normals)
+            </li>
+            <li>3. Dynamic for Object and Lights
+            </li>
+            <li>4. Reacts to changes in lighting, movement
+            </li>
+            <li>5. Some performance impact in Runtime rendering
+            </li>
+            <li>6. Using Baked and Precomputed at same time gives double performance impact
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 4: Global Illumination Concepts and Lighting Setup (source slides 13-15) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Global Illumination Concepts and Lighting Setup</h2>
+        <div class="accordion-scroll">
+      <!-- Section 4.1: Global Illumination – GI Concepts (source slide 13) -->
+      <details class="accordion" open>
+        <summary>Global Illumination – GI Concepts</summary>
+        <div class="accordion-body">
+          <p>Global Illumination (GI) is a system that models how light is bounced off of surfaces onto other surfaces (indirect light) rather than being limited to just the light that hits a surface directly from a light source (direct light). Modelling indirect lighting allows for effects that make the virtual world seem more realistic and connected, since objects affect each other’s appearance. One classic example is ‘color bleeding’ where, for example, sunlight hitting a red sofa will cause red light to be bounced onto the wall behind it. Another is when sunlight hits the floor at the opening of a cave and bounces around inside so the inner parts of the cave are illuminated too.</p>
+          <ul>
+          <li>Direct Lighting – Faster Calculations, Real Time
+          </li>
+          <li>Indirect Lighting – Slower calculations
+            <ul>
+            <li>Offline - Baked - Precalculated
+            </li>
+            <li>For Static Objects
+            </li>
+            <li>Correct at Runtime
+            </li>
+            <li>Not Dynamic
+            </li>
+            <li>Results in Realtime Soft Shadows and Indirect light
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 4.2: Unity GI - Precomputed Realtime GI (source slide 14) -->
+      <details class="accordion">
+        <summary>Unity GI - Precomputed Realtime GI</summary>
+        <div class="accordion-body">
+          <p>https://docs.unity3d.com/Manual/GIIntro.html</p>
+          <p>Precomputes all possible light bounces and encodes this information for use at runtime.</p>
+          <ul>
+          <li>1. Real time GI and baking light maps
+            <ul>
+            <li>All lights affect with direct and indirect
+              <ul>
+              <li>Bounces and takes colours
+              </li></ul>
+            </li></ul>
+          </li>
+          <li>2. Physically based rendering – PBR
+            <ul>
+            <li>Light is modelled and imitated
+            </li></ul>
+          </li>
+          <li>3. Standard shader
+            <ul>
+            <li>PBR - easy to access
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 4.3: Unity Lighting Setup Overview (source slide 15) -->
+      <details class="accordion">
+        <summary>Unity Lighting Setup Overview</summary>
+        <div class="accordion-body">
+          <p>https://unity3d.com/learn/tutorials/topics/graphics/unity-5-lighting-overview?playlist=17102</p>
+          <p>Ambient Light, Reflections and Light sources, working with materials created with the standard Shader are drawn using Physical Based Rendering with Global Illumination to calculate the Indirect Light</p>
+          <ul>
+          <li>1. Real Time (Scene) for basic work only – Real Time, Direct, Dynamic
+          </li>
+          <li>2. Dynamic (RealTime GI) – Precomputed Direct and Indirect, Dynamic
+          </li>
+          <li>3. Baked (Static GI) – Precomputed Direct and Indirect, Static
+            <ul>
+            <li>Can have Real Time Emissive Probes for Dynamic objects
+            </li></ul>
+          </li></ul>
+          <p>Can have mix of lights if desired, but usually best to stick with one system (baked) for mobile.</p>
+          <p>Ambient Light and Physical Based Rendering takes these and shaders for rendering with light settings.</p>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 5: Lighting Panel and Colour Space (source slides 16-19) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Lighting Panel and Colour Space</h2>
+        <div class="accordion-scroll">
+      <!-- Section 5.1: Lighting Panel - Ambient (source slide 16) -->
+      <details class="accordion" open>
+        <summary>Lighting Panel - Ambient</summary>
+        <div class="accordion-body">
+          <p>Directional Light tick box at top turns off ambient light</p>
+          <p>Ambient is Skybox, Gradient, or Colour</p>
+          <p>Object, Scene, Lightmap Tabs</p>
+          <p>Skybox Tutorial</p>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-12-shaders-lighting_slide16_image0.jpg" class="accordion-image" alt="Unity Lighting panel showing Environment Lighting, Precomputed Realtime GI and Baked GI settings" style="--accordion-image-width: 40%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 5.2: Lighting Panel – RealTime, Baked, Mixed (source slide 17) -->
+      <details class="accordion">
+        <summary>Lighting Panel – RealTime, Baked, Mixed</summary>
+        <div class="accordion-body">
+          <p>Precomputed Realtime GI and Baked GI both Enabled in Lighting Panel by Default. Can Chose Realtime GI or Baked GI for each light if this is true</p>
+          <p>Indirect Intensity and Bounce can be adjusted here.</p>
+          <p>Best to chose one or other and untick one globally here.</p>
+          <p>All Baked more appropriate for mobile devices</p>
+          <p>Continuous (Auto checkbox ticked)</p>
+          <p>On Demand (Auto checkbox unticked, click Build)</p>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-12-shaders-lighting_slide17_image0.jpg" class="accordion-image" alt="Unity Lighting panel with Realtime and Baked GI options and the Auto / Build controls" style="--accordion-image-width: 40%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 5.3: Light Panel – RealTime, Baked, Mixed (source slide 18) -->
+      <details class="accordion">
+        <summary>Light Panel – RealTime, Baked, Mixed</summary>
+        <div class="accordion-body">
+          <p>https://unity3d.com/learn/tutorials/topics/graphics/unity-5-lighting-overview?playlist=17102</p>
+          <ul>
+          <li>Baking - Select in Lights on per light basis
+          </li>
+          <li>Real Time
+          </li>
+          <li>Baked
+          </li>
+          <li>Mixed
+          </li>
+          <li>Light Mapping system - Lighting tab&gt;Scene
+            <ul>
+            <li>Continuous Baking
+            </li>
+            <li>On-Demand Baking
+            </li></ul>
+          </li></ul>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-12-shaders-lighting_slide18_image0.jpg" class="accordion-image" alt="Light component Inspector with the Baking dropdown showing Realtime, Baked and Mixed" style="--accordion-image-width: 45%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 5.4: Unity Lighting Setup - Linear (source slide 19) -->
+      <details class="accordion">
+        <summary>Unity Lighting Setup - Linear</summary>
+        <div class="accordion-body">
+          <p>PBR works best in Linear colour Space in Player Settings</p>
+          <p>Set color space to linear - default - CHECK</p>
+          <p>Most software use gamma</p>
+          <p>https://docs.unity3d.com/Manual/LinearLighting.html</p>
+          <p>https://renderman.pixar.com/view/LinearWorkflow</p>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 6: Ambient Light and Skybox (source slides 20-21) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Ambient Light and Skybox</h2>
+        <div class="accordion-scroll">
+      <!-- Section 6.1: Ambient Light (source slide 20) -->
+      <details class="accordion" open>
+        <summary>Ambient Light</summary>
+        <div class="accordion-body">
+          <p>Light Objects – Directional Light is default in Scene</p>
+          <p>Ambient Light – Skybox is default in Scene, Also Gradient or Single Colour</p>
+          <p>Emissive Light</p>
+          <p>Default Scene</p>
+          <ul>
+          <li>1. Directional Light
+          </li>
+          <li>2. Skybox / Ambient light - default
+            <ul>
+            <li>Lighting panel
+            </li>
+            <li>Created with Skybox, gradient, or single color
+            </li>
+            <li>All objects receive unless 0 and/or black
+            </li>
+            <li>All objects reflect - receive from skybox or custom cube map
+            </li>
+            <li>Delete to remove all reflections
+            </li></ul>
+          </li></ul>
+          <p>For full lighting control, set to black and delete.</p>
+        </div>
+      </details>
+      <!-- Section 6.2: Unity Lighting Setup - Skybox (source slide 21) -->
+      <details class="accordion">
+        <summary>Unity Lighting Setup - Skybox</summary>
+        <div class="accordion-body">
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Unity 5 Intro to Skybox and Realtime Global Illumination</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/vJ6IS2iIiQg" title="Unity 5 Intro to Skybox and Realtime Global Illumination video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=vJ6IS2iIiQg" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <p>Skybox - new system –</p>
+          <p>Enlighten - Image based lighting</p>
+          <p>Changes color, procedural skybox</p>
+          <p>accurate sun</p>
+          <p>Skybox - update</p>
+          <p>HDRI instead - for atmosphere - beyond white</p>
+          <p>Cubic map or 6-sided</p>
+          <p>Skybox is ambience</p>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-12-shaders-lighting_slide21_image0.jpg" class="accordion-image" alt="Skybox and realtime GI tutorial video frame showing a lit desert scene in Unity" style="--accordion-image-width: 70%;" />
+          </div>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 7: Light Sources, Render Mode and Light Effects (source slides 22-24) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Light Sources, Render Mode and Light Effects</h2>
+        <div class="accordion-scroll">
+      <!-- Section 7.1: Light Objects Beyond Basic (Sources) (source slide 22) -->
+      <details class="accordion" open>
+        <summary>Light Objects Beyond Basic (Sources)</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Ambient (All)
+            <ul>
+            <li>Skybox (Default), Custom Cube
+              <ul>
+              <li>Gradient
+                <ul>
+                <li>Color
+                </li></ul>
+              </li></ul>
+            </li></ul>
+          </li>
+          <li>Area (Baked GI)
+            <ul>
+            <li>Rectangle emitting soft light from one side, all directions
+              <ul>
+              <li>Not Precomputed Realtime GI (use Emissive)
+              </li></ul>
+            </li></ul>
+          </li>
+          <li>Emissive surfaces (Precomputed GI)
+            <ul>
+            <li>Act as indirect light sources
+              <ul>
+              <li>Use shader Emission property
+                <ul>
+                <li>Realtime light mapping - Can be dynamic, scripted
+                </li></ul>
+              </li></ul>
+            </li></ul>
+          </li>
+          <li>Probes (All)
+            <ul>
+            <li>Light Probes - Sample scene to light dynamically at lower cost than realtime GI
+              <ul>
+              <li>Reflection Probes (1 default in every scene for skybox reflection)
+                <ul>
+                <li>Reflection reference – cube map
+                </li>
+                <li>Reflective objects in space can reference
+                </li></ul>
+              </li></ul>
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 7.2: Unity Lighting Setup – Render Mode for Dynamic Lights (source slide 23) -->
+      <details class="accordion">
+        <summary>Unity Lighting Setup – Render Mode for Dynamic Lights</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>RENDER MODE PER LIGHT - component for Dynamic Lights!
+            <ul>
+            <li>Important - per pixel
+              <ul>
+              <li>Not important - per vertex
+              </li></ul>
+            </li></ul>
+          </li>
+          <li>Vertex Lighting – fastest (Not Important)
+            <ul>
+            <li>Calculates at vertices of mesh
+              <ul>
+              <li>Lighting is interpolated over surface
+              </li></ul>
+            </li></ul>
+          </li>
+          <li>Per Pixel Lighting – expensive (Important)
+            <ul>
+            <li>At every screen pixel
+              <ul>
+              <li>More advanced effects - normal, cookies, rt shadows
+              </li>
+              <li>Better effects - spotlight shapes, specular highlights
+              </li>
+              <li>Pixel light count property - quality setting
+              </li></ul>
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 7.3: Unity Lighting Setup – Light Effects (source slide 24) -->
+      <details class="accordion">
+        <summary>Unity Lighting Setup – Light Effects</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Cookie - pattern, alpha texture,
+            <ul>
+            <li>Not area
+            </li>
+            <li>Baked - spot only
+            </li></ul>
+          </li>
+          <li>Shadows
+            <ul>
+            <li>Hard - efficient
+            </li>
+            <li>Soft - costly
+              <ul>
+              <li>Strength
+              </li>
+              <li>Resolution - quality
+              </li>
+              <li>Bias - distance
+              </li>
+              <li>Directional - softness and fade
+              </li></ul>
+            </li></ul>
+          </li>
+          <li>Flares
+            <ul>
+            <li>Similar to halo
+              <ul>
+              <li>Lens flare - attached to GO
+              </li>
+              <li>Flare layer attached to camera
+              </li></ul>
+            </li></ul>
+          </li>
+          <li>Halo
+          </li></ul>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 8: Emissive Materials and Probes (source slides 25-27) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Emissive Materials and Probes</h2>
+        <div class="accordion-scroll">
+      <!-- Section 8.1: Unity Lighting Setup - Emissive (source slide 25, 26) -->
+      <details class="accordion" open>
+        <summary>Unity Lighting Setup - Emissive</summary>
+        <div class="accordion-body">
+          <p>Area lights do not support Precomputed Realtime GI, this is a similar effect over surface of material. Can be dynamic. Property of Standard Shader</p>
+          <p>‘Emission’ is a property of the Standard Shader which allows static objects in our scene to emit light. By default the value of ‘Emission’ is set to zero. This means no light will be emitted by objects assigned materials using the Standard Shader. The HDR color picker can be used to select colors with intensities beyond the 0-1 range in order to create bright light effects similar to those of Area Lights.</p>
+          <p>There is no range value for emissive materials but light emitted will again falloff at a quadratic rate. Emission will only be received by objects marked as ‘Static’ or “Lightmap Static’ from the Inspector. Similarly, emissive materials applied to non-static, or dynamic geometry such as characters will not contribute to scene lighting.</p>
+          <p>However, materials with an emission above zero will still appear to glow brightly on-screen even if they are not contributing to scene lighting. This effect can also be produced by selecting ‘None’ from the Standard Shader’s ‘Global Illumination’ Inspector property. Self-illuminating materials like these are a useful way to create effects such as neons or other visible light sources.</p>
+          <p>Emissive materials only directly affect static geometry in your scene. If you need dynamic, or non-static geometry - such as characters, to pick up light from emissive materials, Light Probes must be used. Changing emission values at gameplay will update Light Probes interactively and the results will be visible on any objects presently receiving light from those probes.</p>
+        </div>
+      </details>
+      <!-- Section 8.2: Unity Lighting Setup - Probes (source slide 27) -->
+      <details class="accordion">
+        <summary>Unity Lighting Setup - Probes</summary>
+        <div class="accordion-body">
+          <p>Probes</p>
+          <ul>
+          <li>Lighting - for dynamic characters in Baked Lightmap - low-cost
+          </li>
+          <li>Reflection - HDRI, cuboid boundaries, box projection
+          </li>
+          <li>Cube map is reference
+          </li>
+          <li>Default - uses skybox for basic
+          </li>
+          <li>Should add more
+          </li></ul>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 9: Unity Standard Shader - Physically Based Rendering (source slides 28-32) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity Standard Shader - Physically Based Rendering</h2>
+        <div class="accordion-scroll">
+      <!-- Section 9.1: Unity Standard Shader (source slide 28, 29) -->
+      <details class="accordion" open>
+        <summary>Unity Standard Shader</summary>
+        <div class="accordion-body">
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Unity 5 Graphics - The Standard Shader - Unity Official Tutorials</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/fD_ho_ofY6A" title="Unity 5 Graphics - The Standard Shader - Unity Official Tutorials video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=fD_ho_ofY6A" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <p>Objects in scene rendered with Standard Shader</p>
+          <p>Physically Based Shader</p>
+          <p>Mimics physical conditions of light transmission</p>
+          <p>Specularity = Metalness</p>
+          <p>Reflections</p>
+          <ul>
+          <li>1. Skybox/Cubemap – 6 sided box derived from sky
+          </li>
+          <li>2. Reflection Probe – renders environment from point, overrides Skybox
+          </li></ul>
+          <p>Blended with other lighting and surface data by Material’s Shader</p>
+        </div>
+      </details>
+      <!-- Section 9.2: Standard (Metallic) - Metallic and Smoothness (source slide 30) -->
+      <details class="accordion">
+        <summary>Standard (Metallic) - Metallic and Smoothness</summary>
+        <div class="accordion-body">
+          <p>Standard can be used for all - all default mesh, all new</p>
+          <p>Standard (metallic, not just metal, describes metallness, or Smoothness)</p>
+          <ul>
+          <li>Metallic
+            <ul>
+            <li>By texture or value
+            </li>
+            <li>Black – non
+            </li>
+            <li>White – completely
+            </li>
+            <li>Texture will vary
+            </li>
+            <li>Alpha can define smoothness map
+            </li></ul>
+          </li>
+          <li>Smoothness controls micro surface detail
+            <ul>
+            <li>diffuse or sharper reflections
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 9.3: Two Choices: Metallic or Specular (source slide 31) -->
+      <details class="accordion">
+        <summary>Two Choices: Metallic or Specular</summary>
+        <div class="accordion-body">
+          <p>Standard can be used for all - all default mesh, all new</p>
+          <p>Two Choices:</p>
+          <ul>
+          <li>Standard - Metallic (metallic, not just metal, describes metalness)
+          </li>
+          <li>Standard Specular - Specular (describes specularity, or Reflectivity)
+          </li></ul>
+          <p>Metalness vs Specular.</p>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-12-shaders-lighting_slide31_image0.jpg" class="accordion-image" alt="Spheres showing metalness and smoothness values from 0 to 1" style="--accordion-image-width: 90%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 9.4: Smoothness in Metallic and Specular (source slide 32) -->
+      <details class="accordion">
+        <summary>Smoothness in Metallic and Specular</summary>
+        <div class="accordion-body">
+          <p>Both Metallic and Specular have smoothness.</p>
+          <p>This defines sharpness of light reflection.</p>
+          <p>In Metallic, the colour value is derived from the Albedo (Diffuse) Colour</p>
+          <p>In Specular, it is separated out, so can be adjusted.</p>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 10: Metallic vs Specular Workflows and Calibration (source slides 33-36) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Metallic vs Specular Workflows and Calibration</h2>
+        <div class="accordion-scroll">
+      <!-- Section 10.1: Metallic Workflow (source slide 33) -->
+      <details class="accordion" open>
+        <summary>Metallic Workflow</summary>
+        <div class="accordion-body">
+          <p>Metallic - means that one channel defines whether a thing reacts as metallic or non-metallic. Simplified speaking metallic means that the reflected light takes on the colour of the underlying surface because metallic absorbs wavelengths from the light.</p>
+          <p>Non metallic means that the colour is reflected the same way it hit the surface. So if a christmas tree is reflected from a shiny plastic surface you can still make out the green and all the different colors of the ornaments reflected. Being reflected from a gold surface things could look different.</p>
+          <p>The smoothness defines (separately) how blurry things get reflected from the surface - no matter if it's metallic or not. A plastic toy can be really shiny or rough - as can metal.</p>
+        </div>
+      </details>
+      <!-- Section 10.2: Specular Workflow (source slide 34) -->
+      <details class="accordion">
+        <summary>Specular Workflow</summary>
+        <div class="accordion-body">
+          <p>Specular - in the specular texture map you define the colour value of your reflection. So metallic surfaces from Specular Shaders need to have a coloured setting while plastic surfaces don't have a colour value. Opposed to metallic workflow where the colour value is derived from the Albedo.</p>
+          <p>In the specular setting you define a metallic look from the specular RGB channels.</p>
+          <p>The colour value defines the reflectance colour (absorption) - not the Albedo. The brightness defines how much is reflected, the colour defines in which color. Additionally there still is a smoothness value because surfaces are defined by being metallic/non-metallic, the color and the roughness.</p>
+          <p>BUT in specular you have more control over the colour mixing.</p>
+        </div>
+      </details>
+      <!-- Section 10.3: Physically Based Shading Values - Material Charts (source slide 35, 36) -->
+      <details class="accordion">
+        <summary>Physically Based Shading Values - Material Charts</summary>
+        <div class="accordion-body">
+          <p>Standard can be used for all - all default mesh, all new</p>
+          <p>Physical based Shading should follow realistic settings:</p>
+          <p>Table</p>
+          <p>https://docs.unity3d.com/Manual/StandardShaderMaterialCharts.html</p>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-12-shaders-lighting_slide36_image0.png" class="accordion-image" alt="Unity Shader Calibration Scene chart: Metallic value charts for albedo, metallic and smoothness" style="--accordion-image-width: 45%;" />
+            <img src="images/lect-12-shaders-lighting_slide36_image1.png" class="accordion-image" alt="Unity Shader Calibration Scene chart: Specular value charts for albedo, specular and smoothness" style="--accordion-image-width: 45%;" />
+          </div>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 11: Standard Shader Maps, Rendering Modes and Materials (source slides 37-41) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Standard Shader Maps, Rendering Modes and Materials</h2>
+        <div class="accordion-scroll">
+      <!-- Section 11.1: Standard Shader - Maps (Both have...) (source slide 37) -->
+      <details class="accordion" open>
+        <summary>Standard Shader - Maps (Both have...)</summary>
+        <div class="accordion-body">
+          <p>Standard can be used for all - all default mesh, all new</p>
+          <p>Both have…</p>
+          <ul>
+          <li>Albedo
+            <ul>
+            <li>If No texture, tinted by colour
+            </li>
+            <li>Optional Texture and Colour (white does not affect texture)
+            </li></ul>
+          </li>
+          <li>Normal Map
+            <ul>
+            <li>bumpiness of surface
+            </li></ul>
+          </li>
+          <li>Height Map
+            <ul>
+            <li>Slider for strength
+            </li></ul>
+          </li>
+          <li>Occlusion
+            <ul>
+            <li>Ambient Occlusion to darken in hidden areas
+            </li></ul>
+          </li>
+          <li>Emission
+            <ul>
+            <li>Value
+            </li>
+            <li>Shape – Map, B+W or Colour
+            </li>
+            <li>Baked or Realtime
+            </li></ul>
+          </li>
+          <li>Secondary Map - Microdetail
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 11.2: Standard Shader - Rendering Mode (source slide 38) -->
+      <details class="accordion">
+        <summary>Standard Shader - Rendering Mode</summary>
+        <div class="accordion-body">
+          <p>Standard can be used for all - all default mesh, all new</p>
+          <p>Standard (metallic, not just metal, describes metallness, or Smoothness)</p>
+          <p>Rendering Mode:</p>
+          <ul>
+          <li>Opaque
+          </li>
+          <li>Cutout
+            <ul>
+            <li>Alpha on Diffuse image masks
+            </li>
+            <li>(If gradient - slider available)
+            </li></ul>
+          </li>
+          <li>Fade
+            <ul>
+            <li>Similar to transparent
+            </li>
+            <li>All effects transparent
+            </li>
+            <li>Fades out game object on screen
+            </li></ul>
+          </li>
+          <li>Transparent – glass
+            <ul>
+            <li>Alpha on diffuse color - level of trans
+            </li>
+            <li>Still reflects - Effects non transparent - see Fade above
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 11.3: Standard Shader - Specular Smoothness (source slide 39) -->
+      <details class="accordion">
+        <summary>Standard Shader - Specular Smoothness</summary>
+        <div class="accordion-body">
+          <p>Standard can be used for all - all default mesh, all new</p>
+          <p>Standard (Metals with Metallic workflow)</p>
+          <p>Specular has smoothness as well, very similar</p>
+          <ul>
+          <li>Texture or Color value
+          </li>
+          <li>Defines reflectivity
+          </li>
+          <li>Maps usually dark gray
+          </li>
+          <li>With no map, set with slider – 0 is porcelain, 1 is mirror
+          </li>
+          <li>diffusion of surface
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 11.4: Unity Materials and Shaders (source slide 40, 41) -->
+      <details class="accordion">
+        <summary>Unity Materials and Shaders</summary>
+        <div class="accordion-body">
+          <p>Material - Asset that ties shader to a GameObject</p>
+          <ul>
+          <li>1. Right Click and Create material
+          </li>
+          <li>2. Drag to Object
+          </li>
+          <li>3. Is assigned to Mesh Renderer in Material Slot
+          </li>
+          <li>4. Mesh renderer Also has Light, Reflection Probe Slots
+          </li></ul>
+          <p>Slide 41 in the original deck repeats these steps with the diagram below.</p>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-12-shaders-lighting_slide40_image0.jpg" class="accordion-image" alt="Inspector for a Capsule showing Mesh Renderer material slots, light and reflection probe settings" style="--accordion-image-width: 40%;" />
+            <img src="images/lect-12-shaders-lighting_slide41_image0.png" class="accordion-image" alt="Diagram: 3D Model (vertex positions, colours, normals, UV data), Material (textures, shader property values) and Shader (CG / HLSL code)" style="--accordion-image-width: 45%;" />
+          </div>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-11">11</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 12: Lighting and Shader Video Tutorials (source slides 42-45) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Lighting and Shader Video Tutorials</h2>
+        <div class="accordion-scroll">
+      <!-- Section 12.1: Tutorial – Standard Shader in Unity (source slide 42) -->
+      <details class="accordion" open>
+        <summary>Tutorial – Standard Shader in Unity</summary>
+        <div class="accordion-body">
+          <p>Video embedded under Unity Standard Shader - Physically Based Rendering.</p>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-12-shaders-lighting_slide42_image0.jpg" class="accordion-image" alt="Standard Shader tutorial video frame with a crate and fridge model in Unity" style="--accordion-image-width: 70%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 12.2: Tutorial – Skybox GI in Unity (source slide 43) -->
+      <details class="accordion">
+        <summary>Tutorial – Skybox GI in Unity</summary>
+        <div class="accordion-body">
+          <p>Video embedded under Ambient Light and Skybox.</p>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-12-shaders-lighting_slide43_image0.jpg" class="accordion-image" alt="Skybox GI tutorial video frame showing the Unity editor with a lit scene" style="--accordion-image-width: 70%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 12.3: Tutorial – Basic Lighting in Unity - Entire Process (source slide 44) -->
+      <details class="accordion">
+        <summary>Tutorial – Basic Lighting in Unity - Entire Process</summary>
+        <div class="accordion-body">
+          <p>https://learn.unity.com/tutorial/introduction-to-lighting-and-rendering-2019-3</p>
+          <p>Older:</p>
+          <p>https://unity3d.com/learn/tutorials/topics/graphics/unity-5-lighting-and-rendering?playlist=17102</p>
+          <p>Standard Shader video: embedded under Unity Standard Shader - Physically Based Rendering.</p>
+        </div>
+      </details>
+      <!-- Section 12.4: Tutorial – Advanced GI in Unity 5 – Probes, Emissive (source slide 45) -->
+      <details class="accordion">
+        <summary>Tutorial – Advanced GI in Unity 5 – Probes, Emissive</summary>
+        <div class="accordion-body">
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Unity 5 - 100% Physically based shading - demo scene - full day/night</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/Ukkiqe_75d0" title="Unity 5 - 100% Physically based shading - demo scene - full day/night video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=Ukkiqe_75d0" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Unity 5 Tutorial - Realtime Global Illumination, Day/Night Cycle, Reflection Probes</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/h5GFoI38DOg" title="Unity 5 Tutorial - Realtime Global Illumination, Day/Night Cycle, Reflection Probes video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=h5GFoI38DOg" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-12-shaders-lighting_slide45_image0.jpg" class="accordion-image" alt="Physically based shading demo: sunlit corridor opening onto the sea" style="--accordion-image-width: 60%;" />
+          </div>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-12">12</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 13: URP Updates, Conversions - Quick Steps (source slides 46-50) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>URP Updates, Conversions - Quick Steps</h2>
+        <div class="accordion-scroll">
+      <!-- Section 13.1: Quick summary of main steps (source slide 46) -->
+      <details class="accordion" open>
+        <summary>Quick summary of main steps</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>1. Backup Project
+          </li>
+          <li>2. Install URP package.
+          </li>
+          <li>3. Create a URP Pipeline Asset and Forward Renderer.
+          </li>
+          <li>4-5. Assign the URP Pipeline Asset in Project Settings and Quality settings.
+          </li>
+          <li>6. Upgrade built-in materials (project/scene) to URP materials.
+          </li>
+          <li>7. Re-Bake Lighting
+          </li>
+          <li>8. Quick Check
+          </li>
+          <li>9. Fixes
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 13.2: Steps 1-3: Backup, Install URP, Check URP Asset (source slide 47) -->
+      <details class="accordion">
+        <summary>Steps 1-3: Backup, Install URP, Check URP Asset</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>1. Backup your project
+            <ul>
+            <li>Commit to version control or copy the project folder.
+            </li></ul>
+          </li>
+          <li>2. Install URP
+            <ul>
+            <li>Window &gt; Package Manager
+            </li>
+            <li>In Package Manager: select "Unity Registry", search "Universal RP" (or "Universal Render Pipeline") → select it → Install.
+            </li></ul>
+          </li>
+          <li>3. Check URP Asset is created and used
+            <ul>
+            <li>Edit &gt; Project Settings... &gt; Graphics
+            </li>
+            <li>In Project Settings &gt; Graphics: Scriptable Render Pipeline Settings → drag the Pipeline Asset here.
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 13.3: Steps 4-5: Create Pipeline Asset, Quality Levels (source slide 48) -->
+      <details class="accordion">
+        <summary>Steps 4-5: Create Pipeline Asset, Quality Levels</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>4. If not created, Create URP Pipeline Asset (and Forward Renderer)
+            <ul>
+            <li>Assets &gt; Create &gt; Rendering &gt; Universal Render Pipeline &gt; Pipeline Asset (Forward Renderer)
+            </li>
+            <li>This creates a Pipeline Asset (and a Forward Renderer asset).
+            </li></ul>
+          </li>
+          <li>5. (Optional) Assign to Quality levels
+            <ul>
+            <li>Edit &gt; Project Settings... &gt; Quality
+            </li>
+            <li>For each quality level: Render Pipeline Asset column → drag the Pipeline Asset.
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 13.4: Steps 6-7: Upgrade Materials, Re-bake Lighting (source slide 49) -->
+      <details class="accordion">
+        <summary>Steps 6-7: Upgrade Materials, Re-bake Lighting</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>6. Upgrade built-in materials
+            <ul>
+            <li>Edit &gt; Render Pipeline &gt; Universal Render Pipeline &gt; Upgrade Project Materials to URP Materials
+            </li>
+            <li>(Or) Edit &gt; Render Pipeline &gt; Universal Render Pipeline &gt; Upgrade Scene Materials to URP Materials
+            </li></ul>
+          </li>
+          <li>7. Re-bake lighting (after upgrades)
+            <ul>
+            <li>Window &gt; Rendering &gt; Lighting
+            </li>
+            <li>In Lighting window: click "Generate Lighting" (or "Bake") or toggle "Auto Generate" if you prefer automatic baking.
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 13.5: Steps 8-9: Quick Check and Fixes (source slide 50) -->
+      <details class="accordion">
+        <summary>Steps 8-9: Quick Check and Fixes</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>8. Quick check
+            <ul>
+            <li>Select main Directional Light in Hierarchy → Inspector: ensure Shadows is not "None".
+            </li>
+            <li>Play scene in Editor and visually confirm lighting.
+            </li></ul>
+          </li>
+          <li>9. If visuals look off (common quick fixes)
+            <ul>
+            <li>Check Camera exposure/post-processing volumes.
+            </li>
+            <li>Check converted Material inspector: Shader should show "Universal Render Pipeline/Lit" and Emission or Transparency settings may need re-enabling.
+            </li>
+            <li>Re-bake lighting if materials changed.
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-13">13</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 14: URP Conversion in Detail - Setup and Materials (source slides 51-57) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>URP Conversion in Detail - Setup and Materials</h2>
+        <div class="accordion-scroll">
+      <!-- Section 14.1: Quick summary of main steps (detailed) (source slide 51) -->
+      <details class="accordion" open>
+        <summary>Quick summary of main steps (detailed)</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>1. Install URP package.
+          </li>
+          <li>2. Create a URP Pipeline Asset and Forward Renderer.
+          </li>
+          <li>3. Assign the URP Pipeline Asset in Project Settings and Quality settings.
+          </li>
+          <li>4. Upgrade built-in materials (project/scene) to URP materials.
+          </li>
+          <li>5. Migrate custom shaders (Surface Shaders → Shader Graph / URP HLSL).
+          </li>
+          <li>6. Validate lights, shadows, GI, reflection/light probes; re-bake lighting.
+          </li>
+          <li>7. Tune Renderer Features, SRP Batcher, and performance settings.
+          </li>
+          <li>8. Test on target platforms; fix visual mismatches.
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 14.2: 1) Install URP package (source slide 52) -->
+      <details class="accordion">
+        <summary>1) Install URP package</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Menu: Window &gt; Package Manager
+          </li>
+          <li>Select "Unity Registry" (top-left dropdown).
+          </li>
+          <li>Search for "Universal RP" or "Universal Render Pipeline".
+          </li>
+          <li>Select the package item "Universal RP" or "Universal Render Pipeline".
+          </li>
+          <li>Click the Install button.
+          </li>
+          <li>If you see versions, choose the URP version that matches your Unity LTS compatibility (consult Unity docs).
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 14.3: 2) Create URP Pipeline Asset and Renderer (source slide 53) -->
+      <details class="accordion">
+        <summary>2) Create URP Pipeline Asset and Renderer</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Menu: Assets &gt; Create &gt; Rendering &gt; Universal Render Pipeline &gt; Pipeline Asset (Forward Renderer)
+          </li>
+          <li>Creates two or more assets: a Pipeline Asset (UniversalRenderPipelineAsset) and a Forward Renderer (UniversalRendererAsset) depending on Unity version.
+          </li>
+          <li>If prompted, pick the "Pipeline Asset (Forward Renderer)" variant (or create both the Pipeline Asset and a Forward Renderer separately).
+          </li>
+          <li>Alternative: Assets &gt; Create &gt; Rendering &gt; Universal Render Pipeline &gt; Forward Renderer
+          </li>
+          <li>Use this to create a named Forward Renderer asset to be referenced by a Pipeline Asset.
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 14.4: 3) Assign URP asset to project & quality levels (source slide 54, 55) -->
+      <details class="accordion">
+        <summary>3) Assign URP asset to project &amp; quality levels</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Assign globally:
+            <ul>
+            <li>Menu: Edit &gt; Project Settings... &gt; Graphics
+            </li>
+            <li>Field: Scriptable Render Pipeline Settings (or Scriptable Render Pipeline Asset)
+            </li>
+            <li>Drag the Pipeline Asset (UniversalRenderPipelineAsset) into this field.
+            </li></ul>
+          </li></ul>
+          <ul>
+          <li>Assign per-quality:
+            <ul>
+            <li>Menu: Edit &gt; Project Settings... &gt; Quality
+            </li>
+            <li>For each Quality level you use, in the "Render Pipeline Asset" (or "Scriptable Render Pipeline Settings") column, drag the same UniversalRenderPipelineAsset.
+            </li>
+            <li>Note: Many projects assign it to all quality levels.
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 14.5: 4) Use the Material Upgrade utility (source slide 56, 57) -->
+      <details class="accordion">
+        <summary>4) Use the Material Upgrade utility</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Menu: Edit &gt; Render Pipeline &gt; Universal Render Pipeline
+          </li>
+          <li>Options you will see (depending on version):
+            <ul>
+            <li>Upgrade Project Materials to URP Materials
+            </li>
+            <li>Upgrade Scene Materials to URP Materials
+            </li></ul>
+          </li>
+          <li>Actions:
+            <ul>
+            <li>Click "Upgrade Project Materials to URP Materials" to convert built-in materials across the project (recommended, but ensure VCS backup).
+            </li>
+            <li>Optionally click "Upgrade Scene Materials to URP Materials" for an immediate scene-only conversion, if you want staged migration.
+            </li></ul>
+          </li></ul>
+          <ul>
+          <li>What the upgrade does:
+            <ul>
+            <li>Converts Standard shader materials to URP Lit or URP Simple Lit equivalents.
+            </li>
+            <li>Converts many built-in shader references to URP equivalents.
+            </li>
+            <li>It does NOT convert custom shaders (Surface Shader / custom CG/HLSL) — you must convert those manually.
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-14">14</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 15: URP Conversion in Detail - Shaders, Renderer, Lights, Shadows (source slides 58-68) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>URP Conversion in Detail - Shaders, Renderer, Lights, Shadows</h2>
+        <div class="accordion-scroll">
+      <!-- Section 15.1: 5) Convert custom shaders and Surface Shaders (source slide 58, 59) -->
+      <details class="accordion" open>
+        <summary>5) Convert custom shaders and Surface Shaders</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Surface Shaders are not supported by URP. Options:
+          </li>
+          <li>Recreate shaders in Shader Graph:
+            <ul>
+            <li>Menu: Assets &gt; Create &gt; Shader &gt; Universal Render Pipeline &gt; Lit Shader Graph (or "Shader Graph" &gt; "URP Lit")
+            </li></ul>
+          </li>
+          <li>Create a new Material from the Shader Graph:
+            <ul>
+            <li>Right-click ShaderGraph asset &gt; Create &gt; Material OR create new material and assign the Shader Graph under Shader dropdown.
+            </li>
+            <li>Replicate inputs (Albedo, Normal, Metallic, Smoothness, Emission, etc.) in the graph.
+            </li></ul>
+          </li></ul>
+          <ul>
+          <li>For advanced HLSL, place code into a Custom Function node or author a custom HLSL include and use Shader Graph's Custom Function nodes.
+          </li>
+          <li>Reauthor as URP HLSL/Shader (hand-written):
+            <ul>
+            <li>Create an unlit/lit URP-compatible shader using URP shader includes.
+            </li>
+            <li>Use the URP shader include files (e.g., "Packages/com.unity.render-pipelines.universal/ShaderLibrary/...") — exact include paths vary by version.
+            </li>
+            <li>Use automated conversion tools (rarely perfect). Always test visuals after conversion.
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 15.2: 6) URP-specific renderer settings (Pipeline Asset & Forward Renderer) - Pipeline Asset (source slide 60, 61, 62) -->
+      <details class="accordion">
+        <summary>6) URP-specific renderer settings (Pipeline Asset &amp; Forward Renderer) - Pipeline Asset</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Open the Pipeline Asset by selecting it in Project window.
+          </li>
+          <li>Inspector fields you should review / toggle:
+            <ul>
+            <li>"General" or "Rendering" group (names vary): supports "SRP Batcher" (checkbox) — enable SRP Batcher for CPU performance.
+            </li>
+            <li>"Supports Camera Depth Texture" / "Supports Opaque Texture" (toggle) — enable if post-processing or effects require them.
+            </li></ul>
+          </li></ul>
+          <ul>
+          <li>"Shadow" group:
+            <ul>
+            <li>"Main Light Shadows" (toggle)
+            </li>
+            <li>"Additional Lights Shadows" (toggle)
+            </li>
+            <li>"Shadow Distance" (numeric)
+            </li>
+            <li>"Directional Light Cascades" or "Cascade Count" (dropdown)
+            </li>
+            <li>"Shadow Atlas Resolution" (dropdown)
+            </li></ul>
+          </li>
+          <li>"Lighting" group:
+            <ul>
+            <li>"Support Runtime/Realtime Global Illumination" options vary by version.
+            </li>
+            <li>"MSAA" setting: may be under Pipeline Asset or per-Renderer. If present, set per your target hardware.
+            </li>
+            <li>"Render Scale" or "Render Scale (Dynamic Resolution)" (if available).
+            </li>
+            <li>Enable SRP Batcher: check "SRP Batcher" (or "Use SRP Batcher").
+            </li></ul>
+          </li></ul>
+          <p>Slide 62 in the original deck repeats this content exactly.</p>
+        </div>
+      </details>
+      <!-- Section 15.3: 6) URP-specific renderer settings (Pipeline Asset & Forward Renderer) - Forward Renderer (source slide 63) -->
+      <details class="accordion">
+        <summary>6) URP-specific renderer settings (Pipeline Asset &amp; Forward Renderer) - Forward Renderer</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Open the Forward Renderer asset (select it):
+          </li>
+          <li>Inspector fields:
+            <ul>
+            <li>Toggles: "Depth Texture" / "Opaque Texture" / "MSAA" / "HDR" (names may vary: e.g., "Depth Texture (Enabled)", "Opaque Texture")
+            </li></ul>
+          </li>
+          <li>"Add Renderer Feature" button: click this to add features like:
+            <ul>
+            <li>Screen Space Ambient Occlusion (if supported)
+            </li>
+            <li>Decal
+            </li>
+            <li>Render Objects (to render specific objects with a specific material or shader pass)
+            </li>
+            <li>Blit, Full-screen passes, Custom Post-processing
+            </li>
+            <li>Use the "Add Renderer Feature" button to attach custom passes or decals/SSR/etc.
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 15.4: 7) Per-Light settings (Light component) (source slide 64, 65, 66) -->
+      <details class="accordion">
+        <summary>7) Per-Light settings (Light component)</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Select a Light in the Scene / Hierarchy.
+          </li>
+          <li>Inspector — Light component:
+            <ul>
+            <li>Type: Directional, Point, Spot, Area (Area lights are baked only)
+            </li>
+            <li>Mode: Realtime / Mixed / Baked
+            </li>
+            <li>Color, Intensity (lux/lumen vs Unity intensity units differ; URP expects standard units but double-check)
+            </li>
+            <li>Range (for Point and Spot)
+            </li></ul>
+          </li></ul>
+          <ul>
+          <li>Shadows:
+            <ul>
+            <li>Shadow Type: None / Hard Shadows / Soft Shadows (or "Cast Shadows" + dropdown)
+            </li>
+            <li>"Shadow Resolution" (Per-light override in some versions)
+            </li>
+            <li>"Bias" and "Normal Bias" (to reduce acne)
+            </li>
+            <li>"Shadow Strength" (opacity)
+            </li>
+            <li>Render Mode: Auto / Important / Not Important (affects additional lights performance)
+            </li></ul>
+          </li>
+          <li>For main directional light you intend to represent the sun:
+            <ul>
+            <li>Ensure it is set as "Main Light" for Lightmapper optimization (URP often treats the brightest directional light as main light; check the URP lighting documentation for "Main Light" selection methods).
+            </li></ul>
+          </li></ul>
+          <p>Slide 66 in the original deck repeats this content exactly.</p>
+        </div>
+      </details>
+      <!-- Section 15.5: 8) Shadows: URP-specific controls & performance (source slide 67, 68) -->
+      <details class="accordion">
+        <summary>8) Shadows: URP-specific controls &amp; performance</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Pipeline Asset / Forward Renderer control global shadow toggles, shadow distance, cascade settings and atlas size (see step 6).
+          </li>
+          <li>Per-light shadow toggles remain on the Light component.
+          </li>
+          <li>Performance tips (menu buttons not required):
+            <ul>
+            <li>Lower "Shadow Distance" (Project Settings &gt; Quality or URP Pipeline Asset) to reduce number of shadow casters.
+            </li>
+            <li>Reduce "Directional Cascades" count (in Pipeline Asset).
+            </li>
+            <li>Reduce "Shadow Atlas Resolution" or per-light shadow resolution.
+            </li>
+            <li>Disable additional light shadows (in Pipeline Asset) if you only need main directional shadows.
+            </li></ul>
+          </li></ul>
+          <p>Slide 68 in the original deck repeats this content exactly.</p>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1" disabled>Next → </button>
+        <div class="slide-counter"><span id="current-slide-15">15</span> / <span id="total-slides">15</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../assets/js/site.js?v=20260915a"></script>
+  <script>
+    const isLecturePage = /\/lect-[^/]+\.html$/i.test(window.location.pathname);
+    if (isLecturePage && document.body) {
+      document.body.classList.add('lecture-fullbleed');
+    }
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function normalizeSlideStructure(slide) {
+      if (slide.querySelector('.slide-frame')) return;
+
+      const title = slide.querySelector('.slide-title');
+      const controls = slide.querySelector('.slide-controls');
+      const body = slide.querySelector('.slide-content');
+      if (!title || !controls || !body) return;
+
+      const frame = document.createElement('div');
+      frame.className = 'slide-frame';
+      frame.appendChild(title);
+      frame.appendChild(body);
+      frame.appendChild(controls);
+      slide.appendChild(frame);
+    }
+
+    function linkifyText(element) {
+      const urlPattern = /(https?:\/\/[^\s]+)/g;
+      const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+      );
+
+      const nodesToReplace = [];
+      let node;
+
+      while (node = walker.nextNode()) {
+        if (urlPattern.test(node.textContent)) {
+          nodesToReplace.push(node);
+        }
+      }
+
+      urlPattern.lastIndex = 0;
+
+      nodesToReplace.forEach((textNode) => {
+        const span = document.createElement('span');
+        span.innerHTML = textNode.textContent.replace(
+          /(https?:\/\/[^\s]+)/g,
+          '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
+        textNode.parentNode.replaceChild(span, textNode);
+      });
+    }
+
+    function enhanceLectureVideos(slide) {
+      const videoPattern = /^https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([^\s&?]+)(.*)$/i;
+      slide.querySelectorAll('.accordion-body > p').forEach((paragraph) => {
+        const match = paragraph.textContent.trim().match(videoPattern);
+        if (!match) return;
+
+        const sourceUrl = match[0];
+        const videoId = match[1];
+        const query = match[2] || '';
+        const previous = paragraph.previousElementSibling;
+        const context = previous ? previous.textContent.replace(/\s+/g, ' ').trim() : '';
+        const details = document.createElement('details');
+        details.className = 'accordion accordion--nested embed-accordion';
+        details.innerHTML = `
+          <summary>${context || 'Video'}</summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <iframe class="video-embed" src="https://www.youtube.com/embed/${videoId}${query}" title="${context || 'Video'}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <p><a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+            </article>
+          </div>`;
+        paragraph.replaceWith(details);
+      });
+    }
+
+    function enhanceLectureImageLayouts(slide) {
+      slide.querySelectorAll('.accordion-body').forEach((body) => {
+        const images = Array.from(body.children).filter((child) => child.tagName === 'IMG');
+        if (!images.length || body.querySelector(':scope > .slide-media-layout')) return;
+
+        const layout = document.createElement('div');
+        layout.className = 'slide-media-layout';
+        const textColumn = document.createElement('div');
+        textColumn.className = 'slide-text-column';
+        const imageColumn = document.createElement('div');
+        imageColumn.className = 'slide-image-column';
+
+        Array.from(body.children).forEach((child) => {
+          if (child.tagName === 'IMG') imageColumn.appendChild(child);
+          else textColumn.appendChild(child);
+        });
+
+        layout.append(textColumn, imageColumn);
+        body.appendChild(layout);
+      });
+    }
+
+    function getAccordionLabels(titleText) {
+      const title = (titleText || '').toLowerCase();
+
+      if (title.includes('workflow')) {
+        return { overview: 'Workflow Steps', resources: 'Diagrams and Media' };
+      }
+
+      if (title.includes('references') || title.includes('reading')) {
+        return { overview: 'Reading Notes', resources: 'References and Media' };
+      }
+
+      if (title.includes('group') || title.includes('activity')) {
+        return { overview: 'Guidance', resources: 'Resources' };
+      }
+
+      return { overview: 'Overview', resources: 'Resources and Media' };
+    }
+
+    function normalizeAccordionLabel(text) {
+      const cleaned = (text || '').replace(/\s+/g, ' ').replace(/[:\-]+$/, '').trim();
+      if (!cleaned) return '';
+
+      const lowered = cleaned.toLowerCase();
+      if (lowered === 'overview' || lowered === 'resources' || lowered === 'resources and media') {
+        return '';
+      }
+
+      return cleaned;
+    }
+
+    function inferOverviewLabel(body, h2) {
+      const headingCandidates = Array.from(body.querySelectorAll(':scope > h3, :scope > .section-label'));
+      for (const node of headingCandidates) {
+        const candidate = normalizeAccordionLabel(node.textContent);
+        if (candidate) return candidate;
+      }
+
+      const headingText = (h2 ? h2.textContent : '').replace(/\s+/g, ' ').trim();
+      const parenthetical = headingText.match(/\(([^)]+)\)/);
+      if (parenthetical) {
+        const candidate = normalizeAccordionLabel(parenthetical[1]);
+        if (candidate) return candidate;
+      }
+
+      const firstParagraph = body.querySelector(':scope > p');
+      if (firstParagraph) {
+        const paragraphText = (firstParagraph.textContent || '').replace(/\s+/g, ' ').trim();
+        const wordCount = paragraphText.split(/\s+/).filter(Boolean).length;
+        const looksLikeLabel = !/[.!?]$/.test(paragraphText) && !/^https?:\/\//i.test(paragraphText);
+        if (wordCount > 0 && wordCount <= 6 && looksLikeLabel) {
+          const candidate = normalizeAccordionLabel(paragraphText);
+          if (candidate) return candidate;
+        }
+      }
+
+      return '';
+    }
+
+    function convertLegacySlideToAccordion(slide) {
+      const body = slide.querySelector('.slide-content');
+      if (!body || body.classList.contains('slide-content-accordion')) return;
+
+      const h2 = body.querySelector(':scope > h2');
+      const labels = getAccordionLabels(h2 ? h2.textContent : '');
+      const inferredOverviewLabel = inferOverviewLabel(body, h2);
+      const customOverviewLabel = body.getAttribute('data-overview-label');
+      const customResourcesLabel = body.getAttribute('data-resources-label');
+      if (inferredOverviewLabel) {
+        labels.overview = inferredOverviewLabel;
+      }
+      if (customOverviewLabel) {
+        labels.overview = customOverviewLabel;
+      }
+      if (customResourcesLabel) {
+        labels.resources = customResourcesLabel;
+      }
+      const children = Array.from(body.children).filter((node) => node !== h2);
+      if (!children.length) return;
+
+      const overviewItems = [];
+      const resourcesItems = [];
+
+      children.forEach((node) => {
+        const tag = node.tagName ? node.tagName.toLowerCase() : '';
+        const text = (node.textContent || '').trim();
+        const hasUrl = /https?:\/\//i.test(text);
+        const isImage = tag === 'img';
+        const hasLink = Boolean(node.querySelector && node.querySelector('a'));
+
+        if (isImage || hasUrl || hasLink) {
+          resourcesItems.push(node);
+        } else {
+          overviewItems.push(node);
+        }
+      });
+
+      body.classList.add('slide-content-accordion');
+      body.innerHTML = '';
+      if (h2) body.appendChild(h2);
+
+      const scroll = document.createElement('div');
+      scroll.className = 'accordion-scroll';
+
+      if (overviewItems.length) {
+        const overview = document.createElement('details');
+        overview.className = 'accordion';
+        overview.open = true;
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.overview;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        overviewItems.forEach((node) => content.appendChild(node));
+
+        overview.appendChild(summary);
+        overview.appendChild(content);
+        scroll.appendChild(overview);
+      }
+
+      if (resourcesItems.length) {
+        const resources = document.createElement('details');
+        resources.className = 'accordion';
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.resources;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        resourcesItems.forEach((node) => content.appendChild(node));
+
+        resources.appendChild(summary);
+        resources.appendChild(content);
+        scroll.appendChild(resources);
+      }
+
+      body.appendChild(scroll);
+    }
+
+    function syncSlideTitles() {
+      slides.forEach((slide) => {
+        const title = slide.querySelector('.slide-title');
+        const heading = slide.querySelector('.slide-content h2');
+        if (!title || !heading) return;
+
+        const headingText = (heading.textContent || '').replace(/\s+/g, ' ').trim();
+        if (headingText) {
+          title.textContent = headingText;
+          heading.remove();
+        }
+      });
+    }
+
+    function announceActiveSlideTitle() {
+      const activeSlide = slides[currentSlide];
+      if (!activeSlide) return;
+
+      const titleNode = activeSlide.querySelector('.slide-title');
+      const titleText = (titleNode ? titleNode.textContent : '').replace(/\s+/g, ' ').trim();
+      if (!titleText) return;
+
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({
+          type: 'lecture-slide-title',
+          title: titleText
+        }, '*');
+      }
+    }
+
+    slides.forEach((slide, index) => {
+      normalizeSlideStructure(slide);
+      if (index >= 3) {
+        convertLegacySlideToAccordion(slide);
+      }
+      enhanceLectureVideos(slide);
+      enhanceLectureImageLayouts(slide);
+      linkifyText(slide.querySelector('.slide-content') || slide);
+    });
+
+    syncSlideTitles();
+
+    function updateCounters() {
+      slides.forEach((slide, index) => {
+        const counter = slide.querySelector('.slide-counter');
+        if (counter) {
+          counter.textContent = `${index + 1} / ${totalSlides}`;
+        }
+      });
+    }
+
+    function showSlide(n) {
+      slides.forEach((slide) => slide.classList.remove('active'));
+      slides[currentSlide].classList.add('active');
+
+      const allButtons = document.querySelectorAll('.slide-button');
+      const isFirstSlide = currentSlide === 0;
+      const isLastSlide = currentSlide === totalSlides - 1;
+
+      allButtons.forEach((btn) => {
+        if (btn.textContent.includes('Previous')) {
+          btn.disabled = isFirstSlide;
+        } else if (btn.textContent.includes('Next')) {
+          btn.disabled = isLastSlide;
+        }
+      });
+
+      updateCounters();
+      announceActiveSlideTitle();
+    }
+
+    function changeSlide(n) {
+      currentSlide += n;
+      if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+      if (currentSlide < 0) currentSlide = 0;
+      showSlide(currentSlide);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+    });
+
+    showSlide(currentSlide);
+    document.body.classList.add('lecture-ready');
+  </script>
+</body>
+</html>
