@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DIMD | Lecture 07 - Unity UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20261007a" />
+  <link rel="stylesheet" href="../assets/css/slideshow.css?v=20261007a" />
+</head>
+<body class="lecture-fullbleed">
+  <div class="slideshow-container">
+    <!-- Slide 1: 5MMCS001W Lecture 07 - Unity UI (source slides 1-2) -->
+    <div class="slide active">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>5MMCS001W Lecture 07 - Unity UI</h2>
+        <div class="accordion-scroll">
+      <!-- Section 1.1: Interactive 3D Web Example — Blend4Web Dairy Plant (source slide 1) -->
+      <details class="accordion" open>
+        <summary>Interactive 3D Web Example — Blend4Web Dairy Plant</summary>
+        <div class="accordion-body">
+          <p>https://www.blend4web.com/apps/dairy_plant/dairy_plant.html?v=93906d9bd04fe610df690c519724295f</p>
+        </div>
+      </details>
+      <!-- Section 1.2: Troubleshooting (source slide 2) -->
+      <details class="accordion">
+        <summary>Troubleshooting</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Button Animate Demo
+          </li>
+          <li>Unity Packages Demo
+          </li></ul>
+          <p><a href="../index.html?page=pages/tut-02-unity-packages.html" target="_top">Tutorial 02: Unity Packages</a></p>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1" disabled> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">10</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 2: Unity Input Manager (source slides 3-5) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity Input Manager</h2>
+        <div class="accordion-scroll">
+      <!-- Section 2.1: Inputs, Outputs and the Input Manager (source slide 3) -->
+      <details class="accordion" open>
+        <summary>Inputs, Outputs and the Input Manager</summary>
+        <div class="accordion-body">
+          <p>Unity Input Manager - Also Tutorial 2-3</p>
+          <p>Each program you write, whether the program is a phone application, a web application, a game or an embedded system, needs some sort of an input. In general every program needs some sort of an input and some sort of an output. The output is what the users sees, and the input is what the user enters or gives to the program to generate the output based on some algorithm.</p>
+          <p>Unity 3D is no different. The game engine needs to be able to process inputs from different sources:</p>
+          <ul>
+          <li>Keyboard
+          </li>
+          <li>Mouse
+          </li>
+          <li>Joystick(s)
+          </li></ul>
+          <p>Unity 3D manages its inputs through the Input Manager. The Input Manager is accessible by selecting Edit-&gt;Project Settings-&gt;Input from the main menu bar.</p>
+        </div>
+      </details>
+      <!-- Section 2.2: Input Manager - Also Tutorial 2-3 (source slide 4) -->
+      <details class="accordion">
+        <summary>Input Manager - Also Tutorial 2-3</summary>
+        <div class="accordion-body">
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-07-unity-ui_slide4_image0.png" class="accordion-image" alt="Unity Inspector showing the InputManager Axes list" style="--accordion-image-width: 32%;" />
+            <img src="images/lect-07-unity-ui_slide4_image1.png" class="accordion-image" alt="Unity InputManager axis configuration screenshot" style="--accordion-image-width: 32%;" />
+            <img src="images/lect-07-unity-ui_slide4_image2.png" class="accordion-image" alt="Unity InputManager axis configuration screenshot" style="--accordion-image-width: 32%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 2.3: Horizontal Axis Properties – Tut 7.1 (source slide 5) -->
+      <details class="accordion">
+        <summary>Horizontal Axis Properties – Tut 7.1</summary>
+        <div class="accordion-body">
+          <p>Unity Input Manager – Tut 7.1</p>
+          <p>Figure 1 lists all of the out of the box Input configurations defined in the game engine. Let’s go ahead and expand the first Input Definition called Horizontal. Looking at Figure 2, you will notice the attributes that are defined under the Horizontal Axis input configuration. The following are the properties of the input configuration that are important to take a note of:</p>
+          <ul>
+          <li>Name: the name of the axis as defines in the Input Manager. This is the name that you can refer to in your C# code for to detect and perform an operation as desired.
+          </li>
+          <li>Positive Button: defines the primary button that will provide the positive direction / force.
+          </li>
+          <li>Negative Button: defines the primary button that will provide the negative direction / force.
+          </li>
+          <li>Alt. Positive Button: same as the positive button, but defines a secondary input intake.
+          </li>
+          <li>Alt. Negative Button: same as the negative button, but defines a secondary input intake.
+          </li>
+          <li>Type: defines where the input source is coming from; (Keyboard/Mouse/Joystick).
+          </li>
+          <li>Axis: which axis in the world should the force be applied to.
+          </li></ul>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-07-unity-ui_slide5_image0.png" class="accordion-image" alt="InputManager Horizontal axis expanded with its properties highlighted" style="--accordion-image-width: 40%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 2.4: Related Tutorials (source slide added cross-reference) -->
+      <details class="accordion">
+        <summary>Related Tutorials</summary>
+        <div class="accordion-body">
+          <p><a href="../index.html?page=pages/tut-02-03-students.html" target="_top">Tutorials 02–03: Input concepts, exercises and stretch tasks</a></p>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">10</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 3: Input Scripting - Rotation, Movement and Animator (source slides 6-8) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Input Scripting - Rotation, Movement and Animator</h2>
+        <div class="accordion-scroll">
+      <!-- Section 3.1: Keyboard Rotation of Primitives – Tut 7.1 (source slide 6) -->
+      <details class="accordion" open>
+        <summary>Keyboard Rotation of Primitives – Tut 7.1</summary>
+        <div class="accordion-body">
+          <p>Input key values to handle the rotation for the dynamically created primitives in the following order:</p>
+          <ul>
+          <li>Key A will be responsible to rotate Cube1’ on the Y-Axis.
+          </li>
+          <li>Key B will be responsible to rotate Cube2’ on the X-Axis.
+          </li>
+          <li>Key C will be responsible to rotate Cube3’ on the Z-Axis.
+          </li></ul>
+          <p>Notice, that the Update() function is where you place the logic to perform your Input and Output. The code checks to see if the primitives have been initialized, and if true, then it will check for input from the user. Based on the key value it will apply the appropriate rotation to the Game Object.</p>
+          <p>Each primitive will rotate independently only when the specific key associated to its rotation is pressed. For instance, if you press the A key, Cube1’ will continuously rotate until you stop pressing it. It will stop at the last rotation angle where you lifted your finger from the key.</p>
+          <p><a href="https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/Ea-HT389bR5ApI4Hvry5xwUBuf3kgrrejueN-yHc8XhFMA?e=58N7AI" target="_blank" rel="noopener noreferrer">Noorcon Inc. - Unity 3D Game Programming Part 3 - Vahe Karamian (PDF)</a></p>
+        </div>
+      </details>
+      <!-- Section 3.2: Unity Input Manager/Movement Scripting – Tut 7.1 (source slide 7) -->
+      <details class="accordion">
+        <summary>Unity Input Manager/Movement Scripting – Tut 7.1</summary>
+        <div class="accordion-body">
+          <p>CreatePrimitivesFromImport.cs – on Main Camera, Can access all Cube Game Objects</p>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">CreatePrimitivesFromImport.cs</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="CreatePrimitivesFromImport.cs">
+              <div class="code-panel__line code-panel__line--statement indent-level-0">if(Input.GetKey(KeyCode.A)){</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">this.cube1.transform.Rotate(new Vector3(0,1,0), 1);</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-0">// apply the x-axis transform to Cube2'</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-0">if(Input.GetKey(KeyCode.B)){</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">this.cube2.transform.Rotate(new Vector3(1,0,0), 1);</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-0">// apply the z-axis transform to Cube3'</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-0">if(Input.GetKey(KeyCode.C)){</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">this.cube3.transform.Rotate(new Vector3(0,0,1), 1);</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+            </div>
+          </section>
+          <p><a href="https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDlfyn-TwZlSrtdyrZwVWk6AaUZfBaI8mAqxAwrV2yWUY0?e=BPtDrb" target="_blank" rel="noopener noreferrer">Noorcon Inc. - Unity 3D Game Programming Part 4 - Vahe Karamian (PDF)</a></p>
+        </div>
+      </details>
+      <!-- Section 3.3: Unity Animator Scripting - Tut 5 (source slide 8) -->
+      <details class="accordion">
+        <summary>Unity Animator Scripting - Tut 5</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Array, Animate, Export from Max
+          </li>
+          <li>New Project, Import
+          </li>
+          <li>Divide into Static, Explode, Implode animations
+          </li>
+          <li>Set up Animator
+          </li>
+          <li>Script for Input
+          </li></ul>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Tutorial 08 01 — Animator scripting walkthrough</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/H9Ptme4fYR0" title="Tutorial 08 01 — Animator scripting walkthrough video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=H9Ptme4fYR0" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <p><a href="../index.html?page=pages/tut-05.html" target="_top">Tutorial 05: Animator and input-triggered animation</a></p>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">10</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 4: Unity UI Architecture - Namespace and Canvas (source slides 9-11) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity UI Architecture - Namespace and Canvas</h2>
+        <div class="accordion-scroll">
+      <!-- Section 4.1: UnityEngine.UI Namespace (source slide 9, 10) -->
+      <details class="accordion" open>
+        <summary>UnityEngine.UI Namespace</summary>
+        <div class="accordion-body">
+          <p>UnityEngine.UI Namespace - using UnityEngine.UI;</p>
+          <ul>
+          <li>Canvas, RectTransform
+          </li>
+          <li>Button, Image, Panel, Text
+          </li>
+          <li>Prefabs
+          </li>
+          <li>Events, Event Triggers
+          </li>
+          <li>Slider
+          </li>
+          <li>Transitions
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 4.2: Canvas – Base component of UI (source slide 11) -->
+      <details class="accordion">
+        <summary>Canvas – Base component of UI</summary>
+        <div class="accordion-body">
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">Namespace</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="Namespace">
+              <div class="code-panel__line code-panel__line--statement indent-level-0">using UnityEngine.UI;</div>
+            </div>
+          </section>
+          <ul>
+          <li>Canvas – Base component of UI
+            <ul>
+            <li>Screen Space Overlay – exactly to screen size, nothing rendered in front
+            </li>
+            <li>Screen Space Camera – Similar, but affected by camera settings
+              <ul>
+              <li>(Perspective vs orthographic)
+              </li></ul>
+            </li>
+            <li>World Space – makes a 3D world object
+              <ul>
+              <li>(in game screens)
+              </li></ul>
+            </li>
+            <li>Drawn in Hierarchy order
+            </li></ul>
+          </li>
+          <li>Images, Buttons, Text all children of this
+            <ul>
+            <li>Dragged into boxes to wire up
+            </li></ul>
+          </li>
+          <li>Event System
+          </li></ul>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">10</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 5: Unity UI Architecture - Event System and Event Firing (source slides 12-13) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity UI Architecture - Event System and Event Firing</h2>
+        <div class="accordion-scroll">
+      <!-- Section 5.1: Event System - Game Object (source slide 12) -->
+      <details class="accordion" open>
+        <summary>Event System - Game Object</summary>
+        <div class="accordion-body">
+          <p>https://unity3d.com/learn/tutorials/topics/user-interface-ui/ui-events-and-event-triggers</p>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">Namespace</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="Namespace">
+              <div class="code-panel__line code-panel__line--statement indent-level-0">using UnityEngine.UI;</div>
+            </div>
+          </section>
+          <ul>
+          <li>Event System - Game Object
+            <ul>
+            <li>Allows UI elements to be selected
+            </li>
+            <li>Input Modules
+              <ul>
+              <li>Gamepad and keyboard/mouse
+              </li>
+              <li>Touch
+                <ul>
+                <li>Unity input is a class and a manager
+                </li></ul>
+              </li></ul>
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 5.2: Determine Event Firing for UI (source slide 12, 13) -->
+      <details class="accordion">
+        <summary>Determine Event Firing for UI</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Determine Event Firing for UI
+            <ul>
+            <li>OnClick event – Pointer Down and Pointer Up Event needed in Component
+              <ul>
+              <li>Button Component has Function list box
+              </li></ul>
+            </li>
+            <li>EventTrigger
+              <ul>
+              <li>Image Component would need this
+              </li></ul>
+            </li></ul>
+          </li></ul>
+          <p>https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/script-EventTrigger.html</p>
+          <p>https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/SupportedEvents.html</p>
+        </div>
+      </details>
+      <!-- Section 5.3: Wiring Functions to Events – Tut 7.1b (extra) (source slide 13) -->
+      <details class="accordion">
+        <summary>Wiring Functions to Events – Tut 7.1b (extra)</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>Dragging Game Object in will expose Components and Functions for use
+            <ul>
+            <li>Must be Public, Void, and of no or 1 parameter of: float, int, str, or Object
+            </li>
+            <li>Can call on attached scripts as well
+              <ul>
+              <li>access as component in script or
+              </li>
+              <li>drag itself into box
+              </li></ul>
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">10</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 6: Unity UI Architecture - Text and Button Elements (source slides 14-16) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity UI Architecture - Text and Button Elements</h2>
+        <div class="accordion-scroll">
+      <!-- Section 6.1: Text – most fundamental UI element (source slide 14) -->
+      <details class="accordion" open>
+        <summary>Text – most fundamental UI element</summary>
+        <div class="accordion-body">
+          <p>https://www.lynda.com/Unity-tutorials/Create-button-element/489008/519845-4.html</p>
+          <ul>
+          <li>Text – most fundamental UI element
+            <ul>
+            <li>display game readouts, dialogue, instructions, menus
+            </li>
+            <li>Wired up by dragging UI Text Element into exposed Public Var Box of Script
+            </li>
+            <li>Used in conjunction with other element
+            </li>
+            <li>pre built into buttons as child
+            </li></ul>
+          </li>
+          <li>Creating UI text creates Canvas Parent
+            <ul>
+            <li>Zero out, adjustments
+            </li>
+            <li>Modify at runtime with scripts
+            </li></ul>
+          </li></ul>
+          <p>Text Readout Tutorial: 7.1</p>
+        </div>
+      </details>
+      <!-- Section 6.2: Button – most Common UI element (source slide 15) -->
+      <details class="accordion">
+        <summary>Button – most Common UI element</summary>
+        <div class="accordion-body">
+          <p>https://www.lynda.com/Unity-tutorials/Create-button-element/489008/519845-4.html</p>
+          <ul>
+          <li>Button – most Common UI element
+            <ul>
+            <li>Direct Interaction
+            </li>
+            <li>Comes with text element
+            </li>
+            <li>Can use images
+            </li></ul>
+          </li>
+          <li>Creating UI Button creates Canvas Parent
+            <ul>
+            <li>Zero out, Adjust rect transform
+            </li>
+            <li>Has transition (hover, click)
+            </li></ul>
+          </li>
+          <li>Event Handler
+            <ul>
+            <li>On Click
+            </li>
+            <li>Modify Text Element of Button at runtime
+            </li>
+            <li>Drag Text element into OnClick Box
+            </li>
+            <li>Modify Text Object, Script, and string text Property in function to I’m clicked
+            </li>
+            <li>dynamic objects cant be selected.
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 6.3: Basics (source slide 16) -->
+      <details class="accordion">
+        <summary>Basics</summary>
+        <div class="accordion-body">
+          <p><a href="https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDlfyn-TwZlSrtdyrZwVWk6AaUZfBaI8mAqxAwrV2yWUY0?e=BPtDrb" target="_blank" rel="noopener noreferrer">Noorcon Inc. - Unity 3D Game Programming Part 4 - Vahe Karamian (PDF)</a></p>
+          <h3>HUD Text Readout from Script Public Variable</h3>
+          <p><a href="https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDlfyn-TwZlSrtdyrZwVWk6AaUZfBaI8mAqxAwrV2yWUY0?e=BPtDrb" target="_blank" rel="noopener noreferrer">Noorcon Inc. - Unity 3D Game Programming Part 4 - Vahe Karamian (PDF)</a></p>
+          <h3>Button OnClick Event Handling (Associated Functions must be public and void)</h3>
+          <p><a href="https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDlfyn-TwZlSrtdyrZwVWk6AaUZfBaI8mAqxAwrV2yWUY0?e=BPtDrb" target="_blank" rel="noopener noreferrer">Noorcon Inc. - Unity 3D Game Programming Part 4 - Vahe Karamian (PDF)</a></p>
+          <h3>Button Runtime text feedback</h3>
+          <p>https://www.lynda.com/Unity-tutorials/Create-button-element/489008/519845-4.html</p>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">10</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 7: Tutorial 7 Unity UI HUD - Overview and Scene Setup (source slides 17-19) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Tutorial 7 Unity UI HUD - Overview and Scene Setup</h2>
+        <div class="accordion-scroll">
+      <!-- Section 7.1: Tutorial 1. Unity UI HUD (source slide 17) -->
+      <details class="accordion" open>
+        <summary>Tutorial 1. Unity UI HUD</summary>
+        <div class="accordion-body">
+          <h3>Initialize Cubes (with rotation)</h3>
+          <p><a href="https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/EccvkNJwsmRJr1UxMpOKrDkBvF-AdAUJgRe0-Jk1PuvHpw?e=CEqGU7" target="_blank" rel="noopener noreferrer">Noorcon Inc. - Unity 3D Game Programming Part 2 - Vahe Karamian (PDF)</a></p>
+          <h3>Initialize more Cubes from Button (4.2)</h3>
+          <p>Button OnClick Event Handling (Associated Functions must be public and void)</p>
+          <p><a href="https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDlfyn-TwZlSrtdyrZwVWk6AaUZfBaI8mAqxAwrV2yWUY0?e=BPtDrb" target="_blank" rel="noopener noreferrer">Noorcon Inc. - Unity 3D Game Programming Part 4 - Vahe Karamian (PDF)</a></p>
+          <h3>Animate rotation from key</h3>
+          <p>Button OnClick Event Handling (Associated Functions must be public and void)</p>
+          <p><a href="https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/Ea-HT389bR5ApI4Hvry5xwUBuf3kgrrejueN-yHc8XhFMA?e=58N7AI" target="_blank" rel="noopener noreferrer">Noorcon Inc. - Unity 3D Game Programming Part 3 - Vahe Karamian (PDF)</a></p>
+          <h3>HUD Text Readouts in Unity UI Text and Panels (from Script Public Variable)</h3>
+          <p><a href="https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDlfyn-TwZlSrtdyrZwVWk6AaUZfBaI8mAqxAwrV2yWUY0?e=BPtDrb" target="_blank" rel="noopener noreferrer">Noorcon Inc. - Unity 3D Game Programming Part 4 - Vahe Karamian (PDF)</a></p>
+        </div>
+      </details>
+      <!-- Section 7.2: Tutorial 7 Unity UI HUD — Contents (source slide 18) -->
+      <details class="accordion">
+        <summary>Tutorial 7 Unity UI HUD — Contents</summary>
+        <div class="accordion-body">
+          <p>7.1 Cubes with HUD Text Readouts in Unity UI Text and Panels</p>
+          <p>(from Script Public Variable)</p>
+          <ul>
+          <li>Extras
+            <ul>
+            <li>7.1a Initialize (Spawn) Cubes from key
+            </li>
+            <li>(with translate control by key)
+            </li>
+            <li>7.1b Button Event Handling (rather than Week 5 – OnClick)
+            </li>
+            <li>(Associated Functions must be public and void)
+            </li>
+            <li>7.1c Button Event Handling on Instantiated Cube (both above combined)
+            </li>
+            <li>7.1d Instantiate Prefab
+            </li>
+            <li>7.2 Text Readout Score
+            </li>
+            <li>7.3 Animated Legacy Button
+            </li>
+            <li>7.4 Animated Text Mesh Pro Button
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 7.3: Tutorial 7.1 Unity UI HUD — Scene Setup (source slide 19) -->
+      <details class="accordion">
+        <summary>Tutorial 7.1 Unity UI HUD — Scene Setup</summary>
+        <div class="accordion-body">
+          <ul>
+          <li>GO Main Camera
+            <ul>
+            <li>CreatePrimitivesFromInput.cs
+              <ul>
+              <li>Spawn from space key
+              </li>
+              <li>Translate from arrow keys
+              </li>
+              <li>As stretch target, try spawning prefabs of below cubes with scripts and readout
+              </li></ul>
+            </li></ul>
+          </li>
+          <li>GO UI Canvas
+            <ul>
+            <li>GO UI Panel
+              <ul>
+              <li>GO UI legacy Text
+              </li></ul>
+            </li></ul>
+          </li>
+          <li>GO Cube x 3
+            <ul>
+            <li>CubexRotate.cs
+              <ul>
+              <li>Rotate scripted movement (narrative)
+              </li>
+              <li>Private String variable of live rotation data
+              </li>
+              <li>Public GO UI Text variable – related GO UI Legacy text above dragged into box in Inspector
+              </li></ul>
+            </li></ul>
+          </li></ul>
+        </div>
+      </details>
+      <!-- Section 7.4: Related Tutorial (source slide added cross-reference) -->
+      <details class="accordion">
+        <summary>Related Tutorial</summary>
+        <div class="accordion-body">
+          <p><a href="../index.html?page=pages/tut-07-ui-overview.html" target="_top">Tutorial 07: Unity UI overview</a></p>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">10</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 8: Tutorial 7.1 Unity UI HUD - Initialize Game Objects and Text Readouts (source slides 20-21) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Tutorial 7.1 Unity UI HUD - Initialize Game Objects and Text Readouts</h2>
+        <div class="accordion-scroll">
+      <!-- Section 8.1: Tutorial 7.1 Unity UI Initialize Game Objects (source slide 20) -->
+      <details class="accordion" open>
+        <summary>Tutorial 7.1 Unity UI Initialize Game Objects</summary>
+        <div class="accordion-body">
+          <p><a href="https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDlfyn-TwZlSrtdyrZwVWk6AaUZfBaI8mAqxAwrV2yWUY0?e=BPtDrb" target="_blank" rel="noopener noreferrer">Noorcon Inc. - Unity 3D Game Programming Part 4 - Vahe Karamian (PDF)</a></p>
+          <h3>Button (OnClick event and public void function)</h3>
+          <ul>
+          <li>Drag object with Script and Function to OnClick Placeholder
+          </li>
+          <li>Select function from drop down box
+          </li></ul>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">CreateMyPrimitives()</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="CreateMyPrimitives()">
+              <div class="code-panel__line code-panel__line--comment indent-level-0">// This function will be called when the Space Bar on the keyboard is pressed</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-0">public void CreateMyPrimitives(){</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">if (!this.PRIMITIVES_CREATED) {</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-2">// initialize our Cube1 primitive and place it at location (0,2,0)</div>
+              <div class="code-panel__line code-panel__line--code indent-level-2">this.cube1 = GameObject.CreatePrimitive (PrimitiveType.Cube);</div>
+              <div class="code-panel__line code-panel__line--code indent-level-2">this.cube1.transform.localPosition = new Vector3 (0, 2, 0);</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-2">// initialize our Cube2 primitive and place it at location (3,2,0)</div>
+              <div class="code-panel__line code-panel__line--code indent-level-2">this.cube2 = GameObject.CreatePrimitive (PrimitiveType.Cube);</div>
+              <div class="code-panel__line code-panel__line--code indent-level-2">this.cube2.transform.localPosition = new Vector3 (3, 2, 0);</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-2">// initialize our Cube3 primitive and place it at location (-3,2,0)</div>
+              <div class="code-panel__line code-panel__line--code indent-level-2">this.cube3 = GameObject.CreatePrimitive (PrimitiveType.Cube);</div>
+              <div class="code-panel__line code-panel__line--code indent-level-2">this.cube3.transform.localPosition = new Vector3 (-3, 2, 0);</div>
+              <div class="code-panel__line code-panel__line--code indent-level-2">this.PRIMITIVES_CREATED = true;</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+            </div>
+          </section>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-07-unity-ui_slide20_image0.jpeg" class="accordion-image" alt="Unity editor with butCreatePrimitives button OnClick wired to CreateMyPrimitives" style="--accordion-image-width: 100%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 8.2: Text Readouts on Panels- Basic (source slide 21) -->
+      <details class="accordion">
+        <summary>Text Readouts on Panels- Basic</summary>
+        <div class="accordion-body">
+          <p>Tutorial 7.1 Unity UI HUD <a href="https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDlfyn-TwZlSrtdyrZwVWk6AaUZfBaI8mAqxAwrV2yWUY0?e=BPtDrb" target="_blank" rel="noopener noreferrer">Noorcon Inc. - Unity 3D Game Programming Part 4 - Vahe Karamian (PDF)</a></p>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">cube1Rotate.cs</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="cube1Rotate.cs">
+              <div class="code-panel__line code-panel__line--statement indent-level-0">using UnityEngine;</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-0">using UnityEngine.UI;</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-0">using System.Collections;</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-0">public class cube1Rotate : MonoBehaviour {</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-1">// variable to store Text UI Element</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">public Text lblCube1Position;</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">private string position = "";</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-1">// Use this for initialization</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">void Start () {</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-1">// Update is called once per frame</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-1">void Update () {</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-2">// Rotate our game object around it's y-axis</div>
+              <div class="code-panel__line code-panel__line--code indent-level-2">transform.Rotate (new Vector3 (0, 1, 0), 1);</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-2">if (this.lblCube1Position != null) {</div>
+              <div class="code-panel__line code-panel__line--comment indent-level-3">//F2 is float to string</div>
+              <div class="code-panel__line code-panel__line--code indent-level-3">position = string.Format("P:&lt;{0:F2},{1:F2},{2:F2}&gt;; R:&lt;{3:F2},{4:F2},{5:F2}&gt;",</div>
+              <div class="code-panel__line code-panel__line--code indent-level-4">transform.localPosition.x,</div>
+              <div class="code-panel__line code-panel__line--code indent-level-4">transform.localPosition.y,</div>
+              <div class="code-panel__line code-panel__line--code indent-level-4">transform.localPosition.z,</div>
+              <div class="code-panel__line code-panel__line--code indent-level-4">transform.localEulerAngles.x,</div>
+              <div class="code-panel__line code-panel__line--code indent-level-4">transform.localEulerAngles.y,</div>
+              <div class="code-panel__line code-panel__line--code indent-level-4">transform.localEulerAngles.z);</div>
+              <div class="code-panel__line code-panel__line--code indent-level-3">this.lblCube1Position.text = position;</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+            </div>
+          </section>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-07-unity-ui_slide21_image0.jpeg" class="accordion-image" alt="Unity HUD panels showing live cube position and rotation readouts" style="--accordion-image-width: 100%;" />
+          </div>
+          <details class="accordion accordion--nested">
+            <summary>Notes</summary>
+            <div class="accordion-body">
+              <p>String format shows P for position, R for rotation, and 3 values to 2 floating point value….</p>
+              <p>Noorcon Inc. - Unity 3D Game Programming Introduction - Vahe Karamian.pdf</p>
+            </div>
+          </details>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">10</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 9: Tutorial 7 Extras - 7.1a to 7.4 (source slides 22-30) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Tutorial 7 Extras - 7.1a to 7.4</h2>
+        <div class="accordion-scroll">
+      <!-- Section 9.1: Tutorial 7.1 Extras (source slide 22, 23, 24, 25, 26) -->
+      <details class="accordion" open>
+        <summary>Tutorial 7.1 Extras</summary>
+        <div class="accordion-body">
+          <h3>7.1a Initialize (Spawn) Cubes from key</h3>
+          <p>(with translate control by key)</p>
+          <h3>7.1b Button Event Handling (rather than Week 5 – OnClick)</h3>
+          <p>(Associated Functions must be public and void)</p>
+          <h3>7.1c Button Event Handling on Instantiated Cube (both above combined)</h3>
+          <h3>7.1d Instantiate Prefab</h3>
+        </div>
+      </details>
+      <!-- Section 9.2: Extra - Tutorial 7.2 Unity UI HUD Text Readout Score – Simplified (source slide 28) -->
+      <details class="accordion">
+        <summary>Extra - Tutorial 7.2 Unity UI HUD Text Readout Score – Simplified</summary>
+        <div class="accordion-body">
+          <p>UI Cookbook chapter 2</p>
+          <p>1. Make UI/Text – call it “Score Counter”</p>
+          <p>2. Add Component/Script</p>
+          <p>3. Create Text “uiText” and “score” variables</p>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">Variables</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="Variables">
+              <div class="code-panel__line code-panel__line--statement indent-level-0">private Text uiText;</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-0">private long score = 0;</div>
+            </div>
+          </section>
+          <p>4. In Start – uiText = GetComponent&lt;Text&gt;();</p>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">Start()</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="Start()">
+              <div class="code-panel__line code-panel__line--statement indent-level-0">void Start () {</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">uiText = this.GetComponent&lt;Text&gt; ();</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">updateScoreCounter ();</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+            </div>
+          </section>
+          <p>5. Add Points (run script when key is pressed - remember how to do this?)</p>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">addPoints()</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="addPoints()">
+              <div class="code-panel__line code-panel__line--statement indent-level-0">public void addPoints(int points){</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">score += points;</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">updateScoreCounter ();</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+            </div>
+          </section>
+          <p>6. Method outside of update</p>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">updateScoreCounter()</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="updateScoreCounter()">
+              <div class="code-panel__line code-panel__line--statement indent-level-0">private void updateScoreCounter(){</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">uiText.text = "&lt;color=blue&gt;Score&lt;/color&gt;: " + score;</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+            </div>
+          </section>
+          <details class="accordion accordion--nested">
+            <summary>Notes</summary>
+            <div class="accordion-body">
+              <p>Score:</p>
+              <p><a href="https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDL7ziFEPxRRbOrjE77YOwsAYFjqNQw-kV8MTRphxhgToA?e=YwNsEk" target="_blank" rel="noopener noreferrer">Noorcon Inc. - Unity 3D Game Programming Part 6 - Vahe Karamian (PDF)</a></p>
+            </div>
+          </details>
+        </div>
+      </details>
+      <!-- Section 9.3: Extra - Tutorial 7.3 / 7.4 Animate UI Button (Legacy and TextMeshPro) (source slide 29, 30) -->
+      <details class="accordion">
+        <summary>Extra - Tutorial 7.3 / 7.4 Animate UI Button (Legacy and TextMeshPro)</summary>
+        <div class="accordion-body">
+          <p>Extra - Tutorial 7.3 Animate UI Button</p>
+          <p>Extra - Tutorial 7.4 Animate UI Button TextMeshPro</p>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Animate UI Button</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/mgaUKk8hfjg" title="Animate UI Button video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://youtu.be/mgaUKk8hfjg" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-07-unity-ui_slide29_image0.png" class="accordion-image" alt="Unity Animator for a UI Button with Normal, Highlighted, Pressed and Disabled states" style="--accordion-image-width: 100%;" />
+          </div>
+          <details class="accordion accordion--nested">
+            <summary>Notes</summary>
+            <div class="accordion-body">
+              <p>https://www.assetstore.unity3d.com/en/#!/content/25468</p>
+              <details class="accordion accordion--nested embed-accordion">
+                <summary>Video: Slider – control and display</summary>
+                <div class="accordion-body">
+                  <article class="embed-card">
+                    <iframe class="video-embed" src="https://www.youtube.com/embed/lNdhNHNwpjI" title="Slider – control and display video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <p><a href="https://www.youtube.com/watch?v=lNdhNHNwpjI" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+                  </article>
+                </div>
+              </details>
+              <details class="accordion accordion--nested embed-accordion">
+                <summary>Video: Layouts and Spaces</summary>
+                <div class="accordion-body">
+                  <article class="embed-card">
+                    <iframe class="video-embed" src="https://www.youtube.com/embed/OD-p1eMsyrU" title="Layouts and Spaces video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <p><a href="https://www.youtube.com/watch?v=OD-p1eMsyrU" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+                  </article>
+                </div>
+              </details>
+              <p>Animated Buttons</p>
+            </div>
+          </details>
+        </div>
+      </details>
+      <!-- Section 9.4: Next Steps (source slide 27) -->
+      <details class="accordion">
+        <summary>Next Steps</summary>
+        <div class="accordion-body">
+          <p>We can continue with Unity UI with extra features in the next tutorials &gt;&gt;&gt;</p>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">10</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 10: Unity UI Tutorials, Menus, Levels and Widgets (source slides 31-34) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Unity UI Tutorials, Menus, Levels and Widgets</h2>
+        <div class="accordion-scroll">
+      <!-- Section 10.1: Unity UI Tutorials General Interface (source slide 31) -->
+      <details class="accordion" open>
+        <summary>Unity UI Tutorials General Interface</summary>
+        <div class="accordion-body">
+          <h3>Official Unity</h3>
+          <p>https://unity3d.com/learn/tutorials/topics/user-interface-ui/ui-canvas?playlist=17111</p>
+          <p>https://unity3d.com/learn/tutorials/modules/beginner/live-training-archive/the-new-ui?playlist=17111</p>
+        </div>
+      </details>
+      <!-- Section 10.2: Unity UI Menu Various (Games) (source slide 32) -->
+      <details class="accordion">
+        <summary>Unity UI Menu Various (Games)</summary>
+        <div class="accordion-body">
+          <h3>Readouts</h3>
+          <p><a href="https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDlfyn-TwZlSrtdyrZwVWk6AaUZfBaI8mAqxAwrV2yWUY0?e=BPtDrb" target="_blank" rel="noopener noreferrer">Noorcon Inc. - Unity 3D Game Programming Part 4 - Vahe Karamian (PDF)</a></p>
+          <h3>Health Bar</h3>
+          <p><a href="https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDyd8ffCVnBRZq2D95pOVReAVhNyLORYnrS7k9CuQzQYW8?e=oR4KtY" target="_blank" rel="noopener noreferrer">Noorcon Inc. - Unity 3D Game Programming Part 9 - Vahe Karamian (PDF)</a></p>
+          <p>https://www.packtpub.com/mapt/book/Game%20Development/9781785885822/2/ch02lvl1sec23/Implementing+a+linear+health+bar</p>
+          <h3>Timer</h3>
+          <p><a href="https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDL7ziFEPxRRbOrjE77YOwsAYFjqNQw-kV8MTRphxhgToA?e=YwNsEk" target="_blank" rel="noopener noreferrer">Noorcon Inc. - Unity 3D Game Programming Part 6 - Vahe Karamian (PDF)</a></p>
+          <p>https://www.packtpub.com/mapt/book/Game%20Development/9781785885822/3/ch03lvl1sec29/Implementing+a+numeric+timer</p>
+          <h3>Collection Bar</h3>
+          <p><a href="https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDL7ziFEPxRRbOrjE77YOwsAYFjqNQw-kV8MTRphxhgToA?e=YwNsEk" target="_blank" rel="noopener noreferrer">Noorcon Inc. - Unity 3D Game Programming Part 6 - Vahe Karamian (PDF)</a></p>
+          <h3>Score/Info</h3>
+          <p><a href="https://universityofwestminster-my.sharepoint.com/:b:/g/personal/fergusj_westminster_ac_uk/IQDL7ziFEPxRRbOrjE77YOwsAYFjqNQw-kV8MTRphxhgToA?e=YwNsEk" target="_blank" rel="noopener noreferrer">Noorcon Inc. - Unity 3D Game Programming Part 6 - Vahe Karamian (PDF)</a></p>
+          <p>https://www.packtpub.com/mapt/book/Game%20Development/9781785885822/2/ch02lvl1sec19/Implementing+a+score+counter</p>
+        </div>
+      </details>
+      <!-- Section 10.3: Unity UI Menu and Levels (source slide 33) -->
+      <details class="accordion">
+        <summary>Unity UI Menu and Levels</summary>
+        <div class="accordion-body">
+          <h3>Scene/Level Switching (Scene manager):</h3>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Scene/Level Switching (Scene manager)</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/xyC_flufHwg" title="Scene/Level Switching (Scene manager) video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=xyC_flufHwg" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <details class="accordion accordion--nested">
+            <summary>Notes</summary>
+            <div class="accordion-body">
+              <details class="accordion accordion--nested embed-accordion">
+                <summary>Video: Scene/Level selection</summary>
+                <div class="accordion-body">
+                  <article class="embed-card">
+                    <iframe class="video-embed" src="https://www.youtube.com/embed/FIa7qxGaRZo" title="Scene/Level selection video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <p><a href="https://www.youtube.com/watch?v=FIa7qxGaRZo&amp;index=86&amp;list=PLX2vGYjWbI0Tg4eS9w29PPqg0Fx4sIL7p" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+                  </article>
+                </div>
+              </details>
+              <h3>Minimaps</h3>
+              <p>https://www.packtpub.com/mapt/book/Game%20Development/9781785885822</p>
+              <p>https://www.packtpub.com/mapt#collapse10</p>
+            </div>
+          </details>
+        </div>
+      </details>
+      <!-- Section 10.4: Unity UI Widgets (source slide 34) -->
+      <details class="accordion">
+        <summary>Unity UI Widgets</summary>
+        <div class="accordion-body">
+          <h3>Player Control</h3>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Player Control</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/nGYObojmkO4" title="Player Control video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=nGYObojmkO4" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <h3>Shop UI with ScrollLists</h3>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Shop UI with ScrollLists</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/TAJCr3_kfEc" title="Shop UI with ScrollLists video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=TAJCr3_kfEc" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+        </div>
+      </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1" disabled>Next → </button>
+        <div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">10</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../assets/js/site.js?v=20260915a"></script>
+  <script>
+    const isLecturePage = /\/lect-[^/]+\.html$/i.test(window.location.pathname);
+    if (isLecturePage && document.body) {
+      document.body.classList.add('lecture-fullbleed');
+    }
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function normalizeSlideStructure(slide) {
+      if (slide.querySelector('.slide-frame')) return;
+
+      const title = slide.querySelector('.slide-title');
+      const controls = slide.querySelector('.slide-controls');
+      const body = slide.querySelector('.slide-content');
+      if (!title || !controls || !body) return;
+
+      const frame = document.createElement('div');
+      frame.className = 'slide-frame';
+      frame.appendChild(title);
+      frame.appendChild(body);
+      frame.appendChild(controls);
+      slide.appendChild(frame);
+    }
+
+    function linkifyText(element) {
+      const urlPattern = /(https?:\/\/[^\s]+)/g;
+      const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+      );
+
+      const nodesToReplace = [];
+      let node;
+
+      while (node = walker.nextNode()) {
+        if (urlPattern.test(node.textContent)) {
+          nodesToReplace.push(node);
+        }
+      }
+
+      urlPattern.lastIndex = 0;
+
+      nodesToReplace.forEach((textNode) => {
+        const span = document.createElement('span');
+        span.innerHTML = textNode.textContent.replace(
+          /(https?:\/\/[^\s]+)/g,
+          '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
+        textNode.parentNode.replaceChild(span, textNode);
+      });
+    }
+
+    function enhanceLectureVideos(slide) {
+      const videoPattern = /^https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([^\s&?]+)(.*)$/i;
+      slide.querySelectorAll('.accordion-body > p').forEach((paragraph) => {
+        const match = paragraph.textContent.trim().match(videoPattern);
+        if (!match) return;
+
+        const sourceUrl = match[0];
+        const videoId = match[1];
+        const query = match[2] || '';
+        const previous = paragraph.previousElementSibling;
+        const context = previous ? previous.textContent.replace(/\s+/g, ' ').trim() : '';
+        const details = document.createElement('details');
+        details.className = 'accordion accordion--nested embed-accordion';
+        details.innerHTML = `
+          <summary>${context || 'Video'}</summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <iframe class="video-embed" src="https://www.youtube.com/embed/${videoId}${query}" title="${context || 'Video'}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <p><a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+            </article>
+          </div>`;
+        paragraph.replaceWith(details);
+      });
+    }
+
+    function enhanceLectureImageLayouts(slide) {
+      slide.querySelectorAll('.accordion-body').forEach((body) => {
+        const images = Array.from(body.children).filter((child) => child.tagName === 'IMG');
+        if (!images.length || body.querySelector(':scope > .slide-media-layout')) return;
+
+        const layout = document.createElement('div');
+        layout.className = 'slide-media-layout';
+        const textColumn = document.createElement('div');
+        textColumn.className = 'slide-text-column';
+        const imageColumn = document.createElement('div');
+        imageColumn.className = 'slide-image-column';
+
+        Array.from(body.children).forEach((child) => {
+          if (child.tagName === 'IMG') imageColumn.appendChild(child);
+          else textColumn.appendChild(child);
+        });
+
+        layout.append(textColumn, imageColumn);
+        body.appendChild(layout);
+      });
+    }
+
+    function getAccordionLabels(titleText) {
+      const title = (titleText || '').toLowerCase();
+
+      if (title.includes('workflow')) {
+        return { overview: 'Workflow Steps', resources: 'Diagrams and Media' };
+      }
+
+      if (title.includes('references') || title.includes('reading')) {
+        return { overview: 'Reading Notes', resources: 'References and Media' };
+      }
+
+      if (title.includes('group') || title.includes('activity')) {
+        return { overview: 'Guidance', resources: 'Resources' };
+      }
+
+      return { overview: 'Overview', resources: 'Resources and Media' };
+    }
+
+    function normalizeAccordionLabel(text) {
+      const cleaned = (text || '').replace(/\s+/g, ' ').replace(/[:\-]+$/, '').trim();
+      if (!cleaned) return '';
+
+      const lowered = cleaned.toLowerCase();
+      if (lowered === 'overview' || lowered === 'resources' || lowered === 'resources and media') {
+        return '';
+      }
+
+      return cleaned;
+    }
+
+    function inferOverviewLabel(body, h2) {
+      const headingCandidates = Array.from(body.querySelectorAll(':scope > h3, :scope > .section-label'));
+      for (const node of headingCandidates) {
+        const candidate = normalizeAccordionLabel(node.textContent);
+        if (candidate) return candidate;
+      }
+
+      const headingText = (h2 ? h2.textContent : '').replace(/\s+/g, ' ').trim();
+      const parenthetical = headingText.match(/\(([^)]+)\)/);
+      if (parenthetical) {
+        const candidate = normalizeAccordionLabel(parenthetical[1]);
+        if (candidate) return candidate;
+      }
+
+      const firstParagraph = body.querySelector(':scope > p');
+      if (firstParagraph) {
+        const paragraphText = (firstParagraph.textContent || '').replace(/\s+/g, ' ').trim();
+        const wordCount = paragraphText.split(/\s+/).filter(Boolean).length;
+        const looksLikeLabel = !/[.!?]$/.test(paragraphText) && !/^https?:\/\//i.test(paragraphText);
+        if (wordCount > 0 && wordCount <= 6 && looksLikeLabel) {
+          const candidate = normalizeAccordionLabel(paragraphText);
+          if (candidate) return candidate;
+        }
+      }
+
+      return '';
+    }
+
+    function convertLegacySlideToAccordion(slide) {
+      const body = slide.querySelector('.slide-content');
+      if (!body || body.classList.contains('slide-content-accordion')) return;
+
+      const h2 = body.querySelector(':scope > h2');
+      const labels = getAccordionLabels(h2 ? h2.textContent : '');
+      const inferredOverviewLabel = inferOverviewLabel(body, h2);
+      const customOverviewLabel = body.getAttribute('data-overview-label');
+      const customResourcesLabel = body.getAttribute('data-resources-label');
+      if (inferredOverviewLabel) {
+        labels.overview = inferredOverviewLabel;
+      }
+      if (customOverviewLabel) {
+        labels.overview = customOverviewLabel;
+      }
+      if (customResourcesLabel) {
+        labels.resources = customResourcesLabel;
+      }
+      const children = Array.from(body.children).filter((node) => node !== h2);
+      if (!children.length) return;
+
+      const overviewItems = [];
+      const resourcesItems = [];
+
+      children.forEach((node) => {
+        const tag = node.tagName ? node.tagName.toLowerCase() : '';
+        const text = (node.textContent || '').trim();
+        const hasUrl = /https?:\/\//i.test(text);
+        const isImage = tag === 'img';
+        const hasLink = Boolean(node.querySelector && node.querySelector('a'));
+
+        if (isImage || hasUrl || hasLink) {
+          resourcesItems.push(node);
+        } else {
+          overviewItems.push(node);
+        }
+      });
+
+      body.classList.add('slide-content-accordion');
+      body.innerHTML = '';
+      if (h2) body.appendChild(h2);
+
+      const scroll = document.createElement('div');
+      scroll.className = 'accordion-scroll';
+
+      if (overviewItems.length) {
+        const overview = document.createElement('details');
+        overview.className = 'accordion';
+        overview.open = true;
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.overview;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        overviewItems.forEach((node) => content.appendChild(node));
+
+        overview.appendChild(summary);
+        overview.appendChild(content);
+        scroll.appendChild(overview);
+      }
+
+      if (resourcesItems.length) {
+        const resources = document.createElement('details');
+        resources.className = 'accordion';
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.resources;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        resourcesItems.forEach((node) => content.appendChild(node));
+
+        resources.appendChild(summary);
+        resources.appendChild(content);
+        scroll.appendChild(resources);
+      }
+
+      body.appendChild(scroll);
+    }
+
+    function syncSlideTitles() {
+      slides.forEach((slide) => {
+        const title = slide.querySelector('.slide-title');
+        const heading = slide.querySelector('.slide-content h2');
+        if (!title || !heading) return;
+
+        const headingText = (heading.textContent || '').replace(/\s+/g, ' ').trim();
+        if (headingText) {
+          title.textContent = headingText;
+          heading.remove();
+        }
+      });
+    }
+
+    function announceActiveSlideTitle() {
+      const activeSlide = slides[currentSlide];
+      if (!activeSlide) return;
+
+      const titleNode = activeSlide.querySelector('.slide-title');
+      const titleText = (titleNode ? titleNode.textContent : '').replace(/\s+/g, ' ').trim();
+      if (!titleText) return;
+
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({
+          type: 'lecture-slide-title',
+          title: titleText
+        }, '*');
+      }
+    }
+
+    slides.forEach((slide, index) => {
+      normalizeSlideStructure(slide);
+      if (index >= 3) {
+        convertLegacySlideToAccordion(slide);
+      }
+      enhanceLectureVideos(slide);
+      enhanceLectureImageLayouts(slide);
+      linkifyText(slide.querySelector('.slide-content') || slide);
+    });
+
+    syncSlideTitles();
+
+    function updateCounters() {
+      slides.forEach((slide, index) => {
+        const counter = slide.querySelector('.slide-counter');
+        if (counter) {
+          counter.textContent = `${index + 1} / ${totalSlides}`;
+        }
+      });
+    }
+
+    function showSlide(n) {
+      slides.forEach((slide) => slide.classList.remove('active'));
+      slides[currentSlide].classList.add('active');
+
+      const allButtons = document.querySelectorAll('.slide-button');
+      const isFirstSlide = currentSlide === 0;
+      const isLastSlide = currentSlide === totalSlides - 1;
+
+      allButtons.forEach((btn) => {
+        if (btn.textContent.includes('Previous')) {
+          btn.disabled = isFirstSlide;
+        } else if (btn.textContent.includes('Next')) {
+          btn.disabled = isLastSlide;
+        }
+      });
+
+      updateCounters();
+      announceActiveSlideTitle();
+    }
+
+    function changeSlide(n) {
+      currentSlide += n;
+      if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+      if (currentSlide < 0) currentSlide = 0;
+      showSlide(currentSlide);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+    });
+
+    showSlide(currentSlide);
+    document.body.classList.add('lecture-ready');
+  </script>
+</body>
+</html>

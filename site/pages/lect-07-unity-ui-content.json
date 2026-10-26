@@ -1,0 +1,342 @@
+[
+  {
+    "slide_number": 1,
+    "title": "3D Interactive Media Development",
+    "section_title": "5MMCS001W\t\t\t\t\t    Lecture 07",
+    "content": [
+      "\nhttps://www.blend4web.com/apps/dairy_plant/dairy_plant.html?v=93906d9bd04fe610df690c519724295f"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 2,
+    "title": "3D Interactive Media Development",
+    "section_title": "Troubleshooting",
+    "content": [
+      "\nButton Animate Demo\n\nUnity Packages Demo"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 3,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Input Manager",
+    "content": [
+      "Unity Input Manager - Also Tutorial 2-3\n\n\nEach program you write, whether the program is a phone application, a web application, a game or an embedded system, needs some sort of an input. In general every program needs some sort of an input and some sort of an output. The output is what the users sees, and the input is what the user enters or gives to the program to generate the output based on some algorithm.\nUnity 3D is no different. The game engine needs to be able to process inputs from different sources:\n\nKeyboard\nMouse\nJoystick(s)\n\nUnity 3D manages its inputs through the Input Manager. The Input Manager is accessible by selecting Edit->Project Settings->Input from the main menu bar."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 4,
+    "title": "3D Interactive Media Development",
+    "section_title": "Input Manager",
+    "content": [
+      "Input Manager - Also Tutorial 2-3"
+    ],
+    "images": [
+      {
+        "filename": "lect-07-unity-ui_slide4_image0.png",
+        "path": "images/lect-07-unity-ui_slide4_image0.png"
+      },
+      {
+        "filename": "lect-07-unity-ui_slide4_image1.png",
+        "path": "images/lect-07-unity-ui_slide4_image1.png"
+      },
+      {
+        "filename": "lect-07-unity-ui_slide4_image2.png",
+        "path": "images/lect-07-unity-ui_slide4_image2.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 5,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Input Manager",
+    "content": [
+      "Unity Input Manager – Tut 7.1\n\n\nFigure 1 lists all of the out of the box Input configurations defined in the game engine. Let’s go ahead and expand the first Input Definition called Horizontal. Looking at Figure 2, you will notice the attributes that are defined under the Horizontal Axis input configuration. The following are the properties of the input configuration that are important to take a note of:\nName: the name of the axis as defines in the Input Manager. This is the name that you can refer to in your C# code for to detect and perform an operation as desired.\nPositive Button: defines the primary button that will provide the positive direction / force.\nNegative Button: defines the primary button that will provide the negative direction / force.\nAlt. Positive Button: same as the positive button, but defines a secondary input intake.\nAlt. Negative Button: same as the negative button, but defines a secondary input intake.\nType: defines where the input source is coming from; (Keyboard/Mouse/Joystick).\nAxis: which axis in the world should the force be applied to."
+    ],
+    "images": [
+      {
+        "filename": "lect-07-unity-ui_slide5_image0.png",
+        "path": "images/lect-07-unity-ui_slide5_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 6,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Input Manager",
+    "content": [
+      "Unity Input Manager – Tut 7.1\n\n\nInput key values to handle the rotation for the dynamically created primitives in the following order:\n\nKey A will be responsible to rotate Cube1’ on the Y-Axis.\nKey B will be responsible to rotate Cube2’ on the X-Axis.\nKey C will be responsible to rotate Cube3’ on the Z-Axis.\n\nNotice, that the Update() function is where you place the logic to perform your Input and Output. The code checks to see if the primitives have been initialized, and if true, then it will check for input from the user. Based on the key value it will apply the appropriate rotation to the Game Object.\n\nEach primitive will rotate independently only when the specific key associated to its rotation is pressed. For instance, if you press the A key, Cube1’ will continuously rotate until you stop pressing it. It will stop at the last rotation angle where you lifted your finger from the key.\n\nNoorcon Inc. - Unity 3D Game Programming Part 3 - Vahe Karamian.pdf"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 7,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Input Manager/Movement Scripting",
+    "content": [
+      "Unity Input Manager/Movement Scripting – Tut 7.1\n\n CreatePrimitivesFromImport.cs – on Main Camera, Can access all Cube Game Objects\n\nif(Input.GetKey(KeyCode.A)){\n     this.cube1.transform.Rotate(new Vector3(0,1,0), 1);\n   }\n   \n// apply the x-axis transform to Cube2'\nif(Input.GetKey(KeyCode.B)){\n     this.cube2.transform.Rotate(new Vector3(1,0,0), 1);\n   }\n// apply the z-axis transform to Cube3'\nif(Input.GetKey(KeyCode.C)){\n     this.cube3.transform.Rotate(new Vector3(0,0,1), 1);\n   }\n\nhttp://www.noorcon.com/articles/Unity3D_Game_Programming_Part_4.html"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 8,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity Animator Scripting",
+    "content": [
+      "Unity Animator Scripting - Tut 5\n\nArray, Animate, Export from Max\nNew Project, Import\nDivide into Static, Explode, Implode animations\nSet up Animator\nScript for Input"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 9,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity UI",
+    "content": [],
+    "images": []
+  },
+  {
+    "slide_number": 10,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity UI Architecture",
+    "content": [
+      "\nUnityEngine.UI Namespace - using UnityEngine.UI;\nCanvas, RectTransform\nButton, Image, Panel, Text\nPrefabs\nEvents, Event Triggers\nSlider\nTransitions"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 11,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity UI Architecture",
+    "content": [
+      "\nusing UnityEngine.UI;\nCanvas – Base component of UI\n\tScreen Space Overlay – exactly to screen size, nothing rendered in front\n\tScreen Space Camera – Similar, but affected by camera settings \n\t\t(Perspective vs orthographic)\n\tWorld Space – makes a 3D world object\n\t\t(in game screens)\n\tDrawn in Hierarchy order\nImages, Buttons, Text all children of this\n\tDragged into boxes to wire up\nEvent System"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 12,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity UI Architecture",
+    "content": [
+      "https://unity3d.com/learn/tutorials/topics/user-interface-ui/ui-events-and-event-triggers\nusing UnityEngine.UI;\nEvent System - Game Object\n\tAllows UI elements to be selected\n\tInput Modules\n\t\tGamepad and keyboard/mouse\n\t\tTouch\n   Unity input is a class and a manager\nDetermine Event Firing for UI\n\tOnClick event – Pointer Down and Pointer Up Event needed in Component\n\t\tButton Component has Function list box\n\tEventTrigger\n\t\tImage Component would need this\n\nhttps://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/script-EventTrigger.html\nhttps://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/SupportedEvents.html"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 13,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity UI Architecture",
+    "content": [
+      "https://unity3d.com/learn/tutorials/topics/user-interface-ui/ui-events-and-event-triggers\nusing UnityEngine.UI;\nDetermine Event Firing for UI\n\tOnClick event – Pointer Down and Pointer Up Event needed in Component\n\t\tButton Component has Function list box\n\tEventTrigger\n\t\tImage Component would need this\n      Tut 7.1b (extra)\nDragging Game Object in will expose Components and Functions for use\n\tMust be Public, Void, and of no or 1 parameter of: float, int, str, or Object\n\tCan call on attached scripts as well\n\t\taccess as component in script or\n\t\tdrag itself into box"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 14,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity UI Architecture",
+    "content": [
+      "https://www.lynda.com/Unity-tutorials/Create-button-element/489008/519845-4.html \n\nText – most fundamental UI element\n\tdisplay game readouts, dialogue, instructions, menus\n\tWired up by dragging UI Text Element into exposed Public Var Box of Script\n\tUsed in conjunction with other element\n\tpre built into buttons as child\nCreating UI text creates Canvas Parent\n\tZero out, adjustments\n\tModify at runtime with scripts\nText Readout Tutorial: 7.1"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 15,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity UI Architecture",
+    "content": [
+      "https://www.lynda.com/Unity-tutorials/Create-button-element/489008/519845-4.html\n\nButton – most Common UI element\n\tDirect Interaction\n\tComes with text element\n\tCan use images\nCreating UI Button creates Canvas Parent\n\tZero out, Adjust rect transform\n\tHas transition (hover, click)\nEvent Handler\n\tOn Click\n\tModify Text Element of Button at runtime\n\tDrag Text element into OnClick Box\n\tModify Text Object, Script, and string text Property in function to I’m clicked\n\tdynamic objects cant be selected."
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 16,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity UI Architecture",
+    "content": [
+      "Noorcon Inc. - Unity 3D Game Programming Part 4 - Vahe Karamian.pdf\n\nBasics:\n\nHUD Text Readout from Script Public Variable\nNoorcon Inc. - Unity 3D Game Programming Part 4 - Vahe Karamian.pdf\n\nButton OnClick Event Handling (Associated Functions must be public and void)\nNoorcon Inc. - Unity 3D Game Programming Part 4 - Vahe Karamian.pdf\n\nButton Runtime text feedback\nhttps://www.lynda.com/Unity-tutorials/Create-button-element/489008/519845-4.html"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 17,
+    "title": "3D Interactive Media Development",
+    "section_title": "Tutorial 1. Unity UI HUD",
+    "content": [
+      "\nInitialize Cubes (with rotation)\nNoorcon Inc. - Unity 3D Game Programming Part 2 - Vahe Karamian.pdf\n\nInitialize more Cubes from Button (4.2) \nButton OnClick Event Handling (Associated Functions must be public and void)\nNoorcon Inc. - Unity 3D Game Programming Part 4 - Vahe Karamian.pdf\n\nAnimate rotation from key\nButton OnClick Event Handling (Associated Functions must be public and void)\nNoorcon Inc. - Unity 3D Game Programming Part 3 - Vahe Karamian.pdf\n\nHUD Text Readouts in Unity UI Text and Panels (from Script Public Variable)\nNoorcon Inc. - Unity 3D Game Programming Part 4 - Vahe Karamian.pdf"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 18,
+    "title": "3D Interactive Media Development",
+    "section_title": "Tutorial 7 Unity UI HUD",
+    "content": [
+      "\n7.1 Cubes with HUD Text Readouts in Unity UI Text and Panels \n(from Script Public Variable)\nExtras\n 7.1a Initialize (Spawn) Cubes from key \n (with translate control by key)\n 7.1b Button Event Handling (rather than Week 5 – OnClick)\n (Associated Functions must be public and void)\n 7.1c Button Event Handling on Instantiated Cube (both above combined)\n 7.1d Instantiate Prefab\n 7.2 Text Readout Score\n 7.3 Animated Legacy Button\n 7.4 Animated Text Mesh Pro Button"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 19,
+    "title": "3D Interactive Media Development",
+    "section_title": "Tutorial 7.1 Unity UI HUD",
+    "content": [
+      "\nGO Main Camera\n CreatePrimitivesFromInput.cs\n  Spawn from space key\n  Translate from arrow keys\n  As stretch target, try spawning prefabs of below cubes with scripts and readout \nGO UI Canvas\n GO UI Panel\n  GO UI legacy Text\nGO Cube x 3\n CubexRotate.cs\n  Rotate scripted movement (narrative)\n  Private String variable of live rotation data\n  Public GO UI Text variable – related GO UI Legacy text above dragged into box in Inspector"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 20,
+    "title": "3D Interactive Media Development",
+    "section_title": "Tutorial 7.1 Unity UI Initialize Game Objects",
+    "content": [
+      "Noorcon Inc. - Unity 3D Game Programming Part 4 - Vahe Karamian.pdf\n\nButton \n(OnClick event and public void function)\nDrag object with Script and Function to OnClick Placeholder\nSelect function from drop down box\n // This function will be called when the Space Bar on the keyboard is pressed\n public void CreateMyPrimitives(){\nif (!this.PRIMITIVES_CREATED) {\n\t// initialize our Cube1 primitive and place it at location (0,2,0)\n   \tthis.cube1 = GameObject.CreatePrimitive (PrimitiveType.Cube);\n   \tthis.cube1.transform.localPosition = new Vector3 (0, 2, 0);\n\t// initialize our Cube2 primitive and place it at location (3,2,0)\n  \t this.cube2 = GameObject.CreatePrimitive (PrimitiveType.Cube);\n   \tthis.cube2.transform.localPosition = new Vector3 (3, 2, 0);\n\t// initialize our Cube3 primitive and place it at location (-3,2,0)\n   \tthis.cube3 = GameObject.CreatePrimitive (PrimitiveType.Cube);\n   \tthis.cube3.transform.localPosition = new Vector3 (-3, 2, 0);\n\tthis.PRIMITIVES_CREATED = true;\n}"
+    ],
+    "images": [
+      {
+        "filename": "lect-07-unity-ui_slide20_image0.jpeg",
+        "path": "images/lect-07-unity-ui_slide20_image0.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 21,
+    "title": "3D Interactive Media Development",
+    "section_title": "Tutorial 7.1 Unity UI HUD Noorcon Inc.",
+    "content": [
+      "Tutorial 7.1 Unity UI HUD Noorcon Inc. - Unity 3D Game Programming Part 4 - Vahe Karamian.pdf\n\nText Readouts on Panels- Basic\nusing UnityEngine;\nusing UnityEngine.UI;\nusing System.Collections;\n\npublic class cube1Rotate : MonoBehaviour {\n\n// variable to store Text UI Element\npublic Text lblCube1Position;\n\nprivate string position = \"\";\n\n// Use this for initialization\nvoid Start () {\n\n}\n\n// Update is called once per frame\nvoid Update () {\n// Rotate our game object around it's y-axis\ntransform.Rotate (new Vector3 (0, 1, 0), 1);\n\nif (this.lblCube1Position != null) {\n//F2 is float to string\nposition = string.Format(\"P:<{0:F2},{1:F2},{2:F2}>; R:<{3:F2},{4:F2},{5:F2}>\", \n                                transform.localPosition.x,\n                                transform.localPosition.y,\n                                transform.localPosition.z,\n                                transform.localEulerAngles.x,\n                                transform.localEulerAngles.y,\n                                transform.localEulerAngles.z);\nthis.lblCube1Position.text = position;\n}\n}\n}"
+    ],
+    "images": [
+      {
+        "filename": "lect-07-unity-ui_slide21_image0.jpeg",
+        "path": "images/lect-07-unity-ui_slide21_image0.jpeg"
+      }
+    ]
+  },
+  {
+    "slide_number": 22,
+    "title": "3D Interactive Media Development",
+    "section_title": "Tutorial 7.1 Unity UI HUD",
+    "content": [
+      "\nExtras\n 7.1a Initialize (Spawn) Cubes from key \n (with translate control by key)\n 7.1b Button Event Handling (rather than Week 5 – OnClick)\n (Associated Functions must be public and void)\n 7.1c Button Event Handling on Instantiated Cube (both above combined)\n 7.1d Instantiate Prefab"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 23,
+    "title": "3D Interactive Media Development",
+    "section_title": "Tutorial 7.1 Unity UI HUD",
+    "content": [
+      "\nExtras\n 7.1a Initialize (Spawn) Cubes from key \n (with translate control by key)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 24,
+    "title": "3D Interactive Media Development",
+    "section_title": "Tutorial 7.1 Unity UI HUD",
+    "content": [
+      "\nExtras\n 7.1b Button Event Handling (rather than Week 5 – OnClick)\n (Associated Functions must be public and void)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 25,
+    "title": "3D Interactive Media Development",
+    "section_title": "Tutorial 7.1 Unity UI HUD",
+    "content": [
+      "\nExtras\n 7.1c Button Event Handling on Instantiated Cube (both above combined)"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 26,
+    "title": "3D Interactive Media Development",
+    "section_title": "Tutorial 7.1 Unity UI HUD",
+    "content": [
+      "\nExtras\n 7.1d Instantiate Prefab"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 27,
+    "title": "3D Interactive Media Development",
+    "section_title": "We can continue with Unity UI with extra features in the next tutorials >>>",
+    "content": [],
+    "images": []
+  },
+  {
+    "slide_number": 28,
+    "title": "3D Interactive Media Development",
+    "section_title": "Extra",
+    "content": [
+      "Extra - Tutorial 7.2 Unity UI HUD Text Readout Score – Simplified\nUI Cookbook chapter 2\n\n1. Make UI/Text – call it “Score Counter”\n2. Add Component/Script\n3. Create Text “uiText” and “score” variables\nprivate Text uiText; \nprivate long score = 0;\n4. In Start – uiText = GetComponent<Text>();\nvoid Start () { \nuiText = this.GetComponent<Text> (); \nupdateScoreCounter (); \n} \n5. Add Points (run script when key is pressed - remember how to do this?)\npublic void addPoints(int points){\nscore += points;\nupdateScoreCounter ();\n}\n6. Method outside of update\nprivate void updateScoreCounter(){\nuiText.text = \"<color=blue>Score</color>: \" + score;\n}"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 29,
+    "title": "3D Interactive Media Development",
+    "section_title": "Extra",
+    "content": [
+      "Extra - Tutorial 7.3 Animate UI Button\n\nhttps://youtu.be/mgaUKk8hfjg"
+    ],
+    "images": [
+      {
+        "filename": "lect-07-unity-ui_slide29_image0.png",
+        "path": "images/lect-07-unity-ui_slide29_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 30,
+    "title": "3D Interactive Media Development",
+    "section_title": "Extra",
+    "content": [
+      "Extra - Tutorial 7.4 Animate UI Button TextMeshPro\n\nhttps://youtu.be/mgaUKk8hfjg"
+    ],
+    "images": [
+      {
+        "filename": "lect-07-unity-ui_slide30_image0.png",
+        "path": "images/lect-07-unity-ui_slide30_image0.png"
+      }
+    ]
+  },
+  {
+    "slide_number": 31,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity UI Tutorials General Interface",
+    "content": [
+      "\nOfficial Unity\nhttps://unity3d.com/learn/tutorials/topics/user-interface-ui/ui-canvas?playlist=17111\nhttps://unity3d.com/learn/tutorials/modules/beginner/live-training-archive/the-new-ui?playlist=17111"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 32,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity UI Menu Various (Games)",
+    "content": [
+      "\nReadouts: Noorcon Inc. - Unity 3D Game Programming Part 4 - Vahe Karamian.pdf\n\nHealth Bar: Noorcon Inc. - Unity 3D Game Programming Part 9 - Vahe Karamian.pdf\nhttps://www.packtpub.com/mapt/book/Game%20Development/9781785885822/2/ch02lvl1sec23/Implementing+a+linear+health+bar\n\nTimer: Noorcon Inc. - Unity 3D Game Programming Part 6 - Vahe Karamian.pdf\nhttps://www.packtpub.com/mapt/book/Game%20Development/9781785885822/3/ch03lvl1sec29/Implementing+a+numeric+timer\n\nCollection Bar: Noorcon Inc. - Unity 3D Game Programming Part 6 - Vahe Karamian.pdf\n\nScore/Info: Noorcon Inc. - Unity 3D Game Programming Part 6 - Vahe Karamian.pdf\nhttps://www.packtpub.com/mapt/book/Game%20Development/9781785885822/2/ch02lvl1sec19/Implementing+a+score+counter"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 33,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity UI Menu and Levels",
+    "content": [
+      "\nScene/Level Switching (Scene manager):\nhttps://www.youtube.com/watch?v=xyC_flufHwg"
+    ],
+    "images": []
+  },
+  {
+    "slide_number": 34,
+    "title": "3D Interactive Media Development",
+    "section_title": "Unity UI Widgets",
+    "content": [
+      "\nPlayer Control\nhttps://www.youtube.com/watch?v=nGYObojmkO4\n\nShop UI with ScrollLists\nhttps://www.youtube.com/watch?v=TAJCr3_kfEc"
+    ],
+    "images": []
+  }
+]
