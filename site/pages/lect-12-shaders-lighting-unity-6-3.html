@@ -1,0 +1,269 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3DIMD | Lecture 12 - Unity Lighting and Shaders (Unity 6.3)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261007a"><link rel="stylesheet" href="../assets/css/slideshow.css?v=20261007a">
+<style>
+/* Local additions only; original site CSS remains authoritative. */
+.screenshot-review{border-left:4px solid #ed9a36;background:rgba(237,154,54,.12);padding:.65rem .9rem;margin:1rem 0;border-radius:4px}
+.screenshot-review strong{color:#ffbf67}
+.screenshot-placeholder{border:2px dashed #64c4d6;background:rgba(100,196,214,.09);padding:1.25rem;margin:1rem 0;border-radius:7px;text-align:center}
+.screenshot-placeholder strong{display:block;color:#75d6e5;margin-bottom:.4rem}
+.screenshot-placeholder p{margin:.2rem auto;max-width:55rem}
+.version-badge{display:inline-block;border:1px solid #64c4d6;border-radius:4px;padding:.2rem .5rem;font-size:.85em;margin-bottom:.5rem}
+</style>
+</head><body class="lecture-fullbleed"><div class="slideshow-container">
+<!-- Slide 1: Unity Lighting and Shaders — Unity 6.3 -->
+<div class="slide active"><div class="slide-title">3D Interactive Media Development</div><div class="slide-content slide-content-accordion"><h2>Unity Lighting and Shaders — Unity 6.3</h2><div class="accordion-scroll">
+<details class="accordion" open><summary>Lecture Overview</summary><div class="accordion-body"><p>Unity 6000.3.19f1 • Universal Render Pipeline (URP). This lecture explains how lights illuminate a scene, how physically based materials respond, and how to choose efficient lighting for interactive 3D applications.</p><p>Learning outcomes: distinguish direct and indirect light; configure Realtime, Baked and Mixed lights; use URP Lit materials; understand lightmaps and probes; identify mobile/VR performance considerations.</p>
+</div></details>
+<details class="accordion"><summary>Check Smoothness on Imported Models</summary><div class="accordion-body"><p>Distinguish <strong>mesh smoothing</strong> (vertex normals and tangents) from <strong>material smoothness</strong> (surface reflection response). In the Model Import Settings, inspect Normals and Tangents. In a URP Lit material, adjust Smoothness separately.</p>
+</div></details>
+<details class="accordion"><summary>Three Light Modes — Not Three Types of GI</summary><div class="accordion-body"><ul><li><strong>Realtime:</strong> evaluates direct lighting dynamically.</li><li><strong>Baked:</strong> stores precomputed illumination for static geometry in lightmaps.</li><li><strong>Mixed:</strong> combines realtime and baked contributions, depending on the selected mixed-lighting mode.</li></ul><p>Global illumination (GI) describes indirect light bouncing between surfaces; it is a separate concept from a Light component's Mode.</p>
+</div></details>
+<details class="accordion"><summary>Related Tutorials</summary><div class="accordion-body"><p><a href="../index.html?page=pages/tut-12-urp-lighting-2026.html" target="_top">Tutorial 12: URP Lighting with Café Model</a></p><p><a href="../index.html?page=pages/tut-11-01-blender-materials-and-texturing.html" target="_top">Tutorial 11-01: Blender Materials and Texturing</a></p>
+</div></details>
+</div></div><div class="slide-controls">
+<button class="slide-button" data-slide-step="-1" disabled> ← Previous</button>
+<img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster">
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">15</span></div></div><div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div></div>
+<!-- Slide 2: Realtime Lighting in a Scene -->
+<div class="slide"><div class="slide-title">3D Interactive Media Development</div><div class="slide-content slide-content-accordion"><h2>Realtime Lighting in a Scene</h2><div class="accordion-scroll">
+<details class="accordion" open><summary>Direct Lighting</summary><div class="accordion-body"><p>Direct lighting travels from a light source to a surface without an intermediate bounce. A realtime light can react to movement, rotation, intensity and colour changes. Indirect fill can still come from ambient/environment lighting or previously baked data.</p><p>Shadows are not inherently black: ambient and indirect contributions can illuminate shadowed surfaces.</p>
+</div></details>
+<details class="accordion"><summary>Light Component Types</summary><div class="accordion-body"><ul><li><strong>Directional:</strong> parallel rays; orientation matters, position generally does not.</li><li><strong>Point:</strong> emits in all directions from a position.</li><li><strong>Spot:</strong> emits into a cone.</li><li><strong>Area:</strong> provides baked lighting in standard URP workflows; not a general-purpose realtime area-light substitute.</li></ul>
+</div></details>
+<details class="accordion"><summary>Other Illumination Sources</summary><div class="accordion-body"><p>Environment/ambient lighting, skyboxes, emissive surfaces, Light Probes and Reflection Probes complement explicit Light components. Emission makes a surface appear luminous but does not automatically illuminate surrounding geometry in realtime.</p>
+</div></details>
+<details class="accordion"><summary>New screenshot — Light Inspector</summary><div class="accordion-body"><p>Capture a Unity 6000.3 URP Light component showing Type, Mode, Intensity, Shadows and relevant settings.</p>
+<div class="screenshot-placeholder"><strong>📷 NEW SCREENSHOT REQUIRED — UNITY 6000.3.19f1</strong><p>Light Inspector</p><p>Insert image here using the existing accordion image markup.</p></div>
+</div></details>
+</div></div><div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster">
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">15</span></div></div><div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div></div>
+<!-- Slide 3: Baked Lighting and Global Illumination -->
+<div class="slide"><div class="slide-title">3D Interactive Media Development</div><div class="slide-content slide-content-accordion"><h2>Baked Lighting and Global Illumination</h2><div class="accordion-scroll">
+<details class="accordion" open><summary>Indirect Illumination</summary><div class="accordion-body"><p>GI models light reflected from one surface onto another. Typical visible effects include colour bleeding and indirect fill. Soft shadows and bounced illumination are related visual phenomena but are not interchangeable.</p>
+</div></details>
+<details class="accordion"><summary>Baked Global Illumination</summary><div class="accordion-body"><p>The lightmapper calculates illumination ahead of runtime and stores the result in lightmaps for suitable static geometry. Baked lighting is efficient at runtime, but a baked lightmap does not update when a light or object moves.</p>
+</div></details>
+<details class="accordion"><summary>Progressive Lightmapping</summary><div class="accordion-body"><p>In Unity 6.3, teach the Progressive Lightmapper workflow for baked GI. Select an appropriate lightmapper in Lighting Settings, mark eligible Mesh Renderers as contributing to GI, ensure suitable lightmap UVs, then generate lighting.</p>
+</div></details>
+<details class="accordion"><summary>Historical example — Enlighten</summary><div class="accordion-body"><p>Enlighten Realtime GI is included here only as historical context; it is <strong>not</strong> the primary workflow taught in this URP lecture.</p>
+<div class="screenshot-review"><strong>⚠ EXISTING SCREENSHOT — UPDATE REQUIRED</strong><p>Enlighten comparison — historical illustration. Retained in place for reference; replace with a Unity 6000.3.19f1 screenshot before publishing.</p></div><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img src="images/lect-12-shaders-lighting_slide11_image0.jpg" class="accordion-image" alt="Enlighten comparison — historical illustration (outdated screenshot)" style="--accordion-image-width: 70%;"></div>
+</div></details>
+</div></div><div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster">
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">15</span></div></div><div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div></div>
+<!-- Slide 4: Global Illumination Concepts and Setup -->
+<div class="slide"><div class="slide-title">3D Interactive Media Development</div><div class="slide-content slide-content-accordion"><h2>Global Illumination Concepts and Setup</h2><div class="accordion-scroll">
+<details class="accordion" open><summary>Direct vs Indirect Lighting</summary><div class="accordion-body"><p><strong>Direct:</strong> light travels from source to surface. <strong>Indirect:</strong> light has bounced from one or more surfaces. PBR governs material/light interaction; GI governs how indirect light is represented or approximated.</p>
+</div></details>
+<details class="accordion"><summary>Lightmaps, Light Probes and Reflection Probes</summary><div class="accordion-body"><ul><li><strong>Lightmaps:</strong> baked lighting on static geometry.</li><li><strong>Light Probes:</strong> sampled indirect illumination for objects not using baked lightmaps.</li><li><strong>Reflection Probes:</strong> environment reflections for reflective materials.</li></ul>
+</div></details>
+<details class="accordion"><summary>Practical URP Lighting Workflow</summary><div class="accordion-body"><p>Set up a URP scene; add a directional light and environment lighting; decide which objects are static; configure Realtime/Baked/Mixed lights; enable baked GI as required; generate lighting; evaluate quality and frame time.</p>
+</div></details>
+<details class="accordion"><summary>New screenshot — Lighting Settings Asset</summary><div class="accordion-body"><p>Capture the Lighting window and its assigned Lighting Settings Asset in Unity 6000.3.</p>
+<div class="screenshot-placeholder"><strong>📷 NEW SCREENSHOT REQUIRED — UNITY 6000.3.19f1</strong><p>Lighting Settings Asset</p><p>Insert image here using the existing accordion image markup.</p></div>
+</div></details>
+</div></div><div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster">
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">15</span></div></div><div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div></div>
+<!-- Slide 5: Lighting Window and Colour Space -->
+<div class="slide"><div class="slide-title">3D Interactive Media Development</div><div class="slide-content slide-content-accordion"><h2>Lighting Window and Colour Space</h2><div class="accordion-scroll">
+<details class="accordion" open><summary>Lighting Window — Environment</summary><div class="accordion-body"><p>Open <strong>Window &gt; Rendering &gt; Lighting</strong>. Use Environment settings to configure skybox, ambient source and environment reflections. Disabling a Directional Light does not itself disable ambient lighting.</p>
+<div class="screenshot-review"><strong>⚠ EXISTING SCREENSHOT — UPDATE REQUIRED</strong><p>Legacy Lighting Environment window. Retained in place for reference; replace with a Unity 6000.3.19f1 screenshot before publishing.</p></div><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img src="images/lect-12-shaders-lighting_slide16_image0.jpg" class="accordion-image" alt="Legacy Lighting Environment window (outdated screenshot)" style="--accordion-image-width: 70%;"></div>
+</div></details>
+<details class="accordion"><summary>Lighting Settings and Baking</summary><div class="accordion-body"><p>Configure Baked Global Illumination and the lightmapper in the scene's Lighting Settings. Generate Lighting manually or use automatic generation when appropriate. Do not assume Realtime GI is enabled by default.</p>
+<div class="screenshot-review"><strong>⚠ EXISTING SCREENSHOT — UPDATE REQUIRED</strong><p>Legacy GI and bake controls. Retained in place for reference; replace with a Unity 6000.3.19f1 screenshot before publishing.</p></div><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img src="images/lect-12-shaders-lighting_slide17_image0.jpg" class="accordion-image" alt="Legacy GI and bake controls (outdated screenshot)" style="--accordion-image-width: 70%;"></div>
+</div></details>
+<details class="accordion"><summary>Light Component Mode</summary><div class="accordion-body"><p>Choose Realtime, Mixed or Baked in the Light component Inspector. Actual contributions depend on the scene's lighting configuration, the renderer's GI participation and supported render-pipeline behaviour.</p>
+<div class="screenshot-review"><strong>⚠ EXISTING SCREENSHOT — UPDATE REQUIRED</strong><p>Legacy Light Inspector. Retained in place for reference; replace with a Unity 6000.3.19f1 screenshot before publishing.</p></div><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img src="images/lect-12-shaders-lighting_slide18_image0.jpg" class="accordion-image" alt="Legacy Light Inspector (outdated screenshot)" style="--accordion-image-width: 70%;"></div>
+</div></details>
+<details class="accordion"><summary>Linear Colour Space</summary><div class="accordion-body"><p>Linear colour space is generally preferred for physically based rendering. Verify <strong>Project Settings &gt; Player &gt; Other Settings &gt; Color Space</strong> for the active target; do not assume the project default.</p>
+</div></details>
+</div></div><div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster">
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">15</span></div></div><div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div></div>
+<!-- Slide 6: Ambient Light and Skyboxes -->
+<div class="slide"><div class="slide-title">3D Interactive Media Development</div><div class="slide-content slide-content-accordion"><h2>Ambient Light and Skyboxes</h2><div class="accordion-scroll">
+<details class="accordion" open><summary>Ambient/Environment Lighting</summary><div class="accordion-body"><p>Environment lighting supplies broad illumination even when no direct light reaches a surface. The ambient source can be derived from the skybox or configured independently. Distinguish ambient diffuse illumination from environment reflections.</p>
+</div></details>
+<details class="accordion"><summary>Skybox Materials</summary><div class="accordion-body"><p>Assign a compatible skybox material in the Lighting window. Skybox appearance, ambient lighting and reflection updates are related but not identical settings.</p>
+</div></details>
+<details class="accordion"><summary>Reflection Probes</summary><div class="accordion-body"><p>Reflection Probes provide local environment reflections. Their capture mode and update frequency have performance implications.</p>
+</div></details>
+</div></div><div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster">
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">15</span></div></div><div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div></div>
+<!-- Slide 7: Light Quality and Rendering Cost -->
+<div class="slide"><div class="slide-title">3D Interactive Media Development</div><div class="slide-content slide-content-accordion"><h2>Light Quality and Rendering Cost</h2><div class="accordion-scroll">
+<details class="accordion" open><summary>Light Rendering in URP</summary><div class="accordion-body"><p>Legacy per-light <em>Important / Not Important</em> rendering modes belong to older Built-in Render Pipeline teaching. In URP, configure the Main Light and Additional Lights through the URP Asset and renderer settings.</p>
+</div></details>
+<details class="accordion"><summary>Per-Pixel and Per-Vertex Lighting</summary><div class="accordion-body"><p>Per-pixel evaluation usually offers more accurate results than per-vertex evaluation but can cost more. URP may provide additional-light evaluation options depending on configuration and renderer path.</p>
+</div></details>
+<details class="accordion"><summary>Shadows</summary><div class="accordion-body"><p>Shadow resolution, cascade count, shadow distance and the number of shadow-casting lights affect image quality and GPU workload. Test in the actual target build.</p>
+</div></details>
+<details class="accordion"><summary>New screenshot — URP Asset</summary><div class="accordion-body"><p>Capture URP Asset settings for Main Light, Additional Lights and Shadows.</p>
+<div class="screenshot-placeholder"><strong>📷 NEW SCREENSHOT REQUIRED — UNITY 6000.3.19f1</strong><p>URP Asset</p><p>Insert image here using the existing accordion image markup.</p></div>
+</div></details>
+</div></div><div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster">
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">15</span></div></div><div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div></div>
+<!-- Slide 8: Lighting and Material Properties -->
+<div class="slide"><div class="slide-title">3D Interactive Media Development</div><div class="slide-content slide-content-accordion"><h2>Lighting and Material Properties</h2><div class="accordion-scroll">
+<details class="accordion" open><summary>How Materials Respond to Light</summary><div class="accordion-body"><p>URP Lit combines base colour, metallic/specular response, smoothness, normal mapping, occlusion and emission to produce physically based shading.</p>
+</div></details>
+<details class="accordion"><summary>Emission and GI</summary><div class="accordion-body"><p>An emissive material appears bright. Its emission can contribute to baked lighting when configured for GI, but it is not automatically a realtime light source.</p>
+</div></details>
+<details class="accordion"><summary>Normal Maps and Ambient Occlusion</summary><div class="accordion-body"><p>Normal maps modify apparent surface orientation without adding geometry. Ambient occlusion approximates local occlusion; it does not replace full GI.</p>
+</div></details>
+</div></div><div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster">
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">15</span></div></div><div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div></div>
+<!-- Slide 9: URP Lit and Physically Based Rendering -->
+<div class="slide"><div class="slide-title">3D Interactive Media Development</div><div class="slide-content slide-content-accordion"><h2>URP Lit and Physically Based Rendering</h2><div class="accordion-scroll">
+<details class="accordion" open><summary>URP Lit Replaces Standard Shader as Primary Example</summary><div class="accordion-body"><p>For URP projects, use <strong>Universal Render Pipeline/Lit</strong> as the principal PBR shader. The Built-in Render Pipeline Standard Shader is legacy/comparative material, not the default URP shader.</p>
+</div></details>
+<details class="accordion"><summary>Core URP Lit Inputs</summary><div class="accordion-body"><ul><li>Base Map and Base Color</li><li>Metallic or Specular workflow</li><li>Smoothness</li><li>Normal Map and Occlusion Map</li><li>Emission</li><li>Surface Type, blending and Alpha Clipping</li></ul>
+</div></details>
+<details class="accordion"><summary>New screenshot — URP Lit Inspector</summary><div class="accordion-body"><p>Capture a URP Lit material Inspector showing Surface Options and Surface Inputs.</p>
+<div class="screenshot-placeholder"><strong>📷 NEW SCREENSHOT REQUIRED — UNITY 6000.3.19f1</strong><p>URP Lit Inspector</p><p>Insert image here using the existing accordion image markup.</p></div>
+</div></details>
+</div></div><div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster">
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">15</span></div></div><div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div></div>
+<!-- Slide 10: Metallic and Specular Workflows -->
+<div class="slide"><div class="slide-title">3D Interactive Media Development</div><div class="slide-content slide-content-accordion"><h2>Metallic and Specular Workflows</h2><div class="accordion-scroll">
+<details class="accordion" open><summary>Metallic Workflow</summary><div class="accordion-body"><p>The metallic workflow describes whether a surface behaves like a dielectric or a metal, with a smoothness value controlling the breadth of reflections. Metallic and smoothness are separate material properties.</p>
+</div></details>
+<details class="accordion"><summary>Specular Workflow</summary><div class="accordion-body"><p>The specular workflow allows direct specification of specular reflectance. It is an alternative authoring workflow, not another name for metalness.</p>
+</div></details>
+<details class="accordion"><summary>PBR Consistency</summary><div class="accordion-body"><p>Use realistic albedo/base colours and appropriate metallic values. Compare the same material under multiple lighting environments to avoid overfitting to one scene.</p>
+</div></details>
+</div></div><div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster">
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">15</span></div></div><div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div></div>
+<!-- Slide 11: URP Lit Maps and Surface Options -->
+<div class="slide"><div class="slide-title">3D Interactive Media Development</div><div class="slide-content slide-content-accordion"><h2>URP Lit Maps and Surface Options</h2><div class="accordion-scroll">
+<details class="accordion" open><summary>Texture Maps</summary><div class="accordion-body"><p>Base Map supplies surface colour; Normal Map simulates fine detail; Metallic/Specular maps control reflectance; Occlusion Map supplies local occlusion; Emission Map specifies emissive regions.</p>
+</div></details>
+<details class="accordion"><summary>Opaque and Transparent Surfaces</summary><div class="accordion-body"><p>Use Surface Type and associated blending/alpha options in URP Lit rather than legacy Standard Shader Rendering Mode labels. Transparency can increase rendering cost and sorting complexity.</p>
+</div></details>
+<details class="accordion"><summary>New screenshot — URP Lit Maps</summary><div class="accordion-body"><p>Capture URP Lit material settings with example texture slots and Surface Type selection.</p>
+<div class="screenshot-placeholder"><strong>📷 NEW SCREENSHOT REQUIRED — UNITY 6000.3.19f1</strong><p>URP Lit Maps</p><p>Insert image here using the existing accordion image markup.</p></div>
+</div></details>
+</div></div><div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster">
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-11">11</span> / <span id="total-slides">15</span></div></div><div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div></div>
+<!-- Slide 12: Lighting and Shader Learning Resources -->
+<div class="slide"><div class="slide-title">3D Interactive Media Development</div><div class="slide-content slide-content-accordion"><h2>Lighting and Shader Learning Resources</h2><div class="accordion-scroll">
+<details class="accordion" open><summary>Current Unity 6.3 Documentation</summary><div class="accordion-body"><p>Use the Unity 6.3 Manual for lighting, lightmapping, URP Lit and Shader Graph. Older Unity 5 videos may be useful for historical concepts but should not be followed for current menu paths or Inspector layouts.</p>
+</div></details>
+<details class="accordion"><summary>Practical Classroom Exercise</summary><div class="accordion-body"><p>Create a scene with a cube, sphere and plane. Compare a Realtime Directional Light, a Baked light, and a URP Lit material with different smoothness values. Document visual differences and the cost of shadows.</p>
+</div></details>
+<details class="accordion"><summary>Suggested Evidence</summary><div class="accordion-body"><p>Capture the Light Inspector, Lighting Settings, baked result and URP Lit material. Label each screenshot with the Unity Editor version.</p>
+</div></details>
+</div></div><div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster">
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-12">12</span> / <span id="total-slides">15</span></div></div><div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div></div>
+<!-- Slide 13: URP Fundamentals -->
+<div class="slide"><div class="slide-title">3D Interactive Media Development</div><div class="slide-content slide-content-accordion"><h2>URP Fundamentals</h2><div class="accordion-scroll">
+<details class="accordion" open><summary>What Is URP?</summary><div class="accordion-body"><p>The Universal Render Pipeline is Unity's Scriptable Render Pipeline for scalable graphics across a range of hardware. A URP project uses URP assets, renderer settings and compatible shaders.</p>
+</div></details>
+<details class="accordion"><summary>Built-in vs URP</summary><div class="accordion-body"><p>Built-in Standard materials and certain legacy shader features are not directly interchangeable with URP Lit. A scene may require material conversion and visual validation.</p>
+</div></details>
+<details class="accordion"><summary>New screenshot — URP Project Assets</summary><div class="accordion-body"><p>Capture the project's assigned render pipeline asset and the linked URP Renderer asset.</p>
+<div class="screenshot-placeholder"><strong>📷 NEW SCREENSHOT REQUIRED — UNITY 6000.3.19f1</strong><p>URP Project Assets</p><p>Insert image here using the existing accordion image markup.</p></div>
+</div></details>
+</div></div><div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster">
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-13">13</span> / <span id="total-slides">15</span></div></div><div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div></div>
+<!-- Slide 14: Migrating Materials to URP -->
+<div class="slide"><div class="slide-title">3D Interactive Media Development</div><div class="slide-content slide-content-accordion"><h2>Migrating Materials to URP</h2><div class="accordion-scroll">
+<details class="accordion" open><summary>Before Conversion</summary><div class="accordion-body"><p>Back up or commit the project. Confirm URP is installed and configured. Inventory custom shaders and third-party materials; automatic conversion cannot guarantee support for custom shaders.</p>
+</div></details>
+<details class="accordion"><summary>Conversion Workflow</summary><div class="accordion-body"><p>Use Unity's available render-pipeline conversion tools for the installed Editor/URP version. Inspect the menu in your specific project rather than following a Unity 5-era menu path. Verify converted materials individually.</p>
+</div></details>
+<details class="accordion"><summary>After Conversion</summary><div class="accordion-body"><p>Check surface appearance, transparency, normal maps, emission, lighting and shadows. Rework incompatible shaders in Shader Graph or URP-compatible HLSL where needed.</p>
+</div></details>
+<details class="accordion"><summary>New screenshot — Conversion Tool</summary><div class="accordion-body"><p>Capture the render-pipeline converter or material-upgrade workflow visible in Unity 6000.3.19f1.</p>
+<div class="screenshot-placeholder"><strong>📷 NEW SCREENSHOT REQUIRED — UNITY 6000.3.19f1</strong><p>Conversion Tool</p><p>Insert image here using the existing accordion image markup.</p></div>
+</div></details>
+</div></div><div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster">
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-14">14</span> / <span id="total-slides">15</span></div></div><div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div></div>
+<!-- Slide 15: URP Shaders, Shadows and VR Performance -->
+<div class="slide"><div class="slide-title">3D Interactive Media Development</div><div class="slide-content slide-content-accordion"><h2>URP Shaders, Shadows and VR Performance</h2><div class="accordion-scroll">
+<details class="accordion" open><summary>URP Lit and Shader Graph</summary><div class="accordion-body"><p>Use URP Lit for standard PBR surfaces. Use Shader Graph to construct custom visual effects without writing all shader code manually. Confirm the shader targets URP.</p>
+</div></details>
+<details class="accordion"><summary>Lighting for Mobile and Standalone VR</summary><div class="accordion-body"><p>Prefer baked illumination for largely static scenes; minimise realtime shadow casters and unnecessary additional lights; use Light Probes where appropriate; profile on the target headset, not only in the Editor.</p>
+</div></details>
+<details class="accordion"><summary>Final Checklist</summary><div class="accordion-body"><ul><li>Project uses the intended URP asset and renderer.</li><li>Lights use deliberate Realtime/Baked/Mixed modes.</li><li>GI participation and lightmap UVs are correct.</li><li>Materials use URP-compatible shaders.</li><li>Shadows and additional lights are profiled on target hardware.</li></ul>
+</div></details>
+<details class="accordion"><summary>New screenshot — Performance Comparison</summary><div class="accordion-body"><p>Capture a matched scene with baked versus multiple realtime shadow-casting lights, with measured performance figures from a target device.</p>
+<div class="screenshot-placeholder"><strong>📷 NEW SCREENSHOT REQUIRED — UNITY 6000.3.19f1</strong><p>Performance Comparison</p><p>Insert image here using the existing accordion image markup.</p></div>
+</div></details>
+</div></div><div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster">
+<button class="slide-button" data-slide-step="1" disabled>Next → </button>
+<div class="slide-counter"><span id="current-slide-15">15</span> / <span id="total-slides">15</span></div></div><div class="keyboard-hint">Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate</div></div>
+</div><script src="../assets/js/site.js?v=20260915a"></script>
+<script>
+(function () {
+ const slides = Array.from(document.querySelectorAll('.slide'));
+ let current = 0;
+ function showSlide(index) {
+   current = Math.max(0, Math.min(slides.length - 1, index));
+   slides.forEach((slide, i) => {
+     slide.classList.toggle('active', i === current);
+     const previous = slide.querySelector('[data-slide-step="-1"]');
+     const next = slide.querySelector('[data-slide-step="1"]');
+     if (previous) previous.disabled = current === 0;
+     if (next) next.disabled = current === slides.length - 1;
+     const counter = slide.querySelector('.slide-counter');
+     if (counter) counter.textContent = `${i + 1} / ${slides.length}`;
+   });
+   const active = slides[current];
+   const title = active.querySelector('h2')?.textContent || '';
+   if (window.parent !== window) window.parent.postMessage({type:'lecture-slide-title',title}, '*');
+ }
+ document.querySelectorAll('[data-slide-step]').forEach(button => {
+   button.addEventListener('click', () => showSlide(current + Number(button.dataset.slideStep)));
+ });
+ document.addEventListener('keydown', event => {
+   if (event.key === 'ArrowRight') showSlide(current + 1);
+   if (event.key === 'ArrowLeft') showSlide(current - 1);
+ });
+ showSlide(0);
+ document.body.classList.add('lecture-ready');
+})();
+</script></body></html>
