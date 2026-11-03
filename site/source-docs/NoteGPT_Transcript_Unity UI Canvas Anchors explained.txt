@@ -1,0 +1,77 @@
+00:00:01 - 00:00:37
+You crafted your game’s UI and it looks  great - but your playtesters send you screenshots like this? Or this? Or even this? Hi, I’m Christina, let’s talk about  anchoring elements in your UI. So, let’s rewind time for a moment. I have a Minimap of my game I want to display in  the top right corner. So I create a new image, hand it my placeholdery “put minimap here”  graphic to it and drag it into the top right corner of my canvas. In game view, I already  set it to display my game in 1920 by 1080,
+
+00:00:37 - 00:01:16
+so when I switch over from scene  view, this looks correct. Awesome. But when I send this to friend, I suddenly  get this screenshot in return. What happened? My friend has a monitor set to 4K ultra HD - which  looks really cool, but it seems to break my UI. If we use this workflow of creating an element  and positioning it on our canvas, we set the elements on our UI to explicit coordinates on the  screen - in relation to the center of the chosen resolution’s size. You can see that wile dragging,  for example: you get one value telling you how
+
+00:01:16 - 00:01:55
+far on the X and how far on the Y value you are  away from your resolution’s - and thus canvas’ - center. If I place my image in the top right  corner like this, sitting on some value above 400 on x and more than 300 pixels above the center  and switch my preview resolution to 800 by 600, my image won’t show up on screen anymore. Likewise,  if my player’s monitor’s resolution exceeds the typical 1920 x 1080, my image will sit at a  position that will look random to your player. All these calculations are based  on the center of your canvas,
+
+00:01:55 - 00:02:29
+because Unity’s anchoring system defaults  to “calculate position based on center and use definitive values for distances”.  Let’s switch back to 1920 by 1080 in the game’s drop down and set the values inside our  RectTransform by hand this time: 800 on PosX, 400 on PosY looks like a good position  relative to the center for a minimap. Let’s left click on this graph looking thing and  we’ll get the probably most complex menu when it comes to Unity’s UI system, but it looks  much more intimidating than it really is.
+
+00:02:29 - 00:03:07
+A simple left click opens this menu to a  version that lets you pick from where the placement of elements should be calculated.  As mentioned, it defaults to middle center, as visualized and labeled by this flower  like indicator. Click on Top-Right, as that means we want our element to be anchored  based on its position from the top right corner of the screen’s resolution. Our 800 by 400 with a  marker in the middle now turned into a minus 160 and minus 140 with the indicator sitting in the  top right. Also, the visual of the graph changed.
+
+00:03:07 - 00:03:41
+Now switch back to game view and switch through  the drop down’s resolutions. No matter how big or small your resolution is, the minimap  will be displayed at the top right corner, with a distance of 160 and 140 on the respective  axis. We will come back to this in a moment. Next, I want to implement some kind of  top bar with an overview of resources. This bar should always span the whole width  of the screen. I place a new image inside my canvas and will just keep the default  square graphic with a different color.
+
+00:03:41 - 00:04:20
+It should be 50px high. I left click on  the graph again and to the side are a few choices for spaning the screen. The  top one looks like what I have in mind. Hm, this doesn’t look right. What happened? The Rect Transform now gives a left and right  value and the flower-looking indicator is suddenly split into two halves. It reads “910  from the left, 910 from the right”. And if we change through the resolutions, we can see: our  graphic tries to stretch in such a way that its left side will start at 910 pixels from the left  side, and end at 910 pixels to the right. That’s
+
+00:04:21 - 00:04:54
+not what we had in mind for a top bar spanning  the whole screen, is it. It could look nice if we want to have empty space to the left and  right of it, though, so let’s keep it in mind. Back in scene view, left click the graph  again and hold alt. The preview indicators will change. Click the Stretch top icon again.  It will now correctly stretch the whole width of each resolution - including the small ones which  wouldn’t let us have 910 empty pixel to the left and right. We could have gotten the same result  by a simple click and entering 0 to the left,
+
+00:04:54 - 00:05:25
+0 to the right and half the height of our element  on PosY (this time minus to have it all visible), but by holding alt and clicking on our choice,  these calculations will be made for us. Basically, left clicking and choosing where to  anchor elements will give us all the needed functionality, but we have to enter  everything ourselves. Holding alt and clicking will keep the functionality but offer a few  shortcuts for elements we most often use. So, what do you think we would need to position  this lower action bar at the bottom of our
+
+00:05:26 - 00:06:00
+screen? It’s 150 pixel high and should keep 250  pixel of empty space to either side. Two ways: We can left click and choose stretch bottom, enter  250 to the left and right and for PosY, we need to calculate the height of our element divided  by two. The other way would mean altclicking stretch bottom and entering 250 to the left  and right. The rest will be calculated for us. But why are we constantly dividing by 2? That’s because the position of our element  will be calculated from its center - it’s
+
+00:06:02 - 00:06:37
+pivot point. It’s the blue circle in  each UI graphic. If you can’t see it, click on this button to show  rect tool specific helpers. Let’s select our top bar for this: It has 0  to the left and right, a height of 50 and a position of -25. 25 because the pivot is at it’s  center and to have the image visible on screen for its complete height, it needs to be moved down  by 25 pixel - so minus 25. If you set it to 0, you can see half of the graphic sticking out at the  top of your canvas, which will not be displayed.
+
+00:06:39 - 00:07:14
+But sometimes, having the pivot sit at the  center of the ui element is not intuitive or even helpful when recreating a design  we build in a different app in Unity. So, we can set the pivot to a different point  - one we can more easily understand or one that just feels much more correct. For the top  bar, that would be the top edge of the graphic, for example. We can either click on the circle and  move it by mouse, or enter a different value unter the Pivot related part of the Rect Component.  Now, we get the PosY set to a more intuitive 0.
+
+00:07:14 - 00:07:49
+So, let’s see how we can make sure our minimap  will always be positioned at 50 pixel to the left and 100 from the top based on the top right  corner of our screen. I click on the map graphic, set the pivot to 1 on X and 1 on Y, and  can then manually set the desired distance. Another effect of this pivot is that it determins  from where width and height are being calculated in the first place! So if our pivot is in the  top right corner and we set the width and height values of our minimap to something else, the  image will grow to the left and down direction,
+
+00:07:49 - 00:08:21
+while our “pinned” pivot location stays  where it is. This is super useful for any kind of UI element that will change  size depending on contents, for example. This resetting of pivot points also has a  shortcut: When the anchoring menu is open, you can hold shift in either version and not only  will your anchoring be setup, but the pivot will also be set based on the anchoring location. Have  to say though, I use this rarely as most elements need a little bit more finetuning when it comes  to the position of their pivots. But let’s say
+
+00:08:21 - 00:09:02
+we want to have a menu at our top left corner,  right under our top bar. It should also have its pivot set to the top left corner, so it will  only ever grow to the bottom or right direction. Create a new image and set its initial height  and width. LeftClick, hold shift and alt and choose top left corner. It will be crammed  right into it. To set it below our top bar, enter PosY -50 as we know the bar is  50px high and we want to move down. To practice, create a Quest Tracking overlay  box. It’s 300 px wide, 280px high at its
+
+00:09:03 - 00:09:36
+default state. It should be positioned 100  px from the right side of the monitor and be located someplace below your minimap. Also,  it will probably grow in length, as all quest trackers are bound to do. How would you set  this up? Pause for a moment and give it a try. There a multiple ways, so let’s have a look at  two: I alt-shift-click on the top right corner, because I want to make sure its location  is similarly anchored as the minimap and it will always stay roughly below it no  matter the final size of the resolution.
+
+00:09:36 - 00:10:15
+I could have set it to alt-left edge, too,  but this might make the space between map and top of box more flexible. Both  works, it just depends on your goal. Next, I enter the values: -100px to the left,  so its right side lines up with the right side of the minimap. Due to both having their  pivot point in the top right corner. PosY depends on the size of the Minimap. Mine’s  200 px high, so for the quest tracker, I want it to be 30px below that. This  means the PosY of my tracker will be -330.
+
+00:10:15 - 00:10:52
+A different way could have been  right-clicking on the anchoring menu and choosing the top right corner.  Changing the pivot’s location to 1 on x, 1 on y. Setting PosX of the  tracker to -100, PosY to -330. You can get the same results in every  version of the anchoring system, it’s really that shift and alt provide a  few nice shortcuts for typical workflows. Learned something up to here? Leave a like! So, we have now anchored our UI in space  and it looks fine on all of our supported resolutions - because you might already  have guessed or seen during testing:
+
+00:10:52 - 00:11:26
+Some resolutions just won’t work. For example  good ol’ 800x600 quite literally renders our UI unusable. You will need to figure out  which resolution size is the smallest one you’ll have to take into account and  support for your project because of this. But what about the contents of our boxes?  Headlines, texts, icons, … all the important ones? Watch this video again and just switch out  the mention for “canvas” with “container”, really. Let’s create a very basic  info window to see how this works.
+
+00:11:26 - 00:12:03
+Create an empty GameObject on our Canvas and  call it InfoWindow. If you create it oustide the Canvas, the next elements won’t show up. Just  drag it into the canvas if that happens to you. Set its size to 500 by 700. Create a background by creating an  Image, giving it some darkish color, leftclicking on the anchor menu, holding alt  and clicking stretch in every direction. This fills your whole 500 by 700 container with  a background image. Also, if you now change the width and height of your container,  the background will resize in accordance.
+
+00:12:03 - 00:12:50
+Create a new Image we will use as our window  header. 70px high and anchored to the top, stretching the whole width - which  means alt shift click on top stretch. Next comes some kind of image fitting to  the contents of our window. Create a new image inside the container, give it a  height of 400px. Alt+shift+leftclick, stretch top with a PosY of -70. This  will position it right below our top bar. A headline! Create a TextMesh Pro object  inside our window container. A hight of 40 works well for the default font size  of TMP. This, again, should stretch,
+
+00:12:50 - 00:13:35
+but we want to leave 25px to the left and  right empty. For the PosY, add the height of the headline bar and the image on top, plus  a bit of space. -490 works well in my case. And we’ll need some info text, of  course. For the sake of this tutorial, it will just be static and not  resize depending on content length. Create yet another TMP object, fill it  with some example text, a good font size, and remember to set the height of this element  so all the text fits into it. Shift-left click stretch top, 25px to the left, 25 to the  right and position it below the headline.
+
+00:13:35 - 00:14:10
+To round it off, we want  to add two buttons. First, move the container’s pivot to  the top. I set mine to center. Move it so it’s positioned -100 from the top -  that way it’s at the same height as our minimap. Extend it downwards a little - a height of 800  will work fine for this. as you can see, all of our elements stay where we anchored them from the  top, the window just grows below it in length 😃 Create a Button - Text Mesh Pro. This time, we  want to anchor it to the bottom of our window,
+
+00:14:10 - 00:14:52
+but it should be flush with the left side of our  text boxes and be 25px from the bottom. Guess how. Shift-Alt-Leftclick Bottom left.  This puts our pivot also in the bottom left corner. PosX is 25 just like  with our text boxes, PosY is 25 as well. Duplicate this button and try  anchoring it to the bottom right, just this time with 25px space to  its right. Solution incoming in 5. Shift-Alt-Leftclick Bottom  Right. PosX -25, PosY 25. Lastly, put a Descriptive text into our Header  bar, this time anchored to the top left and a
+
+00:14:52 - 00:15:25
+close button anchored to the top right just  like we did with the two buttons below. Now, if we change the width and height of  our window, our images, text boxes and button positions will expand, shrink and reposition  as needed - and overflow each other if our window gets too cramped. Building a window  with some size limits and responsive sizing is the topic of a different future video as it  goes beyond anchoring. But to put at least some limits on this component: Add a LayoutElement  to the container and set its preferred size
+
+00:15:25 - 00:16:05
+to 500 by 700. The exact sizes depend on  your needs, these are just examples. Then, add a content Size fitter component and set  both values to Preferred size. This way, your window will always use the preferred  sizes you set in the layout element, making resizing easy and keeping us from  accidentially resizing it without noticing. Hope you enjoyed this tutorial on UI  anchoring =)! If you’re looking for a small, welcoming community, you are very welcome  to join my discord 💛 Have a great week!
