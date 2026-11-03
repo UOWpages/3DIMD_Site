@@ -12,1411 +12,1348 @@
 </head>
 <body class="lecture-fullbleed">
   <div class="slideshow-container">
-    <!-- Slide 1: 5MMCS001W Lecture 08 - Input Manager (Again), Scripted Movement, Collisions (source slides 1-2) -->
+    <!-- Slide 1: Lecture 08: Input, Movement and Collisions (source slides 1-2, plus added sections) -->
     <div class="slide active">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content slide-content-accordion">
-        <h2>5MMCS001W Lecture 08 - Input Manager (Again), Scripted Movement, Collisions</h2>
+        <h2>Lecture 08: Input, Movement and Collisions</h2>
         <div class="accordion-scroll">
-      <!-- Section 1.1: Lecture Overview (source slide 1, 2) -->
-      <details class="accordion" open>
-        <summary>Lecture Overview</summary>
-        <div class="accordion-body">
-          <p>5MMCS001W Lecture Tutorial</p>
-          <p>Input Manager (Again), Scripted Movement, Collisions</p>
-          <p>Unity Input Manager Continued</p>
-        </div>
-      </details>
-      <!-- Section 1.2: Related Tutorials (source slide added cross-reference) -->
-      <details class="accordion">
-        <summary>Related Tutorials</summary>
-        <div class="accordion-body">
-          <p><a href="../index.html?page=pages/tut-02-03-students.html" target="_top">Tutorials 02–03: Input, movement and collision exercises</a></p>
-          <p><a href="../index.html?page=pages/tut-08-character-troubleshooting-bb.html" target="_top">Tutorial 08: Character controllers and troubleshooting</a></p>
-          <p><a href="../index.html?page=pages/tut-08-physics-quiz-rbct.html" target="_top">Tutorial 08 Quiz: Rigidbodies, colliders and triggers</a></p>
-        </div>
-      </details>
+          <!-- Section 1.1: Learning outcomes (source slides 1-2, plus added learning outcomes) -->
+          <details class="accordion" open>
+            <summary>Learning outcomes</summary>
+            <div class="accordion-body">
+              <p>5MMCS001W lecture and tutorial: Input Manager (again), scripted movement, collisions.</p>
+              <div class="h3-detail">
+                <h3>By the end of this lecture, you should be able to:</h3>
+                <ul>
+                  <li>Read keyboard and axis input and turn it into frame-rate-independent movement.</li>
+                  <li>Choose between Transform, kinematic Rigidbody and dynamic Rigidbody movement, and call each from the correct update loop.</li>
+                  <li>Predict when colliders send collision or trigger messages, and respond to them in script.</li>
+                  <li>Use raycasts, Lerp, MoveTowards and LookAt for targeted movement.</li>
+                </ul>
+                <h3>Follow the core sequence: input recap, vectors and Transform movement, Rigidbodies and physics movement, then colliders and collision events. Later slides contain raycasting, interpolation, optional legacy examples and next steps.</h3>
+              </div>
+            </div>
+          </details>
+          <!-- Section 1.2: Core and extension pathway (added) -->
+          <details class="accordion">
+            <summary>Core and extension pathway</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3>Core:</h3>
+                <p>Move objects with Transform and Rigidbody methods, and detect collisions and triggers (Tutorials 02–03 and 08).</p>
+                <h3>Optional:</h3>
+                <p>Raycasting, Lerp/MoveTowards/LookAt extensions, and the legacy touch-widget examples flagged on the final slide.</p>
+              </div>
+            </div>
+          </details>
+          <!-- Section 1.3: Related lectures and tutorials (added cross-reference) -->
+          <details class="accordion">
+            <summary>Related lectures and tutorials</summary>
+            <div class="accordion-body">
+              <p><a href="../index.html?page=pages/lect-07-unity-ui.html" target="_top">Lecture 07: Unity UI — Input Manager recap</a></p>
+              <p><a href="../index.html?page=pages/tut-02-03-students.html" target="_top">Tutorials 02–03: Input, movement and collision exercises</a></p>
+              <p><a href="../index.html?page=pages/tut-08-character-troubleshooting-bb.html" target="_top">Tutorial 08: Character controllers and troubleshooting</a></p>
+              <p><a href="../index.html?page=pages/tut-08-physics-quiz-rbct.html" target="_top">Tutorial 08 Quiz: Rigidbodies, colliders and triggers</a></p>
+            </div>
+          </details>
         </div>
       </div>
       <div class="slide-controls">
         <button class="slide-button" data-slide-step="-1" disabled> ← Previous</button>
         <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">14</span></div>
+        <div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">11</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 2: Unity Input Manager (source slides 3, 8-9) -->
+    <!-- Slide 2: Input recap: Input Manager, GetKey and GetAxis (source slides 3-9) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content slide-content-accordion">
-        <h2>Unity Input Manager</h2>
+        <h2>Input recap: Input Manager, GetKey and GetAxis</h2>
         <div class="accordion-scroll">
-      <!-- Section 2.1: Unity Input Manager (source slide 3) -->
-      <details class="accordion" open>
-        <summary>Unity Input Manager</summary>
-        <div class="accordion-body">
-          <p>Each program you write, whether the program is a phone application, a web application, a game or an embedded system, needs some sort of an input. In general every program needs some sort of an input and some sort of an output. The output is what the users sees, and the input is what the user enters or gives to the program to generate the output based on some algorithm.</p>
-          <p>Unity 3D is no different. The game engine needs to be able to process inputs from different sources:</p>
-          <ul>
-          <li>Keyboard
-          </li>
-          <li>Mouse
-          </li>
-          <li>Joystick(s)
-          </li></ul>
-          <p>Unity 3D manages its inputs through the Input Manager. The Input Manage is accessible by selecting Edit-&gt;Project Settings-&gt;Input from the main menu bar.</p>
-        </div>
-      </details>
-      <!-- Section 2.2: Unity Input Manager – in Project Settings (source slide 8) -->
-      <details class="accordion">
-        <summary>Unity Input Manager – in Project Settings</summary>
-        <div class="accordion-body">
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-08-input-movement-collision_slide8_image0.png" class="accordion-image" alt="Unity Project Settings Input Manager axes list" style="--accordion-image-width: 32%;" />
-            <img src="images/lect-08-input-movement-collision_slide8_image1.png" class="accordion-image" alt="Input Manager Horizontal axis expanded with its properties" style="--accordion-image-width: 32%;" />
-            <img src="images/lect-08-input-movement-collision_slide8_image2.png" class="accordion-image" alt="Input Manager axis configuration screenshot" style="--accordion-image-width: 32%;" />
-          </div>
-        </div>
-      </details>
-      <!-- Section 2.3: Input Manager - Horizontal Axis Properties (source slide 9) -->
-      <details class="accordion">
-        <summary>Input Manager - Horizontal Axis Properties</summary>
-        <div class="accordion-body">
-          <p>Figure 1 lists all of the out of the box Input configurations defined in the game engine. Let’s go ahead and expand the first Input Definition called Horizontal. Looking at Figure 2, you will notice the attributes that are defined under the Horizontal Axis input configuration. The following are the properties of the input configuration that are important to take a note of:</p>
-          <ul>
-          <li>Name: the name of the axis as defines in the Input Manager. This is the name that you can refer to in your C# code for to detect and perform an operation as desired.
-          </li>
-          <li>Positive Button: defines the primary button that will provide the positive direction / force.
-          </li>
-          <li>Negative Button: defines the primary button that will provide the negative direction / force.
-          </li>
-          <li>Alt. Positive Button: same as the positive button, but defines a secondary input intake.
-          </li>
-          <li>Alt. Negative Button: same as the negative button, but defines a secondary input intake.
-          </li>
-          <li>Type: defines where the input source is coming from; (Keyboard/Mouse/Joystick).
-          </li>
-          <li>Axis: which axis in the world should the force be applied to.
-          </li></ul>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-08-input-movement-collision_slide9_image0.png" class="accordion-image" alt="Input Manager Horizontal axis expanded with its properties highlighted" style="--accordion-image-width: 40%;" />
-          </div>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">14</span></div>
-      </div>
-      <div class="keyboard-hint">
-        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
-      </div>
-    </div>
-
-    <!-- Slide 3: Input Movement Scripting - Rotate and Get Axis (source slides 4-7, 10) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Input Movement Scripting - Rotate and Get Axis</h2>
-        <div class="accordion-scroll">
-      <!-- Section 3.1: Unity Input Manager Continued (source slide 4) -->
-      <details class="accordion" open>
-        <summary>Unity Input Manager Continued</summary>
-        <div class="accordion-body">
-          <p>Lego Brick tutorial is animation triggers for playback</p>
-          <p>Or object transform can be adjusted directly:</p>
-          <h3>Unity Scripted Movement (Not Animation Trigger)</h3>
-        </div>
-      </details>
-      <!-- Section 3.2: Unity Input Manager– Movement Scripting - Rotate (source slide 5) -->
-      <details class="accordion">
-        <summary>Unity Input Manager– Movement Scripting - Rotate</summary>
-        <div class="accordion-body">
-          <p>Input key values to handle the rotation for the dynamically created primitives in the following order:</p>
-          <ul>
-          <li>Key A will be responsible to rotate Cube1’ on the Y-Axis.
-          </li>
-          <li>Key B will be responsible to rotate Cube2’ on the X-Axis.
-          </li>
-          <li>Key C will be responsible to rotate Cube3’ on the Z-Axis.
-          </li></ul>
-          <p>Notice, that the Update() function is where you place the logic to perform your Input and Output. The code checks to see if the primitives have been initialized, and if true, then it will check for input from the user. Based on the key value it will apply the appropriate rotation to the Game Object.</p>
-          <p>Each primitive will rotate independently only when the specific key associated to its rotation is pressed. For instance, if you press the A key, Cube1’ will continuously rotate until you stop pressing it. It will stop at the last rotation angle where you lifted your finger from the key.</p>
-        </div>
-      </details>
-      <!-- Section 3.3: Unity Input Manager – Movement Scripting - Rotate (source slide 6) -->
-      <details class="accordion">
-        <summary>Unity Input Manager – Movement Scripting - Rotate</summary>
-        <div class="accordion-body">
-          <p>CreatePrimitivesFromImport.cs – on Main Camera, Can access all Cube Game Objects</p>
-          <h3>Rotate:</h3>
-          <section class="code-panel code-panel--compact" data-code-type="code">
-            <div class="code-panel__chrome">
-              <div class="code-panel__dots">
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-              </div>
-              <div class="code-panel__title">CreatePrimitivesFromImport.cs</div>
-            </div>
-            <div class="code-panel__body" role="region" aria-label="CreatePrimitivesFromImport.cs">
-              <div class="code-panel__line code-panel__line--statement indent-level-0">if(Input.GetKey(KeyCode.A)){</div>
-              <div class="code-panel__line code-panel__line--code indent-level-1">this.cube1.transform.Rotate(new Vector3(0,1,0), 1);</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
-              <div class="code-panel__line code-panel__line--comment indent-level-0">// apply the x-axis transform to Cube2'</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-0">if(Input.GetKey(KeyCode.B)){</div>
-              <div class="code-panel__line code-panel__line--code indent-level-1">this.cube2.transform.Rotate(new Vector3(1,0,0), 1);</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
-              <div class="code-panel__line code-panel__line--comment indent-level-0">// apply the z-axis transform to Cube3'</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-0">if(Input.GetKey(KeyCode.C)){</div>
-              <div class="code-panel__line code-panel__line--code indent-level-1">this.cube3.transform.Rotate(new Vector3(0,0,1), 1);</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
-            </div>
-          </section>
-        </div>
-      </details>
-      <!-- Section 3.4: Unity Input Manager– Movement Scripting – Get Axis (source slide 7) -->
-      <details class="accordion">
-        <summary>Unity Input Manager– Movement Scripting – Get Axis</summary>
-        <div class="accordion-body">
-          <p>https://unity3d.com/learn/tutorials/topics/scripting/getaxis?playlist=17117</p>
-          <h3>Get Axis:</h3>
-          <ul>
-          <li>Unlike Get Key and GetButton, (Bool)
-          </li>
-          <li>Returns float value between -1 and 1
-          </li>
-          <li>Setting is Input Manager – edit/Project Settings/Input/
-          </li>
-          <li>Horizontal and Vertical are the standard.
-          </li>
-          <li>Keys can be set in input manager…
-          </li></ul>
-        </div>
-      </details>
-      <!-- Section 3.5: Unity Scripted Movement (Not Animation Trigger) (source slide 10) -->
-      <details class="accordion">
-        <summary>Unity Scripted Movement (Not Animation Trigger)</summary>
-        <div class="accordion-body">
-          <p>Direct Input - Moving by setting transform.position or GetAxis from Update.</p>
-          <section class="code-panel code-panel--compact" data-code-type="code">
-            <div class="code-panel__chrome">
-              <div class="code-panel__dots">
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-              </div>
-              <div class="code-panel__title">Direct Input</div>
-            </div>
-            <div class="code-panel__body" role="region" aria-label="Direct Input">
-              <div class="code-panel__line code-panel__line--statement indent-level-0">if (Input.GetKey(KeyCode.B)){</div>
-              <div class="code-panel__line code-panel__line--code indent-level-1">this.cube2.transform.Rotate(new Vector3(1,0,0), 1);</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
-            </div>
-          </section>
-          <h3>Space Relative To:</h3>
-          <ul>
-          <li>1, Space.Self
-          </li>
-          <li>2. Space.World
-          </li></ul>
-          <p>Physics - Moving by calling rigidbody.MovePosition from FixedUpdate</p>
-          <p>(isKinematic)</p>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">14</span></div>
-      </div>
-      <div class="keyboard-hint">
-        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
-      </div>
-    </div>
-
-    <!-- Slide 4: Scalars, Points, Vectors and Vector3 (source slides 11-14) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Scalars, Points, Vectors and Vector3</h2>
-        <div class="accordion-scroll">
-      <!-- Section 4.1: More C# and Unity3D – Scalar, Points, Vector Recap (source slide 11) -->
-      <details class="accordion" open>
-        <summary>More C# and Unity3D – Scalar, Points, Vector Recap</summary>
-        <div class="accordion-body">
-          <h3>Scalars, Points, Vectors</h3>
-          <ul>
-          <li>Three Basic types of entities to define geometric objects.
-          </li>
-          <li>Defined from mathematical, programming and geometric perspective.
-          </li></ul>
-        </div>
-      </details>
-      <!-- Section 4.2: Points (source slide 12) -->
-      <details class="accordion">
-        <summary>Points</summary>
-        <div class="accordion-body">
-          <p>More C# and Unity3D – Scalar, Vector, Points</p>
-          <ul>
-          <li>In 3D geometric systems, a point is a location in space
-          </li>
-          <li>Only location, no size
-          </li>
-          <li>Best to use a reference or coordinate system to define
-          </li></ul>
-        </div>
-      </details>
-      <!-- Section 4.3: Vectors (Lines) and Vector3 (source slide 13) -->
-      <details class="accordion">
-        <summary>Vectors (Lines) and Vector3</summary>
-        <div class="accordion-body">
-          <p>More C# and Unity3D – Scalar, Vector, Points</p>
-          <h3>Vectors (Lines)</h3>
-          <ul>
-          <li>Connect points with Line Segments
-          </li>
-          <li>Also called vectors (direction and magnitude – velocity, force, length)
-          </li>
-          <li>Have Scalar (magnitude) values – real number
-          </li></ul>
-          <h3>Vector3</h3>
-          <ul>
-          <li>This structure is used throughout Unity to pass 3D positions and directions around.
-          </li>
-          <li>It also contains functions for doing common vector operations.
-          </li></ul>
-        </div>
-      </details>
-      <!-- Section 4.4: Vector3 in Scripted Movement (source slide 14) -->
-      <details class="accordion">
-        <summary>Vector3 in Scripted Movement</summary>
-        <div class="accordion-body">
-          <p>Unity Scripted Movement (Not Animation Trigger)</p>
-          <p>https://unity3d.com/learn/tutorials/topics/scripting/translate-and-rotate?playlist=17117</p>
-          <h3>Vector3</h3>
-          <p>Representation of 3D vectors and points.</p>
-          <p>This structure is used throughout Unity to pass 3D positions and directions around. It also contains functions for doing common vector operations.</p>
-          <section class="code-panel code-panel--compact" data-code-type="code">
-            <div class="code-panel__chrome">
-              <div class="code-panel__dots">
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-              </div>
-              <div class="code-panel__title">Instantiate a row of blocks</div>
-            </div>
-            <div class="code-panel__body" role="region" aria-label="Instantiate a row of blocks">
-              <div class="code-panel__line code-panel__line--statement indent-level-0">for (float i = 0 ; i &lt; blockX; i++)</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
-              <div class="code-panel__line code-panel__line--code indent-level-1">Vector3 rowX = new Vector3 (i,0,0);</div>
-              <div class="code-panel__line code-panel__line--code indent-level-1">Rigidbody instance = Instantiate (block, rowX, 0 );</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
-            </div>
-          </section>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">14</span></div>
-      </div>
-      <div class="keyboard-hint">
-        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
-      </div>
-    </div>
-
-    <!-- Slide 5: Transform and Rigidbody Basics (source slides 15-18, 21) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Transform and Rigidbody Basics</h2>
-        <div class="accordion-scroll">
-      <!-- Section 5.1: Transform and Rigid Body (source slide 15) -->
-      <details class="accordion" open>
-        <summary>Transform and Rigid Body</summary>
-        <div class="accordion-body">
-          <p>Unity Scripted Movement (Not Animation Trigger)</p>
-          <p>https://unity3d.com/learn/tutorials/topics/scripting/translate-and-rotate?playlist=17117</p>
-          <h3>Transform - Update, Translate, Rotate, Scale</h3>
-          <p>Position, rotation and scale of an object.</p>
-          <p>Every object in a scene has a Transform. It's used to store and manipulate the position, rotation and scale of the object.</p>
-          <p>Every Transform can have a parent, which allows you to apply position, rotation and scale hierarchically. This is the hierarchy seen in the Hierarchy pane.</p>
-          <h3>Rigid Body:</h3>
-          <p>Adding a Rigidbody component to an object will put its motion under the control of Unity's physics engine. Even without adding any code, a Rigidbody object will be pulled downward by gravity and will react to collisions with incoming objects if the right Collider component is also present.</p>
-        </div>
-      </details>
-      <!-- Section 5.2: Mesh, Collider, RigidBody, Kinematic and Triggers (source slide 16) -->
-      <details class="accordion">
-        <summary>Mesh, Collider, RigidBody, Kinematic and Triggers</summary>
-        <div class="accordion-body">
-          <p>More C# and Unity3D:</p>
-          <p>Update vs. Fixed Update, Forces and Physics, Colliders and Gravity https://www.youtube.com/watch?v=rXYjB0kdf-U</p>
-          <ul>
-          <li>Mesh
-            <ul>
-            <li>Polygon mesh for rendering, rasterising, display
-            </li></ul>
-          </li>
-          <li>Collider
-            <ul>
-            <li>Simple invisible mesh to represent object in Physics Engine – can be box, wholes mesh
-            </li></ul>
-          </li>
-          <li>RigidBody
-            <ul>
-            <li>Under Unity’s Physics engine, Affected by Gravity
-            </li>
-            <li>Reacts to collisions with other objects that have colliders
-            </li>
-            <li>If Collider but no Rigid Body, is a Static Collider
-            </li></ul>
-          </li>
-          <li>Kinematic RigidBody
-            <ul>
-            <li>Does not move unless by animation or script control.
-            </li>
-            <li>Other objects with rigid bodies will react to it if both have colliiders
-            </li></ul>
-          </li>
-          <li>Triggers
-            <ul>
-            <li>Animation can be played
-            </li></ul>
-          </li></ul>
-          <details class="accordion accordion--nested embed-accordion">
-            <summary>Video: Rigidbody and Collisions | Unity Tutorial</summary>
+          <!-- Section 2.1: Recap: input and the legacy Input Manager (source slides 3, 8-9; shortened recap of Lecture 07) -->
+          <details class="accordion" open>
+            <summary>Recap: input and the legacy Input Manager</summary>
             <div class="accordion-body">
-              <article class="embed-card">
-                <iframe class="video-embed" src="https://www.youtube.com/embed/rXYjB0kdf-U" title="Rigidbody and Collisions | Unity Tutorial video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <p><a href="https://www.youtube.com/watch?v=rXYjB0kdf-U" target="_blank" rel="noopener noreferrer">Open source link</a></p>
-              </article>
+              <div class="h3-detail">
+                <h3><strong>Legacy workflow:</strong> this lecture’s examples use the legacy Input Manager (<code>Input.GetKey</code>, <code>Input.GetAxis</code>), as in Lecture 07. Unity’s newer Input System package is the recommended path for new projects.</h3>
+                <p><a href="https://docs.unity3d.com/Packages/com.unity.inputsystem@1.11/manual/index.html" target="_blank" rel="noopener noreferrer">Unity Input System package manual</a></p>
+              </div>
+              <ul>
+                <li>Every program needs input and output: the input is what the user gives the program; the output is what the user sees.</li>
+                <li>Unity processes input from the keyboard, mouse and joysticks.</li>
+                <li>The Input Manager is at <strong>Edit &gt; Project Settings &gt; Input Manager</strong>. Each axis (for example Horizontal) has a Name used in code, Positive and Negative Buttons, Alt. Positive and Alt. Negative Buttons, a Type (Keyboard/Mouse/Joystick) and an Axis.</li>
+              </ul>
+              <p>Full walkthrough: <a href="../index.html?page=pages/lect-07-unity-ui.html" target="_top">Lecture 07, slide 2: the legacy Input Manager and axes</a></p>
+              <details class="accordion accordion--nested">
+                <summary>Screenshots: Input Manager axes</summary>
+                <div class="accordion-body">
+                  <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+                    <img src="images/lect-08-input-movement-collision_slide8_image0.png" class="accordion-image" alt="Unity Project Settings Input Manager axes list" style="--accordion-image-width: 32%;" />
+                    <img src="images/lect-08-input-movement-collision_slide8_image1.png" class="accordion-image" alt="Input Manager Horizontal axis expanded with its properties" style="--accordion-image-width: 32%;" />
+                    <img src="images/lect-08-input-movement-collision_slide8_image2.png" class="accordion-image" alt="Input Manager axis configuration screenshot" style="--accordion-image-width: 32%;" />
+                  </div>
+                  <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+                    <img src="images/lect-08-input-movement-collision_slide9_image0.png" class="accordion-image" alt="Input Manager Horizontal axis expanded with its properties highlighted" style="--accordion-image-width: 40%;" />
+                  </div>
+                </div>
+              </details>
+              <!-- Full source text (source slides 3 and 9), shortened above because it duplicates Lecture 07 Section 2.1:
+              <p>Each program you write, whether the program is a phone application, a web application, a game or an embedded system, needs some sort of an input. In general every program needs some sort of an input and some sort of an output. The output is what the users sees, and the input is what the user enters or gives to the program to generate the output based on some algorithm.</p>
+              <p>Unity 3D is no different. The game engine needs to be able to process inputs from different sources: Keyboard, Mouse, Joystick(s).</p>
+              <p>Unity 3D manages its inputs through the Input Manager. The Input Manage is accessible by selecting Edit, Project Settings, Input from the main menu bar.</p>
+              <p>Figure 1 lists all of the out of the box Input configurations defined in the game engine. Let’s go ahead and expand the first Input Definition called Horizontal. Looking at Figure 2, you will notice the attributes that are defined under the Horizontal Axis input configuration. The following are the properties of the input configuration that are important to take a note of:</p>
+              <ul>
+                <li>Name: the name of the axis as defines in the Input Manager. This is the name that you can refer to in your C# code for to detect and perform an operation as desired.</li>
+                <li>Positive Button: defines the primary button that will provide the positive direction / force.</li>
+                <li>Negative Button: defines the primary button that will provide the negative direction / force.</li>
+                <li>Alt. Positive Button: same as the positive button, but defines a secondary input intake.</li>
+                <li>Alt. Negative Button: same as the negative button, but defines a secondary input intake.</li>
+                <li>Type: defines where the input source is coming from; (Keyboard/Mouse/Joystick).</li>
+                <li>Axis: which axis in the world should the force be applied to.</li>
+              </ul>
+              -->
+            </div>
+          </details>
+          <!-- Section 2.2: GetKey and GetAxis (source slides 4-7) -->
+          <details class="accordion">
+            <summary>GetKey and GetAxis</summary>
+            <div class="accordion-body">
+              <p>Objects can be moved in two ways: by playing animations through animation triggers (as in the Lego Brick tutorial), or by adjusting the object’s Transform directly with scripted movement – the focus of this lecture.</p>
+              <h3>GetKey and GetButton</h3>
+              <p>Return a bool: <code>true</code> while the key or button is held.</p>
+              <p>Example: <code>CreatePrimitivesFromImport.cs</code> on the Main Camera can access all the cube GameObjects. Key A rotates Cube1 on the Y axis, key B rotates Cube2 on the X axis and key C rotates Cube3 on the Z axis. The input check sits in <code>Update()</code>, after checking that the primitives have been initialised. Each cube rotates only while its key is held, and stops at its last angle when the key is released.</p>
+              <section class="code-panel code-panel--compact" data-code-type="code">
+                <div class="code-panel__chrome">
+                  <div class="code-panel__dots">
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                  </div>
+                  <div class="code-panel__title">CreatePrimitivesFromImport.cs</div>
+                </div>
+                <div class="code-panel__body" role="region" aria-label="CreatePrimitivesFromImport.cs">
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">if (Input.GetKey(KeyCode.A))</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-1">this.cube1.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+                  <div class="code-panel__line code-panel__line--comment indent-level-0">// apply the x-axis rotation to Cube2</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">if (Input.GetKey(KeyCode.B))</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-1">this.cube2.transform.Rotate(Vector3.right, rotationSpeed * Time.deltaTime);</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+                  <div class="code-panel__line code-panel__line--comment indent-level-0">// apply the z-axis rotation to Cube3</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">if (Input.GetKey(KeyCode.C))</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-1">this.cube3.transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+                </div>
+              </section>
+              <p><code>rotationSpeed</code> is in degrees per second, for example <code>private float rotationSpeed = 90f;</code>. Multiplying by <code>Time.deltaTime</code> makes the rotation frame-rate independent (slide 4).</p>
+              <h3>GetAxis</h3>
+              <ul>
+                <li>Unlike GetKey and GetButton (bool), GetAxis returns a float between -1 and 1.</li>
+                <li>Axes are set in the Input Manager (Edit &gt; Project Settings &gt; Input Manager). Horizontal and Vertical are the standard axes, and their keys can be changed there.</li>
+              </ul>
+              <section class="code-panel code-panel--compact" data-code-type="code">
+                <div class="code-panel__chrome">
+                  <div class="code-panel__dots">
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                  </div>
+                  <div class="code-panel__title">GetAxis</div>
+                </div>
+                <div class="code-panel__body" role="region" aria-label="GetAxis">
+                  <div class="code-panel__line code-panel__line--code indent-level-0">float turn = Input.GetAxis("Horizontal");</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-0">transform.Rotate(Vector3.up, turn * rotationSpeed * Time.deltaTime);</div>
+                </div>
+              </section>
+              <details class="accordion accordion--nested">
+                <summary>Unity references</summary>
+                <div class="accordion-body">
+                  <ul>
+                    <li><a href="https://learn.unity.com/tutorial/getaxis-o" target="_blank" rel="noopener noreferrer">Unity Learn: GetAxis</a></li>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/Input.GetKey.html" target="_blank" rel="noopener noreferrer">Input.GetKey</a></li>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/Input.GetAxis.html" target="_blank" rel="noopener noreferrer">Input.GetAxis</a></li>
+                  </ul>
+                </div>
+              </details>
             </div>
           </details>
         </div>
-      </details>
-      <!-- Section 5.3: RigidBody (source slide 17) -->
-      <details class="accordion">
-        <summary>RigidBody</summary>
-        <div class="accordion-body">
-          <p>RigidBody:</p>
-          <p>Update vs. Fixed Update, Forces and Physics, Colliders and Gravity</p>
-          <h3>Rigidbody</h3>
-          <p>A Rigidbody is the main component that enables physical behavior for an object. With a Rigidbody attached, the object will immediately respond to gravity. If one or more Collider components are also added, then the object will be moved by incoming collisions.</p>
-          <p>Rigidbodies also allow your GameObjects to act under control of the physics engine. This opens the gateway to realistic collisions, varied types of joints, and other very cool behaviours. Manipulating your GameObject by adding forces to the Rigidbody creates a very different behavior than adjusting the Transform component directly. As a good rule of thumb, you shouldn’t manipulate the Rigidbody and the Transform of the same GameObject, only one or the other.</p>
-        </div>
-      </details>
-      <!-- Section 5.4: Rigidbody Body Type (source slide 18) -->
-      <details class="accordion">
-        <summary>Rigidbody Body Type</summary>
-        <div class="accordion-body">
-          <p>Unity Scripted Movement (Not Animation Trigger)</p>
-          <p>https://unity3d.com/learn/tutorials/topics/scripting/translate-and-rotate?playlist=17117</p>
-          <h3>The Body Type. Can be:</h3>
-          <ul>
-          <li>Dynamic
-            <ul>
-            <li>(the body moves under simulation and is affected by forces like gravity),
-            </li></ul>
-          </li>
-          <li>Kinematic
-            <ul>
-            <li>(the body moves under simulation, but isn't affected by forces like gravity, unless coded)
-            </li></ul>
-          </li>
-          <li>or
-          </li>
-          <li>Static (the body doesn't move under simulation).
-          </li></ul>
-          <p>Tutorial 02-03 is Dynamic (Rigid Body) but not Kinematic – Allows Collisions, Gravity, but direct control</p>
-        </div>
-      </details>
-      <!-- Section 5.5: isKinematic (source slide 21) -->
-      <details class="accordion">
-        <summary>isKinematic</summary>
-        <div class="accordion-body">
-          <p>Unity Scripted Movement (Not Animation Trigger)</p>
-          <p>https://unity3d.com/learn/tutorials/topics/scripting/translate-and-rotate?playlist=17117</p>
-          <p>Controls whether physics affects the rigidbody.</p>
-          <p>If isKinematic is enabled, Forces, collisions or joints will not affect the rigidbody anymore. The rigidbody will be under full control of animation or script control by changing transform.position. Kinematic rigidbodies will affect the motion of other rigidbodies through collisions if they can be affected.</p>
-        </div>
-      </details>
-      <!-- Section 5.6: Further Reading (speaker notes) (source slide 15, 18, 19, 20, 21) -->
-      <details class="accordion">
-        <summary>Further Reading (speaker notes)</summary>
-        <div class="accordion-body">
-          <p>http://www.codeproject.com/Articles/876478/UNITY-D-GAME-PROGRAMMING-PART</p>
-        </div>
-      </details>
-        </div>
       </div>
       <div class="slide-controls">
         <button class="slide-button" data-slide-step="-1"> ← Previous</button>
         <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">14</span></div>
+        <div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">11</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 6: Kinematic vs Dynamic Rigidbodies and Controllers (source slides 19-20, 28-29) -->
+    <!-- Slide 3: Vectors and Vector3 (source slides 11-14) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content slide-content-accordion">
-        <h2>Kinematic vs Dynamic Rigidbodies and Controllers</h2>
+        <h2>Vectors and Vector3</h2>
         <div class="accordion-scroll">
-      <!-- Section 6.1: Kinematic vs Non-Kinematic (Dynamic) Transform (source slide 19) -->
-      <details class="accordion" open>
-        <summary>Kinematic vs Non-Kinematic (Dynamic) Transform</summary>
-        <div class="accordion-body">
-          <p>Unity Scripted Movement (Not Animation Trigger)</p>
-          <div class="assessment-table-wrap">
-            <table class="assessment-table">
-              <thead>
-                <tr>
-                  <th>Feature</th>
-                  <th>Kinematic Transform</th>
-                  <th>Non-Kinematic (Dynamic) Transform</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Movement Control</td>
-                  <td>Application-controlled; motion is manually calculated and applied.</td>
-                  <td>Physics-engine controlled; motion is the result of forces and collisions.</td>
-                </tr>
-                <tr>
-                  <td>Forces &amp; Gravity</td>
-                  <td>Ignored by default; must be manually implemented if desired.</td>
-                  <td>Actively responded to, including gravity.</td>
-                </tr>
-                <tr>
-                  <td>Collisions</td>
-                  <td>Must be manually handled by the user; does not automatically calculate movement adjustments.</td>
-                  <td>Automatically detected and responded to by the physics engine.</td>
-                </tr>
-                <tr>
-                  <td>Use Cases</td>
-                  <td>Moving characters driven by animation, player-controlled objects, or objects that need predictable, non-physics-based movement.</td>
-                  <td>Objects that should be affected by the world, like falling blocks, rolling balls, or any object influenced by physics.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </details>
-      <!-- Section 6.2: Controller Chart – non-RB, RB vs Dynamic, Kinematic and Static (source slide 20) -->
-      <details class="accordion">
-        <summary>Controller Chart – non-RB, RB vs Dynamic, Kinematic and Static</summary>
-        <div class="accordion-body">
-          <p>Unity Scripted Movement (Not Animation Trigger)</p>
-          <p><a href="https://github.com/Module-Code/Controllers/tree/main" target="_blank" rel="noopener noreferrer">Chart – non-RB, RB vs Dynamic, Kinematic and Static</a></p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-08-input-movement-collision_slide20_image0.png" class="accordion-image" alt="Controller chart part 1: controller types, movement approaches and rules of thumb" style="--accordion-image-width: 48%;" />
-            <img src="images/lect-08-input-movement-collision_slide20_image1.png" class="accordion-image" alt="Controller chart part 2: kinematic and dynamic rigidbody movement approaches and rules of thumb" style="--accordion-image-width: 48%;" />
-          </div>
-        </div>
-      </details>
-      <!-- Section 6.3: Controller Types (source slide 28) -->
-      <details class="accordion">
-        <summary>Controller Types</summary>
-        <div class="accordion-body">
-          <h3>Dynamic Rigidbody (non‑kinematic) Controllers:</h3>
-          <p>Physics‑driven objects. Movement via forces/impulses/velocity. Fully simulated by the physics engine; realistic reactions to collisions, gravity, stacking.</p>
-          <h3>Kinematic Rigidbody Controllers:</h3>
-          <p>Script‑driven motion with a Rigidbody present but not simulated by forces. It can move other dynamic bodies but is not itself pushed by physics. Use for predictable moving objects that still need physical interactions.</p>
-          <h3>Non‑Rigidbody Controllers:</h3>
-          <p>Movement via Transform, CharacterController, or NavMeshAgent. Not physics‑simulated. Good for precise control, pathing, or decorative movement; requires special handling to interact with physics.</p>
-        </div>
-      </details>
-      <!-- Section 6.4: Unity Controller Matrix Project and sheet in BB (source slide 29) -->
-      <details class="accordion">
-        <summary>Unity Controller Matrix Project and sheet in BB</summary>
-        <div class="accordion-body">
-          <h3>Static</h3>
-          <p>Static Collider – Collider, no Rigidbody</p>
-          <p>This is a GameObject that has a collider but no Rigidbody. Static colliders are used for level geometry which always stays at the same place and never moves around. Incoming rigidbody objects will collide with the static collider but will not move it.</p>
-          <h3>Dynamic RigidBody Controllers</h3>
-          <p>Rigidbody Collider – Collider, (Dynamic) Non-Kinematic Rigidbody – Tut 02-03 control objects</p>
-          <p>This is a GameObject with a collider and a normal, non-kinematic Rigidbody attached. Rigidbody colliders are fully simulated by the physics engine and can react to collisions and forces applied from a script. They can collide with other objects, including static colliders, and are the most commonly used collider configuration in games that use Physics.</p>
-          <h3>Kinematic RigidBody Controllers</h3>
-          <p>Rigidbody Collider – Collider, Kinematic Rigidbody - best practice control objects, physics controlled</p>
-          <p>This is a GameObject with a collider and a normal, kinematic Rigidbody attached. They can be controlled by animation and scripted transforms, They can collide with other objects (other objects get affected), including static colliders (with some adjustment)</p>
-          <h3>Non RigidBody Controllers - Custom and Unity Controllers</h3>
-          <p>No Rigidbody Collider: Custom control code and wrapper for physics and gravity</p>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">14</span></div>
-      </div>
-      <div class="keyboard-hint">
-        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
-      </div>
-    </div>
-
-    <!-- Slide 7: Translate, Rotate, Update vs FixedUpdate and Time.deltaTime (source slides 22-25) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Translate, Rotate, Update vs FixedUpdate and Time.deltaTime</h2>
-        <div class="accordion-scroll">
-      <!-- Section 7.1: Tutorial 02-03: Translate, Rotate to move (source slide 22) -->
-      <details class="accordion" open>
-        <summary>Tutorial 02-03: Translate, Rotate to move</summary>
-        <div class="accordion-body">
-          <p>Tutorial 02-03: Translate, Rotate to move: Basic transform, rigid body, not kinematic, collider is used to affect rigid body wall</p>
-          <section class="code-panel code-panel--compact" data-code-type="code">
-            <div class="code-panel__chrome">
-              <div class="code-panel__dots">
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-              </div>
-              <div class="code-panel__title">TransformFunctions.cs</div>
-            </div>
-            <div class="code-panel__body" role="region" aria-label="TransformFunctions.cs">
-              <div class="code-panel__line code-panel__line--statement indent-level-0">using UnityEngine;</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-0">using System.Collections;</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-0">public class TransformFunctions : MonoBehaviour</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-1">public float moveSpeed = 10f;</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-1">public float turnSpeed = 50f;</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-1">void Update ()</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-2">if(Input.GetKey(KeyCode.UpArrow))</div>
-              <div class="code-panel__line code-panel__line--code indent-level-3">transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-2">if(Input.GetKey(KeyCode.DownArrow))</div>
-              <div class="code-panel__line code-panel__line--code indent-level-3">transform.Translate(-Vector3.forward * moveSpeed * Time.deltaTime);</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-2">if(Input.GetKey(KeyCode.LeftArrow))</div>
-              <div class="code-panel__line code-panel__line--code indent-level-3">transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-2">if(Input.GetKey(KeyCode.RightArrow))</div>
-              <div class="code-panel__line code-panel__line--code indent-level-3">transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
-            </div>
-          </section>
-          <details class="accordion accordion--nested">
-            <summary>Unity Scripting API references</summary>
+          <!-- Section 3.1: Scalars, points and vectors (source slides 11-13) -->
+          <details class="accordion" open>
+            <summary>Scalars, points and vectors</summary>
             <div class="accordion-body">
+              <h3>Scalars, points, vectors</h3>
               <ul>
-                <li><a href="http://docs.unity3d.com/Documentation/ScriptReference/Input.GetKey.html" target="_blank" rel="noopener noreferrer">Input.GetKey</a></li>
-                <li><a href="http://docs.unity3d.com/Documentation/ScriptReference/KeyCode.UpArrow.html" target="_blank" rel="noopener noreferrer">KeyCode.UpArrow</a></li>
-                <li><a href="http://docs.unity3d.com/Documentation/ScriptReference/KeyCode.DownArrow.html" target="_blank" rel="noopener noreferrer">KeyCode.DownArrow</a></li>
-                <li><a href="http://docs.unity3d.com/Documentation/ScriptReference/KeyCode.LeftArrow.html" target="_blank" rel="noopener noreferrer">KeyCode.LeftArrow</a></li>
-                <li><a href="http://docs.unity3d.com/Documentation/ScriptReference/KeyCode.RightArrow.html" target="_blank" rel="noopener noreferrer">KeyCode.RightArrow</a></li>
-                <li><a href="http://docs.unity3d.com/Documentation/ScriptReference/Vector3-forward.html" target="_blank" rel="noopener noreferrer">Vector3.forward</a></li>
-                <li><a href="http://docs.unity3d.com/Documentation/ScriptReference/Vector3-up.html" target="_blank" rel="noopener noreferrer">Vector3.up</a></li>
-                <li><a href="http://docs.unity3d.com/Documentation/ScriptReference/Time-deltaTime.html" target="_blank" rel="noopener noreferrer">Time.deltaTime</a></li>
+                <li>Three basic types of entities used to define geometric objects.</li>
+                <li>Defined from mathematical, programming and geometric perspectives.</li>
+              </ul>
+              <h3>Points</h3>
+              <ul>
+                <li>In 3D geometric systems, a point is a location in space.</li>
+                <li>Only location, no size.</li>
+                <li>Best defined using a reference or coordinate system.</li>
+              </ul>
+              <h3>Vectors (lines)</h3>
+              <ul>
+                <li>Connect points with line segments.</li>
+                <li>Also called vectors (direction and magnitude – velocity, force, length).</li>
+                <li>Have a scalar (magnitude) value – a real number.</li>
               </ul>
             </div>
           </details>
-        </div>
-      </details>
-      <!-- Section 7.2: Time Delta Time (source slide 23) -->
-      <details class="accordion">
-        <summary>Time Delta Time</summary>
-        <div class="accordion-body">
-          <p>Unity Scripted Movement (Not Animation Trigger)</p>
-          <p>https://unity3d.com/learn/tutorials/topics/scripting/translate-and-rotate?playlist=17117</p>
-          <p>a float value for the amount of time (in ms) since the last frame was drawn to the screen. By knowing this, you have an exact reading for how far each object in the game should have moved since the frame was presented.</p>
-          <p>Multiplying all movement values by Time.DeltaTime smooths out any inconsistencies.</p>
-          <h3>What it's for:</h3>
-          <ul>
-          <li>Changing values to be based on seconds rather than based on frames.
-          </li>
-          <li>Multiply by Speed variable to alter it programmatically
-          </li></ul>
-          <section class="code-panel code-panel--compact" data-code-type="code">
-            <div class="code-panel__chrome">
-              <div class="code-panel__dots">
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-              </div>
-              <div class="code-panel__title">Frames vs seconds</div>
-            </div>
-            <div class="code-panel__body" role="region" aria-label="Frames vs seconds">
-              <div class="code-panel__line code-panel__line--comment indent-level-0">//Move right by the value of "speed" every frame</div>
-              <div class="code-panel__line code-panel__line--code indent-level-0">transform.position += Vector3.right * speed;</div>
-              <div class="code-panel__line code-panel__line--comment indent-level-0">//Move right by the value of "speed" every second</div>
-              <div class="code-panel__line code-panel__line--code indent-level-0">transform.position += Vector3.right * speed * Time.deltaTime;</div>
-            </div>
-          </section>
-          <p>In general, you probably want to set things up based on time rather than frames, as time is constant and framerates are not. If you drop frames, it won't affect timing of elements.</p>
-        </div>
-      </details>
-      <!-- Section 7.3: Update vs FixedUpdate (source slide 24) -->
-      <details class="accordion">
-        <summary>Update vs FixedUpdate</summary>
-        <div class="accordion-body">
-          <p>More C# and Unity3D</p>
-          <p>Update vs. Fixed Update, Forces and Physics, Colliders and Gravity</p>
-          <h3>Update</h3>
-          <p>Update is called once per frame, so if the game is running at 24 fps, then this will be called 24 times in a second.</p>
-          <p>As we know game never run at constant frame rate because of several reason, so update will not be called on a regular timeline, means the time between update calls may be different.</p>
-          <ul>
-          <li>Update is used for moving non physics objects.
-          </li>
-          <li>Update is used for receiving Input.
-          </li>
-          <li>Update is used for simple timer.
-          </li></ul>
-          <h3>FixedUpdate</h3>
-          <p>As it name suggests this will be called after fixed time duration, so time duration between two consecutive calls is always same unlike of Update where this may vary.</p>
-          <p>This is commonly used for performing physics related task, like applying force on rigidbody.</p>
-        </div>
-      </details>
-      <!-- Section 7.4: TimeDeltaTime, Speed, Velocity: (source slide 25) -->
-      <details class="accordion">
-        <summary>TimeDeltaTime, Speed, Velocity:</summary>
-        <div class="accordion-body">
-          <h3>Time.deltaTime (dynamic and kinematic rigidbodies)</h3>
-          <p>Kinematic rigidbodies are unaffected by physics, so they cannot have a velocity because that is in the realm of physics. Use transform.Translate instead.</p>
-          <section class="code-panel code-panel--compact" data-code-type="code">
-            <div class="code-panel__chrome">
-              <div class="code-panel__dots">
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-              </div>
-              <div class="code-panel__title">Time.deltaTime</div>
-            </div>
-            <div class="code-panel__body" role="region" aria-label="Time.deltaTime">
-              <div class="code-panel__line code-panel__line--code indent-level-0">transform.Translate(0, 0, 5 * Time.deltaTime);</div>
-              <div class="code-panel__line code-panel__line--code indent-level-0">transform.Translate(Vector3.forward * Time.deltaTime*5, Space.World);</div>
-              <div class="code-panel__line code-panel__line--code indent-level-0">transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime);</div>
-            </div>
-          </section>
-          <p>https://chicounity3d.wordpress.com/2014/05/23/how-to-lerp-like-a-pro/</p>
-          <p>You must always use Time.deltaTime when moving objects over time (same speed whatever framerate),</p>
-          <p>But you must never use Time.deltaTime for input that's already framerate-independent, such as mouse movement.</p>
-          <h3>Velocity (non-kinematic Rigidbodies)</h3>
-          <section class="code-panel code-panel--compact" data-code-type="code">
-            <div class="code-panel__chrome">
-              <div class="code-panel__dots">
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-              </div>
-              <div class="code-panel__title">Velocity</div>
-            </div>
-            <div class="code-panel__body" role="region" aria-label="Velocity">
-              <div class="code-panel__line code-panel__line--code indent-level-0">rigidbody.velocity = Vector3(0,0,5);</div>
-            </div>
-          </section>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">14</span></div>
-      </div>
-      <div class="keyboard-hint">
-        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
-      </div>
-    </div>
-
-    <!-- Slide 8: Forces and Physics - MovePosition, AddForce and Best Practice (source slides 26-27, 41) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Forces and Physics - MovePosition, AddForce and Best Practice</h2>
-        <div class="accordion-scroll">
-      <!-- Section 8.1: Rigidbody.MovePosition (source slide 26) -->
-      <details class="accordion" open>
-        <summary>Rigidbody.MovePosition</summary>
-        <div class="accordion-body">
-          <p>Forces and Physics:</p>
-          <p>Moving by calling rigidbody.MovePosition or rigidbody.AddForce, both via FixedUpdate</p>
-          <h3>Rigidbody.MovePosition/Fixedupdate/LateUpdate/Update What its for:</h3>
-          <p>Moving a Kinematic rigidbody object not affected by physics, that will be interacting with physics objects</p>
-          <p>-or-</p>
-          <p>Moving a Non–Kinematic Dynamic rigidbody object affected by physics, that will be interacting with physics objects</p>
-          <p>You could increase the mass of the NKD rigidbody high so it won’t be pushed (Not ideal, use Kinematic).</p>
-          <section class="code-panel code-panel--compact" data-code-type="code">
-            <div class="code-panel__chrome">
-              <div class="code-panel__dots">
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-              </div>
-              <div class="code-panel__title">MovePosition</div>
-            </div>
-            <div class="code-panel__body" role="region" aria-label="MovePosition">
-              <div class="code-panel__line code-panel__line--statement indent-level-0">void Update() { rigidbody.MovePosition(transform.position + speed * Time.deltaTime); }</div>
-            </div>
-          </section>
-          <p>http://answers.unity3d.com/questions/279815/how-to-move-a-kinematic-rigidbody-smoothly.html</p>
-        </div>
-      </details>
-      <!-- Section 8.2: AddForce (source slide 26) -->
-      <details class="accordion">
-        <summary>AddForce</summary>
-        <div class="accordion-body">
-          <h3>AddForce/Fixedupdate/LateUpdate What its for:</h3>
-          <p>Moving a Non–Kinematic Dynamic rigidbody, affected by physics, that will be interacting with physics objects</p>
-          <p>As it name suggests this will be called after fixed time duration, so time duration between two consecutive calls is always the same unlike that of Update where this may vary. Mass Dependent, unless you use Addforce(ForceMode.Acceleration) or Addforce(ForceMode.VelocityChange)</p>
-          <p>https://www.reddit.com/r/Unity3D/comments/2b6uet/what_is_deltatime_and_where_is_it_useful/</p>
-        </div>
-      </details>
-      <!-- Section 8.3: Forces and Physics: With a Character (source slide 27) -->
-      <details class="accordion">
-        <summary>Forces and Physics: With a Character</summary>
-        <div class="accordion-body">
-          <h3>With a Character:</h3>
-          <p>https://forum.unity.com/threads/collision-detection-for-kinematic-rigidbodies.885778/</p>
-          <p>https://answers.unity.com/questions/1753152/kinematic-rigidbody-does-not-collide-with-wall-whe.html</p>
-          <p>Kinematic Rigidbodies will always go through other Kinematic Rigidbodies or Static colliders without effect (not affected by forces or momentum). It Will detect collision and triggers with a non kinematic (Dynamic) Rigid Body.</p>
-          <p>If you need an object to collide with other objects, but not be affected by the forces of physics, you could either use an existing Character Controller, or use a kinematic rigidbody and code a custom collision resolution for it.</p>
-          <p>A physics based controller is not usually ideal for a character controller, as seen by this weeks Unity example.</p>
-        </div>
-      </details>
-      <!-- Section 8.4: Unity Static vs. Kinematic Best Practice (not Tuts 02-03) (source slide 41) -->
-      <details class="accordion">
-        <summary>Unity Static vs. Kinematic Best Practice (not Tuts 02-03)</summary>
-        <div class="accordion-body">
-          <p>Caveat: Static vs. Kinematic just affects how Unity handles Physics optimisation</p>
-          <p>You should ideally be moving rigidbodies as:</p>
-          <ul>
-          <li>1. Non-Kinematic (dynamic) – RigidBody Addforce, Addtorque
-          </li>
-          <li>2. Kinematic - MovePosition, MoveRotation,
-          </li>
-          <li>3. All from FixedUpdate!
-          </li></ul>
-          <p>Non- RigidBodies: Transform.Translate and Rotate from Update</p>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">14</span></div>
-      </div>
-      <div class="keyboard-hint">
-        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
-      </div>
-    </div>
-
-    <!-- Slide 9: Collider Interactions and Collision Tables (source slides 30-33, 35) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Collider Interactions and Collision Tables</h2>
-        <div class="accordion-scroll">
-      <!-- Section 9.1: Collider Interactions (source slide 30) -->
-      <details class="accordion" open>
-        <summary>Collider Interactions</summary>
-        <div class="accordion-body">
-          <p>More C# and Unity3D:</p>
-          <p>Update vs. Fixed Update, Forces and Physics, Colliders and Gravity</p>
-          <h3>Collider Interactions</h3>
-          <p>Colliders interact with each other differently depending on how their Rigidbody components have been configured.</p>
-          <h3>Static Collider – Collider, no Rigidbody</h3>
-          <p>This is a GameObject that has a collider but no Rigidbody. Static colliders are used for level geometry which always stays at the same place and never moves around. Incoming rigidbody objects will collide with the static collider but will not move it.</p>
-          <h3>Rigidbody Collider – Collider, (Dynamic) Non-Kinematic Rigidbody – Tut 02-03 control objects</h3>
-          <p>This is a GameObject with a collider and a normal, non-kinematic Rigidbody attached. Rigidbody colliders are fully simulated by the physics engine and can react to collisions and forces applied from a script. They can collide with other objects, including static colliders, and are the most commonly used collider configuration in games that use Physics.</p>
-          <h3>Rigidbody Collider – Collider, Kinematic Rigidbody - best practice control objects, physics controlled</h3>
-          <p>This is a GameObject with a collider and a normal, kinematic Rigidbody attached. They can be controlled by animation and scripted transforms, They can collide with other objects (other objects get affected), including static colliders (with some adjustment)</p>
-        </div>
-      </details>
-      <!-- Section 9.2: Collider, Kinematic Rigidbody, Transform - Sliding Door Example (source slide 31) -->
-      <details class="accordion">
-        <summary>Collider, Kinematic Rigidbody, Transform - Sliding Door Example</summary>
-        <div class="accordion-body">
-          <p>More C# and Unity3D:</p>
-          <p>Update vs. Fixed Update, Forces and Physics, Colliders and Gravity</p>
-          <h3>Collider, Kinematic Rigidbody, Transform, .Translate, .Rotate, .MoveTowards, .LookAt, FixedUpdate</h3>
-          <p>(not Best Practice, but works – like Tut 02-03, should use physics)</p>
-          <p>This is a GameObject with a collider and a kinematic Rigidbody attached, the IsKinematic property of the Rigidbody is enabled. You can move a kinematic rigidbody object from a script by modifying its Transform component but it will not respond to collision and forces like a non-kinematic rigidbody.</p>
-          <p>Kinematic rigidbodies should be used for colliders that can be moved or disabled/enabled occasionally but that should otherwise behave like static colliders. The best example to illustrate this concept would be a sliding door.</p>
-          <p>The door should normally act as an immovable physical obstacle but can be opened when necessary.</p>
-          <p>Unlike a static collider, a moving kinematic rigidbody will apply friction to other objects and will “wake up” other rigidbodies when they make contact.</p>
-          <p>https://docs.unity3d.com/Manual/CollidersOverview.html#:~:text=Kinematic%20rigidbodies%20should%20be%20used,can%20be%20opened%20when%20necessary</p>
-        </div>
-      </details>
-      <!-- Section 9.3: Static, Kinematic, Rigid Body, Collision Trigger Table: (source slide 32, 33) -->
-      <details class="accordion">
-        <summary>Static, Kinematic, Rigid Body, Collision Trigger Table:</summary>
-        <div class="accordion-body">
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-08-input-movement-collision_slide32_image0.png" class="accordion-image" alt="Unity collision action matrix: when collision detection and trigger messages are sent for each collider type pair" style="--accordion-image-width: 100%;" />
-          </div>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-08-input-movement-collision_slide33_image0.jpeg" class="accordion-image" alt="Collision matrix of Static, Rigidbody, Kinematic Rigidbody and Trigger colliders with Yes/No results" style="--accordion-image-width: 80%;" />
-          </div>
-        </div>
-      </details>
-      <!-- Section 9.4: Collider, non-Kinematic Rigidbody - AddForce, MovePosition, MoveRotation (source slide 35) -->
-      <details class="accordion">
-        <summary>Collider, non-Kinematic Rigidbody - AddForce, MovePosition, MoveRotation</summary>
-        <div class="accordion-body">
-          <p>More C# and Unity3D:</p>
-          <p>Update vs. Fixed Update, Forces and Physics, Colliders and Gravity</p>
-          <h3>Collider, non-Kinematic Rigidbody, RigidBody.AddForce, .MovePosition, .MoveRotation - FixedUpdate</h3>
-          <p>(not Best Practice, but works – like Tut 02-03, should use physics)</p>
-          <p>If you need your moving colliders to cause physically correct effects on other objects:</p>
-          <ul>
-          <li>Configure "Project Settings &gt; Physics &gt; Contacts Pair Mode" to "Enable All Contacts"
-          </li>
-          <li>Move your kinematic bodies using Rigidbody.MovePosition and Rigidbody.MoveRotation from FixedUpdate.
-          </li>
-          <li>Now the collision events (OnCollisionEnter, etc) will happen normally as with standard rigidbodies. https://www.youtube.com/watch?v=-osaSS9L-fs
-          </li></ul>
-          <ul>
-          <li>Use FixedUpdate to get correct physics collisions, whether they move the object or not
-          </li>
-          <li>Use Rigidbody.AddForce or Rigidbody.MovePosition and Rigidbody.MoveRotation within FixedUpdate https://answers.unity.com/questions/1730904/object-doesnt-collide-with-wall-using-transformtra.html
-          </li></ul>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">14</span></div>
-      </div>
-      <div class="keyboard-hint">
-        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
-      </div>
-    </div>
-
-    <!-- Slide 10: Unity Collisions and Triggers (source slides 34, 36-39) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Unity Collisions and Triggers</h2>
-        <div class="accordion-scroll">
-      <!-- Section 10.1: Triggers - Script Actions on Collision (source slide 34) -->
-      <details class="accordion" open>
-        <summary>Triggers - Script Actions on Collision</summary>
-        <div class="accordion-body">
-          <p>More C# and Unity3D:</p>
-          <p>Update vs. Fixed Update, Forces and Physics, Colliders and Gravity</p>
-          <h3>Triggers - Script Actions on Collision</h3>
-          <p>When collisions occur, the physics engine calls functions with specific names on any scripts attached to the objects involved. You will need to implement the code logic in these functions to respond to the collision event.</p>
-          <p>On the first physics update where the collision is detected, the OnCollisionEnter() function is called.</p>
-          <p>During updates where contact is maintained, OnCollisionStay() function is called and finally, OnCollisionExit() function is called indicating that the contact has been broken.</p>
-          <p>Similarly, trigger colliders call the analogous OnTriggerEnter() function, OnTriggerStay() function and the OnTriggerExit() functions.</p>
-          <details class="accordion accordion--nested embed-accordion">
-            <summary>Video: Detecting Collisions on Kinematic Rigidbodies</summary>
+          <!-- Section 3.2: Vector3 in scripted movement (source slides 13-14) -->
+          <details class="accordion">
+            <summary>Vector3 in scripted movement</summary>
             <div class="accordion-body">
-              <article class="embed-card">
-                <iframe class="video-embed" src="https://www.youtube.com/embed/-osaSS9L-fs" title="Detecting Collisions on Kinematic Rigidbodies video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <p><a href="https://www.youtube.com/watch?v=-osaSS9L-fs" target="_blank" rel="noopener noreferrer">Open source link</a></p>
-              </article>
+              <p><code>Vector3</code> represents 3D vectors and points. This structure is used throughout Unity to pass 3D positions and directions around. It also contains functions for doing common vector operations.</p>
+              <section class="code-panel code-panel--compact" data-code-type="code">
+                <div class="code-panel__chrome">
+                  <div class="code-panel__dots">
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                  </div>
+                  <div class="code-panel__title">Instantiate a row of blocks</div>
+                </div>
+                <div class="code-panel__body" role="region" aria-label="Instantiate a row of blocks">
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">for (int i = 0; i &lt; blockX; i++)</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-1">Vector3 rowX = new Vector3(i, 0, 0);</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-1">Rigidbody instance = Instantiate(block, rowX, Quaternion.identity);</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+                </div>
+              </section>
+              <p>Here <code>block</code> is a Rigidbody prefab reference, <code>blockX</code> is the number of blocks, and <code>Quaternion.identity</code> means no rotation.</p>
+              <p><a href="https://docs.unity3d.com/ScriptReference/Vector3.html" target="_blank" rel="noopener noreferrer">Vector3 scripting reference</a></p>
             </div>
           </details>
         </div>
-      </details>
-      <!-- Section 10.2: Collision and Physics: OnCollisonEnter(Collision col) (source slide 36, 37) -->
-      <details class="accordion">
-        <summary>Collision and Physics: OnCollisonEnter(Collision col)</summary>
-        <div class="accordion-body">
-          <p>Unity Collisions and Triggers</p>
-          <h3>Collider hitting Rigid Body/Collider (for Collision Detection)</h3>
-          <p>This is true Collision Detection, not Triggering in slide above</p>
-          <p>Collision and Physics: OnCollisonEnter(Collision col)</p>
-          <ul>
-          <li>RigidBody enables a collision - Solid
-            <ul>
-            <li>True RB - should only move by forces - ideal situation
-            </li>
-            <li>IsKinematic RB, or No RB can use movement scripting
-            </li></ul>
-          </li>
-          <li>IsTrigger Off enables a collision - Solid
-          </li></ul>
-        </div>
-      </details>
-      <!-- Section 10.3: RigidBody, Collision - Gravity and IsKinematic (source slide 38) -->
-      <details class="accordion">
-        <summary>RigidBody, Collision - Gravity and IsKinematic</summary>
-        <div class="accordion-body">
-          <p>Collision and Physics: OnCollisonEnter(Collision col) for scripting</p>
-          <ul>
-          <li>RigidBody, Collision
-            <ul>
-            <li>Gravity On - Will fall
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">11</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 4: Moving with Transform: Translate, Rotate and Time.deltaTime (source slides 10, 22-23, 25) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Moving with Transform: Translate, Rotate and Time.deltaTime</h2>
+        <div class="accordion-scroll">
+          <!-- Section 4.1: Tutorial 02–03: Translate and Rotate (source slides 10, 22) -->
+          <details class="accordion" open>
+            <summary>Tutorial 02–03: Translate and Rotate</summary>
+            <div class="accordion-body">
+              <p>Direct input: move an object by changing its Transform – <code>transform.Translate</code>, <code>transform.Rotate</code> or <code>transform.position</code> – from <code>Update()</code>.</p>
+              <section class="code-panel code-panel--compact" data-code-type="code">
+                <div class="code-panel__chrome">
+                  <div class="code-panel__dots">
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                  </div>
+                  <div class="code-panel__title">TransformFunctions.cs</div>
+                </div>
+                <div class="code-panel__body" role="region" aria-label="TransformFunctions.cs">
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">using UnityEngine;</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">using System.Collections;</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">public class TransformFunctions : MonoBehaviour</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-1">public float moveSpeed = 10f;</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-1">public float turnSpeed = 50f;</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-1">void Update ()</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-2">if(Input.GetKey(KeyCode.UpArrow))</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-3">transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-2">if(Input.GetKey(KeyCode.DownArrow))</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-3">transform.Translate(-Vector3.forward * moveSpeed * Time.deltaTime);</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-2">if(Input.GetKey(KeyCode.LeftArrow))</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-3">transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-2">if(Input.GetKey(KeyCode.RightArrow))</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-3">transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+                </div>
+              </section>
+              <h3>Space relative to</h3>
               <ul>
-              <li>Gravity Off, IsKinematic Off
-                <ul>
-                <li>Acts as Static, but forces affect
-                </li></ul>
-              </li>
-              <li>IsKinematic on
-                <ul>
-                <li>May be moved, but not affected by forces
+                <li><code>Space.Self</code> (default): move along the object’s own local axes.</li>
+                <li><code>Space.World</code>: move along the scene’s world axes.</li>
+              </ul>
+              <p>Tutorial 02–03 uses this Transform movement on an object with a collider and a dynamic (non-kinematic) Rigidbody, so it can push the Rigidbody wall. It works for the exercise, but bypasses the physics engine. Slide 6 shows the recommended physics approach: moving by calling <code>Rigidbody.MovePosition</code> or <code>Rigidbody.AddForce</code> from <code>FixedUpdate</code>.</p>
+              <p><a href="https://learn.unity.com/tutorial/translate-and-rotate" target="_blank" rel="noopener noreferrer">Unity Learn: Translate and Rotate</a></p>
+              <details class="accordion accordion--nested">
+                <summary>Unity Scripting API references</summary>
+                <div class="accordion-body">
+                  <ul>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/Transform.Translate.html" target="_blank" rel="noopener noreferrer">Transform.Translate</a></li>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/Transform.Rotate.html" target="_blank" rel="noopener noreferrer">Transform.Rotate</a></li>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/Input.GetKey.html" target="_blank" rel="noopener noreferrer">Input.GetKey</a></li>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/KeyCode.UpArrow.html" target="_blank" rel="noopener noreferrer">KeyCode.UpArrow</a></li>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/KeyCode.DownArrow.html" target="_blank" rel="noopener noreferrer">KeyCode.DownArrow</a></li>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/KeyCode.LeftArrow.html" target="_blank" rel="noopener noreferrer">KeyCode.LeftArrow</a></li>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/KeyCode.RightArrow.html" target="_blank" rel="noopener noreferrer">KeyCode.RightArrow</a></li>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/Vector3-forward.html" target="_blank" rel="noopener noreferrer">Vector3.forward</a></li>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/Vector3-up.html" target="_blank" rel="noopener noreferrer">Vector3.up</a></li>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/Time-deltaTime.html" target="_blank" rel="noopener noreferrer">Time.deltaTime</a></li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </details>
+          <!-- Section 4.2: Time.deltaTime: frames vs seconds (source slides 23, 25) -->
+          <details class="accordion">
+            <summary>Time.deltaTime: frames vs seconds</summary>
+            <div class="accordion-body">
+              <p><code>Time.deltaTime</code> is the interval, in seconds, since the last frame. Knowing it gives an exact reading of how far each object should have moved since the previous frame was presented, so multiplying movement values by <code>Time.deltaTime</code> smooths out frame-rate inconsistencies.</p>
+              <h3>What it’s for:</h3>
+              <ul>
+                <li>Changing values to be based on seconds rather than frames.</li>
+                <li>Multiplying by a speed variable, so speed can be changed programmatically.</li>
+              </ul>
+              <section class="code-panel code-panel--compact" data-code-type="code">
+                <div class="code-panel__chrome">
+                  <div class="code-panel__dots">
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                  </div>
+                  <div class="code-panel__title">Frames vs seconds</div>
+                </div>
+                <div class="code-panel__body" role="region" aria-label="Frames vs seconds">
+                  <div class="code-panel__line code-panel__line--comment indent-level-0">//Move right by the value of "speed" every frame</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-0">transform.position += Vector3.right * speed;</div>
+                  <div class="code-panel__line code-panel__line--comment indent-level-0">//Move right by the value of "speed" every second</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-0">transform.position += Vector3.right * speed * Time.deltaTime;</div>
+                </div>
+              </section>
+              <p>In general, set things up based on time rather than frames: time is constant and frame rates are not. If you drop frames, it won’t affect the timing of elements.</p>
+              <section class="code-panel code-panel--compact" data-code-type="code">
+                <div class="code-panel__chrome">
+                  <div class="code-panel__dots">
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                  </div>
+                  <div class="code-panel__title">Time.deltaTime with Translate</div>
+                </div>
+                <div class="code-panel__body" role="region" aria-label="Time.deltaTime with Translate">
+                  <div class="code-panel__line code-panel__line--code indent-level-0">transform.Translate(0, 0, 5 * Time.deltaTime);</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-0">transform.Translate(Vector3.forward * Time.deltaTime * 5, Space.World);</div>
+                </div>
+              </section>
+              <ul>
+                <li>Always use <code>Time.deltaTime</code> when moving objects over time (same speed at any frame rate).</li>
+                <li>Never use <code>Time.deltaTime</code> for input that is already frame-rate independent, such as mouse movement.</li>
+              </ul>
+              <p><a href="https://docs.unity3d.com/ScriptReference/Time-deltaTime.html" target="_blank" rel="noopener noreferrer">Time.deltaTime scripting reference</a></p>
+              <p><a href="https://www.reddit.com/r/Unity3D/comments/2b6uet/what_is_deltatime_and_where_is_it_useful/" target="_blank" rel="noopener noreferrer">Reddit r/Unity3D: What is deltaTime and where is it useful?</a></p>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">11</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 5: Rigidbody basics: Transform, Rigidbody and Is Kinematic (source slides 15-19, 21) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Rigidbody basics: Transform, Rigidbody and Is Kinematic</h2>
+        <div class="accordion-scroll">
+          <!-- Section 5.1: Transform and Rigidbody (source slides 15, 17) -->
+          <details class="accordion" open>
+            <summary>Transform and Rigidbody</summary>
+            <div class="accordion-body">
+              <h3>Transform: position, rotation and scale</h3>
+              <p>Every object in a scene has a Transform. It's used to store and manipulate the position, rotation and scale of the object.</p>
+              <p>Every Transform can have a parent, which allows you to apply position, rotation and scale hierarchically. This is the hierarchy seen in the Hierarchy window.</p>
+              <h3>Rigidbody</h3>
+              <p>A Rigidbody is the main component that enables physical behaviour for an object. Adding one puts the object’s motion under the control of Unity's physics engine: even without any code, it will be pulled downward by gravity and, if a Collider is also present, will be moved by incoming collisions.</p>
+              <p>Rigidbodies open the gateway to realistic collisions, varied types of joints and other behaviours. Manipulating a GameObject by adding forces to its Rigidbody creates a very different behaviour from adjusting its Transform directly. As a good rule of thumb, don’t manipulate the Rigidbody and the Transform of the same GameObject – only one or the other.</p>
+              <p><a href="https://docs.unity3d.com/Manual/class-Rigidbody.html" target="_blank" rel="noopener noreferrer">Unity Manual: Rigidbody component reference</a></p>
+            </div>
+          </details>
+          <!-- Section 5.2: Mesh, Collider, Rigidbody, kinematic and triggers (source slide 16) -->
+          <details class="accordion">
+            <summary>Mesh, Collider, Rigidbody, kinematic and triggers</summary>
+            <div class="accordion-body">
+              <ul>
+                <li>Mesh
+                  <ul>
+                    <li>Polygon mesh for rendering, rasterising and display.</li>
+                  </ul>
                 </li>
-                <li>Compare to Static collider: SC Is not calculated for - optimised
-                </li></ul>
-              </li>
-              <li>Gravity On, IsKinematic On
-                <ul>
-                <li>Is Kinematic cancels out Gravity
-                </li></ul>
-              </li>
-              <li>Gravity Off, Is Kinematic On
-                <ul>
-                <li>Acts as static, but is real collision
-                </li></ul>
-              </li></ul>
-            </li></ul>
-          </li></ul>
-        </div>
-      </details>
-      <!-- Section 10.4: Collision and Physics: SHORTCUT (source slide 39) -->
-      <details class="accordion">
-        <summary>Collision and Physics: SHORTCUT</summary>
-        <div class="accordion-body">
-          <p>This is true Collision Detection, not Triggering</p>
-          <h3>Shortcut</h3>
-          <ul>
-          <li>Kinematic RB Trigger Colliders - transformed to move
-          </li>
-          <li>True RB - Addforce
-          </li></ul>
-          <p>Movement Scripting</p>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">14</span></div>
-      </div>
-      <div class="keyboard-hint">
-        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
-      </div>
-    </div>
-
-    <!-- Slide 11: Collisions and Triggers - Unity Test Project and Demo (source slides 40, 42-43) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Collisions and Triggers - Unity Test Project and Demo</h2>
-        <div class="accordion-scroll">
-      <!-- Section 11.1: Unity Collisions and Triggers Unity Test Project in BB (source slide 40, 42) -->
-      <details class="accordion" open>
-        <summary>Unity Collisions and Triggers Unity Test Project in BB</summary>
-        <div class="accordion-body">
-          <details class="accordion accordion--nested embed-accordion">
-            <summary>Video: Unity 3d: Collisions, Triggers, Rigidbodies, and Kinematics</summary>
-            <div class="accordion-body">
-              <article class="embed-card">
-                <iframe class="video-embed" src="https://www.youtube.com/embed/WFkbqdo2OI4" title="Unity 3d: Collisions, Triggers, Rigidbodies, and Kinematics video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <p><a href="https://www.youtube.com/watch?v=WFkbqdo2OI4" target="_blank" rel="noopener noreferrer">Open source link</a></p>
-              </article>
+                <li>Collider
+                  <ul>
+                    <li>Simple invisible shape that represents the object in the physics engine – can be a box, sphere, capsule or the whole mesh (Mesh Collider).</li>
+                  </ul>
+                </li>
+                <li>Rigidbody
+                  <ul>
+                    <li>Under Unity’s physics engine; affected by gravity.</li>
+                    <li>Reacts to collisions with other objects that have colliders.</li>
+                    <li>A collider with no Rigidbody is a static collider.</li>
+                  </ul>
+                </li>
+                <li>Kinematic Rigidbody
+                  <ul>
+                    <li>Does not move unless moved by animation or script.</li>
+                    <li>Other objects with Rigidbodies react to it if both have colliders.</li>
+                  </ul>
+                </li>
+                <li>Triggers
+                  <ul>
+                    <li>A collider with <strong>Is Trigger</strong> enabled detects overlaps without blocking movement, and sends <code>OnTrigger</code> messages – for example to play an animation, open a door or collect an item.</li>
+                  </ul>
+                </li>
+              </ul>
+              <details class="accordion accordion--nested embed-accordion">
+                <summary>Video: Rigidbody and Collisions | Unity Tutorial</summary>
+                <div class="accordion-body">
+                  <article class="embed-card">
+                    <iframe class="video-embed" src="https://www.youtube.com/embed/rXYjB0kdf-U" title="Rigidbody and Collisions | Unity Tutorial video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <p><a href="https://www.youtube.com/watch?v=rXYjB0kdf-U" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+                  </article>
+                </div>
+              </details>
             </div>
           </details>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-08-input-movement-collision_slide42_image0.png" class="accordion-image" alt="CollisionTester script with OnCollisionEnter, OnTriggerEnter and FixedUpdate movement" style="--accordion-image-width: 80%;" />
-          </div>
-        </div>
-      </details>
-      <!-- Section 11.2: Demo (source slide 43) -->
-      <details class="accordion">
-        <summary>Demo</summary>
-        <div class="accordion-body">
-          <h3>Demo:</h3>
-          <ul>
-          <li>Make Cube and Sphere - have colliders - play - nothing, can move, but is bad (unoptimised) essentially static, even if not ticked
-          </li>
-          <li>RB on ball - real and physical - gravity and Collision with cube - physics engine - may just need trigger
-          </li>
-          <li>Add script to both - 90% just need triggers
-          </li>
-          <li>Collision or trigger notifies both objects
-          </li>
-          <li>Collision: When True RB hits collider (not trigger)
-          </li>
-          <li>Try box with and without IsTrigger and look at console
-          </li>
-          <li>Turn box non-static (RB) - add RB, has gravity, will fall - turn off gravity - then collision moves it
-          </li>
-          <li>Turn Box into IsKinematic - Box not moved - IsKinematic (may be moved - no Physics) vs Static (will never move - 0ptimised)
-          </li>
-          <li>Turn Sphere to IsKinematic - no movement, but dragging - they do not affect each other
-          </li>
-          <li>IsKinematic RB with IsTrigger
-          </li></ul>
-        </div>
-      </details>
+          <!-- Section 5.3: Dynamic, kinematic and static bodies (source slides 18-19, 21) -->
+          <details class="accordion">
+            <summary>Dynamic, kinematic and static bodies</summary>
+            <div class="accordion-body">
+              <p>In 3D, the <strong>Is Kinematic</strong> checkbox on the Rigidbody chooses between dynamic and kinematic; a collider with no Rigidbody is static. (Rigidbody 2D offers the same three choices as its <strong>Body Type</strong> setting.)</p>
+              <ul>
+                <li><strong>Dynamic</strong> (Is Kinematic off): moves under simulation and is affected by forces such as gravity and collisions.</li>
+                <li><strong>Kinematic</strong> (Is Kinematic on): moves only when script or animation moves it; it isn’t affected by forces, gravity or collisions, but it can push dynamic bodies.</li>
+                <li><strong>Static</strong> (collider, no Rigidbody): doesn’t move under simulation.</li>
+              </ul>
+              <h3>isKinematic</h3>
+              <p>Controls whether physics affects the Rigidbody. If isKinematic is enabled, forces, collisions or joints will no longer affect the Rigidbody; it is under full control of animation or script (preferably <code>Rigidbody.MovePosition</code>, slide 6). Kinematic Rigidbodies still affect the motion of other, dynamic Rigidbodies through collisions.</p>
+              <p>Tutorial 02–03 uses a dynamic (non-kinematic) Rigidbody: collisions and gravity apply, but the object is moved directly through its Transform (slide 4).</p>
+              <div class="assessment-table-wrap">
+                <table class="assessment-table">
+                  <thead>
+                    <tr>
+                      <th>Feature</th>
+                      <th>Kinematic Transform</th>
+                      <th>Non-Kinematic (Dynamic) Transform</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Movement Control</td>
+                      <td>Application-controlled; motion is manually calculated and applied.</td>
+                      <td>Physics-engine controlled; motion is the result of forces and collisions.</td>
+                    </tr>
+                    <tr>
+                      <td>Forces &amp; Gravity</td>
+                      <td>Ignored by default; must be manually implemented if desired.</td>
+                      <td>Actively responded to, including gravity.</td>
+                    </tr>
+                    <tr>
+                      <td>Collisions</td>
+                      <td>Must be manually handled by the user; does not automatically calculate movement adjustments.</td>
+                      <td>Automatically detected and responded to by the physics engine.</td>
+                    </tr>
+                    <tr>
+                      <td>Use Cases</td>
+                      <td>Moving characters driven by animation, player-controlled objects, or objects that need predictable, non-physics-based movement.</td>
+                      <td>Objects that should be affected by the world, like falling blocks, rolling balls, or any object influenced by physics.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p><a href="https://docs.unity3d.com/ScriptReference/Rigidbody-isKinematic.html" target="_blank" rel="noopener noreferrer">Rigidbody.isKinematic scripting reference</a></p>
+            </div>
+          </details>
         </div>
       </div>
       <div class="slide-controls">
         <button class="slide-button" data-slide-step="-1"> ← Previous</button>
         <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-11">11</span> / <span id="total-slides">14</span></div>
+        <div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">11</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 12: Raycasting and Input Widgets (source slides 44, 47-48) -->
+    <!-- Slide 6: Moving with physics: FixedUpdate, AddForce, velocity and MovePosition (source slides 24-27, 41) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content slide-content-accordion">
-        <h2>Raycasting and Input Widgets</h2>
+        <h2>Moving with physics: FixedUpdate, AddForce, velocity and MovePosition</h2>
         <div class="accordion-scroll">
-      <!-- Section 12.1: Unity Scripted Movement (Not Animation Trigger) (source slide 47) -->
-      <details class="accordion" open>
-        <summary>Unity Scripted Movement (Not Animation Trigger)</summary>
-        <div class="accordion-body">
-          <h3>Raycast/Linecast:</h3>
-          <p>Tracks the mouse in 2D screen so we can have 3D transforms that relate.</p>
-        </div>
-      </details>
-      <!-- Section 12.2: More C# and Unity3D – Raycasting (tutorial 2) (source slide 48) -->
-      <details class="accordion">
-        <summary>More C# and Unity3D – Raycasting (tutorial 2)</summary>
-        <div class="accordion-body">
-          <p>Casts a ray, from point origin, in direction direction, of length maxDistance, against all colliders in the scene.</p>
-          <p>You may optionally provide a LayerMask, to filter out any Colliders you aren't interested in generating collisions with.</p>
-          <p>Specifying queryTriggerInteraction allows you to control whether or not Trigger colliders generate a hit, or whether to use the global Physics.queriesHitTriggers setting.</p>
-          <p>This example creates a simple Raycast, projecting forwards from the position of the object's current position, extending for 10 units.</p>
-          <section class="code-panel code-panel--compact" data-code-type="code">
-            <div class="code-panel__chrome">
-              <div class="code-panel__dots">
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
+          <!-- Section 6.1: Update vs FixedUpdate (source slide 24) -->
+          <details class="accordion" open>
+            <summary>Update vs FixedUpdate</summary>
+            <div class="accordion-body">
+              <h3>Update</h3>
+              <p>Update is called once per frame, so if the game is running at 24 fps it is called 24 times a second. Games never run at a constant frame rate, so the time between Update calls varies.</p>
+              <ul>
+                <li>Update is used for moving non-physics objects.</li>
+                <li>Update is used for receiving input.</li>
+                <li>Update is used for simple timers.</li>
+              </ul>
+              <h3>FixedUpdate</h3>
+              <p>As its name suggests, FixedUpdate is called at a fixed time interval (0.02 seconds by default), so the time between two consecutive calls is always the same, unlike Update.</p>
+              <p>It is used for physics-related tasks, such as applying a force to a Rigidbody. Read input in Update, store it in a variable, then apply it to the Rigidbody in FixedUpdate.</p>
+              <p><a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.FixedUpdate.html" target="_blank" rel="noopener noreferrer">MonoBehaviour.FixedUpdate scripting reference</a></p>
+            </div>
+          </details>
+          <!-- Section 6.2: Rule of thumb: which method, called from where (source slide 41) -->
+          <details class="accordion">
+            <summary>Rule of thumb: which method, called from where</summary>
+            <div class="accordion-body">
+              <p>Caveat: static vs kinematic mainly affects how Unity handles physics optimisation.</p>
+              <div class="assessment-table-wrap">
+                <table class="assessment-table">
+                  <thead>
+                    <tr>
+                      <th>Object</th>
+                      <th>Move it with</th>
+                      <th>Call from</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Non-Rigidbody (Transform only)</td>
+                      <td><code>transform.Translate</code>, <code>transform.Rotate</code></td>
+                      <td>Update</td>
+                    </tr>
+                    <tr>
+                      <td>Kinematic Rigidbody</td>
+                      <td><code>Rigidbody.MovePosition</code>, <code>Rigidbody.MoveRotation</code></td>
+                      <td>FixedUpdate</td>
+                    </tr>
+                    <tr>
+                      <td>Dynamic (non-kinematic) Rigidbody</td>
+                      <td><code>Rigidbody.AddForce</code>, <code>Rigidbody.AddTorque</code> (or set its velocity)</td>
+                      <td>FixedUpdate</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <div class="code-panel__title">ExampleClass.cs</div>
+              <p>Tutorial 02–03 is the exception: it moves a dynamic Rigidbody with Transform from Update. That works for the exercise, but is not best practice.</p>
             </div>
-            <div class="code-panel__body" role="region" aria-label="ExampleClass.cs">
-              <div class="code-panel__line code-panel__line--statement indent-level-0">using UnityEngine;</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-0">public class ExampleClass : MonoBehaviour</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-1">void FixedUpdate()</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
-              <div class="code-panel__line code-panel__line--code indent-level-2">Vector3 fwd = transform.TransformDirection(Vector3.forward);</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-2">if (Physics.Raycast(transform.position, fwd, 10))</div>
-              <div class="code-panel__line code-panel__line--code indent-level-3">print("There is something in front of the object!");</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+          </details>
+          <!-- Section 6.3: AddForce and velocity (dynamic Rigidbodies) (source slides 25-26) -->
+          <details class="accordion">
+            <summary>AddForce and velocity (dynamic Rigidbodies)</summary>
+            <div class="accordion-body">
+              <p><code>Rigidbody.AddForce</code> moves a dynamic (non-kinematic) Rigidbody that is affected by physics and interacts with other physics objects. Call it from FixedUpdate. Forces are mass dependent unless you use <code>ForceMode.Acceleration</code> or <code>ForceMode.VelocityChange</code>.</p>
+              <section class="code-panel code-panel--compact" data-code-type="code">
+                <div class="code-panel__chrome">
+                  <div class="code-panel__dots">
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                  </div>
+                  <div class="code-panel__title">AddForce</div>
+                </div>
+                <div class="code-panel__body" role="region" aria-label="AddForce">
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">public float thrust = 10f;</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">Rigidbody rb;</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">void Awake() { rb = GetComponent&lt;Rigidbody&gt;(); }</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">void FixedUpdate()</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-1">rb.AddForce(Vector3.forward * thrust);</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+                </div>
+              </section>
+              <h3>Velocity (dynamic Rigidbodies)</h3>
+              <p>Setting the velocity directly gives an immediate, mass-independent speed.</p>
+              <section class="code-panel code-panel--compact" data-code-type="code">
+                <div class="code-panel__chrome">
+                  <div class="code-panel__dots">
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                  </div>
+                  <div class="code-panel__title">Velocity</div>
+                </div>
+                <div class="code-panel__body" role="region" aria-label="Velocity">
+                  <div class="code-panel__line code-panel__line--comment indent-level-0">// Unity 6</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-0">rb.linearVelocity = new Vector3(0, 0, 5);</div>
+                  <div class="code-panel__line code-panel__line--comment indent-level-0">// Unity 2022.3 and earlier</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-0">rb.velocity = new Vector3(0, 0, 5);</div>
+                </div>
+              </section>
+              <p>Kinematic Rigidbodies are not moved by physics, so they cannot be given a velocity; move them with <code>MovePosition</code> instead (Section 6.4).</p>
+              <details class="accordion accordion--nested">
+                <summary>Unity Scripting API references</summary>
+                <div class="accordion-body">
+                  <ul>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/Rigidbody.AddForce.html" target="_blank" rel="noopener noreferrer">Rigidbody.AddForce</a></li>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/ForceMode.html" target="_blank" rel="noopener noreferrer">ForceMode</a></li>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/Rigidbody-linearVelocity.html" target="_blank" rel="noopener noreferrer">Rigidbody.linearVelocity</a></li>
+                  </ul>
+                </div>
+              </details>
             </div>
-          </section>
-          <p>Unity has raycasting as part of some libraries for input and selection.</p>
-          <details class="accordion accordion--nested">
-            <summary>Unity Scripting API references</summary>
+          </details>
+          <!-- Section 6.4: MovePosition (kinematic Rigidbodies) (source slide 26) -->
+          <details class="accordion">
+            <summary>MovePosition (kinematic Rigidbodies)</summary>
+            <div class="accordion-body">
+              <p><code>Rigidbody.MovePosition</code> moves a kinematic Rigidbody – not affected by physics, but interacting with physics objects – smoothly from FixedUpdate. It can also move a dynamic Rigidbody; you could increase that body’s mass so it isn’t pushed, but that is not ideal – use a kinematic Rigidbody instead.</p>
+              <section class="code-panel code-panel--compact" data-code-type="code">
+                <div class="code-panel__chrome">
+                  <div class="code-panel__dots">
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                  </div>
+                  <div class="code-panel__title">MovePosition</div>
+                </div>
+                <div class="code-panel__body" role="region" aria-label="MovePosition">
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">public Vector3 velocity = new Vector3(0f, 0f, 2f);</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">Rigidbody rb;</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">void Awake() { rb = GetComponent&lt;Rigidbody&gt;(); }</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">void FixedUpdate()</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-1">rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+                </div>
+              </section>
+              <p><a href="https://docs.unity3d.com/ScriptReference/Rigidbody.MovePosition.html" target="_blank" rel="noopener noreferrer">Rigidbody.MovePosition scripting reference</a></p>
+              <p><a href="https://answers.unity.com/questions/279815/how-to-move-a-kinematic-rigidbody-smoothly.html" target="_blank" rel="noopener noreferrer">Unity Discussions: How to move a kinematic Rigidbody smoothly</a></p>
+            </div>
+          </details>
+          <!-- Section 6.5: Forces and physics with a character (source slide 27) -->
+          <details class="accordion">
+            <summary>Forces and physics with a character</summary>
+            <div class="accordion-body">
+              <p>Kinematic Rigidbodies pass through other kinematic Rigidbodies and static colliders without being stopped (they are not affected by forces or momentum), and by default they send no collision messages for those contacts (see Contact Pairs Mode, Section 9.3). They do detect collisions and triggers with dynamic (non-kinematic) Rigidbodies.</p>
+              <p>If you need an object to collide with other objects but not be affected by physics forces, either use an existing Character Controller, or use a kinematic Rigidbody and code a custom collision resolution for it.</p>
+              <p>A physics-based controller is not usually ideal for a character controller, as seen in this week’s Unity example.</p>
+              <p><a href="https://forum.unity.com/threads/collision-detection-for-kinematic-rigidbodies.885778/" target="_blank" rel="noopener noreferrer">Unity Discussions: Collision detection for kinematic Rigidbodies</a></p>
+              <p><a href="https://answers.unity.com/questions/1753152/kinematic-rigidbody-does-not-collide-with-wall-whe.html" target="_blank" rel="noopener noreferrer">Unity Discussions: Kinematic Rigidbody does not collide with wall</a></p>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">11</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 7: Controllers: dynamic, kinematic and non-Rigidbody (source slides 20, 28-29) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Controllers: dynamic, kinematic and non-Rigidbody</h2>
+        <div class="accordion-scroll">
+          <!-- Section 7.1: Controller types (source slide 28) -->
+          <details class="accordion" open>
+            <summary>Controller types</summary>
+            <div class="accordion-body">
+              <h3>Dynamic Rigidbody (non‑kinematic) Controllers:</h3>
+              <p>Physics‑driven objects. Movement via forces/impulses/velocity. Fully simulated by the physics engine; realistic reactions to collisions, gravity, stacking.</p>
+              <h3>Kinematic Rigidbody Controllers:</h3>
+              <p>Script‑driven motion with a Rigidbody present but not simulated by forces. It can move other dynamic bodies but is not itself pushed by physics. Use for predictable moving objects that still need physical interactions.</p>
+              <h3>Non‑Rigidbody Controllers:</h3>
+              <p>Movement via Transform, CharacterController, or NavMeshAgent. Not physics‑simulated. Good for precise control, pathing, or decorative movement; requires special handling to interact with physics.</p>
+            </div>
+          </details>
+          <!-- Section 7.2: Controller chart: non-Rigidbody, dynamic, kinematic and static (source slide 20) -->
+          <details class="accordion">
+            <summary>Controller chart: non-Rigidbody, dynamic, kinematic and static</summary>
+            <div class="accordion-body">
+              <p><a href="https://github.com/Module-Code/Controllers/tree/main" target="_blank" rel="noopener noreferrer">Chart – non-RB, RB vs Dynamic, Kinematic and Static (Module-Code/Controllers on GitHub)</a></p>
+              <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 60%; flex-direction: column; gap: 0;">
+                <img src="images/lect-08-input-movement-collision_slide20_image0.png" class="accordion-image" alt="Controller chart part 1: controller types, movement approaches and rules of thumb" style="--accordion-image-width: 100%; display: block; margin: 0; border-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0;" />
+                <img src="images/lect-08-input-movement-collision_slide20_image1.png" class="accordion-image" alt="Controller chart part 2: kinematic and dynamic rigidbody movement approaches and rules of thumb" style="--accordion-image-width: 98%; display: block; margin: 0; border-top: 0; border-top-left-radius: 0; border-top-right-radius: 0;" />
+              </div>
+            </div>
+          </details>
+          <!-- Section 7.3: Unity Controller Matrix project and sheet (Blackboard) (source slides 29-30) -->
+          <details class="accordion">
+            <summary>Unity Controller Matrix project and sheet (Blackboard)</summary>
+            <div class="accordion-body">
+              <h3>Static</h3>
+              <p>Static Collider – Collider, no Rigidbody</p>
+              <p>This is a GameObject that has a collider but no Rigidbody. Static colliders are used for level geometry which always stays at the same place and never moves around. Incoming rigidbody objects will collide with the static collider but will not move it.</p>
+              <h3>Dynamic Rigidbody Controllers</h3>
+              <p>Rigidbody Collider – Collider, (Dynamic) Non-Kinematic Rigidbody – Tutorial 02–03 control objects</p>
+              <p>This is a GameObject with a collider and a normal, non-kinematic Rigidbody attached. Rigidbody colliders are fully simulated by the physics engine and can react to collisions and forces applied from a script. They can collide with other objects, including static colliders, and are the most commonly used collider configuration in games that use Physics.</p>
+              <h3>Kinematic Rigidbody Controllers</h3>
+              <p>Rigidbody Collider – Collider, Kinematic Rigidbody – best practice control objects, physics controlled</p>
+              <p>This is a GameObject with a collider and a kinematic Rigidbody attached. It can be controlled by animation and scripted transforms. It can collide with other objects (other objects get affected), including static colliders (with some adjustment – see Contact Pairs Mode, Section 9.3).</p>
+              <h3>Non-Rigidbody Controllers – Custom and Unity Controllers</h3>
+              <p>No Rigidbody Collider: custom control code (or Unity’s CharacterController) acts as a wrapper for physics and gravity.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">11</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 8: Colliders and the collision matrix (source slides 30-33, 38) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Colliders and the collision matrix</h2>
+        <div class="accordion-scroll">
+          <!-- Section 8.1: Collider interactions (source slide 30) -->
+          <details class="accordion" open>
+            <summary>Collider interactions</summary>
+            <div class="accordion-body">
+              <p>Colliders interact with each other differently depending on how their Rigidbody components have been configured. The three configurations are described in full in Section 7.3:</p>
+              <ul>
+                <li><strong>Static collider</strong> (no Rigidbody): level geometry that never moves; incoming Rigidbodies collide with it but don’t move it.</li>
+                <li><strong>Dynamic Rigidbody collider</strong>: fully simulated by physics; the most common configuration (Tutorial 02–03 control objects).</li>
+                <li><strong>Kinematic Rigidbody collider</strong>: moved by script or animation; pushes dynamic bodies but isn’t pushed itself.</li>
+              </ul>
+              <p><a href="https://docs.unity3d.com/Manual/collider-types-interaction.html" target="_blank" rel="noopener noreferrer">Unity Manual: Collider interactions</a></p>
+              <!-- Full source text (source slide 30), duplicated in Section 7.3:
+              <h3>Static Collider – Collider, no Rigidbody</h3>
+              <p>This is a GameObject that has a collider but no Rigidbody. Static colliders are used for level geometry which always stays at the same place and never moves around. Incoming rigidbody objects will collide with the static collider but will not move it.</p>
+              <h3>Rigidbody Collider – Collider, (Dynamic) Non-Kinematic Rigidbody – Tut 02-03 control objects</h3>
+              <p>This is a GameObject with a collider and a normal, non-kinematic Rigidbody attached. Rigidbody colliders are fully simulated by the physics engine and can react to collisions and forces applied from a script. They can collide with other objects, including static colliders, and are the most commonly used collider configuration in games that use Physics.</p>
+              <h3>Rigidbody Collider – Collider, Kinematic Rigidbody - best practice control objects, physics controlled</h3>
+              <p>This is a GameObject with a collider and a normal, kinematic Rigidbody attached. They can be controlled by animation and scripted transforms, They can collide with other objects (other objects get affected), including static colliders (with some adjustment)</p>
+              -->
+            </div>
+          </details>
+          <!-- Section 8.2: Kinematic Rigidbody moved by Transform: the sliding door (source slide 31) -->
+          <details class="accordion">
+            <summary>Kinematic Rigidbody moved by Transform: the sliding door</summary>
+            <div class="accordion-body">
+              <h3>Collider + kinematic Rigidbody, moved with Transform methods (.Translate, .Rotate, .MoveTowards, .LookAt)</h3>
+              <p>Not best practice, but it works – like Tutorial 02–03. For physically correct contacts, move it with <code>MovePosition</code>/<code>MoveRotation</code> from FixedUpdate (slide 6).</p>
+              <p>This is a GameObject with a collider and a Rigidbody with Is Kinematic enabled. You can move it from a script by modifying its Transform, but it will not respond to collisions and forces like a non-kinematic Rigidbody.</p>
+              <p>Kinematic Rigidbodies should be used for colliders that can be moved or disabled/enabled occasionally but that should otherwise behave like static colliders. The best example is a sliding door: it normally acts as an immovable physical obstacle, but can be opened when necessary.</p>
+              <p>Unlike a static collider, a moving kinematic Rigidbody will apply friction to other objects and will “wake up” other Rigidbodies when they make contact.</p>
+              <p><a href="https://docs.unity3d.com/Manual/CollidersOverview.html" target="_blank" rel="noopener noreferrer">Unity Manual: Colliders overview</a></p>
+            </div>
+          </details>
+          <!-- Section 8.3: Collision matrix: static, kinematic, Rigidbody and trigger colliders (source slides 32-33) -->
+          <details class="accordion">
+            <summary>Collision matrix: static, kinematic, Rigidbody and trigger colliders</summary>
+            <div class="accordion-body">
+              <p>Use these tables to check whether a pair of colliders sends collision messages, trigger messages, or neither.</p>
+              <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+                <img src="images/lect-08-input-movement-collision_slide32_image0.png" class="accordion-image" alt="Unity collision action matrix: when collision detection and trigger messages are sent for each collider type pair" style="--accordion-image-width: 100%;" />
+              </div>
+              <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+                <img src="images/lect-08-input-movement-collision_slide33_image0.jpeg" class="accordion-image" alt="Collision matrix of Static, Rigidbody, Kinematic Rigidbody and Trigger colliders with Yes/No results" style="--accordion-image-width: 80%;" />
+              </div>
+            </div>
+          </details>
+          <!-- Section 8.4: Rigidbody settings: Use Gravity and Is Kinematic (source slide 38) -->
+          <details class="accordion">
+            <summary>Rigidbody settings: Use Gravity and Is Kinematic</summary>
+            <div class="accordion-body">
+              <p>How a Rigidbody with a collider behaves for collisions (<code>OnCollisionEnter(Collision col)</code>) with each combination:</p>
+              <div class="assessment-table-wrap">
+                <table class="assessment-table">
+                  <thead>
+                    <tr>
+                      <th>Use Gravity</th>
+                      <th>Is Kinematic</th>
+                      <th>Result</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>On</td>
+                      <td>Off</td>
+                      <td>Will fall; reacts to forces and collisions.</td>
+                    </tr>
+                    <tr>
+                      <td>Off</td>
+                      <td>Off</td>
+                      <td>Acts as static, but forces and collisions still affect it.</td>
+                    </tr>
+                    <tr>
+                      <td>On</td>
+                      <td>On</td>
+                      <td>Is Kinematic cancels out gravity; may be moved by script or animation, but is not affected by forces.</td>
+                    </tr>
+                    <tr>
+                      <td>Off</td>
+                      <td>On</td>
+                      <td>Acts as static, but is a real collision for dynamic Rigidbodies that hit it.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>Compared with a kinematic Rigidbody, a static collider (no Rigidbody) is not calculated for – it is optimised for geometry that never moves.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
+        <button class="slide-button" data-slide-step="1">Next → </button>
+        <div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">11</span></div>
+      </div>
+      <div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+    </div>
+
+    <!-- Slide 9: Collision and trigger events (source slides 34-37, 39-40, 42-43) -->
+    <div class="slide">
+      <div class="slide-title">3D Interactive Media Development</div>
+      <div class="slide-content slide-content-accordion">
+        <h2>Collision and trigger events</h2>
+        <div class="accordion-scroll">
+          <!-- Section 9.1: Collision and trigger messages (source slide 34) -->
+          <details class="accordion" open>
+            <summary>Collision and trigger messages</summary>
+            <div class="accordion-body">
+              <p>When collisions occur, the physics engine calls functions with specific names on any scripts attached to the objects involved. You implement your code logic in these functions to respond to the collision event.</p>
+              <ul>
+                <li>On the first physics update where the collision is detected, <code>OnCollisionEnter()</code> is called.</li>
+                <li>During updates where contact is maintained, <code>OnCollisionStay()</code> is called.</li>
+                <li>Finally, <code>OnCollisionExit()</code> is called, indicating that contact has been broken.</li>
+                <li>Trigger colliders call the analogous <code>OnTriggerEnter()</code>, <code>OnTriggerStay()</code> and <code>OnTriggerExit()</code> functions.</li>
+              </ul>
+              <section class="code-panel code-panel--compact" data-code-type="code">
+                <div class="code-panel__chrome">
+                  <div class="code-panel__dots">
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                  </div>
+                  <div class="code-panel__title">CollisionMessages.cs</div>
+                </div>
+                <div class="code-panel__body" role="region" aria-label="CollisionMessages.cs">
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">void OnCollisionEnter(Collision collision)</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-1">Debug.Log("Hit " + collision.gameObject.name);</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">void OnTriggerEnter(Collider other)</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-1">Debug.Log("Entered " + other.name);</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+                </div>
+              </section>
+              <details class="accordion accordion--nested embed-accordion">
+                <summary>Video: Detecting Collisions on Kinematic Rigidbodies</summary>
+                <div class="accordion-body">
+                  <article class="embed-card">
+                    <iframe class="video-embed" src="https://www.youtube.com/embed/-osaSS9L-fs" title="Detecting Collisions on Kinematic Rigidbodies video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <p><a href="https://www.youtube.com/watch?v=-osaSS9L-fs" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+                  </article>
+                </div>
+              </details>
+              <details class="accordion accordion--nested">
+                <summary>Unity Scripting API references</summary>
+                <div class="accordion-body">
+                  <ul>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/Collider.OnCollisionEnter.html" target="_blank" rel="noopener noreferrer">Collider.OnCollisionEnter</a></li>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/Collider.OnTriggerEnter.html" target="_blank" rel="noopener noreferrer">Collider.OnTriggerEnter</a></li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </details>
+          <!-- Section 9.2: Collision or trigger? What each needs (source slides 36-37, 39) -->
+          <details class="accordion">
+            <summary>Collision or trigger? What each needs</summary>
+            <div class="accordion-body">
+              <h3>Collision detection: <code>OnCollisionEnter(Collision col)</code></h3>
+              <p>True collision detection – solid objects that stop each other – as opposed to triggering.</p>
+              <ul>
+                <li>Both objects need colliders with <strong>Is Trigger</strong> off – this makes them solid.</li>
+                <li>At least one object needs a Rigidbody:
+                  <ul>
+                    <li>a true (dynamic) Rigidbody should only move by forces – the ideal situation;</li>
+                    <li>an Is Kinematic Rigidbody, or an object with no Rigidbody, can use movement scripting.</li>
+                  </ul>
+                </li>
+              </ul>
+              <h3>Trigger detection: <code>OnTriggerEnter(Collider other)</code></h3>
+              <ul>
+                <li>At least one of the colliders has <strong>Is Trigger</strong> on – objects pass through each other.</li>
+                <li>At least one object needs a Rigidbody (a kinematic Rigidbody is fine).</li>
+              </ul>
+              <h3>Shortcut</h3>
+              <ul>
+                <li>Triggers: kinematic Rigidbody trigger colliders, moved by Transform (movement scripting).</li>
+                <li>Collisions: a true (dynamic) Rigidbody, moved with AddForce.</li>
+              </ul>
+            </div>
+          </details>
+          <!-- Section 9.3: Kinematic collisions: Contact Pairs Mode (source slide 35) -->
+          <details class="accordion">
+            <summary>Kinematic collisions: Contact Pairs Mode</summary>
+            <div class="accordion-body">
+              <p>By default, kinematic Rigidbodies send no collision messages when they touch static colliders or other kinematic Rigidbodies. If you need your moving kinematic colliders to report physically correct contacts:</p>
+              <ul>
+                <li>Set <strong>Project Settings &gt; Physics &gt; Contact Pairs Mode</strong> to <strong>Enable All Contact Pairs</strong> (or Enable Kinematic Kinematic Pairs / Enable Kinematic Static Pairs).</li>
+                <li>Move your kinematic bodies using <code>Rigidbody.MovePosition</code> and <code>Rigidbody.MoveRotation</code> from FixedUpdate.</li>
+                <li>Collision events (OnCollisionEnter, etc.) will then happen as they do for standard Rigidbodies – see the video in Section 9.1.</li>
+              </ul>
+              <ul>
+                <li>Use FixedUpdate to get correct physics collisions, whether or not it moves the object.</li>
+                <li>Use <code>Rigidbody.AddForce</code>, or <code>Rigidbody.MovePosition</code> and <code>Rigidbody.MoveRotation</code>, within FixedUpdate – rather than Transform movement as in Tutorial 02–03.</li>
+              </ul>
+              <p><a href="https://docs.unity3d.com/Manual/class-PhysicsManager.html" target="_blank" rel="noopener noreferrer">Unity Manual: Physics settings (Contact Pairs Mode)</a></p>
+              <p><a href="https://docs.unity3d.com/ScriptReference/Rigidbody.MoveRotation.html" target="_blank" rel="noopener noreferrer">Rigidbody.MoveRotation scripting reference</a></p>
+              <p><a href="https://answers.unity.com/questions/1730904/object-doesnt-collide-with-wall-using-transformtra.html" target="_blank" rel="noopener noreferrer">Unity Discussions: Object doesn’t collide with wall using Transform.Translate</a></p>
+            </div>
+          </details>
+          <!-- Section 9.4: Unity Collisions and Triggers test project (Blackboard) (source slides 40, 42) -->
+          <details class="accordion">
+            <summary>Unity Collisions and Triggers test project (Blackboard)</summary>
+            <div class="accordion-body">
+              <details class="accordion accordion--nested embed-accordion">
+                <summary>Video: Unity 3d: Collisions, Triggers, Rigidbodies, and Kinematics</summary>
+                <div class="accordion-body">
+                  <article class="embed-card">
+                    <iframe class="video-embed" src="https://www.youtube.com/embed/WFkbqdo2OI4" title="Unity 3d: Collisions, Triggers, Rigidbodies, and Kinematics video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <p><a href="https://www.youtube.com/watch?v=WFkbqdo2OI4" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+                  </article>
+                </div>
+              </details>
+              <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+                <img src="images/lect-08-input-movement-collision_slide42_image0.png" class="accordion-image" alt="CollisionTester script with OnCollisionEnter, OnTriggerEnter and FixedUpdate movement" style="--accordion-image-width: 80%;" />
+              </div>
+            </div>
+          </details>
+          <!-- Section 9.5: Demo (source slide 43) -->
+          <details class="accordion">
+            <summary>Demo</summary>
             <div class="accordion-body">
               <ul>
-                <li><a href="https://docs.unity3d.com/ScriptReference/LayerMask.html" target="_blank" rel="noopener noreferrer">LayerMask</a></li>
-                <li><a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.html" target="_blank" rel="noopener noreferrer">MonoBehaviour</a></li>
-                <li><a href="https://docs.unity3d.com/ScriptReference/Vector3.html" target="_blank" rel="noopener noreferrer">Vector3</a></li>
-                <li><a href="https://docs.unity3d.com/ScriptReference/Vector3-forward.html" target="_blank" rel="noopener noreferrer">Vector3.forward</a></li>
-                <li><a href="https://docs.unity3d.com/ScriptReference/Physics.Raycast.html" target="_blank" rel="noopener noreferrer">Physics.Raycast</a></li>
+                <li>Make a Cube and a Sphere – both have colliders. Play: nothing happens; you can move them, but this is bad (unoptimised) – they are essentially static, even if Static is not ticked.</li>
+                <li>Add a Rigidbody to the ball: real and physical – gravity and collision with the cube via the physics engine. You may just need a trigger.</li>
+                <li>Add a script to both – 90% of the time you just need triggers.</li>
+                <li>A collision or trigger notifies both objects.</li>
+                <li>Collision: when a true Rigidbody hits a collider (not a trigger).</li>
+                <li>Try the box with and without Is Trigger, and look at the Console.</li>
+                <li>Make the box non-static: add a Rigidbody. It has gravity and will fall; turn off gravity, then the collision moves it.</li>
+                <li>Make the box Is Kinematic: the box is not moved. Is Kinematic (may be moved – no physics) vs static (will never move – optimised).</li>
+                <li>Make the sphere Is Kinematic too: no movement, but when dragged they do not affect each other.</li>
+                <li>Try an Is Kinematic Rigidbody with Is Trigger.</li>
               </ul>
             </div>
           </details>
         </div>
-      </details>
-      <!-- Section 12.3: Unity Scripted Movement (Can be Animation Trigger) (source slide 44) -->
-      <details class="accordion">
-        <summary>Unity Scripted Movement (Can be Animation Trigger)</summary>
-        <div class="accordion-body">
-          <h3>Widgets (Android 2d joystick)</h3>
-          <p>2D widgets for 2D and 3D</p>
-          <p>https://software.intel.com/en-us/articles/unity-3d-touch-gui-widgets</p>
-          <p>Full 3d widget with rotate, trans (and scale?) This is advanced….</p>
-          <h3>2D Touch Joystick</h3>
-          <details class="accordion accordion--nested embed-accordion">
-            <summary>Video: Unity 5 Mobile Joysticks Tutorial - Touch Input 2D Spaceship Controller</summary>
-            <div class="accordion-body">
-              <article class="embed-card">
-                <iframe class="video-embed" src="https://www.youtube.com/embed/nGYObojmkO4?start=3" title="Unity 5 Mobile Joysticks Tutorial - Touch Input 2D Spaceship Controller video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <p><a href="https://www.youtube.com/watch?v=nGYObojmkO4&amp;t=3s" target="_blank" rel="noopener noreferrer">Open source link</a></p>
-              </article>
-            </div>
-          </details>
-          <h3>Gimbals</h3>
-          <p>3d Gimbal - Simple version can be buttons or sliders in 3D World with Objects</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-08-input-movement-collision_slide44_image0.jpeg" class="accordion-image" alt="Unity 4.6 touch joystick widget demo" style="--accordion-image-width: 60%;" />
-          </div>
-        </div>
-      </details>
-        </div>
       </div>
       <div class="slide-controls">
         <button class="slide-button" data-slide-step="-1"> ← Previous</button>
         <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-12">12</span> / <span id="total-slides">14</span></div>
+        <div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">11</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 13: Lerp, MoveTowards and LookAt (source slides 49-54) -->
+    <!-- Slide 10: Raycasting, Lerp, MoveTowards and LookAt (source slides 47-54) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content slide-content-accordion">
-        <h2>Lerp, MoveTowards and LookAt</h2>
+        <h2>Raycasting, Lerp, MoveTowards and LookAt</h2>
         <div class="accordion-scroll">
-      <!-- Section 13.1: Lerps, Eases and MoveTowards (source slide 49) -->
-      <details class="accordion" open>
-        <summary>Lerps, Eases and MoveTowards</summary>
-        <div class="accordion-body">
-          <p>Unity Scripted Movement (Not Animation Trigger)</p>
-          <h3>Lerps – Linear increments</h3>
-          <p>https://gamedevbeginner.com/the-right-way-to-lerp-in-unity-with-examples/</p>
-          <p>https://chicounity3d.wordpress.com/2014/05/23/how-to-lerp-like-a-pro/</p>
-          <p>Eases – Lerps can ease</p>
-          <h3>MoveTowards</h3>
-          <details class="accordion accordion--nested embed-accordion">
-            <summary>Video: Unity: Input, Simple Player Movement, and LookAt/MoveTowards</summary>
+          <!-- Section 10.1: Raycasting (Tutorial 02) (source slides 47-48) -->
+          <details class="accordion" open>
+            <summary>Raycasting (Tutorial 02)</summary>
             <div class="accordion-body">
-              <article class="embed-card">
-                <iframe class="video-embed" src="https://www.youtube.com/embed/oXKyqAltCgI" title="Unity: Input, Simple Player Movement, and LookAt/MoveTowards video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <p><a href="https://www.youtube.com/watch?v=oXKyqAltCgI" target="_blank" rel="noopener noreferrer">Open source link</a></p>
-              </article>
+              <h3>Raycast/Linecast:</h3>
+              <p>Tracks the mouse on the 2D screen so we can have 3D transforms that relate to it.</p>
+              <p><code>Physics.Raycast</code> casts a ray from point <code>origin</code>, in direction <code>direction</code>, of length <code>maxDistance</code>, against all colliders in the scene.</p>
+              <p>You may optionally provide a LayerMask to filter out any colliders you aren't interested in generating collisions with.</p>
+              <p>Specifying queryTriggerInteraction allows you to control whether or not trigger colliders generate a hit, or whether to use the global Physics.queriesHitTriggers setting.</p>
+              <p>This example creates a simple raycast, projecting forwards from the object's current position, extending for 10 units.</p>
+              <section class="code-panel code-panel--compact" data-code-type="code">
+                <div class="code-panel__chrome">
+                  <div class="code-panel__dots">
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                  </div>
+                  <div class="code-panel__title">ExampleClass.cs</div>
+                </div>
+                <div class="code-panel__body" role="region" aria-label="ExampleClass.cs">
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">using UnityEngine;</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">public class ExampleClass : MonoBehaviour</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-1">void FixedUpdate()</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-2">Vector3 fwd = transform.TransformDirection(Vector3.forward);</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-2">if (Physics.Raycast(transform.position, fwd, 10))</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-3">print("There is something in front of the object!");</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+                </div>
+              </section>
+              <p>Unity has raycasting as part of some libraries for input and selection.</p>
+              <details class="accordion accordion--nested">
+                <summary>Unity Scripting API references</summary>
+                <div class="accordion-body">
+                  <ul>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/Physics.Raycast.html" target="_blank" rel="noopener noreferrer">Physics.Raycast</a></li>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/LayerMask.html" target="_blank" rel="noopener noreferrer">LayerMask</a></li>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.html" target="_blank" rel="noopener noreferrer">MonoBehaviour</a></li>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/Vector3.html" target="_blank" rel="noopener noreferrer">Vector3</a></li>
+                    <li><a href="https://docs.unity3d.com/ScriptReference/Vector3-forward.html" target="_blank" rel="noopener noreferrer">Vector3.forward</a></li>
+                  </ul>
+                </div>
+              </details>
             </div>
           </details>
-          <ul>
-          <li>All use Transform, Vector3, speed float, and timedeltatime
-          </li>
-          <li>Can wire up to UI Buttons
-          </li>
-          <li>More when we look at camera controls
-          </li></ul>
-        </div>
-      </details>
-      <!-- Section 13.2: Lerp (source slide 50) -->
-      <details class="accordion">
-        <summary>Lerp</summary>
-        <div class="accordion-body">
-          <h3>Lerp</h3>
-          <p>Linearly interpolates between two vectors.</p>
-          <p>Interpolates between the vectors a and b by the interpolant t. The parameter t is clamped to the range [0, 1]. This is most commonly used to find a point some fraction of the way along a line between two endpoints (e.g. to move an object gradually between those points).</p>
-          <p>When t = 0 returns a. When t = 1 returns b. When t = 0.5 returns the point midway between a and b.</p>
-          <p>This is the definitive lerp and easing reference:</p>
-        </div>
-      </details>
-      <!-- Section 13.3: Lerp Practical Example: (source slide 51) -->
-      <details class="accordion">
-        <summary>Lerp Practical Example:</summary>
-        <div class="accordion-body">
-          <h3>Tap to Move:</h3>
-          <section class="code-panel code-panel--compact" data-code-type="code">
-            <div class="code-panel__chrome">
-              <div class="code-panel__dots">
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-              </div>
-              <div class="code-panel__title">Vector3.Lerp</div>
-            </div>
-            <div class="code-panel__body" role="region" aria-label="Vector3.Lerp">
-              <div class="code-panel__line code-panel__line--code indent-level-0">Vector3 from = new Vector3 (1f, 2f, 3f);</div>
-              <div class="code-panel__line code-panel__line--code indent-level-0">Vector3 to = new Vector3 (5f, 6f, 7f);</div>
-              <div class="code-panel__line code-panel__line--comment indent-level-0">// Here result = (4, 5, 6)</div>
-              <div class="code-panel__line code-panel__line--code indent-level-0">Vector3 result = Vector3.Lerp (from, to, 0.75f);</div>
-            </div>
-          </section>
-          <details class="accordion accordion--nested">
-            <summary>References</summary>
+          <!-- Section 10.2: Lerps, eases and MoveTowards (source slide 49) -->
+          <details class="accordion">
+            <summary>Lerps, eases and MoveTowards</summary>
             <div class="accordion-body">
+              <h3>Lerps – linear increments</h3>
+              <p>Eases – lerps can ease.</p>
+              <p><a href="https://gamedevbeginner.com/the-right-way-to-lerp-in-unity-with-examples/" target="_blank" rel="noopener noreferrer">Game Dev Beginner: The right way to Lerp in Unity (with examples)</a></p>
+              <p><a href="https://chicounity3d.wordpress.com/2014/05/23/how-to-lerp-like-a-pro/" target="_blank" rel="noopener noreferrer">Chico Unity3D: How to Lerp like a pro</a></p>
+              <h3>MoveTowards</h3>
+              <details class="accordion accordion--nested embed-accordion">
+                <summary>Video: Unity: Input, Simple Player Movement, and LookAt/MoveTowards</summary>
+                <div class="accordion-body">
+                  <article class="embed-card">
+                    <iframe class="video-embed" src="https://www.youtube.com/embed/oXKyqAltCgI" title="Unity: Input, Simple Player Movement, and LookAt/MoveTowards video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <p><a href="https://www.youtube.com/watch?v=oXKyqAltCgI" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+                  </article>
+                </div>
+              </details>
               <ul>
-                <li><a href="http://docs.unity3d.com/Documentation/ScriptReference/Vector3.Lerp.html" target="_blank" rel="noopener noreferrer">Vector3.Lerp</a></li>
+                <li>All use Transform, Vector3, a speed float and <code>Time.deltaTime</code>.</li>
+                <li>Can be wired up to UI Buttons.</li>
+                <li>More when we look at camera controls.</li>
               </ul>
             </div>
           </details>
-          <details class="accordion accordion--nested">
-            <summary>Notes</summary>
+          <!-- Section 10.3: Lerp (source slides 25, 50-51) -->
+          <details class="accordion">
+            <summary>Lerp</summary>
             <div class="accordion-body">
+              <p>Linearly interpolates between two vectors.</p>
+              <p>Interpolates between the vectors a and b by the interpolant t. The parameter t is clamped to the range [0, 1]. This is most commonly used to find a point some fraction of the way along a line between two endpoints (for example, to move an object gradually between those points).</p>
+              <p>When t = 0 it returns a. When t = 1 it returns b. When t = 0.5 it returns the point midway between a and b.</p>
+              <p>This is the definitive lerp and easing reference: <a href="https://chicounity3d.wordpress.com/2014/05/23/how-to-lerp-like-a-pro/" target="_blank" rel="noopener noreferrer">How to Lerp like a pro</a></p>
+              <h3>Practical example: a point 75% of the way along</h3>
+              <section class="code-panel code-panel--compact" data-code-type="code">
+                <div class="code-panel__chrome">
+                  <div class="code-panel__dots">
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                  </div>
+                  <div class="code-panel__title">Vector3.Lerp</div>
+                </div>
+                <div class="code-panel__body" role="region" aria-label="Vector3.Lerp">
+                  <div class="code-panel__line code-panel__line--code indent-level-0">Vector3 from = new Vector3 (1f, 2f, 3f);</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-0">Vector3 to = new Vector3 (5f, 6f, 7f);</div>
+                  <div class="code-panel__line code-panel__line--comment indent-level-0">// Here result = (4, 5, 6)</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-0">Vector3 result = Vector3.Lerp (from, to, 0.75f);</div>
+                </div>
+              </section>
+              <h3>Smoothing towards a moving target</h3>
+              <section class="code-panel code-panel--compact" data-code-type="code">
+                <div class="code-panel__chrome">
+                  <div class="code-panel__dots">
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                  </div>
+                  <div class="code-panel__title">Lerp smoothing</div>
+                </div>
+                <div class="code-panel__body" role="region" aria-label="Lerp smoothing">
+                  <div class="code-panel__line code-panel__line--code indent-level-0">transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime);</div>
+                </div>
+              </section>
+              <p>This moves a fraction of the remaining distance each frame: a quick ease-out, but its speed depends on frame rate and it never quite arrives. Use the fixed-duration script in Section 10.4 for predictable timing.</p>
+              <p><a href="https://docs.unity3d.com/ScriptReference/Vector3.Lerp.html" target="_blank" rel="noopener noreferrer">Vector3.Lerp scripting reference</a></p>
+              <!-- Tap to Move (source slide 51): this link was unavailable (404) when checked in November 2026.
+              <h3>Tap to Move:</h3>
               <p>http://www.thegamecontriver.com/2014/10/move-to-mouse-click-touch-position-unity.html</p>
+              -->
             </div>
           </details>
-        </div>
-      </details>
-      <!-- Section 13.4: Lerping Script (source slide 49, 52) -->
-      <details class="accordion">
-        <summary>Lerping Script</summary>
-        <div class="accordion-body">
-          <section class="code-panel code-panel--compact" data-code-type="code">
-            <div class="code-panel__chrome">
-              <div class="code-panel__dots">
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-                <span class="code-panel__dot"></span>
-              </div>
-              <div class="code-panel__title">Lerping.cs</div>
+          <!-- Section 10.4: Lerping script (source slides 49, 52) -->
+          <details class="accordion">
+            <summary>Lerping script</summary>
+            <div class="accordion-body">
+              <p>Moves the object up by <code>moveDistance</code> over <code>lerpTime</code> seconds. Press Space to restart.</p>
+              <section class="code-panel code-panel--compact" data-code-type="code">
+                <div class="code-panel__chrome">
+                  <div class="code-panel__dots">
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                  </div>
+                  <div class="code-panel__title">Lerping.cs</div>
+                </div>
+                <div class="code-panel__body" role="region" aria-label="Lerping.cs">
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">using System.Collections;</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">using System.Collections.Generic;</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">using UnityEngine;</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-0">public class Lerping : MonoBehaviour</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-1">float lerpTime = 1f;</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-1">float currentLerpTime;</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-1">float moveDistance = 1f;</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-1">Vector3 startPos;</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-1">Vector3 endPos;</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-1">protected void Start()</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-2">startPos = transform.position;</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-2">endPos = transform.position + transform.up * moveDistance;</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-1">protected void Update()</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
+                  <div class="code-panel__line code-panel__line--comment indent-level-2">//reset when we press spacebar</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-2">if (Input.GetKeyDown(KeyCode.Space))</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-2">{</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-3">currentLerpTime = 0f;</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
+                  <div class="code-panel__line code-panel__line--comment indent-level-2">//increment timer once per frame</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-2">currentLerpTime += Time.deltaTime;</div>
+                  <div class="code-panel__line code-panel__line--statement indent-level-2">if (currentLerpTime &gt; lerpTime)</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-2">{</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-3">currentLerpTime = lerpTime;</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
+                  <div class="code-panel__line code-panel__line--comment indent-level-2">//lerp!</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-2">float perc = currentLerpTime / lerpTime;</div>
+                  <div class="code-panel__line code-panel__line--code indent-level-2">transform.position = Vector3.Lerp(startPos, endPos, perc);</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
+                  <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+                </div>
+              </section>
             </div>
-            <div class="code-panel__body" role="region" aria-label="Lerping.cs">
-              <div class="code-panel__line code-panel__line--statement indent-level-0">using System.Collections;</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-0">using System.Collections.Generic;</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-0">using UnityEngine;</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-0">public class Lerping : MonoBehaviour</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
-              <div class="code-panel__line code-panel__line--code indent-level-1">float lerpTime = 1f;</div>
-              <div class="code-panel__line code-panel__line--code indent-level-1">float currentLerpTime;</div>
-              <div class="code-panel__line code-panel__line--code indent-level-1">float moveDistance = 1f;</div>
-              <div class="code-panel__line code-panel__line--code indent-level-1">Vector3 startPos;</div>
-              <div class="code-panel__line code-panel__line--code indent-level-1">Vector3 endPos;</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-1">protected void Start()</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
-              <div class="code-panel__line code-panel__line--code indent-level-2">startPos = transform.position;</div>
-              <div class="code-panel__line code-panel__line--code indent-level-2">endPos = transform.position + transform.up * moveDistance;</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-1">protected void Update()</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-1">{</div>
-              <div class="code-panel__line code-panel__line--comment indent-level-2">//reset when we press spacebar</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-2">if (Input.GetKeyDown(KeyCode.Space))</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-2">{</div>
-              <div class="code-panel__line code-panel__line--code indent-level-3">currentLerpTime = 0f;</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
-              <div class="code-panel__line code-panel__line--comment indent-level-2">//increment timer once per frame</div>
-              <div class="code-panel__line code-panel__line--code indent-level-2">currentLerpTime += Time.deltaTime;</div>
-              <div class="code-panel__line code-panel__line--statement indent-level-2">if (currentLerpTime &gt; lerpTime)</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-2">{</div>
-              <div class="code-panel__line code-panel__line--code indent-level-3">currentLerpTime = lerpTime;</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-2">}</div>
-              <div class="code-panel__line code-panel__line--comment indent-level-2">//lerp!</div>
-              <div class="code-panel__line code-panel__line--code indent-level-2">float perc = currentLerpTime / lerpTime;</div>
-              <div class="code-panel__line code-panel__line--code indent-level-2">transform.position = Vector3.Lerp(startPos, endPos, perc);</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-1">}</div>
-              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+          </details>
+          <!-- Section 10.5: MoveTowards (source slide 53) -->
+          <details class="accordion">
+            <summary>MoveTowards</summary>
+            <div class="accordion-body">
+              <p>Moves a point <code>current</code> in a straight line towards a <code>target</code> point.</p>
+              <p>The value returned is a point <code>maxDistanceDelta</code> units closer to the target, along the line between current and target. If the target is closer than <code>maxDistanceDelta</code>, the returned value equals the target (the movement will not overshoot the target). Negative values of <code>maxDistanceDelta</code> push the point away from the target.</p>
+              <section class="code-panel code-panel--compact" data-code-type="code">
+                <div class="code-panel__chrome">
+                  <div class="code-panel__dots">
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                  </div>
+                  <div class="code-panel__title">MoveTowards</div>
+                </div>
+                <div class="code-panel__body" role="region" aria-label="MoveTowards">
+                  <div class="code-panel__line code-panel__line--code indent-level-0">transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);</div>
+                </div>
+              </section>
+              <p><a href="https://docs.unity3d.com/ScriptReference/Vector3.MoveTowards.html" target="_blank" rel="noopener noreferrer">Vector3.MoveTowards scripting reference</a></p>
             </div>
-          </section>
-        </div>
-      </details>
-      <!-- Section 13.5: MoveTowards (source slide 53) -->
-      <details class="accordion">
-        <summary>MoveTowards</summary>
-        <div class="accordion-body">
-          <p>Moves a point current in a straight line towards a target point.</p>
-          <p>The value returned by this function is a point maxDistanceDelta units closer to a target/ point along a line between current and target. If the target is closer than maxDistanceDelta/ then the returned value will be equal to target (ie, the movement will not overshoot the target). Negative values of maxDistanceDelta can be used to push the point away from the target.</p>
-          <p>https://docs.unity3d.com/ScriptReference/Vector3.MoveTowards.html</p>
-        </div>
-      </details>
-      <!-- Section 13.6: Look At (source slide 54) -->
-      <details class="accordion">
-        <summary>Look At</summary>
-        <div class="accordion-body">
-          <p>Handles rotation orientation and camera interest animation to object</p>
-          <p>https://unity3d.com/learn/tutorials/topics/scripting/look?playlist=17117</p>
-          <p>https://docs.unity3d.com/ScriptReference/Transform.LookAt.html</p>
-          <p>https://docs.unity3d.com/ScriptReference/Vector3.Distance.html</p>
-          <p>Will be useful in Waypoint Cameras with swapped out targets</p>
-        </div>
-      </details>
+          </details>
+          <!-- Section 10.6: LookAt (source slide 54) -->
+          <details class="accordion">
+            <summary>LookAt</summary>
+            <div class="accordion-body">
+              <p>Handles rotation orientation and camera-interest animation towards an object.</p>
+              <section class="code-panel code-panel--compact" data-code-type="code">
+                <div class="code-panel__chrome">
+                  <div class="code-panel__dots">
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                    <span class="code-panel__dot"></span>
+                  </div>
+                  <div class="code-panel__title">LookAt</div>
+                </div>
+                <div class="code-panel__body" role="region" aria-label="LookAt">
+                  <div class="code-panel__line code-panel__line--code indent-level-0">transform.LookAt(target);</div>
+                </div>
+              </section>
+              <p>Will be useful in waypoint cameras with swapped-out targets.</p>
+              <ul>
+                <li><a href="https://learn.unity.com/tutorial/look-at-s" target="_blank" rel="noopener noreferrer">Unity Learn: Look At</a></li>
+                <li><a href="https://docs.unity3d.com/ScriptReference/Transform.LookAt.html" target="_blank" rel="noopener noreferrer">Transform.LookAt</a></li>
+                <li><a href="https://docs.unity3d.com/ScriptReference/Vector3.Distance.html" target="_blank" rel="noopener noreferrer">Vector3.Distance</a></li>
+              </ul>
+            </div>
+          </details>
         </div>
       </div>
       <div class="slide-controls">
         <button class="slide-button" data-slide-step="-1"> ← Previous</button>
         <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-13">13</span> / <span id="total-slides">14</span></div>
+        <div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">11</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
     </div>
 
-    <!-- Slide 14: CW1 and Next Steps (source slides 45-46, 55) -->
+    <!-- Slide 11: Apply and review: CW1, next steps and resources (source slides 44-46, 55, plus added review sections) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content slide-content-accordion">
-        <h2>CW1 and Next Steps</h2>
+        <h2>Apply and review: CW1, next steps and resources</h2>
         <div class="accordion-scroll">
-      <!-- Section 14.1: CW1 (source slide 45, 46) -->
-      <details class="accordion" open>
-        <summary>CW1</summary>
-        <div class="accordion-body">
-          <ul>
-          <li>Unity scene with all student work via github or package import/export
-          </li>
-          <li>Extras assets and interactions towards CW2
-          </li>
-          <li>All 3 video files
-          </li>
-          <li>Individual reports
-          </li>
-          <li>Group report
-          </li>
-          <li>Any group planning material
-          </li>
-          <li>FOLLOW NAMING CONVENTION
-          </li></ul>
-          <h3>Tutorial</h3>
-          <ul>
-          <li>Controllers Project Example
-          </li>
-          <li>Rigidbody Matrix Project Example
-          </li>
-          <li>Map out your CW2 Interaction needs
-          </li></ul>
-        </div>
-      </details>
-      <!-- Section 14.2: Unity Input and Movement (source slide 55) -->
-      <details class="accordion">
-        <summary>Unity Input and Movement</summary>
-        <div class="accordion-body">
-          <p>Input and Movement – Seen with Week 2 and Noor tutorials – week 7</p>
-          <h3>Try adding Animation Movement Scripting:</h3>
-          <ul>
-          <li>Unity UI and movement scripting
-            <ul>
-            <li>Lerp
-            </li>
-            <li>Movetowards
-            </li>
-            <li>Eases
-            </li>
-            <li>Look At
-            </li></ul>
-          </li>
-          <li>Navigation – Prefabs 3PC, FPC, Animator for player
-            <ul>
-            <li>TGC
-            </li>
-            <li>Other
-            </li>
-            <li>We will cover camera coding in a future lecture
-            </li></ul>
-          </li></ul>
-        </div>
-      </details>
+          <!-- Section 11.1: CW1 (source slides 45-46) -->
+          <details class="accordion" open>
+            <summary>CW1</summary>
+            <div class="accordion-body">
+              <ul>
+                <li>Unity scene with all student work via github or package import/export</li>
+                <li>Extras assets and interactions towards CW2</li>
+                <li>All 3 video files</li>
+                <li>Individual reports</li>
+                <li>Group report</li>
+                <li>Any group planning material</li>
+                <li>FOLLOW NAMING CONVENTION</li>
+              </ul>
+              <h3>Tutorial</h3>
+              <ul>
+                <li>Controllers Project Example</li>
+                <li>Rigidbody Matrix Project Example</li>
+                <li>Map out your CW2 Interaction needs</li>
+              </ul>
+            </div>
+          </details>
+          <!-- Section 11.2: Unity input and movement: next steps (source slide 55) -->
+          <details class="accordion">
+            <summary>Unity input and movement: next steps</summary>
+            <div class="accordion-body">
+              <p>Input and Movement – seen with Week 2 and Noor tutorials – week 7</p>
+              <h3>Try adding Animation Movement Scripting:</h3>
+              <ul>
+                <li>Unity UI and movement scripting
+                  <ul>
+                    <li>Lerp</li>
+                    <li>MoveTowards</li>
+                    <li>Eases</li>
+                    <li>Look At</li>
+                  </ul>
+                </li>
+                <li>Navigation – Prefabs 3PC, FPC, Animator for player
+                  <ul>
+                    <li>TGC</li>
+                    <li>Other</li>
+                    <li>We will cover camera coding in a future lecture</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </details>
+          <!-- Section 11.3: Legacy (optional): touch widgets and gimbals (source slide 44) -->
+          <details class="accordion">
+            <summary>Legacy (optional): touch widgets and gimbals</summary>
+            <div class="accordion-body">
+              <div class="h3-detail">
+                <h3><strong>Legacy:</strong> these examples come from Unity 4.6/Unity 5-era tutorials and an Intel article that may no longer be available. Use them for ideas only; for new projects, use the Input System’s on-screen controls.</h3>
+                <p><a href="https://docs.unity3d.com/Packages/com.unity.inputsystem@1.11/manual/OnScreen.html" target="_blank" rel="noopener noreferrer">Input System: On-screen controls</a></p>
+              </div>
+              <h3>Widgets (Android 2D joystick)</h3>
+              <p>2D widgets for 2D and 3D.</p>
+              <p><a href="https://software.intel.com/en-us/articles/unity-3d-touch-gui-widgets" target="_blank" rel="noopener noreferrer">Intel: Unity 3D touch GUI widgets (legacy)</a></p>
+              <p>Full 3D widget with rotate, translate (and scale?) – this is advanced.</p>
+              <h3>2D Touch Joystick</h3>
+              <details class="accordion accordion--nested embed-accordion">
+                <summary>Video: Unity 5 Mobile Joysticks Tutorial - Touch Input 2D Spaceship Controller</summary>
+                <div class="accordion-body">
+                  <article class="embed-card">
+                    <iframe class="video-embed" src="https://www.youtube.com/embed/nGYObojmkO4?start=3" title="Unity 5 Mobile Joysticks Tutorial - Touch Input 2D Spaceship Controller video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <p><a href="https://www.youtube.com/watch?v=nGYObojmkO4&amp;t=3s" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+                  </article>
+                </div>
+              </details>
+              <h3>Gimbals</h3>
+              <p>3D gimbal – a simple version can be buttons or sliders in the 3D world with objects.</p>
+              <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+                <img src="images/lect-08-input-movement-collision_slide44_image0.jpeg" class="accordion-image" alt="Unity 4.6 touch joystick widget demo" style="--accordion-image-width: 60%;" />
+              </div>
+            </div>
+          </details>
+          <!-- Section 11.4: Review checklist (added) -->
+          <details class="accordion">
+            <summary>Review checklist</summary>
+            <div class="accordion-body">
+              <ul>
+                <li>Is every movement value multiplied by <code>Time.deltaTime</code> (or applied in FixedUpdate) so speed doesn’t depend on frame rate?</li>
+                <li>For each moving object, can you say whether it is Transform-only, kinematic or dynamic – and is it moved with the matching method from the matching update loop?</li>
+                <li>Do your collisions and triggers fire when expected? Check the collision matrix, Is Trigger and which object has the Rigidbody.</li>
+                <li>Do kinematic objects need Contact Pairs Mode enabled to report contacts with static or kinematic colliders?</li>
+                <li>Have you kept legacy input code clearly separate, so it can later move to the Input System?</li>
+              </ul>
+            </div>
+          </details>
+          <!-- Section 11.5: Further resources (added; source slides 15, 18-21 speaker notes) -->
+          <details class="accordion">
+            <summary>Further resources</summary>
+            <div class="accordion-body">
+              <p><a href="http://www.codeproject.com/Articles/876478/UNITY-D-GAME-PROGRAMMING-PART" target="_blank" rel="noopener noreferrer">CodeProject: Unity 3D Game Programming (Vahe Karamian)</a></p>
+              <p><a href="https://learn.unity.com/tutorial/translate-and-rotate" target="_blank" rel="noopener noreferrer">Unity Learn: Translate and Rotate</a></p>
+              <p><a href="https://docs.unity3d.com/Manual/rigidbody-physics-section.html" target="_blank" rel="noopener noreferrer">Unity Manual: Rigidbody physics</a></p>
+              <p><a href="https://docs.unity3d.com/Packages/com.unity.inputsystem@1.11/manual/index.html" target="_blank" rel="noopener noreferrer">Unity Input System package manual</a></p>
+            </div>
+          </details>
         </div>
       </div>
       <div class="slide-controls">
         <button class="slide-button" data-slide-step="-1"> ← Previous</button>
         <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
         <button class="slide-button" data-slide-step="1" disabled>Next → </button>
-        <div class="slide-counter"><span id="current-slide-14">14</span> / <span id="total-slides">14</span></div>
+        <div class="slide-counter"><span id="current-slide-11">11</span> / <span id="total-slides">11</span></div>
       </div>
       <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
