@@ -3,12 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3DIMD | Lecture 09 - Unity Rigidbodies, Physics and Collision</title>
+  <title>3DIMD | Lecture 09 - Collisions, Triggers and Physics in Practice</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/site.css?v=20261007a" />
   <link rel="stylesheet" href="../assets/css/slideshow.css?v=20261007a" />
+  <style>
+    /* Stop table cells inheriting the accordion-body black text-shadow, which doubles dark text */
+    .slide-content .accordion-body .assessment-table th,
+    .slide-content .accordion-body .assessment-table td {
+      text-shadow: none;
+    }
+  </style>
 </head>
 <body class="lecture-fullbleed">
   <div class="slideshow-container">
@@ -16,16 +23,23 @@
     <div class="slide active">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content slide-content-accordion">
-        <h2>Lecture 09 - Unity Physics / Collision</h2>
+        <h2>Lecture 09 - Collisions, Triggers and Physics in Practice</h2>
         <div class="accordion-scroll">
-      <!-- Section 1.1: Lecture Overview (source slide 1, 2) -->
+      <!-- Section 1.1: Lecture Overview (source slide 1, 2; rewritten as conclusion to Lecture 08) -->
       <details class="accordion" open>
         <summary>Lecture Overview</summary>
         <div class="accordion-body">
-          <p>3DIMD and XR Multimodal Interaction</p>
-          <p>5MMCS007W/5CCGD013W Lecture 10</p>
-          <p>Unity Physics /Collision</p>
-          <p>Unity UI Physics, Collision and Triggering</p>
+          <p>5MMCS007W/5CCGD013W Lecture 09: Unity physics, collision and triggering – the follow-on from <a href="../index.html?page=pages/lect-08-input-movement-collision.html" target="_top">Lecture 08: Input and Scripted Movement</a>.</p>
+          <div class="h3-detail">
+            <h3>By the end of this lecture, you should be able to:</h3>
+            <ul>
+              <li>Choose the right dynamics configuration (static, kinematic, dynamic) including Use Gravity and Is Kinematic combinations.</li>
+              <li>Predict, from the collision matrix, whether a pair of colliders sends collision messages, trigger messages, or neither.</li>
+              <li>Respond to <code>OnCollision</code>/<code>OnTrigger</code> messages in script, and enable kinematic contacts with Contact Pairs Mode.</li>
+              <li>Apply these rules to character controllers, moving platforms and XR grabbable objects.</li>
+            </ul>
+            <h3>Lecture 08 covered how to make objects move; this lecture is about how they interact.</h3>
+          </div>
         </div>
       </details>
       <!-- Section 1.2: Interactive Examples (source slide 1) -->
@@ -44,10 +58,11 @@
           </details>
         </div>
       </details>
-      <!-- Section 1.3: Related Tutorials (source slide added cross-reference) -->
+      <!-- Section 1.3: Related Lectures and Tutorials (added cross-reference) -->
       <details class="accordion">
-        <summary>Related Tutorials</summary>
+        <summary>Related Lectures and Tutorials</summary>
         <div class="accordion-body">
+          <p><a href="../index.html?page=pages/lect-08-input-movement-collision.html" target="_top">Lecture 08: Input and Scripted Movement – the introduction this lecture concludes</a></p>
           <p><a href="../index.html?page=pages/tut-02-03-students.html" target="_top">Tutorials 02–03: Input, movement and collision exercises</a></p>
           <p><a href="../index.html?page=pages/tut-08-physics-quiz-rbct.html" target="_top">Tutorial 08 Quiz: Rigidbodies, colliders and triggers</a></p>
           <p><a href="../index.html?page=pages/tut-08-character-troubleshooting-bb.html" target="_top">Tutorial 08: Character controllers and troubleshooting</a></p>
@@ -91,63 +106,57 @@
       <details class="accordion">
         <summary>Static, Kinematic RigidBody and Dynamic RigidBody</summary>
         <div class="accordion-body">
-          <ul>
-          <li>Static - No Movement, no Effects (Static ticked)
-          </li>
-          <li>Kinematic RigidBody (RigidBody, IsKinematic, Static Not ticked)
-            <ul>
-            <li>Can be moved, no forces affect it
-            </li>
-            <li>It can affect Dynamic RigidBody Game Objects
-            </li>
-            <li>Unity Transform (Translate, Rotate, etc.) to move it
-            </li></ul>
-          </li>
-          <li>Dynamic RigidBody (RigidBody, No IsKinematic, Static Not ticked)
-            <ul>
-            <li>All forces affect it and other Game Objects
-            </li>
-            <li>Unity Physics (addForce) to move it
-            </li></ul>
-          </li>
-          <li>Gravity (can be on or off)
-          </li></ul>
+          <div class="h3-detail">
+            <h3>Static</h3>
+            <p>No movement, no effects (collider only, or Static ticked). Used for level geometry; optimised because it is never simulated.</p>
+            <h3>Kinematic Rigidbody (Rigidbody, Is Kinematic on)</h3>
+            <p>Can be moved by script or animation, but no forces affect it. It can affect dynamic Rigidbody GameObjects. Move it with Transform methods (Translate, Rotate) or, best practice, <code>Rigidbody.MovePosition</code> from FixedUpdate (<a href="../index.html?page=pages/lect-08-input-movement-collision.html" target="_top">Lecture 08</a>, slide 6).</p>
+            <h3>Dynamic Rigidbody (Rigidbody, Is Kinematic off)</h3>
+            <p>All forces affect it and other GameObjects. Move it with Unity physics (<code>AddForce</code>).</p>
+            <h3>Gravity</h3>
+            <p>Can be on or off for any Rigidbody – see the combinations in the next section.</p>
+          </div>
         </div>
       </details>
-      <!-- Section 2.3: Unity Collisions Dynamics Options (source slide 14) -->
+      <!-- Section 2.3: Rigidbody settings: Use Gravity and Is Kinematic (source slide 14; merged with Lecture 08 source slide 38) -->
       <details class="accordion">
-        <summary>Unity Collisions Dynamics Options</summary>
+        <summary>Rigidbody settings: Use Gravity and Is Kinematic</summary>
         <div class="accordion-body">
-          <h3>Game Objects with RigidBody, Collision:</h3>
-          <ul>
-          <li>Static – no movement, no effects
-          </li>
-          <li>Gravity On - Will fall
-          </li>
-          <li>Gravity Off, IsKinematic Off
-            <ul>
-            <li>Acts as Static, but forces affect
-            </li></ul>
-          </li>
-          <li>Kinematic: IsKinematic on, Gravity on
-            <ul>
-            <li>May be moved, but not affected by forces
-            </li>
-            <li>Compare to Static collider: SC Is not calculated for – optimised
-            </li>
-            <li>Is Kinematic cancels out Gravity
-            </li></ul>
-          </li>
-          <li>Kinematic: IsKinematic On, Gravity Off
-            <ul>
-            <li>Acts as static, but is real collision
-            </li></ul>
-          </li>
-          <li>Dynamic: IsKinematic Off, Gravity On or Off
-            <ul>
-            <li>Uses Forces
-            </li></ul>
-          </li></ul>
+          <p>How a Rigidbody with a collider behaves for collisions (<code>OnCollisionEnter(Collision col)</code>) with each combination:</p>
+          <div class="assessment-table-wrap">
+            <table class="assessment-table">
+              <thead>
+                <tr>
+                  <th>Use Gravity</th>
+                  <th>Is Kinematic</th>
+                  <th>Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>On</td>
+                  <td>Off</td>
+                  <td>Will fall; reacts to forces and collisions.</td>
+                </tr>
+                <tr>
+                  <td>Off</td>
+                  <td>Off</td>
+                  <td>Acts as static, but forces and collisions still affect it.</td>
+                </tr>
+                <tr>
+                  <td>On</td>
+                  <td>On</td>
+                  <td>Is Kinematic cancels out gravity; may be moved by script or animation, but is not affected by forces.</td>
+                </tr>
+                <tr>
+                  <td>Off</td>
+                  <td>On</td>
+                  <td>Acts as static, but is a real collision for dynamic Rigidbodies that hit it.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Compared with a kinematic Rigidbody, a static collider (no Rigidbody) is not calculated for – it is optimised for geometry that never moves.</p>
         </div>
       </details>
         </div>
@@ -163,43 +172,52 @@
       </div>
     </div>
 
-    <!-- Slide 3: Unity Collisions and Triggers (source slides 5-8) -->
+    <!-- Slide 3: Colliders and the collision matrix (moved from Lecture 08 source slides 30-33; absorbs source slides 5-8) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content slide-content-accordion">
-        <h2>Unity Collisions and Triggers</h2>
+        <h2>Colliders and the collision matrix</h2>
         <div class="accordion-scroll">
-      <!-- Section 3.1: Unity Collisions and Triggers (source slide 5, 6) -->
+      <!-- Section 3.1: Collider interactions (from Lecture 08 source slide 30) -->
       <details class="accordion" open>
-        <summary>Unity Collisions and Triggers</summary>
+        <summary>Collider interactions</summary>
         <div class="accordion-body">
+          <p>Colliders interact with each other differently depending on how their Rigidbody components have been configured. The three configurations are described in full in <a href="../index.html?page=pages/lect-08-input-movement-collision.html" target="_top">Lecture 08</a> (Controller types) and in slide 2 of this lecture:</p>
           <ul>
-          <li>Collision Detection - Needs:
-            <ul>
-            <li>Collider Shape – can be edited to taste
-            </li>
-            <li>IsTrigger in Collider Off
-            </li>
-            <li>OnCollisionEnter(Collision Col)
-            </li></ul>
-          </li>
-          <li>Trigger Detection – Needs
-            <ul>
-            <li>Collider Shape – can be edited to taste
-            </li>
-            <li>IsTrigger in Collider On
-            </li>
-            <li>OnTriggerEnter(Collider Other)
-            </li></ul>
-          </li></ul>
+            <li><strong>Static collider</strong> (no Rigidbody): level geometry that never moves; incoming Rigidbodies collide with it but don’t move it.</li>
+            <li><strong>Dynamic Rigidbody collider</strong>: fully simulated by physics; the most common configuration (Tutorial 02–03 control objects).</li>
+            <li><strong>Kinematic Rigidbody collider</strong>: moved by script or animation; pushes dynamic bodies but isn’t pushed itself.</li>
+          </ul>
+          <p><a href="https://docs.unity3d.com/Manual/collider-types-interaction.html" target="_blank" rel="noopener noreferrer">Unity Manual: Collider interactions</a></p>
         </div>
       </details>
-      <!-- Section 3.2: Unity Collider and Trigger Matrix (source slide 7, 8) -->
+      <!-- Section 3.2: Kinematic Rigidbody moved by Transform: the sliding door (from Lecture 08 source slide 31) -->
       <details class="accordion">
-        <summary>Unity Collider and Trigger Matrix</summary>
+        <summary>Kinematic Rigidbody moved by Transform: the sliding door</summary>
         <div class="accordion-body">
+          <div class="h3-detail">
+            <h3>Collider + kinematic Rigidbody, moved with Transform methods (.Translate, .Rotate, .MoveTowards, .LookAt)</h3>
+            <p>Not best practice, but it works – like Tutorial 02–03. For physically correct contacts, move it with <code>MovePosition</code>/<code>MoveRotation</code> from FixedUpdate (<a href="../index.html?page=pages/lect-08-input-movement-collision.html" target="_top">Lecture 08</a>, slide 6).</p>
+            <p>This is a GameObject with a collider and a Rigidbody with Is Kinematic enabled. You can move it from a script by modifying its Transform, but it will not respond to collisions and forces like a non-kinematic Rigidbody.</p>
+            <p>Kinematic Rigidbodies should be used for colliders that can be moved or disabled/enabled occasionally but that should otherwise behave like static colliders. The best example is a sliding door: it normally acts as an immovable physical obstacle, but can be opened when necessary.</p>
+            <p>Unlike a static collider, a moving kinematic Rigidbody will apply friction to other objects and will “wake up” other Rigidbodies when they make contact.</p>
+            <p><a href="https://docs.unity3d.com/Manual/CollidersOverview.html" target="_blank" rel="noopener noreferrer">Unity Manual: Colliders overview</a></p>
+          </div>
+        </div>
+      </details>
+      <!-- Section 3.3: Collision matrix: static, kinematic, Rigidbody and trigger colliders (from Lecture 08 source slides 32-33; includes source slides 7-8 matrix) -->
+      <details class="accordion">
+        <summary>Collision matrix: static, kinematic, Rigidbody and trigger colliders</summary>
+        <div class="accordion-body">
+          <p>Use these tables to check whether a pair of colliders sends collision messages, trigger messages, or neither.</p>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-08-input-movement-collision_slide32_image0.png" class="accordion-image" alt="Unity collision action matrix: when collision detection and trigger messages are sent for each collider type pair" style="--accordion-image-width: 100%;" />
+          </div>
           <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
             <img src="images/lect-09-rb-collision_slide8_image0.png" class="accordion-image" alt="Unity collider and trigger matrix: which collider combinations produce collision or trigger messages" style="--accordion-image-width: 100%;" />
+          </div>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-08-input-movement-collision_slide33_image0.jpeg" class="accordion-image" alt="Collision matrix of Static, Rigidbody, Kinematic Rigidbody and Trigger colliders with Yes/No results" style="--accordion-image-width: 80%;" />
           </div>
         </div>
       </details>
@@ -216,45 +234,116 @@
       </div>
     </div>
 
-    <!-- Slide 4: Unity Collisions for Triggers (source slides 9-10) -->
+    <!-- Slide 4: Collision and trigger messages (moved from Lecture 08 source slides 34-37, 39; absorbs source slides 9-13, 18) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content slide-content-accordion">
-        <h2>Unity Collisions for Triggers</h2>
+        <h2>Collision and trigger messages</h2>
         <div class="accordion-scroll">
-      <!-- Section 4.1: Unity Collisions for Triggers (source slide 9, 10) -->
+      <!-- Section 4.1: Collision and trigger messages (from Lecture 08 source slide 34) -->
       <details class="accordion" open>
-        <summary>Unity Collisions for Triggers</summary>
+        <summary>Collision and trigger messages</summary>
         <div class="accordion-body">
-          <p>Unity Collisions for Triggers Does not "Collide", detects intersection for trigger</p>
+          <p>When collisions occur, the physics engine calls functions with specific names on any scripts attached to the objects involved. You implement your code logic in these functions to respond to the collision event.</p>
           <ul>
-          <li>Needs: Collider Shape and Script for Trigger Detection - OnTriggerEnter(Collider other)
+            <li>On the first physics update where the collision is detected, <code>OnCollisionEnter()</code> is called.</li>
+            <li>During updates where contact is maintained, <code>OnCollisionStay()</code> is called.</li>
+            <li>Finally, <code>OnCollisionExit()</code> is called, indicating that contact has been broken.</li>
+            <li>Trigger colliders call the analogous <code>OnTriggerEnter()</code>, <code>OnTriggerStay()</code> and <code>OnTriggerExit()</code> functions.</li>
+          </ul>
+          <section class="code-panel code-panel--compact" data-code-type="code">
+            <div class="code-panel__chrome">
+              <div class="code-panel__dots">
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+                <span class="code-panel__dot"></span>
+              </div>
+              <div class="code-panel__title">CollisionMessages.cs</div>
+            </div>
+            <div class="code-panel__body" role="region" aria-label="CollisionMessages.cs">
+              <div class="code-panel__line code-panel__line--statement indent-level-0">void OnCollisionEnter(Collision collision)</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">Debug.Log("Hit " + collision.gameObject.name);</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+              <div class="code-panel__line code-panel__line--statement indent-level-0">void OnTriggerEnter(Collider other)</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">{</div>
+              <div class="code-panel__line code-panel__line--code indent-level-1">Debug.Log("Entered " + other.name);</div>
+              <div class="code-panel__line code-panel__line--brace indent-level-0">}</div>
+            </div>
+          </section>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Detecting Collisions on Kinematic Rigidbodies</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/-osaSS9L-fs" title="Detecting Collisions on Kinematic Rigidbodies video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=-osaSS9L-fs" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <details class="accordion accordion--nested">
+            <summary>Unity Scripting API references</summary>
+            <div class="accordion-body">
+              <ul>
+                <li><a href="https://docs.unity3d.com/ScriptReference/Collider.OnCollisionEnter.html" target="_blank" rel="noopener noreferrer">Collider.OnCollisionEnter</a></li>
+                <li><a href="https://docs.unity3d.com/ScriptReference/Collider.OnTriggerEnter.html" target="_blank" rel="noopener noreferrer">Collider.OnTriggerEnter</a></li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </details>
+      <!-- Section 4.2: Collision or trigger? What each needs (from Lecture 08 source slides 36-37, 39; absorbs source slides 9-13, 18) -->
+      <details class="accordion">
+        <summary>Collision or trigger? What each needs</summary>
+        <div class="accordion-body">
+          <div class="h3-detail">
+            <h3>Collision detection: <code>OnCollisionEnter(Collision col)</code></h3>
+            <p>True collision detection – solid objects that stop each other – as opposed to triggering.</p>
             <ul>
-            <li>Dynamics: Objects can be Static or Non Static (Animated, Scripted Movement, no Physics)
-              <ul>
-              <li>Static Collider – cannot have two!
+              <li>Both objects need colliders with <strong>Is Trigger</strong> off – this makes them solid.</li>
+              <li>At least one object needs a Rigidbody:
+                <ul>
+                  <li>a true (dynamic) Rigidbody should only move by forces – the ideal situation;</li>
+                  <li>an Is Kinematic Rigidbody, or an object with no Rigidbody, can use movement scripting.</li>
+                </ul>
               </li>
-              <li>Static Trigger Collider
-              </li>
-              <li>Collider
-              </li>
-              <li>Trigger Collider
-              </li></ul>
-            </li>
-            <li>Trigger Collider
-              <ul>
-              <li>IsTrigger On = Objects Now Pass through, needs overlap, not collision !
-              </li>
-              <li>Detects if another collider entered
-              </li>
-              <li>IsKinematic RB Collider to IsKinematic RB Collider do not need IsTrigger On
-              </li></ul>
-            </li>
-            <li>Moving a static object will give unwanted results
-            </li>
-            <li>Script: Use OnTriggerEnter(Collider other) to perform functions upon detection
-            </li></ul>
-          </li></ul>
+            </ul>
+            <h3>Trigger detection: <code>OnTriggerEnter(Collider other)</code></h3>
+            <p>A trigger does not “collide”: it detects intersection (overlap), and objects pass through each other.</p>
+            <ul>
+              <li>At least one of the colliders has <strong>Is Trigger</strong> on.</li>
+              <li>At least one object needs a Rigidbody (a kinematic Rigidbody is fine).</li>
+              <li>The collider shape can be edited to taste – it defines the detection volume.</li>
+            </ul>
+            <h3>Notes and pitfalls</h3>
+            <ul>
+              <li>Kinematic Rigidbody colliders touching other kinematic Rigidbody colliders do not need Is Trigger on to be detected (see Contact Pairs Mode below).</li>
+              <li>Moving a static collider (no Rigidbody) gives unwanted results – add a kinematic Rigidbody if it must move.</li>
+            </ul>
+            <h3>Shortcut</h3>
+            <ul>
+              <li>Triggers: kinematic Rigidbody trigger colliders, moved by Transform (movement scripting).</li>
+              <li>Collisions: a true (dynamic) Rigidbody, moved with AddForce.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+      <!-- Section 4.3: Kinematic collisions: Contact Pairs Mode (from Lecture 08 source slide 35) -->
+      <details class="accordion">
+        <summary>Kinematic collisions: Contact Pairs Mode</summary>
+        <div class="accordion-body">
+          <p>By default, kinematic Rigidbodies send no collision messages when they touch static colliders or other kinematic Rigidbodies. If you need your moving kinematic colliders to report physically correct contacts:</p>
+          <ul>
+            <li>Set <strong>Project Settings &gt; Physics &gt; Contact Pairs Mode</strong> to <strong>Enable All Contact Pairs</strong> (or Enable Kinematic Kinematic Pairs / Enable Kinematic Static Pairs).</li>
+            <li>Move your kinematic bodies using <code>Rigidbody.MovePosition</code> and <code>Rigidbody.MoveRotation</code> from FixedUpdate.</li>
+            <li>Collision events (OnCollisionEnter, etc.) will then happen as they do for standard Rigidbodies – see the video in Section 4.1.</li>
+          </ul>
+          <ul>
+            <li>Use FixedUpdate to get correct physics collisions, whether or not it moves the object.</li>
+            <li>Use <code>Rigidbody.AddForce</code>, or <code>Rigidbody.MovePosition</code> and <code>Rigidbody.MoveRotation</code>, within FixedUpdate – rather than Transform movement as in Tutorial 02–03.</li>
+          </ul>
+          <p><a href="https://docs.unity3d.com/Manual/class-PhysicsManager.html" target="_blank" rel="noopener noreferrer">Unity Manual: Physics settings (Contact Pairs Mode)</a></p>
+          <p><a href="https://docs.unity3d.com/ScriptReference/Rigidbody.MoveRotation.html" target="_blank" rel="noopener noreferrer">Rigidbody.MoveRotation scripting reference</a></p>
+          <p><a href="https://answers.unity.com/questions/1730904/object-doesnt-collide-with-wall-using-transformtra.html" target="_blank" rel="noopener noreferrer">Unity Discussions: Object doesn’t collide with wall using Transform.Translate</a></p>
         </div>
       </details>
         </div>
@@ -270,58 +359,25 @@
       </div>
     </div>
 
-    <!-- Slide 5: Unity Collisions - True Collision Detection (source slides 11-13, 18) -->
+    <!-- Slide 5: Unity Collisions and Triggers test project and demo (source slides 19-21; merged with Lecture 08 source slides 40, 42-43; absorbs source slides 11-13, 18) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content slide-content-accordion">
-        <h2>Unity Collisions - True Collision Detection</h2>
+        <h2>Unity Collisions and Triggers test project and demo</h2>
         <div class="accordion-scroll">
-      <!-- Section 5.1: Unity Collisions again (source slide 11, 12) -->
+      <!-- Section 5.1: Videos: collisions, triggers, Rigidbodies and kinematics (source slide 19; plus source slide 13 video) -->
       <details class="accordion" open>
-        <summary>Unity Collisions again</summary>
+        <summary>Videos: collisions, triggers, Rigidbodies and kinematics</summary>
         <div class="accordion-body">
-          <h3>Unity Collisions</h3>
-          <p>Collider hitting Rigid Body/Collider (for Collision Detection)</p>
-          <p>This is true Collision Detection, not Triggering in slide above</p>
-          <ul>
-          <li>Collision and Physics: OnCollisonEnter(Collision col)
-            <ul>
-            <li>RigidBody enables a collision - Solid
-              <ul>
-              <li>True RB - should only move by forces - ideal situation
-              </li>
-              <li>IsKinematic RB, or No RB can use movement scripting
-              </li></ul>
-            </li>
-            <li>IsTrigger Off enables a collision - Solid
-            </li></ul>
-          </li></ul>
-        </div>
-      </details>
-      <!-- Section 5.2: Gravity, Static, IsKinematic and Dynamic (source slide 13) -->
-      <details class="accordion">
-        <summary>Gravity, Static, IsKinematic and Dynamic</summary>
-        <div class="accordion-body">
-          <p>Collider hitting Rigid Body/Collider (Collision Detection)</p>
-          <ul>
-          <li>Gravity - on off
-          </li>
-          <li>Static - No Movement, no effects
-          </li>
-          <li>Is Kinematic - Can be moved, no forces affect - on off
-            <ul>
-            <li>IsKinematic On - Use Transform
-            </li></ul>
-          </li>
-          <li>Dynamic - Physics, Rigid Body - all forces affect it and others
-            <ul>
-            <li>Controls whether physics affects the rigidbody.
-            </li>
-            <li>IsKinematic off - Use forces
-            </li></ul>
-          </li>
-          <li>Collision and Physics:
-          </li></ul>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Unity 3d: Collisions, Triggers, Rigidbodies, and Kinematics</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/WFkbqdo2OI4" title="Unity 3d: Collisions, Triggers, Rigidbodies, and Kinematics video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=WFkbqdo2OI4" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
           <details class="accordion accordion--nested embed-accordion">
             <summary>Video: Unity Explained - Colliders - Beginner Tutorial</summary>
             <div class="accordion-body">
@@ -333,20 +389,31 @@
           </details>
         </div>
       </details>
-      <!-- Section 5.3: Collision and Physics: SHORTCUT (source slide 18) -->
+      <!-- Section 5.2: Unity Collisions and Triggers Test Project (Blackboard) (source slide 20; merged with Lecture 08 source slides 40, 42) -->
       <details class="accordion">
-        <summary>Collision and Physics: SHORTCUT</summary>
+        <summary>Unity Collisions and Triggers Test Project (Blackboard)</summary>
+        <div class="accordion-body">
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img src="images/lect-09-rb-collision_slide20_image0.png" class="accordion-image" alt="CollisionTester script with OnCollisionEnter, OnTriggerEnter and FixedUpdate movement" style="--accordion-image-width: 70%;" />
+          </div>
+        </div>
+      </details>
+      <!-- Section 5.3: Demo (source slide 21; merged with Lecture 08 source slide 43) -->
+      <details class="accordion">
+        <summary>Demo</summary>
         <div class="accordion-body">
           <ul>
-          <li>Shortcut
-            <ul>
-            <li>Kinematic RB Trigger Colliders - transformed to move
-            </li>
-            <li>True RB - Addforce
-            </li></ul>
-          </li>
-          <li>Movement Scripting
-          </li></ul>
+            <li>Make a Cube and a Sphere – both have colliders. Play: nothing happens; you can move them, but this is bad (unoptimised) – they are essentially static, even if Static is not ticked.</li>
+            <li>Add a Rigidbody to the ball: real and physical – gravity and collision with the cube via the physics engine. You may just need a trigger.</li>
+            <li>Add a script to both – 90% of the time you just need triggers.</li>
+            <li>A collision or trigger notifies both objects.</li>
+            <li>Collision: when a true Rigidbody hits a collider (not a trigger).</li>
+            <li>Try the box with and without Is Trigger, and look at the Console.</li>
+            <li>Make the box non-static: add a Rigidbody. It has gravity and will fall; turn off gravity, then the collision moves it.</li>
+            <li>Make the box Is Kinematic: the box is not moved. Is Kinematic (may be moved – no physics) vs static (will never move – optimised).</li>
+            <li>Make the sphere Is Kinematic too: no movement, but when dragged they do not affect each other.</li>
+            <li>Try an Is Kinematic Rigidbody with Is Trigger.</li>
+          </ul>
         </div>
       </details>
         </div>
@@ -362,60 +429,82 @@
       </div>
     </div>
 
-    <!-- Slide 6: Linking Rigidbodies to the XR Interaction Toolkit (XRIT) (source slides 15-17) -->
+    <!-- Slide 6: Character controllers and moving platforms (source slide 22) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content slide-content-accordion">
-        <h2>Linking Rigidbodies to the XR Interaction Toolkit (XRIT)</h2>
+        <h2>Character controllers and moving platforms</h2>
         <div class="accordion-scroll">
-      <!-- Section 6.1: Linking it to XRIT… (source slide 15, 17) -->
+      <!-- Section 6.1: Character controller options (source slide 22) -->
       <details class="accordion" open>
-        <summary>Linking it to XRIT…</summary>
+        <summary>Character controller options</summary>
         <div class="accordion-body">
-          <p>A Rigidbody is required for an object to be grabbable using the Unity XR Interaction Toolkit (XRIT) XRGrabInteractable component.</p>
-          <p>Automatic Addition: When you add an XRGrabInteractable component to a GameObject, Unity will automatically add a Rigidbody component if one is not already present.</p>
-          <p>Purpose: The Rigidbody handles physics simulation (gravity, falling, collisions) when the object is released or thrown.</p>
-          <p>Kinematic Handling: While grabbed, the XRGrabInteractable often sets the Rigidbody to be Kinematic (i.e., isKinematic = true). This tells the physics engine that the object's movement is driven by the VR controller's position, not by forces like gravity.</p>
-          <p>Alternatives: If you use the "Instantaneous" movement type, the object follows the hand transform directly, but it generally still requires a Rigidbody to interact properly with the XR interaction system's collision detection.</p>
-        </div>
-      </details>
-      <!-- Section 6.2: Key Movement Types for XRIT Rigidbody Handling… (source slide 16) -->
-      <details class="accordion">
-        <summary>Key Movement Types for XRIT Rigidbody Handling…</summary>
-        <div class="accordion-body">
-          <ul>
-          <li>XRGrabInteractible: Rigidbody behavior during interaction
+          <p>Recap from <a href="../index.html?page=pages/lect-08-input-movement-collision.html" target="_top">Lecture 08</a> (Forces and physics with a character): characters are the case where no standard configuration is a perfect fit.</p>
+          <div class="h3-detail">
+            <h3>3 Options</h3>
             <ul>
-            <li>Instantaneous
-              <ul>
-              <li>Direct movement by setting transform each frame
-              </li></ul>
-            </li>
-            <li>Kinematic
-              <ul>
-              <li>isKinematic while grabbing, moving via Rigidbody.MovePosition
-              </li></ul>
-            </li>
-            <li>Velocity Tracking
-              <ul>
-              <li>Calculates velocity/angular velocity to move the object via physics – can push other objects without lagging behind the hand
-              </li></ul>
-            </li></ul>
-          </li></ul>
+              <li>Non-Rigidbody custom controller (or Unity’s CharacterController) – not good with physics.</li>
+              <li>Dynamic Rigidbody – physics-driven, but inertia makes input feel floaty.</li>
+              <li>Kinematic Rigidbody – script-driven with custom collision resolution.</li>
+            </ul>
+          </div>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: How to Move Characters In Unity 3D | Character Controllers Explained</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/e94KggaEAr4" title="How to Move Characters In Unity 3D | Character Controllers Explained video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=e94KggaEAr4" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <p><a href="https://discussions.unity.com/t/character-controller-vs-rigidbody/909343/5" target="_blank" rel="noopener noreferrer">Unity Discussions: Character Controller vs Rigidbody</a></p>
         </div>
       </details>
-      <!-- Section 6.3: Essential Setup for Grabbable Objects: (source slide 17) -->
+      <!-- Section 6.2: Physics (dynamic or kinematic RB) (source slide 22) -->
       <details class="accordion">
-        <summary>Essential Setup for Grabbable Objects:</summary>
+        <summary>Physics (dynamic or kinematic RB)</summary>
         <div class="accordion-body">
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Making A Physics Based Character Controller In Unity (for Very Very Valet)</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/qdskE8PJy6Q?start=9" title="Making A Physics Based Character Controller In Unity (for Very Very Valet) video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=qdskE8PJy6Q&amp;t=9s" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <p><a href="https://discussions.unity.com/t/rigidbody-3d-platformer-controller-condfused/847979" target="_blank" rel="noopener noreferrer">Unity Discussions: Rigidbody 3D platformer controller</a></p>
+        </div>
+      </details>
+      <!-- Section 6.3: Moving platforms (source slide 22) -->
+      <details class="accordion">
+        <summary>Moving platforms</summary>
+        <div class="accordion-body">
+          <p>Basic approach: parent the character’s transform to the platform when the platform’s trigger collider detects it.</p>
           <ul>
-          <li>Collider: To define the collision boundary and allow interaction.
-          </li>
-          <li>Rigidbody: For physics behavior.
-          </li>
-          <li>XR Grab Interactable: To handle the grabbing logic.
-          </li></ul>
-          <p>It is highly recommended to ensure the Collider is not set to "Is Trigger" unless you have a specific reason to do so, as this affects collision detection.</p>
+            <li>If the character jitters or sticks, check <strong>Edit &gt; Project Settings &gt; Physics (or Physics 2D) &gt; Auto Sync Transforms</strong>.</li>
+            <li>The platform’s trigger must not intersect the platform’s main collider.</li>
+          </ul>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: Simple Moving Platform Setup Rigidbody/Character Controller - Unity Bolt Tutorial |Visual Scripting</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/2MkNoaWJWf4" title="Simple Moving Platform Setup Rigidbody/Character Controller - Unity Bolt Tutorial |Visual Scripting video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=2MkNoaWJWf4" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>Video: How to Create 3D Moving Platforms (Unity Tutorial)</summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/ly9mK0TGJJo" title="How to Create 3D Moving Platforms (Unity Tutorial) video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><a href="https://www.youtube.com/watch?v=ly9mK0TGJJo" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+              </article>
+            </div>
+          </details>
+          <p><a href="https://discussions.unity.com/t/charactercontroller-on-a-moving-platform/684563/7" target="_blank" rel="noopener noreferrer">Unity Discussions: CharacterController on a moving platform</a></p>
+          <p><a href="https://discussions.unity.com/t/how-to-get-a-character-to-move-with-a-moving-platform/1720" target="_blank" rel="noopener noreferrer">Unity Discussions: How to get a character to move with a moving platform</a></p>
         </div>
       </details>
         </div>
@@ -431,61 +520,54 @@
       </div>
     </div>
 
-    <!-- Slide 7: Unity Collisions and Triggers Test Project (source slides 19-21) -->
+    <!-- Slide 7: Linking Rigidbodies to the XR Interaction Toolkit (XRIT) (source slides 15-17) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content slide-content-accordion">
-        <h2>Unity Collisions and Triggers Test Project</h2>
+        <h2>Linking Rigidbodies to the XR Interaction Toolkit (XRIT)</h2>
         <div class="accordion-scroll">
-      <!-- Section 7.1: Unity Collisions and Triggers (source slide 19) -->
+      <!-- Section 7.1: Linking it to XRIT… (source slide 15, 17) -->
       <details class="accordion" open>
-        <summary>Unity Collisions and Triggers</summary>
+        <summary>Linking it to XRIT…</summary>
         <div class="accordion-body">
-          <details class="accordion accordion--nested embed-accordion">
-            <summary>Video: Unity 3d: Collisions, Triggers, Rigidbodies, and Kinematics</summary>
-            <div class="accordion-body">
-              <article class="embed-card">
-                <iframe class="video-embed" src="https://www.youtube.com/embed/WFkbqdo2OI4" title="Unity 3d: Collisions, Triggers, Rigidbodies, and Kinematics video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <p><a href="https://www.youtube.com/watch?v=WFkbqdo2OI4" target="_blank" rel="noopener noreferrer">Open source link</a></p>
-              </article>
-            </div>
-          </details>
-        </div>
-      </details>
-      <!-- Section 7.2: Unity Collisions and Triggers Test Project (source slide 20) -->
-      <details class="accordion">
-        <summary>Unity Collisions and Triggers Test Project</summary>
-        <div class="accordion-body">
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-09-rb-collision_slide20_image0.png" class="accordion-image" alt="CollisionTester script with OnCollisionEnter, OnTriggerEnter and FixedUpdate movement" style="--accordion-image-width: 70%;" />
+          <p>A Rigidbody is required for an object to be grabbable using the Unity XR Interaction Toolkit (XRIT) XRGrabInteractable component.</p>
+          <div class="h3-detail">
+            <h3>Automatic Addition</h3>
+            <p>When you add an XRGrabInteractable component to a GameObject, Unity will automatically add a Rigidbody component if one is not already present.</p>
+            <h3>Purpose</h3>
+            <p>The Rigidbody handles physics simulation (gravity, falling, collisions) when the object is released or thrown.</p>
+            <h3>Kinematic Handling</h3>
+            <p>While grabbed, the XRGrabInteractable often sets the Rigidbody to be Kinematic (i.e., isKinematic = true). This tells the physics engine that the object's movement is driven by the VR controller's position, not by forces like gravity – the same ownership rule as in Lecture 08.</p>
+            <h3>Alternatives</h3>
+            <p>If you use the "Instantaneous" movement type, the object follows the hand transform directly, but it generally still requires a Rigidbody to interact properly with the XR interaction system's collision detection.</p>
           </div>
         </div>
       </details>
-      <!-- Section 7.3: Demo: (source slide 21) -->
+      <!-- Section 7.2: Key Movement Types for XRIT Rigidbody Handling… (source slide 16) -->
       <details class="accordion">
-        <summary>Demo:</summary>
+        <summary>Key Movement Types for XRIT Rigidbody Handling…</summary>
+        <div class="accordion-body">
+          <p>XRGrabInteractable: Rigidbody behaviour during interaction.</p>
+          <div class="h3-detail">
+            <h3>Instantaneous</h3>
+            <p>Direct movement by setting the transform each frame.</p>
+            <h3>Kinematic</h3>
+            <p>isKinematic while grabbing, moving via <code>Rigidbody.MovePosition</code>.</p>
+            <h3>Velocity Tracking</h3>
+            <p>Calculates velocity/angular velocity to move the object via physics – can push other objects without lagging behind the hand.</p>
+          </div>
+        </div>
+      </details>
+      <!-- Section 7.3: Essential Setup for Grabbable Objects: (source slide 17) -->
+      <details class="accordion">
+        <summary>Essential Setup for Grabbable Objects:</summary>
         <div class="accordion-body">
           <ul>
-          <li>Make Cube and Sphere - have colliders - play - nothing, can move, but is bad (unoptimised) essentially static, even if not ticked
-          </li>
-          <li>RB on ball - real and physical - gravity and Collision with cube - physics engine - may just need trigger
-          </li>
-          <li>Add script to both - 90% just need triggers
-          </li>
-          <li>Collision or trigger notifies both objects
-          </li>
-          <li>Collision: When True RB hits collider (not trigger)
-          </li>
-          <li>Try box with and without IsTrigger and look at console
-          </li>
-          <li>Turn box non-static (RB) - add RB, has gravity, will fall - turn off gravity - then collision moves it
-          </li>
-          <li>Turn Box into IsKinematic - Box not moved - IsKinematic (may be moved - no Physics) vs Static (will never move - 0ptimised)
-          </li>
-          <li>Turn Sphere to IsKinematic - no movement, but dragging - they do not affect each other
-          </li>
-          <li>IsKinematic RB with IsTrigger
-          </li></ul>
+            <li>Collider: To define the collision boundary and allow interaction.</li>
+            <li>Rigidbody: For physics behavior.</li>
+            <li>XR Grab Interactable: To handle the grabbing logic.</li>
+          </ul>
+          <p>It is highly recommended to ensure the Collider is not set to "Is Trigger" unless you have a specific reason to do so, as this affects collision detection.</p>
         </div>
       </details>
         </div>
@@ -501,88 +583,36 @@
       </div>
     </div>
 
-    <!-- Slide 8: Character Controllers and Next Steps (source slides 22-23) -->
+    <!-- Slide 8: Review and next steps (added; absorbs source slide 23) -->
     <div class="slide">
       <div class="slide-title">3D Interactive Media Development</div>
       <div class="slide-content slide-content-accordion">
-        <h2>Character Controllers and Next Steps</h2>
+        <h2>Review and next steps</h2>
         <div class="accordion-scroll">
-      <!-- Section 8.1: Character Controller Overview (Extra) (source slide 22) -->
+      <!-- Section 8.1: Review checklist (added) -->
       <details class="accordion" open>
-        <summary>Character Controller Overview (Extra)</summary>
+        <summary>Review checklist</summary>
         <div class="accordion-body">
-          <h3>3 Options</h3>
+          <p>Across Lectures 08 and 09 you should now be able to:</p>
           <ul>
-          <li>Non-RB custom (Unity CC) - not good with physics
-          </li>
-          <li>Dynamic RB
-          </li>
-          <li>Kinematic RB
-          </li></ul>
-          <details class="accordion accordion--nested embed-accordion">
-            <summary>Video: How to Move Characters In Unity 3D | Character Controllers Explained</summary>
-            <div class="accordion-body">
-              <article class="embed-card">
-                <iframe class="video-embed" src="https://www.youtube.com/embed/e94KggaEAr4" title="How to Move Characters In Unity 3D | Character Controllers Explained video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <p><a href="https://www.youtube.com/watch?v=e94KggaEAr4" target="_blank" rel="noopener noreferrer">Open source link</a></p>
-              </article>
-            </div>
-          </details>
-          <p>https://discussions.unity.com/t/character-controller-vs-rigidbody/909343/5</p>
+            <li>Choose between static, kinematic and dynamic configurations – including the Use Gravity and Is Kinematic combinations (slide 2).</li>
+            <li>Read the collision matrix to predict whether a pair of colliders sends collision messages, trigger messages, or neither (slide 3).</li>
+            <li>Implement <code>OnCollisionEnter</code> and <code>OnTriggerEnter</code>, and list what each requires (slide 4).</li>
+            <li>Enable Contact Pairs Mode when moving kinematic colliders need physically correct contacts (slide 4).</li>
+            <li>Explain why characters need dedicated controllers, and how XRIT grabbables use kinematic handling (slides 6–7).</li>
+          </ul>
         </div>
       </details>
-      <!-- Section 8.2: Physics (dynamic or kinematic RB) (source slide 22) -->
+      <!-- Section 8.2: Next steps (added) -->
       <details class="accordion">
-        <summary>Physics (dynamic or kinematic RB)</summary>
+        <summary>Next steps</summary>
         <div class="accordion-body">
-          <details class="accordion accordion--nested embed-accordion">
-            <summary>Video: Making A Physics Based Character Controller In Unity (for Very Very Valet)</summary>
-            <div class="accordion-body">
-              <article class="embed-card">
-                <iframe class="video-embed" src="https://www.youtube.com/embed/qdskE8PJy6Q?start=9" title="Making A Physics Based Character Controller In Unity (for Very Very Valet) video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <p><a href="https://www.youtube.com/watch?v=qdskE8PJy6Q&amp;t=9s" target="_blank" rel="noopener noreferrer">Open source link</a></p>
-              </article>
-            </div>
-          </details>
-          <p>https://discussions.unity.com/t/rigidbody-3d-platformer-controller-condfused/847979</p>
-        </div>
-      </details>
-      <!-- Section 8.3: Platforms: (source slide 22) -->
-      <details class="accordion">
-        <summary>Platforms:</summary>
-        <div class="accordion-body">
-          <details class="accordion accordion--nested embed-accordion">
-            <summary>Video: Simple Moving Platform Setup Rigidbody/Character Controller - Unity Bolt Tutorial |Visual Scripting</summary>
-            <div class="accordion-body">
-              <article class="embed-card">
-                <iframe class="video-embed" src="https://www.youtube.com/embed/2MkNoaWJWf4" title="Simple Moving Platform Setup Rigidbody/Character Controller - Unity Bolt Tutorial |Visual Scripting video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <p><a href="https://www.youtube.com/watch?v=2MkNoaWJWf4" target="_blank" rel="noopener noreferrer">Open source link</a></p>
-              </article>
-            </div>
-          </details>
-          <p>After more than 4 hours stuck with this video + Character controller, I will only say this: Edit -&gt; Project Settings -&gt; Physics (or Physics 2d) -&gt; Auto Sync Transforms</p>
-          <p>From &lt;<span>https://www.youtube.com/watch?v=2MkNoaWJWf4</span>&gt;</p>
-          <p>the trigger must not intersect main collider on the platform.</p>
-          <p>From &lt;<span>https://www.youtube.com/watch?v=2MkNoaWJWf4</span>&gt;</p>
-          <p>Basic: parent character transform to new platform when platform collider triggered</p>
-          <details class="accordion accordion--nested embed-accordion">
-            <summary>Video: How to Create 3D Moving Platforms (Unity Tutorial)</summary>
-            <div class="accordion-body">
-              <article class="embed-card">
-                <iframe class="video-embed" src="https://www.youtube.com/embed/ly9mK0TGJJo" title="How to Create 3D Moving Platforms (Unity Tutorial) video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <p><a href="https://www.youtube.com/watch?v=ly9mK0TGJJo" target="_blank" rel="noopener noreferrer">Open source link</a></p>
-              </article>
-            </div>
-          </details>
-          <p>https://discussions.unity.com/t/charactercontroller-on-a-moving-platform/684563/7</p>
-          <p>https://discussions.unity.com/t/how-to-get-a-character-to-move-with-a-moving-platform/1720</p>
-        </div>
-      </details>
-      <!-- Section 8.4: Software Architecture (source slide 23) -->
-      <details class="accordion">
-        <summary>Software Architecture</summary>
-        <div class="accordion-body">
-          <p>Forefront</p>
+          <ul>
+            <li>Work through the Unity Collisions and Triggers test project (Blackboard) and repeat the demo from slide 5.</li>
+            <li>Take the <a href="../index.html?page=pages/tut-08-physics-quiz-rbct.html" target="_top">Tutorial 08 quiz on Rigidbodies, colliders and triggers</a>.</li>
+            <li>Map out your CW2 interaction needs: which objects are triggers, which are true collisions, and which are grabbable (XRIT).</li>
+            <li>Camera coding (following targets with Lerp and LookAt from <a href="../index.html?page=pages/lect-08-input-movement-collision.html" target="_top">Lecture 08</a>) is covered in a future lecture.</li>
+          </ul>
         </div>
       </details>
         </div>
