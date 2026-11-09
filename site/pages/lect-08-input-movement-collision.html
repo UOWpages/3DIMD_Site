@@ -22,84 +22,57 @@
     body.lecture-fullbleed .slide-content .accordion-body .h3-detail > p.indent-level-1 {
       margin-left: 2.35rem;
     }
-    /* Mermaid controller chart: zoom/pan viewport on the dark accordion background */
-    .slide-content .accordion-body .chart-viewport {
-      background: #ffffff;
-      border-radius: 6px;
-      overflow: hidden;
-      position: relative;
-      height: clamp(300px, 55vh, 640px);
-      cursor: grab;
-      touch-action: none;
+    /* Controller chart: 2x2 grid of controller types, each with its own grid of approach boxes */
+    .slide-content .accordion-body .controller-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(max-content, 1fr));
+      gap: 0.8rem 0.9rem;
+      overflow-x: auto;
+      padding-bottom: 0.3rem;
     }
-    .slide-content .accordion-body .chart-viewport.dragging {
-      cursor: grabbing;
-    }
-    .slide-content .accordion-body .chart-viewport pre.mermaid {
-      margin: 0;
-      padding: 0.75rem;
-      background: transparent;
-      color: #102a4a;
-      text-shadow: none;
-      width: max-content;
-      transform-origin: 0 0;
-      user-select: none;
-    }
-    .slide-content .accordion-body pre.mermaid svg {
-      display: block;
-      margin: 0;
-      max-width: none;
-      height: auto;
-    }
-    .chart-zoom-controls {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .chart-zoom-controls button {
-      background: #fcd34d;
-      color: #000000;
-      border: 2px solid #000000;
-      border-radius: 4px;
-      font-weight: 700;
-      min-width: 2rem;
-      height: 2rem;
-      padding: 0 0.5rem;
-      cursor: pointer;
-      font-size: 1rem;
-      line-height: 1;
-    }
-    .chart-zoom-controls button:hover {
-      background: #ffe27a;
-    }
-    .chart-zoom-level {
-      min-width: 3.2rem;
+    .controller-grid .cg-cat > h4 {
+      margin: 0 0 0.4rem;
       text-align: center;
+      font-size: 0.95rem;
     }
-    .chart-zoom-hint {
-      font-size: 0.9rem;
-      opacity: 0.85;
+    .controller-grid .cg-boxes {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(max-content, 1fr));
+      gap: 0.45rem;
     }
-    /* No box around each column; the column label floats above it */
-    .slide-content .accordion-body pre.mermaid .cluster rect {
-      fill: transparent !important;
-      stroke: none !important;
+    .controller-grid .cg-box {
+      border: 1px solid #333333;
+      border-radius: 6px;
+      padding: 0.35rem 0.55rem 0.45rem;
+      background: #f8f9fa;
     }
-    .slide-content .accordion-body pre.mermaid .cluster-label {
+    .controller-grid .cg-nr .cg-box { background: #f0f7ff; }
+    .controller-grid .cg-sc .cg-box { background: #f8f9fa; }
+    .controller-grid .cg-kr .cg-box { background: #fff6e0; }
+    .controller-grid .cg-dr .cg-box { background: #f7fff0; }
+    .controller-grid .cg-box-title {
+      margin: 0 0 0.25rem !important;
+      text-align: center;
       font-weight: 700;
-    }
-    /* All chart text dark orange and compact (overrides the lecture yellow/size that leaks into Mermaid HTML labels) */
-    body.lecture-fullbleed .slide-content .accordion-body pre.mermaid p,
-    body.lecture-fullbleed .slide-content .accordion-body pre.mermaid span,
-    .slide-content .accordion-body pre.mermaid .nodeLabel,
-    .slide-content .accordion-body pre.mermaid .cluster-label,
-    .slide-content .accordion-body pre.mermaid text {
+      font-size: 0.8rem !important;
+      line-height: 1.3 !important;
       color: #cc5500 !important;
-      fill: #cc5500 !important;
       text-shadow: none !important;
-      font-size: 12px !important;
-      line-height: 1.25 !important;
+    }
+    .controller-grid .cg-rules {
+      margin: 0 !important;
+      padding: 0 !important;
+      list-style: none !important;
+    }
+    .controller-grid .cg-rules li {
+      margin: 0 !important;
+      padding: 0 !important;
+      text-align: left;
+      font-size: 0.72rem !important;
+      line-height: 1.45 !important;
+      color: #cc5500 !important;
+      text-shadow: none !important;
+      white-space: nowrap;
     }
   </style>
 </head>
@@ -1353,133 +1326,166 @@
               </div>
             </div>
           </details>
-          <!-- Section 9.2: Controller chart (Mermaid; from the 3DIMD-Tutorial-Projects/Unity_Controllers_2026 README) -->
+          <!-- Section 9.2: Controller chart (HTML 2x2 grid; from the 3DIMD-Tutorial-Projects/Unity_Controllers_2026 README) -->
           <details class="accordion" id="controller-chart-section">
             <summary>Controller chart: types, movement approaches and rules of thumb</summary>
             <div class="accordion-body">
-              <p>The live version of the controller chart from slide 7, from the <a href="https://github.com/3DIMD-Tutorial-Projects/Unity_Controllers_2026" target="_blank" rel="noopener noreferrer">demo project README (3DIMD-Tutorial-Projects on GitHub)</a>.</p>
-              <div class="chart-zoom-controls">
-                <button type="button" data-chart-zoom="out" aria-label="Zoom out">−</button>
-                <span class="chart-zoom-level" aria-live="polite">100%</span>
-                <button type="button" data-chart-zoom="in" aria-label="Zoom in">+</button>
-                <button type="button" data-chart-zoom="fit">Fit</button>
-                <button type="button" data-chart-zoom="reset">100%</button>
-                <span class="chart-zoom-hint">drag to pan · scroll to zoom</span>
+              <p>The controller chart from slide 7 and the <a href="https://github.com/3DIMD-Tutorial-Projects/Unity_Controllers_2026" target="_blank" rel="noopener noreferrer">demo project README (3DIMD-Tutorial-Projects on GitHub)</a>, regrouped for reading: each group is one controller type listing its movement approaches, and each approach box lists its rules of thumb, numbered as in the reference list below the chart.</p>
+              <div class="controller-grid">
+                <section class="cg-cat cg-nr">
+                  <h4>Non-Rigidbody (Transform / CharacterController / NavMeshAgent)</h4>
+                  <div class="cg-boxes">
+                    <div class="cg-box">
+                      <p class="cg-box-title">Transform.position / direct set</p>
+                      <ul class="cg-rules">
+                        <li>2. Don't set transform on dynamic Rigidbody - use forces/velocity</li>
+                        <li>5. At least one Rigidbody required for reliable OnCollision / OnTrigger callbacks</li>
+                        <li>10. Avoid moving colliders without a Rigidbody - behavior is unreliable</li>
+                      </ul>
+                    </div>
+                    <div class="cg-box">
+                      <p class="cg-box-title">CharacterController.Move</p>
+                      <ul class="cg-rules">
+                        <li>4. CharacterController: tight player control; no physics impulses by default</li>
+                        <li>5. At least one Rigidbody required for reliable OnCollision / OnTrigger callbacks</li>
+                        <li>10. Avoid moving colliders without a Rigidbody - behavior is unreliable</li>
+                      </ul>
+                    </div>
+                    <div class="cg-box">
+                      <p class="cg-box-title">NavMeshAgent movement</p>
+                      <ul class="cg-rules">
+                        <li>8. Use physics layers to reduce unnecessary collision checks</li>
+                        <li>10. Avoid moving colliders without a Rigidbody - behavior is unreliable</li>
+                        <li>12. Kinematic / script-driven movement easier to network and predict</li>
+                      </ul>
+                    </div>
+                    <div class="cg-box">
+                      <p class="cg-box-title">Parenting / animated transforms</p>
+                      <ul class="cg-rules">
+                        <li>5. At least one Rigidbody required for reliable OnCollision / OnTrigger callbacks</li>
+                        <li>10. Avoid moving colliders without a Rigidbody - behavior is unreliable</li>
+                      </ul>
+                    </div>
+                    <div class="cg-box">
+                      <p class="cg-box-title">Raycast-based movement / manual collision handling</p>
+                      <ul class="cg-rules">
+                        <li>1. Use FixedUpdate for physics operations</li>
+                        <li>8. Use physics layers to reduce unnecessary collision checks</li>
+                        <li>9. Use triggers for detection only (no physical response)</li>
+                      </ul>
+                    </div>
+                  </div>
+                </section>
+                <section class="cg-cat cg-sc">
+                  <h4>Static Collider (no Rigidbody)</h4>
+                  <div class="cg-boxes">
+                    <div class="cg-box">
+                      <p class="cg-box-title">Transform.position / direct set</p>
+                      <ul class="cg-rules">
+                        <li>2. Don't set transform on dynamic Rigidbody - use forces/velocity</li>
+                        <li>5. At least one Rigidbody required for reliable OnCollision / OnTrigger callbacks</li>
+                        <li>10. Avoid moving colliders without a Rigidbody - behavior is unreliable</li>
+                      </ul>
+                    </div>
+                    <div class="cg-box">
+                      <p class="cg-box-title">Parenting / animated transforms</p>
+                      <ul class="cg-rules">
+                        <li>5. At least one Rigidbody required for reliable OnCollision / OnTrigger callbacks</li>
+                        <li>10. Avoid moving colliders without a Rigidbody - behavior is unreliable</li>
+                      </ul>
+                    </div>
+                  </div>
+                </section>
+                <section class="cg-cat cg-kr">
+                  <h4>Kinematic Rigidbody (isKinematic = true)</h4>
+                  <div class="cg-boxes">
+                    <div class="cg-box">
+                      <p class="cg-box-title">Rigidbody.MovePosition / MoveRotation</p>
+                      <ul class="cg-rules">
+                        <li>1. Use FixedUpdate for physics operations</li>
+                        <li>3. Use MovePosition/MoveRotation for kinematic motion in FixedUpdate</li>
+                        <li>5. At least one Rigidbody required for reliable OnCollision / OnTrigger callbacks</li>
+                      </ul>
+                    </div>
+                    <div class="cg-box">
+                      <p class="cg-box-title">Transform.position / direct set</p>
+                      <ul class="cg-rules">
+                        <li>2. Don't set transform on dynamic Rigidbody - use forces/velocity</li>
+                        <li>5. At least one Rigidbody required for reliable OnCollision / OnTrigger callbacks</li>
+                        <li>10. Avoid moving colliders without a Rigidbody - behavior is unreliable</li>
+                      </ul>
+                    </div>
+                    <div class="cg-box">
+                      <p class="cg-box-title">Parenting / animated transforms</p>
+                      <ul class="cg-rules">
+                        <li>5. At least one Rigidbody required for reliable OnCollision / OnTrigger callbacks</li>
+                        <li>10. Avoid moving colliders without a Rigidbody - behavior is unreliable</li>
+                      </ul>
+                    </div>
+                    <div class="cg-box">
+                      <p class="cg-box-title">Raycast-based movement / manual collision handling</p>
+                      <ul class="cg-rules">
+                        <li>1. Use FixedUpdate for physics operations</li>
+                        <li>8. Use physics layers to reduce unnecessary collision checks</li>
+                        <li>9. Use triggers for detection only (no physical response)</li>
+                      </ul>
+                    </div>
+                  </div>
+                </section>
+                <section class="cg-cat cg-dr">
+                  <h4>Dynamic Rigidbody (non-kinematic)</h4>
+                  <div class="cg-boxes">
+                    <div class="cg-box">
+                      <p class="cg-box-title">Rigidbody.AddForce / set velocity / impulses</p>
+                      <ul class="cg-rules">
+                        <li>1. Use FixedUpdate for physics operations</li>
+                        <li>5. At least one Rigidbody required for reliable OnCollision / OnTrigger callbacks</li>
+                        <li>6. Use Continuous Collision Detection (CCD) for very fast objects - CPU cost</li>
+                        <li>7. Prefer primitive colliders (box/sphere/capsule); use compound shapes</li>
+                      </ul>
+                    </div>
+                    <div class="cg-box">
+                      <p class="cg-box-title">Joints and Constraints (FixedJoint, Hinge, etc.)</p>
+                      <ul class="cg-rules">
+                        <li>1. Use FixedUpdate for physics operations</li>
+                        <li>7. Prefer primitive colliders (box/sphere/capsule); use compound shapes</li>
+                        <li>11. Minimize active dynamics and joint complexity (solver cost)</li>
+                      </ul>
+                    </div>
+                    <div class="cg-box">
+                      <p class="cg-box-title">Parenting / animated transforms</p>
+                      <ul class="cg-rules">
+                        <li>5. At least one Rigidbody required for reliable OnCollision / OnTrigger callbacks</li>
+                        <li>10. Avoid moving colliders without a Rigidbody - behavior is unreliable</li>
+                      </ul>
+                    </div>
+                    <div class="cg-box">
+                      <p class="cg-box-title">Raycast-based movement / manual collision handling</p>
+                      <ul class="cg-rules">
+                        <li>1. Use FixedUpdate for physics operations</li>
+                        <li>8. Use physics layers to reduce unnecessary collision checks</li>
+                        <li>9. Use triggers for detection only (no physical response)</li>
+                      </ul>
+                    </div>
+                  </div>
+                </section>
               </div>
-              <div class="chart-viewport">
-                <pre class="mermaid">
-%%{init: {"flowchart": {"curve": "linear", "nodeSpacing": 14, "rankSpacing": 12, "padding": 6}, "themeVariables": {"fontSize": "12px"}}}%%
-flowchart LR
-  subgraph LEFT["Controller types /
-options"]
-    direction TB
-    NR["Non-Rigidbody
-(Transform /
-CharacterController /
-NavMeshAgent)"]
-    SC["Static Collider
-(no Rigidbody)"]
-    KR["Kinematic Rigidbody
-(isKinematic = true)"]
-    DR["Dynamic Rigidbody
-(non-kinematic)"]
-  end
-
-  subgraph MIDDLE["Movement approaches /
-scripting options"]
-    direction TB
-    TM["Transform.position /
-direct set"]
-    CC["CharacterController.Move"]
-    NM["NavMeshAgent movement"]
-    PRT["Parenting / animated transforms"]
-    RBCOLL["Raycast-based movement /
-manual collision handling"]
-    RM["Rigidbody.MovePosition /
-MoveRotation"]
-    RA["Rigidbody.AddForce /
-set velocity /
-impulses"]
-    STK["Joints and Constraints
-(FixedJoint, Hinge, etc.)"]
-  end
-
-  subgraph RIGHT["Rules of thumb"]
-    direction TB
-    R10["Avoid moving colliders without a Rigidbody - behavior is unreliable"]
-    R2["Don't set transform on dynamic Rigidbody - use forces/velocity"]
-    R5["At least one Rigidbody required for reliable OnCollision /
-OnTrigger callbacks"]
-    R4["CharacterController: tight player control; no physics impulses by default"]
-    R12["Kinematic / script-driven movement easier to network and predict"]
-    R8["Use physics layers to reduce unnecessary collision checks"]
-    R3["Use MovePosition/MoveRotation for kinematic motion in FixedUpdate"]
-    R1["Use FixedUpdate for physics operations"]
-    R6["Use Continuous Collision Detection (CCD) for very fast objects - CPU cost"]
-    R7["Prefer primitive colliders (box/sphere/capsule); use compound shapes"]
-    R11["Minimize active dynamics and joint complexity (solver cost)"]
-    R9["Use triggers for detection only (no physical response)"]
-  end
-
-  NR --> TM
-  NR --> CC
-  NR --> NM
-  NR --> PRT
-  NR --> RBCOLL
-
-  SC --> TM
-  SC --> PRT
-
-  KR --> RM
-  KR --> TM
-  KR --> PRT
-  KR --> RBCOLL
-
-  DR --> RA
-  DR --> STK
-  DR --> PRT
-  DR --> RBCOLL
-
-  TM --> R10
-  TM --> R2
-  TM --> R5
-
-  CC --> R4
-  CC --> R10
-  CC --> R5
-
-  NM --> R12
-  NM --> R10
-  NM --> R8
-
-  PRT --> R10
-  PRT --> R5
-
-  RBCOLL --> R8
-  RBCOLL --> R9
-  RBCOLL --> R1
-
-  RM --> R3
-  RM --> R1
-  RM --> R5
-
-  RA --> R1
-  RA --> R6
-  RA --> R7
-  RA --> R5
-
-  STK --> R11
-  STK --> R7
-  STK --> R1
-
-  classDef leftCol fill:#f8f9fa,stroke:#333,stroke-width:1px;
-  classDef midCol fill:#f0f7ff,stroke:#333,stroke-width:1px;
-  classDef rightCol fill:#f7fff0,stroke:#333,stroke-width:1px;
-
-  class NR,SC,KR,DR leftCol;
-  class TM,CC,NM,PRT,RBCOLL,RM,RA,STK midCol;
-  class R1,R2,R3,R4,R5,R6,R7,R8,R9,R10,R11,R12 rightCol;
-              </pre>
+              <div class="h3-detail">
+                <h3>Rules of thumb</h3>
+                <ol>
+                  <li>Use FixedUpdate for physics operations</li>
+                  <li>Don't set transform on dynamic Rigidbody - use forces/velocity</li>
+                  <li>Use MovePosition/MoveRotation for kinematic motion in FixedUpdate</li>
+                  <li>CharacterController: tight player control; no physics impulses by default</li>
+                  <li>At least one Rigidbody required for reliable OnCollision / OnTrigger callbacks</li>
+                  <li>Use Continuous Collision Detection (CCD) for very fast objects - CPU cost</li>
+                  <li>Prefer primitive colliders (box/sphere/capsule); use compound shapes</li>
+                  <li>Use physics layers to reduce unnecessary collision checks</li>
+                  <li>Use triggers for detection only (no physical response)</li>
+                  <li>Avoid moving colliders without a Rigidbody - behavior is unreliable</li>
+                  <li>Minimize active dynamics and joint complexity (solver cost)</li>
+                  <li>Kinematic / script-driven movement easier to network and predict</li>
+                </ol>
               </div>
             </div>
           </details>
@@ -1598,110 +1604,6 @@ OnTrigger callbacks"]
   </div>
 
   <script src="../assets/js/site.js?v=20260915a"></script>
-  <script type="module">
-    // Render the controller chart (Mermaid) when its accordion is open and visible.
-    // Re-renders from the stored source if a previous render happened while the slide was hidden.
-    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
-    mermaid.initialize({ startOnLoad: false, theme: "neutral" });
-    const chartSection = document.getElementById("controller-chart-section");
-    if (chartSection) {
-      const chartPre = chartSection.querySelector(".mermaid");
-      const chartViewport = chartSection.querySelector(".chart-viewport");
-      const chartLevel = chartSection.querySelector(".chart-zoom-level");
-      const chartSource = chartPre.textContent;
-      let chartRendering = false;
-
-      // --- Zoom / translation widget state ---
-      const ZOOM_MIN = 0.25, ZOOM_MAX = 4;
-      let scale = 1, tx = 0, ty = 0;
-      function applyView() {
-        chartPre.style.transform = "translate(" + tx + "px, " + ty + "px) scale(" + scale + ")";
-        chartLevel.textContent = Math.round(scale * 100) + "%";
-      }
-      function centerAt(newScale) {
-        scale = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, newScale));
-        tx = Math.max((chartViewport.clientWidth - chartPre.offsetWidth * scale) / 2, 0);
-        ty = 0;
-        applyView();
-      }
-      function fitView() {
-        const w = chartPre.offsetWidth, h = chartPre.offsetHeight;
-        if (!w || !h) return;
-        centerAt(Math.min(chartViewport.clientWidth / w, chartViewport.clientHeight / h));
-      }
-      function zoomAt(factor, px, py) {
-        const ns = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, scale * factor));
-        tx = px - ((px - tx) / scale) * ns;
-        ty = py - ((py - ty) / scale) * ns;
-        scale = ns;
-        applyView();
-      }
-      chartSection.querySelectorAll("[data-chart-zoom]").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const mode = btn.getAttribute("data-chart-zoom");
-          if (mode === "in") zoomAt(1.25, chartViewport.clientWidth / 2, chartViewport.clientHeight / 2);
-          else if (mode === "out") zoomAt(0.8, chartViewport.clientWidth / 2, chartViewport.clientHeight / 2);
-          else if (mode === "fit") fitView();
-          else centerAt(1);
-        });
-      });
-      chartViewport.addEventListener("wheel", (e) => {
-        e.preventDefault();
-        const r = chartViewport.getBoundingClientRect();
-        zoomAt(e.deltaY < 0 ? 1.15 : 1 / 1.15, e.clientX - r.left, e.clientY - r.top);
-      }, { passive: false });
-      let dragId = null, lastX = 0, lastY = 0;
-      chartViewport.addEventListener("pointerdown", (e) => {
-        if (e.button !== 0) return;
-        dragId = e.pointerId; lastX = e.clientX; lastY = e.clientY;
-        chartViewport.setPointerCapture(dragId);
-        chartViewport.classList.add("dragging");
-      });
-      chartViewport.addEventListener("pointermove", (e) => {
-        if (e.pointerId !== dragId) return;
-        tx += e.clientX - lastX; ty += e.clientY - lastY;
-        lastX = e.clientX; lastY = e.clientY;
-        applyView();
-      });
-      function endDrag(e) {
-        if (e.pointerId !== dragId) return;
-        dragId = null;
-        chartViewport.classList.remove("dragging");
-      }
-      chartViewport.addEventListener("pointerup", endDrag);
-      chartViewport.addEventListener("pointercancel", endDrag);
-
-      // --- Mermaid rendering ---
-      function chartSvgOk() {
-        const svg = chartPre.querySelector("svg");
-        if (!svg) return false;
-        const vb = (svg.getAttribute("viewBox") || "").split(/\s+/);
-        return vb.length === 4 && parseFloat(vb[2]) > 100;
-      }
-      async function renderChartIfNeeded() {
-        if (chartRendering || !chartSection.open) return;
-        if (chartViewport.getBoundingClientRect().width < 50) return; // slide hidden
-        if (chartSvgOk()) return;
-        chartRendering = true;
-        chartPre.removeAttribute("data-processed");
-        chartPre.textContent = chartSource;
-        try {
-          await mermaid.run({ nodes: [chartPre] });
-          // Display at natural (compact) size; the viewport handles overflow
-          const svg = chartPre.querySelector("svg");
-          if (svg && svg.viewBox && svg.viewBox.baseVal) {
-            svg.removeAttribute("width");
-            svg.style.width = svg.viewBox.baseVal.width + "px";
-          }
-          fitView();
-        } finally { chartRendering = false; }
-      }
-      chartSection.addEventListener("toggle", renderChartIfNeeded);
-      new IntersectionObserver((entries) => {
-        if (entries.some((e) => e.isIntersecting)) renderChartIfNeeded();
-      }).observe(chartViewport);
-    }
-  </script>
   <script>
     const isLecturePage = /\/lect-[^/]+\.html$/i.test(window.location.pathname);
     if (isLecturePage && document.body) {
