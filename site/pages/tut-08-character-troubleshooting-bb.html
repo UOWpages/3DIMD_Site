@@ -23,10 +23,10 @@
         </summary>
         <div class="accordion-body media-stack">
           <p>
-            As basic top level advice, it looks like you are making a Dynamic RigidBody controller (as opposed to Kinematic Rigidbody or non-RigidBody)
+            How to Move Characters In Unity 3D | Character Controllers Explained
           </p>
           <p>
-            This is an overview of the three: How to Move Characters In Unity 3D | Character Controllers Explained
+            This is an overview of the three controllers: Dynamic RigidBody controller, Kinematic Rigidbody controller and non-RigidBody controller. 
           </p>
           <ol>
             <li>Static</li>
@@ -132,48 +132,6 @@
               </ol>
             </li>
           </ol>
-          <p>
-            It looks like your gravity may be working, but you also need to parent the character or transform when moving between platforms:
-          </p>
-          <p>
-            This is the basic principle in visual coding: Simple Moving Platform Setup Rigidbody/Character Controller - Unity Bolt Tutorial | Visual Scripting
-          </p>
-          <details class="accordion accordion--nested embed-accordion">
-            <summary>
-              Video: Moving platform setup
-            </summary>
-            <div class="accordion-body">
-              <article class="embed-card">
-                <h3>Video 2</h3>
-                <iframe class="video-embed" src="https://www.youtube.com/embed/2MkNoaWJWf4" title="Unity - 3 types of character controllers: video 2" loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
-                </iframe>
-                <p>
-                  <a href="https://www.youtube.com/watch?v=2MkNoaWJWf4" target="_blank" rel="noopener noreferrer">
-                    Open source link
-                  </a>
-                </p>
-              </article>
-            </div>
-          </details>
-          <p>
-            Basic idea is: parent the character transform to a new platform when the platform collider triggered;
-          </p>
-          <ol>
-            <li>How to Create 3D Moving Platforms (Unity Tutorial)</li>
-            <li>
-              <a href="https://discussions.unity.com/t/charactercontroller-on-a-moving-platform/684563/7" target="_blank" rel="noopener noreferrer">
-                https://discussions.unity.com/t/charactercontroller-on-a-moving-platform/684563/7
-              </a>
-            </li>
-            <li>
-              <a href="https://discussions.unity.com/t/how-to-get-a-character-to-move-with-a-moving-platform/1720" target="_blank" rel="noopener noreferrer">
-                https://discussions.unity.com/t/how-to-get-a-character-to-move-with-a-moving-platform/1720
-              </a>
-            </li>
-          </ol>
-          <p>
-            That's the idea I think you may need, happy to look at your project if you have trouble implementing it.
-          </p>
           <h2>
             Normalized Tables
           </h2>
@@ -257,9 +215,201 @@
               </article>
             </div>
           </details>
+          <h2>
+            Reference links
+          </h2>
+          <p>
+            <a href="https://discussions.unity.com/t/charactercontroller-on-a-moving-platform/684563/7" target="_blank" rel="noopener noreferrer">
+              https://discussions.unity.com/t/charactercontroller-on-a-moving-platform/684563/7
+            </a>
+          </p>
+          <p>
+            <a href="https://discussions.unity.com/t/how-to-get-a-character-to-move-with-a-moving-platform/1720" target="_blank" rel="noopener noreferrer">
+              https://discussions.unity.com/t/how-to-get-a-character-to-move-with-a-moving-platform/1720
+            </a>
+          </p>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>
+          Explore: Unity_Controllers_2026 Project
+        </summary>
+        <div class="accordion-body media-stack">
+          <p>
+            A small sandbox project showing the controller types side by side:
+            <a href="https://github.com/3DIMD-Tutorial-Projects/Unity_Controllers_2026" target="_blank" rel="noopener noreferrer">
+              https://github.com/3DIMD-Tutorial-Projects/Unity_Controllers_2026
+            </a>
+          </p>
+          <h2>
+            Start here
+          </h2>
+          <ol>
+            <li>Read the README flowchart: controller type &rarr; movement approach &rarr; rules of thumb.</li>
+            <li>Clone the repo and open it in Unity.</li>
+            <li>Play the two scenes: <strong>Kinematic RigidBody Controllers 01</strong> and <strong>Dynamic RigidBody Controllers 01</strong>.</li>
+          </ol>
+          <h2>
+            What each script shows
+          </h2>
+          <ul>
+            <li><strong>physicsController_rbAF</strong> - AddForce, world space. Physics pushes you around; mass matters.</li>
+            <li><strong>physicsController_rbTAF</strong> - AddForce along local axes. Same forces, object-relative direction.</li>
+            <li><strong>physicsController_rbMP</strong> - Rigidbody.MovePosition (IJKL). Direct but still collides along the path.</li>
+            <li><strong>physicsController_rbMPT</strong> - MovePosition + rotation (arrow keys). Drive-style control.</li>
+            <li><strong>KinematicWASDController</strong> - isKinematic = true. You control everything; physics pushes nothing.</li>
+            <li><strong>KinematicWaypointMover / KinematicFollow / KinematicRotate</strong> - script-driven platforms and movers.</li>
+          </ul>
+          <h2>
+            Concepts to spot
+          </h2>
+          <ul>
+            <li>Physics code lives in <strong>FixedUpdate</strong>, not Update.</li>
+            <li><strong>AddForce</strong> = momentum and drift. <strong>MovePosition</strong> = precise, still collision-aware.</li>
+            <li><strong>isKinematic</strong> flips who is in charge: the physics engine or your script.</li>
+            <li>World space vs local (transform) space changes what "forward" means.</li>
+          </ul>
+          <h2>
+            Tasks
+          </h2>
+          <details class="accordion accordion--nested">
+            <summary>
+              Task 1: Feel the mass
+            </summary>
+            <div class="accordion-body">
+              <ol>
+                <li>Open <strong>Dynamic RigidBody Controllers 01</strong>.</li>
+                <li>Select the character using <strong>physicsController_rbAF</strong>.</li>
+                <li>Play with Rigidbody <strong>Mass = 1</strong>, then again with <strong>Mass = 10</strong>.</li>
+              </ol>
+              <p>
+                <strong>Check:</strong> heavier = slower to accelerate and slower to stop. AddForce with ForceMode.Force is mass-dependent.
+              </p>
+            </div>
+          </details>
+          <details class="accordion accordion--nested">
+            <summary>
+              Task 2: Swap the ForceMode
+            </summary>
+            <div class="accordion-body">
+              <ol>
+                <li>Open <strong>physicsController_rbAF.cs</strong>.</li>
+                <li>Change <strong>ForceMode.Force</strong> to <strong>ForceMode.VelocityChange</strong>, then try <strong>ForceMode.Acceleration</strong>.</li>
+                <li>Play and compare the feel of each.</li>
+              </ol>
+              <p>
+                <strong>Check:</strong> VelocityChange and Acceleration ignore mass - the response is instant and identical at any mass.
+              </p>
+            </div>
+          </details>
+          <details class="accordion accordion--nested">
+            <summary>
+              Task 3: Crash test - AddForce vs MovePosition
+            </summary>
+            <div class="accordion-body">
+              <ol>
+                <li>Drive the <strong>rbAF</strong> character (WASD) into a wall or obstacle.</li>
+                <li>Drive the <strong>rbMP</strong> character (IJKL) into the same obstacle.</li>
+                <li>Watch what each does on impact and when you keep pushing.</li>
+              </ol>
+              <p>
+                <strong>Check:</strong> the AddForce character carries momentum and can bounce or slide; MovePosition stops cleanly but still respects the collision.
+              </p>
+            </div>
+          </details>
+          <details class="accordion accordion--nested">
+            <summary>
+              Task 4: Flip isKinematic
+            </summary>
+            <div class="accordion-body">
+              <ol>
+                <li>Open <strong>Kinematic RigidBody Controllers 01</strong> and select the <strong>KinematicWASDController</strong> character.</li>
+                <li>Play and push it into a dynamic object, then let a moving object hit it.</li>
+                <li>Untick <strong>Is Kinematic</strong> on its Rigidbody while playing and repeat.</li>
+              </ol>
+              <p>
+                <strong>Check:</strong> kinematic = immovable and pushes others; dynamic = gets pushed back. isKinematic decides who is in charge - your script or the physics engine.
+              </p>
+            </div>
+          </details>
+          <details class="accordion accordion--nested">
+            <summary>
+              Task 5: World vs local forward
+            </summary>
+            <div class="accordion-body">
+              <ol>
+                <li>Rotate the <strong>rbAF</strong> character 90&deg; on Y in the Inspector, then press W.</li>
+                <li>Do the same with the <strong>rbTAF</strong> character.</li>
+              </ol>
+              <p>
+                <strong>Check:</strong> rbAF still moves in world forward (ignores the rotation); rbTAF moves where the object faces. World space vs local space changes what "forward" means.
+              </p>
+            </div>
+          </details>
+          <details class="accordion accordion--nested">
+            <summary>
+              Task 6 (stretch): Build your own waypoint platform
+            </summary>
+            <div class="accordion-body">
+              <ol>
+                <li>Create a cube, add a Rigidbody, and add <strong>KinematicWaypointMover</strong>.</li>
+                <li>Create 2-3 empty GameObjects as waypoints and assign them to the list.</li>
+                <li>Play, then try standing a character on the platform as it moves.</li>
+              </ol>
+              <p>
+                <strong>Check:</strong> the platform patrols via MovePosition - but the character slides off. Fixing that is the Moving Platforms with Characters section below.
+              </p>
+            </div>
+          </details>
+        </div>
+      </details>
+      <details class="accordion">
+        <summary>
+          Moving Platforms with Characters
+        </summary>
+        <div class="accordion-body media-stack">
+          <p>
+            Your gravity should be working, but you also need to parent the character or transform when moving between platforms:
+          </p>
+          <p>
+            This is the basic principle in visual coding: Simple Moving Platform Setup Rigidbody/Character Controller
+          </p>
           <details class="accordion accordion--nested embed-accordion">
             <summary>
-              Video: Character controller comparison
+              Video: Moving platform setup
+            </summary>
+            <div class="accordion-body">
+              <article class="embed-card">
+                <h3>Video 2</h3>
+                <iframe class="video-embed" src="https://www.youtube.com/embed/2MkNoaWJWf4" title="Unity - 3 types of character controllers: video 2" loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+                <p>
+                  <a href="https://www.youtube.com/watch?v=2MkNoaWJWf4" target="_blank" rel="noopener noreferrer">
+                    Open source link
+                  </a>
+                </p>
+              </article>
+            </div>
+          </details>
+          <p>
+            Basic idea is: parent the character transform to a new platform when the platform collider triggered;
+          </p>
+          <ol>
+            <li>How to Create 3D Moving Platforms (Unity Tutorial)</li>
+            <li>
+              <a href="https://discussions.unity.com/t/charactercontroller-on-a-moving-platform/684563/7" target="_blank" rel="noopener noreferrer">
+                https://discussions.unity.com/t/charactercontroller-on-a-moving-platform/684563/7
+              </a>
+            </li>
+            <li>
+              <a href="https://discussions.unity.com/t/how-to-get-a-character-to-move-with-a-moving-platform/1720" target="_blank" rel="noopener noreferrer">
+                https://discussions.unity.com/t/how-to-get-a-character-to-move-with-a-moving-platform/1720
+              </a>
+            </li>
+          </ol>
+          <details class="accordion accordion--nested embed-accordion">
+            <summary>
+              Video: Creating 3D moving platforms
             </summary>
             <div class="accordion-body">
               <article class="embed-card">
@@ -274,19 +424,8 @@
               </article>
             </div>
           </details>
-          <h2>
-            Reference links
-          </h2>
-          <p>
-            <a href="https://discussions.unity.com/t/charactercontroller-on-a-moving-platform/684563/7" target="_blank" rel="noopener noreferrer">
-              https://discussions.unity.com/t/charactercontroller-on-a-moving-platform/684563/7
-            </a>
-          </p>
-          <p>
-            <a href="https://discussions.unity.com/t/how-to-get-a-character-to-move-with-a-moving-platform/1720" target="_blank" rel="noopener noreferrer">
-              https://discussions.unity.com/t/how-to-get-a-character-to-move-with-a-moving-platform/1720
-            </a>
-          </p>
+        </div>
+      </details>
     </main>
     <script src="../assets/js/site.js?v=20260915a">
     </script>
