@@ -28,6 +28,170 @@
           <p>
             This is an overview of the three controllers: Dynamic RigidBody controller, Kinematic Rigidbody controller and non-RigidBody controller. 
           </p>
+          <h2>
+            Controller comparison
+          </h2>
+          <p>
+            Legend:
+            <span class="docx-hl docx-hl-cyan">behaviour</span>
+            <span class="docx-hl docx-hl-green">recommended</span>
+            <span class="docx-hl docx-hl-yellow">use with care</span>
+            <span class="docx-hl docx-hl-red">avoid</span>
+          </p>
+          <table class="table-normalized">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Dynamic Rigidbody</th>
+                <th scope="col">Kinematic Rigidbody</th>
+                <th scope="col">CharacterController (built-in, no Rigidbody)</th>
+                <th scope="col">Custom non-RigidBody</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Who moves it?</th>
+                <td><span class="docx-hl docx-hl-cyan">Physics engine - motion is the result of forces and collisions.</span></td>
+                <td><span class="docx-hl docx-hl-cyan">Your script - motion is manually calculated and applied.</span></td>
+                <td><span class="docx-hl docx-hl-cyan">Your script, via the controller's collision-aware wrapper.</span></td>
+                <td><span class="docx-hl docx-hl-yellow">Your script - direct input (e.g. mouse control).</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Physics &amp; gravity</th>
+                <td><span class="docx-hl docx-hl-cyan">Affected by physics and gravity; larger mass can limit the effects.</span></td>
+                <td><span class="docx-hl docx-hl-cyan">Not affected - add your own in code if needed.</span></td>
+                <td><span class="docx-hl docx-hl-cyan">Not affected - gravity via CharacterController.SimpleMove.</span></td>
+                <td><span class="docx-hl docx-hl-yellow">Not affected (kinematic).</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Velocity</th>
+                <td><span class="docx-hl docx-hl-cyan">Has velocity and acceleration.</span></td>
+                <td><span class="docx-hl docx-hl-cyan">No velocity (non-physics).</span></td>
+                <td><span class="docx-hl docx-hl-cyan">No Rigidbody - movement comes only from your code.</span></td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <th scope="row">Collisions &amp; triggers</th>
+                <td><span class="docx-hl docx-hl-cyan">All triggers and physics collisions work; can push other physics objects.</span></td>
+                <td><span class="docx-hl docx-hl-cyan">Triggers work. Physics collisions natively only against dynamic Rigidbodies - give the dynamic body high mass if it must not be pushed.</span></td>
+                <td><span class="docx-hl docx-hl-cyan">Collides with walls, objects and uneven ground. Does not push physics objects; they can affect it.</span></td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <th scope="row">Update loop</th>
+                <td><span class="docx-hl docx-hl-green">FixedUpdate (LateUpdate for follow / cameras).</span></td>
+                <td><span class="docx-hl docx-hl-green">Update.</span></td>
+                <td><span class="docx-hl docx-hl-green">Update.</span></td>
+                <td><span class="docx-hl docx-hl-green">Update.</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Move with</th>
+                <td><span class="docx-hl docx-hl-green">Rigidbody.AddForce / AddTorque (see ForceMode table). Rigidbody.MovePosition - forces and collisions along the path.</span></td>
+                <td><span class="docx-hl docx-hl-green">Rigidbody.MovePosition / MoveRotation - unaffected by forces and collisions.</span></td>
+                <td><span class="docx-hl docx-hl-green">CharacterController.Move / SimpleMove.</span></td>
+                <td><span class="docx-hl docx-hl-yellow">Direct transform from input.</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Use with care</th>
+                <td><span class="docx-hl docx-hl-yellow">Rigidbody.position - teleports; collisions only at the end of the physics step.</span></td>
+                <td><span class="docx-hl docx-hl-yellow">Rigidbody.position - teleports; collisions only at the end of the physics step.</span></td>
+                <td>&mdash;</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <th scope="row">Avoid</th>
+                <td><span class="docx-hl docx-hl-red">Transform.position / Translate / Rotate - unwanted teleportation, bypasses physics.</span></td>
+                <td><span class="docx-hl docx-hl-red">Transform.position / Translate / Rotate - unwanted teleportation, bypasses physics.</span></td>
+                <td>&mdash;</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <th scope="row">Time.deltaTime</th>
+                <td><span class="docx-hl docx-hl-green">OK.</span></td>
+                <td><span class="docx-hl docx-hl-green">OK.</span></td>
+                <td>&mdash;</td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <th scope="row">Typical use</th>
+                <td>Objects moved by the world: falling blocks, rolling balls, anything physics-driven.</td>
+                <td>Animation-driven movers, player-controlled objects, predictable non-physics movement.</td>
+                <td>Built-in walking / running character control.</td>
+                <td>Mouse-driven / UI-style direct control.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            <strong>Static</strong> (collider only, no Rigidbody): scenery that never moves. Don't move a collider without a Rigidbody - the behaviour is unreliable.
+          </p>
+          <h3>AddForce: ForceMode cheat-sheet</h3>
+          <table class="table-normalized">
+            <tbody>
+              <tr>
+                <th scope="row"><span class="docx-hl docx-hl-green">Mass-dependent</span></th>
+                <td>Rigidbody.AddForce(ForceMode.Force)</td>
+                <td>Rigidbody.AddTorque(ForceMode.Force)</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="docx-hl docx-hl-green">Non-mass-dependent</span></th>
+                <td>Rigidbody.AddForce(ForceMode.Acceleration)</td>
+                <td>Rigidbody.AddForce(ForceMode.VelocityChange)</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2>
+            Which controller do I need?
+          </h2>
+          <svg viewBox="0 0 680 410" role="img" aria-label="Decision flowchart: if physics should push it around use a Dynamic Rigidbody; if it is script-driven but must still collide use a Kinematic Rigidbody; if it is a walking player character use a CharacterController; otherwise use a custom non-RigidBody controller." xmlns="http://www.w3.org/2000/svg" style="max-width: 680px; width: 100%; height: auto; display: block;">
+            <defs>
+              <marker id="fc-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                <path d="M0,0 L8,4 L0,8 z" fill="#161616"></path>
+              </marker>
+            </defs>
+            <g font-size="15" fill="#161616">
+              <rect x="20" y="10" width="320" height="40" rx="8" fill="#e8f0f8" stroke="#111111" stroke-width="2"></rect>
+              <text x="180" y="35" text-anchor="middle" font-weight="700">Which controller do I need?</text>
+              <line x1="180" y1="50" x2="180" y2="76" stroke="#161616" stroke-width="2" marker-end="url(#fc-arrow)"></line>
+              <rect x="20" y="80" width="320" height="56" rx="8" fill="#fff59d" stroke="#111111" stroke-width="2"></rect>
+              <text x="180" y="104" text-anchor="middle">Should physics push it around?</text>
+              <text x="180" y="124" text-anchor="middle" font-size="13" fill="#3f4650">(forces, knock-back, falling)</text>
+              <line x1="340" y1="108" x2="394" y2="108" stroke="#161616" stroke-width="2" marker-end="url(#fc-arrow)"></line>
+              <text x="367" y="100" text-anchor="middle" font-size="13">yes</text>
+              <rect x="400" y="80" width="260" height="56" rx="8" fill="#b9f2a7" stroke="#111111" stroke-width="2"></rect>
+              <text x="530" y="104" text-anchor="middle" font-weight="700">Dynamic Rigidbody</text>
+              <text x="530" y="124" text-anchor="middle" font-size="13">AddForce / MovePosition</text>
+              <line x1="180" y1="136" x2="180" y2="162" stroke="#161616" stroke-width="2" marker-end="url(#fc-arrow)"></line>
+              <text x="194" y="154" font-size="13">no</text>
+              <rect x="20" y="166" width="320" height="56" rx="8" fill="#fff59d" stroke="#111111" stroke-width="2"></rect>
+              <text x="180" y="190" text-anchor="middle">Moves by script, but must still</text>
+              <text x="180" y="210" text-anchor="middle">collide / fire triggers?</text>
+              <line x1="340" y1="194" x2="394" y2="194" stroke="#161616" stroke-width="2" marker-end="url(#fc-arrow)"></line>
+              <text x="367" y="186" text-anchor="middle" font-size="13">yes</text>
+              <rect x="400" y="166" width="260" height="56" rx="8" fill="#b9f2a7" stroke="#111111" stroke-width="2"></rect>
+              <text x="530" y="190" text-anchor="middle" font-weight="700">Kinematic Rigidbody</text>
+              <text x="530" y="210" text-anchor="middle" font-size="13">MovePosition / MoveRotation</text>
+              <line x1="180" y1="222" x2="180" y2="248" stroke="#161616" stroke-width="2" marker-end="url(#fc-arrow)"></line>
+              <text x="194" y="240" font-size="13">no</text>
+              <rect x="20" y="252" width="320" height="56" rx="8" fill="#fff59d" stroke="#111111" stroke-width="2"></rect>
+              <text x="180" y="276" text-anchor="middle">A walking / running</text>
+              <text x="180" y="296" text-anchor="middle">player character?</text>
+              <line x1="340" y1="280" x2="394" y2="280" stroke="#161616" stroke-width="2" marker-end="url(#fc-arrow)"></line>
+              <text x="367" y="272" text-anchor="middle" font-size="13">yes</text>
+              <rect x="400" y="252" width="260" height="56" rx="8" fill="#b9f2a7" stroke="#111111" stroke-width="2"></rect>
+              <text x="530" y="276" text-anchor="middle" font-weight="700">CharacterController</text>
+              <text x="530" y="296" text-anchor="middle" font-size="13">.Move / .SimpleMove</text>
+              <line x1="180" y1="308" x2="180" y2="334" stroke="#161616" stroke-width="2" marker-end="url(#fc-arrow)"></line>
+              <text x="194" y="326" font-size="13">no</text>
+              <rect x="20" y="338" width="320" height="56" rx="8" fill="#fff59d" stroke="#111111" stroke-width="2"></rect>
+              <text x="180" y="362" text-anchor="middle" font-weight="700">Custom non-RigidBody</text>
+              <text x="180" y="382" text-anchor="middle" font-size="13">direct transform - mouse / UI-style control</text>
+            </g>
+          </svg>
+          <details class="accordion accordion--nested">
+            <summary>
+              Full notes (original)
+            </summary>
+            <div class="accordion-body">
           <ol>
             <li>Static</li>
             <li>
@@ -132,72 +296,8 @@
               </ol>
             </li>
           </ol>
-          <h2>
-            Normalized Tables
-          </h2>
-          <h3>Table 1</h3>
-          <table class="table-normalized">
-            <thead>
-              <tr>
-                <th scope="col">
-                  Feature
-                </th>
-                <th scope="col">
-                  Kinematic Transform
-                </th>
-                <th scope="col">
-                  Non-Kinematic (Dynamic) Transform
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  Movement Control
-                </td>
-                <td>
-                  Application-controlled; motion is manually calculated and applied.
-                </td>
-                <td>
-                  Physics-engine controlled; motion is the result of forces and collisions.
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Forces
-                  Gravity
-                </td>
-                <td>
-                  Ignored by default; must be manually implemented if desired.
-                </td>
-                <td>
-                  Actively responded to, including gravity.
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Collisions
-                </td>
-                <td>
-                  Must be manually handled by the user; does not automatically calculate movement adjustments.
-                </td>
-                <td>
-                  Automatically detected and responded to by the physics engine.
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Use Cases
-                </td>
-                <td>
-                  Moving characters driven by animation, player-controlled objects, or objects that need predictable, non-physics-based movement.
-                </td>
-                <td>
-                  Objects that should be affected by the world, like falling blocks, rolling balls, or any object influenced by physics.
-                </td>
-              </tr>
-            </tbody>
-          </table>
+            </div>
+          </details>
           <details class="accordion accordion--nested embed-accordion">
             <summary>
               Video: Character controllers overview
