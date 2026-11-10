@@ -553,7 +553,7 @@
                 <p>Controls whether physics affects the Rigidbody. If isKinematic is enabled, forces, collisions or joints will no longer affect the Rigidbody; it is under full control of animation or script (preferably <code>Rigidbody.MovePosition</code>, slide 6). Kinematic Rigidbodies still affect the motion of other, dynamic Rigidbodies through collisions.</p>
                 <p>Tutorial 02–03 uses a dynamic (non-kinematic) Rigidbody: collisions and gravity apply, but the object is moved directly through its Transform (slide 4).</p>
                 <div class="assessment-table-wrap">
-                  <table class="assessment-table">
+                  <!-- <table class="assessment-table">
                     <thead>
                       <tr>
                         <th>Feature</th>
@@ -583,7 +583,111 @@
                         <td>Objects that should be affected by the world, like falling blocks, rolling balls, or any object influenced by physics.</td>
                       </tr>
                     </tbody>
+                  </table> -->
+                  <table class="assessment-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Feature</th>
+                        <th scope="col">Kinematic Rigidbody</th>
+                        <th scope="col">Dynamic Rigidbody using forces or velocity</th>
+                        <th scope="col">Dynamic Rigidbody moved through Transform (tutorial setup)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr style="background-color: #f0f0f0;">
+                        <th scope="row">Movement control</th>
+                        <td>
+                          Script or animation specifies movement, preferably using
+                          <code>MovePosition</code> and <code>MoveRotation</code>
+                          in <code>FixedUpdate</code>.
+                        </td>
+                        <td>
+                          Script applies forces or sets velocity in <code>FixedUpdate</code>;
+                          physics resolves the resulting movement.
+                        </td>
+                        <td>
+                          Script directly changes the Transform, while physics also updates
+                          the same object's motion.
+                        </td>
+                      </tr>
+                      <tr style="background-color: #f0f0f0;">
+                        <th scope="row">Forces and gravity</th>
+                        <td>
+                          Not affected by physics forces or automatic gravity.
+                          Any falling behaviour must be scripted.
+                        </td>
+                        <td>
+                          Responds to forces and gravity when enabled.
+                          Repeatedly setting velocity can override parts of that response.
+                        </td>
+                        <td>
+                          Still responds to forces and gravity when enabled, but direct
+                          Transform changes can interfere with the resulting motion.
+                        </td>
+                      </tr>
+                      <tr style="background-color: #f0f0f0;">
+                        <th scope="row">Collision response on this object</th>
+                        <td>
+                          Physics does not stop or deflect its scripted movement.
+                          The controller must check for obstacles and constrain movement
+                          if required.
+                        </td>
+                        <td>
+                          Physics resolves collisions and adjusts motion.
+                          Repeated velocity commands can counteract collision impulses.
+                        </td>
+                        <td>
+                          Physics can respond to contacts, but direct Transform movement
+                          bypasses physics movement and can cause penetration, missed
+                          collisions or jitter.
+                        </td>
+                      </tr>
+                      <tr style="background-color: #f0f0f0;">
+                        <th scope="row">Pushes other dynamic bodies</th>
+                        <td>Yes, through collider contact.</td>
+                        <td>Yes, through collider contact.</td>
+                        <td>
+                          Can do, as demonstrated in the tutorial, but results are less
+                          reliable when moved directly through the Transform.
+                        </td>
+                      </tr>
+                      <tr style="background-color: #f0f0f0;">
+                        <th scope="row">Typical use</th>
+                        <td>
+                          Scripted moving platforms and animated objects that should
+                          influence physics objects without being pushed themselves.
+                        </td>
+                        <td>
+                          Falling blocks, rolling balls and player controllers that
+                          participate in physics.
+                        </td>
+                        <td>
+                          Introductory demonstration of direct movement combined with
+                          physics interaction; avoid for robust continuous movement.
+                        </td>
+                      </tr>
+                    </tbody>
                   </table>
+                  
+                  <p>
+                    <strong>Tutorial note:</strong>
+                    The tutorial combines direct Transform movement with a dynamic
+                    (<code>isKinematic = false</code>) Rigidbody. This gives immediate
+                    scripted control while retaining gravity and physics interaction,
+                    but the scripted movement itself bypasses the physics solver.
+                    For a more robust dynamic controller, use forces or velocity in
+                    <code>FixedUpdate</code>, preserving vertical velocity when gravity
+                    should control falling.
+                  </p>
+                  
+                  <p>
+                    <strong>Terminology:</strong>
+                    Kinematic and dynamic describe the Rigidbody's physics mode,
+                    not the Transform. “Hybrid control” describes the combination of
+                    scripted and physics behaviour; it is not a separate Rigidbody mode.
+                    Collision behaviour assumes enabled, non-trigger colliders and
+                    physics layers configured to interact.
+                  </p>
                 </div>
                 <p>&nbsp;</p>
                 <p><a href="https://docs.unity3d.com/ScriptReference/Rigidbody-isKinematic.html" target="_blank" rel="noopener noreferrer">Rigidbody.isKinematic scripting reference</a></p>
