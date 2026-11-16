@@ -6,644 +6,351 @@
   <title>3DIMD | Blender UI CheatSheet</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/site.css?v=20260818a" />
 </head>
 <body class="content-page">
   <main class="content-area content-page-area" id="main-content">
     <h1 class="page-title">Blender UI CheatSheet</h1>
+    <p>A beginner's guide to Blender's interface, navigation, object manipulation and mesh modelling, followed by a practical workflow and a quick-reference cheatsheet. Shortcuts assume Blender's default keymap; place the mouse pointer over the relevant editor before using them.</p>
 
-<details class="accordion">
-<summary>Blender - Origins &amp; Pivot Points</summary>
-<div class="accordion-body">
-<h3>OnePage CheatSheet</h3>
-<details class="accordion accordion--nested">
-<summary>Quick concepts</summary>
-<div class="accordion-body">
-<ul>
-<li>Origin = object property (orange dot):
-</li>
-</ul>
-<p>reference for location/rotation/scale and centerofmass for physics &amp; some modifiers.</p>
-<ul>
-<li>Pivot point = transform center used when rotating/scaling selections;
-</li>
-</ul>
-<p>one pivot option can be the object origin.</p>
-<ul>
-<li>Object Mode moves object + origin
-</li>
-<li>Edit Mode moves geometry only (origin stays).
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Where to find things</summary>
-<div class="accordion-body">
-<ul>
-<li>Object &gt; Set Origin ? Origin to Geometry / Origin to 3D Cursor / Geometry to Origin
-</li>
-<li>3D Viewport header ? Transform Pivot Point menu (icon near snapping/overlay controls)
-</li>
-<li>Overlays ? Show Origins (toggle visibility)
-</li>
-<li>Shift+S ? Snap menu (Cursor to Selected / Selection to Cursor / Cursor to World Origin)
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Common Pivot Modes (short)</summary>
-<div class="accordion-body">
-<ul>
-<li>Median Point - average/median of selection (Objects: median of origins. Edit mode: median of selected components).
-</li>
-<li>Individual Origins - each object/component transforms around its own origin.
-</li>
-<li>3D Cursor - pivot placed at 3D Cursor position.
-</li>
-<li>Bounding Box Center - center of bounding box enclosing selection (worldaxis aligned).
-</li>
-<li>Active Element - pivot at the active (lastselected) object/component.
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Essential Keystrokes</summary>
-<div class="accordion-body">
-<ul>
-<li>Tab - toggle Object / Edit Mode
-</li>
-<li>G / R / S - Grab / Rotate / Scale
-</li>
-<li>Ctrl+A - Apply (Location / Rotation / Scale) (Reset, Normalise)
-</li>
-<li>Alt+G - Clear Location
-</li>
-<li>Alt+R - Clear Rotation
-</li>
-<li>Alt+S - Clear Scale
-</li>
-<li>Shift+S ? Cursor to Selected / Selection to Cursor / Cursor to World Origin
-</li>
-<li>Shift + RightClick (or Shift + LeftClick if leftclick select) - place 3D Cursor interactively
-</li>
-<li>Object &gt; Set Origin &gt; ... - use menu to move origin or geometry
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Quick fixes &amp; reminders</summary>
-<div class="accordion-body">
-<ul>
-<li>Origin moved unexpectedly (mesh moved in Edit Mode): Object &gt; Set Origin &gt; Origin to Geometry to recenter origin to mesh.
-</li>
-<li>Physics weirdness (tipping / offcenter mass): origin - center of mass ? set origin to geometry.
-</li>
-<li>Mirror modifier seems off: mirror uses object origin as mirror center ? move origin or switch mirror object/axis.
-</li>
-<li>Want group to rotate as one: choose Median Point or Bounding Box Center. Want each to scale separately: Individual Origins.
-</li>
-<li>Apply transforms before exporting or using some modifiers: Select object ? Ctrl+A ? Apply Rotation &amp; Scale (and Location if appropriate).
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Best practices</summary>
-<div class="accordion-body">
-<ul>
-<li>Decide an origin convention for your project (center for prop physics, base for hinged parts, handle for animatable pieces) and stick to it.
-</li>
-<li>Use Shift+S and 3D Cursor for precise origin placement.
-</li>
-<li>Toggle Overlays ? Origins when debugging transforms, physics, or modifiers.
-</li>
-<li>Apply transforms (Ctrl+A) when you want current pose to be the -zero- state (especially before parenting, exporting, or physics setup).
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Oneline reminders</summary>
-<div class="accordion-body">
-<ul>
-<li>To set origin to a precise vertex/point: Edit Mode ? select vertex ? Shift+S ? Cursor to Selected ? Tab to Object ? Object &gt; Set Origin &gt; Origin to 3D Cursor.
-</li>
-<li>To make many objects scale individually: Select objects ? Pivot = Individual Origins ? S.
-</li>
-</ul>
-</div>
-</details>
-</div>
-</details>
+    <!-- 1. INTERFACE AND NAVIGATION -->
+    <details class="accordion" open>
+      <summary>1. Blender Interface &amp; Navigation</summary>
+      <div class="accordion-body">
+        <p>First learn where Blender's tools are located and how to move your <strong>view</strong> without moving the objects in your scene.</p>
+        <details class="accordion accordion--nested embed-accordion">
+          <summary>Video: Blender UI Overview</summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <h3 class="embed-title">Blender UI Overview</h3>
+              <iframe class="panopto-embed" allow="autoplay" src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=bb7214a8-c310-43ad-9f19-b39800ca8cc3&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=true&amp;interactivity=all" title="Blender UI Overview video" loading="lazy" allowfullscreen></iframe>
+              <p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=bb7214a8-c310-43ad-9f19-b39800ca8cc3" target="_blank" rel="noopener noreferrer">Open source video</a></p>
+            </article>
+          </div>
+        </details>
+        <details class="accordion accordion--nested">
+          <summary>Main editors, workspaces &amp; window layout</summary>
+          <div class="accordion-body">
+            <h3>Recognise the main parts of Blender</h3>
+            <ul>
+              <li><strong>3D Viewport:</strong> the main area for viewing, selecting, transforming and modelling objects.</li>
+              <li><strong>Outliner:</strong> lists scene objects and collections; use it to select, rename, organise and control visibility.</li>
+              <li><strong>Properties Editor:</strong> contextual settings for objects, modifiers, materials, mesh data, constraints and rendering.</li>
+              <li><strong>Toolbar:</strong> tools at the left of the Viewport (toggle with <code>T</code>).</li>
+              <li><strong>Sidebar:</strong> View, Tool and Item panels, including numeric transforms (toggle with <code>N</code>).</li>
+              <li><strong>Viewport header:</strong> mode, snapping, pivot, overlays, gizmos and viewport shading controls.</li>
+              <li><strong>Timeline:</strong> playback and animation controls, normally along the bottom of the Layout workspace.</li>
+              <li><strong>Other editors:</strong> UV Editor, Shader Editor and others become useful later in the workflow.</li>
+            </ul>
+            <h3>Workspaces and arranging editors</h3>
+            <p><strong>Layout</strong> is a good starting workspace; <strong>Modelling</strong> provides a modelling-focused arrangement. You can change an area's editor type using its top-left editor selector. To split or join editor areas, drag from an area corner and choose the intended arrangement. This changes the workspace layout, not your model.</p>
+            <p><strong>Beginner tip:</strong> If a shortcut seems not to work, check which editor your mouse is over and whether you are in Object Mode or Edit Mode.</p>
+          </div>
+        </details>
+        <details class="accordion accordion--nested">
+          <summary>Viewport navigation, views &amp; display</summary>
+          <div class="accordion-body">
+            <h3>Navigate the view</h3>
+            <table>
+              <thead><tr><th>Action</th><th>Default control</th><th>Purpose</th></tr></thead>
+              <tbody>
+                <tr><td>Orbit</td><td>Middle Mouse Button (MMB) drag</td><td>Look around the scene</td></tr>
+                <tr><td>Pan</td><td><code>Shift</code> + MMB drag</td><td>Move the view sideways/up/down</td></tr>
+                <tr><td>Zoom</td><td>Mouse wheel</td><td>Move closer or farther</td></tr>
+                <tr><td>Frame selected</td><td>Numpad <code>.</code></td><td>Focus on selected object(s)</td></tr>
+                <tr><td>Front / Right / Top</td><td>Numpad <code>1</code> / <code>3</code> / <code>7</code></td><td>Standard orthographic views</td></tr>
+                <tr><td>Opposite views</td><td><code>Ctrl</code> + Numpad <code>1</code> / <code>3</code> / <code>7</code></td><td>Back / Left / Bottom</td></tr>
+                <tr><td>Perspective / Orthographic</td><td>Numpad <code>5</code></td><td>Toggle projection type</td></tr>
+              </tbody>
+            </table>
+            <h3>Change how the model is displayed</h3>
+            <ul>
+              <li><strong>Viewport shading:</strong> <code>Z</code> opens the shading pie menu: Wireframe, Solid, Material Preview and Rendered.</li>
+              <li><strong>Overlays:</strong> toggle guides such as grid, origins, face orientation and normals in the Viewport header.</li>
+              <li><strong>X-Ray:</strong> see and select through geometry (toggle with <code>Alt+Z</code> in the default keymap).</li>
+              <li><strong>Gizmos:</strong> show on-screen move/rotate/scale handles; toggle from the Viewport header.</li>
+              <li><strong>Shade Smooth / Shade Flat:</strong> adjust the appearance of surface shading without necessarily adding polygons. These do not replace geometric detail.</li>
+            </ul>
+            <p><strong>Remember:</strong> orbiting, panning and zooming change your <em>view</em>; <code>G</code>, <code>R</code> and <code>S</code> change the selected object or geometry.</p>
+          </div>
+        </details>
+      </div>
+    </details>
 
-<details class="accordion">
-<summary>Blender UI Overview</summary>
-<div class="accordion-body">
-<details class="accordion accordion--nested embed-accordion">
-<summary>Video:</summary>
-<div class="accordion-body">
-<article class="embed-card">
-<h3 class="embed-title">Blender UI Overview</h3>
-<iframe class="panopto-embed" allow="autoplay" src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=bb7214a8-c310-43ad-9f19-b39800ca8cc3&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" title="Blender UI Overview video 1" loading="lazy" allowfullscreen></iframe>
-<p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=bb7214a8-c310-43ad-9f19-b39800ca8cc3" target="_blank" rel="noopener noreferrer">Open source link</a></p>
-</article>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Layout / Main editors</summary>
-<div class="accordion-body">
-<ul>
-<li>3D Viewport: Primary workspace for modeling (navigation, select, transform, sculpting preview). Most modeling actions happen here.
-</li>
-<li>Outliner: Scene hierarchy - shows objects and collections; use it to hide/lock/select objects and organize your scene.
-</li>
-<li>Properties Editor: Contextual panels (Editor Type) for Object, Modifier, Mesh Data, Material, Object Constraints, Render settings, etc. Modifiers (Mirror, Subsurf, Boolean, Bevel) live here.
-</li>
-<li>Sidebar (N): View / Tool / Item panels with transform values, tool options, and viewport display toggles.
-</li>
-<li>Toolbar (left of 3D View): Quick access to tools (Move, Rotate, Scale, Transform, Extrude, Knife, Loop Cut). Can be hidden (T).
-</li>
-<li>Top Info Bar / Header: Contains Add menu, current mode, snapping, pivot, overlays, shading, and global settings.
-</li>
-<li>Workspaces - I tend to work in Layout with Xray and all coordinate views, and switch to Modelling for shaded and final view.
-</li>
-<li>UV/Image Editor, Shader Editor, and other editors are available when working on UVs/materials - often used after base modeling.
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Windows</summary>
-<div class="accordion-body">
-<ul>
-<li>Go to top corner of a window to get a -+- sign
-</li>
-<li>This can be dragged down to form a new window.
-</li>
-<li>Dragging this across an existing window give the option to split it.
-</li>
-<li>It can also be dragged into an existing window to join them.
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Modes and selection</summary>
-<div class="accordion-body">
-<ul>
-<li>Object Mode: Move/scale/rotate whole objects, add modifiers, manage collections.
-</li>
-<li>Edit Mode: Polygon/edge/vertex-level modeling. Toggle with Tab.
-</li>
-<li>Selection types: Vertex/Edge/Face (1 / 2 / 3 keys or icons). Use Alt+Click to select an edge loop, Ctrl+Alt+Click to select ring loops (keymap dependent).
-</li>
-<li>Lasso/Box/Circle select: Ctrl/Cmd + drag tools or B (box), C (circle), Lasso from the tool shelf.
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Transforms &amp; navigation</summary>
-<div class="accordion-body">
-<ul>
-<li>Navigation: Middle mouse drag to orbit, Shift+MMB to pan, scroll to zoom (or Numpad keys for orthographic views).
-</li>
-<li>Move/Rotate/Scale: G / R / S. Constrain axes with X / Y / Z (e.g., G ? Z). Type numerical values after the shortcut.
-</li>
-<li>Precision: Hold Shift for fine control. Use axis constraints and orientation (Global, Local, Normal, View).
-</li>
-<li>Apply transforms: Object Mode ? Ctrl+A ? Apply Location/Rotation/Scale (important before some modeling ops).
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Common Edit Mode tools &amp; operations</summary>
-<div class="accordion-body">
-<ul>
-<li>Extrude: E (faces/verts/edges)
-</li>
-<li>Inset faces: I
-</li>
-<li>Bevel: Ctrl+B (edges), use mouse wheel to add segments
-</li>
-<li>Loop cut: Ctrl+R (LMB click to place, right-click to center)
-</li>
-<li>Merge vertices: M (or Alt+M in some keymaps)
-</li>
-<li>Fill / Make face: F
-</li>
-<li>Delete: X (choose vertices/edges/faces)
-</li>
-<li>Separate: P ? Selection (make new object)
-</li>
-<li>Knife: K for manual cuts
-</li>
-<li>Rip / Rip fill: V (depending on keymap)
-</li>
-<li>Edge slide / vertex slide: G then G (or use dedicated tools)
-</li>
-<li>Snap: Shift+Tab toggles snapping (Vertex, Edge, Face, Increment). Use Ctrl while transforming for temporary snap.
-</li>
-<li>Proportional Editing: O to toggle; mouse wheel changes falloff radius for soft transforms.
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Modifiers &amp; non-destructive workflow</summary>
-<div class="accordion-body">
-<ul>
-<li>Mirror: Symmetry across axis; enable Clipping to merge at center.
-</li>
-<li>Subdivision Surface: Smooths geometry (add as modifier; use supporting loops to keep edges sharp).
-</li>
-<li>Boolean: For cutting/combining complex shapes (prefer robust workflows: signed booleans, clean topology after operation).
-</li>
-<li>Bevel, Solidify, Array: Common modeling helpers.
-</li>
-<li>Order matters: modifier stack is applied top?bottom; move modifiers to get desired results.
-</li>
-<li>Use separate objects (P) or collections for components you want to edit independently.
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Viewport display &amp; shading</summary>
-<div class="accordion-body">
-<ul>
-<li>Shading modes: Wireframe (Z?Wireframe), Solid, Material Preview, Rendered.
-</li>
-<li>Overlays: Toggle visibility of gizmos, face orientation, normals, origins, grid, etc.
-</li>
-<li>Shade Smooth / Shade Flat: Right-click ? Shade Smooth for a smoothed normal look; add supporting loops for sharpness.
-</li>
-<li>X-Ray / X-Ray toggle: Makes selecting through geometry easier (Z menu or X-Ray slider).
-</li>
-<li>Show Gizmo, Show Overlays, Toggle Xray and ViewPort Shading is ideal for modeling
-</li>
-<li>Z plus wheel menu for Wireframe, Solid toggling
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Outliner &amp; scene organization</summary>
-<div class="accordion-body">
-<ul>
-<li>Collections: Group objects for visibility, selection, rendering control.
-</li>
-<li>Lock selectability / visibility / renderability per object or collection to avoid accidental edits.
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Useful shortcuts (quick reference)</summary>
-<div class="accordion-body">
-<ul>
-<li>Tab: Toggle Object/Edit Mode
-</li>
-<li>Shift-A: Add Object Primitives
-</li>
-<li>G / R / S: Move / Rotate / Scale
-</li>
-<li>Ctrl+R: Loop Cut
-</li>
-<li>Ctrl+B: Bevel
-</li>
-<li>E: Extrude
-</li>
-<li>I: Inset
-</li>
-<li>F: Fill face
-</li>
-<li>X (or Delete): Remove elements
-</li>
-<li>Shift+D: Duplicate (right-click to keep in place)
-</li>
-<li>M: Move to Collection (or Merge depending on keymap)
-</li>
-<li>O: Toggle Proportional Editing
-</li>
-<li>Shift+Tab: Toggle Snapping
-</li>
-<li>Ctrl+A: Apply transforms
-</li>
-<li>1/2/3: Vertex/Edge/Face select
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Modeling tips &amp; best practices</summary>
-<div class="accordion-body">
-<ul>
-<li>Move in one axis at a time
-</li>
-<li>Check whether in Object or Edit mode when adding objects.
-</li>
-<li>Work non-destructively: use modifiers before applying them so you can iterate.
-</li>
-<li>Apply transforms (Ctrl+A) before using modifiers, boolean ops, or bevels to avoid skewed results.
-</li>
-<li>Keep quad-based topology where possible; avoid n-gons in deforming areas.
-</li>
-<li>Use supporting edge loops to control sharpness when using Subdivision Surface.
-</li>
-<li>Clean up after booleans: merge vertices, remove doubles (Merge by Distance), and retopologize if needed.
-</li>
-<li>Organize into collections and name objects clearly.
-</li>
-<li>Save versions frequently and use incremental saves (file_v01.blend, etc.).
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Customizing &amp; productivity</summary>
-<div class="accordion-body">
-<ul>
-<li>Pie menus (add-on) and custom keymaps can speed modeling.
-</li>
-<li>Tool settings in the toolbar and the topbar let you fine-tune tools without memorizing all shortcuts.
-</li>
-<li>Learn context menus (right-click) - they expose commonly used operations quickly.
-</li>
-<li>Enable addons like LoopTools, F2, and Mesh: Extra Tools for faster workflows.
-</li>
-</ul>
+    <!-- 2. OBJECTS AND TRANSFORMS -->
+    <details class="accordion">
+      <summary>2. Objects, Selection &amp; Transformations</summary>
+      <div class="accordion-body">
+        <p>Understand what is selected, which mode you are in, and how Blender decides the centre and direction of a transformation.</p>
+        <details class="accordion accordion--nested">
+          <summary>Object Mode, Edit Mode &amp; selection</summary>
+          <div class="accordion-body">
+            <h3>Two essential modes</h3>
+            <ul>
+              <li><strong>Object Mode:</strong> select and transform entire objects, organise them, and add modifiers. An object's origin moves when the object moves.</li>
+              <li><strong>Edit Mode:</strong> change the vertices, edges and faces inside a mesh. Moving geometry does not automatically move the object's origin.</li>
+              <li><strong><code>Tab</code>:</strong> switch between Object Mode and Edit Mode for a mesh.</li>
+              <li><strong><code>1</code> / <code>2</code> / <code>3</code>:</strong> vertex / edge / face selection in Edit Mode (the number row, not the numpad).</li>
+            </ul>
+            <h3>Selection controls</h3>
+            <ul>
+              <li><code>A</code> select all; <code>Alt+A</code> deselect all; <code>B</code> box select; <code>C</code> circle select.</li>
+              <li><code>L</code> select linked mesh geometry under the pointer in Edit Mode; <code>Ctrl+L</code> select geometry linked to the current selection.</li>
+              <li><code>Alt+Click</code> on an edge to select a loop; <code>Ctrl+Alt+Click</code> for an edge ring (behaviour can depend on selection mode and keymap).</li>
+              <li>Blender distinguishes <strong>selected</strong> objects from the <strong>active</strong> object (typically highlighted differently). Some operations use the active object as their reference.</li>
+              <li><code>Shift+A</code> adds objects in Object Mode, or geometry to the active mesh in Edit Mode. <code>Shift+D</code> duplicates; <code>X</code> deletes.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="accordion accordion--nested">
+          <summary>Move, rotate, scale &amp; applying transforms</summary>
+          <div class="accordion-body">
+            <h3>One pattern for three transformations</h3>
+            <p>Select an object or mesh component, press a transformation key, optionally constrain an axis, enter a number, then press <code>Enter</code> to confirm (or <code>Esc</code> to cancel).</p>
+            <table>
+              <thead><tr><th>Action</th><th>Shortcut</th><th>Example</th></tr></thead>
+              <tbody>
+                <tr><td>Move (Grab)</td><td><code>G</code></td><td><code>G → X → 2</code> moves 2 units along X</td></tr>
+                <tr><td>Rotate</td><td><code>R</code></td><td><code>R → Z → 90</code> rotates 90° around Z</td></tr>
+                <tr><td>Scale</td><td><code>S</code></td><td><code>S → Z → 2</code> doubles scale along Z</td></tr>
+              </tbody>
+            </table>
+            <ul>
+              <li><code>X</code>, <code>Y</code>, <code>Z</code> constrain the operation to an axis. Pressing an axis key twice can use the corresponding local axis when applicable.</li>
+              <li>Hold <code>Shift</code> during a transform for finer adjustment; use the <code>N</code> sidebar for exact values.</li>
+              <li><strong>Global</strong> axes refer to the scene; <strong>Local</strong> axes follow the object's orientation. Other orientations include Normal and View.</li>
+              <li>Pressing <code>R</code> twice invokes trackball rotation; it is not required for a normal axis-constrained rotation.</li>
+            </ul>
+            <h3>Apply versus clear transforms</h3>
+            <p>In Object Mode, <code>Ctrl+A</code> opens <strong>Apply</strong>. Applying rotation or scale makes the current appearance the new baseline (rotation becomes 0° and/or scale becomes 1) while preserving the visible result. It is often useful before some modifiers, physics setups or export, but should be deliberate: applying location also changes how the object's origin and coordinates are represented.</p>
+            <p><strong>Clear</strong> is different: <code>Alt+G</code> clears location, <code>Alt+R</code> clears rotation, and <code>Alt+S</code> clears scale <em>in Object Mode</em>. In mesh Edit Mode, <code>Alt+S</code> is Shrink/Fatten. Always check the current mode.</p>
+          </div>
+        </details>
+        <details class="accordion accordion--nested">
+          <summary>Origins, pivot points &amp; the 3D Cursor</summary>
+          <div class="accordion-body">
+            <h3>Origin is not the same as pivot</h3>
+            <ul>
+              <li><strong>Object origin:</strong> an object's reference point, shown as an orange dot when origins are visible. It influences object transforms, parenting and certain modifiers (such as Mirror).</li>
+              <li><strong>Transform pivot:</strong> the centre used when rotating or scaling a selection. It can be an object origin, the median of selected elements, the 3D Cursor or another pivot mode.</li>
+              <li><strong>Physics centre of mass:</strong> a separate physical concept; it is not automatically identical to the object origin in every physics system.</li>
+            </ul>
+            <h3>Common pivot modes</h3>
+            <table>
+              <thead><tr><th>Pivot</th><th>Effect</th></tr></thead>
+              <tbody>
+                <tr><td>Median Point</td><td>Centre derived from the selection; useful for transforming objects together</td></tr>
+                <tr><td>Individual Origins</td><td>Each selected object or element uses its own centre</td></tr>
+                <tr><td>3D Cursor</td><td>Uses the 3D Cursor's position as the centre</td></tr>
+                <tr><td>Bounding Box Center</td><td>Centre of the selection's bounding box</td></tr>
+                <tr><td>Active Element</td><td>Uses the active object or component as the reference</td></tr>
+              </tbody>
+            </table>
+            <h3>Find and position the origin</h3>
+            <ul>
+              <li><strong>Set Origin:</strong> in Object Mode, use <em>Object → Set Origin</em>, including Origin to Geometry, Origin to 3D Cursor and Geometry to Origin.</li>
+              <li><strong>3D Cursor:</strong> use <code>Shift+S</code> for snapping options such as Cursor to Selected, Selection to Cursor and Cursor to World Origin.</li>
+              <li><strong>Show origins:</strong> use the Viewport Overlays controls when checking where origins are positioned.</li>
+              <li><strong>Precise origin placement:</strong> in Edit Mode select a vertex → <code>Shift+S</code> → Cursor to Selected → return to Object Mode → Object → Set Origin → Origin to 3D Cursor.</li>
+            </ul>
+            <p><strong>Example:</strong> to scale several objects around their own centres, select them, set Pivot to <em>Individual Origins</em>, then press <code>S</code>. For a door or hinged part, position its origin at the hinge before rotating it.</p>
+          </div>
+        </details>
+      </div>
+    </details>
 
-</div>
-</details>
-</div>
-</details>
+    <!-- 3. MESH TOOLS -->
+    <details class="accordion">
+      <summary>3. Mesh Modelling Tools</summary>
+      <div class="accordion-body">
+        <p>A mesh is made of <strong>vertices</strong> (points), <strong>edges</strong> (connections) and <strong>faces</strong> (surfaces). Most direct modelling happens in Edit Mode.</p>
+        <details class="accordion accordion--nested">
+          <summary>Essential modelling operations</summary>
+          <div class="accordion-body">
+            <table>
+              <thead><tr><th>Tool</th><th>Shortcut</th><th>What it does</th></tr></thead>
+              <tbody>
+                <tr><td>Extrude</td><td><code>E</code></td><td>Extends selected geometry to create new connected geometry</td></tr>
+                <tr><td>Inset Faces</td><td><code>I</code></td><td>Creates an inset boundary inside selected face(s)</td></tr>
+                <tr><td>Loop Cut</td><td><code>Ctrl+R</code></td><td>Adds edge loops through suitable quad topology; right-click after choosing a cut to centre it</td></tr>
+                <tr><td>Bevel</td><td><code>Ctrl+B</code></td><td>Rounds or chamfers selected edges; mouse wheel adjusts segments</td></tr>
+                <tr><td>Make Face / Fill</td><td><code>F</code></td><td>Creates a face or fills suitable selected boundaries</td></tr>
+                <tr><td>Merge</td><td><code>M</code></td><td>Merges selected vertices using a chosen method</td></tr>
+                <tr><td>Delete / Dissolve</td><td><code>X</code></td><td>Choose whether to remove vertices, edges, faces or dissolve geometry</td></tr>
+                <tr><td>Separate</td><td><code>P</code></td><td>Separates selected mesh geometry into another object</td></tr>
+              </tbody>
+            </table>
+            <p><strong>Try it:</strong> Add a cube, enter Edit Mode, switch to face selection (<code>3</code>), select its top face and press <code>E</code> to extrude it upward. Press <code>I</code> to inset the new top face.</p>
+          </div>
+        </details>
+        <details class="accordion accordion--nested">
+          <summary>Precision, snapping &amp; additional tools</summary>
+          <div class="accordion-body">
+            <h3>Precision tools</h3>
+            <ul>
+              <li><strong>Snapping:</strong> <code>Shift+Tab</code> toggles snapping; choose Increment, Vertex, Edge, Face and other targets from the header. Holding <code>Ctrl</code> during a transform can temporarily invert the snap state.</li>
+              <li><strong>Proportional Editing:</strong> <code>O</code> toggles soft influence over nearby geometry. Adjust the influence radius with the mouse wheel during a transform.</li>
+              <li><strong>Numeric input:</strong> combine <code>G</code>, <code>R</code> or <code>S</code> with an axis and number for repeatable modelling.</li>
+            </ul>
+            <h3>Additional tools to explore later</h3>
+            <ul>
+              <li><strong>Knife:</strong> <code>K</code> manually cuts geometry; confirm with <code>Enter</code>.</li>
+              <li><strong>Rip:</strong> <code>V</code> splits connected mesh geometry at a selection.</li>
+              <li><strong>Slide:</strong> <code>G</code> then <code>G</code> slides an eligible vertex or edge along surrounding geometry.</li>
+              <li><strong>Merge by Distance:</strong> under Mesh → Clean Up, merges vertices within a specified distance.</li>
+              <li><strong>Convert tris to quads:</strong> <code>Alt+J</code> where suitable geometry is selected.</li>
+            </ul>
+            <p><strong>Topology tip:</strong> quads are often easier to edit and subdivide predictably. Triangles and n-gons are not always wrong, but require more care near deformation and subdivision.</p>
+          </div>
+        </details>
+      </div>
+    </details>
 
-<details class="accordion">
-<summary>Blender UI CheatSheet</summary>
-<div class="accordion-body">
-<h3>Quick reference for modeling in Blender (Default Keymap)</h3>
-<details class="accordion accordion--nested">
-<summary>Windows</summary>
-<div class="accordion-body">
-<ul>
-<li>Go to top corner of a window to get a -+- sign
-</li>
-<li>This can be dragged down to form a new window.
-</li>
-<li>Dragging this across an existing window give the option to split it.
-</li>
-<li>It can also be dragged into an existing window to join them.
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Modes &amp; Navigation</summary>
-<div class="accordion-body">
-<ul>
-<li>Tab: Toggle Object/Edit Mode
-</li>
-<li>1 / 2 / 3: Vertex / Edge / Face select (Edit Mode)
-</li>
-<li>Middle Mouse Button (MMB): Orbit
-</li>
-<li>Shift + MMB: Pan
-</li>
-<li>Scroll Wheel: Zoom
-</li>
-<li>Numpad 1 / 3 / 7: Front / Right / Top orthographic views
-</li>
-<li>Ctrl + Numpad 1/3/7: Opposite view
-</li>
-<li>Numpad 5: Toggle perspective / orthographic
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Transform Basics</summary>
-<div class="accordion-body">
-<ul>
-<li>G: Grab / Move ? then X / Y / Z to constrain (e.g., G ? Z)
-</li>
-<li>R: Rotate ? R ? X/Y/Z to constrain
-</li>
-<li>S: Scale ? S ? X/Y/Z to constrain
-</li>
-<li>Shift (hold): finer control when transforming
-</li>
-<li>Ctrl + A (Object Mode): Apply ? Location / Rotation / Scale
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Selection Tools</summary>
-<div class="accordion-body">
-<ul>
-<li>A: Select all / deselect all
-</li>
-<li>B: Box Select (or LMB and drag)
-</li>
-<li>C: Circle Select
-</li>
-<li>L: Select linked (hover then L)
-</li>
-<li>Alt + Click (edge): Select edge loop
-</li>
-<li>Ctrl + Alt + Click (edge): Select edge ring (keymap dependent)
-</li>
-<li>Ctrl + L: Select linked geometry under cursor
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Modeling Operations (Edit Mode)</summary>
-<div class="accordion-body">
-<ul>
-<li>E: Extrude (faces/edges/verts)
-</li>
-<li>I: Inset faces
-</li>
-<li>F: Make face / fill
-</li>
-<li>Ctrl + R: Loop Cut (click, then move; right-click to center)
-</li>
-<li>Ctrl + B: Bevel (edges) - mouse wheel to add segments
-</li>
-<li>X / Delete: Delete (choose Vertices / Edges / Faces / Only Faces / Edges &amp; Faces)
-</li>
-<li>M: Merge (or Move to collection in Object Mode)
-</li>
-<li>P: Separate ? Selection (make new object)
-</li>
-<li>K: Knife tool (click to cut; Enter to confirm)
-</li>
-<li>V: Rip (separate verts) / (depends on keymap)
-</li>
-<li>Alt + M (or M in some keymaps): Merge vertices by center / at cursor
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Proportional Editing</summary>
-<div class="accordion-body">
-<ul>
-<li>O: Toggle Proportional Editing
-</li>
-<li>Mouse wheel: change influence radius while transforming
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Snapping</summary>
-<div class="accordion-body">
-<ul>
-<li>Shift + Tab: Toggle Snapping
-</li>
-<li>Hold Ctrl while transforming: temporary snap
-</li>
-<li>Snap types: Vertex / Edge / Face / Increment (set in header)
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Modifiers (non-destructive workflow)</summary>
-<div class="accordion-body">
-<ul>
-<li>Mirror: Add Modifier ? Mirror (enable Clipping to weld center)
-</li>
-<li>Subdivision Surface (Subsurf): Smooth geometry; use supporting loops to keep edges crisp
-</li>
-<li>Boolean: Add Modifier ? Boolean (use carefully; clean topology after)
-</li>
-<li>Bevel, Solidify, Array: common helpers
-</li>
-<li>Order matters: modifiers apply top ? bottom in the stack
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Shading &amp; Viewport</summary>
-<div class="accordion-body">
-<ul>
-<li>Z: Quick shading pie (Wireframe, Solid, Material Preview, Rendered)
-</li>
-<li>Right-click ? Shade Smooth / Shade Flat
-</li>
-<li>Overlays (top-right in 3D View): toggle face orientation, normals, grid, origins
-</li>
-<li>X-Ray / X-Ray slider: select through geometry
-</li>
-<li>Show Gizmo, Show Overlays, Toggle Xray and ViewPort Shading is ideal for modeling
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Outliner &amp; Scene Management</summary>
-<div class="accordion-body">
-<ul>
-<li>Collections: Group objects for visibility / render
-</li>
-<li>Select Filter for Restriction toggles (icons in Outliner for below)
-</li>
-<li>Click icons in Outliner to toggle Visibility / Selectability / Render
-</li>
-<li>Rename objects (double-click in Outliner) - keep names clear
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Common Cleanup &amp; Tools</summary>
-<div class="accordion-body">
-<ul>
-<li>Ctrl + J: Join selected objects
-</li>
-<li>Alt + J: Convert tris?quads (if available)
-</li>
-<li>Mesh ? Clean Up: Merge by Distance (remove doubles), Delete Loose, etc.
-</li>
-<li>Ctrl + Shift + R / Ctrl + 2/3: Quick Subdivision shortcuts (Ctrl+2 = add Subsurf level + apply visually)
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Quick Workflow (Box Modeling ? Refine ? Detail)</summary>
-<div class="accordion-body">
-<ol>
-<li>Block out main forms using primitives (Cube, Cylinder, Sphere).
-</li>
-<li>Add Mirror modifier for symmetry.
-</li>
-<li>Use Loop Cuts (Ctrl+R) to add detail loops where needed.
-</li>
-<li>Bevel (Ctrl+B) or add supporting loops to control edge sharpness.
-</li>
-<li>Add Subdivision Surface and Shade Smooth for preview.
-</li>
-<li>Add fine details last; apply boolean only when necessary and retopologize afterwards.
-</li>
-</ol>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Useful Shortcuts (compact)</summary>
-<div class="accordion-body">
-<ul>
-<li>Tab (Object/Edit), G (Translate), R (Rotate), S(Scale), E (Extrude), I(Insert), F, Ctrl+R (Loops), Ctrl+B (Bevel), Shift+D (Duplicate), X (Delete), P (Separate), Ctrl+A (Apply transforms), O (Proportional editing), Shift+Tab (snap)
-</li>
-</ul>
-</div>
-</details>
-<details class="accordion accordion--nested">
-<summary>Tips &amp; Best Practices</summary>
-<div class="accordion-body">
-<ul>
-<li>Keep quads for clean deformation and subdivision.
-</li>
-<li>Work non-destructively: use modifiers; apply only when necessary.
-</li>
-<li>Apply transforms (Ctrl+A) before boolean/bevel to avoid issues.
-</li>
-<li>Use supporting loops for sharp edges under Subsurf.
-</li>
-<li>Organize into collections and name objects clearly.
-</li>
-<li>Save incrementally (model_v01.blend, model_v02.blend).
-</li>
-</ul>
-</div>
-</details>
-</div>
-</details>
+    <!-- 4. MODIFIERS AND ORGANISATION -->
+    <details class="accordion">
+      <summary>4. Modifiers &amp; Model Organisation</summary>
+      <div class="accordion-body">
+        <p>Modifiers provide non-destructive ways to alter a model. Scene organisation helps you keep the result manageable.</p>
+        <details class="accordion accordion--nested">
+          <summary>Modifiers &amp; non-destructive modelling</summary>
+          <div class="accordion-body">
+            <table>
+              <thead><tr><th>Modifier</th><th>Typical use</th><th>Watch for</th></tr></thead>
+              <tbody>
+                <tr><td>Mirror</td><td>Build symmetrical shapes</td><td>Mirror plane follows the object's origin or a specified Mirror Object; Clipping helps prevent crossing the mirror plane</td></tr>
+                <tr><td>Subdivision Surface</td><td>Refine and smooth a mesh</td><td>Supporting loops help preserve sharper features; <code>Ctrl+2</code> sets a subdivision modifier level, not applies it</td></tr>
+                <tr><td>Boolean</td><td>Cut, combine or intersect forms</td><td>Inspect and clean topology afterward where needed</td></tr>
+                <tr><td>Bevel</td><td>Round hard edges non-destructively</td><td>Unapplied non-uniform scale may affect the result</td></tr>
+                <tr><td>Solidify</td><td>Add thickness to surfaces</td><td>Check normals and thickness direction</td></tr>
+                <tr><td>Array</td><td>Repeat geometry in a pattern</td><td>Check offset direction and spacing</td></tr>
+              </tbody>
+            </table>
+            <p><strong>Modifier order matters:</strong> the stack is evaluated from top to bottom, so changing the order can change the result. Keep modifiers editable until you have a reason to apply them.</p>
+            <p><strong>Important:</strong> apply rotation and scale when a modifier or export workflow requires it, rather than automatically applying every transform on every object.</p>
+          </div>
+        </details>
+        <details class="accordion accordion--nested">
+          <summary>Outliner, collections &amp; cleanup</summary>
+          <div class="accordion-body">
+            <ul>
+              <li><strong>Outliner:</strong> rename objects clearly, inspect the scene hierarchy and control visibility, selection restrictions and rendering using available restriction toggles.</li>
+              <li><strong>Collections:</strong> organise related objects without merging their meshes. In Object Mode, <code>M</code> moves selected objects to a collection.</li>
+              <li><strong>Join:</strong> <code>Ctrl+J</code> combines selected compatible objects into one object in Object Mode; this differs from putting objects in a collection.</li>
+              <li><strong>Separate:</strong> <code>P</code> in Edit Mode separates selected geometry into a new object.</li>
+              <li><strong>Cleanup:</strong> Mesh → Clean Up includes Merge by Distance and Delete Loose. After Boolean operations, inspect overlapping vertices and unintended faces.</li>
+              <li><strong>Save versions:</strong> use File → Save As or incremental filenames such as <code>model_v01.blend</code>, <code>model_v02.blend</code>.</li>
+            </ul>
+            <p><strong>Later productivity options:</strong> right-click context menus, toolbar settings, custom keymaps and optional add-ons can accelerate work. Check availability and compatibility with the Blender version installed before following an add-on tutorial.</p>
+          </div>
+        </details>
+      </div>
+    </details>
 
+    <!-- 5. WORKFLOW AND TROUBLESHOOTING -->
+    <details class="accordion">
+      <summary>5. Practical Workflow &amp; Best Practices</summary>
+      <div class="accordion-body">
+        <details class="accordion accordion--nested">
+          <summary>Guided exercise: box model a simple prop</summary>
+          <div class="accordion-body">
+            <p><strong>Goal:</strong> create a simple stepped prop using the tools introduced above. Save the result as a <code>.blend</code> project.</p>
+            <ol>
+              <li><strong>Start:</strong> select the default cube in Object Mode. Orbit with MMB, then return to a front or top view using the numpad.</li>
+              <li><strong>Shape:</strong> press <code>Tab</code> for Edit Mode, then <code>3</code> for face selection. Select the top face.</li>
+              <li><strong>Extrude:</strong> press <code>E</code> and move upward; enter a number for a controlled height.</li>
+              <li><strong>Inset:</strong> press <code>I</code> on the new top face to create a border.</li>
+              <li><strong>Refine:</strong> bevel suitable edges with <code>Ctrl+B</code> or add supporting loops with <code>Ctrl+R</code> where the topology permits.</li>
+              <li><strong>Inspect:</strong> return to Object Mode. Compare Solid and Wireframe shading and orbit around the result.</li>
+              <li><strong>Organise:</strong> rename the object in the Outliner, optionally move it into a collection, and save the <code>.blend</code> file.</li>
+            </ol>
+            <p><strong>Extension:</strong> experiment with a Mirror modifier and compare Median Point with Individual Origins when transforming duplicated objects.</p>
+          </div>
+        </details>
+        <details class="accordion accordion--nested">
+          <summary>Common problems &amp; final checklist</summary>
+          <div class="accordion-body">
+            <h3>Common problems</h3>
+            <table>
+              <thead><tr><th>Problem</th><th>What to check</th></tr></thead>
+              <tbody>
+                <tr><td>Shortcut behaves unexpectedly</td><td>Current editor, active selection, Object/Edit Mode and keymap</td></tr>
+                <tr><td>Object rotates around an unexpected point</td><td>Pivot mode, object origin and 3D Cursor position</td></tr>
+                <tr><td>Origin no longer sits inside the mesh</td><td>Geometry may have moved in Edit Mode; consider Object → Set Origin → Origin to Geometry</td></tr>
+                <tr><td>Mirror modifier is offset</td><td>Object origin, mirror axis and optional Mirror Object</td></tr>
+                <tr><td>Bevel or other modifier looks uneven</td><td>Non-uniform object scale, topology and modifier order</td></tr>
+                <tr><td>Physics behaves unexpectedly</td><td>Object transforms, collider geometry and centre-of-mass settings in the target physics system</td></tr>
+                <tr><td>Selection passes through the model</td><td>Whether X-Ray or Wireframe mode is enabled</td></tr>
+              </tbody>
+            </table>
+            <h3>Before finishing</h3>
+            <ul>
+              <li>Check the correct mode and active object before editing.</li>
+              <li>Use axis constraints and numeric input for precision.</li>
+              <li>Choose an appropriate origin for moving, rotating or exporting a prop.</li>
+              <li>Inspect topology and normals; use supporting loops where subdivision requires them.</li>
+              <li>Keep modifiers editable while exploring alternatives.</li>
+              <li>Name objects, organise collections and save versions regularly.</li>
+              <li>For Unity or other exports, check the destination application's scale, axes, pivot and collider requirements before applying transforms or exporting.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </details>
 
+    <!-- 6. SHORTCUT REFERENCE -->
+    <details class="accordion">
+      <summary>6. Blender Shortcut Reference (Default Keymap)</summary>
+      <div class="accordion-body">
+        <p>Use this reference after learning the concepts above. Shortcuts are context-sensitive: some keys perform different actions in Object Mode and Edit Mode.</p>
+        <details class="accordion accordion--nested">
+          <summary>Navigation, selection &amp; transformations</summary>
+          <div class="accordion-body">
+            <table>
+              <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td>MMB / Shift+MMB / Wheel</td><td>Orbit / pan / zoom</td></tr>
+                <tr><td>Numpad 1 / 3 / 7 / 5 / .</td><td>Front / right / top / projection toggle / frame selected</td></tr>
+                <tr><td>Tab</td><td>Object Mode ↔ Edit Mode</td></tr>
+                <tr><td>1 / 2 / 3 (Edit Mode)</td><td>Vertex / edge / face selection</td></tr>
+                <tr><td>A / Alt+A / B / C</td><td>Select all / deselect / box select / circle select</td></tr>
+                <tr><td>L / Ctrl+L (Edit Mode)</td><td>Select linked under pointer / linked to selection</td></tr>
+                <tr><td>G / R / S</td><td>Move / rotate / scale</td></tr>
+                <tr><td>X / Y / Z during transform</td><td>Constrain to axis</td></tr>
+                <tr><td>Ctrl+A (Object Mode)</td><td>Apply transforms menu</td></tr>
+                <tr><td>Alt+G / Alt+R / Alt+S (Object Mode)</td><td>Clear location / rotation / scale</td></tr>
+                <tr><td>Shift+A / Shift+D / X</td><td>Add / duplicate / delete (context-dependent)</td></tr>
+                <tr><td>Shift+S</td><td>Snap menu, including 3D Cursor commands</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <details class="accordion accordion--nested">
+          <summary>Modelling, snapping, display &amp; organisation</summary>
+          <div class="accordion-body">
+            <table>
+              <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td>E / I / F</td><td>Extrude / inset / fill face (Edit Mode)</td></tr>
+                <tr><td>Ctrl+R / Ctrl+B</td><td>Loop cut / bevel (Edit Mode)</td></tr>
+                <tr><td>M (Edit Mode) / M (Object Mode)</td><td>Merge mesh elements / move objects to collection</td></tr>
+                <tr><td>P / K / V (Edit Mode)</td><td>Separate / knife / rip</td></tr>
+                <tr><td>G then G (Edit Mode)</td><td>Slide selected geometry where supported</td></tr>
+                <tr><td>O / Shift+Tab</td><td>Proportional Editing / snapping toggle</td></tr>
+                <tr><td>Ctrl during transform</td><td>Temporarily invert snapping state</td></tr>
+                <tr><td>Z / Alt+Z</td><td>Viewport shading pie / X-Ray toggle</td></tr>
+                <tr><td>T / N</td><td>Toggle toolbar / sidebar</td></tr>
+                <tr><td>Ctrl+J (Object Mode)</td><td>Join compatible selected objects</td></tr>
+                <tr><td>Alt+J (Edit Mode)</td><td>Tris to quads where possible</td></tr>
+                <tr><td>Ctrl+1 / Ctrl+2 / Ctrl+3 (Object Mode)</td><td>Set Subdivision Surface modifier viewport level</td></tr>
+              </tbody>
+            </table>
+            <p><strong>Remember:</strong> keyboard shortcuts are aids, not prerequisites. The same tools are generally accessible through menus, the toolbar, search (<code>F3</code>) or the Properties Editor.</p>
+          </div>
+        </details>
+      </div>
+    </details>
   </main>
   <script src="../assets/js/site.js?v=20260915a"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
