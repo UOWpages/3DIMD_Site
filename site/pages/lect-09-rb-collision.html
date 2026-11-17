@@ -33,7 +33,7 @@
           <div class="h3-detail">
             <h3>By the end of this lecture, you should be able to:</h3>
             <ul>
-              <li>Choose the right dynamics configuration (static, kinematic, dynamic) including Use Gravity and Is Kinematic combinations.</li>
+              <li>Choose the right dynamics configuration (static, kinematic, dynamic) including Use Gravity and IsKinematic combinations.</li>
               <li>Predict, from the collision matrix, whether a pair of colliders sends collision messages, trigger messages, or neither.</li>
               <li>Respond to <code>OnCollision</code>/<code>OnTrigger</code> messages in script, and enable kinematic contacts with Contact Pairs Mode.</li>
               <li>Apply these rules to character controllers, moving platforms and XR grabbable objects.</li>
@@ -109,9 +109,9 @@
           <div class="h3-detail">
             <h3>Static</h3>
             <p>No movement, no effects (collider only, or Static ticked). Used for level geometry; optimised because it is never simulated.</p>
-            <h3>Kinematic Rigidbody (Rigidbody, Is Kinematic on)</h3>
+            <h3>Kinematic Rigidbody (Rigidbody, IsKinematic on)</h3>
             <p>Can be moved by script or animation, but no forces affect it. It can affect dynamic Rigidbody GameObjects. Move it with Transform methods (Translate, Rotate) or, best practice, <code>Rigidbody.MovePosition</code> from FixedUpdate (<a href="../index.html?page=pages/lect-08-input-movement-collision.html" target="_top">Lecture 08</a>, slide 6).</p>
-            <h3>Dynamic Rigidbody (Rigidbody, Is Kinematic off)</h3>
+            <h3>Dynamic Rigidbody (Rigidbody, IsKinematic off)</h3>
             <p>All forces affect it and other GameObjects. Move it with Unity physics (<code>AddForce</code>).</p>
             <h3>Gravity</h3>
             <p>Can be on or off for any Rigidbody – see the combinations in the next section.</p>
@@ -120,7 +120,7 @@
       </details>
       <!-- Section 2.3: Rigidbody settings: Use Gravity and Is Kinematic (source slide 14; merged with Lecture 08 source slide 38) -->
       <details class="accordion">
-        <summary>Rigidbody settings: Use Gravity and Is Kinematic</summary>
+        <summary>Rigidbody settings: Use Gravity and IsKinematic</summary>
         <div class="accordion-body">
           <p>How a Rigidbody with a collider behaves for collisions (<code>OnCollisionEnter(Collision col)</code>) with each combination:</p>
           <div class="assessment-table-wrap">
@@ -128,7 +128,7 @@
               <thead>
                 <tr>
                   <th>Use Gravity</th>
-                  <th>Is Kinematic</th>
+                  <th>IsKinematic</th>
                   <th>Result</th>
                 </tr>
               </thead>
@@ -146,7 +146,7 @@
                 <tr>
                   <td>On</td>
                   <td>On</td>
-                  <td>Is Kinematic cancels out gravity; may be moved by script or animation, but is not affected by forces.</td>
+                  <td>IsKinematic cancels out gravity; may be moved by script or animation, but is not affected by forces.</td>
                 </tr>
                 <tr>
                   <td>Off</td>
@@ -198,7 +198,7 @@
           <div class="h3-detail">
             <h3>Collider + kinematic Rigidbody, moved with Transform methods (.Translate, .Rotate, .MoveTowards, .LookAt)</h3>
             <p>Not best practice, but it works – like Tutorial 02–03. For physically correct contacts, move it with <code>MovePosition</code>/<code>MoveRotation</code> from FixedUpdate (<a href="../index.html?page=pages/lect-08-input-movement-collision.html" target="_top">Lecture 08</a>, slide 6).</p>
-            <p>This is a GameObject with a collider and a Rigidbody with Is Kinematic enabled. You can move it from a script by modifying its Transform, but it will not respond to collisions and forces like a non-kinematic Rigidbody.</p>
+            <p>This is a GameObject with a collider and a Rigidbody with IsKinematic enabled. You can move it from a script by modifying its Transform, but it will not respond to collisions and forces like a non-kinematic Rigidbody.</p>
             <p>Kinematic Rigidbodies should be used for colliders that can be moved or disabled/enabled occasionally but that should otherwise behave like static colliders. The best example is a sliding door: it normally acts as an immovable physical obstacle, but can be opened when necessary.</p>
             <p>Unlike a static collider, a moving kinematic Rigidbody will apply friction to other objects and will “wake up” other Rigidbodies when they make contact.</p>
             <p><a href="https://docs.unity3d.com/Manual/CollidersOverview.html" target="_blank" rel="noopener noreferrer">Unity Manual: Colliders overview</a></p>
@@ -210,13 +210,13 @@
         <summary>Collision matrix: static, kinematic, Rigidbody and trigger colliders</summary>
         <div class="accordion-body">
           <p>Use these tables to check whether a pair of colliders sends collision messages, trigger messages, or neither.</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 70%;">
             <img src="images/lect-08-input-movement-collision_slide32_image0.png" class="accordion-image" alt="Unity collision action matrix: when collision detection and trigger messages are sent for each collider type pair" style="--accordion-image-width: 100%;" />
           </div>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 70%;">
             <img src="images/lect-09-rb-collision_slide8_image0.png" class="accordion-image" alt="Unity collider and trigger matrix: which collider combinations produce collision or trigger messages" style="--accordion-image-width: 100%;" />
           </div>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 70%;">
             <img src="images/lect-08-input-movement-collision_slide33_image0.jpeg" class="accordion-image" alt="Collision matrix of Static, Rigidbody, Kinematic Rigidbody and Trigger colliders with Yes/No results" style="--accordion-image-width: 80%;" />
           </div>
         </div>
@@ -299,7 +299,7 @@
             <h3>Collision detection: <code>OnCollisionEnter(Collision col)</code></h3>
             <p>True collision detection – solid objects that stop each other – as opposed to triggering.</p>
             <ul>
-              <li>Both objects need colliders with <strong>Is Trigger</strong> off – this makes them solid.</li>
+              <li>Both objects need colliders with <strong>IsTrigger</strong> off – this makes them solid.</li>
               <li>At least one object needs a Rigidbody:
                 <ul>
                   <li>a true (dynamic) Rigidbody should only move by forces – the ideal situation;</li>
@@ -310,13 +310,13 @@
             <h3>Trigger detection: <code>OnTriggerEnter(Collider other)</code></h3>
             <p>A trigger does not “collide”: it detects intersection (overlap), and objects pass through each other.</p>
             <ul>
-              <li>At least one of the colliders has <strong>Is Trigger</strong> on.</li>
+              <li>At least one of the colliders has <strong>IsTrigger</strong> on.</li>
               <li>At least one object needs a Rigidbody (a kinematic Rigidbody is fine).</li>
               <li>The collider shape can be edited to taste – it defines the detection volume.</li>
             </ul>
             <h3>Notes and pitfalls</h3>
             <ul>
-              <li>Kinematic Rigidbody colliders touching other kinematic Rigidbody colliders do not need Is Trigger on to be detected (see Contact Pairs Mode below).</li>
+              <li>Kinematic Rigidbody colliders touching other kinematic Rigidbody colliders do not need IsTrigger on to be detected (see Contact Pairs Mode below).</li>
               <li>Moving a static collider (no Rigidbody) gives unwanted results – add a kinematic Rigidbody if it must move.</li>
             </ul>
             <h3>Shortcut</h3>
@@ -396,7 +396,7 @@
           <p>Download the Unity Demo Project in the Downloads page or from the GitHub repository below:</p>
 <!--           <p><a href="../pages/downloads.html" target="_blank" rel="noopener noreferrer">Go to Downloads page</a></p> -->
           <p><a href="https://github.com/3DIMD-Tutorial-Projects/Tutorial_09_10_Unity_Matrix_2026" target="_blank" rel="noopener noreferrer">View the project on GitHub (3DIMD-Tutorial-Projects/Tutorial_09_10_Unity_Matrix_2026)</a></p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 80%;">
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 70%;">
             <img src="images/lect-09-rb-collision_slide20_image0.png" class="accordion-image" alt="CollisionTester script with OnCollisionEnter, OnTriggerEnter and FixedUpdate movement" style="--accordion-image-width: 70%;" />
           </div>
         </div>
@@ -411,11 +411,11 @@
             <li>Add a script to both – 90% of the time you just need triggers.</li>
             <li>A collision or trigger notifies both objects.</li>
             <li>Collision: when a true Rigidbody hits a collider (not a trigger).</li>
-            <li>Try the box with and without Is Trigger, and look at the Console.</li>
+            <li>Try the box with and without IsTrigger, and look at the Console.</li>
             <li>Make the box non-static: add a Rigidbody. It has gravity and will fall; turn off gravity, then the collision moves it.</li>
-            <li>Make the box Is Kinematic: the box is not moved. Is Kinematic (may be moved – no physics) vs static (will never move – optimised).</li>
-            <li>Make the sphere Is Kinematic too: no movement, but when dragged they do not affect each other.</li>
-            <li>Try an Is Kinematic Rigidbody with Is Trigger.</li>
+            <li>Make the box IsKinematic: the box is not moved. IsKinematic (may be moved – no physics) vs static (will never move – optimised).</li>
+            <li>Make the sphere IsKinematic too: no movement, but when dragged they do not affect each other.</li>
+            <li>Try an IsKinematic Rigidbody with Is Trigger.</li>
           </ul>
         </div>
       </details>
