@@ -1,117 +1,135 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3DIMD | Blender Lego Minifig Tutorial - Hips and Legs</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/site.css?v=20260818a" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>3DIMD | Blender Lego Minifig Tutorial - Hips and Legs</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/site.css?v=20260818a" rel="stylesheet"/>
 </head>
 <body class="content-page">
-  <main class="content-area content-page-area" id="main-content">
-    <h1 class="page-title">Blender Lego Minifig Tutorial - Hips and Legs</h1>
+<main class="content-area content-page-area" id="main-content">
+<h1 class="page-title">Blender Lego Minifig Tutorial - Hips and Legs</h1>
 <p>This tutorial continues modeling the figure (mid-stage): duplicating geometry, adding circular details, mirroring, creating legs, using loop cuts, bevels, and subdivision for smoothing.</p>
-<h3>Save frequently</h3>
-<ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details class="accordion"><summary>Core Principles: Saving and Workspaces</summary><div class="accordion-body media-stack"><h3>Save frequently</h3><ul>
 <li>Press Ctrl+S regularly to save your progress.
 </li>
 <li>Have a number at the end of your file name to increment.
 </li>
-<li>Press the &quot;+&quot; and save button to increment save.
+<li>Press the "+" and save button to increment save.
 </li>
-</ul>
-<h3>Workspaces</h3>
-<p>Work as before with a Y forward front view and an X forward side view in Layout Workspace, and a perspective view in Modeling Workspace:</p>
-<figure class="image-figure gyazo-inline">
-<a href="https://gyazo.com/3c915c6b8167f5cb51e74ddf6d8b67f5" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/3c915c6b8167f5cb51e74ddf6d8b67f5.png" alt="Gyazo preview" loading="lazy" /></a>
+</ul><h3>Workspaces</h3><p>Work as before with a Y forward front view and an X forward side view in Layout Workspace, and a perspective view in Modeling Workspace:</p><figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/3c915c6b8167f5cb51e74ddf6d8b67f5" rel="noopener noreferrer" target="_blank"><img alt="Gyazo preview" loading="lazy" src="https://i.gyazo.com/3c915c6b8167f5cb51e74ddf6d8b67f5.png"/></a>
 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
-</figure>
-<p><a href="https://gyazo.com/3c915c6b8167f5cb51e74ddf6d8b67f5" target="_blank" rel="noopener noreferrer">https://gyazo.com/3c915c6b8167f5cb51e74ddf6d8b67f5</a></p>
-<figure class="image-figure gyazo-inline">
-<a href="https://gyazo.com/cbdb40fce538ba97854c1fb8ecc7c569" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/cbdb40fce538ba97854c1fb8ecc7c569.png" alt="Gyazo preview" loading="lazy" /></a>
+</figure><p><a href="https://gyazo.com/3c915c6b8167f5cb51e74ddf6d8b67f5" rel="noopener noreferrer" target="_blank">https://gyazo.com/3c915c6b8167f5cb51e74ddf6d8b67f5</a></p><figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/cbdb40fce538ba97854c1fb8ecc7c569" rel="noopener noreferrer" target="_blank"><img alt="Gyazo preview" loading="lazy" src="https://i.gyazo.com/cbdb40fce538ba97854c1fb8ecc7c569.png"/></a>
 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
-</figure>
-<p><a href="https://gyazo.com/cbdb40fce538ba97854c1fb8ecc7c569" target="_blank" rel="noopener noreferrer">https://gyazo.com/cbdb40fce538ba97854c1fb8ecc7c569</a></p>
-<h3>Video:</h3>
-<h3>Step 1 - Create Waist Models:</h3>
-<ol>
+</figure><p><a href="https://gyazo.com/cbdb40fce538ba97854c1fb8ecc7c569" rel="noopener noreferrer" target="_blank">https://gyazo.com/cbdb40fce538ba97854c1fb8ecc7c569</a></p><h3>Video:</h3></div></details><details class="accordion"><summary>Step 1 - Create Waist Models</summary><div class="accordion-body media-stack"><h3>Step 1 - Create Waist Models:</h3><ol>
 <li>Create two waist elements from cubes as you did for the torso
 </li>
-</ol>
-<ul>
+</ol><ul>
 <li>In object mode, create the first cube under the torso with Shift+A - Move downward: press G =&gt; Z and move along the Z axis to reference location.
 </li>
 <li>Adjust with vertex moving in Edit Mode/Press 1 to preserve normal scaling
 </li>
-</ul>
-<h3>Duplicate</h3>
-<ul>
+</ul><h3>Duplicate</h3><ul>
 <li>Duplicate and position that cube for the base of the legs (Shift+D)
 </li>
 <li>Right-click to keep the duplicate in place.
 </li>
 <li>Move the duplicate down to reference center: press G =&gt; Z, move along the Z axis.
 </li>
-</ul>
-<h3>Bevel, Smooth</h3>
-<ul>
+</ul><h3>Bevel, Smooth</h3><ul>
 <li>bevel both as needed (Ctrl+B)
 </li>
 <li>Smooth as needed (Ctrl +2, RMB=&gt;Smooth Shade)
 </li>
 <li>Can also be created like torso by cutting in half, mirroring for precise symmetry.
 </li>
-</ul>
-<ol>
+</ul><details class="accordion accordion--nested embed-accordion"><summary>Video 09: Blender Legs 0</summary><div class="accordion-body"><article class="embed-card"><h3 class="embed-title">Video 09: Blender Legs 0</h3><iframe allow="autoplay" allowfullscreen="" class="panopto-embed" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=277f9980-f63b-4c3b-bbc1-b39f00b89cd6&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=true&amp;interactivity=all" title="Blender LEGO Minifigure — Blender Legs 0"></iframe><p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=277f9980-f63b-4c3b-bbc1-b39f00b89cd6" rel="noopener noreferrer" target="_blank">Open source link</a></p></article></div></details></div></details><details class="accordion"><summary>Step 2 - Circular Hip Detail, Extrusion and Mirroring</summary><div class="accordion-body media-stack"><ol>
 <li>Add a circular detail
 </li>
-</ol>
-<ul>
+</ol><ul>
 <li>Add a Circle (Add =&gt; Mesh =&gt; Circle).
 </li>
 <li>Select Add Circle box at bottom of window for parameters
 </li>
 <li>Set the vertex count to 16 for lighter geometry.
 </li>
-<li>Rotate the circle 90&#176; (R =&gt; X, Z =&gt;90) in views or type (90,0,90) into parameters.
+<li>Rotate the circle 90° (R =&gt; X, Z =&gt;90) in views or type (90,0,90) into parameters.
 </li>
 <li>Move (G) and Scale it (S) to the reference. (.3 if typing in parameterrs)
 </li>
 <li>Rotate (R) in X (Side) view to have verts at leg line
 <figure class="image-figure gyazo-inline">
-<a href="images/9e371d6bcc3611edc1fb46a238ef201e.jpg" target="_blank" rel="noopener noreferrer"><img src="images/9e371d6bcc3611edc1fb46a238ef201e.jpg" alt="Gyazo preview" loading="lazy" /></a>
+<a href="images/9e371d6bcc3611edc1fb46a238ef201e.jpg" rel="noopener noreferrer" target="_blank"><img alt="Gyazo preview" loading="lazy" src="images/9e371d6bcc3611edc1fb46a238ef201e.jpg"/></a>
 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
 </figure>
-<p><a href="images/9e371d6bcc3611edc1fb46a238ef201e.jpg" target="_blank" rel="noopener noreferrer">images/9e371d6bcc3611edc1fb46a238ef201e.jpg</a></p>
+<p><a href="images/9e371d6bcc3611edc1fb46a238ef201e.jpg" rel="noopener noreferrer" target="_blank">images/9e371d6bcc3611edc1fb46a238ef201e.jpg</a></p>
 </li>
-</ul>
-<h3>Extrude</h3>
-<ul>
+</ul><h3>Extrude</h3><ul>
 <li>In Front View (Y Axis) and Edit/Vertex Mode (1) =&gt;
 </li>
 <li>Press Tab, A, E, X to extrude from center to reference edge
 </li>
-</ul>
-<h3>Mirror</h3>
-<ul>
+</ul><h3>Mirror</h3><ul>
 <li>apply transforms (Ctrl+A =&gt; Apply Rotation &amp; Scale) to avoid issues.
 </li>
 <li>In Object mode, add a Mirror modifier
 </li>
 <li>If halves overlap, enable Clipping to keep the center welded.
 </li>
-</ul>
-<h3>Apply transforms and center geometry</h3>
-<ul>
+</ul><h3>Apply transforms and center geometry</h3><ul>
 <li>In Object Mode,
 </li>
 <li>apply transforms (Ctrl+A =&gt; Apply Rotation &amp; Scale) to avoid issues.
 </li>
-</ul>
-<h3>Extrude and Merge for caps</h3>
-<ul>
+</ul><h3>Extrude and Merge for caps</h3><ul>
 <li>MMB into perspective Mode
 </li>
 <li>Tab for Edit Mode
@@ -124,9 +142,7 @@
 </li>
 <li>With ring of vertices still selected, Press M and select Merge/At Center
 </li>
-</ul>
-<h3>Subdivide and Smooth</h3>
-<ul>
+</ul><h3>Subdivide and Smooth</h3><ul>
 <li>In Object Mode
 </li>
 <li>Add Subdivision Surface (Ctrl+2 shortcut or modifier) to smooth the mesh.
@@ -135,21 +151,17 @@
 </li>
 <li>Right-click =&gt; Shade Smooth to improve shading.
 </li>
-</ul>
-<h3>Bevel Edges</h3>
-<ul>
+</ul><h3>Bevel Edges</h3><ul>
 <li>Bevel edges for rounded shapes
 </li>
 <li>Select edges or loops and press Ctrl+B to bevel.
 </li>
 <li>Move the mouse to set bevel width and use mouse wheel to set segments.
 </li>
-</ul>
-<ol>
+</ul><details class="accordion accordion--nested embed-accordion"><summary>Video 10: Blender Legs 1</summary><div class="accordion-body"><article class="embed-card"><h3 class="embed-title">Video 10: Blender Legs 1</h3><iframe allow="autoplay" allowfullscreen="" class="panopto-embed" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=35f3068e-f44c-4e65-bacc-b39f00c89eee&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=true&amp;interactivity=all" title="Blender LEGO Minifigure — Blender Legs 1"></iframe><p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=35f3068e-f44c-4e65-bacc-b39f00c89eee" rel="noopener noreferrer" target="_blank">Open source link</a></p></article></div></details></div></details><details class="accordion"><summary>Step 3 - Create and Shape the Legs</summary><div class="accordion-body media-stack"><ol>
 <li>Create legs
 </li>
-</ol>
-<ul>
+</ol><ul>
 <li>Tab for Edit Mode, 1, Select the circle cap vertices
 </li>
 <li>Shift D to duplicate faces, right click to accept in place
@@ -158,10 +170,10 @@
 </li>
 <li>go out of Edit into Object Mode
 <figure class="image-figure gyazo-inline">
-<a href="images/4b99666564c351bf37e900fb7f0befd7.png" target="_blank" rel="noopener noreferrer"><img src="images/4b99666564c351bf37e900fb7f0befd7.png" alt="Gyazo preview" loading="lazy" /></a>
+<a href="images/4b99666564c351bf37e900fb7f0befd7.png" rel="noopener noreferrer" target="_blank"><img alt="Gyazo preview" loading="lazy" src="images/4b99666564c351bf37e900fb7f0befd7.png"/></a>
 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
 </figure>
-<p><a href="images/4b99666564c351bf37e900fb7f0befd7.png" target="_blank" rel="noopener noreferrer">images/4b99666564c351bf37e900fb7f0befd7.png</a></p>
+<p><a href="images/4b99666564c351bf37e900fb7f0befd7.png" rel="noopener noreferrer" target="_blank">images/4b99666564c351bf37e900fb7f0befd7.png</a></p>
 </li>
 <li>Select the new Circle Object
 </li>
@@ -171,19 +183,19 @@
 </li>
 <li>Rename as Legs
 <figure class="image-figure gyazo-inline">
-<a href="images/fb46ce14ae9405c826474716b22a0243.png" target="_blank" rel="noopener noreferrer"><img src="images/fb46ce14ae9405c826474716b22a0243.png" alt="Gyazo preview" loading="lazy" /></a>
+<a href="images/fb46ce14ae9405c826474716b22a0243.png" rel="noopener noreferrer" target="_blank"><img alt="Gyazo preview" loading="lazy" src="images/fb46ce14ae9405c826474716b22a0243.png"/></a>
 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
 </figure>
-<p><a href="images/fb46ce14ae9405c826474716b22a0243.png" target="_blank" rel="noopener noreferrer">images/fb46ce14ae9405c826474716b22a0243.png</a></p>
+<p><a href="images/fb46ce14ae9405c826474716b22a0243.png" rel="noopener noreferrer" target="_blank">images/fb46ce14ae9405c826474716b22a0243.png</a></p>
 </li>
 <li>In Edit Mode, shape leg geometry by extruding (E), scaling (S), and moving (G):
 </li>
 <li>Select Vertices in Edit mode that are covering leg reference as below
 <figure class="image-figure gyazo-inline">
-<a href="images/a05e22389759c5e80e8985df1e05a2eb.jpg" target="_blank" rel="noopener noreferrer"><img src="images/a05e22389759c5e80e8985df1e05a2eb.jpg" alt="Gyazo preview" loading="lazy" /></a>
+<a href="images/a05e22389759c5e80e8985df1e05a2eb.jpg" rel="noopener noreferrer" target="_blank"><img alt="Gyazo preview" loading="lazy" src="images/a05e22389759c5e80e8985df1e05a2eb.jpg"/></a>
 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
 </figure>
-<p><a href="images/a05e22389759c5e80e8985df1e05a2eb.jpg" target="_blank" rel="noopener noreferrer">images/a05e22389759c5e80e8985df1e05a2eb.jpg</a></p>
+<p><a href="images/a05e22389759c5e80e8985df1e05a2eb.jpg" rel="noopener noreferrer" target="_blank">images/a05e22389759c5e80e8985df1e05a2eb.jpg</a></p>
 </li>
 <li>Select Vertices in Edit mode that are covering leg reference as below
 </li>
@@ -195,10 +207,10 @@
 </li>
 <li>Move this to top of foot line in reference
 <figure class="image-figure gyazo-inline">
-<a href="images/eb6ede73e6c1682f4c7363789e2529c3.jpg" target="_blank" rel="noopener noreferrer"><img src="images/eb6ede73e6c1682f4c7363789e2529c3.jpg" alt="Gyazo preview" loading="lazy" /></a>
+<a href="images/eb6ede73e6c1682f4c7363789e2529c3.jpg" rel="noopener noreferrer" target="_blank"><img alt="Gyazo preview" loading="lazy" src="images/eb6ede73e6c1682f4c7363789e2529c3.jpg"/></a>
 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
 </figure>
-<p><a href="images/eb6ede73e6c1682f4c7363789e2529c3.jpg" target="_blank" rel="noopener noreferrer">images/eb6ede73e6c1682f4c7363789e2529c3.jpg</a></p>
+<p><a href="images/eb6ede73e6c1682f4c7363789e2529c3.jpg" rel="noopener noreferrer" target="_blank">images/eb6ede73e6c1682f4c7363789e2529c3.jpg</a></p>
 </li>
 <li>Extrude down until they meet the floor
 </li>
@@ -206,26 +218,24 @@
 </li>
 <li>Press E to extrude in Y to reference.
 <figure class="image-figure gyazo-inline">
-<a href="images/f0e928af04c1b586778101e9cff81b95.jpg" target="_blank" rel="noopener noreferrer"><img src="images/f0e928af04c1b586778101e9cff81b95.jpg" alt="Gyazo preview" loading="lazy" /></a>
+<a href="images/f0e928af04c1b586778101e9cff81b95.jpg" rel="noopener noreferrer" target="_blank"><img alt="Gyazo preview" loading="lazy" src="images/f0e928af04c1b586778101e9cff81b95.jpg"/></a>
 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
 </figure>
-<p><a href="images/f0e928af04c1b586778101e9cff81b95.jpg" target="_blank" rel="noopener noreferrer">images/f0e928af04c1b586778101e9cff81b95.jpg</a></p>
+<p><a href="images/f0e928af04c1b586778101e9cff81b95.jpg" rel="noopener noreferrer" target="_blank">images/f0e928af04c1b586778101e9cff81b95.jpg</a></p>
 </li>
 <li>In Edit mode select Outside vertices in Front (Y) View
 </li>
 <li>Rotate these for the leg angle in the reference.
 <figure class="image-figure gyazo-inline">
-<a href="images/f7e67535397371e28bcc72db71099ce9.png" target="_blank" rel="noopener noreferrer"><img src="images/f7e67535397371e28bcc72db71099ce9.png" alt="Gyazo preview" loading="lazy" /></a>
+<a href="images/f7e67535397371e28bcc72db71099ce9.png" rel="noopener noreferrer" target="_blank"><img alt="Gyazo preview" loading="lazy" src="images/f7e67535397371e28bcc72db71099ce9.png"/></a>
 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
 </figure>
-<p><a href="images/f7e67535397371e28bcc72db71099ce9.png" target="_blank" rel="noopener noreferrer">images/f7e67535397371e28bcc72db71099ce9.png</a></p>
+<p><a href="images/f7e67535397371e28bcc72db71099ce9.png" rel="noopener noreferrer" target="_blank">images/f7e67535397371e28bcc72db71099ce9.png</a></p>
 </li>
-</ul>
-<ol>
+</ul><details class="accordion accordion--nested embed-accordion"><summary>Video 11: Blender Legs 2</summary><div class="accordion-body"><article class="embed-card"><h3 class="embed-title">Video 11: Blender Legs 2</h3><iframe allow="autoplay" allowfullscreen="" class="panopto-embed" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=1d5f62de-e002-4a53-8e5d-b39f0103a5c1&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=true&amp;interactivity=all" title="Blender LEGO Minifigure — Blender Legs 2"></iframe><p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1d5f62de-e002-4a53-8e5d-b39f0103a5c1" rel="noopener noreferrer" target="_blank">Open source link</a></p></article></div></details></div></details><details class="accordion"><summary>Step 4 - Bevel, Subdivide and Smooth</summary><div class="accordion-body media-stack"><ol>
 <li>Bevel, Subdivide and smooth
 </li>
-</ol>
-<ul>
+</ol><ul>
 <li>Shift Alt Click to select outer edges of leg
 </li>
 <li>Ctrl+B to bevel
@@ -238,36 +248,32 @@
 </li>
 <li>Adjust leg to taste
 <figure class="image-figure gyazo-inline">
-<a href="images/00bea1d5f7f9ec98ad2e0dc8ac29390c.jpg" target="_blank" rel="noopener noreferrer"><img src="images/00bea1d5f7f9ec98ad2e0dc8ac29390c.jpg" alt="Gyazo preview" loading="lazy" /></a>
+<a href="images/00bea1d5f7f9ec98ad2e0dc8ac29390c.jpg" rel="noopener noreferrer" target="_blank"><img alt="Gyazo preview" loading="lazy" src="images/00bea1d5f7f9ec98ad2e0dc8ac29390c.jpg"/></a>
 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
 </figure>
-<p><a href="images/00bea1d5f7f9ec98ad2e0dc8ac29390c.jpg" target="_blank" rel="noopener noreferrer">images/00bea1d5f7f9ec98ad2e0dc8ac29390c.jpg</a></p>
+<p><a href="images/00bea1d5f7f9ec98ad2e0dc8ac29390c.jpg" rel="noopener noreferrer" target="_blank">images/00bea1d5f7f9ec98ad2e0dc8ac29390c.jpg</a></p>
 <figure class="image-figure gyazo-inline">
-<a href="images/70823bd29452bfe0a40aac2a917b6e9a.jpg" target="_blank" rel="noopener noreferrer"><img src="images/70823bd29452bfe0a40aac2a917b6e9a.jpg" alt="Gyazo preview" loading="lazy" /></a>
+<a href="images/70823bd29452bfe0a40aac2a917b6e9a.jpg" rel="noopener noreferrer" target="_blank"><img alt="Gyazo preview" loading="lazy" src="images/70823bd29452bfe0a40aac2a917b6e9a.jpg"/></a>
 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
 </figure>
-<p><a href="images/70823bd29452bfe0a40aac2a917b6e9a.jpg" target="_blank" rel="noopener noreferrer">images/70823bd29452bfe0a40aac2a917b6e9a.jpg</a></p>
+<p><a href="images/70823bd29452bfe0a40aac2a917b6e9a.jpg" rel="noopener noreferrer" target="_blank">images/70823bd29452bfe0a40aac2a917b6e9a.jpg</a></p>
 <figure class="image-figure gyazo-inline">
-<a href="images/7e0f17c5a45f48f7cac2e3ff8ec54270.jpg" target="_blank" rel="noopener noreferrer"><img src="images/7e0f17c5a45f48f7cac2e3ff8ec54270.jpg" alt="Gyazo preview" loading="lazy" /></a>
+<a href="images/7e0f17c5a45f48f7cac2e3ff8ec54270.jpg" rel="noopener noreferrer" target="_blank"><img alt="Gyazo preview" loading="lazy" src="images/7e0f17c5a45f48f7cac2e3ff8ec54270.jpg"/></a>
 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
 </figure>
-<p><a href="images/7e0f17c5a45f48f7cac2e3ff8ec54270.jpg" target="_blank" rel="noopener noreferrer">images/7e0f17c5a45f48f7cac2e3ff8ec54270.jpg</a></p>
+<p><a href="images/7e0f17c5a45f48f7cac2e3ff8ec54270.jpg" rel="noopener noreferrer" target="_blank">images/7e0f17c5a45f48f7cac2e3ff8ec54270.jpg</a></p>
 </li>
-</ul>
-<ol>
+</ul></div></details><details class="accordion"><summary>Step 5 - Separate the Mirrored Leg</summary><div class="accordion-body media-stack"><ol>
 <li>Separate right leg from Mirror Modifier
 </li>
-</ol>
-<ul>
+</ol><ul>
 <li>In Object Mode
 </li>
 <li>Select object and go to Modifier tab
 </li>
 <li>In Dropdown click Apply
 </li>
-</ul>
-<p>_ it is now actual geometry but still part of the same object</p>
-<ul>
+</ul><p>_ it is now actual geometry but still part of the same object</p><ul>
 <li>In Edit Mode, 1 (Vertices)
 </li>
 <li>Select the new mirrored leg - hove mouse over and click L
@@ -276,14 +282,12 @@
 </li>
 <li>In Object Mode they will be separated and you can name them
 <figure class="image-figure gyazo-inline">
-<a href="images/24e268dd45cd8bac2e50e2d7fe877d31.png" target="_blank" rel="noopener noreferrer"><img src="images/24e268dd45cd8bac2e50e2d7fe877d31.png" alt="Gyazo preview" loading="lazy" /></a>
+<a href="images/24e268dd45cd8bac2e50e2d7fe877d31.png" rel="noopener noreferrer" target="_blank"><img alt="Gyazo preview" loading="lazy" src="images/24e268dd45cd8bac2e50e2d7fe877d31.png"/></a>
 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
 </figure>
-<p><a href="images/24e268dd45cd8bac2e50e2d7fe877d31.png" target="_blank" rel="noopener noreferrer">images/24e268dd45cd8bac2e50e2d7fe877d31.png</a></p>
+<p><a href="images/24e268dd45cd8bac2e50e2d7fe877d31.png" rel="noopener noreferrer" target="_blank">images/24e268dd45cd8bac2e50e2d7fe877d31.png</a></p>
 </li>
-</ul>
-<h3>Notes &amp; Shortcuts:</h3>
-<ul>
+</ul></div></details><details class="accordion"><summary>Notes, Shortcuts and Topology Cleanup</summary><div class="accordion-body media-stack"><h3>Notes &amp; Shortcuts:</h3><ul>
 <li>Shift+D: duplicate; right-click to cancel movement but keep duplicate at same location
 </li>
 <li>Tab: toggle Edit/Object modes
@@ -302,9 +306,7 @@
 </li>
 <li>Alt+Click on edge: select loop; Alt+Shift+Click: add loop to selection
 </li>
-</ul>
-<h3>Clean topology and collapse unnecessary geometry</h3>
-<ul>
+</ul><h3>Clean topology and collapse unnecessary geometry</h3><ul>
 <li>Use tools like Dissolve, Merge, or Delete (X) to remove unwanted faces or vertices.
 </li>
 <li>Use Alt+Click to select entire edge loops and operate on them efficiently.
@@ -313,21 +315,7 @@
 </li>
 <li>If you need to remove part of it, delete or dissolve faces/edges (X =&gt; Faces/Edges).
 </li>
-</ul>
-
-
-  </main>
-  <script src="../assets/js/site.js?v=20260915a"></script>
+</ul></div></details></main>
+<script src="../assets/js/site.js?v=20260915a"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

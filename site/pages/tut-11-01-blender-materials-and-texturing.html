@@ -1,21 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3DIMD | Face as UV Mapped Texture with Alpha Channel (see through background)</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/site.css?v=20260818a" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>3DIMD | Face as UV Mapped Texture with Alpha Channel (see through background)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/site.css?v=20260818a" rel="stylesheet"/>
 </head>
 <body class="content-page">
-  <main class="content-area content-page-area" id="main-content">
-    <h1 class="page-title">Face as UV Mapped Texture with Alpha Channel (see through background)</h1>
+<main class="content-area content-page-area" id="main-content"><h1 class="page-title">Face as UV Mapped Texture with Alpha Channel (see through background)</h1><p>Continue the LEGO minifigure workflow by preparing the face texture, UV mapping the head and configuring the material shader.</p><details class="accordion"><summary>Task 1 — Prepare the transparent face texture in Photoshop</summary><div class="accordion-body media-stack"><ol><li>First create an alpha Channel PNG face texture map
 <ol>
-<li>First create an alpha Channel PNG face texture map
-<ol>
-<li>Download this: <a href="https://clipart-library.com/clipart/1313208.htm" target="_blank" rel="noopener noreferrer">https://clipart-library.com/clipart/1313208.htm</a>
+<li>Download this: <a href="https://clipart-library.com/clipart/1313208.htm" rel="noopener noreferrer" target="_blank">https://clipart-library.com/clipart/1313208.htm</a>
 </li>
 <li>Open in Photoshop
 </li>
@@ -31,14 +29,13 @@
 </li>
 <li class="indent-level-4">Save As Png (or Export as PNG if option not there).
 <figure class="image-figure gyazo-inline">
-<a href="https://gyazo.com/f08aaab400ff572ccdd0f89367237518" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/f08aaab400ff572ccdd0f89367237518.png" alt="Gyazo preview" loading="lazy" /></a>
+<a href="https://gyazo.com/f08aaab400ff572ccdd0f89367237518" rel="noopener noreferrer" target="_blank"><img alt="Gyazo preview" loading="lazy" src="https://i.gyazo.com/f08aaab400ff572ccdd0f89367237518.png"/></a>
 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
 </figure>
-<p><a href="https://gyazo.com/f08aaab400ff572ccdd0f89367237518" target="_blank" rel="noopener noreferrer">https://gyazo.com/f08aaab400ff572ccdd0f89367237518</a></p>
+<p><a href="https://gyazo.com/f08aaab400ff572ccdd0f89367237518" rel="noopener noreferrer" target="_blank">https://gyazo.com/f08aaab400ff572ccdd0f89367237518</a></p>
 </li>
 </ol>
-</li>
-<li>Create a material for the head in Blender
+</li></ol><details class="accordion accordion--nested embed-accordion"><summary>Video 16: UV Map Photoshop</summary><div class="accordion-body"><article class="embed-card"><h3 class="embed-title">Video 16: UV Map Photoshop</h3><iframe allow="autoplay" allowfullscreen="" class="panopto-embed" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=74a7ae43-ee4a-45c8-9790-b3b400a36124&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=true&amp;interactivity=all" title="Video 16: UV Map Photoshop"></iframe><p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=74a7ae43-ee4a-45c8-9790-b3b400a36124" rel="noopener noreferrer" target="_blank">Open source link</a></p></article></div></details></div></details><details class="accordion"><summary>Task 2 — Create the head material in Blender</summary><div class="accordion-body media-stack"><ol><li>Create a material for the head in Blender
 <ol>
 <li>In Object mode, select Head and go to Material Editor Panel
 </li>
@@ -46,14 +43,13 @@
 </li>
 <li>Make sure Settings/Render Method is set to Dithered
 <figure class="image-figure gyazo-inline">
-<a href="https://gyazo.com/dd4321cce696ccbec6ff2f72949505e3" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/dd4321cce696ccbec6ff2f72949505e3.png" alt="Gyazo preview" loading="lazy" /></a>
+<a href="https://gyazo.com/dd4321cce696ccbec6ff2f72949505e3" rel="noopener noreferrer" target="_blank"><img alt="Gyazo preview" loading="lazy" src="https://i.gyazo.com/dd4321cce696ccbec6ff2f72949505e3.png"/></a>
 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
 </figure>
-<p class="indent-level-2"><a href="https://gyazo.com/dd4321cce696ccbec6ff2f72949505e3" target="_blank" rel="noopener noreferrer">https://gyazo.com/dd4321cce696ccbec6ff2f72949505e3</a></p>
+<p class="indent-level-2"><a href="https://gyazo.com/dd4321cce696ccbec6ff2f72949505e3" rel="noopener noreferrer" target="_blank">https://gyazo.com/dd4321cce696ccbec6ff2f72949505e3</a></p>
 </li>
 </ol>
-</li>
-<li>UV Map the texture onto the head material
+</li></ol></div></details><details class="accordion"><summary>Task 3 — UV map the face onto the head</summary><div class="accordion-body media-stack"><ol><li>UV Map the texture onto the head material
 <ol>
 <li>Simple UV Mapping:
 <ol>
@@ -67,63 +63,54 @@
 </li>
 <li>Move Vertices with GSR to position over texture map
 <figure class="image-figure gyazo-inline">
-<a href="https://gyazo.com/e3582787105abd8750737890d341cdd9" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/e3582787105abd8750737890d341cdd9.png" alt="Gyazo preview" loading="lazy" /></a>
+<a href="https://gyazo.com/e3582787105abd8750737890d341cdd9" rel="noopener noreferrer" target="_blank"><img alt="Gyazo preview" loading="lazy" src="https://i.gyazo.com/e3582787105abd8750737890d341cdd9.png"/></a>
 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
 </figure>
-<p><a href="https://gyazo.com/e3582787105abd8750737890d341cdd9" target="_blank" rel="noopener noreferrer">https://gyazo.com/e3582787105abd8750737890d341cdd9</a></p>
+<p><a href="https://gyazo.com/e3582787105abd8750737890d341cdd9" rel="noopener noreferrer" target="_blank">https://gyazo.com/e3582787105abd8750737890d341cdd9</a></p>
 <figure class="image-figure gyazo-inline">
-<a href="https://gyazo.com/265c3965eca13156cf3a66f658a7972b" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/265c3965eca13156cf3a66f658a7972b.png" alt="Gyazo preview" loading="lazy" /></a>
+<a href="https://gyazo.com/265c3965eca13156cf3a66f658a7972b" rel="noopener noreferrer" target="_blank"><img alt="Gyazo preview" loading="lazy" src="https://i.gyazo.com/265c3965eca13156cf3a66f658a7972b.png"/></a>
 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
 </figure>
-<p><a href="https://gyazo.com/265c3965eca13156cf3a66f658a7972b" target="_blank" rel="noopener noreferrer">https://gyazo.com/265c3965eca13156cf3a66f658a7972b</a></p>
+<p><a href="https://gyazo.com/265c3965eca13156cf3a66f658a7972b" rel="noopener noreferrer" target="_blank">https://gyazo.com/265c3965eca13156cf3a66f658a7972b</a></p>
 </li>
 </ol>
 </li>
 </ol>
-</li>
-<li>Add Texture in Shading Workspace
+</li></ol><details class="accordion accordion--nested embed-accordion"><summary>Video 17: UV Map Material</summary><div class="accordion-body"><article class="embed-card"><h3 class="embed-title">Video 17: UV Map Material</h3><iframe allow="autoplay" allowfullscreen="" class="panopto-embed" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=91fdb23f-6a2f-4c10-b8c6-b3b400a583ae&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=true&amp;interactivity=all" title="Video 17: UV Map Material"></iframe><p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=91fdb23f-6a2f-4c10-b8c6-b3b400a583ae" rel="noopener noreferrer" target="_blank">Open source link</a></p></article></div></details></div></details><details class="accordion"><summary>Task 4 — Add the Image Texture in the Shader Editor</summary><div class="accordion-body media-stack"><ol><li>Add Texture in Shading Workspace
 <ol>
 <li>In the Shader Editor Window: (Shift+A) Add ? Texture ? Image Texture. Open your RGBA image.
 <figure class="image-figure gyazo-inline">
-<a href="https://gyazo.com/2ac6139cc8ddf9164d438407eaa55ce2" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/2ac6139cc8ddf9164d438407eaa55ce2.png" alt="Gyazo preview" loading="lazy" /></a>
+<a href="https://gyazo.com/2ac6139cc8ddf9164d438407eaa55ce2" rel="noopener noreferrer" target="_blank"><img alt="Gyazo preview" loading="lazy" src="https://i.gyazo.com/2ac6139cc8ddf9164d438407eaa55ce2.png"/></a>
 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
 </figure>
-<p><a href="https://gyazo.com/2ac6139cc8ddf9164d438407eaa55ce2" target="_blank" rel="noopener noreferrer">https://gyazo.com/2ac6139cc8ddf9164d438407eaa55ce2</a></p>
+<p><a href="https://gyazo.com/2ac6139cc8ddf9164d438407eaa55ce2" rel="noopener noreferrer" target="_blank">https://gyazo.com/2ac6139cc8ddf9164d438407eaa55ce2</a></p>
 </li>
 </ol>
-</li>
-<li>Apply alpha channel on material in Blender:
-</li>
-<li>making PNG appear as a label on a surface with material showing through (recommended)
-</li>
-</ol>
-<p class="indent-level-2">The object remains opaque; the PNG-s transparent parts become yellow.</p>
-<ol>
+</li></ol></div></details><details class="accordion"><summary>Task 5 — Configure the alpha mask and face-label shader</summary><div class="accordion-body media-stack"><ol><li>Apply alpha channel on material in Blender:
+</li></ol><ol><li>making PNG appear as a label on a surface with material showing through (recommended)
+</li></ol><p class="indent-level-2">The object remains opaque; the PNG-s transparent parts become yellow.</p><ol>
 <li>Add nodes
 </li>
-</ol>
-<ul>
+</ol><ul>
 <li>Add ? Color ? MixRGB (this is your -Mix- node)
 </li>
 <li>Add ? Texture ? Image Texture (use your PNG) - you already have this
 </li>
 <li>Add ? Converter ? Math (set to Greater Than) only if you want a thresholded mix, otherwise you can use the Image Alpha directly
 </li>
-</ul>
-<ol>
+</ul><ol>
 <li>Wire them exactly
 </li>
-</ol>
-<ul>
+</ol><ul>
 <li>Image Texture Color (yellow dot) ? MixRGB input B (right color socket on the Mix node)
 </li>
 <li>MixRGB output ? Principled BSDF Base Color (the yellow/texture combined color)
 </li>
 <li>If you want to use a threshold so anti-aliased edges are forced to on/off:
 <ul>
-<li>Image Texture Alpha ? Math (Greater Than) input &quot;Value&quot;
+<li>Image Texture Alpha ? Math (Greater Than) input "Value"
 </li>
-<li>Set Math node &quot;Threshold&quot; (the value field) to 0.5 (or higher to remove fringe)
+<li>Set Math node "Threshold" (the value field) to 0.5 (or higher to remove fringe)
 </li>
 <li>Math output ? MixRGB Factor
 </li>
@@ -135,12 +122,10 @@
 </li>
 </ul>
 </li>
-</ul>
-<ol>
+</ul><ol>
 <li>Set the A color (the base yellow)
 </li>
-</ol>
-<ul>
+</ol><ul>
 <li>On the MixRGB node you will see two color swatches or two labeled sockets A and B (A on the left, B on the right). In your screenshot the swatches are small - click the small colored rectangle near the A label to open the color picker and choose your yellow (e.g. R:1.0, G:0.8, B:0.0).
 <ul>
 <li>If you don-t see the swatch, expand the node (hover right edge and drag) so the UI shows the color fields.
@@ -149,35 +134,26 @@
 </li>
 <li>Make sure A is the yellow color and B is the image color (connected).
 </li>
-</ul>
-<aside class="note note--important"><p><strong>Important:</strong> remove any connection to Principled Alpha</p></aside>
-<ul>
+</ul><aside class="note note--important"><p><strong>Important:</strong> remove any connection to Principled Alpha</p></aside><ul>
 <li>Do NOT connect Image Texture Alpha to Principled Alpha (that makes the object actually transparent). Disconnect that if present.
 </li>
 <li>Leave Principled Alpha at 1.000 (the default).
 </li>
-</ul>
-<ol>
+</ul><ol>
 <li>Material Settings
 </li>
-</ol>
-<ul>
+</ol><ul>
 <li>With this approach you can keep the material opaque. The Material Settings UI in 4.x changed; you do not need Alpha Clip here because you-re not making holes. Leave the Render Method as-is.
 </li>
-</ul>
-<p class="indent-level-2">Result: opaque object, label shows on top, transparent PNG background becomes the yellow base.</p>
-<figure class="image-figure gyazo-inline">
-<a href="https://gyazo.com/36f2d00aec48d657d83492572427e207" target="_blank" rel="noopener noreferrer"><img src="https://i.gyazo.com/36f2d00aec48d657d83492572427e207.png" alt="Gyazo preview" loading="lazy" /></a>
+</ul><p class="indent-level-2">Result: opaque object, label shows on top, transparent PNG background becomes the yellow base.</p><figure class="image-figure gyazo-inline">
+<a href="https://gyazo.com/36f2d00aec48d657d83492572427e207" rel="noopener noreferrer" target="_blank"><img alt="Gyazo preview" loading="lazy" src="https://i.gyazo.com/36f2d00aec48d657d83492572427e207.png"/></a>
 <figcaption class="image-caption">Gyazo preview (click image to expand).</figcaption>
-</figure>
-<p><a href="https://gyazo.com/36f2d00aec48d657d83492572427e207" target="_blank" rel="noopener noreferrer">https://gyazo.com/36f2d00aec48d657d83492572427e207</a></p>
-<h3>More complex UV implementations below:</h3>
-<ol>
+</figure><p><a href="https://gyazo.com/36f2d00aec48d657d83492572427e207" rel="noopener noreferrer" target="_blank">https://gyazo.com/36f2d00aec48d657d83492572427e207</a></p><details class="accordion accordion--nested embed-accordion"><summary>Video 18: UV Map Material Shader</summary><div class="accordion-body"><article class="embed-card"><h3 class="embed-title">Video 18: UV Map Material Shader</h3><iframe allow="autoplay" allowfullscreen="" class="panopto-embed" loading="lazy" src="https://westminster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=5ef92cff-d11f-4c6b-84b6-b3b400aa8002&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=true&amp;interactivity=all" title="Video 18: UV Map Material Shader"></iframe><p><a href="https://westminster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5ef92cff-d11f-4c6b-84b6-b3b400aa8002" rel="noopener noreferrer" target="_blank">Open source link</a></p></article></div></details></div></details><details class="accordion"><summary>Task 6 — Additional UV mapping methods and reference links</summary><div class="accordion-body media-stack"><h3>More complex UV implementations below:</h3><ol>
 <li>Mark seams
 <ol>
 <li>Switch to Edit Mode, Edge select (2).
 <ol>
-<li>Mark seams where you would &quot;cut&quot; the mesh to lay it flat: natural breaks (back of shirt, underside of limbs, along a zipper).
+<li>Mark seams where you would "cut" the mesh to lay it flat: natural breaks (back of shirt, underside of limbs, along a zipper).
 <ol>
 <li>Select edges (Shift-RMB) ? right-click ? Mark Seam.
 </li>
@@ -187,9 +163,7 @@
 </li>
 </ol>
 </li>
-</ol>
-<aside class="note note--tip"><p><strong>Tip:</strong> seams on less-visible places make seams less noticeable.</p></aside>
-<ol>
+</ol><aside class="note note--tip"><p><strong>Tip:</strong> seams on less-visible places make seams less noticeable.</p></aside><ol>
 <li>Unwrap Methods:
 <ol>
 <li>Unwrap (U ? Unwrap): best for organic meshes where seams are set.
@@ -236,27 +210,14 @@
 </li>
 </ol>
 </li>
-</ol>
-
-<details class="accordion accordion--nested">
+</ol><details class="accordion accordion--nested">
 <summary>Reference links</summary>
 <div class="accordion-body">
 <section class="section-card">
 <h2>Reference links</h2>
-<p><a href="https://clipart-library.com/clipart/1313208.htm" target="_blank" rel="noopener noreferrer">https://clipart-library.com/clipart/1313208.htm</a></p>
+<p><a href="https://clipart-library.com/clipart/1313208.htm" rel="noopener noreferrer" target="_blank">https://clipart-library.com/clipart/1313208.htm</a></p>
 </section>
-</main>
-  <script src="../assets/js/site.js?v=20260915a"></script>
+</div></details></div></details></main>
+<script src="../assets/js/site.js?v=20260915a"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
