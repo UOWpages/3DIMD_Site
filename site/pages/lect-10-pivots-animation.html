@@ -1,1001 +1,267 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3DIMD | Lecture 10 - Units, Scale, Pivots and Animation</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/site.css?v=20261007a" />
-  <link rel="stylesheet" href="../assets/css/slideshow.css?v=20261007a" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>3DIMD | Lecture 10 - Units, Scale, Pivots and Animation</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/site.css?v=20261007a" rel="stylesheet"/>
+<link href="../assets/css/slideshow.css?v=20261007a" rel="stylesheet"/>
 </head>
 <body class="lecture-fullbleed">
-  <div class="slideshow-container">
-    <!-- Slide 1: 5MMCS001W Lecture 10 - Units, Scale, Pivots, Groups, Working with Assets (source slides 1-2) -->
-    <div class="slide active">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>5MMCS001W Lecture 10 - Units, Scale, Pivots, Groups, Working with Assets</h2>
-        <div class="accordion-scroll">
-      <!-- Section 1.1: Lecture Overview (source slide 1) -->
-      <details class="accordion" open>
-        <summary>Lecture Overview</summary>
-        <div class="accordion-body">
-          <p>5MMCS001W Lecture 10</p>
-          <p>Units, Scale, Pivots, Groups, Working with Assets</p>
-          <p>Animation in 3DS Max and Blender</p>
-        </div>
-      </details>
-      <!-- Section 1.2: This week: (source slide 2) -->
-      <details class="accordion">
-        <summary>This week:</summary>
-        <div class="accordion-body">
-          <ul>
-          <li>Lecture
-            <ul>
-            <li>Units, Scale, Pivots, Procedural Working
-            </li>
-            <li>3D Animation Basic Concepts
-            </li>
-            <li>Game Assets – cleanup, pivots, materials and textures
-            </li>
-            <li>CW1 Planning
-            </li></ul>
-          </li>
-          <li>Tutorial
-            <ul>
-            <li>Pivots, Groups, Links
-            </li>
-            <li>3D Animation in Max
-            </li></ul>
-          </li></ul>
-          <p>https://uowdigital.padlet.org/fergusj/3ds-max-modelling-q7fnmx04ci0we6zk</p>
-        </div>
-      </details>
-      <!-- Section 1.3: Related Tutorials (source slide added cross-reference) -->
-      <details class="accordion">
-        <summary>Related Tutorials</summary>
-        <div class="accordion-body">
-          <p><a href="../index.html?page=pages/tut-09-10-0-blender-origins-and-pivots-cheatsheet.html" target="_top">Tutorial 09-10: Blender - Origins &amp; Pivot Points</a></p>
-          <p><a href="../index.html?page=pages/tut-09-10-02-blender-lego-minifig-tutorial-startup-and-reference-images.html" target="_top">Tutorials 09-10: Blender Lego Minifig series</a></p>
-          <p><a href="../index.html?page=pages/tut-11-02-blender-pivots-and-animation-sheet.html" target="_top">Tutorial 11-02: Prepare &amp; Animate a LEGO Minifigure in Blender</a></p>
-          <p><a href="../index.html?page=pages/tut-04-students.html" target="_top">Tutorial 04: Unity Animation and Animation Import Overview</a></p>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1" disabled> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">13</span></div>
-      </div>
-      <div class="keyboard-hint">
+<div class="slideshow-container">
+<!-- Slide 1: 5MMCS001W Lecture 10 - Units, Scale, Pivots, Groups, Working with Assets (source slides 1-2) -->
+<div class="slide active">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Blender → Unity: Pivots, Orientation and Animation</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Learning outcomes</summary><div class="accordion-body"><div class="h3-detail"><h3>One connected workflow</h3><p>Prepare an articulated model in Blender so that its scale, axes, joint origins, hierarchy and animation remain predictable when imported into Unity.</p><ul><li>Explain Blender Z-up and Unity Y-up and distinguish world axes from model forward.</li><li>Distinguish Blender Object Origin, Transform Pivot Point and Unity Transform/Pivot display.</li><li>Create a LEGO minifigure hierarchy with joint origins and a vertical movement controller.</li><li>Export an animated FBX and configure clips for Unity playback.</li></ul></div></div></details>
+<details class="accordion"><summary>Lecture roadmap and related tutorials</summary><div class="accordion-body"><div class="h3-detail"><h3>Follow the same LEGO minifigure throughout</h3><p>Model preparation → origins → parenting → animation → FBX → Unity Animator.</p><ul><li><a href="../index.html?page=pages/tut-09-10-0-blender-origins-and-pivots-cheatsheet.html" rel="noopener noreferrer" target="_blank">Blender origins and pivots cheatsheet</a></li><li><a href="../index.html?page=pages/tut-11-02-blender-pivots-and-animation-sheet.html" rel="noopener noreferrer" target="_blank">Prepare and animate a LEGO minifigure in Blender</a></li><li><a href="../index.html?page=pages/tut-04-students.html" rel="noopener noreferrer" target="_blank">Unity animation and import overview</a></li></ul></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1" disabled=""> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
-    </div>
-
-    <!-- Slide 2: Units and Scale (source slides 3-5) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Units and Scale</h2>
-        <div class="accordion-scroll">
-      <!-- Section 2.1: Objects (source slide 3) -->
-      <details class="accordion" open>
-        <summary>Objects</summary>
-        <div class="accordion-body">
-          <p>Each object has its own state. Its state is the values that the attributes are set to, which can be different from other objects of the same type.</p>
-          <p>We get objects to do things by calling their methods in Unity, which affects their state.</p>
-          <p>To do that, we should have consistent units and scaling so there are no nasty surprises.</p>
-          <p>http://ogrehead.com/2015/05/exporting-meshes-with-correct-unit-setup-from-3ds-max-to-unity/</p>
-        </div>
-      </details>
-      <!-- Section 2.2: Units Setup and Export to Unity (source slide 4) -->
-      <details class="accordion">
-        <summary>Units Setup and Export to Unity</summary>
-        <div class="accordion-body">
-          <ul>
-          <li>i. Meters and Centimeters
-            <ul>
-            <li>a. Max Customise/Units Setup/System Unit setup Meters
-            </li>
-            <li>b. Max Customise/Units Setup/Display Unit Scale Centimeters
-            </li>
-            <li>c. Max – Tools/Grid and Snap Settings/Home Grid/ Gridspacing 100 cm, All viewports
-            </li>
-            <li>d. Save as Start File – loading prompts Setting Acceptance.
-            </li>
-            <li>c. Unity – is Meters, Cannot adjust Grids
-            </li></ul>
-          </li>
-          <li>ii. Export to Unity
-            <ul>
-            <li>a. Affect Pivot only
-            </li>
-            <li>b. Rotate 90,0,0
-            </li>
-            <li>c. Fbx Export Y-up, Meters, 2020
-            </li>
-            <li>d. Unity transform rotate object 0,0,0
-            </li></ul>
-          </li></ul>
-          <p>Scale in Sub-Object Element, not overall object!</p>
-        </div>
-      </details>
-      <!-- Section 2.3: Offsets: Demo Project (source slide 5) -->
-      <details class="accordion">
-        <summary>Offsets: Demo Project</summary>
-        <div class="accordion-body">
-          <ul>
-          <li>1. do not do translation keys
-          </li>
-          <li>2. do transforms in project
-          </li>
-          <li>3. zero out
-          </li>
-          <li>4. use EGO as parent to zero out
-          </li></ul>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">13</span></div>
-      </div>
-      <div class="keyboard-hint">
+</div>
+<!-- Slide 2: Units and Scale (source slides 3-5) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Units, Scale and Coordinate Systems</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Blender and Unity: what changes?</summary><div class="accordion-body"><div class="h3-detail"><h3>Axes and handedness</h3><p><strong>Blender:</strong> Z-up, right-handed coordinates. <strong>Unity:</strong> Y-up, left-handed coordinates; +Z is Unity Transform.forward and +X is right.</p><p>A mesh’s visible “front” is a modelling choice: it is not automatically aligned with an application’s forward axis. FBX export/import may compensate for coordinate conversion in the mesh data or in imported transforms.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Unity scene showing X right, Y up and Z forward" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide9_image0.jpeg" style="--accordion-image-width: 48%;"/></div></div></div></details>
+<details class="accordion"><summary>Scale and units</summary><div class="accordion-body"><div class="h3-detail"><h3>Consistent physical size</h3><p>Unity generally interprets one world unit as one metre for conventional game scale. In Blender, check Scene Properties → Units and the actual object dimensions before exporting.</p><p>Check the model’s dimensions and Unity importer Scale Factor; do not use an arbitrary 90° rotation or scaling operation as a universal fix.</p><ul><li>Use a reference cube or known-height minifigure.</li><li>Inspect Object Mode scale and local dimensions.</li><li>Test a single FBX before exporting a full animated hierarchy.</li></ul></div></div></details>
+<details class="accordion"><summary>Compare the same object</summary><div class="accordion-body"><div class="h3-detail"><h3>Demonstration</h3><p>In Blender, inspect the axis gizmo and the front-facing mesh. In Unity, inspect the imported hierarchy and local axes. Note where coordinate conversion appears.</p><p><strong>Screenshot placeholder:</strong> Side-by-side Blender axis gizmo and Unity Scene view axis gizmo. Capture from the Blender/Unity versions used for teaching.</p></div></div></details><details class="accordion"><summary>What actually changes: axes, signs and handedness</summary><div class="accordion-body"><div class="h3-detail"><h3>An axis conversion is a change of coordinate basis</h3><p>Blender 5.0 uses a right-handed, Z-up scene coordinate system. Unity 6 uses a left-handed, Y-up system, with <code>Vector3.up = (0,1,0)</code>, <code>Vector3.forward = (0,0,1)</code> and <code>Vector3.right = (1,0,0)</code>. An FBX pipeline must reconcile both the up axis and the meaning of forward.</p><p>A useful <strong>illustrative rotation</strong> is <code>(x, y, z) → (x, z, −y)</code>: Blender +Z becomes Unity +Y; Blender +Y becomes Unity −Z; Blender +X stays +X. For example, a point at Blender <code>(2, 3, 1)</code> becomes <code>(2, 1, −3)</code> under this mapping. This is a +90° rotation around X, <strong>not</strong> a universal promise about the exact numbers in every imported FBX.</p><p><strong>Important:</strong> the rotation mapping alone preserves handedness. Blender and Unity also use different handedness conventions, so FBX import/export can additionally rearrange or reflect axes and mesh data. The displayed Transform Euler angles do not necessarily reveal the full conversion.</p><p><strong>Teaching check:</strong> draw three coloured arrows on a test cube (+X red, +Y green, +Z blue), export it, and compare which arrows point up, forward and right in Unity.</p></div></div></details><details class="accordion"><summary>A practical direction and coordinate example</summary><div class="accordion-body"><div class="h3-detail"><h3>Distinguish a direction from a position</h3><p>A direction such as <code>(0, 0, 1)</code> means <strong>up</strong> in Blender but <strong>forward</strong> in Unity. Therefore copying three numbers into a Unity Vector3 without converting their coordinate basis can change the meaning of a movement or animation.</p><ul><li><strong>Blender vertical movement:</strong> animate Location Z. After conversion, the same visible bounce should travel along Unity Y.</li><li><strong>Blender joint rotation:</strong> the correct rotation axis depends on the limb's <em>local</em> orientation and parenting, not only on global up.</li><li><strong>Normals and tangents:</strong> these must be transformed consistently with mesh geometry; do not manually reorder only vertex positions.</li></ul><p>For a beginner demonstration, use a coloured orientation cube before attempting a multi-object animated minifigure.</p></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
-    </div>
-
-    <!-- Slide 3: Pivots in Objects - World Coordinate Systems (source slides 6-9) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Pivots in Objects - World Coordinate Systems</h2>
-        <div class="accordion-scroll">
-      <!-- Section 3.1: Pivot Offsets in Unity (source slide 6) -->
-      <details class="accordion" open>
-        <summary>Pivot Offsets in Unity</summary>
-        <div class="accordion-body">
-          <p>http://www.aclockworkberry.com/world-coordinate-systems-in-3ds-max-unity-and-unreal-engine/</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide6_image0.png" class="accordion-image" alt="Unity scene with a Lego brick and a cube" style="--accordion-image-width: 32%;" />
-            <img src="images/lect-10-pivots-animation_slide6_image1.png" class="accordion-image" alt="Unity scene showing the cube&#x27;s pivot gizmo at an offset position" style="--accordion-image-width: 32%;" />
-            <img src="images/lect-10-pivots-animation_slide6_image2.png" class="accordion-image" alt="Unity scene showing the Lego brick&#x27;s pivot gizmo" style="--accordion-image-width: 32%;" />
-            <img src="images/lect-10-pivots-animation_slide6_image3.png" class="accordion-image" alt="3ds Max viewport with the Lego brick selected and its pivot shown" style="--accordion-image-width: 48%;" />
-            <img src="images/lect-10-pivots-animation_slide6_image4.png" class="accordion-image" alt="Unity scene with a second Lego brick added beside the cube" style="--accordion-image-width: 48%;" />
-          </div>
-        </div>
-      </details>
-      <!-- Section 3.2: 3ds Max World Coordinate System (source slide 7) -->
-      <details class="accordion">
-        <summary>3ds Max World Coordinate System</summary>
-        <div class="accordion-body">
-          <p>3ds Max uses a right handed, z-up world coordinate system. Below you can see a test scene with the standard teapot and a textured quad (pivot shown in world coordinates). The front view has the Y direction pointing inside the screen.</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide7_image0.jpeg" class="accordion-image" alt="3ds Max test scene with teapot and textured quad, pivot shown in world coordinates" style="--accordion-image-width: 50%;" />
-          </div>
-        </div>
-      </details>
-      <!-- Section 3.3: Unity 3D World Coordinate System (source slide 8) -->
-      <details class="accordion">
-        <summary>Unity 3D World Coordinate System</summary>
-        <div class="accordion-body">
-          <p>Unity 3D uses a left-handed, y-up world coordinate system. As you can see in the image below, when you import a mesh from 3ds Max, what you get is a very different orientation. There is a 90 degrees rotation around the X axis, which has an opposite direction compared to 3ds Max.</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide8_image0.jpeg" class="accordion-image" alt="Teapot and quad in 3ds Max compared with the rotated import in Unity 3D" style="--accordion-image-width: 60%;" />
-          </div>
-        </div>
-      </details>
-      <!-- Section 3.4: Unity 3D Axis Conventions (source slide 9) -->
-      <details class="accordion">
-        <summary>Unity 3D Axis Conventions</summary>
-        <div class="accordion-body">
-          <p>Below you can see the axis conventions for Unity 3D:</p>
-          <ul>
-          <li>Forward direction: Z axis
-          </li>
-          <li>Right direction: X axis
-          </li>
-          <li>Up direction: Y axis
-          </li></ul>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide9_image0.jpeg" class="accordion-image" alt="Teapot in Unity showing Up (Y), Right (X) and Forward (Z) axes" style="--accordion-image-width: 50%;" />
-          </div>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">13</span></div>
-      </div>
-      <div class="keyboard-hint">
+</div>
+<!-- Slide 3: Pivots in Objects - World Coordinate Systems (source slides 6-9) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Origins, Pivots and Transforms</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Three similar-looking concepts</summary><div class="accordion-body"><div class="h3-detail"><h3>Object origin ≠ temporary pivot ≠ Scene handle</h3><ul><li><strong>Blender Object Origin:</strong> persistent local transform origin; rotating the object turns around this point.</li><li><strong>Blender Transform Pivot Point:</strong> temporary editing control (Median Point, 3D Cursor, etc.); changing this does not relocate the Object Origin.</li><li><strong>Unity Transform:</strong> position and rotation origin for the GameObject. The Scene view Pivot/Center toggle only changes where the editing handle appears.</li></ul></div></div></details>
+<details class="accordion"><summary>Set a joint origin in Blender</summary><div class="accordion-body"><div class="h3-detail"><h3>Shoulder or hip: Origin to 3D Cursor</h3><p>In Edit Mode, select the vertices defining the joint centre; use <strong>Shift+S → Cursor to Selected</strong>. Return to Object Mode and choose <strong>Object → Set Origin → Origin to 3D Cursor</strong>. Test rotation before parenting.</p><p><strong>Origin to Geometry</strong> is useful for centred objects, but it is usually wrong for a shoulder or hip joint.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Original tutorial screenshot of joint-origin placement" class="accordion-image" loading="lazy" src="https://i.gyazo.com/e44cb9a7d894864ae90e3dbf48a161db.png" style="--accordion-image-width: 70%;"/></div></div></div></details>
+<details class="accordion"><summary>Why an origin error matters in Unity</summary><div class="accordion-body"><div class="h3-detail"><h3>Rotation follows the imported Transform</h3><p>A door should rotate around its hinge; an arm should rotate at its shoulder. A misplaced origin makes the object orbit unexpectedly. Unity can alternatively use an empty parent GameObject placed at the desired pivot.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="LEGO brick and cube in Unity" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide6_image0.png" style="--accordion-image-width: 30%;"/><img alt="Offset pivot shown in Unity" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide6_image1.png" style="--accordion-image-width: 30%;"/><img alt="LEGO brick pivot in Unity" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide6_image2.png" style="--accordion-image-width: 30%;"/></div></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
-    </div>
-
-    <!-- Slide 4: Fixing Orientation from 3ds Max to Unity 3D (source slides 10-12) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Fixing Orientation from 3ds Max to Unity 3D</h2>
-        <div class="accordion-scroll">
-      <!-- Section 4.1: Fixing orientation from 3ds Max to Unity 3D (source slide 10) -->
-      <details class="accordion" open>
-        <summary>Fixing orientation from 3ds Max to Unity 3D</summary>
-        <div class="accordion-body">
-          <p>When you put into the scene the teapot imported from Max, Unity auto sets a 90 degrees x-axis rotation for the game object, in order to compensate the coordinates change. the result was the same for z-up or y-up in the export dialog.</p>
-          <p>This 90 degrees rotation makes the object look correctly oriented, but it’s actually useless. If you try to use the object this way and you want to control its position and rotation via scripting, you will face a lot of problems dealing with mismatching vector orientations: your forward vector will be the local Z, which actually points up, while your actual forward vector is -X. To avoid all these direction mismatches you could parent your game object to another game object and control the latter, but there’s a better solution.</p>
-          <p>The easy way to export your 3ds Max meshes to Unity 3D is rotating the mesh pivot. You have to just rotate your pivot, making the Z axis point forward, Y axis up and X axis left. Look at the picture next to see an example.</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide10_image0.jpeg" class="accordion-image" alt="Teapot in Unity showing Up (Y), Right (X) and Forward (Z) axes" style="--accordion-image-width: 50%;" />
-          </div>
-        </div>
-      </details>
-      <!-- Section 4.2: Result: Reoriented Pivot (source slide 11) -->
-      <details class="accordion">
-        <summary>Result: Reoriented Pivot</summary>
-        <div class="accordion-body">
-          <p>As you can see, by turning your pivot in Max, the imported mesh in Unity is correctly oriented. The X axis is flipped. In Max it points to the left, in Unity to the right, but the box attached to the right side of the teapot remains on the right. Notice also how the texture mapping alignment remained the same.</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide11_image0.jpeg" class="accordion-image" alt="3ds Max reoriented pivot on the teapot and the correctly oriented import in Unity 3D" style="--accordion-image-width: 50%;" />
-          </div>
-          <p>http://www.aclockworkberry.com/world-coordinate-systems-in-3ds-max-unity-and-unreal-engine/</p>
-        </div>
-      </details>
-      <!-- Section 4.3: Pivots, Max/Blender, and Unity (source slide 12) -->
-      <details class="accordion">
-        <summary>Pivots, Max/Blender, and Unity</summary>
-        <div class="accordion-body">
-          <p>Students will Familiarise themselves with good practice for using pivots on individual objects for use in Unity.</p>
-          <p><a href="https://www.lynda.com/3ds-Max-tutorials/Animating-Unity-3D-3ds-Max/143342-2.html?utm_campaign=qHrsgt79cg0&amp;utm_medium=viral&amp;utm_source=youtube" target="_blank" rel="noopener noreferrer">Lynda.com: Animating for Unity 3D in 3ds Max</a></p>
-          <p>Task: Export Lego Brick from Max/Blender and Import to Unity with Z up and then Y up, Repeat after adjusting Pivot to Y up in Max.</p>
-          <ul>
-          <li>i. Fbx export model from Max– do not change Y up options
-            <ul>
-            <li>ii. Import, Check model in Unity import for transforms
-            </li>
-            <li>i. Fbx export model from Max – change Y up options
-            </li>
-            <li>ii. Import, Check model in Unity import for transforms
-            </li>
-            <li>iii. Adjust model pivot in Max Hierarchies Panel using Snap Rotate to Y up
-            </li>
-            <li>iv. Re-export and check in Unity
-            </li></ul>
-          </li></ul>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">13</span></div>
-      </div>
-      <div class="keyboard-hint">
+</div>
+<!-- Slide 4: Fixing Orientation from 3ds Max to Unity 3D (source slides 10-12) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Local Coordinates and Hierarchies</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Local versus world transforms</summary><div class="accordion-body"><div class="h3-detail"><h3>A child inherits its parent transform</h3><p>A child’s local Position/Rotation/Scale is expressed relative to its parent. Its world pose is the result of the entire hierarchy. Blender parenting and Unity GameObject parenting follow this same broad principle.</p><ul><li>World movement changes where the entire character is in the scene.</li><li>Local joint rotation changes a limb relative to its torso or hips.</li><li>Non-uniform scale in parent hierarchies can produce unintuitive child transforms; avoid it for a simple articulated rig.</li></ul></div></div></details>
+<details class="accordion"><summary>LEGO minifigure hierarchy</summary><div class="accordion-body"><div class="h3-detail"><h3>Recommended object-parented rig</h3><p><code>CharacterRoot</code> (world placement) → <code>UPctrl</code> (vertical bounce) → <code>Hips</code> → <code>Body</code> and legs; Body → arms and head. This is one consistent example; the exact parent structure should match the model.</p><p>Arms rotate around shoulders; legs around hips; the root can translate independently of limb motion.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Original minifigure hierarchy and root controller example" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide22_image0.png" style="--accordion-image-width: 65%;"/></div></div></div></details>
+<details class="accordion"><summary>Test before keyframing</summary><div class="accordion-body"><div class="h3-detail"><h3>Three checks</h3><ul><li>Move the root: the whole figure follows.</li><li>Move UPctrl vertically: the figure bounces without changing limb joint origins.</li><li>Rotate each limb locally: it swings at the intended joint, not around its mesh centre.</li></ul></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
-    </div>
-
-    <!-- Slide 5: Pivots - Blender and Unity Strategies (source slides 13-15) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Pivots - Blender and Unity Strategies</h2>
-        <div class="accordion-scroll">
-      <!-- Section 5.1: Pivots Blender and Unity Strategy 1 (source slide 13) -->
-      <details class="accordion" open>
-        <summary>Pivots Blender and Unity Strategy 1</summary>
-        <div class="accordion-body">
-          <p>Rotate Mesh in edit mode so there is 90 rotation along the X axis</p>
-          <p>Select Object</p>
-          <p>Edit Mode – Press 1 and select all vertices</p>
-          <p>Press R for Rotate, X to lock on axis, and hold CTRL while rotating 90 so the Blue is in the –Y axis and the Green is in the +Z axis. Red side should remain in +X axis.</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide13_image0.png" class="accordion-image" alt="Blender Edit Mode with a cube&#x27;s vertices selected before rotation" style="--accordion-image-width: 40%;" />
-            <img src="images/lect-10-pivots-animation_slide13_image1.png" class="accordion-image" alt="Blender Edit Mode with the cube mesh rotated 90 degrees on the X axis" style="--accordion-image-width: 40%;" />
-          </div>
-        </div>
-      </details>
-      <!-- Section 5.2: Pivots Blender and Unity Strategy 2 (source slide 14) -->
-      <details class="accordion">
-        <summary>Pivots Blender and Unity Strategy 2</summary>
-        <div class="accordion-body">
-          <p>Move origin to center of object or as needed.</p>
-          <p>Select transform Pivot Point Menu – will be next to Global/Local selection</p>
-          <p>Default is Median Point – Select 3D Cursor</p>
-          <p>In an orthographic view, click and drag the axis you want to move</p>
-          <p>- hold CTRL to move in Units</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide14_image0.png" class="accordion-image" alt="Blender cube with the origin moved using the 3D Cursor pivot point" style="--accordion-image-width: 25%;" />
-            <img src="images/lect-10-pivots-animation_slide14_image1.png" class="accordion-image" alt="Blender cube with the origin at its centre, shown in an orthographic view" style="--accordion-image-width: 25%;" />
-          </div>
-        </div>
-      </details>
-      <!-- Section 5.3: Pivots Blender and Unity Strategy 3 – FBX Export Settings (source slide 15) -->
-      <details class="accordion">
-        <summary>Pivots Blender and Unity Strategy 3 – FBX Export Settings</summary>
-        <div class="accordion-body">
-          <p>Export FBX with settings below:</p>
-          <ul>
-          <li>To Embed textures:
-            <ul>
-            <li>For Path Mode at top, choose Copy from drop down menu.
-            </li>
-            <li>Select icon on right (Embed Textures)
-            </li></ul>
-          </li>
-          <li>Object Types – Mesh only
-          </li>
-          <li>To fix axis in Transform:
-            <ul>
-            <li>Scale: 1.00
-            </li>
-            <li>Apply Scalings: All Local
-            </li>
-            <li>Forward: -Z Forward
-            </li>
-            <li>Up: Y Up
-            </li>
-            <li>Apply Unit Ticked
-            </li>
-            <li>Use Space Transform Ticked
-            </li>
-            <li>Apply Transform Ticked
-            </li></ul>
-          </li>
-          <li>Geometry
-            <ul>
-            <li>Apply Modifiers Ticked
-            </li></ul>
-          </li>
-          <li>Keep all other defaults
-          </li></ul>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">13</span></div>
-      </div>
-      <div class="keyboard-hint">
+</div>
+<!-- Slide 5: Pivots - Blender and Unity Strategies (source slides 13-15) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Preparing Models for Animation</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Object Mode and Edit Mode</summary><div class="accordion-body"><div class="h3-detail"><h3>Geometry changes and object transforms are different</h3><p>Editing vertices in Blender Edit Mode changes mesh geometry relative to its object origin. Moving, rotating or scaling in Object Mode changes the object transform. Choose deliberately: neither is a universal axis-conversion fix.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Blender mesh in Edit Mode before rotation" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide13_image0.png" style="--accordion-image-width: 43%;"/><img alt="Blender mesh after Edit Mode rotation" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide13_image1.png" style="--accordion-image-width: 43%;"/></div></div></div></details>
+<details class="accordion"><summary>Apply transforms selectively</summary><div class="accordion-body"><div class="h3-detail"><h3>Ctrl+A: Rotation and Scale</h3><p>For a static mesh, applying rotation or scale can simplify export. For an animated hierarchy, applying Location/Rotation/Scale after parenting or keyframing can change the result. Prepare and verify transforms <strong>before</strong> animation; save a backup first.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Blender Object Apply transforms menu" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide18_image1.jpeg" style="--accordion-image-width: 60%;"/></div></div></div></details>
+<details class="accordion"><summary>Clean model checklist</summary><div class="accordion-body"><div class="h3-detail"><h3>Before creating Actions</h3><ul><li>Use descriptive object names: Body, Hips, LeftArm, RightArm, LeftLeg, RightLeg, Head, UPctrl.</li><li>Check each joint origin and parent.</li><li>Ensure a sensible rest pose and physical scale.</li><li>Lock unused axes for the simple controller as an editing safeguard; Blender channel locks do not become Unity runtime constraints.</li><li>Keep reference geometry outside the export selection.</li></ul><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Original tutorial screenshot of minifigure preparation" class="accordion-image" loading="lazy" src="https://i.gyazo.com/126091418c545465be4944f93816048a.png" style="--accordion-image-width: 65%;"/></div></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
-    </div>
-
-    <!-- Slide 6: Pivots - Max and Unity Strategies, Normalizing (source slides 16-18) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Pivots - Max and Unity Strategies, Normalizing</h2>
-        <div class="accordion-scroll">
-      <!-- Section 6.1: Pivots Max and Unity Strategy 1 (source slide 16) -->
-      <details class="accordion" open>
-        <summary>Pivots Max and Unity Strategy 1</summary>
-        <div class="accordion-body">
-          <p>Rotate Pivot in Hierarchy Tab/ Affect Pivot Only so there is +90 rotation along the X axis</p>
-          <p>In Modifier Tab, add editable mesh or poly modifier if not there</p>
-          <p>Select Element level in Modifier and rotate that 90 degrees in YZ so the Blue is in the –Y axis and the Green is in the +Z axis. Red side should remain in +X axis.</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide16_image0.png" class="accordion-image" alt="Cubes in 3ds Max with coloured faces showing the +Z, -Y and +X sides" style="--accordion-image-width: 50%;" />
-          </div>
-        </div>
-      </details>
-      <!-- Section 6.2: Pivots Max and Unity Strategy 2 (source slide 17) -->
-      <details class="accordion">
-        <summary>Pivots Max and Unity Strategy 2</summary>
-        <div class="accordion-body">
-          <p>Move origin to center of object or as needed in Hierarchy Tab/ Affect Pivot Only</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide17_image0.png" class="accordion-image" alt="3ds Max Hierarchy tab Affect Pivot Only with the pivot moved on a cube" style="--accordion-image-width: 45%;" />
-          </div>
-        </div>
-      </details>
-      <!-- Section 6.3: Max/Blender Normalizing (source slide 18) -->
-      <details class="accordion">
-        <summary>Max/Blender Normalizing</summary>
-        <div class="accordion-body">
-          <p>Max: Hierarchy/Pivot/Adjust Transform/Reset:Transform,Scale</p>
-          <p>Blender – CTRL+A/Apply Transforms (Select needed or all)</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide18_image0.png" class="accordion-image" alt="3ds Max Hierarchy Pivot panel with Reset Transform and Scale for a Lego minifig" style="--accordion-image-width: 28%;" />
-            <img src="images/lect-10-pivots-animation_slide18_image1.jpeg" class="accordion-image" alt="Blender Object &gt; Apply menu with All Transforms highlighted" style="--accordion-image-width: 60%;" />
-          </div>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">13</span></div>
-      </div>
-      <div class="keyboard-hint">
+</div>
+<!-- Slide 6: Pivots - Max and Unity Strategies, Normalizing (source slides 16-18) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Blender → Unity: FBX Export and Import</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Export a known-good test asset</summary><div class="accordion-body"><div class="h3-detail"><h3>Blender File → Export → FBX</h3><ul><li>Select the minifigure hierarchy, including relevant Mesh and Empty objects; include Armature only for a bone-based rig.</li><li>Use Selected Objects if the selection includes all required objects and parents.</li><li>Review Forward/Up axis conversion (commonly −Z Forward / Y Up for Unity-oriented FBX export); verify the actual result.</li><li>Use consistent scale and review Apply Unit / Apply Scalings settings.</li><li>Export animation when needed, checking the Actions/NLA export options.</li></ul></div></div></details>
+<details class="accordion"><summary>Import into Unity 6000.3</summary><div class="accordion-body"><div class="h3-detail"><h3>Inspect the importer, not just the Scene view</h3><p>Select the FBX asset in the Project window. Review the <strong>Model</strong> tab (scale and axis conversion), <strong>Rig</strong> tab (typically Generic for this object-parented figure), and <strong>Animation</strong> tab (imported clips, frame ranges and looping).</p><p>The <strong>Bake Axis Conversion</strong> option may change whether conversion is baked into geometry/animation or represented through imported hierarchy transforms. Compare before and after instead of assuming the root must show 0° rotation.</p><p><strong>Screenshot placeholder:</strong> Unity 6000.3 FBX Model, Rig and Animation import tabs. Capture from the Blender/Unity versions used for teaching.</p></div></div></details>
+<details class="accordion"><summary>Static versus animated FBX</summary><div class="accordion-body"><div class="h3-detail"><h3>Do not copy skeletal export settings blindly</h3><p>Options such as Only Deform Bones, Add Leaf Bones and Key All Bones concern armatures. The LEGO example in the tutorial primarily uses separately parented objects; it can be animated without bones.</p><p>The tutorial uses selected objects, Mesh/Empty/Armature filters, −Z Forward/Y Up and animation export options. Keep these as an illustrated starting configuration, then validate the imported hierarchy and clips.</p></div></div></details><details class="accordion"><summary>Blender 5.0 FBX: understand the Forward and Up choices</summary><div class="accordion-body"><div class="h3-detail"><h3>Export axis settings describe the target coordinate basis</h3><p>In <strong>File → Export → FBX</strong>, the Transform section includes <strong>Forward</strong> and <strong>Up</strong>. A commonly used starting point for Unity is <code>−Z Forward</code> and <code>Y Up</code>. This asks Blender to represent the exported FBX using a Y-up target orientation; it does not mean Blender's modelling viewport has changed to Y-up.</p><p>Export a test cube with coloured directional markers and compare the result in Unity. Do not additionally rotate every mesh 90° in Edit Mode unless the asset was intentionally modelled facing a different direction.</p><p><strong>Apply Transform</strong> and <strong>Apply Unit</strong> are distinct from choosing Forward/Up. Applying transforms can alter how geometry and local object transforms are represented; test animated objects and parent hierarchies before making it a standard preset.</p><p><a href="https://docs.blender.org/manual/en/5.0/addons/import_export/scene_fbx.html" rel="noopener noreferrer" target="_blank">Blender 5.0 FBX documentation</a></p></div></div></details><details class="accordion"><summary>Unity 6: Bake Axis Conversion explained</summary><div class="accordion-body"><div class="h3-detail"><h3>Where does Unity put the correction?</h3><p>Select the imported <code>.fbx</code> asset in Unity's <strong>Project</strong> window and inspect <strong>Model → Scene → Bake Axis Conversion</strong>.</p><ul><li><strong>Enabled:</strong> Unity bakes the axis conversion into imported geometry and animation data, rather than relying on an equivalent correction at the model root.</li><li><strong>Disabled:</strong> Unity can compensate through the root GameObject Transform. This may produce a visible root rotation or an extra transform relationship even when the mesh looks upright.</li></ul><p>Neither choice automatically repairs an incorrectly positioned joint origin or an intentionally sideways-facing mesh. Compare the <strong>imported model root</strong> and the <strong>actual animated child</strong> before changing scripts or rotating GameObjects.</p><p><a href="https://docs.unity.com/en-us/engine/6000.0/manual/assets-and-media/asset-types/models/importing/fbximporter-model" rel="noopener noreferrer" target="_blank">Unity 6 Model import settings reference</a></p><p><strong>Screenshot placeholder:</strong> Unity 6 Model tab showing Bake Axis Conversion enabled and disabled, with resulting hierarchy/Transform comparison.</p></div></div></details><details class="accordion"><summary>Three conversion strategies and when to use them</summary><div class="accordion-body"><div class="h3-detail"><h3>Choose one main place to solve the mismatch</h3><ol><li><strong>Recommended starting workflow — FBX exporter conversion:</strong> model naturally in Blender Z-up, prepare origins and hierarchy, export with <code>−Z Forward / Y Up</code>, then inspect Unity's importer. Good for teaching and repeatable asset pipelines.</li><li><strong>Unity importer baking:</strong> use <em>Bake Axis Conversion</em> to place the correction into asset data. Compare with baking off, especially when scripting against a root Transform.</li><li><strong>Unity wrapper parent:</strong> keep the imported FBX child intact under a clean parent GameObject used for gameplay position, facing and movement. Helpful when an external asset has a persistent orientation offset; it is not a replacement for correct joint origins or clip bindings.</li></ol><p><strong>Use with caution:</strong> rotating Blender mesh vertices in Edit Mode or applying an arbitrary 90° Object rotation may work for a single static prop but can introduce confusion with child origins, rigging and animated curves. Do not stack multiple corrections without checking each result.</p></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
-    </div>
-
-    <!-- Slide 7: Pivots, Grouping, Linking, Hierarchy (source slides 19-20) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Pivots, Grouping, Linking, Hierarchy</h2>
-        <div class="accordion-scroll">
-      <!-- Section 7.1: Lego Minifig for Animation (source slide 19) -->
-      <details class="accordion" open>
-        <summary>Lego Minifig for Animation</summary>
-        <div class="accordion-body">
-          <p>1. Group multiple objects into needed arms, legs, body and head objects</p>
-          <p>2. Adjust the pivot of the grouped objects to the correct spot</p>
-          <p>3. select link button and drag each limb object in turn to the body to make them children:</p>
-          <p><a href="https://knowledge.autodesk.com/support/3ds-max/learn-explore/caas/CloudHelp/cloudhelp/2015/ENU/3DSMax/files/GUID-4115DE9B-D636-4A42-904E-71259A843E0A-htm.html" target="_blank" rel="noopener noreferrer">Autodesk 3ds Max 2015 Help: Linking objects into hierarchies</a></p>
-          <p>Demo Lego Minifig with Animation, Grouping, Hierarchy</p>
-          <p>3DIMD tutorials</p>
-          <h3>My Video</h3>
-          <p><a href="https://www.youtube.com/watch?v=dKFv7J7-0ps" target="_blank" rel="noopener noreferrer">My Video: Lego Minifig with Animation, Grouping, Hierarchy (YouTube, speaker notes)</a></p>
-        </div>
-      </details>
-      <!-- Section 7.2: Some techniques useful to master: (source slide 20) -->
-      <details class="accordion">
-        <summary>Some techniques useful to master:</summary>
-        <div class="accordion-body">
-          <p>· Rotating/Moving pivot points. (in modifier tab for max)</p>
-          <p>· Linking or Grouping (and the importance of NOT scaling in hierarchies).</p>
-          <p>· Null-objects, including cameras and targets and paths.</p>
-        </div>
-      </details>
-      <!-- Section 7.3: Linking / creating hierarches for animation (source slide 20) -->
-      <details class="accordion">
-        <summary>Linking / creating hierarches for animation</summary>
-        <div class="accordion-body">
-          <p>Here is the Max-help page:</p>
-          <p><a href="https://knowledge.autodesk.com/support/3ds-max/learn-explore/caas/CloudHelp/cloudhelp/2016/ENU/3DSMax/files/GUID-4115DE9B-D636-4A42-904E-71259A843E0A-htm.html" target="_blank" rel="noopener noreferrer">Autodesk 3ds Max 2016 Help: Linking objects into hierarchies</a></p>
-          <p>The importance of being careful when scaling is particularly important when creating hierarches for animation</p>
-          <p>for those of you who may have scaled a model (not in in sub-object mode) and need a fix,</p>
-          <p><a href="https://www.youtube.com/watch?v=kPMshbMrGDw" target="_blank" rel="noopener noreferrer">Fix for a scaled model (YouTube, speaker notes)</a></p>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">13</span></div>
-      </div>
-      <div class="keyboard-hint">
+</div>
+<!-- Slide 7: Pivots, Grouping, Linking, Hierarchy (source slides 19-20) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Diagnosing Pivot and Orientation Problems</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Common symptoms and likely causes</summary><div class="accordion-body"><div class="h3-detail"><h3>Troubleshoot one issue at a time</h3><ul><li><strong>Model lies on its side:</strong> inspect axis conversion and imported root transforms.</li><li><strong>Character faces sideways:</strong> compare visible mesh forward with Unity local +Z.</li><li><strong>Arm swings in a circle:</strong> inspect the original Blender joint origin and Unity imported Transform.</li><li><strong>Wrong size:</strong> compare Blender dimensions, object scale and Unity Scale Factor.</li><li><strong>Animation distorts:</strong> inspect parent scale, animated channels and the exported hierarchy.</li><li><strong>Clip missing:</strong> check whether animation was exported and which Actions/NLA strips were included.</li></ul></div></div></details>
+<details class="accordion"><summary>Compare origin and orientation</summary><div class="accordion-body"><div class="h3-detail"><h3>Use the original visual examples</h3><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Original 3ds Max pivot comparison (historical reference)" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide6_image3.png" style="--accordion-image-width: 43%;"/><img alt="Unity pivot comparison" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide6_image4.png" style="--accordion-image-width: 43%;"/></div><p>The original lecture uses 3ds Max screenshots here. Retain as a historical comparison only; demonstrate the actual corrective operation in Blender.</p><p><strong>Screenshot placeholder:</strong> Blender Object Origin and Unity imported Transform for the same LEGO limb. Capture from the Blender/Unity versions used for teaching.</p></div></div></details>
+<details class="accordion"><summary>Unity-side pivot workaround</summary><div class="accordion-body"><div class="h3-detail"><h3>Empty parent GameObject</h3><p>If an imported static mesh has an inconvenient origin, create a parent GameObject at the desired pivot, position the mesh as a child, and rotate the parent. For an animated FBX hierarchy, correcting the source asset is usually preferable to adding ad-hoc offsets.</p></div></div></details><details class="accordion"><summary>Orientation debugging: a controlled A/B experiment</summary><div class="accordion-body"><div class="h3-detail"><h3>Compare export and import settings systematically</h3><ol><li>In Blender 5.0, create a cube with clearly marked front (+Y or −Y), top (+Z) and right (+X); record its Object Rotation and Scale.</li><li>Export using <code>−Z Forward / Y Up</code> with one documented set of settings.</li><li>In Unity 6, import once with <strong>Bake Axis Conversion off</strong> and once with it <strong>on</strong>; compare orientation, root Transform, child origins and mesh appearance.</li><li>Repeat with a simple hinged arm and a two-key rotation animation. Confirm that the shoulder remains stationary and the motion stays in the intended plane.</li><li>Only after the static and animated tests pass should the full LEGO hierarchy be exported.</li></ol><p>Watch for <strong>double conversion</strong> (export axis correction plus an extra manual 90° rotation), <strong>wrong forward</strong> (upright but facing sideways), and <strong>root/child confusion</strong> (correct mesh appearance but unexpected local axes).</p></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
-    </div>
-
-    <!-- Slide 8: Max/Blender To Unity Basic Minifig Procedure and Online Game Assets (source slides 21-23) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Max/Blender To Unity Basic Minifig Procedure and Online Game Assets</h2>
-        <div class="accordion-scroll">
-      <!-- Section 8.1: Max/Blender To Unity Basic Minifig Procedure (source slide 21) -->
-      <details class="accordion" open>
-        <summary>Max/Blender To Unity Basic Minifig Procedure</summary>
-        <div class="accordion-body">
-          <h3>FBX</h3>
-          <p>In Lecture Demo basic pivot adjustment and grouping to make arm and leg joints that animate properly.</p>
-          <p>In Lecture Demo basic export and Unity import with Brick, Lego figure, or combination scenes.</p>
-          <h3>Reference:</h3>
-          <p>http://www.digitaltutors.com/tutorial/2080-Getting-Started-with-Procedural-Generation-for-Game-Artists-in-3ds-Max#play-49466</p>
-          <p>http://www.aclockworkberry.com/world-coordinate-systems-in-3ds-max-unity-and-unreal-engine/</p>
-        </div>
-      </details>
-      <!-- Section 8.2: Minifig Pivots and Hierarchy (source slide 22) -->
-      <details class="accordion">
-        <summary>Minifig Pivots and Hierarchy</summary>
-        <div class="accordion-body">
-          <ul>
-          <li>Root Between Feet – Arrow
-          </li>
-          <li>Waist Center of Gravity – Waist or Body
-          </li>
-          <li>Waist or Body is Parent of rest
-            <ul>
-            <li>Arms pivot at Shoulder
-            </li>
-            <li>Legs Pivot at hips
-            </li>
-            <li>Arms, Head is child of Body
-            </li>
-            <li>Legs child of Waist or Body as setup
-            </li></ul>
-          </li></ul>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide22_image0.png" class="accordion-image" alt="3ds Max minifig hierarchy with a root arrow between the feet and the body as parent" style="--accordion-image-width: 45%;" />
-          </div>
-        </div>
-      </details>
-      <!-- Section 8.3: Using Online Game Assets (source slide 23) -->
-      <details class="accordion">
-        <summary>Using Online Game Assets</summary>
-        <div class="accordion-body">
-          <h3>FBX</h3>
-          <p>90% of model assets in the final CW2 can be from online or other sources such as lego building software or the links in the reading list.</p>
-          <p>Be sure to credit your sources and import and adjust the models properly.</p>
-          <p>Adjust to your scene for pivot, unit scale, and material and texture consistency.</p>
-          <p>Part of your marks will be for how well you source and incorporate elements.</p>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">13</span></div>
-      </div>
-      <div class="keyboard-hint">
+</div>
+<!-- Slide 8: Max/Blender To Unity Basic Minifig Procedure and Online Game Assets (source slides 21-23) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>LEGO Minifigure: Controllers and Joint Hierarchy</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Build the hierarchy</summary><div class="accordion-body"><div class="h3-detail"><h3>From the tutorial</h3><ul><li>Set shoulder and hip origins with the 3D Cursor.</li><li>Parent legs to Hips, Body to Hips, arms/head to Body.</li><li>Add an Empty named UPctrl; place it near the character root and parent the animated assembly beneath it.</li><li>Test the controller and joint rotations before inserting keys.</li></ul></div></div></details>
+<details class="accordion"><summary>Separate global travel from local bounce</summary><div class="accordion-body"><div class="h3-detail"><h3>Why UPctrl exists</h3><p>The Empty controller can animate only vertical position, while the limbs animate their local rotations. Lock X/Y location and unwanted rotation channels in Blender to prevent accidental keying.</p><p>In Unity, the same imported controller may appear as a Transform in the hierarchy. Confirm which Transform is animated and which GameObject carries the Animator.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Minifigure root and hierarchy example" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide22_image0.png" style="--accordion-image-width: 58%;"/></div></div></div></details>
+<details class="accordion"><summary>What to demonstrate live</summary><div class="accordion-body"><div class="h3-detail"><h3>Three short tests</h3><ul><li>Rotate an arm about the shoulder origin.</li><li>Move UPctrl up/down while the legs keep their relative pose.</li><li>Move CharacterRoot in world space without changing the run-cycle keys.</li></ul><p>For the full step-by-step exercise see <a href="../index.html?page=pages/tut-11-02-blender-pivots-and-animation-sheet.html" rel="noopener noreferrer" target="_blank">Tutorial 11-02</a>.</p></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
-    </div>
-
-    <!-- Slide 9: Animation: The Animation Principles (source slides 24-26) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Animation: The Animation Principles</h2>
-        <div class="accordion-scroll">
-      <!-- Section 9.1: Animation Principles (source slide 24, 25) -->
-      <details class="accordion" open>
-        <summary>Animation Principles</summary>
-        <div class="accordion-body">
-          <p>1. Squash and Stretch - defining the rigidity and mass of an object by distorting its shape during an action</p>
-          <p>2. Timing and Motion - spacing actions to define the weight and size of objects and the personality of characters</p>
-          <p>3. Anticipation - the preparation for an action</p>
-          <p>4. Staging - presenting an idea so that it is unmistakably clear</p>
-          <p>5. Follow Through and Overlapping Action - the termination of an action and establishing its relationship to the next action</p>
-        </div>
-      </details>
-      <!-- Section 9.2: Animation Principles (continued) (source slide 26) -->
-      <details class="accordion">
-        <summary>Animation Principles (continued)</summary>
-        <div class="accordion-body">
-          <p>6. Straight Ahead Action and Pose-to-Pose Action - The two contrasting approaches to the creation of movement</p>
-          <p>7. Slow In and Out - the spacing of the in-between frames to achieve subtlety of timing and movement</p>
-          <p>8. Arcs - the visual path of action for natural movement</p>
-          <p>Exaggeration - Accentuating the essence of an idea via the design and the action</p>
-          <p>9. Secondary Action - the action of an object resulting from another action</p>
-          <p>10. Appeal - creating a design or an action that the audience enjoys watching</p>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">13</span></div>
-      </div>
-      <div class="keyboard-hint">
+</div>
+<!-- Slide 9: Animation: The Animation Principles (source slides 24-26) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Animation Fundamentals: From Poses to Curves</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Keyframes and interpolation</summary><div class="accordion-body"><div class="h3-detail"><h3>Animation is values changing over time</h3><p>A keyframe records a property value at a particular time. The animation system interpolates between keys; spacing and curve shape control speed, acceleration and emphasis.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Ball bounce with keyframe spacing" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide28_image0.png" style="--accordion-image-width: 43%;"/><img alt="Slow-in slow-out frame spacing" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide35_image0.png" style="--accordion-image-width: 43%;"/></div></div></div></details>
+<details class="accordion"><summary>Principles useful for this minifigure</summary><div class="accordion-body"><div class="h3-detail"><h3>Choose a small number of principles to apply</h3><ul><li><strong>Timing and spacing:</strong> set a believable stride cadence.</li><li><strong>Arcs:</strong> limb endpoints follow curved paths around joints.</li><li><strong>Anticipation and follow-through:</strong> make starts and stops readable.</li><li><strong>Squash and stretch:</strong> optional stylisation; avoid unintentionally scaling an articulated hierarchy.</li><li><strong>Pose-to-pose:</strong> block opposing arm and leg positions before refining the curves.</li></ul><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Squash and stretch bouncing ball illustration" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide27_image0.png" style="--accordion-image-width: 48%;"/><img alt="Follow through pendulum illustration" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide31_image0.png" style="--accordion-image-width: 48%;"/></div></div></div></details>
+<details class="accordion"><summary>Optional deeper theory</summary><div class="accordion-body"><div class="h3-detail"><h3>Traditional animation reference</h3><p>The original lecture also covers staging, overlapping action, exaggeration, secondary action and appeal. These remain useful artistic principles, but detailed treatment belongs in a separate reading or follow-up rather than displacing the export workflow.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Staging and silhouette illustration" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide30_image0.png" style="--accordion-image-width: 44%;"/><img alt="Arc in walk-cycle illustration" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide34_image0.png" style="--accordion-image-width: 44%;"/></div></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
-    </div>
-
-    <!-- Slide 10: Animation Principles 1-5 (source slides 27-31) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Animation Principles 1-5</h2>
-        <div class="accordion-scroll">
-      <!-- Section 10.1: 1. Squash and Stretch (source slide 27) -->
-      <details class="accordion" open>
-        <summary>1. Squash and Stretch</summary>
-        <div class="accordion-body">
-          <p>1. Squash and Stretch - defining the rigidity and mass of an object by distorting its shape during an action</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide27_image0.png" class="accordion-image" alt="Bouncing ball drawings squashing on contact with the ground" style="--accordion-image-width: 70%;" />
-          </div>
-          <details class="accordion accordion--nested">
-            <summary>Speaker notes</summary>
-            <div class="accordion-body">
-              <p>When real objects move only totally rigid ones, e.g., a chair, remain rigid in motion. Living creatures always deform in shape in some manner. For example, if you bend your arm, your bicep muscles contract and bulge out. They then lengthen and disappear when your arm straightens out. The squashed position shows the form flattened out and the stretched position shows the form extended. An important rule is that the volume of the object should remain constant at rest, squashed, or stretched. If this rule is not obeyed, then the object appears to shrink when squashed and to grow when stretched.</p>
-              <p>A classic example is a bouncing ball, that squashes when it hits the ground and stretches just before and after. The stretching, while not realistic, makes the ball appear to be moving faster right before and after it hits the ground.</p>
-              <p>When an object squashes or stretches, it appears to be made of a pliable material, if it doesn't then it appears rigid. Objects that are partially pliable and partially rigid should have only the pliable parts deform.</p>
-              <p>A hinged object can squash and stretch without deforming, e.g. Luxo, jr.</p>
-              <p>These deformations are very important in facial animation, since they show the flexibility of the skin and muscle and also the relationship between the different facial parts. In very early animation, a character chewing something only moved its mouth and it appeared unrealistic. A later innovation was to have the entire face moving with the mouth motion, thus looking more realistic. This can be exaggerated for effect. A broad smile or frown similarly involves more than the mouth</p>
-              <p>This can also be used in the rapid motion of objects. If motion is slow, then the objects overlap between frames and the eye smoothes out the motion. But if the motion is too fast, such that there is no object overlap, then the eye sees separate images and the object appears to strobe. A solution is to stretch the object to retain the overlap and smooth motion.</p>
-              <p>Squash and stretch can be accomplished by differential scaling in 3D Keyframe systems. Be sure to conserve volume, i.e., a stretch in one direction, (X) must be accompanied by a squash in the other directions (Z,Y). Also, the direction of the stretch should be along the direction of motion so a rotational transformation may be required.</p>
-            </div>
-          </details>
-        </div>
-      </details>
-      <!-- Section 10.2: 2. Timing and Motion (source slide 28) -->
-      <details class="accordion">
-        <summary>2. Timing and Motion</summary>
-        <div class="accordion-body">
-          <p>2. Timing and Motion - spacing actions to define the weight and size of objects and the personality of characters</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide28_image0.png" class="accordion-image" alt="Bouncing ball arcs with frame spacing" style="--accordion-image-width: 48%;" />
-            <img src="images/lect-10-pivots-animation_slide28_image1.png" class="accordion-image" alt="Bouncing ball path losing height with each bounce" style="--accordion-image-width: 48%;" />
-          </div>
-          <details class="accordion accordion--nested">
-            <summary>Speaker notes</summary>
-            <div class="accordion-body">
-              <p>The speed of an action, i.e., timing, gives meaning to movement, both physical and emotional meaning. The animator must spend the appropriate amount of time on the anticipation of an action, on the action, and on the reaction to the action. If too much time is spent, then the viewer may lose attention, if too little, then the viewer may not notice or understand the action.</p>
-              <p>Timing can also affect the perception of mass of an object. A heavier object takes a greater force and a longer time to accelerate and decelerate. For example, if a character picks up a heavy object, e.g., a bowlng ball, they should do it much slower than picking up a light object such as a basketball. Similarly, timing affects the perception of object size. A larger object moves more slowly than a smaller object and has greater inertia. These effects are done not by changing the poses, but by varying the spaces or time (number of frames) between poses.</p>
-              <p>Motion also can give the illusion of weight. For example, consider a ball hitting a box.</p>
-              <p>1. Arcs. The ball falls in an elliptical arc through space. Most things move in an arc of some kind. If the ball were to move in a straight line between the high and low points of the bounce, then the action would look very unnatural.</p>
-              <p>2. Timing. (or Spacing). As the ball falls it is accelerated by gravity, the gap between each frame growing all the time until the ball contacts the ground. As the ball bounces from the ground the opposite happens: as the ball hops up it moves very fast at first, then slows down by gravity into the high piont of its bounce. Note that at the high point of the bounce the ball is weightless...perfectly balanced between the force of gravity pulling it down, and its own momentum moving it forward.</p>
-              <p>3. Squash and Stretch. As the ball falls it stretches. When it impacts the ground it squashes. When it bounces off the ground it stretches again. Note how quickly the ball regains its circular shape. Too much squash and stretch can make an object look "mushy".</p>
-              <p>4. Volume. The ball should remain the same mass as it squashes and stretches. If the ball were to squash too much it would seem to be growing physically bigger. This is very eye catching, and looks weird.</p>
-            </div>
-          </details>
-        </div>
-      </details>
-      <!-- Section 10.3: 3. Anticipation (source slide 29) -->
-      <details class="accordion">
-        <summary>3. Anticipation</summary>
-        <div class="accordion-body">
-          <p>Anticipation - the preparation for an action</p>
-          <p>an action occurs in three parts:</p>
-          <ul>
-          <li>the preparation for the action - this is anticipation
-          </li>
-          <li>the action
-          </li>
-          <li>the termination of the action
-          </li></ul>
-          <p>Anticipation can be the anatomical preparation for the action, e.g., retracting a foot before kicking a ball. It can also be a device to attract the viewer's attention to the proper screen area and to prepare them for the action, e.g., raising the arms and staring at something before picking it up, or staring off-screen at something and then reacting to it before the action moves on-screen.</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide29_image0.png" class="accordion-image" alt="Pendulum sequence: start at A, draw-back, move, go past B, back to B" style="--accordion-image-width: 70%;" />
-          </div>
-          <details class="accordion accordion--nested">
-            <summary>Speaker notes</summary>
-            <div class="accordion-body">
-              <p>Anticipation can be the anatomical preparation for the action, e.g., retracting a foot before kicking a ball. It can also be a device to attract the viewer's attention to the proper screen area and to prepare them for the action, e.g., raising the arms and staring at something before picking it up, or staring off-screen at something and then reacting to it before the action moves on-screen. An example of this is the opening scene of Luxo, jr.. The father is looking off-screen and then reacts to something. This sets up the viewers to look at that part of the screen so they are prepared when Luxo, jr. hops in from off-screen.</p>
-              <p>A properly timed anticipation can enable the viewer to better understand a rapid action, e.g., preparing to run and then dashing off-screen.</p>
-              <p>Anticipation can also create the perception of weight or mass, e.g., a heavy person might put their arms on a chair before they rise, whereas a smaller person might just stand up.</p>
-            </div>
-          </details>
-        </div>
-      </details>
-      <!-- Section 10.4: 4. Staging (source slide 30) -->
-      <details class="accordion">
-        <summary>4. Staging</summary>
-        <div class="accordion-body">
-          <p>4. Staging - presenting an idea so that it is unmistakably clear. A very general principle.</p>
-          <p>Even with modern color 3D graphics, silhouette actions are more clearly delineated and thus to be preferred. over frontal action. An example would be a character waking up and scratching its side, it is easier to understand what it is doing than if it scratched its stomach.</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide30_image0.png" class="accordion-image" alt="Character kicking shown in colour and in silhouette, side and front views" style="--accordion-image-width: 45%;" />
-            <img src="images/lect-10-pivots-animation_slide30_image1.jpeg" class="accordion-image" alt="Luxo Jr. desk lamps from Pixar" style="--accordion-image-width: 30%;" />
-          </div>
-          <details class="accordion accordion--nested">
-            <summary>Speaker notes</summary>
-            <div class="accordion-body">
-              <p>Staging is the presentation of an idea so that it is clear. This idea can be an action, a personality, an expression, or a mood. The key idea is that the idea is made clear to the viewer.</p>
-              <p>An important objective of staging is to lead the viewers eye to where the action will occur so that they do not miss anything. This means that only one idea at a time occur, or else the viewers may be looking at the wrong thing. So, the main object should be contrasted in some way with the rest of the scene. A good example is motion, since the eye is drawn to motion in an otherwise still scene. In a scene with everything moving, the eye is drawn to a still object.</p>
-              <p>The animator must use different techniques to ensure that the viewer is looking at the correct object at the correct time. For example, in Luxo, jr. The Father appears first, and so is the center of attention. Then the son bounds in, moving rapidly, so the center of attention shifts to him. At a certain point the son stops and looks up at the father, refocusing the attention on the father.</p>
-              <p>In the early days at Disney all characters were black and white, with no gray. All action was shown in silhouette (to the side), because if a character moved its black arm in front of its black body it would disappear, so the action had to be against the white background. The Disney animators realized that even without this technological limitation action was more clearly visible in silhouette.</p>
-            </div>
-          </details>
-        </div>
-      </details>
-      <!-- Section 10.5: 5. Follow Through and Overlapping Action (source slide 31) -->
-      <details class="accordion">
-        <summary>5. Follow Through and Overlapping Action</summary>
-        <div class="accordion-body">
-          <p>5. Follow Through and Overlapping Action - the termination of an action and establishing its relationship to the next action</p>
-          <p>Follow through – Delayed Secondary Action, Inertia, Physics – also double pendulum to describe the sort of animation a hand and arm has when it is in a walk cycle.</p>
-          <p>Overlapping - Keep things moving, your character knows what he is going to do next.</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide31_image0.png" class="accordion-image" alt="Double pendulum swing sequence from A to B" style="--accordion-image-width: 70%;" />
-          </div>
-          <details class="accordion accordion--nested">
-            <summary>Speaker notes</summary>
-            <div class="accordion-body">
-              <p>Follow through is the termination part of an action. An example is in throwing a ball - the hand continues to move after the ball is released. In the movement of a complex object different parts of the object move at different times and different rates. For example, in walking, the hip leads, followed by the leg and then the foot. As the lead part stops, the lagging parts continue in motion.</p>
-              <p>Heavier parts lag farther and stop slower. An example is in the antennae of an insect - they will lag behind and them move quickly to indicate the lighter mass.</p>
-              <p>Overlapping means to start a second action before the first action has completely finished. This keeps the interest of the viewer, since there is no dead time between actions.</p>
-              <p>Here is a quote about overlapping from Walt Disney:</p>
-              <p>"It is not necessary for an animator to take a character to one point, complete that action completely, and then turn to the following action as if he had never given it a thought until after completing the first action. When a character knows what he is going to do he doesn't have to stop before each individual action and think to do it. He has it planned in advance in his mind.“</p>
-              <p>The body itself does not move all at once, but instead it stretches, catches up, twists turns and contracts as the forms work against each other. As one prt arrives at the stopping point, others may still be in movement; an arm or a hand may continue its action even after the body is in its pose.</p>
-            </div>
-          </details>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">13</span></div>
-      </div>
-      <div class="keyboard-hint">
+</div>
+<!-- Slide 10: Animation Principles 1-5 (source slides 27-31) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Blender Animation: Actions, Dope Sheet and Curves</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Create a short run cycle</summary><div class="accordion-body"><div class="h3-detail"><h3>Block a repeatable pose sequence</h3><p>Use a 30-frame example to teach opposing arm/leg poses and vertical bounce. The tutorial describes high/low bounce positions, staggered limb rotations and copying keys in the Dope Sheet.</p><p>For a seamless loop, ensure the first and last sampled poses match. Avoid duplicating a boundary pose in a way that produces an unwanted one-frame hold.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Original tutorial Dope Sheet keyframe screenshot" class="accordion-image" loading="lazy" src="https://i.gyazo.com/a2b62e3e66b1e8733b27bfe436bbb66f.png" style="--accordion-image-width: 72%;"/></div></div></div></details>
+<details class="accordion"><summary>Dope Sheet, Graph Editor and interpolation</summary><div class="accordion-body"><div class="h3-detail"><h3>Different tools for different questions</h3><ul><li><strong>Dope Sheet:</strong> when do poses happen? Select, move, duplicate and align keys.</li><li><strong>Graph Editor:</strong> how do animated values change between keys? Adjust F-Curves and handles.</li><li><strong>Interpolation:</strong> Constant, Linear and Bezier describe between-key behaviour.</li><li><strong>Handle type:</strong> Vector is a handle type, not the same thing as Constant interpolation.</li></ul><p>Use Blender’s current Key menu and Graph Editor controls; shortcuts may depend on Blender version and keymap.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Ease-in ease-out spacing example" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide35_image1.png" style="--accordion-image-width: 65%;"/></div></div></div></details>
+<details class="accordion"><summary>Separate run and stand animations</summary><div class="accordion-body"><div class="h3-detail"><h3>Actions, not just extra frames</h3><p>The tutorial adds a standing pose after the run-cycle frames. For a clean Unity workflow, save <strong>Run</strong> and <strong>Idle</strong> as distinct Blender Actions or explicitly define separate clip ranges in Unity. Do not assume every Action automatically exports as a separate clip.</p><p><strong>Screenshot placeholder:</strong> Blender Action selector showing Run and Idle. Capture from the Blender/Unity versions used for teaching.</p></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
-    </div>
-
-    <!-- Slide 11: Animation Principles 6-10 (source slides 32-37) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Animation Principles 6-10</h2>
-        <div class="accordion-scroll">
-      <!-- Section 11.1: 6. Straight Ahead Action and Pose-to-Pose Action (source slide 32, 33) -->
-      <details class="accordion" open>
-        <summary>6. Straight Ahead Action and Pose-to-Pose Action</summary>
-        <div class="accordion-body">
-          <p>6. Straight Ahead Action and Pose-to-Pose Action - The two contrasting approaches to the creation of movement</p>
-          <p>Pose-to Pose – is when the animator carefully plans out the animation, draws a sequence of poses, i.e., the initial, some in-between, and the final poses and then draws all the in-between frames (or another artist or the computer draws the in-between frames). This is used when the scene requires more thought and the poses and timing are important.</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide32_image0.png" class="accordion-image" alt="Pose-to-pose sequence of a mouse character waking and stretching" style="--accordion-image-width: 70%;" />
-          </div>
-          <p>Straight Ahead– in hand drawn animation is when the animator starts at the first drawing in a scene and then draws all of the subsequent frames until he reaches the end of the scene. This creates very spontaneous and zany looking animation and is used for wild, scrambling action.</p>
-        </div>
-      </details>
-      <!-- Section 11.2: 7. Slow In and Out (source slide 35) -->
-      <details class="accordion">
-        <summary>7. Slow In and Out</summary>
-        <div class="accordion-body">
-          <p>7. Slow In and Out - the spacing of the in-between frames to achieve subtlety of timing and movement</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide35_image0.png" class="accordion-image" alt="Ball spacing chart with closer spacing at the holds and wider spacing in the middle" style="--accordion-image-width: 48%;" />
-            <img src="images/lect-10-pivots-animation_slide35_image1.png" class="accordion-image" alt="Ball spacing chart with ease out of the first pose and ease into the last" style="--accordion-image-width: 48%;" />
-          </div>
-          <details class="accordion accordion--nested">
-            <summary>Speaker notes</summary>
-            <div class="accordion-body">
-              <p>his refers to the spacing of the inbetween frames at maximum positions. It is the second and third order continuity of motion of the object. Rather than having a uniform velocity for an object, it is more appealing, and sometimes more realistic, to have the velocity vary at the extremes. For example, a bouncing ball moves faster as it approaches or leaves the ground and slower as it approaches leaves its maximum position. The name comes from having the object or character "slow out" of one pose and "slow in" to the next pose.</p>
-              <p>This is usually achieved by using splines to control the path of an object. The various spline parameters can be adjusted to give the required effect. In 3D Studio this is controlled by the parameters Ease To and Ease From in the Key info window (from the Track info window). When these are zero, there is a constant velocity in either direction, i.e., to/from the keyframe. When Ease To is set to a higher value, the motion is faster as it leaves the previous keyframe and slows as it approaches the current keyframe. When Ease From is set to a higher value the motion is slower leaving the current keyframe and speeds up as it approaches the next keyframe. The tick mark spacing shows the velocity with closer tick marks indicating a slower rate and spaced out ones indicating a faster rate.</p>
-              <p>Examples:</p>
-              <p>Ease To/From both set to 0 (bounce0.flc)</p>
-              <p>Ease To/From both set to 50 (max value)(bounce1.flc)</p>
-              <p>There are other potential problems with spline controlled movements. Because of the nature of splines, there may be an overshoot effect, For example, look at box1.flc. The upper box was keyframed to just touch the top of the bottom box, but because of the properties of the spline curve, it overshoots and goes into the lower box. There are three other parameters that control the approach to/from keyframes. These are discussed below.</p>
-              <p>Reference: Doris Kuchanek and Richard Bartels, "Interpolating Splines with Local Tension, Continuity, and Bias Control", Computer Graphics 18:3, pp. 33-41, July 1984 (SIGGRAPH 84)</p>
-              <p>Tension</p>
-              <p>Tension controls the overall shape of the spline curve.</p>
-              <p>Continuity equally affects the angles at which the spline enters and leaves the keyframe.</p>
-              <p>Bias affects the overshoot or undershoot of the motion through the keyframe.</p>
-            </div>
-          </details>
-        </div>
-      </details>
-      <!-- Section 11.3: 8. Arcs (source slide 34) -->
-      <details class="accordion">
-        <summary>8. Arcs</summary>
-        <div class="accordion-body">
-          <p>8. Arcs - the visual path of action for natural movement – arcs are seen in computer animation as the function curve of object transformation. The more you know about traditional animation, the more you can ‘read’ the curves – a good example is the bouncing ball.</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide34_image0.png" class="accordion-image" alt="Walk cycle with the head following an arc (idleworm.com)" style="--accordion-image-width: 45%;" />
-          </div>
-          <details class="accordion accordion--nested">
-            <summary>Speaker notes</summary>
-            <div class="accordion-body">
-              <p>Very few living organisms are capable of moves that have a mechanical in and out precision. Movements follow a circular path due to the springiness of muscles, tendons, and gravity and inertia forces.</p>
-            </div>
-          </details>
-        </div>
-      </details>
-      <!-- Section 11.4: 9. Exaggeration (source slide 36) -->
-      <details class="accordion">
-        <summary>9. Exaggeration</summary>
-        <div class="accordion-body">
-          <p>9. Exaggeration - Accentuating the essence of an idea via the design and the action</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide36_image0.jpeg" class="accordion-image" alt="Cartoon wolf exaggerated reaction to a showgirl" style="--accordion-image-width: 32%;" />
-            <img src="images/lect-10-pivots-animation_slide36_image1.png" class="accordion-image" alt="Cartoon character&#x27;s face stretched into a cone in an exaggerated take" style="--accordion-image-width: 32%;" />
-            <img src="images/lect-10-pivots-animation_slide36_image2.png" class="accordion-image" alt="Frame sequence of an exaggerated cartoon take" style="--accordion-image-width: 16%;" />
-          </div>
-          <details class="accordion accordion--nested">
-            <summary>Speaker notes</summary>
-            <div class="accordion-body">
-              <p>Exaggeration does not mean just distorting the actions or objects arbitrarily, but the animator must carefully choose which properties to exaggerate. If only one thing is exaggerated then it may stand out too much. If everything is exaggerated, then the entire scene may appear too unrealistic.</p>
-              <p>When Walt asked for something to be more realistic, he meant a caricature of realism that seemed ‘real’</p>
-            </div>
-          </details>
-        </div>
-      </details>
-      <!-- Section 11.5: 10. Secondary Action (source slide 37) -->
-      <details class="accordion">
-        <summary>10. Secondary Action</summary>
-        <div class="accordion-body">
-          <p>10. Secondary Action - the action of an object resulting from another action – sometimes follow through actions delayed, as in Hair, a Tail, Whip, Wave or a Cape.</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide37_image0.png" class="accordion-image" alt="Arcs of a tail or whip and hand drawings showing delayed follow-through" style="--accordion-image-width: 48%;" />
-            <img src="images/lect-10-pivots-animation_slide37_image1.png" class="accordion-image" alt="Double pendulum swing sequence from A to B" style="--accordion-image-width: 48%;" />
-          </div>
-          <details class="accordion accordion--nested">
-            <summary>Speaker notes</summary>
-            <div class="accordion-body">
-              <p>This is an action that directly results from another action. It can be used to increase the complexity and interest in a scene. It should always be subordinate to and not compete with the primary action in the scene. An example might be the facial expression on a character. The body would be expressing the primary action while the expression adds to it. Another example would be the trailing electrical cord of Luxo, jr.</p>
-              <p>The one idea being put over in a scene can be fortified by subsidiary actions within the body. It should always be kept subordinate to the main action but supplement it (a bemused shake of the head). If it dominates, it is the wrong choice or staged improperly.</p>
-              <p>Secondary animation (or secondary motion) is the motion derived from primary motion, much like a ripple or jiggle of different parts of the body when a person walks. In Rocky, Sylvester Stallone is reported to have insisted that he really be punched to get the secondary motion correct, with his face distorted and rippling from the blow on the opposite side, and sweat flying off from the force of the blow.</p>
-              <p>Gravity, inertia, double pendulum.</p>
-            </div>
-          </details>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-11">11</span> / <span id="total-slides">13</span></div>
-      </div>
-      <div class="keyboard-hint">
+</div>
+<!-- Slide 11: Animation Principles 6-10 (source slides 32-37) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Unity Animation: Clips and Animator</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>From Blender Action to Unity clip</summary><div class="accordion-body"><div class="h3-detail"><h3>Authoring data versus runtime playback</h3><ul><li><strong>Blender Action:</strong> animated property curves associated with an object or rig.</li><li><strong>FBX:</strong> transfers supported transforms, hierarchy and baked/sampled animation.</li><li><strong>Unity Animation Clip:</strong> imported animated curves with timing and looping settings.</li><li><strong>Animator component:</strong> evaluates animation for a GameObject hierarchy.</li><li><strong>Animator Controller:</strong> defines states, transitions and parameters.</li></ul></div></div></details>
+<details class="accordion"><summary>Configure imported clips</summary><div class="accordion-body"><div class="h3-detail"><h3>Unity Project → FBX → Animation</h3><p>Inspect available takes/clips, rename if needed, set start/end frame ranges, enable Loop Time for Run, and preview the animation. Set Rig appropriately for the imported object hierarchy; a separate-object minifigure is not automatically a Humanoid rig.</p><p><strong>Screenshot placeholder:</strong> Unity 6000.3 Animation tab showing Run and Idle clips. Capture from the Blender/Unity versions used for teaching.</p></div></div></details>
+<details class="accordion"><summary>Animator Controller example</summary><div class="accordion-body"><div class="h3-detail"><h3>Idle ↔ Run</h3><p>Create an Animator Controller with <strong>Idle</strong> and <strong>Run</strong> states. Add a Bool parameter such as <code>IsRunning</code>, configure transitions and assign the Controller to the character’s Animator component.</p><p>For a simple classroom demonstration, toggle the parameter in the Animator window during Play Mode before adding any C# input logic.</p><p><strong>Screenshot placeholder:</strong> Unity Animator graph with Idle and Run states. Capture from the Blender/Unity versions used for teaching.</p></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-11">11</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
-    </div>
-
-    <!-- Slide 12: Solid Drawing and Animation Tips (source slides 38-44) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Solid Drawing and Animation Tips</h2>
-        <div class="accordion-scroll">
-      <!-- Section 12.1: 12. Solid Drawing - Body Breakdown (source slide 38, 39) -->
-      <details class="accordion" open>
-        <summary>12. Solid Drawing - Body Breakdown</summary>
-        <div class="accordion-body">
-          <p>12. Solid Drawing - The Early animator’s choice of body breakdown that resembles the rigid bodies within motion capture used for error correction of markers and kinematic skeletons. (Spheres and cubes)</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide38_image0.png" class="accordion-image" alt="Mannequin and hero figure with a line of action through the body" style="--accordion-image-width: 30%;" />
-            <img src="images/lect-10-pivots-animation_slide38_image1.png" class="accordion-image" alt="Duck character built from spheres and cylinders beside the finished drawing" style="--accordion-image-width: 36%;" />
-            <img src="images/lect-10-pivots-animation_slide39_image0.png" class="accordion-image" alt="Sketches of a figure broken down into spheres and boxes" style="--accordion-image-width: 50%;" />
-          </div>
-        </div>
-      </details>
-      <!-- Section 12.2: 12. Solid Drawing - Skeleton Rigs (source slide 40) -->
-      <details class="accordion">
-        <summary>12. Solid Drawing - Skeleton Rigs</summary>
-        <div class="accordion-body">
-          <p>12. Solid Drawing - The Early animators also seemed to use skeleton rigs to keep a view on the bones and rigid bodies of the characters they drew, anticipating the easier time we would have of it with computers.</p>
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide40_image0.png" class="accordion-image" alt="Elephant drawing with a skeleton rig and body masses" style="--accordion-image-width: 45%;" />
-            <img src="images/lect-10-pivots-animation_slide40_image1.png" class="accordion-image" alt="Bull drawing with a skeleton rig and body masses" style="--accordion-image-width: 45%;" />
-          </div>
-        </div>
-      </details>
-      <!-- Section 12.3: A Character Will Never Be Perfectly Still! (source slide 41) -->
-      <details class="accordion">
-        <summary>A Character Will Never Be Perfectly Still!</summary>
-        <div class="accordion-body">
-          <ul>
-          <li>Work from the inside out – Hips (COG)
-          </li>
-          <li>After the broad strokes for main animation then:
-            <ul>
-            <li>Use overlapping
-            </li>
-            <li>Anticipation
-            </li>
-            <li>Emotion
-            </li>
-            <li>Thought
-            </li>
-            <li>Delayed action
-            </li></ul>
-          </li></ul>
-          <h3>Tips</h3>
-          <ul>
-          <li>Flipping and Onion Skin to traditional Animators is Scrubbing and Preview to CG Animators
-          </li></ul>
-        </div>
-      </details>
-      <!-- Section 12.4: Tips: Line of Beauty – Line of Action (source slide 42) -->
-      <details class="accordion">
-        <summary>Tips: Line of Beauty – Line of Action</summary>
-        <div class="accordion-body">
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide42_image0.png" class="accordion-image" alt="Cat sketches with a curved line of action" style="--accordion-image-width: 60%;" />
-          </div>
-        </div>
-      </details>
-      <!-- Section 12.5: Tips: Balance and Mass (source slide 43) -->
-      <details class="accordion">
-        <summary>Tips: Balance and Mass</summary>
-        <div class="accordion-body">
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide43_image0.png" class="accordion-image" alt="Insect character poses showing balance and mass" style="--accordion-image-width: 60%;" />
-          </div>
-        </div>
-      </details>
-      <!-- Section 12.6: Tips: Tilt and Asymmetry (source slide 44) -->
-      <details class="accordion">
-        <summary>Tips: Tilt and Asymmetry</summary>
-        <div class="accordion-body">
-          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
-            <img src="images/lect-10-pivots-animation_slide44_image0.png" class="accordion-image" alt="Character poses showing tilt and asymmetry" style="--accordion-image-width: 60%;" />
-          </div>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1">Next → </button>
-        <div class="slide-counter"><span id="current-slide-12">12</span> / <span id="total-slides">13</span></div>
-      </div>
-      <div class="keyboard-hint">
+</div>
+<!-- Slide 12: Solid Drawing and Animation Tips (source slides 38-44) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Transferring and Testing Animation in Unity</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Import and validation sequence</summary><div class="accordion-body"><div class="h3-detail"><h3>Test the complete pipeline</h3><ul><li>Export the selected Blender hierarchy with the intended animation data.</li><li>Import FBX into Unity and check scale, facing direction and hierarchy.</li><li>Inspect Animation Clips: Run and Idle; set loop options.</li><li>Add the character to a scene and assign an Animator Controller.</li><li>Preview movement and compare joint pivots against Blender.</li><li>Test whether root motion should move the GameObject or remain in-place.</li></ul></div></div></details>
+<details class="accordion"><summary>Root motion versus in-place animation</summary><div class="accordion-body"><div class="h3-detail"><h3>Do not confuse bounce with world travel</h3><p>A run-in-place clip can animate limbs and UPctrl bounce while a Unity script moves the character through the world. Root motion instead uses movement encoded in the animation to drive GameObject movement, where supported by the rig and import setup.</p><p>For the introductory object-parented LEGO example, start with an in-place run and scripted/world movement as a separate concept. Unity root-motion extraction settings vary by rig type.</p><p><strong>Screenshot placeholder:</strong> Unity Animator Apply Root Motion option and imported hierarchy. Capture from the Blender/Unity versions used for teaching.</p></div></div></details>
+<details class="accordion"><summary>If only one animation imports</summary><div class="accordion-body"><div class="h3-detail"><h3>Actions/NLA and FBX sampling</h3><p>Check the Blender FBX Animation settings, whether the intended Actions have compatible owners and whether NLA Strips/All Actions are enabled. If necessary, export separate FBX animation files or define clips from frame ranges in Unity.</p><p>Do not assume the tutorial’s “NLA Strips off” setting will export every desired Action automatically.</p></div></div></details><details class="accordion"><summary>Animation and axis conversion: what students must test</summary><div class="accordion-body"><div class="h3-detail"><h3>Keyframe data and parent transforms must agree</h3><p>The Blender minifigure's <code>UPctrl</code> bounce is keyed along Blender Z; in Unity the visible motion should be vertical along Y. A correct conversion can represent that through transformed animation curves, imported hierarchy transforms or both, depending on the FBX and importer settings.</p><p>For the object-parented minifigure, inspect the <strong>Generic</strong> rig/animation setup and the actual imported hierarchy. Check the path each Animation Clip animates; a clip that targets an unexpected child may fail after changing or stripping hierarchy nodes.</p><p>Do not assume a Blender Action automatically maps one-to-one to a Unity clip. Verify the exported Actions/NLA choices and Unity's Animation tab separately from orientation.</p></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-12">12</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
-    </div>
-
-    <!-- Slide 13: Tutorial Demos and Unity Animation (source slides 45-46) -->
-    <div class="slide">
-      <div class="slide-title">3D Interactive Media Development</div>
-      <div class="slide-content slide-content-accordion">
-        <h2>Tutorial Demos and Unity Animation</h2>
-        <div class="accordion-scroll">
-      <!-- Section 13.1: Tutorial Demos as needed (source slide 45) -->
-      <details class="accordion" open>
-        <summary>Tutorial Demos as needed</summary>
-        <div class="accordion-body">
-          <ul>
-          <li>1. Scale, Units
-          </li>
-          <li>2. Pivots and linking/grouping
-          </li>
-          <li>3. Unity Animation 101
-          </li>
-          <li>4. Unity Animation Triggers
-          </li></ul>
-        </div>
-      </details>
-      <!-- Section 13.2: Unity Animation (source slide 46) -->
-      <details class="accordion">
-        <summary>Unity Animation</summary>
-        <div class="accordion-body">
-          <details class="accordion accordion--nested embed-accordion">
-            <summary>Video: Animation 101 - Intro to Animation in Unity</summary>
-            <div class="accordion-body">
-              <article class="embed-card">
-                <iframe class="video-embed" src="https://www.youtube.com/embed/ts24UWC0mY4" title="Animation 101 - Intro to Animation in Unity video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <p><a href="https://www.youtube.com/watch?v=ts24UWC0mY4" target="_blank" rel="noopener noreferrer">Open source link</a></p>
-              </article>
-            </div>
-          </details>
-          <details class="accordion accordion--nested embed-accordion">
-            <summary>Video: Animation 102 - Animating 2D Characters</summary>
-            <div class="accordion-body">
-              <article class="embed-card">
-                <iframe class="video-embed" src="https://www.youtube.com/embed/QN3joSQyzQQ" title="Animation 102 - Animating 2D Characters video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <p><a href="https://www.youtube.com/watch?v=QN3joSQyzQQ" target="_blank" rel="noopener noreferrer">Open source link</a></p>
-              </article>
-            </div>
-          </details>
-        </div>
-      </details>
-        </div>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-button" data-slide-step="-1"> ← Previous</button>
-        <img src="images/UOW_Logo_Length_Alpha.png" class="slide-logo" alt="University of Westminster" />
-        <button class="slide-button" data-slide-step="1" disabled>Next → </button>
-        <div class="slide-counter"><span id="current-slide-13">13</span> / <span id="total-slides">13</span></div>
-      </div>
-      <div class="keyboard-hint">
+</div>
+<!-- Slide 13: Tutorial Demos and Unity Animation (source slides 45-46) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Complete Workflow, Checklist and Tutorials</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>End-to-end checklist</summary><div class="accordion-body"><div class="h3-detail"><h3>Blender → FBX → Unity</h3><ul><li><strong>Geometry:</strong> model scale and facing direction verified.</li><li><strong>Origins:</strong> arms and legs rotate at shoulders and hips.</li><li><strong>Hierarchy:</strong> parent relationships and UPctrl behave predictably.</li><li><strong>Animation:</strong> Run and Idle authored and exported deliberately.</li><li><strong>FBX:</strong> selected hierarchy, axis conversion and animation settings tested.</li><li><strong>Unity:</strong> imported transforms, clips, looping and Animator playback verified.</li></ul></div></div></details>
+<details class="accordion"><summary>Mini-assessment</summary><div class="accordion-body"><div class="h3-detail"><h3>Explain, diagnose, fix</h3><ul><li>Why does changing Blender Transform Pivot Point not permanently move a limb’s Object Origin?</li><li>Why might a Blender model face sideways in Unity despite looking upright?</li><li>What is the difference between an Action and an Animator Controller?</li><li>When would you use an Empty parent instead of changing a mesh origin?</li><li>How would you determine whether a Run clip contains unwanted world translation?</li></ul></div></div></details>
+<details class="accordion"><summary>Practical tutorials and original references</summary><div class="accordion-body"><div class="h3-detail"><h3>Continue in the practical exercises</h3><ul><li><a href="../index.html?page=pages/tut-09-10-0-blender-origins-and-pivots-cheatsheet.html" rel="noopener noreferrer" target="_blank">Blender origins and pivots cheatsheet</a></li><li><a href="../index.html?page=pages/tut-11-02-blender-pivots-and-animation-sheet.html" rel="noopener noreferrer" target="_blank">Prepare and animate a LEGO minifigure</a></li><li><a href="../index.html?page=pages/tut-04-students.html" rel="noopener noreferrer" target="_blank">Unity animation and import tutorial</a></li><li><a href="https://www.youtube.com/watch?v=ts24UWC0mY4" rel="noopener noreferrer" target="_blank">Original Unity Animation 101 video</a></li></ul><p><strong>Coursework connection:</strong> demonstrate that imported assets have intentional pivots, appropriate scale, clear hierarchy and functioning animation.</p></div></div></details><details class="accordion"><summary>Version-specific conversion checklist</summary><div class="accordion-body"><div class="h3-detail"><h3>Blender 5.0 → Unity 6</h3><ul><li><strong>Blender:</strong> Z-up scene; identify the model's actual front; record object scale, joint origins and parenting.</li><li><strong>FBX:</strong> test <code>−Z Forward / Y Up</code>; document whether Apply Transform and Apply Unit are used; include the necessary animated hierarchy.</li><li><strong>Unity:</strong> inspect Scale Factor, Convert Units, Bake Axis Conversion, model root and child local axes.</li><li><strong>Animation:</strong> verify Blender Z bounce becomes Unity vertical movement, joints rotate at the correct locations, and Run/Idle clips bind to the correct objects.</li><li><strong>Gameplay:</strong> put movement and facing control on a clean parent when needed; avoid editing imported child rotations as a quick fix without checking the Animator.</li></ul></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1" disabled="">Next → </button>
+<div class="slide-counter"><span id="current-slide-13">13</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
       </div>
-    </div>
-
-  </div>
-
-  <script src="../assets/js/site.js?v=20260915a"></script>
-  <script>
+</div>
+</div>
+<script src="../assets/js/site.js?v=20260915a"></script>
+<script>
     const isLecturePage = /\/lect-[^/]+\.html$/i.test(window.location.pathname);
     if (isLecturePage && document.body) {
       document.body.classList.add('lecture-fullbleed');

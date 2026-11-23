@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>3DIMD | Lecture 10 - Units, Scale, Pivots and Animation</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/site.css?v=20261007a" rel="stylesheet"/>
+<link href="../assets/css/slideshow.css?v=20261007a" rel="stylesheet"/>
+</head>
+<body class="lecture-fullbleed">
+<div class="slideshow-container">
+<!-- Slide 1: 5MMCS001W Lecture 10 - Units, Scale, Pivots, Groups, Working with Assets (source slides 1-2) -->
+<div class="slide active">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Blender → Unity: Pivots, Orientation and Animation</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Learning outcomes</summary><div class="accordion-body"><div class="h3-detail"><h3>One connected workflow</h3><p>Prepare an articulated model in Blender so that its scale, axes, joint origins, hierarchy and animation remain predictable when imported into Unity.</p><ul><li>Explain Blender Z-up and Unity Y-up and distinguish world axes from model forward.</li><li>Distinguish Blender Object Origin, Transform Pivot Point and Unity Transform/Pivot display.</li><li>Create a LEGO minifigure hierarchy with joint origins and a vertical movement controller.</li><li>Export an animated FBX and configure clips for Unity playback.</li></ul></div></div></details>
+<details class="accordion"><summary>Lecture roadmap and related tutorials</summary><div class="accordion-body"><div class="h3-detail"><h3>Follow the same LEGO minifigure throughout</h3><p>Model preparation → origins → parenting → animation → FBX → Unity Animator.</p><ul><li><a href="../index.html?page=pages/tut-09-10-0-blender-origins-and-pivots-cheatsheet.html" rel="noopener noreferrer" target="_blank">Blender origins and pivots cheatsheet</a></li><li><a href="../index.html?page=pages/tut-11-02-blender-pivots-and-animation-sheet.html" rel="noopener noreferrer" target="_blank">Prepare and animate a LEGO minifigure in Blender</a></li><li><a href="../index.html?page=pages/tut-04-students.html" rel="noopener noreferrer" target="_blank">Unity animation and import overview</a></li></ul></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1" disabled=""> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-1">1</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+</div>
+<!-- Slide 2: Units and Scale (source slides 3-5) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Units, Scale and Coordinate Systems</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Blender and Unity: what changes?</summary><div class="accordion-body"><div class="h3-detail"><h3>Axes and handedness</h3><p><strong>Blender:</strong> Z-up, right-handed coordinates. <strong>Unity:</strong> Y-up, left-handed coordinates; +Z is Unity Transform.forward and +X is right.</p><p>A mesh’s visible “front” is a modelling choice: it is not automatically aligned with an application’s forward axis. FBX export/import may compensate for coordinate conversion in the mesh data or in imported transforms.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Unity scene showing X right, Y up and Z forward" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide9_image0.jpeg" style="--accordion-image-width: 48%;"/></div></div></div></details>
+<details class="accordion"><summary>Scale and units</summary><div class="accordion-body"><div class="h3-detail"><h3>Consistent physical size</h3><p>Unity generally interprets one world unit as one metre for conventional game scale. In Blender, check Scene Properties → Units and the actual object dimensions before exporting.</p><p>Check the model’s dimensions and Unity importer Scale Factor; do not use an arbitrary 90° rotation or scaling operation as a universal fix.</p><ul><li>Use a reference cube or known-height minifigure.</li><li>Inspect Object Mode scale and local dimensions.</li><li>Test a single FBX before exporting a full animated hierarchy.</li></ul></div></div></details>
+<details class="accordion"><summary>Compare the same object</summary><div class="accordion-body"><div class="h3-detail"><h3>Demonstration</h3><p>In Blender, inspect the axis gizmo and the front-facing mesh. In Unity, inspect the imported hierarchy and local axes. Note where coordinate conversion appears.</p><p><strong>Screenshot placeholder:</strong> Side-by-side Blender axis gizmo and Unity Scene view axis gizmo. Capture from the Blender/Unity versions used for teaching.</p></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+</div>
+<!-- Slide 3: Pivots in Objects - World Coordinate Systems (source slides 6-9) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Origins, Pivots and Transforms</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Three similar-looking concepts</summary><div class="accordion-body"><div class="h3-detail"><h3>Object origin ≠ temporary pivot ≠ Scene handle</h3><ul><li><strong>Blender Object Origin:</strong> persistent local transform origin; rotating the object turns around this point.</li><li><strong>Blender Transform Pivot Point:</strong> temporary editing control (Median Point, 3D Cursor, etc.); changing this does not relocate the Object Origin.</li><li><strong>Unity Transform:</strong> position and rotation origin for the GameObject. The Scene view Pivot/Center toggle only changes where the editing handle appears.</li></ul></div></div></details>
+<details class="accordion"><summary>Set a joint origin in Blender</summary><div class="accordion-body"><div class="h3-detail"><h3>Shoulder or hip: Origin to 3D Cursor</h3><p>In Edit Mode, select the vertices defining the joint centre; use <strong>Shift+S → Cursor to Selected</strong>. Return to Object Mode and choose <strong>Object → Set Origin → Origin to 3D Cursor</strong>. Test rotation before parenting.</p><p><strong>Origin to Geometry</strong> is useful for centred objects, but it is usually wrong for a shoulder or hip joint.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Original tutorial screenshot of joint-origin placement" class="accordion-image" loading="lazy" src="https://i.gyazo.com/e44cb9a7d894864ae90e3dbf48a161db.png" style="--accordion-image-width: 70%;"/></div></div></div></details>
+<details class="accordion"><summary>Why an origin error matters in Unity</summary><div class="accordion-body"><div class="h3-detail"><h3>Rotation follows the imported Transform</h3><p>A door should rotate around its hinge; an arm should rotate at its shoulder. A misplaced origin makes the object orbit unexpectedly. Unity can alternatively use an empty parent GameObject placed at the desired pivot.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="LEGO brick and cube in Unity" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide6_image0.png" style="--accordion-image-width: 30%;"/><img alt="Offset pivot shown in Unity" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide6_image1.png" style="--accordion-image-width: 30%;"/><img alt="LEGO brick pivot in Unity" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide6_image2.png" style="--accordion-image-width: 30%;"/></div></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-3">3</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+</div>
+<!-- Slide 4: Fixing Orientation from 3ds Max to Unity 3D (source slides 10-12) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Local Coordinates and Hierarchies</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Local versus world transforms</summary><div class="accordion-body"><div class="h3-detail"><h3>A child inherits its parent transform</h3><p>A child’s local Position/Rotation/Scale is expressed relative to its parent. Its world pose is the result of the entire hierarchy. Blender parenting and Unity GameObject parenting follow this same broad principle.</p><ul><li>World movement changes where the entire character is in the scene.</li><li>Local joint rotation changes a limb relative to its torso or hips.</li><li>Non-uniform scale in parent hierarchies can produce unintuitive child transforms; avoid it for a simple articulated rig.</li></ul></div></div></details>
+<details class="accordion"><summary>LEGO minifigure hierarchy</summary><div class="accordion-body"><div class="h3-detail"><h3>Recommended object-parented rig</h3><p><code>CharacterRoot</code> (world placement) → <code>UPctrl</code> (vertical bounce) → <code>Hips</code> → <code>Body</code> and legs; Body → arms and head. This is one consistent example; the exact parent structure should match the model.</p><p>Arms rotate around shoulders; legs around hips; the root can translate independently of limb motion.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Original minifigure hierarchy and root controller example" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide22_image0.png" style="--accordion-image-width: 65%;"/></div></div></div></details>
+<details class="accordion"><summary>Test before keyframing</summary><div class="accordion-body"><div class="h3-detail"><h3>Three checks</h3><ul><li>Move the root: the whole figure follows.</li><li>Move UPctrl vertically: the figure bounces without changing limb joint origins.</li><li>Rotate each limb locally: it swings at the intended joint, not around its mesh centre.</li></ul></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-4">4</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+</div>
+<!-- Slide 5: Pivots - Blender and Unity Strategies (source slides 13-15) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Preparing Models for Animation</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Object Mode and Edit Mode</summary><div class="accordion-body"><div class="h3-detail"><h3>Geometry changes and object transforms are different</h3><p>Editing vertices in Blender Edit Mode changes mesh geometry relative to its object origin. Moving, rotating or scaling in Object Mode changes the object transform. Choose deliberately: neither is a universal axis-conversion fix.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Blender mesh in Edit Mode before rotation" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide13_image0.png" style="--accordion-image-width: 43%;"/><img alt="Blender mesh after Edit Mode rotation" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide13_image1.png" style="--accordion-image-width: 43%;"/></div></div></div></details>
+<details class="accordion"><summary>Apply transforms selectively</summary><div class="accordion-body"><div class="h3-detail"><h3>Ctrl+A: Rotation and Scale</h3><p>For a static mesh, applying rotation or scale can simplify export. For an animated hierarchy, applying Location/Rotation/Scale after parenting or keyframing can change the result. Prepare and verify transforms <strong>before</strong> animation; save a backup first.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Blender Object Apply transforms menu" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide18_image1.jpeg" style="--accordion-image-width: 60%;"/></div></div></div></details>
+<details class="accordion"><summary>Clean model checklist</summary><div class="accordion-body"><div class="h3-detail"><h3>Before creating Actions</h3><ul><li>Use descriptive object names: Body, Hips, LeftArm, RightArm, LeftLeg, RightLeg, Head, UPctrl.</li><li>Check each joint origin and parent.</li><li>Ensure a sensible rest pose and physical scale.</li><li>Lock unused axes for the simple controller as an editing safeguard; Blender channel locks do not become Unity runtime constraints.</li><li>Keep reference geometry outside the export selection.</li></ul><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Original tutorial screenshot of minifigure preparation" class="accordion-image" loading="lazy" src="https://i.gyazo.com/126091418c545465be4944f93816048a.png" style="--accordion-image-width: 65%;"/></div></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-5">5</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+</div>
+<!-- Slide 6: Pivots - Max and Unity Strategies, Normalizing (source slides 16-18) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Blender → Unity: FBX Export and Import</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Export a known-good test asset</summary><div class="accordion-body"><div class="h3-detail"><h3>Blender File → Export → FBX</h3><ul><li>Select the minifigure hierarchy, including relevant Mesh and Empty objects; include Armature only for a bone-based rig.</li><li>Use Selected Objects if the selection includes all required objects and parents.</li><li>Review Forward/Up axis conversion (commonly −Z Forward / Y Up for Unity-oriented FBX export); verify the actual result.</li><li>Use consistent scale and review Apply Unit / Apply Scalings settings.</li><li>Export animation when needed, checking the Actions/NLA export options.</li></ul></div></div></details>
+<details class="accordion"><summary>Import into Unity 6000.3</summary><div class="accordion-body"><div class="h3-detail"><h3>Inspect the importer, not just the Scene view</h3><p>Select the FBX asset in the Project window. Review the <strong>Model</strong> tab (scale and axis conversion), <strong>Rig</strong> tab (typically Generic for this object-parented figure), and <strong>Animation</strong> tab (imported clips, frame ranges and looping).</p><p>The <strong>Bake Axis Conversion</strong> option may change whether conversion is baked into geometry/animation or represented through imported hierarchy transforms. Compare before and after instead of assuming the root must show 0° rotation.</p><p><strong>Screenshot placeholder:</strong> Unity 6000.3 FBX Model, Rig and Animation import tabs. Capture from the Blender/Unity versions used for teaching.</p></div></div></details>
+<details class="accordion"><summary>Static versus animated FBX</summary><div class="accordion-body"><div class="h3-detail"><h3>Do not copy skeletal export settings blindly</h3><p>Options such as Only Deform Bones, Add Leaf Bones and Key All Bones concern armatures. The LEGO example in the tutorial primarily uses separately parented objects; it can be animated without bones.</p><p>The tutorial uses selected objects, Mesh/Empty/Armature filters, −Z Forward/Y Up and animation export options. Keep these as an illustrated starting configuration, then validate the imported hierarchy and clips.</p></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-6">6</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+</div>
+<!-- Slide 7: Pivots, Grouping, Linking, Hierarchy (source slides 19-20) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Diagnosing Pivot and Orientation Problems</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Common symptoms and likely causes</summary><div class="accordion-body"><div class="h3-detail"><h3>Troubleshoot one issue at a time</h3><ul><li><strong>Model lies on its side:</strong> inspect axis conversion and imported root transforms.</li><li><strong>Character faces sideways:</strong> compare visible mesh forward with Unity local +Z.</li><li><strong>Arm swings in a circle:</strong> inspect the original Blender joint origin and Unity imported Transform.</li><li><strong>Wrong size:</strong> compare Blender dimensions, object scale and Unity Scale Factor.</li><li><strong>Animation distorts:</strong> inspect parent scale, animated channels and the exported hierarchy.</li><li><strong>Clip missing:</strong> check whether animation was exported and which Actions/NLA strips were included.</li></ul></div></div></details>
+<details class="accordion"><summary>Compare origin and orientation</summary><div class="accordion-body"><div class="h3-detail"><h3>Use the original visual examples</h3><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Original 3ds Max pivot comparison (historical reference)" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide6_image3.png" style="--accordion-image-width: 43%;"/><img alt="Unity pivot comparison" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide6_image4.png" style="--accordion-image-width: 43%;"/></div><p>The original lecture uses 3ds Max screenshots here. Retain as a historical comparison only; demonstrate the actual corrective operation in Blender.</p><p><strong>Screenshot placeholder:</strong> Blender Object Origin and Unity imported Transform for the same LEGO limb. Capture from the Blender/Unity versions used for teaching.</p></div></div></details>
+<details class="accordion"><summary>Unity-side pivot workaround</summary><div class="accordion-body"><div class="h3-detail"><h3>Empty parent GameObject</h3><p>If an imported static mesh has an inconvenient origin, create a parent GameObject at the desired pivot, position the mesh as a child, and rotate the parent. For an animated FBX hierarchy, correcting the source asset is usually preferable to adding ad-hoc offsets.</p></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-7">7</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+</div>
+<!-- Slide 8: Max/Blender To Unity Basic Minifig Procedure and Online Game Assets (source slides 21-23) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>LEGO Minifigure: Controllers and Joint Hierarchy</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Build the hierarchy</summary><div class="accordion-body"><div class="h3-detail"><h3>From the tutorial</h3><ul><li>Set shoulder and hip origins with the 3D Cursor.</li><li>Parent legs to Hips, Body to Hips, arms/head to Body.</li><li>Add an Empty named UPctrl; place it near the character root and parent the animated assembly beneath it.</li><li>Test the controller and joint rotations before inserting keys.</li></ul></div></div></details>
+<details class="accordion"><summary>Separate global travel from local bounce</summary><div class="accordion-body"><div class="h3-detail"><h3>Why UPctrl exists</h3><p>The Empty controller can animate only vertical position, while the limbs animate their local rotations. Lock X/Y location and unwanted rotation channels in Blender to prevent accidental keying.</p><p>In Unity, the same imported controller may appear as a Transform in the hierarchy. Confirm which Transform is animated and which GameObject carries the Animator.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Minifigure root and hierarchy example" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide22_image0.png" style="--accordion-image-width: 58%;"/></div></div></div></details>
+<details class="accordion"><summary>What to demonstrate live</summary><div class="accordion-body"><div class="h3-detail"><h3>Three short tests</h3><ul><li>Rotate an arm about the shoulder origin.</li><li>Move UPctrl up/down while the legs keep their relative pose.</li><li>Move CharacterRoot in world space without changing the run-cycle keys.</li></ul><p>For the full step-by-step exercise see <a href="../index.html?page=pages/tut-11-02-blender-pivots-and-animation-sheet.html" rel="noopener noreferrer" target="_blank">Tutorial 11-02</a>.</p></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-8">8</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+</div>
+<!-- Slide 9: Animation: The Animation Principles (source slides 24-26) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Animation Fundamentals: From Poses to Curves</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Keyframes and interpolation</summary><div class="accordion-body"><div class="h3-detail"><h3>Animation is values changing over time</h3><p>A keyframe records a property value at a particular time. The animation system interpolates between keys; spacing and curve shape control speed, acceleration and emphasis.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Ball bounce with keyframe spacing" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide28_image0.png" style="--accordion-image-width: 43%;"/><img alt="Slow-in slow-out frame spacing" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide35_image0.png" style="--accordion-image-width: 43%;"/></div></div></div></details>
+<details class="accordion"><summary>Principles useful for this minifigure</summary><div class="accordion-body"><div class="h3-detail"><h3>Choose a small number of principles to apply</h3><ul><li><strong>Timing and spacing:</strong> set a believable stride cadence.</li><li><strong>Arcs:</strong> limb endpoints follow curved paths around joints.</li><li><strong>Anticipation and follow-through:</strong> make starts and stops readable.</li><li><strong>Squash and stretch:</strong> optional stylisation; avoid unintentionally scaling an articulated hierarchy.</li><li><strong>Pose-to-pose:</strong> block opposing arm and leg positions before refining the curves.</li></ul><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Squash and stretch bouncing ball illustration" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide27_image0.png" style="--accordion-image-width: 48%;"/><img alt="Follow through pendulum illustration" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide31_image0.png" style="--accordion-image-width: 48%;"/></div></div></div></details>
+<details class="accordion"><summary>Optional deeper theory</summary><div class="accordion-body"><div class="h3-detail"><h3>Traditional animation reference</h3><p>The original lecture also covers staging, overlapping action, exaggeration, secondary action and appeal. These remain useful artistic principles, but detailed treatment belongs in a separate reading or follow-up rather than displacing the export workflow.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Staging and silhouette illustration" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide30_image0.png" style="--accordion-image-width: 44%;"/><img alt="Arc in walk-cycle illustration" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide34_image0.png" style="--accordion-image-width: 44%;"/></div></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-9">9</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+</div>
+<!-- Slide 10: Animation Principles 1-5 (source slides 27-31) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Blender Animation: Actions, Dope Sheet and Curves</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Create a short run cycle</summary><div class="accordion-body"><div class="h3-detail"><h3>Block a repeatable pose sequence</h3><p>Use a 30-frame example to teach opposing arm/leg poses and vertical bounce. The tutorial describes high/low bounce positions, staggered limb rotations and copying keys in the Dope Sheet.</p><p>For a seamless loop, ensure the first and last sampled poses match. Avoid duplicating a boundary pose in a way that produces an unwanted one-frame hold.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Original tutorial Dope Sheet keyframe screenshot" class="accordion-image" loading="lazy" src="https://i.gyazo.com/a2b62e3e66b1e8733b27bfe436bbb66f.png" style="--accordion-image-width: 72%;"/></div></div></div></details>
+<details class="accordion"><summary>Dope Sheet, Graph Editor and interpolation</summary><div class="accordion-body"><div class="h3-detail"><h3>Different tools for different questions</h3><ul><li><strong>Dope Sheet:</strong> when do poses happen? Select, move, duplicate and align keys.</li><li><strong>Graph Editor:</strong> how do animated values change between keys? Adjust F-Curves and handles.</li><li><strong>Interpolation:</strong> Constant, Linear and Bezier describe between-key behaviour.</li><li><strong>Handle type:</strong> Vector is a handle type, not the same thing as Constant interpolation.</li></ul><p>Use Blender’s current Key menu and Graph Editor controls; shortcuts may depend on Blender version and keymap.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Ease-in ease-out spacing example" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide35_image1.png" style="--accordion-image-width: 65%;"/></div></div></div></details>
+<details class="accordion"><summary>Separate run and stand animations</summary><div class="accordion-body"><div class="h3-detail"><h3>Actions, not just extra frames</h3><p>The tutorial adds a standing pose after the run-cycle frames. For a clean Unity workflow, save <strong>Run</strong> and <strong>Idle</strong> as distinct Blender Actions or explicitly define separate clip ranges in Unity. Do not assume every Action automatically exports as a separate clip.</p><p><strong>Screenshot placeholder:</strong> Blender Action selector showing Run and Idle. Capture from the Blender/Unity versions used for teaching.</p></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-10">10</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+</div>
+<!-- Slide 11: Animation Principles 6-10 (source slides 32-37) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Unity Animation: Clips and Animator</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>From Blender Action to Unity clip</summary><div class="accordion-body"><div class="h3-detail"><h3>Authoring data versus runtime playback</h3><ul><li><strong>Blender Action:</strong> animated property curves associated with an object or rig.</li><li><strong>FBX:</strong> transfers supported transforms, hierarchy and baked/sampled animation.</li><li><strong>Unity Animation Clip:</strong> imported animated curves with timing and looping settings.</li><li><strong>Animator component:</strong> evaluates animation for a GameObject hierarchy.</li><li><strong>Animator Controller:</strong> defines states, transitions and parameters.</li></ul></div></div></details>
+<details class="accordion"><summary>Configure imported clips</summary><div class="accordion-body"><div class="h3-detail"><h3>Unity Project → FBX → Animation</h3><p>Inspect available takes/clips, rename if needed, set start/end frame ranges, enable Loop Time for Run, and preview the animation. Set Rig appropriately for the imported object hierarchy; a separate-object minifigure is not automatically a Humanoid rig.</p><p><strong>Screenshot placeholder:</strong> Unity 6000.3 Animation tab showing Run and Idle clips. Capture from the Blender/Unity versions used for teaching.</p></div></div></details>
+<details class="accordion"><summary>Animator Controller example</summary><div class="accordion-body"><div class="h3-detail"><h3>Idle ↔ Run</h3><p>Create an Animator Controller with <strong>Idle</strong> and <strong>Run</strong> states. Add a Bool parameter such as <code>IsRunning</code>, configure transitions and assign the Controller to the character’s Animator component.</p><p>For a simple classroom demonstration, toggle the parameter in the Animator window during Play Mode before adding any C# input logic.</p><p><strong>Screenshot placeholder:</strong> Unity Animator graph with Idle and Run states. Capture from the Blender/Unity versions used for teaching.</p></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-11">11</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+</div>
+<!-- Slide 12: Solid Drawing and Animation Tips (source slides 38-44) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Transferring and Testing Animation in Unity</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>Import and validation sequence</summary><div class="accordion-body"><div class="h3-detail"><h3>Test the complete pipeline</h3><ul><li>Export the selected Blender hierarchy with the intended animation data.</li><li>Import FBX into Unity and check scale, facing direction and hierarchy.</li><li>Inspect Animation Clips: Run and Idle; set loop options.</li><li>Add the character to a scene and assign an Animator Controller.</li><li>Preview movement and compare joint pivots against Blender.</li><li>Test whether root motion should move the GameObject or remain in-place.</li></ul></div></div></details>
+<details class="accordion"><summary>Root motion versus in-place animation</summary><div class="accordion-body"><div class="h3-detail"><h3>Do not confuse bounce with world travel</h3><p>A run-in-place clip can animate limbs and UPctrl bounce while a Unity script moves the character through the world. Root motion instead uses movement encoded in the animation to drive GameObject movement, where supported by the rig and import setup.</p><p>For the introductory object-parented LEGO example, start with an in-place run and scripted/world movement as a separate concept. Unity root-motion extraction settings vary by rig type.</p><p><strong>Screenshot placeholder:</strong> Unity Animator Apply Root Motion option and imported hierarchy. Capture from the Blender/Unity versions used for teaching.</p></div></div></details>
+<details class="accordion"><summary>If only one animation imports</summary><div class="accordion-body"><div class="h3-detail"><h3>Actions/NLA and FBX sampling</h3><p>Check the Blender FBX Animation settings, whether the intended Actions have compatible owners and whether NLA Strips/All Actions are enabled. If necessary, export separate FBX animation files or define clips from frame ranges in Unity.</p><p>Do not assume the tutorial’s “NLA Strips off” setting will export every desired Action automatically.</p></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1">Next → </button>
+<div class="slide-counter"><span id="current-slide-12">12</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+</div>
+<!-- Slide 13: Tutorial Demos and Unity Animation (source slides 45-46) -->
+<div class="slide">
+<div class="slide-title">3D Interactive Media Development</div>
+<div class="slide-content slide-content-accordion">
+<h2>Complete Workflow, Checklist and Tutorials</h2>
+<div class="accordion-scroll"><details class="accordion" open=""><summary>End-to-end checklist</summary><div class="accordion-body"><div class="h3-detail"><h3>Blender → FBX → Unity</h3><ul><li><strong>Geometry:</strong> model scale and facing direction verified.</li><li><strong>Origins:</strong> arms and legs rotate at shoulders and hips.</li><li><strong>Hierarchy:</strong> parent relationships and UPctrl behave predictably.</li><li><strong>Animation:</strong> Run and Idle authored and exported deliberately.</li><li><strong>FBX:</strong> selected hierarchy, axis conversion and animation settings tested.</li><li><strong>Unity:</strong> imported transforms, clips, looping and Animator playback verified.</li></ul></div></div></details>
+<details class="accordion"><summary>Mini-assessment</summary><div class="accordion-body"><div class="h3-detail"><h3>Explain, diagnose, fix</h3><ul><li>Why does changing Blender Transform Pivot Point not permanently move a limb’s Object Origin?</li><li>Why might a Blender model face sideways in Unity despite looking upright?</li><li>What is the difference between an Action and an Animator Controller?</li><li>When would you use an Empty parent instead of changing a mesh origin?</li><li>How would you determine whether a Run clip contains unwanted world translation?</li></ul></div></div></details>
+<details class="accordion"><summary>Practical tutorials and original references</summary><div class="accordion-body"><div class="h3-detail"><h3>Continue in the practical exercises</h3><ul><li><a href="../index.html?page=pages/tut-09-10-0-blender-origins-and-pivots-cheatsheet.html" rel="noopener noreferrer" target="_blank">Blender origins and pivots cheatsheet</a></li><li><a href="../index.html?page=pages/tut-11-02-blender-pivots-and-animation-sheet.html" rel="noopener noreferrer" target="_blank">Prepare and animate a LEGO minifigure</a></li><li><a href="../index.html?page=pages/tut-04-students.html" rel="noopener noreferrer" target="_blank">Unity animation and import tutorial</a></li><li><a href="https://www.youtube.com/watch?v=ts24UWC0mY4" rel="noopener noreferrer" target="_blank">Original Unity Animation 101 video</a></li></ul><p><strong>Coursework connection:</strong> demonstrate that imported assets have intentional pivots, appropriate scale, clear hierarchy and functioning animation.</p></div></div></details></div>
+</div>
+<div class="slide-controls">
+<button class="slide-button" data-slide-step="-1"> ← Previous</button>
+<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+<button class="slide-button" data-slide-step="1" disabled="">Next → </button>
+<div class="slide-counter"><span id="current-slide-13">13</span> / <span id="total-slides">13</span></div>
+</div>
+<div class="keyboard-hint">
+        Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
+      </div>
+</div>
+</div>
+<script src="../assets/js/site.js?v=20260915a"></script>
+<script>
+    const isLecturePage = /\/lect-[^/]+\.html$/i.test(window.location.pathname);
+    if (isLecturePage && document.body) {
+      document.body.classList.add('lecture-fullbleed');
+    }
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function normalizeSlideStructure(slide) {
+      if (slide.querySelector('.slide-frame')) return;
+
+      const title = slide.querySelector('.slide-title');
+      const controls = slide.querySelector('.slide-controls');
+      const body = slide.querySelector('.slide-content');
+      if (!title || !controls || !body) return;
+
+      const frame = document.createElement('div');
+      frame.className = 'slide-frame';
+      frame.appendChild(title);
+      frame.appendChild(body);
+      frame.appendChild(controls);
+      slide.appendChild(frame);
+    }
+
+    function linkifyText(element) {
+      const urlPattern = /(https?:\/\/[^\s]+)/g;
+      const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+      );
+
+      const nodesToReplace = [];
+      let node;
+
+      while (node = walker.nextNode()) {
+        if (urlPattern.test(node.textContent)) {
+          nodesToReplace.push(node);
+        }
+      }
+
+      urlPattern.lastIndex = 0;
+
+      nodesToReplace.forEach((textNode) => {
+        const span = document.createElement('span');
+        span.innerHTML = textNode.textContent.replace(
+          /(https?:\/\/[^\s]+)/g,
+          '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
+        textNode.parentNode.replaceChild(span, textNode);
+      });
+    }
+
+    function enhanceLectureVideos(slide) {
+      const videoPattern = /^https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([^\s&?]+)(.*)$/i;
+      slide.querySelectorAll('.accordion-body > p').forEach((paragraph) => {
+        const match = paragraph.textContent.trim().match(videoPattern);
+        if (!match) return;
+
+        const sourceUrl = match[0];
+        const videoId = match[1];
+        const query = match[2] || '';
+        const previous = paragraph.previousElementSibling;
+        const context = previous ? previous.textContent.replace(/\s+/g, ' ').trim() : '';
+        const details = document.createElement('details');
+        details.className = 'accordion accordion--nested embed-accordion';
+        details.innerHTML = `
+          <summary>${context || 'Video'}</summary>
+          <div class="accordion-body">
+            <article class="embed-card">
+              <iframe class="video-embed" src="https://www.youtube.com/embed/${videoId}${query}" title="${context || 'Video'}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <p><a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Open source link</a></p>
+            </article>
+          </div>`;
+        paragraph.replaceWith(details);
+      });
+    }
+
+    function enhanceLectureImageLayouts(slide) {
+      slide.querySelectorAll('.accordion-body').forEach((body) => {
+        const images = Array.from(body.children).filter((child) => child.tagName === 'IMG');
+        if (!images.length || body.querySelector(':scope > .slide-media-layout')) return;
+
+        const layout = document.createElement('div');
+        layout.className = 'slide-media-layout';
+        const textColumn = document.createElement('div');
+        textColumn.className = 'slide-text-column';
+        const imageColumn = document.createElement('div');
+        imageColumn.className = 'slide-image-column';
+
+        Array.from(body.children).forEach((child) => {
+          if (child.tagName === 'IMG') imageColumn.appendChild(child);
+          else textColumn.appendChild(child);
+        });
+
+        layout.append(textColumn, imageColumn);
+        body.appendChild(layout);
+      });
+    }
+
+    function getAccordionLabels(titleText) {
+      const title = (titleText || '').toLowerCase();
+
+      if (title.includes('workflow')) {
+        return { overview: 'Workflow Steps', resources: 'Diagrams and Media' };
+      }
+
+      if (title.includes('references') || title.includes('reading')) {
+        return { overview: 'Reading Notes', resources: 'References and Media' };
+      }
+
+      if (title.includes('group') || title.includes('activity')) {
+        return { overview: 'Guidance', resources: 'Resources' };
+      }
+
+      return { overview: 'Overview', resources: 'Resources and Media' };
+    }
+
+    function normalizeAccordionLabel(text) {
+      const cleaned = (text || '').replace(/\s+/g, ' ').replace(/[:\-]+$/, '').trim();
+      if (!cleaned) return '';
+
+      const lowered = cleaned.toLowerCase();
+      if (lowered === 'overview' || lowered === 'resources' || lowered === 'resources and media') {
+        return '';
+      }
+
+      return cleaned;
+    }
+
+    function inferOverviewLabel(body, h2) {
+      const headingCandidates = Array.from(body.querySelectorAll(':scope > h3, :scope > .section-label'));
+      for (const node of headingCandidates) {
+        const candidate = normalizeAccordionLabel(node.textContent);
+        if (candidate) return candidate;
+      }
+
+      const headingText = (h2 ? h2.textContent : '').replace(/\s+/g, ' ').trim();
+      const parenthetical = headingText.match(/\(([^)]+)\)/);
+      if (parenthetical) {
+        const candidate = normalizeAccordionLabel(parenthetical[1]);
+        if (candidate) return candidate;
+      }
+
+      const firstParagraph = body.querySelector(':scope > p');
+      if (firstParagraph) {
+        const paragraphText = (firstParagraph.textContent || '').replace(/\s+/g, ' ').trim();
+        const wordCount = paragraphText.split(/\s+/).filter(Boolean).length;
+        const looksLikeLabel = !/[.!?]$/.test(paragraphText) && !/^https?:\/\//i.test(paragraphText);
+        if (wordCount > 0 && wordCount <= 6 && looksLikeLabel) {
+          const candidate = normalizeAccordionLabel(paragraphText);
+          if (candidate) return candidate;
+        }
+      }
+
+      return '';
+    }
+
+    function convertLegacySlideToAccordion(slide) {
+      const body = slide.querySelector('.slide-content');
+      if (!body || body.classList.contains('slide-content-accordion')) return;
+
+      const h2 = body.querySelector(':scope > h2');
+      const labels = getAccordionLabels(h2 ? h2.textContent : '');
+      const inferredOverviewLabel = inferOverviewLabel(body, h2);
+      const customOverviewLabel = body.getAttribute('data-overview-label');
+      const customResourcesLabel = body.getAttribute('data-resources-label');
+      if (inferredOverviewLabel) {
+        labels.overview = inferredOverviewLabel;
+      }
+      if (customOverviewLabel) {
+        labels.overview = customOverviewLabel;
+      }
+      if (customResourcesLabel) {
+        labels.resources = customResourcesLabel;
+      }
+      const children = Array.from(body.children).filter((node) => node !== h2);
+      if (!children.length) return;
+
+      const overviewItems = [];
+      const resourcesItems = [];
+
+      children.forEach((node) => {
+        const tag = node.tagName ? node.tagName.toLowerCase() : '';
+        const text = (node.textContent || '').trim();
+        const hasUrl = /https?:\/\//i.test(text);
+        const isImage = tag === 'img';
+        const hasLink = Boolean(node.querySelector && node.querySelector('a'));
+
+        if (isImage || hasUrl || hasLink) {
+          resourcesItems.push(node);
+        } else {
+          overviewItems.push(node);
+        }
+      });
+
+      body.classList.add('slide-content-accordion');
+      body.innerHTML = '';
+      if (h2) body.appendChild(h2);
+
+      const scroll = document.createElement('div');
+      scroll.className = 'accordion-scroll';
+
+      if (overviewItems.length) {
+        const overview = document.createElement('details');
+        overview.className = 'accordion';
+        overview.open = true;
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.overview;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        overviewItems.forEach((node) => content.appendChild(node));
+
+        overview.appendChild(summary);
+        overview.appendChild(content);
+        scroll.appendChild(overview);
+      }
+
+      if (resourcesItems.length) {
+        const resources = document.createElement('details');
+        resources.className = 'accordion';
+
+        const summary = document.createElement('summary');
+        summary.textContent = labels.resources;
+
+        const content = document.createElement('div');
+        content.className = 'accordion-body';
+        resourcesItems.forEach((node) => content.appendChild(node));
+
+        resources.appendChild(summary);
+        resources.appendChild(content);
+        scroll.appendChild(resources);
+      }
+
+      body.appendChild(scroll);
+    }
+
+    function syncSlideTitles() {
+      slides.forEach((slide) => {
+        const title = slide.querySelector('.slide-title');
+        const heading = slide.querySelector('.slide-content h2');
+        if (!title || !heading) return;
+
+        const headingText = (heading.textContent || '').replace(/\s+/g, ' ').trim();
+        if (headingText) {
+          title.textContent = headingText;
+          heading.remove();
+        }
+      });
+    }
+
+    function announceActiveSlideTitle() {
+      const activeSlide = slides[currentSlide];
+      if (!activeSlide) return;
+
+      const titleNode = activeSlide.querySelector('.slide-title');
+      const titleText = (titleNode ? titleNode.textContent : '').replace(/\s+/g, ' ').trim();
+      if (!titleText) return;
+
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({
+          type: 'lecture-slide-title',
+          title: titleText
+        }, '*');
+      }
+    }
+
+    slides.forEach((slide, index) => {
+      normalizeSlideStructure(slide);
+      if (index >= 3) {
+        convertLegacySlideToAccordion(slide);
+      }
+      enhanceLectureVideos(slide);
+      enhanceLectureImageLayouts(slide);
+      linkifyText(slide.querySelector('.slide-content') || slide);
+    });
+
+    syncSlideTitles();
+
+    function updateCounters() {
+      slides.forEach((slide, index) => {
+        const counter = slide.querySelector('.slide-counter');
+        if (counter) {
+          counter.textContent = `${index + 1} / ${totalSlides}`;
+        }
+      });
+    }
+
+    function showSlide(n) {
+      slides.forEach((slide) => slide.classList.remove('active'));
+      slides[currentSlide].classList.add('active');
+
+      const allButtons = document.querySelectorAll('.slide-button');
+      const isFirstSlide = currentSlide === 0;
+      const isLastSlide = currentSlide === totalSlides - 1;
+
+      allButtons.forEach((btn) => {
+        if (btn.textContent.includes('Previous')) {
+          btn.disabled = isFirstSlide;
+        } else if (btn.textContent.includes('Next')) {
+          btn.disabled = isLastSlide;
+        }
+      });
+
+      updateCounters();
+      announceActiveSlideTitle();
+    }
+
+    function changeSlide(n) {
+      currentSlide += n;
+      if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+      if (currentSlide < 0) currentSlide = 0;
+      showSlide(currentSlide);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+    });
+
+    showSlide(currentSlide);
+    document.body.classList.add('lecture-ready');
+  </script>
+</body>
+</html>
