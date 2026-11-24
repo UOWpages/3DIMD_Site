@@ -36,15 +36,92 @@
 <div class="slide-title">3D Interactive Media Development</div>
 <div class="slide-content slide-content-accordion">
 <h2>Units, Scale and Coordinate Systems</h2>
-<div class="accordion-scroll"><details class="accordion" open=""><summary>Blender and Unity: what changes?</summary><div class="accordion-body"><div class="h3-detail"><h3>Axes and handedness</h3><p><strong>Blender:</strong> Z-up, right-handed coordinates. <strong>Unity:</strong> Y-up, left-handed coordinates; +Z is Unity Transform.forward and +X is right.</p><p>A mesh’s visible “front” is a modelling choice: it is not automatically aligned with an application’s forward axis. FBX export/import may compensate for coordinate conversion in the mesh data or in imported transforms.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Unity scene showing X right, Y up and Z forward" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide9_image0.jpeg" style="--accordion-image-width: 48%;"/></div></div></div></details>
-<details class="accordion"><summary>Scale and units</summary><div class="accordion-body"><div class="h3-detail"><h3>Consistent physical size</h3><p>Unity generally interprets one world unit as one metre for conventional game scale. In Blender, check Scene Properties → Units and the actual object dimensions before exporting.</p><p>Check the model’s dimensions and Unity importer Scale Factor; do not use an arbitrary 90° rotation or scaling operation as a universal fix.</p><ul><li>Use a reference cube or known-height minifigure.</li><li>Inspect Object Mode scale and local dimensions.</li><li>Test a single FBX before exporting a full animated hierarchy.</li></ul></div></div></details>
-<details class="accordion"><summary>Compare the same object</summary><div class="accordion-body"><div class="h3-detail"><h3>Demonstration</h3><p>In Blender, inspect the axis gizmo and the front-facing mesh. In Unity, inspect the imported hierarchy and local axes. Note where coordinate conversion appears.</p><p><strong>Screenshot placeholder:</strong> Side-by-side Blender axis gizmo and Unity Scene view axis gizmo. Capture from the Blender/Unity versions used for teaching.</p></div></div></details><details class="accordion"><summary>What actually changes: axes, signs and handedness</summary><div class="accordion-body"><div class="h3-detail"><h3>An axis conversion is a change of coordinate basis</h3><p>Blender 5.0 uses a right-handed, Z-up scene coordinate system. Unity 6 uses a left-handed, Y-up system, with <code>Vector3.up = (0,1,0)</code>, <code>Vector3.forward = (0,0,1)</code> and <code>Vector3.right = (1,0,0)</code>. An FBX pipeline must reconcile both the up axis and the meaning of forward.</p><p>A useful <strong>illustrative rotation</strong> is <code>(x, y, z) → (x, z, −y)</code>: Blender +Z becomes Unity +Y; Blender +Y becomes Unity −Z; Blender +X stays +X. For example, a point at Blender <code>(2, 3, 1)</code> becomes <code>(2, 1, −3)</code> under this mapping. This is a +90° rotation around X, <strong>not</strong> a universal promise about the exact numbers in every imported FBX.</p><p><strong>Important:</strong> the rotation mapping alone preserves handedness. Blender and Unity also use different handedness conventions, so FBX import/export can additionally rearrange or reflect axes and mesh data. The displayed Transform Euler angles do not necessarily reveal the full conversion.</p><p><strong>Teaching check:</strong> draw three coloured arrows on a test cube (+X red, +Y green, +Z blue), export it, and compare which arrows point up, forward and right in Unity.</p></div></div></details><details class="accordion"><summary>A practical direction and coordinate example</summary><div class="accordion-body"><div class="h3-detail"><h3>Distinguish a direction from a position</h3><p>A direction such as <code>(0, 0, 1)</code> means <strong>up</strong> in Blender but <strong>forward</strong> in Unity. Therefore copying three numbers into a Unity Vector3 without converting their coordinate basis can change the meaning of a movement or animation.</p><ul><li><strong>Blender vertical movement:</strong> animate Location Z. After conversion, the same visible bounce should travel along Unity Y.</li><li><strong>Blender joint rotation:</strong> the correct rotation axis depends on the limb's <em>local</em> orientation and parenting, not only on global up.</li><li><strong>Normals and tangents:</strong> these must be transformed consistently with mesh geometry; do not manually reorder only vertex positions.</li></ul><p>For a beginner demonstration, use a coloured orientation cube before attempting a multi-object animated minifigure.</p></div></div></details></div>
+<div class="accordion-scroll">
+  <details class="accordion" open=""><summary>Blender and Unity: what changes?</summary>
+    <div class="accordion-body">
+      <div class="h3-detail">
+        <h3>Axes and handedness</h3>
+        <p><strong>Blender/3DSMax:</strong> Z-up, right-handed coordinates. <strong>Unity:</strong> Y-up, left-handed coordinates; +Z is Unity Transform.forward and +X is right.</p>
+        <p>Both Blender and 3ds Max use coordinate system which were common in early 90's. This convention is typical in architecture — you start modelling from the floor plan which uses X/Y coordinates and then extrude upwards (or downwards).</p>
+        <p>On the other hand, Maya, most game engines, graphics APIs, and of course Verge3D use different approach. The screen becomes a 2D plane which uses X/Y coordinates to position flat images, while Z coordinate adds depth to the scene. That's why the buffer that stores pixel depth is called Z-buffer and the issue with limited depth precision is called Z-fighting.</p>
+        <p>A mesh’s visible “front” is a modelling choice: it is not automatically aligned with an application’s forward axis. FBX export/import may compensate for coordinate conversion in the mesh data or in imported transforms.</p>
+        <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+          <!-- <img alt="Unity scene showing X right, Y up and Z forward" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide9_image0.jpeg" style="--accordion-image-width: 30%;"/>-->
+          <img alt="Blender pivot" class="accordion-image" loading="lazy" src="images/10_BlenderPivot.png" style="--accordion-image-width: 30%;"/>
+          <img alt="handedness" class="accordion-image" loading="lazy" src="images/handedness.jpg" style="--accordion-image-width: 30%;"/>
+          <!-- <img alt="FBX Export from Blender" class="accordion-image" loading="lazy" src="images/10_BlenderPivotExportFBX.png" style="--accordion-image-width: 20%;"/> -->
+        </div>
+      </div>
+    </div>
+  </details>
+<details class="accordion">
+  <summary>Scale and units</summary>
+  <div class="accordion-body"><div class="h3-detail">
+    <h3>Consistent physical size</h3>
+    <p>Unity generally interprets one world unit as one metre for conventional game scale. In Blender, check Scene Properties → Units and the actual object dimensions before exporting.</p><p>Check the model’s dimensions and Unity importer Scale Factor; do not use an arbitrary 90° rotation or scaling operation as a universal fix.</p><ul><li>Use a reference cube or known-height minifigure.</li><li>Inspect Object Mode scale and local dimensions.</li><li>Test a single FBX before exporting a full animated hierarchy.</li></ul></div></div></details>
+<details class="accordion">
+  <summary>Compare the same object</summary>
+  <div class="accordion-body">
+    <div class="h3-detail">
+      <h3>Demonstration</h3>
+      <p>In Blender, inspect the axis gizmo and the front-facing mesh. In Unity, inspect the imported hierarchy and local axes. Note where coordinate conversion appears.</p>
+      <p> Side-by-side Blender axis gizmo and Unity axis gizmo. Export from Blender as FBX with and without applying transforms.</p>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img alt="Blender pivot" class="accordion-image" loading="lazy" src="images/10_BlenderPivot.png" style="--accordion-image-width: 20%;"/>
+            <!-- <img alt="FBX Export from Blender" class="accordion-image" loading="lazy" src="images/10_BlenderPivotExportFBX.png" style="--accordion-image-width: 30%;"/> -->
+            <img alt="Transform pivot in Unity" class="accordion-image" loading="lazy" src="images/10_UnityPivotTransform.png" style="--accordion-image-width: 35%;"/>
+            <img alt="No transform pivot in Unity" class="accordion-image" loading="lazy" src="images/10_UnityPivotnoTransform.png" style="--accordion-image-width: 35%;"/>
+          </div>
+    </div>
+  </div>
+  </details>
+  <details class="accordion">
+    <summary>What actually changes: axes, signs and handedness</summary>
+    <div class="accordion-body">
+      <div class="accordion-content-with-image">
+            <div class="accordion-text">
+              <div class="h3-detail">
+                      <h3>An axis conversion is a change of coordinate basis</h3>
+                      <p>Blender 5.0 uses a right-handed, Z-up scene coordinate system. Unity 6 uses a left-handed, Y-up system, with:</p>
+                          <li><strong>Unity up:</strong> <code>Vector3.up = (0,1,0)</code></li>
+                          <li><strong>Unity forward:</strong> <code>Vector3.forward = (0,0,1)</code></li>
+                          <li><strong>Unity right:</strong> <code>Vector3.right = (1,0,0)</code></li>
+                        <p>An FBX pipeline must reconcile both the up axis and the meaning of forward.</p>
+                        <p>A useful <strong>illustrative rotation</strong> is:</p>
+                            <li><code>(x, y, z) → (x, z, −y)</code>:</li>
+                            <li>Blender +Z becomes Unity +Y;</li>
+                            <li>Blender +Y becomes Unity −Z;</li>
+                            <li>Blender +X stays +X.</li>
+                        </p>
+                        <p>For example, a point at Blender <code>(2, 3, 1)</code> becomes <code>(2, 1, −3)</code> under this mapping.</p>
+                        <p>This is a +90° rotation around X, <strong>not</strong> a universal promise about the exact numbers in every imported FBX.</p>
+                        <p><strong>Important:</strong> the rotation mapping alone preserves handedness. Blender and Unity also use different handedness conventions, so FBX import/export can additionally rearrange or reflect axes and mesh data. The displayed Transform Euler angles do not necessarily reveal the full conversion.</p>
+                        <p><strong>Check:</strong> draw three coloured arrows on a test cube (+X red, +Y green, +Z blue), export it, and compare which arrows point up, forward and right in Unity.</p>
+              </div>
+            </div>
+            <!-- <img src="images/BasicArchitectureUnity_01b_05.png" class="accordion-image" style="--accordion-image-width: 75%;" alt="Accordion Image" /> -->
+            <img alt="FBX Export from Blender" class="accordion-image" loading="lazy" src="images/10_BlenderPivotExportFBX.png" style="--accordion-image-width: 30%;"/>
+          </div>
+    </div>
+  </details>
+  <details class="accordion"><summary>A practical direction and coordinate example</summary><div class="accordion-body"><div class="h3-detail">
+          <h3>Distinguish a direction from a position</h3>
+          <p>A direction such as <code>(0, 0, 1)</code> means <strong>up</strong> in Blender but <strong>forward</strong> in Unity. Therefore copying three numbers into a Unity Vector3 without converting their coordinate basis can change the meaning of a movement or animation.</p>
+          <ul>
+            <li><strong>Blender vertical movement:</strong> animate Location Z. After conversion, the same visible bounce should travel along Unity Y.</li>
+            <li><strong>Blender joint rotation:</strong> the correct rotation axis depends on the limb's <em>local</em> orientation and parenting, not only on global up.</li><li><strong>Normals and tangents:</strong> these must be transformed consistently with mesh geometry; do not manually reorder only vertex positions.</li>
+          </ul>
+          <p>For a beginner demonstration, use a coloured orientation cube before attempting a multi-object animated minifigure.</p>
+        </div>
+      </div>
+    </details>
+  </div>
 </div>
 <div class="slide-controls">
-<button class="slide-button" data-slide-step="-1"> ← Previous</button>
-<img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
-<button class="slide-button" data-slide-step="1">Next → </button>
-<div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">13</span></div>
+  <button class="slide-button" data-slide-step="-1"> ← Previous</button>
+  <img alt="University of Westminster" class="slide-logo" src="images/UOW_Logo_Length_Alpha.png"/>
+  <button class="slide-button" data-slide-step="1">Next → </button>
+  <div class="slide-counter"><span id="current-slide-2">2</span> / <span id="total-slides">13</span></div>
 </div>
 <div class="keyboard-hint">
         Use <kbd>→</kbd> <kbd>←</kbd> or click buttons to navigate
@@ -56,8 +133,35 @@
 <div class="slide-content slide-content-accordion">
 <h2>Origins, Pivots and Transforms</h2>
 <div class="accordion-scroll"><details class="accordion" open=""><summary>Three similar-looking concepts</summary><div class="accordion-body"><div class="h3-detail"><h3>Object origin ≠ temporary pivot ≠ Scene handle</h3><ul><li><strong>Blender Object Origin:</strong> persistent local transform origin; rotating the object turns around this point.</li><li><strong>Blender Transform Pivot Point:</strong> temporary editing control (Median Point, 3D Cursor, etc.); changing this does not relocate the Object Origin.</li><li><strong>Unity Transform:</strong> position and rotation origin for the GameObject. The Scene view Pivot/Center toggle only changes where the editing handle appears.</li></ul></div></div></details>
-<details class="accordion"><summary>Set a joint origin in Blender</summary><div class="accordion-body"><div class="h3-detail"><h3>Shoulder or hip: Origin to 3D Cursor</h3><p>In Edit Mode, select the vertices defining the joint centre; use <strong>Shift+S → Cursor to Selected</strong>. Return to Object Mode and choose <strong>Object → Set Origin → Origin to 3D Cursor</strong>. Test rotation before parenting.</p><p><strong>Origin to Geometry</strong> is useful for centred objects, but it is usually wrong for a shoulder or hip joint.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="Original tutorial screenshot of joint-origin placement" class="accordion-image" loading="lazy" src="https://i.gyazo.com/e44cb9a7d894864ae90e3dbf48a161db.png" style="--accordion-image-width: 70%;"/></div></div></div></details>
-<details class="accordion"><summary>Why an origin error matters in Unity</summary><div class="accordion-body"><div class="h3-detail"><h3>Rotation follows the imported Transform</h3><p>A door should rotate around its hinge; an arm should rotate at its shoulder. A misplaced origin makes the object orbit unexpectedly. Unity can alternatively use an empty parent GameObject placed at the desired pivot.</p><div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;"><img alt="LEGO brick and cube in Unity" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide6_image0.png" style="--accordion-image-width: 30%;"/><img alt="Offset pivot shown in Unity" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide6_image1.png" style="--accordion-image-width: 30%;"/><img alt="LEGO brick pivot in Unity" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide6_image2.png" style="--accordion-image-width: 30%;"/></div></div></div></details></div>
+<details class="accordion">
+  <summary>Set a joint origin in Blender</summary>
+    <div class="accordion-body">
+      <div class="h3-detail">
+        <h3>Shoulder or hip: Origin to 3D Cursor</h3>
+        <p>In Edit Mode, select the vertices defining the joint centre; </p>
+        <p>use <strong>Shift+S → Cursor to Selected</strong>. Return to Object Mode and choose <strong>Object → Set Origin → Origin to 3D Cursor</strong>. Test rotation before parenting.</p>
+        <p><strong>Origin to Geometry</strong> is useful for centred objects, but it is usually wrong for a shoulder or hip joint.</p>
+        <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+          <img alt="Original tutorial screenshot of joint-origin placement" class="accordion-image" loading="lazy" src="images/e44cb9a7d894864ae90e3dbf48a161db.jpg" style="--accordion-image-width: 70%;"/>
+        </div>
+      </div>
+    </div>
+  </details>
+  <details class="accordion">
+      <summary>Why an origin error matters in Unity</summary>
+      <div class="accordion-body">
+        <div class="h3-detail">
+          <h3>Rotation follows the imported Transform</h3>
+          <p>A door should rotate around its hinge; an arm should rotate at its shoulder. A misplaced origin makes the object orbit unexpectedly. Unity can alternatively use an empty parent GameObject placed at the desired pivot.</p>
+          <div class="accordion-images--horizontal" style="--accordion-images--horizontal-width: 100%;">
+            <img alt="LEGO brick and cube in Unity" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide6_image0.png" style="--accordion-image-width: 20%;"/>
+            <img alt="Offset pivot shown in Unity" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide6_image1.png" style="--accordion-image-width: 40%;"/>
+            <img alt="LEGO brick pivot in Unity" class="accordion-image" loading="lazy" src="images/lect-10-pivots-animation_slide6_image2.png" style="--accordion-image-width: 40%;"/>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
 </div>
 <div class="slide-controls">
 <button class="slide-button" data-slide-step="-1"> ← Previous</button>
